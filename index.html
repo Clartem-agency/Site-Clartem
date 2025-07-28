@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clartem.com - Votre Site Web Professionnel en 15 Jours</title>
+    <meta name="description" content="Création de sites web professionnels pour indépendants et entreprises locales. Processus simple, rapide et transparent. Votre site en ligne en moins de 15 jours.">
+    <meta name="author" content="clartem.com">
+
+    <!-- Meta Tags Open Graph & Twitter -->
+    <meta property="og:title" content="clartem.com - Votre Site Web Professionnel en 15 Jours">
+    <meta property="og:description" content="Création de sites web professionnels pour indépendants et entreprises locales. Processus simple, rapide et transparent.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a5c799d1-936f-4f6a-a2ec-73cf1be627f6/id-preview-33ca505e--e4bce8b6-d46f-40f3-9511-44ecdbd292f6.lovable.app-1753722437047.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a5c799d1-936f-4f6a-a2ec-73cf1be627f6/id-preview-33ca505e--e4bce8b6-d46f-40f3-9511-44ecdbd292f6.lovable.app-1753722437047.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-white">
+
+    <div class="min-h-screen">
+        <!-- Navigation -->
+        <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <div class="text-2xl font-bold text-deep-blue">clartem.com</div>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="#plan" class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Notre Plan</a>
+                        <a href="#offres" class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Nos Offres</a>
+                        <a href="#temoignages" class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Témoignages</a>
+                    </div>
+                    <a href="#cta" class="hidden md:inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl hover:scale-105 transition-all duration-300 font-bold h-11 rounded-md px-8 shadow-lg">Planifier un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+                <!-- Mobile Menu -->
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="#plan" class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Notre Plan</a>
+                    <a href="#offres" class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Nos Offres</a>
+                    <a href="#temoignages" class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Témoignages</a>
+                    <a href="#cta" class="block mt-2 w-full text-center bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl transition-all duration-300 font-bold py-2 rounded-md px-8 shadow-lg">Planifier un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-soft-blue via-white to-soft-blue relative overflow-hidden pt-24">
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-20 left-10 w-72 h-72 bg-clarity-blue rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+                <div class="absolute bottom-20 right-10 w-72 h-72 bg-warm-orange rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
+            </div>
+            <div class="container mx-auto px-6 pt-20 pb-16">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="text-center lg:text-left space-y-8">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-dark leading-tight">Votre Site Web Professionnel,<br><span class="text-clarity-blue"> en Ligne en Moins de 15 Jours</span></h1>
+                        <p class="text-xl text-neutral-light leading-relaxed max-w-xl mx-auto lg:mx-0">Nous créons des sites web qui transforment vos visiteurs en clients, grâce à un processus clair qui respecte votre temps.</p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <a href="#cta" class="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl hover:scale-105 transition-all duration-300 font-bold rounded-md text-lg px-8 py-4 h-auto">Planifier un appel clarté</a>
+                            <a href="#plan" class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-soft-blue text-deep-blue hover:bg-soft-blue/80 border border-clarity-blue/20 rounded-md text-lg px-8 py-4 h-auto">Découvrir notre processus</a>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                            <img src="assets/hero-image.jpg" alt="Site web professionnel clartem.com" class="w-full h-auto object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-deep-blue/20 to-transparent"></div>
+                        </div>
+                        <div class="absolute -top-4 -right-4 bg-success-green text-white px-4 py-2 rounded-full font-semibold shadow-lg animate-bounce">✓ En 15 jours</div>
+                        <div class="absolute -bottom-4 -left-4 bg-warm-orange text-white px-4 py-2 rounded-full font-semibold shadow-lg animate-pulse">🚀 100% Personnalisé</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">Votre présence en ligne vous semble<br><span class="text-clarity-blue"> compliquée, coûteuse et chronophage</span> ?</h2>
+                    <p class="text-xl text-neutral-light max-w-3xl mx-auto">Vous n'êtes pas seul(e). Nous comprenons ces frustrations car nous les avons entendues des centaines de fois.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center p-8 rounded-2xl bg-gradient-to-br from-soft-blue to-white border border-clarity-blue/10 hover:shadow-lg transition-all duration-300">
+                        <div class="flex justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-warm-orange"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-neutral-dark mb-4">Problème Externe</h3>
+                        <p class="text-lg text-neutral-dark mb-4 font-medium">"Vous avez besoin d'un site, mais vous ne savez pas par où commencer."</p>
+                        <p class="text-neutral-light">Entre les plateformes, les designs, les fonctionnalités... le choix semble infini et déroutant.</p>
+                    </div>
+                    <div class="text-center p-8 rounded-2xl bg-gradient-to-br from-soft-blue to-white border border-clarity-blue/10 hover:shadow-lg transition-all duration-300">
+                        <div class="flex justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-clarity-blue"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-neutral-dark mb-4">Problème Interne</h3>
+                        <p class="text-lg text-neutral-dark mb-4 font-medium">"Vous vous sentez frustré(e) par le jargon technique et anxieux(se) à l'idée de faire le mauvais choix."</p>
+                        <p class="text-neutral-light">La peur de perdre du temps et de l'argent vous paralyse et vous empêche d'avancer.</p>
+                    </div>
+                    <div class="text-center p-8 rounded-2xl bg-gradient-to-br from-soft-blue to-white border border-clarity-blue/10 hover:shadow-lg transition-all duration-300">
+                        <div class="flex justify-center mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-success-green"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-neutral-dark mb-4">Problème Philosophique</h3>
+                        <p class="text-lg text-neutral-dark mb-4 font-medium">"Vous travaillez dur pour offrir un service de qualité. Votre site web devrait le refléter simplement."</p>
+                        <p class="text-neutral-light">Votre expertise mérite d'être présentée avec professionnalisme, sans la complexité technique.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Value Proposition Section -->
+        <section class="py-20 bg-gradient-to-r from-clarity-blue to-deep-blue text-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-4xl mx-auto">
+                    <div class="flex justify-center mb-8">
+                        <div class="p-4 bg-white/10 rounded-full backdrop-blur-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-16 h-16 text-warm-orange"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path><path d="M9 18h6"></path><path d="M10 22h4"></path></svg>
+                        </div>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8">clartem.com : La Clarté au Service de Votre Croissance</h2>
+                    <p class="text-xl leading-relaxed opacity-90">Chez clartem.com, nous avons un seul objectif : vous fournir un site web professionnel et efficace grâce à un processus simple, rapide et transparent. <span class="font-semibold text-warm-orange"> Fini la confusion, place à la clarté.</span></p>
+                    <div class="grid md:grid-cols-3 gap-8 mt-16">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-warm-orange mb-2">15</div>
+                            <div class="text-lg">Jours maximum</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-warm-orange mb-2">100%</div>
+                            <div class="text-lg">Personnalisé</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-warm-orange mb-2">0</div>
+                            <div class="text-lg">Jargon technique</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section class="py-20 bg-soft-blue">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="space-y-8">
+                        <div class="flex items-center gap-4 mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-warm-orange"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
+                            <h3 class="text-2xl md:text-3xl font-bold text-neutral-dark">Nous comprenons votre réalité</h3>
+                        </div>
+                        <p class="text-lg text-neutral-dark leading-relaxed">Nous savons ce que c'est que d'être un indépendant passionné. Votre temps est précieux. Votre budget est mesuré. C'est pourquoi notre approche est conçue pour vous, et avec vous.</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-success-green"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                                <span class="text-neutral-dark">Nous respectons votre temps</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-success-green"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                                <span class="text-neutral-dark">Nous comprenons vos contraintes</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-success-green"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                                <span class="text-neutral-dark">Nous parlons votre langage</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-8">
+                        <div class="flex items-center gap-4 mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-clarity-blue"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg>
+                            <h3 class="text-2xl md:text-3xl font-bold text-neutral-dark">Et nous avons les outils pour vous aider</h3>
+                        </div>
+                        <p class="text-lg text-neutral-dark leading-relaxed">Avec des dizaines de projets réussis et un processus éprouvé, nous avons l'expertise pour construire l'outil digital dont vous avez besoin pour réussir.</p>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="text-center p-4 bg-white rounded-xl shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-clarity-blue mx-auto mb-2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                <div class="font-bold text-2xl text-neutral-dark">50+</div>
+                                <div class="text-sm text-neutral-light">Clients satisfaits</div>
+                            </div>
+                            <div class="text-center p-4 bg-white rounded-xl shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-warm-orange mx-auto mb-2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                <div class="font-bold text-2xl text-neutral-dark">5</div>
+                                <div class="text-sm text-neutral-light">Ans d'expérience</div>
+                            </div>
+                            <div class="text-center p-4 bg-white rounded-xl shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-success-green mx-auto mb-2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path></svg>
+                                <div class="font-bold text-2xl text-neutral-dark">98%</div>
+                                <div class="text-sm text-neutral-light">Taux de satisfaction</div>
+                            </div>
+                            <div class="text-center p-4 bg-white rounded-xl shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-clarity-blue mx-auto mb-2"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                                <div class="font-bold text-2xl text-neutral-dark">15j</div>
+                                <div class="text-sm text-neutral-light">Délai moyen</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Plan Section -->
+        <section id="plan" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">Un Chemin Simple vers la Clarté :<br><span class="text-clarity-blue"> Votre Site en 4 Étapes Sereines</span></h2>
+                    <p class="text-xl text-neutral-light max-w-3xl mx-auto">Nous avons conçu un processus transparent et rassurant. Vous savez toujours où vous en êtes et quelle est la prochaine étape.</p>
+                </div>
+                <div class="relative">
+                    <div class="hidden lg:block absolute left-1/2 transform -translate-x-1/2 top-20 bottom-20 w-1 bg-gradient-to-b from-clarity-blue via-warm-orange to-success-green"></div>
+                    <div class="space-y-16">
+                        <!-- Step 1 -->
+                        <div class="flex flex-col lg:flex-row items-center gap-8">
+                            <div class="flex-1 lg:max-w-lg">
+                                <div class="p-8 rounded-2xl bg-gradient-to-br from-soft-blue to-white shadow-lg hover:shadow-xl transition-all duration-300">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md"><span class="text-xl font-bold text-neutral-dark">1</span></div>
+                                        <h3 class="text-2xl font-bold text-neutral-dark">Planifions Votre Succès</h3>
+                                    </div>
+                                    <h4 class="text-lg font-semibold text-clarity-blue mb-4">L'Appel Clarté</h4>
+                                    <p class="text-neutral-dark leading-relaxed">Tout commence par une conversation. Nous bloquons 15 minutes, gratuites et sans engagement, pour discuter de votre vision et de vos objectifs. Ce n'est pas un appel de vente, c'est un atelier de stratégie. Vous repartez avec une vision claire de ce dont vous avez besoin, que nous travaillions ensemble ou non.</p>
+                                </div>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <div class="w-32 h-32 bg-white rounded-full shadow-2xl flex items-center justify-center border-4 border-gray-100">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-16 h-16 text-clarity-blue"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
+                                </div>
+                            </div>
+                            <div class="flex-1 lg:max-w-lg hidden lg:block"></div>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="flex flex-col lg:flex-row-reverse items-center gap-8">
+                            <div class="flex-1 lg:max-w-lg">
+                                <div class="p-8 rounded-2xl bg-gradient-to-br from-warm-orange/10 to-white shadow-lg hover:shadow-xl transition-all duration-300">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md"><span class="text-xl font-bold text-neutral-dark">2</span></div>
+                                        <h3 class="text-2xl font-bold text-neutral-dark">Vous Nous Donnez la Vision</h3>
+                                    </div>
+                                    <h4 class="text-lg font-semibold text-clarity-blue mb-4">La Création Guidée</h4>
+                                    <p class="text-neutral-dark leading-relaxed">Vous êtes l'expert de votre métier. C'est pourquoi nous vous donnons les outils pour nous transmettre facilement votre contenu. Grâce à notre 'Guide de Création' interactif, vous nous fournissez vos textes, images et idées de manière structurée et sans stress. Nous vous guidons à chaque étape. C'est simple, et cela garantit que votre site vous ressemble vraiment.</p>
+                                </div>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <div class="w-32 h-32 bg-white rounded-full shadow-2xl flex items-center justify-center border-4 border-gray-100">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-16 h-16 text-warm-orange"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>
+                                </div>
+                            </div>
+                            <div class="flex-1 lg:max-w-lg hidden lg:block"></div>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="flex flex-col lg:flex-row items-center gap-8">
+                            <div class="flex-1 lg:max-w-lg">
+                                <div class="p-8 rounded-2xl bg-gradient-to-br from-success-green/10 to-white shadow-lg hover:shadow-xl transition-all duration-300">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md"><span class="text-xl font-bold text-neutral-dark">3</span></div>
+                                        <h3 class="text-2xl font-bold text-neutral-dark">Nous Construisons, Vous Validez</h3>
+                                    </div>
+                                    <h4 class="text-lg font-semibold text-clarity-blue mb-4">La Construction et la Collaboration</h4>
+                                    <p class="text-neutral-dark leading-relaxed">C'est là que la magie opère. Nous prenons votre vision et nous la transformons en un site web professionnel et fonctionnel. Nous ne travaillons pas dans le noir : nous vous présentons une première version complète et vous invitons à nous faire vos retours. C'est une phase de polissage collaborative pour s'assurer que chaque détail est parfait à vos yeux.</p>
+                                </div>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <div class="w-32 h-32 bg-white rounded-full shadow-2xl flex items-center justify-center border-4 border-gray-100">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-16 h-16 text-success-green"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+                                </div>
+                            </div>
+                            <div class="flex-1 lg:max-w-lg hidden lg:block"></div>
+                        </div>
+                        <!-- Step 4 -->
+                        <div class="flex flex-col lg:flex-row-reverse items-center gap-8">
+                            <div class="flex-1 lg:max-w-lg">
+                                <div class="p-8 rounded-2xl bg-gradient-to-br from-clarity-blue/10 to-white shadow-lg hover:shadow-xl transition-all duration-300">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md"><span class="text-xl font-bold text-neutral-dark">4</span></div>
+                                        <h3 class="text-2xl font-bold text-neutral-dark">C'est à Vous, Prêt à Décoller !</h3>
+                                    </div>
+                                    <h4 class="text-lg font-semibold text-clarity-blue mb-4">Le Lancement et Votre Autonomie</h4>
+                                    <p class="text-neutral-dark leading-relaxed">Une fois que vous êtes 100% satisfait(e), nous procédons au lancement officiel. Lors d'un dernier appel, nous mettons votre site en ligne sur votre propre nom de domaine et nous vous remettons les clés. Vous êtes entièrement propriétaire et autonome. Nous célébrons votre nouvelle présence en ligne, prête à accueillir vos clients.</p>
+                                </div>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <div class="w-32 h-32 bg-white rounded-full shadow-2xl flex items-center justify-center border-4 border-gray-100">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-16 h-16 text-clarity-blue"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
+                                </div>
+                            </div>
+                            <div class="flex-1 lg:max-w-lg hidden lg:block"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Offers Section -->
+        <section id="offres" class="py-20 bg-gradient-to-br from-soft-blue to-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">Choisissez l'Équipement Adapté à<br><span class="text-clarity-blue"> Votre Aventure</span></h2>
+                    <p class="text-xl text-neutral-light max-w-3xl mx-auto">Quatre solutions pensées pour répondre à vos besoins spécifiques, quel que soit votre niveau d'ambition digitale.</p>
+                </div>
+                <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8 items-stretch">
+                    <!-- Offer 1 -->
+                    <div class="relative p-8 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105 h-full flex flex-col bg-white border border-gray-200">
+                        <div class="space-y-6 flex-1 flex flex-col">
+                            <div class="text-center">
+                                <h3 class="text-2xl font-bold text-neutral-dark mb-4">FONDATION DIGITALE</h3>
+                                <div class="text-4xl font-bold text-clarity-blue mb-2">299€</div>
+                                <p class="text-sm text-neutral-light">Investissement unique</p>
+                            </div>
+                            <div class="p-4 bg-soft-blue rounded-xl">
+                                <h4 class="font-semibold text-neutral-dark mb-2">Idéal pour :</h4>
+                                <p class="text-sm text-neutral-dark italic">"L'indépendant ou l'artisan qui a besoin d'établir sa crédibilité et d'être visible en ligne, rapidement."</p>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-neutral-dark mb-3">Détail des livrables :</h4>
+                                <ul class="space-y-2 text-sm text-neutral-dark">
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success-green mt-0.5 flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg><span>Site Web One-Page (jusqu'à 5 sections)</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success-green mt-0.5 flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg><span>Design 100% personnalisé à votre marque</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success-green mt-0.5 flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg><span>Parfaitement adapté aux mobiles et tablettes</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success-green mt-0.5 flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg><span>Formulaire de contact fonctionnel</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success-green mt-0.5 flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg><span>Optimisation SEO technique de base</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success-green mt-0.5 flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg><span>Appel de "Lancement Assisté" de 30 min</span></li>
+                                </ul>
+                            </div>
+                            <div class="pt-4">
+                                <a href="#cta" class="inline-flex items-center justify-center w-full h-11 px-8 rounded-md border border-input bg-background hover:bg-accent hover:text-accent-foreground">Commencer ma vitrine</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Offer 2 -->
+                    <div class="relative p-8 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105 h-full flex flex-col bg-white border border-gray-200">
+                        <div class="space-y-6 flex-1 flex flex-col">
+                            <div class="text-center">
+                                <h3 class="text-2xl font-bold text-neutral-dark mb-4">INTÉGRATION AUTONOME</h3>
+                                <div class="text-4xl font-bold text-clarity-blue mb-2">479€</div>
+                                <p class="text-sm text-neutral-light">Investissement unique</p>
+                            </div>
+                            <div class="p-4 bg-soft-blue rounded-xl">
+                                <h4 class="font-semibold text-neutral-dark mb-2">Idéal pour :</h4>
+                                <p class="text-sm text-neutral-dark italic">"Le professionnel déjà expert et parfaitement autonome avec les outils de réservation en ligne comme Calendly."</p>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-neutral-dark mb-3">Détail des livrables :</h4>
+                                <ul class="space-y-2 text-sm text-neutral-dark">
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success-green mt-0.5 flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg><span>Tout de l'offre FONDATION DIGITALE, PLUS :</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success-green mt-0.5 flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg><span>Intégration technique de votre module de réservation</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success-green mt-0.5 flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg><span>Section "Prendre Rendez-vous" dédiée</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success-green mt-0.5 flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg><span>Boutons d'appel à l'action vers votre module</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-destructive mt-0.5 flex-shrink-0"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg><span>N'inclut aucun support sur votre outil de réservation</span></li>
+                                </ul>
+                            </div>
+                            <div class="pt-4">
+                                <a href="#cta" class="inline-flex items-center justify-center w-full h-11 px-8 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80">Intégrer mon calendrier</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Offer 3 (Popular) -->
+                    <div class="relative p-8 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105 h-full flex flex-col bg-white border-4 border-clarity-blue">
+                        <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 z-10">
+                            <div class="bg-gradient-to-r from-clarity-blue to-deep-blue text-white px-6 py-2 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg>
+                                Le plus populaire
+                            </div>
+                        </div>
+                        <div class="space-y-6 flex-1 flex flex-col pt-4">
+                            <div class="text-center">
+                                <h3 class="text-2xl font-bold text-neutral-dark mb-4">ACCÉLÉRATEUR BUSINESS</h3>
+                                <div class="text-4xl font-bold text-clarity-blue mb-2">499€</div>
+                                <p class="text-sm text-neutral-light">Investissement unique</p>
+                            </div>
+                            <div class="p-4 bg-soft-blue rounded-xl">
+                                <h4 class="font-semibold text-neutral-dark mb-2">Idéal pour :</h4>
+                                <p class="text-sm text-neutral-dark italic">"Le consultant, coach ou thérapeute qui veut transformer son site en un outil actif pour automatiser sa prise de rendez-vous."</p>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-neutral-dark mb-3">Détail des livrables :</h4>
+                                <ul class="space-y-2 text-sm text-neutral-dark">
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success-green mt-0.5 flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg><span>Tout de l'offre FONDATION DIGITALE, PLUS :</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success-green mt-0.5 flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg><span>Service d'Intégration "Zéro Tracas" de Calendly</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success-green mt-0.5 flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg><span>Atelier de Configuration Stratégique de 30 min</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success-green mt-0.5 flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg><span>Intégration d'une section "Prendre Rendez-vous"</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success-green mt-0.5 flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg><span>Ajout de boutons d'appel à l'action stratégiques</span></li>
+                                </ul>
+                            </div>
+                            <div class="pt-4">
+                                <a href="#cta" class="inline-flex items-center justify-center w-full h-11 px-8 rounded-md bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl hover:scale-105 transition-all duration-300 font-bold">Automatiser mon business</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Offer 4 -->
+                    <div class="relative p-8 rounded-2xl shadow-xl transition-all duration-300 hover:scale-105 h-full flex flex-col bg-white border border-gray-200">
+                        <div class="absolute -top-4 right-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-warm-orange"><path d="M11.562 3.266a.5.5 0 0 1 .876 0L15.39 8.87a1 1 0 0 0 1.516.294L21.183 5.5a.5.5 0 0 1 .798.519l-2.834 10.246a1 1 0 0 1-.956.734H5.81a1 1 0 0 1-.957-.734L2.02 6.02a.5.5 0 0 1 .798-.519l4.276 3.664a1 1 0 0 0 1.516-.294z"></path><path d="M5 21h14"></path></svg>
+                        </div>
+                        <div class="space-y-6 flex-1 flex flex-col">
+                            <div class="text-center">
+                                <h3 class="text-2xl font-bold text-neutral-dark mb-4">DOMINATION LOCALE</h3>
+                                <div class="text-4xl font-bold text-clarity-blue mb-2">999€</div>
+                                <p class="text-sm text-neutral-light">Investissement unique</p>
+                            </div>
+                            <div class="p-4 bg-soft-blue rounded-xl">
+                                <h4 class="font-semibold text-neutral-dark mb-2">Idéal pour :</h4>
+                                <p class="text-sm text-neutral-dark italic">"L'entreprise de service locale ambitieuse qui veut être la réponse évidente lorsque les clients la cherchent sur Google."</p>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-neutral-dark mb-3">Détail des livrables :</h4>
+                                <ul class="space-y-2 text-sm text-neutral-dark">
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success-green mt-0.5 flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg><span>Tout de l'offre ACCÉLÉRATEUR BUSINESS, PLUS :</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success-green mt-0.5 flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg><span>Atelier de Stratégie de Contenu (1h)</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success-green mt-0.5 flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg><span>Rédaction optimisée SEO pour les sections clés</span></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success-green mt-0.5 flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg><span>Création et optimisation Fiche Google Business</span></li>
+                                </ul>
+                            </div>
+                            <div class="pt-4">
+                                <a href="#cta" class="inline-flex items-center justify-center w-full h-11 px-8 rounded-md bg-warm-orange text-white hover:bg-warm-orange/90 font-semibold shadow-md hover:shadow-lg transition-all duration-300">Dominer ma zone</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <p class="text-neutral-light mb-6">Pas sûr(e) de votre choix ? Discutons ensemble de la solution qui vous convient le mieux.</p>
+                    <a href="#cta" class="inline-flex items-center justify-center h-11 px-8 rounded-md bg-soft-blue text-deep-blue hover:bg-soft-blue/80 border border-clarity-blue/20">Demander conseil gratuitement</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="cta" class="py-20 bg-gradient-to-r from-deep-blue to-clarity-blue text-white relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-10 right-10 w-64 h-64 bg-warm-orange rounded-full mix-blend-multiply filter blur-xl"></div>
+                <div class="absolute bottom-10 left-10 w-48 h-48 bg-white rounded-full mix-blend-multiply filter blur-xl"></div>
+            </div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center max-w-4xl mx-auto">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">Arrêtez de Perdre des Clients</h2>
+                    <p class="text-xl md:text-2xl mb-12 opacity-90 leading-relaxed">Planifiez votre appel gratuit de 15 minutes et obtenez un plan clair pour votre présence en ligne.</p>
+                    <div class="grid md:grid-cols-3 gap-8 mb-12">
+                        <div class="text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 mx-auto mb-4 text-warm-orange"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <h3 class="font-bold text-xl mb-2">15 minutes</h3>
+                            <p class="opacity-80">Appel gratuit et sans engagement</p>
+                        </div>
+                        <div class="text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 mx-auto mb-4 text-warm-orange"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            <h3 class="font-bold text-xl mb-2">Conseil personnalisé</h3>
+                            <p class="opacity-80">Adapté à votre situation unique</p>
+                        </div>
+                        <div class="text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 mx-auto mb-4 text-warm-orange"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                            <h3 class="font-bold text-xl mb-2">Plan d'action clair</h3>
+                            <p class="opacity-80">Vous repartez avec une feuille de route</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                        <a href="#" class="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-warm-orange text-white hover:bg-warm-orange/90 font-semibold rounded-md text-xl px-12 py-6 h-auto shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+                            Planifier mon appel clarté
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 ml-2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                        </a>
+                        <div class="text-center sm:text-left">
+                            <p class="text-sm opacity-80"><strong>Disponibilité limitée</strong><br>Seulement 5 appels par semaine</p>
+                        </div>
+                    </div>
+                    <div class="mt-8 p-4 bg-white/10 rounded-xl backdrop-blur-sm inline-block">
+                        <p class="text-sm opacity-90">✅ Appel gratuit • ✅ Sans engagement • ✅ Conseil personnalisé</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="temoignages" class="py-20 bg-gradient-to-br from-soft-blue to-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">Ils ont choisi la clarté.<br><span class="text-clarity-blue"> Voici leurs histoires.</span></h2>
+                    <p class="text-xl text-neutral-light max-w-3xl mx-auto">Découvrez comment d'autres entrepreneurs ont transformé leur activité grâce à une présence en ligne claire et professionnelle.</p>
+                </div>
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 relative">
+                        <div class="absolute -top-4 left-8">
+                            <div class="w-8 h-8 bg-clarity-blue rounded-full flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-white"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+                            </div>
+                        </div>
+                        <div class="flex justify-center mb-6 mt-4">
+                            <svg class="w-5 h-5 text-warm-orange fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+                            <svg class="w-5 h-5 text-warm-orange fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+                            <svg class="w-5 h-5 text-warm-orange fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+                            <svg class="w-5 h-5 text-warm-orange fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+                            <svg class="w-5 h-5 text-warm-orange fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+                        </div>
+                        <blockquote class="text-neutral-dark leading-relaxed mb-8 text-center italic">"J'étais complètement perdu... L'équipe de clartem.com a su me rassurer. Le processus était si simple et clair. Aujourd'hui, je suis fier de donner ma carte de visite. J'ai déjà signé 3 nouveaux chantiers grâce à ma présence en ligne !"</blockquote>
+                        <div class="text-center">
+                            <div class="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden border-4 border-clarity-blue/20">
+                                <img src="assets/testimonial-marc.jpg" alt="Marc L." class="w-full h-full object-cover">
+                            </div>
+                            <h4 class="font-bold text-lg text-neutral-dark">Marc L.</h4>
+                            <p class="text-neutral-light">Menuisier à Bordeaux</p>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-clarity-blue to-warm-orange rounded-b-2xl"></div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 relative">
+                        <div class="absolute -top-4 left-8">
+                            <div class="w-8 h-8 bg-clarity-blue rounded-full flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-white"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+                            </div>
+                        </div>
+                        <div class="flex justify-center mb-6 mt-4">
+                            <svg class="w-5 h-5 text-warm-orange fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+                            <svg class="w-5 h-5 text-warm-orange fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+                            <svg class="w-5 h-5 text-warm-orange fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+                            <svg class="w-5 h-5 text-warm-orange fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+                            <svg class="w-5 h-5 text-warm-orange fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+                        </div>
+                        <blockquote class="text-neutral-dark leading-relaxed mb-8 text-center italic">"Avant, je passais des heures à coordonner mes rendez-vous. Avec clartem.com, mes clients peuvent prendre rendez-vous directement en ligne. Je gagne un temps fou et je peux me concentrer sur ce que j'aime. Merci pour cette sérénité retrouvée !"</blockquote>
+                        <div class="text-center">
+                            <div class="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden border-4 border-clarity-blue/20">
+                                <img src="assets/testimonial-sophie.jpg" alt="Sophie D." class="w-full h-full object-cover">
+                            </div>
+                            <h4 class="font-bold text-lg text-neutral-dark">Sophie D.</h4>
+                            <p class="text-neutral-light">Coach de vie à Lyon</p>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-clarity-blue to-warm-orange rounded-b-2xl"></div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 relative">
+                        <div class="absolute -top-4 left-8">
+                            <div class="w-8 h-8 bg-clarity-blue rounded-full flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-white"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+                            </div>
+                        </div>
+                        <div class="flex justify-center mb-6 mt-4">
+                            <svg class="w-5 h-5 text-warm-orange fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+                            <svg class="w-5 h-5 text-warm-orange fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+                            <svg class="w-5 h-5 text-warm-orange fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+                            <svg class="w-5 h-5 text-warm-orange fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+                            <svg class="w-5 h-5 text-warm-orange fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+                        </div>
+                        <blockquote class="text-neutral-dark leading-relaxed mb-8 text-center italic">"J'avais un site fait maison qui ne me représentait pas. L'équipe a créé un site qui positionne clairement mon expertise. Le processus était fluide, professionnel, et respectueux de mes délais. Depuis, mes prospects me prennent beaucoup plus au sérieux."</blockquote>
+                        <div class="text-center">
+                            <div class="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden border-4 border-clarity-blue/20">
+                                <img src="assets/testimonial-karim.jpg" alt="Karim A." class="w-full h-full object-cover">
+                            </div>
+                            <h4 class="font-bold text-lg text-neutral-dark">Karim A.</h4>
+                            <p class="text-neutral-light">Consultant en stratégie, Paris</p>
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-clarity-blue to-warm-orange rounded-b-2xl"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lead Magnet Section -->
+        <section class="py-20 bg-gradient-to-r from-deep-blue to-clarity-blue text-white relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-20 left-20 w-64 h-64 bg-warm-orange rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+                <div class="absolute bottom-20 right-20 w-48 h-48 bg-white rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
+            </div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Pas encore prêt(e) à discuter ?<br><span class="text-warm-orange"> Commencez par construire des fondations solides.</span></h2>
+                </div>
+                <div class="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+                    <div class="text-center lg:text-left">
+                        <div class="relative inline-block">
+                            <img src="assets/checklist-mockup.png" alt="Checklist 7 Points Incontournables" class="w-full max-w-md mx-auto hover:scale-105 transition-transform duration-300">
+                            <div class="absolute -top-4 -right-4 bg-warm-orange text-white px-3 py-1 rounded-full text-sm font-bold animate-bounce">GRATUIT</div>
+                        </div>
+                    </div>
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-2xl md:text-3xl font-bold mb-4 text-warm-orange">La Checklist des 7 Points Incontournables pour un Site Web qui Convertit</h3>
+                            <p class="text-xl leading-relaxed opacity-90 mb-6">Arrêtez de deviner. Téléchargez notre guide gratuit pour découvrir les 7 éléments essentiels que votre site doit avoir pour inspirer confiance et transformer vos visiteurs en clients.</p>
+                        </div>
+                        <form class="space-y-4">
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <input type="email" placeholder="votre.email@exemple.com" class="flex-1 bg-white text-neutral-dark border-0 h-12 text-lg rounded-md px-3" required>
+                                <button type="submit" class="inline-flex items-center justify-center h-12 px-8 rounded-md bg-warm-orange text-white hover:bg-warm-orange/90 font-semibold shadow-md hover:shadow-lg transition-all duration-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+                                    Recevoir ma Checklist
+                                </button>
+                            </div>
+                            <p class="text-sm opacity-80 text-center">📧 Envoi immédiat • 🔒 Vos données restent privées • ❌ Pas de spam</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-clarity-blue mb-2">clartem.com</h3>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Nous croyons que chaque entrepreneur passionné mérite une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="#" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="#plan" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Notre Plan</a>
+                            <a href="#offres" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Nos Offres</a>
+                            <a href="#temoignages" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Témoignages</a>
+                            <a href="#cta" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Prendre Rendez-vous</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="#" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions Légales</a>
+                            <a href="#" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique de Confidentialité</a>
+                            <a href="#" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions Générales de Vente</a>
+                            <a href="#" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
