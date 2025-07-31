@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merci ! Prochaine étape ? - Clartem</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Mêmes variables de couleur et style de base que précédemment --- */
+        :root {
+            --dark-blue: #0A2540;
+            --light-blue: #4A90E2;
+            --accent-yellow: #FFC107;
+            --background-light: #F7FAFF;
+            --text-dark: #333D4B;
+            --text-light: #FFFFFF;
+            --success-green: #28a745;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: var(--text-light);
+            color: var(--text-dark);
+            -webkit-font-smoothing: antialiased;
+            display: flex; /* <-- Ajout pour le footer collant */
+            flex-direction: column; /* <-- Ajout pour le footer collant */
+            min-height: 100vh; /* <-- Ajout pour le footer collant */
+        }
+        
+        main {
+            flex: 1; /* <-- Ajout pour le footer collant */
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header (inchangé) --- */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #EAECEF;
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark-blue);
+            text-decoration: none;
+        }
+        nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* --- NOUVELLE Section Principale Unifiée --- */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 0;
+            background-color: var(--background-light);
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-content .icon {
+            font-size: 48px;
+            color: var(--success-green);
+            line-height: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            color: var(--dark-blue);
+            margin: 15px 0;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 35px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-yellow);
+            color: var(--dark-blue);
+            padding: 15px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .note {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        /* --- Footer (inchangé) --- */
+        footer {
+            padding: 50px 0;
+            background-color: #0A2540;
+            color: #FFFFFF;
+        }
+        footer .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        footer h3 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            opacity: 0.7;
+        }
+        footer a, footer p {
+            color: #FFFFFF;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        footer a:hover {
+            opacity: 1;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- =================== HEADER =================== -->
+    <header>
+        <div class="container">
+            <a href="#" class="logo">clartem.com</a>
+            <nav>
+                <a href="#">Notre Plan</a>
+                <a href="#">Nos Offres</a>
+                <a href="#">Témoignages</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- =================== SECTION PRINCIPALE =================== -->
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="icon">✔</div>
+                <h1>C'est dans la boîte !</h1>
+                <p class="subtitle">
+                    Votre checklist est en route vers votre boîte de réception. <br>
+                    Pendant que vous attendez, passez à l'étape suivante pour clarifier votre projet.
+                </p>
+                
+                <!-- BOUTON D'ACTION PRINCIPAL, IMMÉDIATEMENT VISIBLE -->
+                <a href="https://calendly.com/frederic-clartem/appel-clarte" class="cta-button" target="_blank">Planifier mon Appel Clarté Gratuit →</a>
+                
+                <p class="note">
+                    P.-S. N'oubliez pas de jeter un œil dans vos spams si vous ne voyez pas l'e-mail d'ici 2 minutes.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- =================== FOOTER =================== -->
+    <footer>
+        <div class="container">
+            <div>
+                <a href="#" class="logo" style="color: white; font-size: 22px;">clartem.com</a>
+                <p style="opacity: 0.7;">Apporter de la clarté dans le chaos digital.</p>
+            </div>
+            <div>
+                <h3>Navigation</h3>
+                <a href="#">Accueil</a>
+                <a href="#">Notre Plan</a>
+                <a href="#">Nos Offres</a>
+                <a href="#">Prendre Rendez-vous</a>
+            </div>
+            <div>
+                <h3>Informations Légales</h3>
+                <a href="#">Mentions Légales</a>
+                <a href="#">Politique de Confidentialité</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
