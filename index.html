@@ -656,12 +656,16 @@
                                 </svg>
                                 Recevez votre checklist par email :
                             </p>
-                            <!-- MODIFIÉ : La balise <form> est maintenant configurée pour Brevo -->
-                            <form id="sib-form" method="POST" action="https://2a94b6d3.sibforms.com/serve/MUIFAMQNqgLfGqjlQm76aHPTsOYkAB2p-bvqc1piqJnqP84pFWWbpstSy0ZfTM4n0MKFzQp5ypxvBcGNjHkx_Kf4XoeOj2HJLgxKYB8njKwcbcbI6mAwV6HqDXyv8QJoEp7OVAWKmaqp4IgRF6eLtffY3Llc8knltXTUD_iv5MsIrgRr0HfVVhxjxPWo4lvxOjwedjmjH16yYUxg" class="space-y-4">
-                                <div class="flex flex-col sm:flex-row gap-2">
-                                    <!-- MODIFIÉ : L'input email a maintenant les attributs 'name' et 'id' requis par Brevo -->
-                                    <input type="email" id="EMAIL" name="EMAIL" placeholder="votre.email@exemple.com" class="flex-1 bg-white text-neutral-dark border-0 h-12 text-base rounded-md px-4" required>
-                                    <button type="submit" class="inline-flex items-center justify-center h-12 px-6 rounded-md bg-warm-orange text-white hover:bg-warm-orange/90 font-semibold shadow-md hover:shadow-lg transition-all duration-300">
+                            <!-- MODIFIÉ : La balise <form> est maintenant configurée pour Brevo avec le nouveau champ Prénom -->
+                            <form id="sib-form" method="POST" action="https://2a94b6d3.sibforms.com/serve/MUIFAF-8lvqoEgQ9XmXK62oeOPse06sPpprPUX5dw_fI2QZzwjOmEIwSOv0rSw4SH-IxWwEVQXPwcu-X6DaV0ErPKdUUx50BXxZ0GegndcrHLpRW-Sm5y_QOBcn5cejcywdgKyEcbN6lGW756rgUv6DXIY9Po3ZHvAtilPEABRfuzW2qOtIoFZuObcYWsWlKkhzZgy4oisAbv2kh" class="space-y-4">
+                                <!-- Champs Prénom et Email côte à côte -->
+                                <div class="flex flex-col sm:flex-row gap-4">
+                                    <input type="text" id="PRENOM" name="PRENOM" placeholder="Votre prénom" class="flex-1 bg-white text-neutral-dark border-0 h-12 text-base rounded-md px-4" required>
+                                    <input type="email" id="EMAIL" name="EMAIL" placeholder="Votre email" class="flex-1 bg-white text-neutral-dark border-0 h-12 text-base rounded-md px-4" required>
+                                </div>
+                                <!-- Bouton en dessous -->
+                                <div>
+                                    <button type="submit" class="w-full inline-flex items-center justify-center h-12 px-6 rounded-md bg-warm-orange text-white hover:bg-warm-orange/90 font-semibold shadow-md hover:shadow-lg transition-all duration-300">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                                         </svg>
@@ -675,7 +679,7 @@
                                     <span class="text-white/50">•</span>
                                     <span>❌ Pas de spam</span>
                                 </div>
-                                <!-- AJOUTÉ : Champs cachés requis par Brevo pour la validation et la localisation -->
+                                <!-- Champs cachés requis par Brevo -->
                                 <input type="text" name="email_address_check" value="" style="display: none;">
                                 <input type="hidden" name="locale" value="fr">
                             </form>
