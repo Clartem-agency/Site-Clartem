@@ -26,4 +26,5 @@ document.addEventListener('DOMContentLoaded', function () {
             nav.classList.remove('scrolled');
         }
     });
-});
+});```
+--- END OF FILE script.js ---
