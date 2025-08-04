@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // LOGIQUE UNIFIÉE POUR TOUS LES COMPTES À REBOURS
     // ==================================================================
     // 1. Définir la date de fin (une seule fois)
-    const countdownDate = new Date("Aug 31, 2024 23:59:59").getTime();
+    const countdownDate = new Date("Aug 31, 2025 23:59:59").getTime();
 
     // 2. Récupérer les éléments des DEUX minuteurs
     // Minuteur principal (dans la section offres)
