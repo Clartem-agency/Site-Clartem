@@ -142,35 +142,58 @@
                 <div class="absolute bottom-20 right-10 w-72 h-72 bg-warm-orange rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
             </div>
             <div class="container mx-auto px-6 pt-20 pb-16 relative z-10">
-                <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <div class="text-center lg:text-left space-y-8">
-                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-dark leading-tight">Votre Site Web Professionnel,<br><span class="text-clarity-blue"> en Ligne en Moins de 15 Jours</span></h1>
-                        <p class="text-xl text-neutral-light leading-relaxed max-w-xl mx-auto lg:mx-0">Je crée des sites web qui transforment vos visiteurs en clients, grâce à un processus clair qui respecte votre temps.</p>
-                       <!-- COLLEZ CE BLOC CORRIGÉ -->
 
-<div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <!-- DÉBUT DU NOUVEAU BLOC À COLLER -->
+<div class="grid lg:grid-cols-2 gap-x-12 items-center">
+    
+    <!-- Colonne de gauche (Texte + Image pour mobile) -->
+    <div class="text-center lg:text-left">
+        
+        <!-- Titre principal (H1) -->
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-dark leading-tight">Votre Site Web Professionnel,<br><span class="text-clarity-blue"> en Ligne en Moins de 15 Jours</span></h1>
+        
+        <!-- IMAGE POUR MOBILE : S'affiche uniquement sur les petits écrans -->
+        <div class="relative lg:hidden my-8 sm:my-12 max-w-md mx-auto">
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img src="assets/hero-image.png" alt="Site web professionnel clartem.com sur un ordinateur portable" class="w-full h-auto object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-deep-blue/20 to-transparent"></div>
+            </div>
+            <div class="absolute -top-4 -right-4 bg-success-green text-white px-4 py-2 rounded-full font-semibold shadow-lg text-sm">✓ En 15 jours</div>
+            <div class="absolute -bottom-4 -left-4 bg-warm-orange text-white px-4 py-2 rounded-full font-semibold shadow-lg text-sm">🚀 100% Personnalisé</div>
+        </div>
+        
+        <!-- Paragraphe et boutons -->
+        <div class="space-y-8 mt-8">
+            <p class="text-xl text-neutral-light leading-relaxed max-w-xl mx-auto lg:mx-0">Je crée des sites web qui transforment vos visiteurs en clients, grâce à un processus clair qui respecte votre temps.</p>
+           
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <!-- Bouton 1 : Planifier un appel clarté -->
+                <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 whitespace-nowrap bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl hover:scale-105 transition-all duration-300 font-bold rounded-md text-lg px-8 py-4 h-auto">
+                    Planifier un appel clarté
+                </a>
 
-    <!-- Bouton 1 : Planifier un appel clarté (CORRIGÉ) -->
-    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 whitespace-nowrap bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl hover:scale-105 transition-all duration-300 font-bold rounded-md text-lg px-8 py-4 h-auto">
-        Planifier un appel clarté
-    </a>
+                <!-- Bouton 2 : Découvrir mon processus -->
+                <a href="#plan" class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium bg-soft-blue text-deep-blue hover:bg-soft-blue/80 border border-clarity-blue/20 rounded-md text-lg px-8 py-4 h-auto">
+                    Découvrir notre processus
+                </a>
+            </div>
+        </div>
+    </div>
 
-    <!-- Bouton 2 : Découvrir mon processus (CORRIGÉ) -->
-    <a href="#plan" class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium bg-soft-blue text-deep-blue hover:bg-soft-blue/80 border border-clarity-blue/20 rounded-md text-lg px-8 py-4 h-auto">
-        Découvrir notre processus
-    </a>
+    <!-- Colonne de droite (Image pour DESKTOP) -->
+    <!-- S'affiche uniquement sur les grands écrans -->
+    <div class="relative hidden lg:block">
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+            <img src="assets/hero-image.png" alt="Site web professionnel clartem.com" class="w-full h-auto object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-deep-blue/20 to-transparent"></div>
+        </div>
+        <div class="absolute -top-4 -right-4 bg-success-green text-white px-4 py-2 rounded-full font-semibold shadow-lg animate-bounce">✓ En 15 jours</div>
+        <div class="absolute -bottom-4 -left-4 bg-warm-orange text-white px-4 py-2 rounded-full font-semibold shadow-lg animate-pulse">🚀 100% Personnalisé</div>
+    </div>
 
 </div>
-                    </div>
-                    <div class="relative">
-                        <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-                            <img src="assets/hero-image.png" alt="Site web professionnel clartem.com" class="w-full h-auto object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-deep-blue/20 to-transparent"></div>
-                        </div>
-                        <div class="absolute -top-4 -right-4 bg-success-green text-white px-4 py-2 rounded-full font-semibold shadow-lg animate-bounce">✓ En 15 jours</div>
-                        <div class="absolute -bottom-4 -left-4 bg-warm-orange text-white px-4 py-2 rounded-full font-semibold shadow-lg animate-pulse">🚀 100% Personnalisé</div>
-                    </div>
-                </div>
+<!-- FIN DU NOUVEAU BLOC À COLLER -->
+                
             </div>
         </section>
 
