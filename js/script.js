@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function startCountdown() {
     // 1. Définir la date de fin de l'offre
     // IMPORTANT : Le mois est indexé à partir de 0 (Janvier=0, Février=1, ..., Août=7)
-    const countdownDate = new Date("Aug 31, 2024 23:59:59").getTime();
+    const countdownDate = new Date("Aug 31, 2025 23:59:59").getTime();
 
     // 2. Récupérer les éléments HTML où afficher les chiffres
     const daysEl = document.getElementById('days');
