@@ -1,131 +1,132 @@
-// script.js
+// script.js - VERSION FINALE
 
-// --- DÉBUT DU CODE EXISTANT (NE PAS CHANGER) ---
 document.addEventListener('DOMContentLoaded', function () {
+    
+    // ==================================================================
+    // LOGIQUE DU MENU MOBILE ET DE LA NAVIGATION (INCHANGÉ)
+    // ==================================================================
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
-    const navLinks = mobileMenu.querySelectorAll('a');
-
-    // Gérer l'ouverture/fermeture du menu mobile
-    mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
-
-    // Fermer le menu mobile après avoir cliqué sur un lien
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
+    if (mobileMenuButton && mobileMenu) {
+        const navLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
-    });
-
-    // Optionnel : Gérer le changement de style de la nav au scroll
-    const nav = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 10) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
-        }
-    });
-});
-// --- FIN DU CODE EXISTANT ---
-
-
-// ==================================================================
-// NOUVEAU CODE POUR LE COMPTE À REBOURS (À AJOUTER À LA FIN)
-// ==================================================================
-function startCountdown() {
-    // 1. Définir la date de fin de l'offre
-    // IMPORTANT : Le mois est indexé à partir de 0 (Janvier=0, Février=1, ..., Août=7)
-    const countdownDate = new Date("Aug 31, 2025 23:59:59").getTime();
-
-    // 2. Récupérer les éléments HTML où afficher les chiffres
-    const daysEl = document.getElementById('days');
-    const hoursEl = document.getElementById('hours');
-    const minutesEl = document.getElementById('minutes');
-    const secondsEl = document.getElementById('seconds');
-    const timerContainer = document.getElementById('countdown-timer');
-
-    // S'assurer que le conteneur du timer existe sur la page avant de continuer
-    if (!timerContainer) {
-        return;
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
     }
 
-    // 3. Mettre à jour le compte à rebours chaque seconde
-    const interval = setInterval(function() {
-        // Obtenir la date et l'heure actuelles
-        const now = new Date().getTime();
+    const nav = document.querySelector('nav');
+    if (nav) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    }
 
-        // Calculer la différence entre maintenant et la date de fin
-        const distance = countdownDate - now;
+    // ==================================================================
+    // LOGIQUE DU BANDEAU PROMOTIONNEL (INCHANGÉ)
+    // ==================================================================
+    const banner = document.getElementById('promo-banner');
+    const closeButton = document.getElementById('close-banner-button');
+    const ctaButton = document.getElementById('banner-cta-button');
 
-        // Si le compte à rebours est terminé
+    if (banner && closeButton && ctaButton) {
+        const showBanner = () => banner.classList.remove('translate-y-full');
+        const hideBanner = () => banner.classList.add('translate-y-full');
+
+        if (sessionStorage.getItem('promoBannerClosed') !== 'true') {
+            setTimeout(showBanner, 3000);
+        }
+
+        closeButton.addEventListener('click', () => {
+            hideBanner();
+            sessionStorage.setItem('promoBannerClosed', 'true');
+        });
+        
+        ctaButton.addEventListener('click', () => {
+            hideBanner();
+        });
+    }
+
+    // ==================================================================
+    // LOGIQUE UNIFIÉE POUR TOUS LES COMPTES À REBOURS
+    // ==================================================================
+    // 1. Définir la date de fin (une seule fois)
+    const countdownDate = new Date("Aug 31, 2024 23:59:59").getTime();
+
+    // 2. Récupérer les éléments des DEUX minuteurs
+    // Minuteur principal (dans la section offres)
+    const mainDaysEl = document.getElementById('days');
+    const mainHoursEl = document.getElementById('hours');
+    const mainMinutesEl = document.getElementById('minutes');
+    const mainSecondsEl = document.getElementById('seconds');
+    const mainTimerContainer = document.getElementById('countdown-timer');
+
+    // Minuteur du bandeau
+    const bannerDaysEl = document.getElementById('banner-days');
+    const bannerHoursEl = document.getElementById('banner-hours');
+    const bannerMinutesEl = document.getElementById('banner-minutes');
+    const bannerSecondsEl = document.getElementById('banner-seconds');
+    const bannerTimerContainer = document.getElementById('banner-countdown-timer');
+
+    // 3. Fonction pour mettre à jour un minuteur (réutilisable)
+    const updateTimerDisplay = (distance, elements, container) => {
+        if (!container) return; // Si le minuteur n'existe pas, on ne fait rien
+
         if (distance < 0) {
-            clearInterval(interval); // Arrêter la mise à jour
-            timerContainer.innerHTML = '<div class="text-2xl font-bold text-center w-full">L\'offre est terminée !</div>'; // Afficher un message
+            container.innerHTML = '<div class="text-lg font-bold text-center w-full">L\'offre est terminée !</div>';
             return;
         }
 
-        // Calculer les jours, heures, minutes et secondes
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Formater les nombres pour qu'ils aient toujours 2 chiffres (ex: 09 au lieu de 9)
         const format = (num) => num < 10 ? '0' + num : num;
 
-        // Afficher les résultats dans les éléments HTML
-        daysEl.innerHTML = format(days);
-        hoursEl.innerHTML = format(hours);
-        minutesEl.innerHTML = format(minutes);
-        secondsEl.innerHTML = format(seconds);
-
-    }, 1000); // Répéter toutes les 1000ms (1 seconde)
-}
-
-// Lancer le compte à rebours une fois que la page est chargée
-document.addEventListener('DOMContentLoaded', startCountdown);
-
-// ==================================================================
-// LOGIQUE POUR LE BANDEAU PROMOTIONNEL
-// ==================================================================
-document.addEventListener('DOMContentLoaded', function() {
-    const banner = document.getElementById('promo-banner');
-    const closeButton = document.getElementById('close-banner-button');
-    const ctaButton = document.getElementById('banner-cta-button');
-
-    // S'assurer que le bandeau existe sur la page
-    if (!banner || !closeButton || !ctaButton) {
-        return;
-    }
-
-    // Fonction pour afficher le bandeau
-    const showBanner = () => {
-        banner.classList.remove('translate-y-full');
+        elements.days.innerHTML = format(days);
+        elements.hours.innerHTML = format(hours);
+        elements.minutes.innerHTML = format(minutes);
+        elements.seconds.innerHTML = format(seconds);
     };
 
-    // Fonction pour cacher le bandeau
-    const hideBanner = () => {
-        banner.classList.add('translate-y-full');
-    };
+    // 4. Lancer l'intervalle de mise à jour global
+    const interval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = countdownDate - now;
 
-    // Vérifier si le bandeau a déjà été fermé pendant cette session
-    if (sessionStorage.getItem('promoBannerClosed') !== 'true') {
-        // Afficher le bandeau après 3 secondes
-        setTimeout(showBanner, 3000);
-    }
+        // Mettre à jour le minuteur principal
+        if (mainTimerContainer) {
+            updateTimerDisplay(distance, {
+                days: mainDaysEl,
+                hours: mainHoursEl,
+                minutes: mainMinutesEl,
+                seconds: mainSecondsEl
+            }, mainTimerContainer);
+        }
 
-    // Logique pour le bouton de fermeture
-    closeButton.addEventListener('click', () => {
-        hideBanner();
-        // Mémoriser que l'utilisateur a fermé le bandeau pour cette session
-        sessionStorage.setItem('promoBannerClosed', 'true');
-    });
-    
-    // Logique pour le bouton d'action (ferme aussi le bandeau)
-    ctaButton.addEventListener('click', () => {
-        hideBanner();
-        // Pas besoin de mémoriser ici, car le scroll vers les offres est déjà une action
-    });
+        // Mettre à jour le minuteur du bandeau
+        if (bannerTimerContainer) {
+            updateTimerDisplay(distance, {
+                days: bannerDaysEl,
+                hours: bannerHoursEl,
+                minutes: bannerMinutesEl,
+                seconds: bannerSecondsEl
+            }, bannerTimerContainer);
+        }
+        
+        // Arrêter l'intervalle si le temps est écoulé
+        if (distance < 0) {
+            clearInterval(interval);
+        }
+
+    }, 1000);
 });
