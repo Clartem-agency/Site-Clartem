@@ -716,34 +716,35 @@
                             </li>
                         </ul>
 
-                        <div class="bg-clarity-blue/20 p-6 rounded-lg space-y-4">
-                            <p class="flex items-center gap-2 font-medium text-white">
+                                                <!-- MODIFIÉ ET AMÉLIORÉ POUR MOBILE -->
+                        <div class="bg-clarity-blue/20 p-4 sm:p-6 rounded-lg">
+                            <p class="flex items-center gap-2 font-medium text-white mb-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                                 Recevez votre checklist par email :
                             </p>
-                            <!-- MODIFIÉ : La balise <form> est maintenant configurée pour Brevo avec le nouveau champ Prénom -->
                             <form id="sib-form" method="POST" action="https://2a94b6d3.sibforms.com/serve/MUIFAF-8lvqoEgQ9XmXK62oeOPse06sPpprPUX5dw_fI2QZzwjOmEIwSOv0rSw4SH-IxWwEVQXPwcu-X6DaV0ErPKdUUx50BXxZ0GegndcrHLpRW-Sm5y_QOBcn5cejcywdgKyEcbN6lGW756rgUv6DXIY9Po3ZHvAtilPEABRfuzW2qOtIoFZuObcYWsWlKkhzZgy4oisAbv2kh" class="space-y-4">
-                                <!-- Champs Prénom et Email côte à côte -->
-                                <div class="flex flex-col sm:flex-row gap-4">
-                                    <input type="text" id="PRENOM" name="PRENOM" placeholder="Votre prénom" class="flex-1 bg-white text-neutral-dark border-0 h-12 text-base rounded-md px-4" required>
-                                    <input type="email" id="EMAIL" name="EMAIL" placeholder="Votre email" class="flex-1 bg-white text-neutral-dark border-0 h-12 text-base rounded-md px-4" required>
+                                <!-- Champs Prénom et Email (maintenant empilés sur mobile) -->
+                                <div class="flex flex-col gap-3">
+                                    <input type="text" id="PRENOM" name="PRENOM" placeholder="Votre prénom" class="w-full bg-white text-neutral-dark border-0 h-14 text-lg rounded-md px-4 placeholder:text-neutral-light/80" required>
+                                    <input type="email" id="EMAIL" name="EMAIL" placeholder="Votre email" class="w-full bg-white text-neutral-dark border-0 h-14 text-lg rounded-md px-4 placeholder:text-neutral-light/80" required>
                                 </div>
-                                <!-- Bouton en dessous -->
+                                <!-- Bouton amélioré -->
                                 <div>
-                                    <button type="submit" class="w-full inline-flex items-center justify-center h-12 px-6 rounded-md bg-warm-orange text-white hover:bg-warm-orange/90 font-semibold shadow-md hover:shadow-lg transition-all duration-300">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <button type="submit" class="w-full inline-flex items-center justify-center h-14 px-6 rounded-md bg-warm-orange text-white hover:bg-warm-orange/90 font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                                         </svg>
-                                        Recevoir ma Checklist Gratuite
+                                        Recevoir ma Checklist
                                     </button>
                                 </div>
-                                <div class="text-xs text-center text-white/80 flex justify-center items-center gap-x-3 flex-wrap">
+                                <!-- Textes de réassurance améliorés pour mobile -->
+                                <div class="text-xs text-center text-white/80 flex flex-col items-center gap-1 pt-2 sm:flex-row sm:justify-center sm:gap-x-3">
                                     <span>📧 Envoi immédiat</span>
-                                    <span class="text-white/50">•</span>
+                                    <span class="hidden sm:inline-block text-white/50">•</span>
                                     <span>🔒 Vos données restent privées</span>
-                                    <span class="text-white/50">•</span>
+                                    <span class="hidden sm:inline-block text-white/50">•</span>
                                     <span>❌ Pas de spam</span>
                                 </div>
                                 <!-- Champs cachés requis par Brevo -->
