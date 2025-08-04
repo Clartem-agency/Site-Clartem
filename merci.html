@@ -14,7 +14,7 @@
         :root {
             --dark-blue: #0A2540;
             --light-blue: #4A90E2;
-            --accent-orange: #F37521; /* NOUVELLE COULEUR ACCENT */
+            --accent-orange: #F37521;
             --background-light: #F7FAFF;
             --text-dark: #333D4B;
             --text-light: #FFFFFF;
@@ -43,7 +43,7 @@
             padding: 0 20px;
         }
 
-        /* --- HEADER (MIS À JOUR) --- */
+        /* --- HEADER --- */
         header {
             padding: 20px 0;
             background-color: var(--text-light);
@@ -71,7 +71,7 @@
             font-weight: 600;
         }
         .header-cta {
-            background-color: var(--accent-orange); /* COULEUR MISE À JOUR */
+            background-color: var(--accent-orange);
             color: var(--text-light);
             padding: 10px 20px;
             border-radius: 8px;
@@ -79,12 +79,11 @@
             transition: background-color 0.2s ease, transform 0.2s ease;
         }
         .header-cta:hover {
-            background-color: #e06c1f; /* Orange plus foncé */
+            background-color: #e06c1f;
             transform: translateY(-2px);
         }
 
-
-        /* --- SECTION PRINCIPALE (REMANIÉE) --- */
+        /* --- SECTION PRINCIPALE --- */
         .thank-you-section {
             display: flex;
             align-items: center;
@@ -121,7 +120,6 @@
             color: #525f7f;
         }
 
-        /* BOUTON PRINCIPAL MIS À JOUR */
         .cta-button {
             display: inline-block;
             background-color: var(--accent-orange);
@@ -145,7 +143,7 @@
             color: #6c757d;
         }
 
-        /* --- FOOTER (INCHANGÉ) --- */
+        /* --- FOOTER --- */
         footer {
             padding-top: 60px;
             background-color: var(--dark-blue);
@@ -214,18 +212,12 @@
                 padding: 0 25px;
             }
 
-            /* Header Responsive */
+            /* MODIFICATION ICI : Header Responsive Simplifié */
             header .container {
-                flex-direction: column;
-                gap: 20px;
+                justify-content: center; /* Centre le logo quand la nav disparaît */
             }
-            nav {
-                flex-direction: column;
-                gap: 15px;
-                align-items: center;
-            }
-            nav .header-cta {
-                margin-top: 10px;
+            header nav {
+                display: none; /* On cache toute la navigation sur mobile */
             }
 
             /* Section Principale Responsive */
@@ -276,7 +268,6 @@
                 <a href="#">Notre Plan</a>
                 <a href="#">Nos Offres</a>
                 <a href="#">Témoignages</a>
-                <!-- TEXTE DU BOUTON MIS À JOUR -->
                 <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" class="header-cta" target="_blank">Planifier mon appel clarté</a>
             </nav>
         </div>
