@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>clartem.com - Votre Site Web Professionnel en 15 Jours</title>
+
+<!-- AJOUTEZ VOTRE FAVICON ICI -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon-clartem.ico"> 
+    <!-- Assurez-vous que le chemin 'href' est correct -->
+    
     <meta name="description" content="Création de sites web professionnels pour indépendants et entreprises locales. Processus simple, rapide et transparent. Votre site en ligne en moins de 15 jours.">
     <meta name="author" content="clartem.com">
 
@@ -42,15 +47,50 @@
 </head>
 <body class="bg-white">
 
+<body class="bg-white">
+
+<!-- DÉBUT DU BANDEAU PROMOTIONNEL -->
+<div id="promo-banner" class="fixed bottom-0 left-0 right-0 bg-deep-blue text-white p-4 shadow-2xl z-50 transform translate-y-full transition-transform duration-500 ease-in-out">
+    <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-4 text-center sm:text-left">
+            <span class="text-3xl hidden sm:block">✨</span>
+            <div>
+                <p class="font-bold">Offre Spéciale Rentrée !</p>
+                <p class="text-sm opacity-80">Profitez des offres "Intégration" et "Accélérateur" à un prix exceptionnel.</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-4 flex-shrink-0">
+            <a href="#offres" id="banner-cta-button" class="bg-warm-orange hover:bg-warm-orange/90 text-white font-semibold py-2 px-5 rounded-md text-sm transition-colors">
+                Voir les offres
+            </a>
+            <button id="close-banner-button" class="text-white/70 hover:text-white transition-colors" aria-label="Fermer le bandeau">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- FIN DU BANDEAU PROMOTIONNEL -->
+
+
+    <div class="min-h-screen">
+        <!-- Le reste de votre page... -->
+    
     <div class="min-h-screen">
         <!-- Navigation -->
         <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
             <div class="container mx-auto px-6 py-4">
                 <div class="flex items-center justify-between">
-                    <div class="text-2xl font-bold text-deep-blue">clartem.com</div>
+                    
+<!--  code logo header -->
+<a href="#">
+    <img class="h-14 w-auto" src="assets/logo-clartem.svg" alt="Logo clartem.com">
+</a>
+                    
                     <div class="hidden md:flex items-center space-x-8" id="nav-links">
-                        <a href="#plan" class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Notre Plan</a>
-                        <a href="#offres" class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Nos Offres</a>
+                        <a href="#plan" class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mon Plan</a>
+                        <a href="#offres" class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes Offres</a>
                         <a href="#temoignages" class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Témoignages</a>
                     </div>
                     <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl hover:scale-105 transition-all duration-300 font-bold h-11 rounded-md px-8 shadow-lg">Planifier un appel clarté</a>
@@ -70,23 +110,34 @@
 
         <!-- Hero Section -->
         <section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-soft-blue via-white to-soft-blue relative overflow-hidden pt-24">
-            <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0 opacity-10 z-0">
                 <div class="absolute top-20 left-10 w-72 h-72 bg-clarity-blue rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
                 <div class="absolute bottom-20 right-10 w-72 h-72 bg-warm-orange rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
             </div>
-            <div class="container mx-auto px-6 pt-20 pb-16">
+            <div class="container mx-auto px-6 pt-20 pb-16 relative z-10">
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
                     <div class="text-center lg:text-left space-y-8">
                         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-dark leading-tight">Votre Site Web Professionnel,<br><span class="text-clarity-blue"> en Ligne en Moins de 15 Jours</span></h1>
-                        <p class="text-xl text-neutral-light leading-relaxed max-w-xl mx-auto lg:mx-0">Nous créons des sites web qui transforment vos visiteurs en clients, grâce à un processus clair qui respecte votre temps.</p>
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl hover:scale-105 transition-all duration-300 font-bold rounded-md text-lg px-8 py-4 h-auto">Planifier un appel clarté</a>
-                            <a href="#plan" class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-soft-blue text-deep-blue hover:bg-soft-blue/80 border border-clarity-blue/20 rounded-md text-lg px-8 py-4 h-auto">Découvrir notre processus</a>
-                        </div>
+                        <p class="text-xl text-neutral-light leading-relaxed max-w-xl mx-auto lg:mx-0">Je crée des sites web qui transforment vos visiteurs en clients, grâce à un processus clair qui respecte votre temps.</p>
+                       <!-- COLLEZ CE BLOC CORRIGÉ -->
+
+<div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+
+    <!-- Bouton 1 : Planifier un appel clarté (CORRIGÉ) -->
+    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 whitespace-nowrap bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl hover:scale-105 transition-all duration-300 font-bold rounded-md text-lg px-8 py-4 h-auto">
+        Planifier un appel clarté
+    </a>
+
+    <!-- Bouton 2 : Découvrir mon processus (CORRIGÉ) -->
+    <a href="#plan" class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium bg-soft-blue text-deep-blue hover:bg-soft-blue/80 border border-clarity-blue/20 rounded-md text-lg px-8 py-4 h-auto">
+        Découvrir notre processus
+    </a>
+
+</div>
                     </div>
                     <div class="relative">
                         <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-                            <img src="assets/hero-image.jpg" alt="Site web professionnel clartem.com" class="w-full h-auto object-cover">
+                            <img src="assets/hero-image.png" alt="Site web professionnel clartem.com" class="w-full h-auto object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-deep-blue/20 to-transparent"></div>
                         </div>
                         <div class="absolute -top-4 -right-4 bg-success-green text-white px-4 py-2 rounded-full font-semibold shadow-lg animate-bounce">✓ En 15 jours</div>
@@ -101,7 +152,7 @@
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">Votre présence en ligne vous semble<br><span class="text-clarity-blue"> compliquée, coûteuse et chronophage</span> ?</h2>
-                    <p class="text-xl text-neutral-light max-w-3xl mx-auto">Vous n'êtes pas seul(e). Nous comprenons ces frustrations car nous les avons entendues des centaines de fois.</p>
+                    <p class="text-xl text-neutral-light max-w-3xl mx-auto">Vous n'êtes pas seul(e). Je comprends ces frustrations car je les ai entendues des centaines de fois.</p>
                 </div>
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="text-center p-8 rounded-2xl bg-gradient-to-br from-soft-blue to-white border border-clarity-blue/10 hover:shadow-lg transition-all duration-300">
@@ -142,7 +193,7 @@
                         </div>
                     </div>
                     <h2 class="text-3xl md:text-4xl font-bold mb-8">clartem.com : La Clarté au Service de Votre Croissance</h2>
-                    <p class="text-xl leading-relaxed opacity-90">Chez clartem.com, nous avons un seul objectif : vous fournir un site web professionnel et efficace grâce à un processus simple, rapide et transparent. <span class="font-semibold text-warm-orange"> Fini la confusion, place à la clarté.</span></p>
+                    <p class="text-xl leading-relaxed opacity-90">Chez clartem.com, j'ai un seul objectif : vous fournir un site web professionnel et efficace grâce à un processus simple, rapide et transparent. <span class="font-semibold text-warm-orange"> Fini la confusion, place à la clarté.</span></p>
                     <div class="grid md:grid-cols-3 gap-8 mt-16">
                         <div class="text-center">
                             <div class="text-4xl font-bold text-warm-orange mb-2">15</div>
@@ -168,30 +219,30 @@
                     <div class="space-y-8">
                         <div class="flex items-center gap-4 mb-6">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-warm-orange"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
-                            <h3 class="text-2xl md:text-3xl font-bold text-neutral-dark">Nous comprenons votre réalité</h3>
+                            <h3 class="text-2xl md:text-3xl font-bold text-neutral-dark">Je comprends votre réalité</h3>
                         </div>
-                        <p class="text-lg text-neutral-dark leading-relaxed">Nous savons ce que c'est que d'être un indépendant passionné. Votre temps est précieux. Votre budget est mesuré. C'est pourquoi notre approche est conçue pour vous, et avec vous.</p>
+                        <p class="text-lg text-neutral-dark leading-relaxed">Je sais ce que c'est que d'être un indépendant passionné. Votre temps est précieux. Votre budget est mesuré. C'est pourquoi mon approche est conçue pour vous, et avec vous.</p>
                         <div class="space-y-4">
                             <div class="flex items-center gap-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-success-green"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
-                                <span class="text-neutral-dark">Nous respectons votre temps</span>
+                                <span class="text-neutral-dark">Je respecte votre temps</span>
                             </div>
                             <div class="flex items-center gap-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-success-green"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
-                                <span class="text-neutral-dark">Nous comprenons vos contraintes</span>
+                                <span class="text-neutral-dark">Je comprends vos contraintes</span>
                             </div>
                             <div class="flex items-center gap-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-success-green"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
-                                <span class="text-neutral-dark">Nous parlons votre langage</span>
+                                <span class="text-neutral-dark">Je parle votre langage</span>
                             </div>
                         </div>
                     </div>
                     <div class="space-y-8">
                         <div class="flex items-center gap-4 mb-6">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-12 h-12 text-clarity-blue"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg>
-                            <h3 class="text-2xl md:text-3xl font-bold text-neutral-dark">Et nous avons les outils pour vous aider</h3>
+                            <h3 class="text-2xl md:text-3xl font-bold text-neutral-dark">Et j'ai les outils pour vous aider</h3>
                         </div>
-                        <p class="text-lg text-neutral-dark leading-relaxed">Avec des dizaines de projets réussis et un processus éprouvé, nous avons l'expertise pour construire l'outil digital dont vous avez besoin pour réussir.</p>
+                        <p class="text-lg text-neutral-dark leading-relaxed">Avec des dizaines de projets réussis et un processus éprouvé, j'ai l'expertise pour construire l'outil digital dont vous avez besoin pour réussir.</p>
                         <div class="grid grid-cols-2 gap-6">
                             <div class="text-center p-4 bg-white rounded-xl shadow-sm">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-clarity-blue mx-auto mb-2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
@@ -224,7 +275,7 @@
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">Un Chemin Simple vers la Clarté :<br><span class="text-clarity-blue"> Votre Site en 4 Étapes Sereines</span></h2>
-                    <p class="text-xl text-neutral-light max-w-3xl mx-auto">Nous avons conçu un processus transparent et rassurant. Vous savez toujours où vous en êtes et quelle est la prochaine étape.</p>
+                    <p class="text-xl text-neutral-light max-w-3xl mx-auto">J'ai conçu un processus transparent et rassurant. Vous savez toujours où vous en êtes et quelle est la prochaine étape.</p>
                 </div>
                 <div class="relative">
                     <!-- MODIFICATION : Les classes top-20 et bottom-20 ont été changées en top-32 et bottom-32 pour ajuster la longueur de la ligne -->
@@ -239,7 +290,7 @@
                                         <h3 class="text-2xl font-bold text-neutral-dark">Planifions Votre Succès</h3>
                                     </div>
                                     <h4 class="text-lg font-semibold text-clarity-blue mb-4">L'Appel Clarté</h4>
-                                    <p class="text-neutral-dark leading-relaxed">Tout commence par une conversation. Nous bloquons 15 minutes, gratuites et sans engagement, pour discuter de votre vision et de vos objectifs. Ce n'est pas un appel de vente, c'est un atelier de stratégie. Vous repartez avec une vision claire de ce dont vous avez besoin, que nous travaillions ensemble ou non.</p>
+                                    <p class="text-neutral-dark leading-relaxed">Tout commence par une conversation. Je bloque 15 minutes, gratuites et sans engagement, pour discuter de votre vision et de vos objectifs. Ce n'est pas un appel de vente, c'est un atelier de stratégie. Vous repartez avec une vision claire de ce dont vous avez besoin, pour décider si je suis la bonne personne pour vous accompagner.</p>
                                 </div>
                             </div>
                             <div class="flex-shrink-0">
@@ -255,10 +306,10 @@
                                 <div class="p-8 rounded-2xl bg-gradient-to-br from-warm-orange/10 to-white shadow-lg hover:shadow-xl transition-all duration-300">
                                     <div class="flex items-center gap-4 mb-4">
                                         <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md"><span class="text-xl font-bold text-neutral-dark">2</span></div>
-                                        <h3 class="text-2xl font-bold text-neutral-dark">Vous Nous Donnez la Vision</h3>
+                                        <h3 class="text-2xl font-bold text-neutral-dark">Vous Me Donnez la Vision</h3>
                                     </div>
                                     <h4 class="text-lg font-semibold text-clarity-blue mb-4">La Création Guidée</h4>
-                                    <p class="text-neutral-dark leading-relaxed">Vous êtes l'expert de votre métier. C'est pourquoi nous vous donnons les outils pour nous transmettre facilement votre contenu. Grâce à notre 'Guide de Création' interactif, vous nous fournissez vos textes, images et idées de manière structurée et sans stress. Nous vous guidons à chaque étape. C'est simple, et cela garantit que votre site vous ressemble vraiment.</p>
+                                    <p class="text-neutral-dark leading-relaxed">Vous êtes l'expert de votre métier. C'est pourquoi je vous donne les outils pour me transmettre facilement votre contenu. Grâce à mon 'Guide de Création' interactif, vous me fournissez vos textes, images et idées de manière structurée et sans stress. Je vous guide à chaque étape. C'est simple, et cela garantit que votre site vous ressemble vraiment.</p>
                                 </div>
                             </div>
                             <div class="flex-shrink-0">
@@ -274,10 +325,10 @@
                                 <div class="p-8 rounded-2xl bg-gradient-to-br from-success-green/10 to-white shadow-lg hover:shadow-xl transition-all duration-300">
                                     <div class="flex items-center gap-4 mb-4">
                                         <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md"><span class="text-xl font-bold text-neutral-dark">3</span></div>
-                                        <h3 class="text-2xl font-bold text-neutral-dark">Nous Construisons, Vous Validez</h3>
+                                        <h3 class="text-2xl font-bold text-neutral-dark">Je construis, Vous Validez</h3>
                                     </div>
                                     <h4 class="text-lg font-semibold text-clarity-blue mb-4">La Construction et la Collaboration</h4>
-                                    <p class="text-neutral-dark leading-relaxed">C'est là que la magie opère. Nous prenons votre vision et nous la transformons en un site web professionnel et fonctionnel. Nous ne travaillons pas dans le noir : nous vous présentons une première version complète et vous invitons à nous faire vos retours. C'est une phase de polissage collaborative pour s'assurer que chaque détail est parfait à vos yeux.</p>
+                                    <p class="text-neutral-dark leading-relaxed">C'est là que la magie opère. Je prends votre vision et je la transforme en un site web professionnel et fonctionnel. Je ne travaille pas dans le noir : je vous présente une première version complète et vous invite à me faire vos retours. C'est une phase de polissage collaborative pour s'assurer que chaque détail est parfait à vos yeux.</p>
                                 </div>
                             </div>
                             <div class="flex-shrink-0">
@@ -296,7 +347,7 @@
                                         <h3 class="text-2xl font-bold text-neutral-dark">C'est à Vous, Prêt à Décoller !</h3>
                                     </div>
                                     <h4 class="text-lg font-semibold text-clarity-blue mb-4">Le Lancement et Votre Autonomie</h4>
-                                    <p class="text-neutral-dark leading-relaxed">Une fois que vous êtes 100% satisfait(e), nous procédons au lancement officiel. Lors d'un dernier appel, nous mettons votre site en ligne sur votre propre nom de domaine et nous vous remettons les clés. Vous êtes entièrement propriétaire et autonome. Nous célébrons votre nouvelle présence en ligne, prête à accueillir vos clients.</p>
+                                    <p class="text-neutral-dark leading-relaxed">Une fois que vous êtes 100% satisfait(e), je procède au lancement officiel. Lors d'un dernier appel, je mets votre site en ligne sur votre propre nom de domaine et je vous remet les clés. Vous êtes entièrement propriétaire et autonome. Nous célébrons votre nouvelle présence en ligne, prête à accueillir vos clients.</p>
                                 </div>
                             </div>
                             <div class="flex-shrink-0">
@@ -318,12 +369,38 @@
                     <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">Choisissez l'Équipement Adapté à<br><span class="text-clarity-blue"> Votre Aventure</span></h2>
                     <p class="text-xl text-neutral-light max-w-3xl mx-auto">Quatre solutions pensées pour répondre à vos besoins spécifiques, quel que soit votre niveau d'ambition digitale.</p>
                     
-                    <!-- MODIFICATION START: Bandeau promotionnel -->
-                    <div class="mt-12 mb-8 p-6 rounded-2xl bg-gradient-to-r from-warm-orange to-orange-400 text-white shadow-lg max-w-3xl mx-auto">
-                        <h3 class="text-2xl font-bold mb-2">✨ PROFITEZ DE L'OFFRE RENTRÉE - JUSQU'AU 31 AOÛT ✨</h3>
-                        <p class="text-lg opacity-90">Le succès du dernier trimestre se prépare maintenant ! Nos offres Intégration et Accélérateur sont au prix de l'offre Fondation Digitale pour une durée limitée. C'est le moment ou jamais de passer au niveau supérieur. Comment en profiter ? Choisissez simplement votre offre ci-dessous. La réduction est déjà appliquée.</p>
-                    </div>
-                    <!-- MODIFICATION END -->
+                   <!-- MODIFICATION START: Bandeau promotionnel AVEC COMPTE À REBOURS -->
+<div class="mt-12 mb-8 p-6 rounded-2xl bg-gradient-to-r from-warm-orange to-orange-400 text-white shadow-lg max-w-3xl mx-auto">
+    <h3 class="text-2xl font-bold mb-2 text-center">✨ PROFITEZ DE L'OFFRE RENTRÉE - JUSQU'AU 31 AOÛT ✨</h3>
+    <p class="text-lg opacity-90 text-center">Le succès du dernier trimestre se prépare maintenant ! Mes offres Intégration et Accélérateur sont au prix de l'offre Fondation Digitale pour une durée limitée. C'est le moment ou jamais de passer au niveau supérieur.</p>
+    
+    <!-- NOUVEAU BLOC POUR LE COMPTE À REBOURS -->
+    <div id="countdown-timer" class="mt-6 flex justify-center items-center gap-4 text-center">
+        <!-- Les chiffres seront insérés ici par JavaScript -->
+        <div class="flex flex-col items-center">
+            <span id="days" class="text-4xl font-bold">00</span>
+            <span class="text-xs opacity-80">Jours</span>
+        </div>
+        <span class="text-4xl font-bold">:</span>
+        <div class="flex flex-col items-center">
+            <span id="hours" class="text-4xl font-bold">00</span>
+            <span class="text-xs opacity-80">Heures</span>
+        </div>
+        <span class="text-4xl font-bold">:</span>
+        <div class="flex flex-col items-center">
+            <span id="minutes" class="text-4xl font-bold">00</span>
+            <span class="text-xs opacity-80">Minutes</span>
+        </div>
+        <span class="text-4xl font-bold">:</span>
+        <div class="flex flex-col items-center">
+            <span id="seconds" class="text-4xl font-bold">00</span>
+            <span class="text-xs opacity-80">Secondes</span>
+        </div>
+    </div>
+    <!-- FIN DU NOUVEAU BLOC -->
+
+</div>
+<!-- MODIFICATION END -->
 
                 </div>
                 <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8 items-stretch">
@@ -528,7 +605,7 @@
                             <svg class="w-5 h-5 text-warm-orange fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
                             <svg class="w-5 h-5 text-warm-orange fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
                         </div>
-                        <blockquote class="text-neutral-dark leading-relaxed mb-8 text-center italic">"J'étais complètement perdu... L'équipe de clartem.com a su me rassurer. Le processus était si simple et clair. Aujourd'hui, je suis fier de donner ma carte de visite. J'ai déjà signé 3 nouveaux chantiers grâce à ma présence en ligne !"</blockquote>
+                        <blockquote class="text-neutral-dark leading-relaxed mb-8 text-center italic">"Avant, je pensais que le bouche-à-oreille suffisait et je n'y connaissais rien en site web, j'étais complètement perdu. Frédéric a tout de suite compris mes craintes. Son approche est sans jargon technique, il m'a guidé avec une clarté et une patience incroyables. Le processus était bien plus simple que je l'imaginais. Aujourd'hui, j'ai enfin un site professionnel dont je suis fier. Le résultat est concret : j'ai déjà signé 3 nouveaux chantiers grâce aux demandes de contact reçues en ligne !"</blockquote>
                         <div class="text-center">
                             <div class="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden border-4 border-clarity-blue/20">
                                 <img src="assets/testimonial-marc.jpg" alt="Marc L." class="w-full h-full object-cover">
@@ -552,7 +629,7 @@
                             <svg class="w-5 h-5 text-warm-orange fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
                             <svg class="w-5 h-5 text-warm-orange fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
                         </div>
-                        <blockquote class="text-neutral-dark leading-relaxed mb-8 text-center italic">"Avant, je passais des heures à coordonner mes rendez-vous. Avec clartem.com, mes clients peuvent prendre rendez-vous directement en ligne. Je gagne un temps fou et je peux me concentrer sur ce que j'aime. Merci pour cette sérénité retrouvée !"</blockquote>
+                        <blockquote class="text-neutral-dark leading-relaxed mb-8 text-center italic">"Je perdais un temps fou en allers-retours d'emails pour coordonner mes rendez-vous, c'était épuisant. Frédéric a été très à l'écoute et m'a proposé une solution de réservation en ligne simple, directement intégrée à mon site. La mise en place a été rapide et fluide. Mes clients sont désormais autonomes pour réserver leur créneau. Je gagne plusieurs heures par semaine et je peux enfin me consacrer à 100% à mon métier. Une véritable sérénité retrouvée !"</blockquote>
                         <div class="text-center">
                             <div class="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden border-4 border-clarity-blue/20">
                                 <img src="assets/testimonial-sophie.jpg" alt="Sophie D." class="w-full h-full object-cover">
@@ -576,13 +653,13 @@
                             <svg class="w-5 h-5 text-warm-orange fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
                             <svg class="w-5 h-5 text-warm-orange fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
                         </div>
-                        <blockquote class="text-neutral-dark leading-relaxed mb-8 text-center italic">"J'avais un site fait maison qui ne me représentait pas. L'équipe a créé un site qui positionne clairement mon expertise. Le processus était fluide, professionnel, et respectueux de mes délais. Depuis, mes prospects me prennent beaucoup plus au sérieux."</blockquote>
+                        <blockquote class="text-neutral-dark leading-relaxed mb-8 text-center italic">"Mon ancien site amateur ne rendait pas justice à mon travail de photographe, il manquait de professionnalisme. J'avais peur qu'un beau site coûte une fortune. Frédéric a su créer un design qui sublime mes photos, tout en respectant mon budget. Son sens de l'esthétique et son écoute ont rendu la collaboration très agréable. Mon nouveau site est une vitrine magnifique et rapide, qui convertit ! Mes clients sont impressionnés et mes demandes de devis ont tout simplement doublé depuis la mise en ligne."</blockquote>
                         <div class="text-center">
                             <div class="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden border-4 border-clarity-blue/20">
-                                <img src="assets/testimonial-karim.jpg" alt="Karim A." class="w-full h-full object-cover">
+                                <img src="assets/testimonial-elodie.jpg" alt="Élodie F." class="w-full h-full object-cover">
                             </div>
-                            <h4 class="font-bold text-lg text-neutral-dark">Karim A.</h4>
-                            <p class="text-neutral-light">Consultant en stratégie, Paris</p>
+                            <h4 class="font-bold text-lg text-neutral-dark">Élodie F.</h4>
+                            <p class="text-neutral-light">Photographe, Annecy</p>
                         </div>
                         <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-clarity-blue to-warm-orange rounded-b-2xl"></div>
                     </div>
@@ -609,7 +686,7 @@
                     </div>
                     <div class="space-y-6">
                         <h3 class="text-2xl md:text-3xl font-bold text-warm-orange">La Checklist des 7 Points Incontournables pour un Site Web qui Convertit</h3>
-                        <p class="text-lg leading-relaxed opacity-90">Arrêtez de deviner. Téléchargez notre guide gratuit d'une page pour découvrir les 7 éléments essentiels que votre site doit absolument avoir pour inspirer confiance et transformer vos visiteurs en clients.</p>
+                        <p class="text-lg leading-relaxed opacity-90">Arrêtez de deviner. Téléchargez mon guide gratuit pour découvrir les 7 éléments essentiels que votre site doit absolument avoir pour inspirer confiance et transformer vos visiteurs en clients.</p>
                         <p class="text-lg leading-relaxed opacity-90">Un outil simple pour auditer votre site actuel ou préparer votre futur projet.</p>
                         
                         <ul class="space-y-3 text-lg">
@@ -687,17 +764,20 @@
                 <div class="grid md:grid-cols-3 gap-12">
                     <div class="space-y-6">
                         <div>
-                            <h3 class="text-2xl font-bold text-clarity-blue mb-2">clartem.com</h3>
+<!-- code logo footer -->
+<a href="#">
+    <img class="h-14 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+</a>
                             <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
                         </div>
-                        <p class="text-neutral-light leading-relaxed">Nous croyons que chaque entrepreneur passionné mérite une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon et les coûts exorbitants.</p>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon et les coûts exorbitants.</p>
                     </div>
                     <div class="space-y-6">
                         <h4 class="text-xl font-bold text-white">Navigation</h4>
                         <div class="space-y-3">
                             <a href="#" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
-                            <a href="#plan" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Notre Plan</a>
-                            <a href="#offres" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Nos Offres</a>
+                            <a href="#plan" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mon Plan</a>
+                            <a href="#offres" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes Offres</a>
                             <a href="#temoignages" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Témoignages</a>
                             <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Prendre Rendez-vous</a>
                         </div>
