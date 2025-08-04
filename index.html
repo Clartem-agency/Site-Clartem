@@ -49,19 +49,45 @@
 
 <body class="bg-white">
 
-<!-- DÉBUT DU BANDEAU PROMOTIONNEL -->
+<!-- DÉBUT DU BANDEAU PROMOTIONNEL AVEC MINUTEUR -->
 <div id="promo-banner" class="fixed bottom-0 left-0 right-0 bg-deep-blue text-white p-4 shadow-2xl z-50 transform translate-y-full transition-transform duration-500 ease-in-out">
-    <div class="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div class="flex items-center gap-4 text-center sm:text-left">
+    <div class="container mx-auto flex flex-col lg:flex-row items-center justify-between gap-4">
+        
+        <!-- Partie gauche : Texte de l'offre -->
+        <div class="flex items-center gap-4 text-center lg:text-left">
             <span class="text-3xl hidden sm:block">✨</span>
             <div>
-                <p class="font-bold">Offre Spéciale Rentrée !</p>
-                <p class="text-sm opacity-80">Profitez des offres "Intégration" et "Accélérateur" à un prix exceptionnel.</p>
+                <p class="font-bold">Offre Spéciale Rentrée ! L'offre se termine dans :</p>
             </div>
         </div>
-        <div class="flex items-center gap-4 flex-shrink-0">
+
+        <!-- Partie centrale : Minuteur compact -->
+        <div id="banner-countdown-timer" class="flex items-center gap-2 text-center">
+            <div class="flex flex-col items-center bg-white/10 p-2 rounded-md min-w-[50px]">
+                <span id="banner-days" class="text-2xl font-bold">00</span>
+                <span class="text-xs opacity-80">Jours</span>
+            </div>
+            <span class="text-2xl font-bold">:</span>
+            <div class="flex flex-col items-center bg-white/10 p-2 rounded-md min-w-[50px]">
+                <span id="banner-hours" class="text-2xl font-bold">00</span>
+                <span class="text-xs opacity-80">Heures</span>
+            </div>
+            <span class="text-2xl font-bold">:</span>
+            <div class="flex flex-col items-center bg-white/10 p-2 rounded-md min-w-[50px]">
+                <span id="banner-minutes" class="text-2xl font-bold">00</span>
+                <span class="text-xs opacity-80">Min</span>
+            </div>
+            <span class="text-2xl font-bold">:</span>
+            <div class="flex flex-col items-center bg-white/10 p-2 rounded-md min-w-[50px]">
+                <span id="banner-seconds" class="text-2xl font-bold">00</span>
+                <span class="text-xs opacity-80">Sec</span>
+            </div>
+        </div>
+
+        <!-- Partie droite : Boutons d'action -->
+        <div class="flex items-center gap-4 flex-shrink-0 mt-2 lg:mt-0">
             <a href="#offres" id="banner-cta-button" class="bg-warm-orange hover:bg-warm-orange/90 text-white font-semibold py-2 px-5 rounded-md text-sm transition-colors">
-                Voir les offres
+                Profiter de l'offre
             </a>
             <button id="close-banner-button" class="text-white/70 hover:text-white transition-colors" aria-label="Fermer le bandeau">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
