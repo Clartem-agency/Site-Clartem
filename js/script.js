@@ -86,3 +86,46 @@ function startCountdown() {
 
 // Lancer le compte à rebours une fois que la page est chargée
 document.addEventListener('DOMContentLoaded', startCountdown);
+
+// ==================================================================
+// LOGIQUE POUR LE BANDEAU PROMOTIONNEL
+// ==================================================================
+document.addEventListener('DOMContentLoaded', function() {
+    const banner = document.getElementById('promo-banner');
+    const closeButton = document.getElementById('close-banner-button');
+    const ctaButton = document.getElementById('banner-cta-button');
+
+    // S'assurer que le bandeau existe sur la page
+    if (!banner || !closeButton || !ctaButton) {
+        return;
+    }
+
+    // Fonction pour afficher le bandeau
+    const showBanner = () => {
+        banner.classList.remove('translate-y-full');
+    };
+
+    // Fonction pour cacher le bandeau
+    const hideBanner = () => {
+        banner.classList.add('translate-y-full');
+    };
+
+    // Vérifier si le bandeau a déjà été fermé pendant cette session
+    if (sessionStorage.getItem('promoBannerClosed') !== 'true') {
+        // Afficher le bandeau après 3 secondes
+        setTimeout(showBanner, 3000);
+    }
+
+    // Logique pour le bouton de fermeture
+    closeButton.addEventListener('click', () => {
+        hideBanner();
+        // Mémoriser que l'utilisateur a fermé le bandeau pour cette session
+        sessionStorage.setItem('promoBannerClosed', 'true');
+    });
+    
+    // Logique pour le bouton d'action (ferme aussi le bandeau)
+    ctaButton.addEventListener('click', () => {
+        hideBanner();
+        // Pas besoin de mémoriser ici, car le scroll vers les offres est déjà une action
+    });
+});
