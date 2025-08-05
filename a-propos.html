@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos - L'homme derrière la méthode Clartem</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon-clartem.ico"> 
+    
+    <!-- META TAGS -->
+    <meta name="description" content="Découvrez l'histoire et la philosophie de Frédéric, le fondateur de Clartem. Ma mission : créer des sites web qui sont de véritables outils de croissance, basés sur la clarté.">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-white">
+
+    <!-- Navigation (identique aux autres pages) -->
+    <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html">
+                    <img class="h-14 w-auto" src="assets/logo-clartem.svg" alt="Logo clartem.com">
+                </a>
+                <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                    <!-- LIEN "À PROPOS" AJOUTÉ À LA NAVIGATION PRINCIPALE -->
+                    <a href="a-propos.html" class="text-clarity-blue font-semibold transition-colors duration-300">À Propos</a>
+                    <a href="index.html#plan" class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mon Plan</a>
+                    <a href="index.html#offres" class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes Offres</a>
+                    <a href="index.html#temoignages" class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Témoignages</a>
+                </div>
+                <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl hover:scale-105 transition-all duration-300 font-bold h-11 rounded-md px-8 shadow-lg">Planifier un appel clarté</a>
+                <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                <a href="a-propos.html" class="block text-clarity-blue font-semibold py-2">À Propos</a>
+                <a href="index.html#plan" class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Notre Plan</a>
+                <a href="index.html#offres" class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Nos Offres</a>
+                <a href="index.html#temoignages" class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Témoignages</a>
+                <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="block mt-2 w-full text-center bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl transition-all duration-300 font-bold py-2 rounded-md px-8 shadow-lg">Planifier un appel clarté</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenu principal de la page À Propos -->
+    <main class="bg-white pt-32 pb-20">
+        <div class="container mx-auto px-6">
+            
+            <!-- Section principale : L'homme derrière la méthode -->
+            <section class="max-w-5xl mx-auto mb-20">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div class="text-center lg:text-left">
+                        <!-- REMPLACEZ 'photo-frederic.jpg' PAR LE NOM DE VOTRE FICHIER PHOTO -->
+                        <img src="assets/photo-frederic.jpg" alt="Frédéric, fondateur de Clartem" class="rounded-2xl shadow-2xl w-full max-w-sm mx-auto lg:mx-0">
+                    </div>
+                    <div class="space-y-6">
+                        <h1 class="text-4xl md:text-5xl font-bold text-neutral-dark leading-tight">L'homme derrière <br class="hidden lg:block"><span class="text-clarity-blue">la méthode</span></h1>
+                        <p class="text-lg text-neutral-light leading-relaxed">Pendant des années, j'ai vu des entrepreneurs passionnés, experts dans leur domaine, posséder des sites web qui, au lieu de les servir, sabotaient leur propre succès. Le jargon technique, le design confus et le manque de message clair coûtaient des clients précieux.</p>
+                        <p class="text-lg text-neutral-dark font-medium leading-relaxed">C'est pour cette raison que j'ai fondé <span class="font-bold">Clartem</span>. Ma mission n'est pas de créer des sites "jolis", mais de construire des outils de croissance basés sur un principe simple et puissant : <span class="font-bold text-warm-orange">la clarté.</span></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Philosophie -->
+            <section class="py-20 bg-soft-blue rounded-3xl">
+                <div class="max-w-4xl mx-auto px-6 text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">Ma Philosophie : Moins de Jargon, Plus de Résultats</h2>
+                    <p class="text-xl text-neutral-light mb-12">Je crois que la technologie doit être un allié, pas un obstacle. Mon approche repose sur quatre piliers :</p>
+                    <div class="grid sm:grid-cols-2 gap-8 text-left">
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 flex-shrink-0 rounded-full bg-success-green flex items-center justify-center mt-1"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                            <div><h3 class="font-bold text-lg text-neutral-dark">Un outil, pas un fardeau</h3><p class="text-neutral-dark">Votre site web doit travailler pour vous 24/7, attirer des clients et vous faire gagner du temps.</p></div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 flex-shrink-0 rounded-full bg-success-green flex items-center justify-center mt-1"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                            <div><h3 class="font-bold text-lg text-neutral-dark">La collaboration est la clé</h3><p class="text-neutral-dark">Vous êtes l'expert de votre métier, je suis l'expert du web. Ensemble, nous créons un site qui vous ressemble et qui convertit.</p></div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 flex-shrink-0 rounded-full bg-success-green flex items-center justify-center mt-1"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                            <div><h3 class="font-bold text-lg text-neutral-dark">La simplicité est puissante</h3><p class="text-neutral-dark">Un message clair et un design épuré sont bien plus efficaces qu'un site surchargé et confus.</p></div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 flex-shrink-0 rounded-full bg-success-green flex items-center justify-center mt-1"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+                            <div><h3 class="font-bold text-lg text-neutral-dark">Votre autonomie est la finalité</h3><p class="text-neutral-dark">Je vous livre un site dont vous êtes 100% propriétaire et que vous pouvez gérer sans dépendre de moi.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section CTA -->
+            <section class="py-20">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">Prêt(e) à apporter de la clarté à votre projet ?</h2>
+                    <p class="text-xl text-neutral-light mb-8">Discutons de votre vision lors d'un appel gratuit de 15 minutes. C'est la première étape pour transformer votre présence en ligne en un véritable moteur de croissance.</p>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 whitespace-nowrap bg-warm-orange text-white hover:bg-warm-orange/90 font-semibold rounded-md text-xl px-12 py-5 h-auto shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                        Planifier mon appel clarté
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer (identique aux autres pages) -->
+    <footer class="bg-neutral-dark text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="space-y-6">
+                    <div>
+                        <a href="index.html">
+                            <img class="h-14 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                        </a>
+                        <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                    </div>
+                    <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon et les coûts exorbitants.</p>
+                </div>
+                <div class="space-y-6">
+                    <h4 class="text-xl font-bold text-white">Navigation</h4>
+                    <div class="space-y-3">
+                        <a href="index.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                        <a href="a-propos.html" class="block text-clarity-blue font-semibold hover:text-clarity-blue/80 transition-colors duration-300">À Propos</a>
+                        <a href="index.html#offres" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes Offres</a>
+                        <a href="index.html#temoignages" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Témoignages</a>
+                        <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Prendre Rendez-vous</a>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                    <div class="space-y-3">
+                        <a href="mentions-legales.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions Légales</a>
+                        <a href="politique-de-confidentialite.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique de Confidentialité</a>
+                        <a href="cgv.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions Générales de Vente</a>
+                        <a href="contact.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-sm text-neutral-light">© 2024 Kotka Media OÜ. Tous droits réservés.</p>
+                    <div class="text-sm text-neutral-light">
+                        <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS (identique aux autres pages) -->
+    <script src="js/script.js"></script>
+</body>
+</html>
