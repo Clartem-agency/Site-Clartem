@@ -129,4 +129,39 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
     }, 1000);
+
+        // ==================================================================
+    // LOGIQUE DU FILTRE PORTFOLIO
+    // ==================================================================
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    if (filterButtons.length > 0 && portfolioItems.length > 0) {
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.dataset.filter;
+
+                // Mettre à jour le style des boutons (le bouton actif)
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('bg-deep-blue', 'text-white');
+                    btn.classList.add('bg-gray-200', 'text-neutral-dark', 'hover:bg-gray-300');
+                });
+                button.classList.add('bg-deep-blue', 'text-white');
+                button.classList.remove('bg-gray-200', 'text-neutral-dark', 'hover:bg-gray-300');
+
+                // Filtrer les projets
+                portfolioItems.forEach(item => {
+                    const category = item.dataset.category;
+                    
+                    // Si le filtre est "tous" OU si la catégorie de l'item correspond au filtre
+                    if (filter === 'all' || filter === category) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    }
+    
 });
