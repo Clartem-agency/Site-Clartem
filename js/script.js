@@ -1,9 +1,9 @@
-// script.js - VERSION FINALE
+// script.js - VERSION FINALE COMPLÈTE
 
 document.addEventListener('DOMContentLoaded', function () {
     
     // ==================================================================
-    // LOGIQUE DU MENU MOBILE ET DE LA NAVIGATION (INCHANGÉ)
+    // LOGIQUE DU MENU MOBILE ET DE LA NAVIGATION
     // ==================================================================
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==================================================================
-    // LOGIQUE DU BANDEAU PROMOTIONNEL (INCHANGÉ)
+    // LOGIQUE DU BANDEAU PROMOTIONNEL
     // ==================================================================
     const banner = document.getElementById('promo-banner');
     const closeButton = document.getElementById('close-banner-button');
@@ -58,27 +58,22 @@ document.addEventListener('DOMContentLoaded', function () {
     // ==================================================================
     // LOGIQUE UNIFIÉE POUR TOUS LES COMPTES À REBOURS
     // ==================================================================
-    // 1. Définir la date de fin (une seule fois)
     const countdownDate = new Date("Aug 31, 2025 23:59:59").getTime();
 
-    // 2. Récupérer les éléments des DEUX minuteurs
-    // Minuteur principal (dans la section offres)
     const mainDaysEl = document.getElementById('days');
     const mainHoursEl = document.getElementById('hours');
     const mainMinutesEl = document.getElementById('minutes');
     const mainSecondsEl = document.getElementById('seconds');
     const mainTimerContainer = document.getElementById('countdown-timer');
 
-    // Minuteur du bandeau
     const bannerDaysEl = document.getElementById('banner-days');
     const bannerHoursEl = document.getElementById('banner-hours');
     const bannerMinutesEl = document.getElementById('banner-minutes');
     const bannerSecondsEl = document.getElementById('banner-seconds');
     const bannerTimerContainer = document.getElementById('banner-countdown-timer');
 
-    // 3. Fonction pour mettre à jour un minuteur (réutilisable)
     const updateTimerDisplay = (distance, elements, container) => {
-        if (!container) return; // Si le minuteur n'existe pas, on ne fait rien
+        if (!container) return;
 
         if (distance < 0) {
             container.innerHTML = '<div class="text-lg font-bold text-center w-full">L\'offre est terminée !</div>';
@@ -98,12 +93,10 @@ document.addEventListener('DOMContentLoaded', function () {
         elements.seconds.innerHTML = format(seconds);
     };
 
-    // 4. Lancer l'intervalle de mise à jour global
     const interval = setInterval(() => {
         const now = new Date().getTime();
         const distance = countdownDate - now;
 
-        // Mettre à jour le minuteur principal
         if (mainTimerContainer) {
             updateTimerDisplay(distance, {
                 days: mainDaysEl,
@@ -113,7 +106,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }, mainTimerContainer);
         }
 
-        // Mettre à jour le minuteur du bandeau
         if (bannerTimerContainer) {
             updateTimerDisplay(distance, {
                 days: bannerDaysEl,
@@ -123,14 +115,13 @@ document.addEventListener('DOMContentLoaded', function () {
             }, bannerTimerContainer);
         }
         
-        // Arrêter l'intervalle si le temps est écoulé
         if (distance < 0) {
             clearInterval(interval);
         }
 
     }, 1000);
 
-        // ==================================================================
+    // ==================================================================
     // LOGIQUE DU FILTRE PORTFOLIO
     // ==================================================================
     const filterButtons = document.querySelectorAll('.filter-btn');
@@ -141,7 +132,6 @@ document.addEventListener('DOMContentLoaded', function () {
             button.addEventListener('click', () => {
                 const filter = button.dataset.filter;
 
-                // Mettre à jour le style des boutons (le bouton actif)
                 filterButtons.forEach(btn => {
                     btn.classList.remove('bg-deep-blue', 'text-white');
                     btn.classList.add('bg-gray-200', 'text-neutral-dark', 'hover:bg-gray-300');
@@ -149,11 +139,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 button.classList.add('bg-deep-blue', 'text-white');
                 button.classList.remove('bg-gray-200', 'text-neutral-dark', 'hover:bg-gray-300');
 
-                // Filtrer les projets
                 portfolioItems.forEach(item => {
                     const category = item.dataset.category;
                     
-                    // Si le filtre est "tous" OU si la catégorie de l'item correspond au filtre
                     if (filter === 'all' || filter === category) {
                         item.classList.remove('hidden');
                     } else {
@@ -162,6 +150,93 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             });
         });
+    }
+
+    // ==================================================================
+    // NOUVELLE LOGIQUE : "VOIR PLUS" POUR LE PORTFOLIO
+    // ==================================================================
+    const portfolioGrid = document.getElementById('portfolio-grid');
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    const loadMoreContainer = document.getElementById('load-more-container');
+
+    if (portfolioGrid && loadMoreBtn && loadMoreContainer) {
+        const allItems = Array.from(portfolioGrid.getElementsByClassName('portfolio-item'));
+        
+        // --- Paramètres ---
+        const itemsToShowInitially = 6; // Afficher 6 projets au début
+        const itemsToLoadOnClick = 6;   // Charger 6 projets de plus à chaque clic
+        // ------------------
+
+        let currentlyVisible = itemsToShowInitially;
+
+        // Cache initialement les projets en trop
+        const updateVisibleItems = () => {
+            allItems.forEach((item, index) => {
+                // On applique le style 'display' seulement si l'item n'est pas déjà caché par le filtre
+                if (!item.classList.contains('hidden')) {
+                    if (index < currentlyVisible) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }
+            });
+
+            // Cache le bouton "Voir plus" s'il n'y a plus rien à montrer
+            if (currentlyVisible >= allItems.length) {
+                loadMoreContainer.style.display = 'none';
+            } else {
+                loadMoreContainer.style.display = 'block';
+            }
+        };
+
+        // Gère le clic sur le bouton "Voir plus"
+        loadMoreBtn.addEventListener('click', () => {
+            currentlyVisible += itemsToLoadOnClick;
+            // On cible uniquement les items visibles par le filtre
+            const visibleItemsAfterFilter = Array.from(portfolioGrid.querySelectorAll('.portfolio-item:not(.hidden)'));
+            visibleItemsAfterFilter.forEach((item, index) => {
+                if (index < currentlyVisible) {
+                    item.style.display = 'block';
+                }
+            });
+            if (currentlyVisible >= visibleItemsAfterFilter.length) {
+                loadMoreContainer.style.display = 'none';
+            }
+        });
+
+        // Gère la réinitialisation lors du clic sur un filtre
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Petite pause pour laisser le temps au filtre (ajout/retrait de la classe 'hidden') de s'appliquer
+                setTimeout(() => {
+                    const visibleItemsAfterFilter = Array.from(portfolioGrid.querySelectorAll('.portfolio-item:not(.hidden)'));
+                    
+                    // Réinitialise le compteur
+                    currentlyVisible = itemsToShowInitially;
+
+                    // Cache les éléments en trop après filtrage
+                    visibleItemsAfterFilter.forEach((item, index) => {
+                        if (index < currentlyVisible) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+
+                    // Affiche ou cache le bouton "Voir plus" en fonction du nombre d'éléments filtrés
+                    if (visibleItemsAfterFilter.length > currentlyVisible) {
+                        loadMoreContainer.style.display = 'block';
+                    } else {
+                        loadMoreContainer.style.display = 'none';
+                    }
+                }, 100); // 100ms de délai est suffisant
+            });
+        });
+
+        // Initialisation au chargement de la page
+        // On lance la fonction de filtrage initiale pour la catégorie "tous"
+        document.querySelector('.filter-btn[data-filter="all"]').click();
     }
     
 });
