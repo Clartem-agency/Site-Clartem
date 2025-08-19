@@ -1,9 +1,9 @@
-// script.js - VERSION FINALE COMPLÈTE
+// script.js - VERSION CORRIGÉE ET FINALE
 
 document.addEventListener('DOMContentLoaded', function () {
     
     // ==================================================================
-    // LOGIQUE DU MENU MOBILE ET DE LA NAVIGATION
+    // LOGIQUE DU MENU MOBILE ET DE LA NAVIGATION (INCHANGÉ)
     // ==================================================================
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==================================================================
-    // LOGIQUE DU BANDEAU PROMOTIONNEL
+    // LOGIQUE DU BANDEAU PROMOTIONNEL (INCHANGÉ)
     // ==================================================================
     const banner = document.getElementById('promo-banner');
     const closeButton = document.getElementById('close-banner-button');
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==================================================================
-    // LOGIQUE UNIFIÉE POUR TOUS LES COMPTES À REBOURS
+    // LOGIQUE UNIFIÉE POUR TOUS LES COMPTES À REBOURS (INCHANGÉ)
     // ==================================================================
     const countdownDate = new Date("Aug 31, 2025 23:59:59").getTime();
 
@@ -98,21 +98,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const distance = countdownDate - now;
 
         if (mainTimerContainer) {
-            updateTimerDisplay(distance, {
-                days: mainDaysEl,
-                hours: mainHoursEl,
-                minutes: mainMinutesEl,
-                seconds: mainSecondsEl
-            }, mainTimerContainer);
+            updateTimerDisplay(distance, { days: mainDaysEl, hours: mainHoursEl, minutes: mainMinutesEl, seconds: mainSecondsEl }, mainTimerContainer);
         }
 
         if (bannerTimerContainer) {
-            updateTimerDisplay(distance, {
-                days: bannerDaysEl,
-                hours: bannerHoursEl,
-                minutes: bannerMinutesEl,
-                seconds: bannerSecondsEl
-            }, bannerTimerContainer);
+            updateTimerDisplay(distance, { days: bannerDaysEl, hours: bannerHoursEl, minutes: bannerMinutesEl, seconds: bannerSecondsEl }, bannerTimerContainer);
         }
         
         if (distance < 0) {
@@ -122,121 +112,75 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 1000);
 
     // ==================================================================
-    // LOGIQUE DU FILTRE PORTFOLIO
+    // LOGIQUE CORRIGÉE : FILTRE ET "VOIR PLUS" DU PORTFOLIO
     // ==================================================================
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    const portfolioGrid = document.getElementById('portfolio-grid');
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    const loadMoreContainer = document.getElementById('load-more-container');
 
-    if (filterButtons.length > 0 && portfolioItems.length > 0) {
+    if (filterButtons.length > 0 && portfolioGrid && loadMoreBtn) {
+        const itemsToShowInitially = 6;
+        const itemsToLoadOnClick = 6;
+        let currentlyVisibleCount;
+
+        // ** LA FONCTION CLÉ CORRIGÉE **
+        // Cette fonction applique la logique "voir plus" UNIQUEMENT aux éléments visibles après filtrage.
+        const applyVisibility = () => {
+            const visibleItems = Array.from(portfolioGrid.querySelectorAll('.portfolio-item:not(.hidden)'));
+            
+            visibleItems.forEach((item, index) => {
+                // On affiche l'élément si son index DANS LA LISTE FILTRÉE est inférieur au nombre visible
+                if (index < currentlyVisibleCount) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            // On affiche le bouton "Voir plus" seulement s'il reste des éléments cachés DANS LA LISTE FILTRÉE
+            if (visibleItems.length > currentlyVisibleCount) {
+                loadMoreContainer.style.display = 'block';
+            } else {
+                loadMoreContainer.style.display = 'none';
+            }
+        };
+
+        // Gère le clic sur le bouton "Voir plus"
+        loadMoreBtn.addEventListener('click', () => {
+            currentlyVisibleCount += itemsToLoadOnClick;
+            applyVisibility();
+        });
+
+        // Gère le clic sur les boutons de filtre
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const filter = button.dataset.filter;
 
-                filterButtons.forEach(btn => {
-                    btn.classList.remove('bg-deep-blue', 'text-white');
-                    btn.classList.add('bg-gray-200', 'text-neutral-dark', 'hover:bg-gray-300');
-                });
+                // 1. Mettre à jour le style du bouton actif
+                filterButtons.forEach(btn => btn.classList.remove('bg-deep-blue', 'text-white'));
                 button.classList.add('bg-deep-blue', 'text-white');
-                button.classList.remove('bg-gray-200', 'text-neutral-dark', 'hover:bg-gray-300');
 
-                portfolioItems.forEach(item => {
+                // 2. Appliquer le filtre en cachant/montrant les items avec la classe .hidden
+                const allItems = portfolioGrid.querySelectorAll('.portfolio-item');
+                allItems.forEach(item => {
+                    // On remet le display à '' pour que la classe .hidden (display: none) puisse fonctionner
+                    item.style.display = ''; 
                     const category = item.dataset.category;
-                    
                     if (filter === 'all' || filter === category) {
                         item.classList.remove('hidden');
                     } else {
                         item.classList.add('hidden');
                     }
                 });
-            });
-        });
-    }
 
-    // ==================================================================
-    // NOUVELLE LOGIQUE : "VOIR PLUS" POUR LE PORTFOLIO
-    // ==================================================================
-    const portfolioGrid = document.getElementById('portfolio-grid');
-    const loadMoreBtn = document.getElementById('load-more-btn');
-    const loadMoreContainer = document.getElementById('load-more-container');
-
-    if (portfolioGrid && loadMoreBtn && loadMoreContainer) {
-        const allItems = Array.from(portfolioGrid.getElementsByClassName('portfolio-item'));
-        
-        // --- Paramètres ---
-        const itemsToShowInitially = 6; // Afficher 6 projets au début
-        const itemsToLoadOnClick = 6;   // Charger 6 projets de plus à chaque clic
-        // ------------------
-
-        let currentlyVisible = itemsToShowInitially;
-
-        // Cache initialement les projets en trop
-        const updateVisibleItems = () => {
-            allItems.forEach((item, index) => {
-                // On applique le style 'display' seulement si l'item n'est pas déjà caché par le filtre
-                if (!item.classList.contains('hidden')) {
-                    if (index < currentlyVisible) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                }
-            });
-
-            // Cache le bouton "Voir plus" s'il n'y a plus rien à montrer
-            if (currentlyVisible >= allItems.length) {
-                loadMoreContainer.style.display = 'none';
-            } else {
-                loadMoreContainer.style.display = 'block';
-            }
-        };
-
-        // Gère le clic sur le bouton "Voir plus"
-        loadMoreBtn.addEventListener('click', () => {
-            currentlyVisible += itemsToLoadOnClick;
-            // On cible uniquement les items visibles par le filtre
-            const visibleItemsAfterFilter = Array.from(portfolioGrid.querySelectorAll('.portfolio-item:not(.hidden)'));
-            visibleItemsAfterFilter.forEach((item, index) => {
-                if (index < currentlyVisible) {
-                    item.style.display = 'block';
-                }
-            });
-            if (currentlyVisible >= visibleItemsAfterFilter.length) {
-                loadMoreContainer.style.display = 'none';
-            }
-        });
-
-        // Gère la réinitialisation lors du clic sur un filtre
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Petite pause pour laisser le temps au filtre (ajout/retrait de la classe 'hidden') de s'appliquer
-                setTimeout(() => {
-                    const visibleItemsAfterFilter = Array.from(portfolioGrid.querySelectorAll('.portfolio-item:not(.hidden)'));
-                    
-                    // Réinitialise le compteur
-                    currentlyVisible = itemsToShowInitially;
-
-                    // Cache les éléments en trop après filtrage
-                    visibleItemsAfterFilter.forEach((item, index) => {
-                        if (index < currentlyVisible) {
-                            item.style.display = 'block';
-                        } else {
-                            item.style.display = 'none';
-                        }
-                    });
-
-                    // Affiche ou cache le bouton "Voir plus" en fonction du nombre d'éléments filtrés
-                    if (visibleItemsAfterFilter.length > currentlyVisible) {
-                        loadMoreContainer.style.display = 'block';
-                    } else {
-                        loadMoreContainer.style.display = 'none';
-                    }
-                }, 100); // 100ms de délai est suffisant
+                // 3. Réinitialiser le compteur et appliquer la logique "Voir plus"
+                currentlyVisibleCount = itemsToShowInitially;
+                applyVisibility();
             });
         });
 
-        // Initialisation au chargement de la page
-        // On lance la fonction de filtrage initiale pour la catégorie "tous"
+        // Initialisation au chargement de la page : on simule un clic sur "Tous les projets"
         document.querySelector('.filter-btn[data-filter="all"]').click();
     }
-    
 });
