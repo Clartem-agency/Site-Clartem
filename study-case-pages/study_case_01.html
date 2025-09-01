@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Étude de Cas : L'Instant Présent | Claritem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon de votre site -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+    
+    <style>
+        /* --- VARIABLES & STYLES GLOBAUX --- */
+        :root {
+            --dark-blue: #1E3A8A; /* Correspond à deep-blue */
+            --accent-blue: #3B82F6; /* Correspond à clarity-blue */
+            --accent-orange: #F97316; /* Correspond à warm-orange */
+            --light-bg: #EFF6FF; /* Correspond à soft-blue */
+            --text-color: #6B7280; /* Correspond à neutral-light */
+            --heading-color: #1F2937; /* Correspond à neutral-dark */
+            --white: #ffffff;
+            --gray: #6b7280;
+            --border-color: #e5e7eb;
+            --success-green: #16A34A;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--white);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--heading-color);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.25rem; }
+        h3 { font-size: 1.5rem; }
+        h4 { font-size: 1.25rem; }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-image: linear-gradient(to right, var(--accent-blue), var(--dark-blue));
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--dark-blue);
+            border: 2px solid var(--border-color);
+        }
+        .btn-secondary:hover {
+            background-color: var(--light-bg);
+            border-color: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .btn-orange {
+            background-color: var(--accent-orange);
+            color: var(--white);
+        }
+        .btn-orange:hover {
+            background-color: #ea580c;
+            transform: translateY(-2px);
+        }
+        
+        /* --- ANIMATION D'APPARITION --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- HEADER --- */
+        .main-header {
+            padding: 1rem 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            height: 3.5rem;
+            width: auto;
+        }
+        .main-nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--heading-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .main-nav a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(180deg, var(--light-bg) 0%, var(--white) 100%);
+            text-align: center;
+            padding-top: 60px;
+        }
+        .hero .subtitle {
+            font-size: 1.1rem;
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .hero h1 {
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+        .hero .case-study-title {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        .mockup-container {
+            position: relative;
+            display: inline-block;
+        }
+        .mockup-image {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .concept-tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: var(--accent-orange);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid #ffe8d6;
+        }
+
+        /* --- CASE STUDY CONTENT --- */
+        .case-study-content {
+            background-color: var(--white);
+        }
+        .content-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .content-wrapper h2 {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--accent-blue);
+            display: inline-block;
+        }
+        .content-wrapper p, .content-wrapper ul {
+            margin-bottom: 25px;
+        }
+        
+        .pillars-list {
+            list-style: none;
+            counter-reset: pillars-counter;
+        }
+        .pillars-list li {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 30px;
+        }
+        .pillars-list li::before {
+            counter-increment: pillars-counter;
+            content: counter(pillars-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 35px;
+            height: 35px;
+            background-color: var(--light-bg);
+            color: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .pillars-list h4 {
+            margin-bottom: 5px;
+            color: var(--dark-blue);
+        }
+        
+        .impact-list {
+            list-style: none;
+        }
+        .impact-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        .impact-list svg {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            color: var(--success-green);
+            margin-right: 12px;
+            margin-top: 4px;
+        }
+
+        /* --- CTA SECTION --- */
+        .cta-section {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            text-align: center;
+            border-radius: 20px;
+            margin: 40px auto;
+            padding: 60px 40px;
+        }
+        .cta-section h2 {
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+        .cta-section p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #d1d5db;
+        }
+        .cta-buttons .btn {
+            margin: 10px;
+        }
+
+        /* --- FOOTER --- */
+        .main-footer {
+            background-color: var(--heading-color);
+            color: #9ca3af;
+            padding: 60px 0 20px 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #374151;
+        }
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+        }
+        .footer-col p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        .footer-col ul a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-col ul a:hover {
+            color: var(--accent-blue);
+        }
+        .footer-bottom {
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .footer-bottom p {
+            margin: 0;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 992px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            section { padding: 60px 0; }
+        }
+
+        @media (max-width: 768px) {
+            .main-nav { display: none; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.75rem; }
+            
+            .cta-section {
+                padding: 40px 20px;
+            }
+            .cta-buttons {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+            </a>
+            <nav class="main-nav">
+                <a href="../a-propos.html">À Propos</a>
+                <a href="../index.html#plan">Mon Plan</a>
+                <a href="../index.html#offres">Mes Offres</a>
+                <a href="../index.html#portfolio">Portfolio</a>
+            </nav>
+            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Planifier un appel clarté</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <p class="subtitle fade-in">Étude de Cas</p>
+                <h1 class="fade-in">L'Instant Présent</h1>
+                <p class="case-study-title fade-in">Du Barreau au Tapis de Yoga : La Digitalisation Sereine d'un Studio Urbain</p>
+                
+                <div class="mockup-container fade-in">
+                    <img src="../assets/mockup-portfolio-4.webp" alt="Mockup du site web L'Instant Présent sur un ordinateur portable et un mobile" class="mockup-image">
+                    <div class="concept-tag">[ PROJET CONCEPT ]</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-content">
+            <div class="content-wrapper">
+                <div class="fade-in">
+                    <h2>Le Défi : Harmoniser Passion et Gestion sans Perdre son Âme</h2>
+                    <p>Notre persona pour cette étude de cas conceptuelle est Chloé Moreau, fondatrice du studio de yoga "L'Instant Présent" à Lille. Ancienne avocate reconvertie, elle a créé son studio non pas comme une entreprise, mais comme une mission : offrir un refuge aux professionnels urbains stressés, un lieu où la performance cède la place à la bienveillance.</p>
+                    <p>Son expertise et sa passion attiraient naturellement les élèves, mais cette croissance se heurtait à un mur invisible et épuisant : le <strong>chaos administratif</strong>. Les réservations par SMS à toute heure, les paiements manuels à traquer, les annulations de dernière minute gérées par email... chaque tâche administrative était une distraction qui volait son énergie et l'éloignait de son cœur de métier.</p>
+                    <p>Le dilemme de Chloé était profond : comment professionnaliser la gestion de son studio et offrir une expérience de réservation fluide <strong>sans pour autant devenir une "usine à yoga" impersonnelle</strong> ? Comment intégrer la technologie tout en préservant la chaleur humaine et l'authenticité qui faisaient l'essence même de son projet ?</p>
+                </div>
+
+                <div class="fade-in" style="margin-top: 60px;">
+                    <h2>La Solution : Un Site One-Page comme Parcours de Bien-être</h2>
+                    <p>Pour répondre à ce besoin d'équilibre, nous avons conçu un site One-Page. Ce format n'est pas un compromis, mais une décision stratégique délibérée. Pour une activité comme celle de Chloé, où l'atmosphère et la confiance sont primordiales, le site One-Page agit comme un <strong>parcours de découverte fluide et apaisant</strong>. Il prend le visiteur par la main, l'immerge dans l'univers du studio, et le guide naturellement vers la réservation, sans friction ni rupture.</p>
+                    <p>La solution a été construite sur des piliers stratégiques conçus pour résoudre les frustrations de Chloé :</p>
+                    <ol class="pillars-list">
+                        <li>
+                            <h4>L'Humain Avant Tout pour Créer la Connexion</h4>
+                            <p>Le site s'ouvre sur l'histoire de Chloé, "De la Robe d'Avocate au Tapis de Yoga". Ce récit n'est pas anecdotique ; il est le fondement de la confiance. Il positionne Chloé non pas comme une simple professeure, mais comme une guide qui comprend intimement le stress de sa clientèle. Le visiteur ne voit pas un service, il rencontre une personne qui peut l'aider.</p>
+                        </li>
+                        <li>
+                            <h4>La Clarté des Formules pour Simplifier la Décision</h4>
+                            <p>Nous avons transformé son offre en trois formules claires et nommées avec intention ("La Découverte", "La Pratique", "L'Engagement"). Cette structure élimine l'ambiguïté, permet aux futurs élèves de s'identifier immédiatement à un besoin et de comprendre la valeur, rendant le passage à l'action simple et rassurant.</p>
+                        </li>
+                        <li>
+                            <h4>L'Automatisation Intelligente pour Libérer l'Esprit</h4>
+                            <p>Le cœur de la solution est l'intégration transparente d'un système de réservation en ligne. Ce n'est pas un simple "gadget" technologique, mais un véritable outil de libération. En gérant le planning, les paiements et les confirmations, il redonne à Chloé son bien le plus précieux : son temps et sa concentration, qu'elle peut réinvestir entièrement dans ses élèves.</p>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="fade-in" style="margin-top: 60px;">
+                    <h2>L'Impact Potentiel : Plus qu'un Site, un Actif Stratégique</h2>
+                    <p>Un site web conçu ainsi devient le pilier de la sérénité entrepreneuriale. Pour une professionnelle comme Chloé Moreau, il ne s'agit plus d'une simple vitrine, mais d'un système qui travaille pour elle, en harmonie avec ses valeurs.</p>
+                    <p>L'impact attendu se mesure sur plusieurs niveaux concrets :</p>
+                    <ul class="impact-list">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" /></svg>
+                            <span><strong>Une Sérénité Retrouvée pour l'Entrepreneure :</strong> Fini le stress de la gestion manuelle. Le système de réservation autonome lui permet de se déconnecter en fin de journée, sachant que son studio continue de fonctionner parfaitement sans elle.</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" /></svg>
+                            <span><strong>Une Expérience Client Fluide et Professionnelle :</strong> Du premier contact visuel sur le site à la réception de l'email de confirmation, l'élève vit une expérience cohérente, simple et rassurante, qui est le prélude parfait au calme qu'il trouvera au studio.</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" /></svg>
+                            <span><strong>Des Cours Complets et une Communauté Engagée :</strong> En éliminant les freins à la réservation, le site maximise le taux de remplissage des cours. La facilité d'accès encourage une pratique régulière et contribue à bâtir une communauté fidèle.</span>
+                        </li>
+                        <li>
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" /></svg>
+                            <span><strong>Une Image de Marque qui Incarne la Promesse :</strong> Le design épuré, la clarté des informations et la fluidité du parcours digital reflètent parfaitement la promesse du studio : un lieu où tout est simple, calme et professionnel.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta" class="container">
+            <div class="cta-section fade-in">
+                <h2>Prêt(e) à retrouver la sérénité dans la gestion de votre activité ?</h2>
+                <p>Comme pour Chloé, nous pouvons créer un site qui automatise les tâches répétitives et vous permet de vous concentrer sur votre passion. Discutons de votre vision.</p>
+                <div class="cta-buttons">
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="btn btn-orange">Obtenir une solution similaire</a>
+                    <a href="#" class="btn btn-secondary">Analyser le site concept</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="../index.html" class="logo" style="margin-bottom: 15px; display: block;">
+                        <img src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com en blanc">
+                    </a>
+                    <p>Apporter de la clarté dans le chaos digital. Je crée des sites web pour les indépendants passionnés qui méritent une présence en ligne professionnelle.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../index.html">Accueil</a></li>
+                        <li><a href="../a-propos.html">À Propos</a></li>
+                        <li><a href="../index.html#plan">Mon Plan</a></li>
+                        <li><a href="../index.html#offres">Mes Offres</a></li>
+                        <li><a href="../index.html#portfolio">Portfolio</a></li>
+                        <li><a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer">Prendre Rendez-vous</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Informations Légales</h4>
+                    <ul>
+                        <li><a href="../mentions-legales.html">Mentions Légales</a></li>
+                        <li><a href="../politique-de-confidentialite.html">Politique de Confidentialité</a></li>
+                        <li><a href="../cgv.html">Conditions Générales de Vente</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 clartem.com. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- SCRIPT POUR L'ANIMATION D'APPARITION AU SCROLL ---
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1 // L'élément devient visible quand 10% est à l'écran
+            });
+
+            const elementsToAnimate = document.querySelectorAll('.fade-in');
+            elementsToAnimate.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
