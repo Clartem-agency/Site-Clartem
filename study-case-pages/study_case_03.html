@@ -288,6 +288,9 @@
         /* --- CASE STUDY CONTENT --- */
         .case-study-content {
             background-color: var(--white);
+            /* On retire le padding global de la section pour un contrôle plus fin */
+            padding-top: 0; 
+            padding-bottom: 80px;
         }
 
         .content-wrapper {
@@ -295,6 +298,18 @@
             margin: 0 auto;
             padding: 0 20px;
         }
+
+        /* NOUVELLE CLASSE POUR LE CONTENEUR DU BOUTON */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            /* Centre le bouton horizontalement */
+            padding-top: 60px;
+            /* Espace au-dessus */
+            margin-bottom: 40px;
+            /* Espace en dessous, réduit par rapport aux 60px initiaux */
+        }
+
 
         .content-wrapper h2 {
             margin-bottom: 20px;
@@ -658,7 +673,8 @@
         <section class="case-study-content">
             <div class="content-wrapper">
 
-                <div class="fade-in" style="text-align: center; margin-bottom: 60px;">
+                <!-- MODIFICATION : La div a maintenant une classe dédiée -->
+                <div class="button-container fade-in">
                     <a href="https://clartem-agency.github.io/Site-Clartem/study-case-pages/study_case_03.html"
                         class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Voir le site</a>
                 </div>
