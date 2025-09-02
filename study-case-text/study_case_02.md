@@ -1,4 +1,3 @@
-Absolument. Voici l'étude de cas conceptuelle pour le persona "Chloé Dubois, Décoratrice d'Intérieur", rédigée en suivant scrupuleusement le prompt-matrice final que nous avons défini ensemble.
 
 ---
 
