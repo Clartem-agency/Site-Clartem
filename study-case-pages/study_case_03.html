@@ -288,9 +288,6 @@
         /* --- CASE STUDY CONTENT --- */
         .case-study-content {
             background-color: var(--white);
-            /* On retire le padding global de la section pour un contrôle plus fin */
-            padding-top: 0; 
-            padding-bottom: 80px;
         }
 
         .content-wrapper {
@@ -298,18 +295,6 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-
-        /* NOUVELLE CLASSE POUR LE CONTENEUR DU BOUTON */
-        .button-container {
-            display: flex;
-            justify-content: center;
-            /* Centre le bouton horizontalement */
-            padding-top: 60px;
-            /* Espace au-dessus */
-            margin-bottom: 40px;
-            /* Espace en dessous, réduit par rapport aux 60px initiaux */
-        }
-
 
         .content-wrapper h2 {
             margin-bottom: 20px;
@@ -670,14 +655,9 @@
             </div>
         </section>
 
-        <section class="case-study-content">
+        <!-- MODIFICATION : Réduction de l'espacement en bas de cette section -->
+        <section class="case-study-content" style="padding-bottom: 20px;">
             <div class="content-wrapper">
-
-                <!-- MODIFICATION : La div a maintenant une classe dédiée -->
-                <div class="button-container fade-in">
-                    <a href="https://clartem-agency.github.io/Site-Clartem/study-case-pages/study_case_03.html"
-                        class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Voir le site</a>
-                </div>
 
                 <div class="fade-in">
                     <h2>Le Défi : Bâtir la Confiance dans un Univers Saturé</h2>
@@ -777,12 +757,18 @@
                                 avec sérénité, en parfait accord avec les principes d'équilibre qu'elle prône.</span>
                         </li>
                     </ul>
+
+                    <!-- BOUTON DÉPLACÉ ICI -->
+                    <div class="fade-in" style="text-align: center; margin-top: 40px;">
+                        <a href="https://clartem-agency.github.io/Site-Clartem/study-case-pages/study_case_03.html"
+                            class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Voir le site</a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="cta" class="container">
-            <!-- MODIFICATION #3 : L'appel à l'action est maintenant centré sur votre concept. -->
+        <!-- MODIFICATION : Réduction de l'espacement en haut de cette section -->
+        <section id="cta" class="container" style="padding-top: 0;">
             <div class="cta-section fade-in">
                 <h2>Prêt(e) à construire votre propre Site Clarté ?</h2>
                 <p>Comme pour Équilibre & Nature, nous pouvons concevoir votre Site Clarté pour qu'il incarne vos
