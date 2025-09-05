@@ -50,7 +50,57 @@
     <div class="min-h-screen flex flex-col">
         <!-- NAVIGATION -->
         <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
-            <!-- ... Votre code de navigation ici ... -->
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+
+                    <a href="#">
+                        <img class="h-14 w-auto" src="assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="index.html#plan"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mon
+                            Plan</a>
+                        <a href="index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="index.html#portfolio"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Portfolio</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl hover:scale-105 transition-all duration-300 font-bold h-11 rounded-md px-8 shadow-lg">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <!-- Mobile Menu -->
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="index.html#plan"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Notre
+                        Plan</a>
+                    <a href="index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Nos
+                        Offres</a>
+                    <a href="index.html#portfolio"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Portfolio</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="block mt-2 w-full text-center bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl transition-all duration-300 font-bold py-2 rounded-md px-8 shadow-lg">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
         </nav>
 
         <main class="flex-grow">
@@ -168,73 +218,72 @@
                 </div>
             </section>
             
-            <!-- NOUVEAU : Section FAQ Dynamique -->
-<section class="py-20 bg-white">
-    <div class="container mx-auto px-6 max-w-3xl">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-neutral-dark mb-4">Vos Questions, Mes Réponses Claires</h2>
-            <p class="text-lg text-neutral-light">Toutes les informations pour prendre votre décision en toute sérénité.</p>
-        </div>
-        <div id="faq-accordion" class="border-t border-gray-200">
-            
-            <!-- Question 1 -->
-            <div class="faq-item">
-                <button class="faq-question flex justify-between items-center w-full text-left py-5">
-                    <span class="font-semibold text-neutral-dark text-lg">Puis-je modifier ma carte et mes prix facilement ?</span>
-                    <svg class="w-5 h-5 text-clarity-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                </button>
-                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                    <p class="text-neutral-light pb-5 pr-4">Absolument. Je construis le site de manière à ce que la mise à jour de votre menu soit simple et rapide. Je vous fournirai une courte vidéo de formation personnalisée pour que vous soyez 100% autonome sur les modifications courantes.</p>
-                </div>
-            </div>
-            
-            <!-- Question 2 -->
-            <div class="faq-item">
-                <button class="faq-question flex justify-between items-center w-full text-left py-5">
-                    <span class="font-semibold text-neutral-dark text-lg">Y a-t-il des frais cachés ou un abonnement mensuel ?</span>
-                    <svg class="w-5 h-5 text-clarity-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                </button>
-                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                    <p class="text-neutral-light pb-5 pr-4">Non. Mes tarifs sont uniques et transparents. Vous payez une seule fois pour la création du site. Les seuls frais récurrents, qui ne me concernent pas, sont ceux de votre hébergement web et de votre nom de domaine (généralement entre 50€ et 100€ par an).</p>
-                </div>
-            </div>
+            <!-- NOUVELLE Section FAQ 100% Tailwind -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-6 max-w-3xl">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-neutral-dark mb-4">Vos Questions, Mes Réponses Claires</h2>
+                        <p class="text-lg text-neutral-light">Toutes les informations pour prendre votre décision en toute sérénité.</p>
+                    </div>
+                    <div class="border-t border-gray-200">
+                        
+                        <!-- Question 1 -->
+                        <div class="faq-item border-b border-gray-200">
+                            <button class="faq-question w-full flex justify-between items-center text-left py-5 px-2">
+                                <span class="text-lg font-semibold text-neutral-dark transition-colors duration-300 hover:text-clarity-blue">Puis-je modifier ma carte et mes prix facilement ?</span>
+                                <svg class="w-5 h-5 text-clarity-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                                <p class="text-neutral-light pb-5 px-2 leading-relaxed">Absolument. Je construis le site de manière à ce que la mise à jour de votre menu soit simple et rapide. Je vous fournirai une courte vidéo de formation personnalisée pour que vous soyez 100% autonome sur les modifications courantes.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Question 2 -->
+                        <div class="faq-item border-b border-gray-200">
+                            <button class="faq-question w-full flex justify-between items-center text-left py-5 px-2">
+                                <span class="text-lg font-semibold text-neutral-dark transition-colors duration-300 hover:text-clarity-blue">Y a-t-il des frais cachés ou un abonnement mensuel ?</span>
+                                <svg class="w-5 h-5 text-clarity-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                                <p class="text-neutral-light pb-5 px-2 leading-relaxed">Non. Mes tarifs sont uniques et transparents. Vous payez une seule fois pour la création du site. Les seuls frais récurrents, qui ne me concernent pas, sont ceux de votre hébergement web et de votre nom de domaine (généralement entre 50€ et 100€ par an).</p>
+                            </div>
+                        </div>
 
-            <!-- Question 3 -->
-            <div class="faq-item">
-                <button class="faq-question flex justify-between items-center w-full text-left py-5">
-                    <span class="font-semibold text-neutral-dark text-lg">Qui s'occupe de l'hébergement et du nom de domaine ?</span>
-                    <svg class="w-5 h-5 text-clarity-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                </button>
-                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                    <p class="text-neutral-light pb-5 pr-4">Je vous accompagne pour choisir et souscrire à la meilleure offre chez un hébergeur de confiance (comme O2Switch ou Hostinger). Vous êtes ainsi le seul propriétaire de votre nom de domaine et de votre hébergement, ce qui garantit votre indépendance totale.</p>
-                </div>
-            </div>
+                        <!-- Question 3 -->
+                        <div class="faq-item border-b border-gray-200">
+                            <button class="faq-question w-full flex justify-between items-center text-left py-5 px-2">
+                                <span class="text-lg font-semibold text-neutral-dark transition-colors duration-300 hover:text-clarity-blue">Qui s'occupe de l'hébergement et du nom de domaine ?</span>
+                                <svg class="w-5 h-5 text-clarity-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                                <p class="text-neutral-light pb-5 px-2 leading-relaxed">Je vous accompagne pour choisir et souscrire à la meilleure offre chez un hébergeur de confiance (comme O2Switch ou Hostinger). Vous êtes ainsi le seul propriétaire de votre nom de domaine et de votre hébergement, ce qui garantit votre indépendance totale.</p>
+                            </div>
+                        </div>
 
-            <!-- Question 4 -->
-            <div class="faq-item">
-                <button class="faq-question flex justify-between items-center w-full text-left py-5">
-                    <span class="font-semibold text-neutral-dark text-lg">Et si j'ai besoin d'aide après le lancement ?</span>
-                    <svg class="w-5 h-5 text-clarity-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                </button>
-                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                    <p class="text-neutral-light pb-5 pr-4">Je ne vous abandonne pas ! Vous bénéficiez d'un support par email de 30 jours après la mise en ligne pour toute question ou petit ajustement. Pour des besoins plus importants, je propose des forfaits de maintenance ou des interventions ponctuelles.</p>
+                        <!-- Question 4 -->
+                        <div class="faq-item border-b border-gray-200">
+                            <button class="faq-question w-full flex justify-between items-center text-left py-5 px-2">
+                                <span class="text-lg font-semibold text-neutral-dark transition-colors duration-300 hover:text-clarity-blue">Et si j'ai besoin d'aide après le lancement ?</span>
+                                <svg class="w-5 h-5 text-clarity-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                                <p class="text-neutral-light pb-5 px-2 leading-relaxed">Je ne vous abandonne pas ! Vous bénéficiez d'un support par email de 30 jours après la mise en ligne pour toute question ou petit ajustement. Pour des besoins plus importants, je propose des forfaits de maintenance ou des interventions ponctuelles.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Question 5 -->
+                        <div class="faq-item border-b border-gray-200">
+                            <button class="faq-question w-full flex justify-between items-center text-left py-5 px-2">
+                                <span class="text-lg font-semibold text-neutral-dark transition-colors duration-300 hover:text-clarity-blue">Je n'ai pas de photos professionnelles, est-ce un problème ?</span>
+                                <svg class="w-5 h-5 text-clarity-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                                <p class="text-neutral-light pb-5 px-2 leading-relaxed">De belles photos sont un atout majeur, mais pas un bloquant. Je peux vous recommander des photographes culinaires dans votre région ou intégrer des photos de banques d'images professionnelles de haute qualité pour commencer, en attendant que vous puissiez réaliser votre propre shooting.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Question 5 -->
-            <div class="faq-item">
-                <button class="faq-question flex justify-between items-center w-full text-left py-5">
-                    <span class="font-semibold text-neutral-dark text-lg">Je n'ai pas de photos professionnelles, est-ce un problème ?</span>
-                    <svg class="w-5 h-5 text-clarity-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                </button>
-                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                    <p class="text-neutral-light pb-5 pr-4">De belles photos sont un atout majeur, mais pas un bloquant. Je peux vous recommander des photographes culinaires dans votre région ou intégrer des photos de banques d'images professionnelles de haute qualité pour commencer, en attendant que vous puissiez réaliser votre propre shooting.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
+            </section>
 
             <!-- Section Processus -->
             <section class="py-20 bg-soft-blue">
