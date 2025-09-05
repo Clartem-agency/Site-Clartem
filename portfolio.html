@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Découvrez nos réalisations | clartem.com</title>
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon-clartem.ico">
+    
+    <meta name="description"
+        content="Découvrez les sites web one-page (Sites Clarté) que nous avons créés pour des indépendants et PME dans divers secteurs : santé, coaching, artisanat, restauration et plus encore.">
+    
+    <!-- Meta Tags Open Graph & Twitter -->
+    <meta property="og:title" content="Portfolio - Découvrez nos réalisations | clartem.com">
+    <meta property="og:description"
+        content="Découvrez les sites web one-page que nous avons créés pour des indépendants et PME.">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen flex flex-col">
+        <!-- Navigation -->
+        <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+
+                    <a href="index.html">
+                        <img class="h-14 w-auto" src="assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="index.html#plan"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mon
+                            Plan</a>
+                        <a href="index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="portfolio.html"
+                            class="text-clarity-blue font-bold">Portfolio</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl hover:scale-105 transition-all duration-300 font-bold h-11 rounded-md px-8 shadow-lg">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <!-- Mobile Menu -->
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="index.html#plan"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Notre
+                        Plan</a>
+                    <a href="index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Nos
+                        Offres</a>
+                    <a href="portfolio.html"
+                        class="block text-clarity-blue font-bold py-2">Portfolio</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="block mt-2 w-full text-center bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl transition-all duration-300 font-bold py-2 rounded-md px-8 shadow-lg">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="flex-grow">
+            <!-- ================================================================== -->
+            <!-- DÉBUT DE LA SECTION PORTFOLIO COMPLÈTE -->
+            <!-- ================================================================== -->
+            <section id="portfolio" class="py-20 pt-40 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h1 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">Mes Sites Clarté en
+                            Action<br><span class="text-clarity-blue">Découvrez mes réalisations</span></h1>
+                        <p class="text-xl text-neutral-light max-w-3xl mx-auto">Chaque projet est une collaboration unique,
+                            conçue pour répondre à des besoins spécifiques avec clarté et efficacité.</p>
+                    </div>
+
+                    <!-- BOUTONS DE FILTRE -->
+                    <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
+                        <button
+                            class="filter-btn bg-deep-blue text-white px-5 py-2 rounded-full text-sm font-semibold transition-colors"
+                            data-filter="all">Tous les projets</button>
+                        <button
+                            class="filter-btn bg-gray-200 text-neutral-dark hover:bg-gray-300 px-5 py-2 rounded-full text-sm font-semibold transition-colors"
+                            data-filter="sante">Santé & Bien-être</button>
+                        <button
+                            class="filter-btn bg-gray-200 text-neutral-dark hover:bg-gray-300 px-5 py-2 rounded-full text-sm font-semibold transition-colors"
+                            data-filter="coaching">Coaching & Conseil</button>
+                        <button
+                            class="filter-btn bg-gray-200 text-neutral-dark hover:bg-gray-300 px-5 py-2 rounded-full text-sm font-semibold transition-colors"
+                            data-filter="artisans">Artisans & BTP</button>
+                        <button
+                            class="filter-btn bg-gray-200 text-neutral-dark hover:bg-gray-300 px-5 py-2 rounded-full text-sm font-semibold transition-colors"
+                            data-filter="restauration">Restauration & Hôtellerie</button>
+                        <button
+                            class="filter-btn bg-gray-200 text-neutral-dark hover:bg-gray-300 px-5 py-2 rounded-full text-sm font-semibold transition-colors"
+                            data-filter="beaute">Beauté & Esthétique</button>
+                        <button
+                            class="filter-btn bg-gray-200 text-neutral-dark hover:bg-gray-300 px-5 py-2 rounded-full text-sm font-semibold transition-colors"
+                            data-filter="immobilier">Immobilier & Photographie</button>
+                    </div>
+
+                    <!-- GRILLE COMPLÈTE DE PROJETS -->
+                    <div id="portfolio-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        
+                        <!-- Projet 01 : Studio de Yoga (Conservé) -->
+                    <div class="portfolio-item" data-category="sante">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+                            <img src="assets/image-portfolio-projet-01.jpg" alt="Aperçu du site pour un studio de yoga"
+                                class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Studio de Yoga "L'Instant Présent"
+                                </h3>
+                                <p class="text-neutral-light text-sm mb-4 flex-grow">Site vitrine pour un studio à
+                                    Lille, mettant en avant les cours et facilitant la réservation.</p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Site
+                                        Vitrine</span>
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">SEO
+                                        Local</span>
+                                </div>
+                                <div class="flex gap-4 mt-auto">
+                                    <a href="https://clartem-agency.github.io/Site-Portfolio-01_Professeur-de-yoga_Linstant-present/"
+                                        target="_blank" rel="noopener noreferrer"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300 text-sm">Voir
+                                        le site</a>
+                                    <a href="study-case-pages/study_case_01.html"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-soft-blue text-deep-blue hover:bg-clarity-blue/20 font-semibold shadow-md hover:shadow-lg transition-all duration-300 text-sm">Voir
+                                        l'étude de cas</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projet 02 : Décoratrice (Conservé) -->
+                    <div class="portfolio-item" data-category="coaching">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+                            <img src="assets/image-portfolio-projet-02.jpg"
+                                alt="Aperçu du site pour une décoratrice d'intérieur" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Chloé Dubois, Décoratrice</h3>
+                                <p class="text-neutral-light text-sm mb-4 flex-grow">Site web élégant pour une
+                                    décoratrice d'intérieur, avec intégration Calendly pour automatiser la prise de RDV.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Intégration
+                                        Calendly</span>
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Portfolio</span>
+                                </div>
+                                <div class="flex gap-4 mt-auto">
+                                    <a href="https://clartem-agency.github.io/Site-portfolio-02_Decoratrice-dinterieur_Harmonie-Interieure/"
+                                        target="_blank" rel="noopener noreferrer"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300 text-sm">Voir
+                                        le site</a>
+                                    <a href="study-case-pages/study_case_02.html"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-soft-blue text-deep-blue hover:bg-clarity-blue/20 font-semibold shadow-md hover:shadow-lg transition-all duration-300 text-sm">Voir
+                                        l'étude de cas</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projet 03 : Naturopathe (Conservé) -->
+                    <div class="portfolio-item" data-category="sante">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+                            <img src="assets/image-portfolio-projet-03.jpg" alt="Site pour une naturopathe"
+                                class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Équilibre & Nature</h3>
+                                <p class="text-neutral-light text-sm mb-4 flex-grow">Site de prise de rendez-vous et
+                                    blog de conseils pour une naturopathe certifiée.</p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Réservation
+                                        en ligne</span>
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Blog
+                                        Santé</span>
+                                </div>
+                                <div class="flex gap-4 mt-auto">
+                                    <a href="https://clartem-agency.github.io/Site-portfolio-03_Naturopathe_Equilibre-et-Nature/"
+                                        target="_blank" rel="noopener noreferrer"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300 text-sm">Voir
+                                        le site</a>
+                                    <a href="study-case-pages/study_case_03.html"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-soft-blue text-deep-blue hover:bg-clarity-blue/20 font-semibold shadow-md hover:shadow-lg transition-all duration-300 text-sm">Voir
+                                        l'étude de cas</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ================================================== -->
+                    <!-- NOUVEAUX PROJETS "PERSONA" -->
+                    <!-- ================================================== -->
+
+                    <!-- Nouveau Projet : Restaurant -->
+                    <div class="portfolio-item" data-category="restauration">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+                            <img src="https://via.placeholder.com/400x300/F97316/FFFFFF?text=Restaurant"
+                                alt="Site pour un restaurant bistronomique" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Bistrot Le Gourmand</h3>
+                                <p class="text-neutral-light text-sm mb-4 flex-grow">Site vitrine pour un restaurant,
+                                    avec menu en ligne, galerie de plats et système de réservation de table.</p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Menu
+                                        en Ligne</span>
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Réservation
+                                        de Table</span>
+                                </div>
+                                <div class="flex gap-4 mt-auto">
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site
+                                        à venir</a>
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude
+                                        à venir</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nouveau Projet : Plombier -->
+                    <div class="portfolio-item" data-category="artisans">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+                            <img src="https://via.placeholder.com/400x300/1E3A8A/FFFFFF?text=Plombier"
+                                alt="Site pour un artisan plombier" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Plomberie Durand</h3>
+                                <p class="text-neutral-light text-sm mb-4 flex-grow">Site web efficace pour un artisan
+                                    plombier, optimisé pour la génération de demandes de devis urgents.</p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Devis
+                                        Rapide</span>
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">SEO
+                                        Local</span>
+                                </div>
+                                <div class="flex gap-4 mt-auto">
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site
+                                        à venir</a>
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude
+                                        à venir</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nouveau Projet : Coach Sportif -->
+                    <div class="portfolio-item" data-category="coaching">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+                            <img src="https://via.placeholder.com/400x300/DC2626/FFFFFF?text=Coach+Sportif"
+                                alt="Site pour un coach sportif" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Dynamik Coaching</h3>
+                                <p class="text-neutral-light text-sm mb-4 flex-grow">Site dynamique pour un coach
+                                    personnel, avec vente de programmes en ligne et planning de cours.</p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Vente
+                                        en Ligne</span>
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Planning</span>
+                                </div>
+                                <div class="flex gap-4 mt-auto">
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site
+                                        à venir</a>
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude
+                                        à venir</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nouveau Projet : Salon de coiffure -->
+                    <div class="portfolio-item" data-category="beaute">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+                            <img src="https://via.placeholder.com/400x300/6B7280/FFFFFF?text=Coiffeur"
+                                alt="Site pour un salon de coiffure" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Salon L'Éclat</h3>
+                                <p class="text-neutral-light text-sm mb-4 flex-grow">Site moderne et visuel pour un
+                                    salon de coiffure, facilitant la prise de rendez-vous en ligne.</p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Réservation
+                                        en Ligne</span>
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Galerie
+                                        Photos</span>
+                                </div>
+                                <div class="flex gap-4 mt-auto">
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site
+                                        à venir</a>
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude
+                                        à venir</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nouveau Projet : Agent Immobilier -->
+                    <div class="portfolio-item" data-category="immobilier">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+                            <img src="https://via.placeholder.com/400x300/16A34A/FFFFFF?text=Agent+Immo"
+                                alt="Site pour un agent immobilier" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Immo-Conseil Annecy</h3>
+                                <p class="text-neutral-light text-sm mb-4 flex-grow">Site professionnel pour un agent
+                                    immobilier indépendant, mettant en avant les biens à la vente et les services.</p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Biens
+                                        à la Vente</span>
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Estimation
+                                        Gratuite</span>
+                                </div>
+                                <div class="flex gap-4 mt-auto">
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site
+                                        à venir</a>
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude
+                                        à venir</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nouveau Projet : Gîte -->
+                    <div class="portfolio-item" data-category="restauration">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+                            <img src="https://via.placeholder.com/400x300/3B82F6/FFFFFF?text=Gîte+Rural"
+                                alt="Site pour un gîte rural" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Le Hameau Paisible</h3>
+                                <p class="text-neutral-light text-sm mb-4 flex-grow">Site de présentation et de
+                                    réservation pour un gîte de charme, avec un calendrier des disponibilités.</p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Disponibilités</span>
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Tourisme
+                                        Local</span>
+                                </div>
+                                <div class="flex gap-4 mt-auto">
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site
+                                        à venir</a>
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude
+                                        à venir</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nouveau Projet : Ostéopathe -->
+                    <div class="portfolio-item" data-category="sante">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+                            <img src="https://via.placeholder.com/400x300/1E3A8A/FFFFFF?text=Ostéopathe"
+                                alt="Site pour un cabinet d'ostéopathie" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Cabinet d'Ostéopathie Martin</h3>
+                                <p class="text-neutral-light text-sm mb-4 flex-grow">Site professionnel pour un cabinet
+                                    local, optimisé pour la visibilité sur Google et la prise de rendez-vous en ligne.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">SEO
+                                        Local</span>
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Intégration
+                                        Calendly</span>
+                                </div>
+                                <div class="flex gap-4 mt-auto">
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site
+                                        à venir</a>
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude
+                                        à venir</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nouveau Projet : Institut de beauté -->
+                    <div class="portfolio-item" data-category="beaute">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+                            <img src="https://via.placeholder.com/400x300/F97316/FFFFFF?text=Esthéticienne"
+                                alt="Site pour un institut de beauté" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Institut "Belle & Zen"</h3>
+                                <p class="text-neutral-light text-sm mb-4 flex-grow">Site élégant présentant la carte
+                                    des soins, les tarifs et permettant la réservation en ligne pour un institut de
+                                    beauté.</p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Carte
+                                        des Soins</span>
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Réservation
+                                        en Ligne</span>
+                                </div>
+                                <div class="flex gap-4 mt-auto">
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site
+                                        à venir</a>
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude
+                                        à venir</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nouveau Projet : Photographe -->
+                    <div class="portfolio-item" data-category="immobilier">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+                            <img src="https://via.placeholder.com/400x300/6B7280/FFFFFF?text=Photographe"
+                                alt="Site pour un photographe indépendant" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Instant Capturé Photographie</h3>
+                                <p class="text-neutral-light text-sm mb-4 flex-grow">Portfolio en ligne pour un
+                                    photographe de mariage, conçu pour sublimer les images et convertir les visiteurs en
+                                    clients.</p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Galerie
+                                        HD</span>
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Formulaire
+                                        de Contact</span>
+                                </div>
+                                <div class="flex gap-4 mt-auto">
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site
+                                        à venir</a>
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude
+                                        à venir</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nouveau Projet : Consultant en entreprise -->
+                    <div class="portfolio-item" data-category="coaching">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+                            <img src="https://via.placeholder.com/400x300/3B82F6/FFFFFF?text=Consultant"
+                                alt="Site pour un consultant en marketing" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Stratégie & Croissance Conseil</h3>
+                                <p class="text-neutral-light text-sm mb-4 flex-grow">Site B2B pour un consultant en
+                                    marketing, présentant son expertise, ses services et des études de cas clients.</p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Études
+                                        de Cas</span>
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Génération
+                                        de Leads</span>
+                                </div>
+                                <div class="flex gap-4 mt-auto">
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site
+                                        à venir</a>
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude
+                                        à venir</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nouveau Projet : Électricien -->
+                    <div class="portfolio-item" data-category="artisans">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+                            <img src="https://via.placeholder.com/400x300/F59E0B/FFFFFF?text=Électricien"
+                                alt="Site pour un électricien" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Elec'Solution Express</h3>
+                                <p class="text-neutral-light text-sm mb-4 flex-grow">Présentation des services et
+                                    certifications d'un électricien qualifié, avec galerie de réalisations et contact
+                                    facile.</p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Certifications</span>
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Galerie
+                                        Projets</span>
+                                </div>
+                                <div class="flex gap-4 mt-auto">
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site
+                                        à venir</a>
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude
+                                        à venir</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nouveau Projet : Serrurier -->
+                    <div class="portfolio-item" data-category="artisans">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+                            <img src="https://via.placeholder.com/400x300/1F2937/FFFFFF?text=Serrurier"
+                                alt="Site pour un artisan serrurier" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Serrurerie Assistance 24/7</h3>
+                                <p class="text-neutral-light text-sm mb-4 flex-grow">Site web direct et efficace pour un
+                                    serrurier, axé sur les interventions d'urgence et la prise de contact rapide.</p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Urgence
+                                        24/7</span>
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Devis
+                                        Gratuit</span>
+                                </div>
+                                <div class="flex gap-4 mt-auto">
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site
+                                        à venir</a>
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude
+                                        à venir</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nouveau Projet : Peintre en Bâtiment -->
+                    <div class="portfolio-item" data-category="artisans">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+                            <img src="https://via.placeholder.com/400x300/3B82F6/FFFFFF?text=Peintre"
+                                alt="Site pour un peintre en bâtiment" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">L'Art des Couleurs</h3>
+                                <p class="text-neutral-light text-sm mb-4 flex-grow">Portfolio visuel pour un peintre,
+                                    mettant en valeur la qualité de son travail avec des photos avant/après percutantes.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Portfolio
+                                        Avant/Après</span>
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Témoignages
+                                        Clients</span>
+                                </div>
+                                <div class="flex gap-4 mt-auto">
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site
+                                        à venir</a>
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude
+                                        à venir</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nouveau Projet : Coach en développement personnel -->
+                    <div class="portfolio-item" data-category="coaching">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+                            <img src="https://via.placeholder.com/400x300/16A34A/FFFFFF?text=Coach+Dev.+Perso"
+                                alt="Site pour un coach en développement personnel" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Révélez Votre Potentiel</h3>
+                                <p class="text-neutral-light text-sm mb-4 flex-grow">Site inspirant pour une coach de
+                                    vie, avec présentation des programmes de transformation et réservation de sessions.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Programmes</span>
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Réservation
+                                        de Session</span>
+                                </div>
+                                <div class="flex gap-4 mt-auto">
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site
+                                        à venir</a>
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude
+                                        à venir</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nouveau Projet : Kinésithérapeute -->
+                    <div class="portfolio-item" data-category="sante">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+                            <img src="https://via.placeholder.com/400x300/3B82F6/FFFFFF?text=Kiné"
+                                alt="Site pour un kinésithérapeute" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Cabinet de Kinésithérapie du Sport
+                                </h3>
+                                <p class="text-neutral-light text-sm mb-4 flex-grow">Site informatif pour un cabinet de
+                                    kiné, présentant les spécialités, l'équipe et l'intégration avec Doctolib.</p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Spécialités</span>
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Intégration
+                                        Doctolib</span>
+                                </div>
+                                <div class="flex gap-4 mt-auto">
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site
+                                        à venir</a>
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude
+                                        à venir</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nouveau Projet : Chambre d'hôtes -->
+                    <div class="portfolio-item" data-category="restauration">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+                            <img src="https://via.placeholder.com/400x300/F97316/FFFFFF?text=Chambre+d'hôtes"
+                                alt="Site pour une chambre d'hôtes" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Le Clos des Lavandes</h3>
+                                <p class="text-neutral-light text-sm mb-4 flex-grow">Site de charme pour une chambre
+                                    d'hôtes en Provence, avec galerie photo, activités locales et module de réservation.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Réservation
+                                        Directe</span>
+                                    <span
+                                        class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Tourisme
+                                        Local</span>
+                                </div>
+                                <div class="flex gap-4 mt-auto">
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site
+                                        à venir</a>
+                                    <a href="#"
+                                        class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude
+                                        à venir</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nouveau Projet : Sophrologue -->
+<div class="portfolio-item" data-category="sante">
+    <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+        <img src="https://via.placeholder.com/400x300/3B82F6/FFFFFF?text=Sophrologue" alt="Site pour une sophrologue" class="w-full h-48 object-cover">
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-neutral-dark mb-2">Sérénité Retrouvée - Sophrologie</h3>
+            <p class="text-neutral-light text-sm mb-4 flex-grow">Plateforme douce et apaisante pour une sophrologue spécialisée dans la gestion du stress et l'amélioration du sommeil.</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Prise de RDV</span>
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Gestion du Stress</span>
+            </div>
+            <div class="flex gap-4 mt-auto">
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site à venir</a>
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude à venir</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Nouveau Projet : Restaurant Bistrot -->
+<div class="portfolio-item" data-category="restauration">
+    <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+        <img src="https://via.placeholder.com/400x300/F97316/FFFFFF?text=Bistrot" alt="Site pour un restaurant bistronomique" class="w-full h-48 object-cover">
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-neutral-dark mb-2">La Bonne Fourchette</h3>
+            <p class="text-neutral-light text-sm mb-4 flex-grow">Site web chaleureux pour un bistrot de quartier, présentant le menu du jour, la carte et un système de réservation simple.</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Menu en Ligne</span>
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Réservation de Table</span>
+            </div>
+            <div class="flex gap-4 mt-auto">
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site à venir</a>
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude à venir</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Nouveau Projet : Food Truck -->
+<div class="portfolio-item" data-category="restauration">
+    <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+        <img src="https://via.placeholder.com/400x300/DC2626/FFFFFF?text=Food+Truck" alt="Site pour un food truck" class="w-full h-48 object-cover">
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-neutral-dark mb-2">Le Roulant Gourmand</h3>
+            <p class="text-neutral-light text-sm mb-4 flex-grow">Site one-page pour un food truck, avec géolocalisation en temps réel, menu, et système de commande en ligne (Click & Collect).</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Click & Collect</span>
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Géolocalisation</span>
+            </div>
+            <div class="flex gap-4 mt-auto">
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site à venir</a>
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude à venir</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Nouveau Projet : Bar à Cocktails -->
+<div class="portfolio-item" data-category="restauration">
+    <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+        <img src="https://via.placeholder.com/400x300/1E3A8A/FFFFFF?text=Bar+à+Cocktails" alt="Site pour un bar à cocktails" class="w-full h-48 object-cover">
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-neutral-dark mb-2">L'Alchimiste - Bar & Cocktails</h3>
+            <p class="text-neutral-light text-sm mb-4 flex-grow">Site web élégant et immersif pour un bar à cocktails, mettant en avant la carte des créations, l'ambiance et les événements.</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Carte des Cocktails</span>
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Événements</span>
+            </div>
+            <div class="flex gap-4 mt-auto">
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site à venir</a>
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude à venir</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Nouveau Projet : Menuisier -->
+<div class="portfolio-item" data-category="artisans">
+    <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+        <img src="https://via.placeholder.com/400x300/6B7280/FFFFFF?text=Menuisier" alt="Site pour un artisan menuisier" class="w-full h-48 object-cover">
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-neutral-dark mb-2">Bois & Création</h3>
+            <p class="text-neutral-light text-sm mb-4 flex-grow">Site catalogue présentant les créations sur-mesure d'un artisan menuisier ébéniste, avec une galerie de projets pour inspirer les clients.</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Sur-mesure</span>
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Galerie Projets</span>
+            </div>
+            <div class="flex gap-4 mt-auto">
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site à venir</a>
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude à venir</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Nouveau Projet : Paysagiste -->
+<div class="portfolio-item" data-category="artisans">
+    <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+        <img src="https://via.placeholder.com/400x300/16A34A/FFFFFF?text=Paysagiste" alt="Site pour un paysagiste" class="w-full h-48 object-cover">
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-neutral-dark mb-2">Jardins d'Éden</h3>
+            <p class="text-neutral-light text-sm mb-4 flex-grow">Site inspirant pour un paysagiste, avec un focus sur les projets de conception de jardins et la demande de devis en ligne.</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Portfolio Visuel</span>
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Demande de Devis</span>
+            </div>
+            <div class="flex gap-4 mt-auto">
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site à venir</a>
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude à venir</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Nouveau Projet : Coach Professionnel -->
+<div class="portfolio-item" data-category="coaching">
+    <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+        <img src="https://via.placeholder.com/400x300/1E3A8A/FFFFFF?text=Coach+Pro" alt="Site pour un coach professionnel" class="w-full h-48 object-cover">
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-neutral-dark mb-2">Carrière Boost Coaching</h3>
+            <p class="text-neutral-light text-sm mb-4 flex-grow">Site pour un coach de carrière, avec un blog pour asseoir son expertise et un système de réservation de sessions de coaching.</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Blog d'Expertise</span>
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Prise de RDV</span>
+            </div>
+            <div class="flex gap-4 mt-auto">
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site à venir</a>
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude à venir</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Nouveau Projet : Restaurant Burger -->
+<div class="portfolio-item" data-category="restauration">
+    <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+        <img src="https://via.placeholder.com/400x300/F97316/FFFFFF?text=Burger" alt="Site pour un restaurant de burgers artisanaux" class="w-full h-48 object-cover">
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-neutral-dark mb-2">Le Smash - Burger Artisanal</h3>
+            <p class="text-neutral-light text-sm mb-4 flex-grow">Site web percutant pour un restaurant de burgers, avec un menu visuel, des photos alléchantes et un système de commande en ligne intégré.</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Commande en Ligne</span>
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Menu Appétissant</span>
+            </div>
+            <div class="flex gap-4 mt-auto">
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site à venir</a>
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude à venir</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Nouveau Projet : Restaurant Poke Bowl -->
+<div class="portfolio-item" data-category="restauration">
+    <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+        <img src="https://via.placeholder.com/400x300/16A34A/FFFFFF?text=Poke+Bowl" alt="Site pour un restaurant de poke bowls" class="w-full h-48 object-cover">
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-neutral-dark mb-2">Aloha Poke Bowl</h3>
+            <p class="text-neutral-light text-sm mb-4 flex-grow">Site frais et coloré pour un restaurant de poke bowls, permettant aux clients de composer leur bowl et de commander en click & collect.</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Click & Collect</span>
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Menu Personnalisé</span>
+            </div>
+            <div class="flex gap-4 mt-auto">
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site à venir</a>
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude à venir</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Nouveau Projet : Sandwicherie -->
+<div class="portfolio-item" data-category="restauration">
+    <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+        <img src="https://via.placeholder.com/400x300/3B82F6/FFFFFF?text=Sandwicherie" alt="Site pour une sandwicherie" class="w-full h-48 object-cover">
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-neutral-dark mb-2">L'Artisan du Sandwich</h3>
+            <p class="text-neutral-light text-sm mb-4 flex-grow">Site efficace pour une sandwicherie, mettant en avant les formules du midi et optimisé pour une prise de commande rapide en ligne.</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Formules Midi</span>
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Commande Rapide</span>
+            </div>
+            <div class="flex gap-4 mt-auto">
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site à venir</a>
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude à venir</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Nouveau Projet : Boutique de Bagels -->
+<div class="portfolio-item" data-category="restauration">
+    <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+        <img src="https://via.placeholder.com/400x300/F59E0B/FFFFFF?text=Bagel+Shop" alt="Site pour une boutique de bagels" class="w-full h-48 object-cover">
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-neutral-dark mb-2">The Bagel Factory</h3>
+            <p class="text-neutral-light text-sm mb-4 flex-grow">Site moderne pour une boutique de bagels, avec un menu interactif et un système de commande en ligne pour le petit-déjeuner et le déjeuner.</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Menu Interactif</span>
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Commande en Ligne</span>
+            </div>
+            <div class="flex gap-4 mt-auto">
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site à venir</a>
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude à venir</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Nouveau Projet : Crêperie -->
+<div class="portfolio-item" data-category="restauration">
+    <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+        <img src="https://via.placeholder.com/400x300/3B82F6/FFFFFF?text=Crêperie" alt="Site pour une crêperie traditionnelle" class="w-full h-48 object-cover">
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-neutral-dark mb-2">La Belle Crêpe</h3>
+            <p class="text-neutral-light text-sm mb-4 flex-grow">Site web convivial pour une crêperie, mettant en valeur la carte des galettes et des crêpes, et facilitant la réservation de table.</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Carte Gourmande</span>
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Réservation Facile</span>
+            </div>
+            <div class="flex gap-4 mt-auto">
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site à venir</a>
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude à venir</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Nouveau Projet : Pizzeria -->
+<div class="portfolio-item" data-category="restauration">
+    <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+        <img src="https://via.placeholder.com/400x300/DC2626/FFFFFF?text=Pizzeria" alt="Site pour une pizzeria artisanale" class="w-full h-48 object-cover">
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-neutral-dark mb-2">Forno d'Oro Pizzeria</h3>
+            <p class="text-neutral-light text-sm mb-4 flex-grow">Site dynamique pour une pizzeria artisanale, optimisé pour la commande en ligne, la livraison et le click & collect.</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Livraison & Emporter</span>
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Commande en Ligne</span>
+            </div>
+            <div class="flex gap-4 mt-auto">
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site à venir</a>
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude à venir</a>
+            </div>
+        </div>
+    </div>
+</div>
+                    
+           <!-- Nouveau Projet : Tacos -->
+<div class="portfolio-item" data-category="restauration">
+    <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+        <img src="https://via.placeholder.com/400x300/F97316/FFFFFF?text=Tacos" alt="Site pour un restaurant de tacos" class="w-full h-48 object-cover">
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-neutral-dark mb-2">El Gringo Taqueria</h3>
+            <p class="text-neutral-light text-sm mb-4 flex-grow">Site coloré et dynamique pour un restaurant de tacos, avec un menu interactif et des options de commande pour livraison ou à emporter.</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Livraison</span>
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Menu Interactif</span>
+            </div>
+            <div class="flex gap-4 mt-auto">
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site à venir</a>
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude à venir</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Nouveau Projet : Bubble Tea -->
+<div class="portfolio-item" data-category="restauration">
+    <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+        <img src="https://via.placeholder.com/400x300/A78BFA/FFFFFF?text=Bubble+Tea" alt="Site pour un salon de bubble tea" class="w-full h-48 object-cover">
+        <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-neutral-dark mb-2">Bubble Bliss Tea</h3>
+            <p class="text-neutral-light text-sm mb-4 flex-grow">Site web fun et moderne pour un salon de bubble tea, présentant les différentes saveurs et permettant la commande en ligne pour un retrait rapide.</p>
+            <div class="flex flex-wrap gap-2 mb-6">
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Click & Collect</span>
+                <span class="bg-soft-blue text-deep-blue text-xs font-semibold px-3 py-1 rounded-full">Carte des Saveurs</span>
+            </div>
+            <div class="flex gap-4 mt-auto">
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-300 text-gray-500 font-semibold text-sm cursor-not-allowed">Site à venir</a>
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-md bg-gray-200 text-gray-500 font-semibold text-sm cursor-not-allowed">Étude à venir</a>
+            </div>
+        </div>
+    </div>
+</div>
+                        
+                        <!-- (Copiez tous les autres projets ici...) -->
+
+                    </div>
+
+                    <div id="load-more-container" class="text-center mt-12">
+                        <button id="load-more-btn"
+                            class="bg-deep-blue text-white hover:bg-clarity-blue font-semibold py-3 px-8 rounded-md transition-colors duration-300 shadow-lg">
+                            Voir plus de projets
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+            <!-- ================================================================== -->
+            <!-- FIN DE LA SECTION PORTFOLIO -->
+            <!-- ================================================================== -->
+        </main>
+        
+        <!-- Footer -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="index.html">
+                                <img class="h-14 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="index.html#plan"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mon
+                                Plan</a>
+                            <a href="index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="portfolio.html"
+                                class="block text-clarity-blue font-bold">Portfolio</a>
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web"
+                                target="_blank" rel="noopener noreferrer"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Prendre
+                                Rendez-vous</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
