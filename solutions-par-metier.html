@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions par Métier - clartem.com</title>
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon-clartem.ico">
+
+    <meta name="description"
+        content="Découvrez comment Clartem crée des sites web sur-mesure pour les restaurants, coachs, artisans, professionnels de la santé et bien plus.">
+    <meta name="author" content="clartem.com">
+
+    <!-- Meta Tags Open Graph & Twitter -->
+    <meta property="og:title" content="Solutions par Métier - clartem.com">
+    <meta property="og:description"
+        content="Découvrez comment Clartem crée des sites web sur-mesure pour les restaurants, coachs, artisans, professionnels de la santé et bien plus.">
+    <meta property="og:image" content="VOTRE_IMAGE_DE_PREVIEW_POUR_CETTE_PAGE">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="VOTRE_IMAGE_DE_PREVIEW_POUR_CETTE_PAGE">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+        <!-- ================================================================== -->
+        <!-- NAVIGATION (IDENTIQUE À L'ACCUEIL) -->
+        <!-- ================================================================== -->
+        <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="index.html">
+                        <img class="h-14 w-auto" src="assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="index.html#plan"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mon
+                            Plan</a>
+                        <a href="index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="index.html#portfolio"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Portfolio</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl hover:scale-105 transition-all duration-300 font-bold h-11 rounded-md px-8 shadow-lg">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="index.html#plan"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Notre
+                        Plan</a>
+                    <a href="index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Nos
+                        Offres</a>
+                    <a href="index.html#portfolio"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Portfolio</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="block mt-2 w-full text-center bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl transition-all duration-300 font-bold py-2 rounded-md px-8 shadow-lg">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ================================================================== -->
+        <!-- DÉBUT DU CONTENU SPÉCIFIQUE À LA PAGE -->
+        <!-- ================================================================== -->
+
+        <main>
+            <!-- Hero Section de la page -->
+            <section class="pt-32 pb-20 bg-gradient-to-br from-soft-blue to-white">
+                <div class="container mx-auto px-6 text-center">
+                    <h1 class="text-4xl md:text-5xl font-bold text-neutral-dark mb-6">Des Solutions <span
+                            class="text-clarity-blue">Sur-Mesure pour Votre Métier</span></h1>
+                    <p class="text-xl text-neutral-light max-w-3xl mx-auto">Un Site Clarté n'est pas qu'un simple site
+                        web. C'est un outil conçu pour répondre aux défis spécifiques de votre profession et s'intégrer
+                        aux outils que vous utilisez déjà.</p>
+                </div>
+            </section>
+
+            <!-- Grille des Fiches Métier -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                        <!-- Fiche 1: Restauration -->
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200">
+                            <img src="https://via.placeholder.com/600x400/F97316/FFFFFF?text=Restauration"
+                                alt="Site web pour restaurant" class="w-full h-48 object-cover">
+                            <div class="p-8 flex flex-col flex-grow">
+                                <h3 class="text-2xl font-bold text-neutral-dark mb-4">Restauration & Métiers de Bouche
+                                </h3>
+                                <div class="space-y-4 text-neutral-dark flex-grow">
+                                    <p><strong class="text-neutral-dark">Vos défis :</strong> Gérer les réservations,
+                                        afficher un menu attractif, proposer le click & collect, et vous démarquer de la
+                                        concurrence locale.</p>
+                                    <p><strong class="text-neutral-dark">Notre solution :</strong> Un site gourmand qui
+                                        met l'eau à la bouche et s'intègre parfaitement avec vos systèmes de
+                                        réservation.</p>
+                                    <p class="text-sm font-semibold">Outils que j'intègre : TheFork, Zenchef,
+                                        Formitable...</p>
+                                </div>
+                                <a href="#"
+                                    class="mt-6 inline-block w-full text-center bg-soft-blue text-deep-blue font-semibold py-3 px-6 rounded-lg hover:bg-clarity-blue/20 transition-colors">Voir
+                                    un exemple</a>
+                            </div>
+                        </div>
+
+                        <!-- Fiche 2: Santé & Bien-être -->
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200">
+                            <img src="https://via.placeholder.com/600x400/16A34A/FFFFFF?text=Santé+et+Bien-être"
+                                alt="Site web pour professionnels de la santé" class="w-full h-48 object-cover">
+                            <div class="p-8 flex flex-col flex-grow">
+                                <h3 class="text-2xl font-bold text-neutral-dark mb-4">Santé & Bien-être</h3>
+                                <div class="space-y-4 text-neutral-dark flex-grow">
+                                    <p><strong class="text-neutral-dark">Vos défis :</strong> Permettre la prise de RDV
+                                        en ligne, rassurer les futurs patients/clients, et partager votre expertise
+                                        pour asseoir votre crédibilité.</p>
+                                    <p><strong class="text-neutral-dark">Notre solution :</strong> Un site apaisant et
+                                        professionnel qui connecte votre agenda en ligne et inspire confiance.</p>
+                                    <p class="text-sm font-semibold">Outils que j'intègre : Calendly, Doctolib,
+                                        Perfactive...</p>
+                                </div>
+                                <a href="#"
+                                    class="mt-6 inline-block w-full text-center bg-soft-blue text-deep-blue font-semibold py-3 px-6 rounded-lg hover:bg-clarity-blue/20 transition-colors">Voir
+                                    un exemple</a>
+                            </div>
+                        </div>
+
+                        <!-- Fiche 3: Beauté & Esthétique -->
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200">
+                            <img src="https://via.placeholder.com/600x400/DC2626/FFFFFF?text=Beauté+et+Esthétique"
+                                alt="Site web pour salon de beauté" class="w-full h-48 object-cover">
+                            <div class="p-8 flex flex-col flex-grow">
+                                <h3 class="text-2xl font-bold text-neutral-dark mb-4">Beauté & Esthétique</h3>
+                                <div class="space-y-4 text-neutral-dark flex-grow">
+                                    <p><strong class="text-neutral-dark">Vos défis :</strong> Mettre en valeur vos
+                                        créations, faciliter la réservation de prestations spécifiques, et fidéliser
+                                        votre clientèle.</p>
+                                    <p><strong class="text-neutral-dark">Notre solution :</strong> Un site élégant qui
+                                        sert de portfolio et transforme les visiteurs en clients réguliers grâce à une
+                                        réservation simple.</p>
+                                    <p class="text-sm font-semibold">Outils que j'intègre : Planity, Wavy,
+                                        Treatwell...</p>
+                                </div>
+                                <a href="#"
+                                    class="mt-6 inline-block w-full text-center bg-soft-blue text-deep-blue font-semibold py-3 px-6 rounded-lg hover:bg-clarity-blue/20 transition-colors">Voir
+                                    un exemple</a>
+                            </div>
+                        </div>
+
+                        <!-- Fiche 4: Artisans & BTP -->
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200">
+                            <img src="https://via.placeholder.com/600x400/6B7280/FFFFFF?text=Artisans+et+BTP"
+                                alt="Site web pour artisans du BTP" class="w-full h-48 object-cover">
+                            <div class="p-8 flex flex-col flex-grow">
+                                <h3 class="text-2xl font-bold text-neutral-dark mb-4">Artisans & BTP</h3>
+                                <div class="space-y-4 text-neutral-dark flex-grow">
+                                    <p><strong class="text-neutral-dark">Vos défis :</strong> Montrer la qualité de vos
+                                        réalisations, générer des demandes de devis qualifiées et être trouvé par des
+                                        clients dans votre secteur.</p>
+                                    <p><strong class="text-neutral-dark">Notre solution :</strong> Une vitrine robuste
+                                        qui met en valeur votre savoir-faire avec des galeries "avant/après" et un
+                                        formulaire de devis détaillé.</p>
+                                    <p class="text-sm font-semibold">Fonctionnalités clés : Formulaires avancés,
+                                        Galeries photos...</p>
+                                </div>
+                                <a href="#"
+                                    class="mt-6 inline-block w-full text-center bg-soft-blue text-deep-blue font-semibold py-3 px-6 rounded-lg hover:bg-clarity-blue/20 transition-colors">Voir
+                                    un exemple</a>
+                            </div>
+                        </div>
+
+                        <!-- Fiche 5: Coaching & Conseil -->
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200">
+                            <img src="https://via.placeholder.com/600x400/3B82F6/FFFFFF?text=Coaching+et+Conseil"
+                                alt="Site web pour coachs et consultants" class="w-full h-48 object-cover">
+                            <div class="p-8 flex flex-col flex-grow">
+                                <h3 class="text-2xl font-bold text-neutral-dark mb-4">Coaching & Conseil</h3>
+                                <div class="space-y-4 text-neutral-dark flex-grow">
+                                    <p><strong class="text-neutral-dark">Vos défis :</strong> Expliquer clairement votre
+                                        méthodologie, vendre vos programmes ou séances, et automatiser la prise de
+                                        rendez-vous pour vous concentrer sur vos clients.</p>
+                                    <p><strong class="text-neutral-dark">Notre solution :</strong> Un site qui positionne
+                                        votre expertise, facilite le paiement en ligne et remplit votre agenda tout
+                                        seul.</p>
+                                    <p class="text-sm font-semibold">Outils que j'intègre : Calendly, Stripe,
+                                        Mailchimp...</p>
+                                </div>
+                                <a href="#"
+                                    class="mt-6 inline-block w-full text-center bg-soft-blue text-deep-blue font-semibold py-3 px-6 rounded-lg hover:bg-clarity-blue/20 transition-colors">Voir
+                                    un exemple</a>
+                            </div>
+                        </div>
+
+                        <!-- Fiche 6: Hôtellerie & Immobilier -->
+                        <div
+                            class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200">
+                            <img src="https://via.placeholder.com/600x400/1E3A8A/FFFFFF?text=Immobilier+et+Hôtellerie"
+                                alt="Site web pour l'immobilier ou l'hôtellerie" class="w-full h-48 object-cover">
+                            <div class="p-8 flex flex-col flex-grow">
+                                <h3 class="text-2xl font-bold text-neutral-dark mb-4">Hôtellerie & Immobilier</h3>
+                                <div class="space-y-4 text-neutral-dark flex-grow">
+                                    <p><strong class="text-neutral-dark">Vos défis :</strong> Présenter vos biens de
+                                        manière immersive, gérer les disponibilités, et inciter à la réservation directe
+                                        ou à la prise de contact.</p>
+                                    <p><strong class="text-neutral-dark">Notre solution :</strong> Un site visuel et
+                                        élégant avec de superbes galeries, des visites virtuelles intégrées et des liens
+                                        vers vos plateformes de réservation.</p>
+                                    <p class="text-sm font-semibold">Fonctionnalités clés : Intégration de visites 360°,
+                                        Moteurs de réservation...</p>
+                                </div>
+                                <a href="#"
+                                    class="mt-6 inline-block w-full text-center bg-soft-blue text-deep-blue font-semibold py-3 px-6 rounded-lg hover:bg-clarity-blue/20 transition-colors">Voir
+                                    un exemple</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section (réutilisée de l'accueil) -->
+            <section id="cta"
+                class="py-20 bg-gradient-to-r from-deep-blue to-clarity-blue text-white relative overflow-hidden">
+                <div class="absolute inset-0 opacity-10">
+                    <div
+                        class="absolute top-10 right-10 w-64 h-64 bg-warm-orange rounded-full mix-blend-multiply filter blur-xl">
+                    </div>
+                    <div
+                        class="absolute bottom-10 left-10 w-48 h-48 bg-white rounded-full mix-blend-multiply filter blur-xl">
+                    </div>
+                </div>
+                <div class="container mx-auto px-6 relative z-10">
+                    <div class="text-center max-w-4xl mx-auto">
+                        <h2 class="text-3xl md:text-5xl font-bold mb-6">Prêt(e) à Obtenir un Site Adapté à Votre
+                            Réalité ?</h2>
+                        <p class="text-xl md:text-2xl mb-12 opacity-90 leading-relaxed">Planifiez votre appel gratuit de
+                            15 minutes et discutons de la solution parfaite pour votre métier.</p>
+                        <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-warm-orange text-white hover:bg-warm-orange/90 font-semibold rounded-md text-xl px-12 py-6 h-auto shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+                            Planifier mon appel clarté
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="w-6 h-6 ml-2">
+                                <path d="M5 12h14"></path>
+                                <path d="m12 5 7 7-7 7"></path>
+                            </svg>
+                        </a>
+                        <div class="mt-8 p-4 bg-white/10 rounded-xl backdrop-blur-sm inline-block">
+                            <p class="text-sm opacity-90">✅ Appel gratuit • ✅ Sans engagement • ✅ Conseil personnalisé
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- ================================================================== -->
+        <!-- FIN DU CONTENU SPÉCIFIQUE À LA PAGE -->
+        <!-- ================================================================== -->
+
+
+        <!-- ================================================================== -->
+        <!-- FOOTER (IDENTIQUE À L'ACCUEIL) -->
+        <!-- ================================================================== -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="index.html">
+                                <img class="h-14 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="index.html#plan"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mon
+                                Plan</a>
+                            <a href="index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="index.html#portfolio"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Portfolio</a>
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web"
+                                target="_blank" rel="noopener noreferrer"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Prendre
+                                Rendez-vous</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
