@@ -111,50 +111,19 @@ nav.scrolled {
 }
 
 /* ======================================================= */
-/*          STYLES POUR L'EFFET STACKING CARDS             */
+/*    STYLES POUR L'EFFET STACKING CARDS (Version Fiable)  */
 /* ======================================================= */
 
-/* Permet une transition plus douce de l'animation dans les navigateurs compatibles */
-@property --card-progress {
-  syntax: '<number>';
-  initial-value: 0;
-  inherits: false;
-}
-
 .panel {
-    /* L'animation est liée au défilement de la section parente */
-    animation: panel-anim linear forwards;
-    animation-timeline: --section-pin-scroll;
+    /* On ajoute une transition douce. Le JavaScript changera la transformation,
+       et le CSS se chargera de l'animer fluidement. */
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
 
-    /* Assure que la carte du dessus (index 0) est bien visible au début */
+    /* On s'assure que la carte du dessus est bien visible au début */
     z-index: calc(4 - var(--index)); /* 4 est le nombre total de cartes */
 }
 
-@keyframes panel-anim {
-    /* Chaque carte commence son animation à un moment différent */
-    entry calc(var(--index) * 25%) {
-        transform: translateY(0) scale(1);
-        --card-progress: 0;
-    }
-    /* La carte reste visible jusqu'à la fin de son "temps d'écran" */
-    entry calc((var(--index) + 1) * 25%) {
-        transform: translateY(0) scale(1);
-        --card-progress: 0;
-    }
-    /* À la fin, la carte se déplace vers le haut et rétrécit pour révéler celle du dessous */
-    exit calc((var(--index) + 1) * 25%) {
-        transform: translateY(-5rem) scale(0.9);
-        --card-progress: 1;
-    }
-    /* Elle reste dans cet état jusqu'à la fin de l'animation globale */
-    exit 100% {
-        transform: translateY(-5rem) scale(0.9);
-        --card-progress: 1;
-    }
-}
-
-/* Applique une transition douce à la transformation de la carte */
+/* Style pour le contenu à l'intérieur de la carte, pour un effet de parallaxe subtil */
 .panel > div {
-    transition: transform 0.5s ease;
-    transform: translateY(calc(var(--card-progress, 0) * 3rem));
+    transition: transform 0.6s ease-out;
 }
