@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solution Site Web pour Restaurants - clartem.com</title>
-    <link rel="icon" type="image/x-icon" href="assets/favicon-clartem.ico">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
     <meta name="description"
         content="Découvrez notre solution de site web one-page (Site Clarté) spécialement conçue pour les restaurants, bistrots et pizzerias. Intégration TheFork, Zenchef et plus.">
     <meta name="author" content="clartem.com">
-
     <!-- Meta Tags Open Graph & Twitter -->
     <meta property="og:title" content="Solution Site Web pour Restaurants - clartem.com">
     <meta property="og:description"
@@ -17,10 +16,8 @@
     <meta property="og:image" content="VOTRE_IMAGE_DE_PREVIEW_POUR_CETTE_PAGE">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="VOTRE_IMAGE_DE_PREVIEW_POUR_CETTE_PAGE">
-
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-
     <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
@@ -40,9 +37,8 @@
             }
         }
     </script>
-
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body class="bg-white">
@@ -52,144 +48,112 @@
         <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
             <div class="container mx-auto px-6 py-4">
                 <div class="flex items-center justify-between">
-
-                    <a href="#">
+                    <a href="../index.html">
                         <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
                     </a>
-
                     <div class="hidden md:flex items-center space-x-8" id="nav-links">
-                        <a href="../a-propos.html"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
-                            Propos</a>
-                        <a href="../index.html#plan"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mon
-                            Plan</a>
-                        <a href="../index.html#offres"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
-                            Offres</a>
-                        <a href="../index.html#portfolio"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Portfolio</a>
+                        <a href="../a-propos.html" class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À Propos</a>
+                        <a href="../index.html#plan" class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mon Plan</a>
+                        <a href="../index.html#offres" class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes Offres</a>
+                        <a href="../index.html#portfolio" class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Portfolio</a>
                     </div>
-                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
-                        rel="noopener noreferrer"
-                        class="hidden md:inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl hover:scale-105 transition-all duration-300 font-bold h-11 rounded-md px-8 shadow-lg">Planifier
-                        un appel clarté</a>
-                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16m-7 6h7"></path>
-                        </svg>
-                    </button>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center justify-center gap-2 bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl hover:scale-105 transition-all duration-300 font-bold h-11 rounded-md px-8 shadow-lg">Planifier un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
                 </div>
-                <!-- Mobile Menu -->
                 <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
-                    <a href="../a-propos.html"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
-                        Propos</a>
-                    <a href="../index.html#plan"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Notre
-                        Plan</a>
-                    <a href="../index.html#offres"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Nos
-                        Offres</a>
-                    <a href="../index.html#portfolio"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Portfolio</a>
-                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
-                        rel="noopener noreferrer"
-                        class="block mt-2 w-full text-center bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl transition-all duration-300 font-bold py-2 rounded-md px-8 shadow-lg">Planifier
-                        un appel clarté</a>
+                    <a href="../a-propos.html" class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À Propos</a>
+                    <a href="../index.html#plan" class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Notre Plan</a>
+                    <a href="../index.html#offres" class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Nos Offres</a>
+                    <a href="../index.html#portfolio" class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Portfolio</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="block mt-2 w-full text-center bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl transition-all duration-300 font-bold py-2 rounded-md px-8 shadow-lg">Planifier un appel clarté</a>
                 </div>
             </div>
         </nav>
 
         <main class="flex-grow">
-            <!-- Hero Section -->
-            <section class="pt-40 pb-20 bg-gradient-to-br from-soft-blue to-white">
+
+                        <!-- ======================================================= -->
+            <!--                 NOUVELLE SECTION HERO                   -->
+            <!-- ======================================================= -->
+            <section class="relative bg-soft-blue flex items-center min-h-screen pt-32 pb-20">
                 <div class="container mx-auto px-6">
                     <div class="grid lg:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <a href="../solutions-par-metier.html"
-                                class="inline-flex items-center gap-2 text-clarity-blue font-semibold mb-4 hover:underline">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                                </svg>
-                                Retour à toutes les solutions
-                            </a>
-                            <h1 class="text-4xl md:text-5xl font-bold text-neutral-dark leading-tight">Un Site Web Qui
-                                <span class="text-warm-orange">Remplit Vos Tables</span></h1>
-                            <p class="text-xl text-neutral-light mt-6 leading-relaxed">Arrêtez de dépendre uniquement
-                                des plateformes. Avec un Site Clarté, vous reprenez le contrôle de votre image, vous
-                                simplifiez la vie de vos clients et vous maximisez vos réservations directes.</p>
+                        
+                        <!-- Colonne de gauche : Texte & CTA -->
+                        <div class="text-center lg:text-left">
+                            <h1 class="text-4xl md:text-6xl font-bold text-neutral-dark leading-tight">
+                                Un Site Web Qui <span class="text-warm-orange">Remplit Vos Tables</span>
+                            </h1>
+                            <p class="text-xl text-neutral-light mt-6 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                                Arrêtez de dépendre uniquement des plateformes. Avec un Site Clarté, reprenez le contrôle de votre image, simplifiez la vie de vos clients et maximisez vos réservations directes.
+                            </p>
+
+                            <!-- Appel à l'action avec 2 boutons -->
+                            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                                <a href="#cta" class="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl hover:scale-105 transition-all duration-300 font-bold h-14 rounded-md px-10 shadow-lg text-lg">
+                                    Obtenir mon site
+                                </a>
+                                <a href="#process-section" class="inline-flex items-center justify-center w-full sm:w-auto border-2 border-deep-blue text-deep-blue font-bold h-14 rounded-md px-10 transition-all duration-300 hover:bg-deep-blue hover:text-white">
+                                    Voir le processus
+                                </a>
+                            </div>
+
+                            <!-- Points de réassurance (NOUVELLE VERSION AVEC GRILLE) -->
+                            <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-y-4 sm:gap-x-6">
+                                <!-- Avantage 1 -->
+                                <div class="flex items-center justify-center sm:justify-start gap-3">
+                                    <svg class="w-5 h-5 text-success-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span class="text-neutral-dark font-medium">Plus de réservations directes</span>
+                                </div>
+                                <!-- Avantage 2 -->
+                                <div class="flex items-center justify-center sm:justify-start gap-3">
+                                    <svg class="w-5 h-5 text-success-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span class="text-neutral-dark font-medium">Zéro commission</span>
+                                </div>
+                                <!-- Avantage 3 -->
+                                <div class="flex items-center justify-center sm:justify-start gap-3">
+                                    <svg class="w-5 h-5 text-success-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    <span class="text-neutral-dark font-medium">Reprenez le contrôle</span>
+                                </div>
+                            </div>
+
                         </div>
+
+                        <!-- Colonne de droite : Image -->
                         <div class="hidden lg:block">
-                            <img src="https://via.placeholder.com/500x400/F97316/FFFFFF?text=Votre+Restaurant+en+Ligne"
-                                alt="Exemple de site web professionnel pour un restaurant"
-                                class="rounded-2xl shadow-2xl">
+                            <img src="https://via.placeholder.com/600x450/F97316/FFFFFF?text=Votre+Restaurant+en+Ligne" alt="Exemple de site web professionnel pour un restaurant" class="rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500 ease-out">
                         </div>
+
                     </div>
                 </div>
             </section>
-
-            <!-- NOUVEAU : Section Défis Améliorée -->
-<section class="py-20 bg-soft-blue">
-    <div class="container mx-auto px-6 max-w-5xl">
-        <div class="text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-4">Vos Défis en tant que Restaurateur</h2>
-            <p class="text-xl text-neutral-light max-w-3xl mx-auto">Je sais que votre quotidien est déjà bien rempli. Votre site web ne devrait pas être un problème de plus.</p>
-        </div>
-        <div class="mt-16 grid md:grid-cols-2 gap-8">
+            <!-- ======================================================= -->
+            <!--                FIN NOUVELLE SECTION HERO                -->
+            <!-- ======================================================= -->
             
-            <!-- Défi 1: Visibilité Limitée -->
-            <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                <div class="w-12 h-12 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-6 h-6 text-destructive" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 10.5L3 3"></path></svg>
-                </div>
-                <h3 class="text-xl font-bold text-neutral-dark mb-2">Visibilité Limitée</h3>
-                <p class="text-neutral-light leading-relaxed">Difficile de se démarquer face à la concurrence et aux grandes plateformes de réservation.</p>
-            </div>
 
-            <!-- Défi 2: Gestion Complexe -->
-            <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                <div class="w-12 h-12 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-6 h-6 text-destructive" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <!-- Section Défis -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-6 max-w-5xl">
+                    <div class="text-center">
+                        <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-4">Vos Défis en tant que Restaurateur</h2>
+                        <p class="text-xl text-neutral-light max-w-3xl mx-auto">Je sais que votre quotidien est déjà bien rempli. Votre site web ne devrait pas être un problème de plus.</p>
+                    </div>
+                    <div class="mt-16 grid md:grid-cols-2 gap-8">
+                        <div class="bg-soft-blue/50 rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-gray-200"><div class="w-12 h-12 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-6"><svg class="w-6 h-6 text-destructive" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 10.5L3 3"></path></svg></div><h3 class="text-xl font-bold text-neutral-dark mb-2">Visibilité Limitée</h3><p class="text-neutral-light leading-relaxed">Difficile de se démarquer face à la concurrence et aux grandes plateformes de réservation.</p></div>
+                        <div class="bg-soft-blue/50 rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-gray-200"><div class="w-12 h-12 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-6"><svg class="w-6 h-6 text-destructive" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div><h3 class="text-xl font-bold text-neutral-dark mb-2">Gestion Complexe</h3><p class="text-neutral-light leading-relaxed">Jongler entre les appels, les emails et les plateformes de réservation est chronophage.</p></div>
+                        <div class="bg-soft-blue/50 rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-gray-200"><div class="w-12 h-12 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-6"><svg class="w-6 h-6 text-destructive" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg></div><h3 class="text-xl font-bold text-neutral-dark mb-2">Menu Peu Attrayant</h3><p class="text-neutral-light leading-relaxed">Un simple PDF ou une photo de mauvaise qualité ne met pas en valeur la qualité de vos plats.</p></div>
+                        <div class="bg-soft-blue/50 rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-gray-200"><div class="w-12 h-12 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-6"><svg class="w-6 h-6 text-destructive" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></div><h3 class="text-xl font-bold text-neutral-dark mb-2">Commissions Élevées</h3><p class="text-neutral-light leading-relaxed">Les plateformes tierces prennent une part importante de votre marge sur chaque réservation.</p></div>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold text-neutral-dark mb-2">Gestion Complexe</h3>
-                <p class="text-neutral-light leading-relaxed">Jongler entre les appels, les emails et les plateformes de réservation est chronophage.</p>
-            </div>
-
-            <!-- Défi 3: Menu Peu Attrayant -->
-            <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                <div class="w-12 h-12 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-6 h-6 text-destructive" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                </div>
-                <h3 class="text-xl font-bold text-neutral-dark mb-2">Menu Peu Attrayant</h3>
-                <p class="text-neutral-light leading-relaxed">Un simple PDF ou une photo de mauvaise qualité ne met pas en valeur la qualité de vos plats.</p>
-            </div>
-
-            <!-- Défi 4: Commissions Élevées -->
-            <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                <div class="w-12 h-12 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <svg class="w-6 h-6 text-destructive" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                </div>
-                <h3 class="text-xl font-bold text-neutral-dark mb-2">Commissions Élevées</h3>
-                <p class="text-neutral-light leading-relaxed">Les plateformes tierces prennent une part importante de votre marge sur chaque réservation.</p>
-            </div>
-
-        </div>
-    </div>
-</section>
+            </section>
 
             <!-- Section Solution -->
             <section class="py-20 bg-soft-blue">
                 <div class="container mx-auto px-6 max-w-6xl">
                     <div class="text-center">
-                        <h2 class="text-3xl font-bold text-neutral-dark mb-4">Ma Solution Clarté pour les Restaurants
-                        </h2>
-                        <p class="text-lg text-neutral-light">Un site one-page qui centralise tout ce dont vos clients
-                            ont besoin, et s'intègre avec les outils que vous maîtrisez déjà.</p>
+                        <h2 class="text-3xl font-bold text-neutral-dark mb-4">Ma Solution Clarté pour les Restaurants</h2>
+                        <p class="text-lg text-neutral-light">Un site one-page qui centralise tout ce dont vos clients ont besoin, et s'intègre avec les outils que vous maîtrisez déjà.</p>
                     </div>
                     <div class="mt-12 grid lg:grid-cols-2 gap-12 items-center">
                         <div>
@@ -202,217 +166,80 @@
                                 <li class="flex items-start gap-3 text-lg"><svg class="w-6 h-6 text-success-green flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Un design optimisé pour le <strong>SEO Local</strong> pour être trouvé dans votre ville.</span></li>
                             </ul>
                         </div>
-                        <div class="p-8 bg-white rounded-2xl shadow-lg">
-                            <h4 class="font-semibold text-neutral-dark mb-4 text-center">Outils que j'intègre
-                                couramment :</h4>
-                            <div class="flex flex-wrap justify-center items-center gap-6"><img src="https://via.placeholder.com/120x60/EEEEEE/AAAAAA?text=TheFork" alt="Logo TheFork" class="h-10"><img src="https://via.placeholder.com/120x60/EEEEEE/AAAAAA?text=Zenchef" alt="Logo Zenchef" class="h-10"><img src="https://via.placeholder.com/120x60/EEEEEE/AAAAAA?text=Formitable" alt="Logo Formitable" class="h-10"><img src="https://via.placeholder.com/120x60/EEEEEE/AAAAAA?text=Google+Maps" alt="Logo Google Maps" class="h-10"></div>
-                        </div>
+                        <div class="p-8 bg-white rounded-2xl shadow-lg"><h4 class="font-semibold text-neutral-dark mb-4 text-center">Outils que j'intègre couramment :</h4><div class="flex flex-wrap justify-center items-center gap-6"><img src="https://via.placeholder.com/120x60/EEEEEE/AAAAAA?text=TheFork" alt="Logo TheFork" class="h-10"><img src="https://via.placeholder.com/120x60/EEEEEE/AAAAAA?text=Zenchef" alt="Logo Zenchef" class="h-10"><img src="https://via.placeholder.com/120x60/EEEEEE/AAAAAA?text=Formitable" alt="Logo Formitable" class="h-10"><img src="https://via.placeholder.com/120x60/EEEEEE/AAAAAA?text=Google+Maps" alt="Logo Google Maps" class="h-10"></div></div>
                     </div>
                 </div>
             </section>
 
-           <!-- NOUVEAU : Section "Découvrez-le en Action" (Études de Cas) -->
-<section class="py-20 bg-white">
-    <div class="container mx-auto px-6 max-w-6xl">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-neutral-dark mb-4">Découvrez-le en Action</h2>
-            <p class="text-lg text-neutral-light max-w-3xl mx-auto">Plongez dans les détails d'un projet concret pour voir comment la méthode Clarté s'applique au monde de la restauration.</p>
-        </div>
-
-        <!-- Grille des études de cas (adaptez le nombre de cartes selon vos projets) -->
-        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-
-            <!-- Étude de Cas 1 : Restaurant -->
-            <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200">
-                <!-- REMPLACEZ PAR L'IMAGE DE VOTRE PROJET -->
-                <img src="https://via.placeholder.com/600x400/F97316/FFFFFF?text=Bistrot+Le+Gourmand" alt="Aperçu du site pour le projet Bistrot Le Gourmand" class="w-full h-56 object-cover">
-                <div class="p-8 flex flex-col flex-grow">
-                    <h3 class="text-xl font-bold text-neutral-dark mb-2">Projet Concept : Bistrot Le Gourmand</h3>
-                    <p class="text-neutral-light mb-4 flex-grow">
-                        Comment un design épuré et l'intégration d'un système de réservation peuvent augmenter les couverts et simplifier la gestion.
-                    </p>
-                    <!-- IMPORTANT : Mettez ici le lien vers votre page d'étude de cas -->
-                    <a href="../study-case-pages/bistrot-le-gourmand.html" class="mt-auto inline-block text-center bg-soft-blue text-deep-blue font-semibold py-3 px-6 rounded-lg hover:bg-clarity-blue/20 transition-colors">
-                        Voir l'étude de cas
-                    </a>
+            <!-- Section Études de Cas -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-6 max-w-6xl">
+                    <div class="text-center mb-12"><h2 class="text-3xl font-bold text-neutral-dark mb-4">Découvrez-le en Action</h2><p class="text-lg text-neutral-light max-w-3xl mx-auto">Plongez dans les détails d'un projet concret pour voir comment la méthode Clarté s'applique au monde de la restauration.</p></div>
+                    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                        <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200"><img src="https://via.placeholder.com/600x400/F97316/FFFFFF?text=Bistrot+Le+Gourmand" alt="Aperçu du site pour le projet Bistrot Le Gourmand" class="w-full h-56 object-cover"><div class="p-8 flex flex-col flex-grow"><h3 class="text-xl font-bold text-neutral-dark mb-2">Projet Concept : Bistrot Le Gourmand</h3><p class="text-neutral-light mb-4 flex-grow">Comment un design épuré et l'intégration d'un système de réservation peuvent augmenter les couverts et simplifier la gestion.</p><a href="../study-case-pages/bistrot-le-gourmand.html" class="mt-auto inline-block text-center bg-soft-blue text-deep-blue font-semibold py-3 px-6 rounded-lg hover:bg-clarity-blue/20 transition-colors">Voir l'étude de cas</a></div></div>
+                        <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200"><img src="https://via.placeholder.com/600x400/1E3A8A/FFFFFF?text=Pizza+Pronto" alt="Aperçu du site pour le projet Pizza Pronto" class="w-full h-56 object-cover"><div class="p-8 flex flex-col flex-grow"><h3 class="text-xl font-bold text-neutral-dark mb-2">Projet Concept : Pizza Pronto</h3><p class="text-neutral-light mb-4 flex-grow">L'optimisation d'un site pour le Click & Collect : un parcours client sans friction pour booster la vente à emporter.</p><a href="../study-case-pages/pizza-pronto.html" class="mt-auto inline-block text-center bg-soft-blue text-deep-blue font-semibold py-3 px-6 rounded-lg hover:bg-clarity-blue/20 transition-colors">Voir l'étude de cas</a></div></div>
+                    </div>
                 </div>
-            </div>
+            </section>
 
-            <!-- Étude de Cas 2 (Exemple, à adapter ou supprimer) -->
-            <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200">
-                <!-- REMPLACEZ PAR L'IMAGE DE VOTRE PROJET -->
-                <img src="https://via.placeholder.com/600x400/1E3A8A/FFFFFF?text=Pizza+Pronto" alt="Aperçu du site pour le projet Pizza Pronto" class="w-full h-56 object-cover">
-                <div class="p-8 flex flex-col flex-grow">
-                    <h3 class="text-xl font-bold text-neutral-dark mb-2">Projet Concept : Pizza Pronto</h3>
-                    <p class="text-neutral-light mb-4 flex-grow">
-                        L'optimisation d'un site pour le Click & Collect : un parcours client sans friction pour booster la vente à emporter.
-                    </p>
-                    <!-- IMPORTANT : Mettez ici le lien vers votre page d'étude de cas -->
-                    <a href="../study-case-pages/pizza-pronto.html" class="mt-auto inline-block text-center bg-soft-blue text-deep-blue font-semibold py-3 px-6 rounded-lg hover:bg-clarity-blue/20 transition-colors">
-                        Voir l'étude de cas
-                    </a>
+            <!-- NOUVEAU : Section Offre Idéale affinée -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6 text-center max-w-4xl">
+                    <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-4">La Formule Idéale pour Vous</h2>
+                    <p class="text-xl text-neutral-light mb-12">Pour un restaurant, l'objectif est de transformer immédiatement un visiteur en client. La formule <strong class="text-neutral-dark">SITE CLARTÉ INTERACTION</strong> est conçue exactement pour ça.</p>
+                    <div class="max-w-xl mx-auto bg-white rounded-2xl shadow-2xl border-2 border-clarity-blue/50 p-8 text-left transition-all duration-300 hover:border-clarity-blue hover:shadow-clarity-blue/20">
+                        <h3 class="text-2xl font-bold text-neutral-dark mb-6">Site Clarté INTERACTION</h3>
+                        <ul class="space-y-3 text-neutral-dark mb-8">
+                            <li class="flex items-center gap-3"><svg class="w-5 h-5 text-success-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Tout de la formule <strong>ESSENTIEL</strong></span></li>
+                            <li class="flex items-center gap-3"><svg class="w-5 h-5 text-success-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span><strong>Intégration</strong> de votre outil de réservation</span></li>
+                            <li class="flex items-center gap-3"><svg class="w-5 h-5 text-success-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Section <strong>"Passez à l'action"</strong> dédiée</span></li>
+                        </ul>
+                        <a href="../index.html#offres" class="inline-flex items-center justify-center w-full gap-2 bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold rounded-md text-lg px-8 py-3 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">Voir le détail de l'offre</a>
+                    </div>
                 </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-            <!-- NOUVEAU : Section Offre Recommandée Améliorée -->
-<section class="py-20 bg-soft-blue">
-    <div class="container mx-auto px-6 text-center max-w-4xl">
-        <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-4">La Formule Idéale pour Vous</h2>
-        <p class="text-xl text-neutral-light mb-12">
-            Pour un restaurant, l'objectif est de transformer immédiatement un visiteur en client. La formule <strong class="text-neutral-dark">SITE CLARTÉ INTERACTION</strong> est conçue exactement pour ça.
-        </p>
-
-        <!-- La Carte Premium -->
-        <div class="bg-clarity-blue p-1.5 rounded-2xl shadow-2xl max-w-2xl mx-auto">
-            <div class="bg-white rounded-xl p-8 md:p-12 text-left">
-                <h3 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Site Clarté INTERACTION</h3>
-                <p class="text-lg text-neutral-dark mb-8 leading-relaxed">
-                    Elle inclut tout le nécessaire pour une présence en ligne solide, PLUS l'intégration de votre module de réservation pour une efficacité maximale.
-                </p>
-                <a href="../index.html#offres" 
-                   class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold rounded-md text-lg px-8 py-3 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
-                    Voir le détail de l'offre
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
+            </section>
             
-            <!-- NOUVELLE Section FAQ 100% Tailwind -->
+            <!-- Section FAQ -->
             <section class="py-20 bg-white">
                 <div class="container mx-auto px-6 max-w-3xl">
-                    <div class="text-center mb-12">
-                        <h2 class="text-3xl font-bold text-neutral-dark mb-4">Vos Questions, Mes Réponses Claires</h2>
-                        <p class="text-lg text-neutral-light">Toutes les informations pour prendre votre décision en toute sérénité.</p>
-                    </div>
+                    <div class="text-center mb-12"><h2 class="text-3xl font-bold text-neutral-dark mb-4">Vos Questions, Mes Réponses Claires</h2><p class="text-lg text-neutral-light">Toutes les informations pour prendre votre décision en toute sérénité.</p></div>
                     <div class="border-t border-gray-200">
-                        
-                        <!-- Question 1 -->
-                        <div class="faq-item border-b border-gray-200">
-                            <button class="faq-question w-full flex justify-between items-center text-left py-5 px-2">
-                                <span class="text-lg font-semibold text-neutral-dark transition-colors duration-300 hover:text-clarity-blue">Puis-je modifier ma carte et mes prix facilement ?</span>
-                                <svg class="w-5 h-5 text-clarity-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                <p class="text-neutral-light pb-5 px-2 leading-relaxed">Absolument. Je construis le site de manière à ce que la mise à jour de votre menu soit simple et rapide. Je vous fournirai une courte vidéo de formation personnalisée pour que vous soyez 100% autonome sur les modifications courantes.</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Question 2 -->
-                        <div class="faq-item border-b border-gray-200">
-                            <button class="faq-question w-full flex justify-between items-center text-left py-5 px-2">
-                                <span class="text-lg font-semibold text-neutral-dark transition-colors duration-300 hover:text-clarity-blue">Y a-t-il des frais cachés ou un abonnement mensuel ?</span>
-                                <svg class="w-5 h-5 text-clarity-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                <p class="text-neutral-light pb-5 px-2 leading-relaxed">Non. Mes tarifs sont uniques et transparents. Vous payez une seule fois pour la création du site. Les seuls frais récurrents, qui ne me concernent pas, sont ceux de votre hébergement web et de votre nom de domaine (généralement entre 50€ et 100€ par an).</p>
-                            </div>
-                        </div>
-
-                        <!-- Question 3 -->
-                        <div class="faq-item border-b border-gray-200">
-                            <button class="faq-question w-full flex justify-between items-center text-left py-5 px-2">
-                                <span class="text-lg font-semibold text-neutral-dark transition-colors duration-300 hover:text-clarity-blue">Qui s'occupe de l'hébergement et du nom de domaine ?</span>
-                                <svg class="w-5 h-5 text-clarity-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                <p class="text-neutral-light pb-5 px-2 leading-relaxed">Je vous accompagne pour choisir et souscrire à la meilleure offre chez un hébergeur de confiance (comme O2Switch ou Hostinger). Vous êtes ainsi le seul propriétaire de votre nom de domaine et de votre hébergement, ce qui garantit votre indépendance totale.</p>
-                            </div>
-                        </div>
-
-                        <!-- Question 4 -->
-                        <div class="faq-item border-b border-gray-200">
-                            <button class="faq-question w-full flex justify-between items-center text-left py-5 px-2">
-                                <span class="text-lg font-semibold text-neutral-dark transition-colors duration-300 hover:text-clarity-blue">Et si j'ai besoin d'aide après le lancement ?</span>
-                                <svg class="w-5 h-5 text-clarity-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                <p class="text-neutral-light pb-5 px-2 leading-relaxed">Je ne vous abandonne pas ! Vous bénéficiez d'un support par email de 30 jours après la mise en ligne pour toute question ou petit ajustement. Pour des besoins plus importants, je propose des forfaits de maintenance ou des interventions ponctuelles.</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Question 5 -->
-                        <div class="faq-item border-b border-gray-200">
-                            <button class="faq-question w-full flex justify-between items-center text-left py-5 px-2">
-                                <span class="text-lg font-semibold text-neutral-dark transition-colors duration-300 hover:text-clarity-blue">Je n'ai pas de photos professionnelles, est-ce un problème ?</span>
-                                <svg class="w-5 h-5 text-clarity-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                <p class="text-neutral-light pb-5 px-2 leading-relaxed">De belles photos sont un atout majeur, mais pas un bloquant. Je peux vous recommander des photographes culinaires dans votre région ou intégrer des photos de banques d'images professionnelles de haute qualité pour commencer, en attendant que vous puissiez réaliser votre propre shooting.</p>
-                            </div>
-                        </div>
+                        <div class="faq-item border-b border-gray-200"><button class="faq-question w-full flex justify-between items-center text-left py-5 px-2"><span class="text-lg font-semibold text-neutral-dark transition-colors duration-300 hover:text-clarity-blue">Puis-je modifier ma carte et mes prix facilement ?</span><svg class="w-5 h-5 text-clarity-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"><p class="text-neutral-light pb-5 px-2 leading-relaxed">Absolument. Je construis le site de manière à ce que la mise à jour de votre menu soit simple et rapide. Je vous fournirai une courte vidéo de formation personnalisée pour que vous soyez 100% autonome sur les modifications courantes.</p></div></div>
+                        <div class="faq-item border-b border-gray-200"><button class="faq-question w-full flex justify-between items-center text-left py-5 px-2"><span class="text-lg font-semibold text-neutral-dark transition-colors duration-300 hover:text-clarity-blue">Y a-t-il des frais cachés ou un abonnement mensuel ?</span><svg class="w-5 h-5 text-clarity-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"><p class="text-neutral-light pb-5 px-2 leading-relaxed">Non. Mes tarifs sont uniques et transparents. Vous payez une seule fois pour la création du site. Les seuls frais récurrents, qui ne me concernent pas, sont ceux de votre hébergement web et de votre nom de domaine (généralement entre 50€ et 100€ par an).</p></div></div>
+                        <div class="faq-item border-b border-gray-200"><button class="faq-question w-full flex justify-between items-center text-left py-5 px-2"><span class="text-lg font-semibold text-neutral-dark transition-colors duration-300 hover:text-clarity-blue">Qui s'occupe de l'hébergement et du nom de domaine ?</span><svg class="w-5 h-5 text-clarity-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"><p class="text-neutral-light pb-5 px-2 leading-relaxed">Je vous accompagne pour choisir et souscrire à la meilleure offre chez un hébergeur de confiance (comme O2Switch ou Hostinger). Vous êtes ainsi le seul propriétaire de votre nom de domaine et de votre hébergement, ce qui garantit votre indépendance totale.</p></div></div>
+                        <div class="faq-item border-b border-gray-200"><button class="faq-question w-full flex justify-between items-center text-left py-5 px-2"><span class="text-lg font-semibold text-neutral-dark transition-colors duration-300 hover:text-clarity-blue">Et si j'ai besoin d'aide après le lancement ?</span><svg class="w-5 h-5 text-clarity-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"><p class="text-neutral-light pb-5 px-2 leading-relaxed">Je ne vous abandonne pas ! Vous bénéficiez d'un support par email de 30 jours après la mise en ligne pour toute question ou petit ajustement. Pour des besoins plus importants, je propose des forfaits de maintenance ou des interventions ponctuelles.</p></div></div>
+                        <div class="faq-item border-b border-gray-200"><button class="faq-question w-full flex justify-between items-center text-left py-5 px-2"><span class="text-lg font-semibold text-neutral-dark transition-colors duration-300 hover:text-clarity-blue">Je n'ai pas de photos professionnelles, est-ce un problème ?</span><svg class="w-5 h-5 text-clarity-blue flex-shrink-0 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"><p class="text-neutral-light pb-5 px-2 leading-relaxed">De belles photos sont un atout majeur, mais pas un bloquant. Je peux vous recommander des photographes culinaires dans votre région ou intégrer des photos de banques d'images professionnelles de haute qualité pour commencer, en attendant que vous puissiez réaliser votre propre shooting.</p></div></div>
                     </div>
                 </div>
             </section>
 
-            <!-- NOUVEAU : Section Processus Animée -->
-<section id="process-section" class="py-20 bg-soft-blue overflow-hidden">
-    <div class="container mx-auto px-6 max-w-6xl">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark">Un Processus Simple, Pensé pour les Restaurateurs</h2>
-        </div>
-        
-        <div class="relative">
-            <!-- Ligne de connexion pour les écrans larges (md et plus) -->
-            <div class="hidden md:block absolute top-8 left-0 w-full h-px">
-                <div class="connecting-line bg-gray-300 h-full w-3/4 mx-auto opacity-0 transition-opacity duration-1000 ease-out" style="background-image: linear-gradient(to right, #d1d5db 50%, transparent 50%); background-size: 16px 1px;"></div>
-            </div>
-
-            <div class="grid md:grid-cols-4 gap-y-12 md:gap-x-8 relative">
-                
-                <!-- Étape 1 -->
-                <div class="process-step text-center opacity-0 transform translate-y-8 transition-all duration-700 ease-out">
-                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg mx-auto mb-6 relative">
-                        <span class="text-2xl font-bold text-neutral-dark">1</span>
+            <!-- Section Processus Animée -->
+            <section id="process-section" class="py-20 bg-soft-blue overflow-hidden">
+                <div class="container mx-auto px-6 max-w-6xl">
+                    <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-neutral-dark">Un Processus Simple, Pensé pour les Restaurateurs</h2></div>
+                    <div class="relative">
+                        <div class="hidden md:block absolute top-8 left-0 w-full h-px"><div class="connecting-line bg-gray-300 h-full w-3/4 mx-auto opacity-0 transition-opacity duration-1000 ease-out" style="background-image: linear-gradient(to right, #d1d5db 50%, transparent 50%); background-size: 16px 1px;"></div></div>
+                        <div class="grid md:grid-cols-4 gap-y-12 md:gap-x-8 relative">
+                            <div class="process-step text-center opacity-0 transform translate-y-8 transition-all duration-700 ease-out"><div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg mx-auto mb-6 relative"><span class="text-2xl font-bold text-neutral-dark">1</span></div><h3 class="text-lg font-bold text-neutral-dark mb-2">Stratégie & Goût</h3><p class="text-neutral-light text-sm leading-relaxed">On discute de votre clientèle, de votre ambiance et de vos plats signatures.</p></div>
+                            <div class="process-step text-center opacity-0 transform translate-y-8 transition-all duration-700 ease-out" style="transition-delay: 150ms;"><div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg mx-auto mb-6 relative"><span class="text-2xl font-bold text-neutral-dark">2</span></div><h3 class="text-lg font-bold text-neutral-dark mb-2">Vos Ingrédients</h3><p class="text-neutral-light text-sm leading-relaxed">Vous me fournissez votre menu, vos plus belles photos et vos accès à TheFork/Zenchef.</p></div>
+                            <div class="process-step text-center opacity-0 transform translate-y-8 transition-all duration-700 ease-out" style="transition-delay: 300ms;"><div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg mx-auto mb-6 relative"><span class="text-2xl font-bold text-neutral-dark">3</span></div><h3 class="text-lg font-bold text-neutral-dark mb-2">Je Cuisine le Site</h3><p class="text-neutral-light text-sm leading-relaxed">Je conçois votre site et vous le présente pour validation. On ajuste les assaisonnements ensemble.</p></div>
+                            <div class="process-step text-center opacity-0 transform translate-y-8 transition-all duration-700 ease-out" style="transition-delay: 450ms;"><div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg mx-auto mb-6 relative"><span class="text-2xl font-bold text-neutral-dark">4</span></div><h3 class="text-lg font-bold text-neutral-dark mb-2">Service en Salle !</h3><p class="text-neutral-light text-sm leading-relaxed">Votre site est en ligne, prêt à accueillir et servir vos futurs clients.</p></div>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-bold text-neutral-dark mb-2">Stratégie & Goût</h3>
-                    <p class="text-neutral-light text-sm leading-relaxed">
-                        On discute de votre clientèle, de votre ambiance et de vos plats signatures.
-                    </p>
                 </div>
-                
-                <!-- Étape 2 -->
-                <div class="process-step text-center opacity-0 transform translate-y-8 transition-all duration-700 ease-out" style="transition-delay: 150ms;">
-                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg mx-auto mb-6 relative">
-                        <span class="text-2xl font-bold text-neutral-dark">2</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-neutral-dark mb-2">Vos Ingrédients</h3>
-                    <p class="text-neutral-light text-sm leading-relaxed">
-                        Vous me fournissez votre menu, vos plus belles photos et vos accès à TheFork/Zenchef.
-                    </p>
-                </div>
-                
-                <!-- Étape 3 -->
-                <div class="process-step text-center opacity-0 transform translate-y-8 transition-all duration-700 ease-out" style="transition-delay: 300ms;">
-                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg mx-auto mb-6 relative">
-                        <span class="text-2xl font-bold text-neutral-dark">3</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-neutral-dark mb-2">Je Cuisine le Site</h3>
-                    <p class="text-neutral-light text-sm leading-relaxed">
-                        Je conçois votre site et vous le présente pour validation. On ajuste les assaisonnements ensemble.
-                    </p>
-                </div>
-                
-                <!-- Étape 4 -->
-                <div class="process-step text-center opacity-0 transform translate-y-8 transition-all duration-700 ease-out" style="transition-delay: 450ms;">
-                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg mx-auto mb-6 relative">
-                        <span class="text-2xl font-bold text-neutral-dark">4</span>
-                    </div>
-                    <h3 class="text-lg font-bold text-neutral-dark mb-2">Service en Salle !</h3>
-                    <p class="text-neutral-light text-sm leading-relaxed">
-                        Votre site est en ligne, prêt à accueillir et servir vos futurs clients.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
+            </section>
             
+            <!-- NOUVEAU : Section "Explorer" avec lien de retour -->
+            <section class="py-20 bg-white border-t border-gray-200">
+                <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-3xl font-bold text-neutral-dark mb-4">Explorer d'Autres Solutions</h2>
+                    <p class="text-lg text-neutral-light mb-8">Découvrez comment j'adapte la méthode Clarté à d'autres corps de métier.</p>
+                    <a href="../solutions-par-metier.html" class="inline-flex items-center justify-center gap-2 bg-soft-blue text-deep-blue font-semibold rounded-md text-lg px-8 py-3 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+                        Voir toutes les solutions
+                    </a>
+                </div>
+            </section>
+
             <!-- CTA Section Final -->
             <section id="cta" class="py-20 bg-gradient-to-r from-deep-blue to-clarity-blue text-white">
                 <div class="container mx-auto px-6">
@@ -428,7 +255,7 @@
             </section>
         </main>
 
-         <!-- FOOTER (IDENTIQUE À L'ACCUEIL) -->
+       <!-- FOOTER -->
         <footer class="bg-neutral-dark text-white py-16">
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-3 gap-12">
@@ -439,42 +266,25 @@
                             </a>
                             <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
                         </div>
-                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
-                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
-                            et les coûts exorbitants.</p>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon et les coûts exorbitants.</p>
                     </div>
                     <div class="space-y-6">
                         <h4 class="text-xl font-bold text-white">Navigation</h4>
                         <div class="space-y-3">
-                            <a href="../index.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
-                            <a href="../a-propos.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
-                                Propos</a>
-                            <a href="../index.html#plan"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mon
-                                Plan</a>
-                            <a href="../index.html#offres"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
-                                Offres</a>
-                            <a href="../index.html#portfolio"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Portfolio</a>
+                            <a href="../index.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À Propos</a>
+                            <a href="../index.html#plan" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mon Plan</a>
+                            <a href="../index.html#offres" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes Offres</a>
+                            <a href="../index.html#portfolio" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Portfolio</a>
                         </div>
                     </div>
                     <div class="space-y-6">
                         <h4 class="text-xl font-bold text-white">Informations Légales</h4>
                         <div class="space-y-3">
-                            <a href="../mentions-legales.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
-                                Légales</a>
-                            <a href="../politique-de-confidentialite.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
-                                de Confidentialité</a>
-                            <a href="../cgv.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
-                                Générales de Vente</a>
-                            <a href="../contact.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                            <a href="../mentions-legales.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions Légales</a>
+                            <a href="../politique-de-confidentialite.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique de Confidentialité</a>
+                            <a href="../cgv.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions Générales de Vente</a>
+                            <a href="../contact.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
                         </div>
                     </div>
                 </div>
@@ -485,80 +295,63 @@
         </footer>
         
     </div>
-    <script src="js/script.js"></script>
+    <script src="../js/script.js"></script>
     
-    <!-- NOUVEAU SCRIPT POUR L'ACCORDÉON FAQ -->
+    <!-- SCRIPTS FUSIONNÉS POUR LA PAGE -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Logique pour l'accordéon FAQ
             const faqItems = document.querySelectorAll('.faq-item');
-
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                const answer = item.querySelector('.faq-answer');
-                const icon = question.querySelector('svg');
-
-                question.addEventListener('click', () => {
-                    const isOpen = answer.classList.contains('max-h-96');
-
-                    // Fermer tous les autres items
-                    faqItems.forEach(otherItem => {
-                        if (otherItem !== item) {
-                            otherItem.querySelector('.faq-answer').classList.remove('max-h-96', 'pt-2');
-                            otherItem.querySelector('.faq-answer').classList.add('max-h-0');
-                            otherItem.querySelector('svg').classList.remove('rotate-180');
+            if (faqItems.length > 0) {
+                faqItems.forEach(item => {
+                    const question = item.querySelector('.faq-question');
+                    const answer = item.querySelector('.faq-answer');
+                    const icon = question.querySelector('svg');
+                    question.addEventListener('click', () => {
+                        const isOpen = answer.classList.contains('max-h-96');
+                        faqItems.forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.querySelector('.faq-answer').classList.remove('max-h-96', 'pt-2');
+                                otherItem.querySelector('.faq-answer').classList.add('max-h-0');
+                                otherItem.querySelector('svg').classList.remove('rotate-180');
+                            }
+                        });
+                        if (isOpen) {
+                            answer.classList.remove('max-h-96', 'pt-2');
+                            answer.classList.add('max-h-0');
+                            icon.classList.remove('rotate-180');
+                        } else {
+                            answer.classList.remove('max-h-0');
+                            answer.classList.add('max-h-96', 'pt-2');
+                            icon.classList.add('rotate-180');
                         }
                     });
-
-                    // Ouvrir ou fermer l'item cliqué
-                    if (isOpen) {
-                        answer.classList.remove('max-h-96', 'pt-2');
-                        answer.classList.add('max-h-0');
-                        icon.classList.remove('rotate-180');
-                    } else {
-                        answer.classList.remove('max-h-0');
-                        answer.classList.add('max-h-96', 'pt-2'); // max-h-96 est une valeur arbitraire assez grande
-                        icon.classList.add('rotate-180');
-                    }
                 });
-            });
-        });
-    </script>
-    <!-- FIN DU SCRIPT POUR L'ACCORDÉON -->
+            }
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
+            // Logique pour l'animation du processus
             const processSection = document.getElementById('process-section');
-            const steps = document.querySelectorAll('.process-step');
-            const line = document.querySelector('.connecting-line');
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Animer la ligne
-                        if(line) {
-                           line.style.transitionDelay = '300ms';
-                           line.classList.remove('opacity-0');
-                        }
-                        
-                        // Animer les étapes
-                        steps.forEach(step => {
-                            step.classList.remove('opacity-0', 'translate-y-8');
-                        });
-                        
-                        // Cesser d'observer une fois l'animation lancée
-                        observer.unobserve(processSection);
-                    }
-                });
-            }, {
-                threshold: 0.3 // L'animation se déclenche quand 30% de la section est visible
-            });
-
             if (processSection) {
+                const steps = processSection.querySelectorAll('.process-step');
+                const line = processSection.querySelector('.connecting-line');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            if (line) {
+                                line.style.transitionDelay = '300ms';
+                                line.classList.remove('opacity-0');
+                            }
+                            steps.forEach(step => {
+                                step.classList.remove('opacity-0', 'translate-y-8');
+                            });
+                            observer.unobserve(processSection);
+                        }
+                    });
+                }, { threshold: 0.3 });
                 observer.observe(processSection);
             }
         });
     </script>
     
 </body>
-
 </html>
