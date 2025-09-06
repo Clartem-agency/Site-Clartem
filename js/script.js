@@ -216,3 +216,22 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('.filter-btn[data-filter="all"]').click();
     }
 });
+
+// ==================================================================
+// NOUVEAU : LOGIQUE POUR L'EFFET STACKING CARDS
+// ==================================================================
+const planSection = document.querySelector('#plan');
+if (planSection) {
+    // Crée une "timeline de défilement" que le CSS peut utiliser.
+    // L'animation se déroulera pendant que la section #plan est visible à l'écran.
+    const scrollTimeline = new ScrollTimeline({
+        source: document.scrollingElement,
+        scrollOffsets: [
+            { target: planSection, edge: 'start', threshold: 1 },
+            { target: planSection, edge: 'end', threshold: 1 }
+        ],
+    });
+
+    // Lie cette timeline au CSS via un nom personnalisé
+    planSection.style.animationTimeline = '--section-pin-scroll';
+}
