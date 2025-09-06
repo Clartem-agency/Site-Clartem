@@ -1,9 +1,9 @@
-// script.js - VERSION CORRIGÉE ET FINALE
+// script.js - VERSION MISE À JOUR
 
 document.addEventListener('DOMContentLoaded', function () {
-    
+
     // ==================================================================
-    // LOGIQUE DU MENU MOBILE ET DE LA NAVIGATION (INCHANGÉ)
+    // LOGIQUE DU MENU MOBILE ET DE LA NAVIGATION
     // ==================================================================
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -31,7 +31,49 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==================================================================
-    // LOGIQUE DU BANDEAU PROMOTIONNEL (INCHANGÉ)
+    // NOUVEAU : ANIMATIONS AVEC SCROLLREVEAL
+    // ==================================================================
+    if (typeof ScrollReveal !== 'undefined') {
+        const srConfig = {
+            origin: 'bottom',
+            distance: '20px',
+            duration: 500,
+            delay: 0,
+            opacity: 0,
+            scale: 1,
+            easing: 'cubic-bezier(0.5, 0, 0, 1)',
+            reset: false // Mettre à true si vous voulez que l'animation se rejoue à chaque fois
+        };
+        const sr = ScrollReveal(srConfig);
+
+        // Appliquer l'animation aux éléments avec l'attribut [data-sr]
+        sr.reveal('[data-sr]', { delay: 200 });
+        sr.reveal('[data-sr-delay="100"]', { delay: 300 });
+        sr.reveal('[data-sr-delay="200"]', { delay: 400 });
+        sr.reveal('[data-sr-delay="300"]', { delay: 500 });
+        sr.reveal('[data-sr-origin="right"]', { origin: 'right', distance: '40px', delay: 200 });
+        sr.reveal('[data-sr-origin="left"]', { origin: 'left', distance: '40px', delay: 200 });
+    }
+
+    // ==================================================================
+    // NOUVEAU : ANIMATION DES IMAGES
+    // ==================================================================
+    const lazyImages = document.querySelectorAll('img.lazy-load');
+    const handleImageLoad = (img) => {
+        // L'attribut loading="lazy" natif gère le chargement, 
+        // on s'assure juste que l'animation se déclenche quand l'image est chargée.
+        if (img.complete) {
+            img.classList.add('loaded');
+        } else {
+            img.addEventListener('load', () => {
+                img.classList.add('loaded');
+            }, { once: true });
+        }
+    };
+    lazyImages.forEach(handleImageLoad);
+
+    // ==================================================================
+    // LOGIQUE DU BANDEAU PROMOTIONNEL (SI EXISTANT)
     // ==================================================================
     const banner = document.getElementById('promo-banner');
     const closeButton = document.getElementById('close-banner-button');
@@ -49,14 +91,14 @@ document.addEventListener('DOMContentLoaded', function () {
             hideBanner();
             sessionStorage.setItem('promoBannerClosed', 'true');
         });
-        
+
         ctaButton.addEventListener('click', () => {
             hideBanner();
         });
     }
 
     // ==================================================================
-    // LOGIQUE UNIFIÉE POUR TOUS LES COMPTES À REBOURS (INCHANGÉ)
+    // LOGIQUE UNIFIÉE POUR LES COMPTES À REBOURS (SI EXISTANT)
     // ==================================================================
     const countdownDate = new Date("Aug 31, 2025 23:59:59").getTime();
 
@@ -87,10 +129,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const format = (num) => num < 10 ? '0' + num : num;
 
-        elements.days.innerHTML = format(days);
-        elements.hours.innerHTML = format(hours);
-        elements.minutes.innerHTML = format(minutes);
-        elements.seconds.innerHTML = format(seconds);
+        if (elements.days) elements.days.innerHTML = format(days);
+        if (elements.hours) elements.hours.innerHTML = format(hours);
+        if (elements.minutes) elements.minutes.innerHTML = format(minutes);
+        if (elements.seconds) elements.seconds.innerHTML = format(seconds);
     };
 
     const interval = setInterval(() => {
@@ -104,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (bannerTimerContainer) {
             updateTimerDisplay(distance, { days: bannerDaysEl, hours: bannerHoursEl, minutes: bannerMinutesEl, seconds: bannerSecondsEl }, bannerTimerContainer);
         }
-        
+
         if (distance < 0) {
             clearInterval(interval);
         }
@@ -112,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 1000);
 
     // ==================================================================
-    // LOGIQUE CORRIGÉE : FILTRE ET "VOIR PLUS" DU PORTFOLIO
+    // LOGIQUE FILTRE ET "VOIR PLUS" DU PORTFOLIO (SI EXISTANT)
     // ==================================================================
     const filterButtons = document.querySelectorAll('.filter-btn');
     const portfolioGrid = document.getElementById('portfolio-grid');
@@ -124,13 +166,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const itemsToLoadOnClick = 6;
         let currentlyVisibleCount;
 
-        // ** LA FONCTION CLÉ CORRIGÉE **
-        // Cette fonction applique la logique "voir plus" UNIQUEMENT aux éléments visibles après filtrage.
         const applyVisibility = () => {
             const visibleItems = Array.from(portfolioGrid.querySelectorAll('.portfolio-item:not(.hidden)'));
-            
+
             visibleItems.forEach((item, index) => {
-                // On affiche l'élément si son index DANS LA LISTE FILTRÉE est inférieur au nombre visible
                 if (index < currentlyVisibleCount) {
                     item.style.display = 'block';
                 } else {
@@ -138,7 +177,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            // On affiche le bouton "Voir plus" seulement s'il reste des éléments cachés DANS LA LISTE FILTRÉE
             if (visibleItems.length > currentlyVisibleCount) {
                 loadMoreContainer.style.display = 'block';
             } else {
@@ -146,26 +184,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         };
 
-        // Gère le clic sur le bouton "Voir plus"
         loadMoreBtn.addEventListener('click', () => {
             currentlyVisibleCount += itemsToLoadOnClick;
             applyVisibility();
         });
 
-        // Gère le clic sur les boutons de filtre
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const filter = button.dataset.filter;
 
-                // 1. Mettre à jour le style du bouton actif
                 filterButtons.forEach(btn => btn.classList.remove('bg-deep-blue', 'text-white'));
                 button.classList.add('bg-deep-blue', 'text-white');
 
-                // 2. Appliquer le filtre en cachant/montrant les items avec la classe .hidden
                 const allItems = portfolioGrid.querySelectorAll('.portfolio-item');
                 allItems.forEach(item => {
-                    // On remet le display à '' pour que la classe .hidden (display: none) puisse fonctionner
-                    item.style.display = ''; 
+                    item.style.display = '';
                     const category = item.dataset.category;
                     if (filter === 'all' || filter === category) {
                         item.classList.remove('hidden');
@@ -174,13 +207,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 });
 
-                // 3. Réinitialiser le compteur et appliquer la logique "Voir plus"
                 currentlyVisibleCount = itemsToShowInitially;
                 applyVisibility();
             });
         });
 
-        // Initialisation au chargement de la page : on simule un clic sur "Tous les projets"
+        // Initialisation
         document.querySelector('.filter-btn[data-filter="all"]').click();
     }
 });

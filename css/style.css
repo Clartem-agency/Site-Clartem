@@ -1,26 +1,111 @@
 /* style.css */
 
-html {
-  scroll-behavior: smooth;
+/* ======================================================= */
+/*          NOUVEAUX STYLES DE BOUTONS INTERACTIFS         */
+/* ======================================================= */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+    line-height: 1.5; /* Assure un alignement correct du texte */
 }
 
-/* Style pour la navigation quand on défile (optionnel, mais bonne pratique) */
+.btn-primary {
+    background-image: linear-gradient(120deg, #3B82F6, #1E3A8A, #3B82F6); /* clarity-blue, deep-blue */
+    background-size: 250% auto;
+    background-position: 30% 0;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    transition: background-position 0.6s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-position: 70% 0;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #1E3A8A; /* deep-blue */
+    border: 2px solid #1E3A8A; /* deep-blue */
+    transition: all 0.35s ease;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #1E3A8A; /* deep-blue */
+    transition: width 0.35s ease-out;
+    z-index: -1;
+}
+
+.btn-secondary:hover {
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.25);
+}
+
+.btn-secondary:hover::before {
+    width: 100%;
+}
+
+.btn-orange {
+    background-image: linear-gradient(120deg, #fb923c, #F97316); /* warm-orange */
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-orange:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 25px rgba(249, 115, 22, 0.4);
+    filter: brightness(1.1);
+}
+
+/* Style pour l'animation de fondu des images */
+img.lazy-load {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+img.lazy-load.loaded {
+    opacity: 1;
+}
+
+
+/* Styles existants */
+html {
+    scroll-behavior: smooth;
+}
+
 nav.scrolled {
     /* Vous pouvez ajouter des styles ici si vous voulez que la nav change au scroll */
     /* Par exemple, une ombre plus prononcée */
     /* box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); */
 }
 
-/* Styles pour le filtre du portfolio */
 .portfolio-item {
-    /* Ajoute une transition douce lors de l'apparition/disparition */
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .portfolio-item.hidden {
-    /* Cache les éléments qui ne correspondent pas au filtre */
     transform: scale(0.9);
     opacity: 0;
     display: none;
 }
-
