@@ -216,3 +216,68 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('.filter-btn[data-filter="all"]').click();
     }
 });
+
+// ==================================================================
+// LOGIQUE POUR L'EFFET STACKING CARDS (Version finale avec transition de contenu)
+// ==================================================================
+const planSection = document.getElementById('plan');
+
+if (planSection) {
+    const panels = Array.from(planSection.querySelectorAll('.panel'));
+    const panel4Content = document.getElementById('panel-4-content');
+    const panel4Cta = document.getElementById('panel-4-cta');
+    const numPanels = panels.length;
+
+    const handleScroll = () => {
+        const rect = planSection.getBoundingClientRect();
+        const scrollTop = -rect.top;
+        const scrollHeight = planSection.offsetHeight - window.innerHeight;
+        const progress = Math.min(1, Math.max(0, scrollTop / scrollHeight));
+
+        // Gérer la visibilité des panneaux
+        panels.forEach((panel, i) => {
+            const panelIndex = numPanels - 1 - i;
+            const startProgress = panelIndex / numPanels;
+            const endProgress = (panelIndex + 1) / numPanels;
+            const isLastPanel = i === 0;
+
+            if (progress >= startProgress && progress < endProgress) {
+                panel.style.transform = 'translateY(0) scale(1)';
+                panel.style.opacity = '1';
+                panel.style.visibility = 'visible';
+            } 
+            else if (progress >= endProgress) {
+                if (isLastPanel) {
+                    panel.style.transform = 'translateY(0) scale(1)';
+                    panel.style.opacity = '1';
+                    panel.style.visibility = 'visible';
+                } else {
+                    panel.style.transform = 'translateY(-5rem) scale(0.9)';
+                    panel.style.opacity = '0';
+                    panel.style.visibility = 'hidden';
+                }
+            } 
+            else {
+                panel.style.transform = 'translateY(0) scale(1)';
+                panel.style.opacity = '1';
+                panel.style.visibility = 'visible';
+            }
+        });
+
+        // Gérer la transition de contenu sur le dernier panneau
+        if (panel4Content && panel4Cta) {
+            const ctaStartProgress = 1 - (1 / numPanels); 
+            if (progress >= ctaStartProgress) {
+                const ctaProgress = (progress - ctaStartProgress) / (1 / numPanels);
+                panel4Content.style.opacity = 1 - (ctaProgress * 2); // Disparaît
+                panel4Cta.style.opacity = ctaProgress * 2; // Apparaît
+            } else {
+                panel4Content.style.opacity = '1';
+                panel4Cta.style.opacity = '0';
+            }
+        }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+}
