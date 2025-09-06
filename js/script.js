@@ -218,13 +218,14 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // ==================================================================
-// LOGIQUE POUR L'EFFET STACKING CARDS (Version avec transition CTA)
+// LOGIQUE POUR L'EFFET STACKING CARDS (Version finale avec transition de contenu)
 // ==================================================================
 const planSection = document.getElementById('plan');
 
 if (planSection) {
     const panels = Array.from(planSection.querySelectorAll('.panel'));
-    const finalCta = document.getElementById('final-cta');
+    const panel4Content = document.getElementById('panel-4-content');
+    const panel4Cta = document.getElementById('panel-4-cta');
     const numPanels = panels.length;
 
     const handleScroll = () => {
@@ -238,8 +239,6 @@ if (planSection) {
             const panelIndex = numPanels - 1 - i;
             const startProgress = panelIndex / numPanels;
             const endProgress = (panelIndex + 1) / numPanels;
-
-            // Ne pas faire disparaître le dernier panneau (l'arrière-plan du CTA)
             const isLastPanel = i === 0;
 
             if (progress >= startProgress && progress < endProgress) {
@@ -248,11 +247,11 @@ if (planSection) {
                 panel.style.visibility = 'visible';
             } 
             else if (progress >= endProgress) {
-                if (isLastPanel) { // Si c'est le dernier panneau, on le garde visible
+                if (isLastPanel) {
                     panel.style.transform = 'translateY(0) scale(1)';
                     panel.style.opacity = '1';
                     panel.style.visibility = 'visible';
-                } else { // Les autres panneaux disparaissent normalement
+                } else {
                     panel.style.transform = 'translateY(-5rem) scale(0.9)';
                     panel.style.opacity = '0';
                     panel.style.visibility = 'hidden';
@@ -265,17 +264,17 @@ if (planSection) {
             }
         });
 
-        // Gérer l'apparition du CTA final
-        // Le CTA apparaît dans les derniers 20% du scroll total (1.0 / 5 panneaux = 0.2)
-        const ctaStartProgress = 1 - (1 / numPanels); 
-        if (progress >= ctaStartProgress) {
-            // Calcule la progression de l'opacité pour un fondu en douceur
-            const ctaProgress = (progress - ctaStartProgress) / (1 / numPanels);
-            finalCta.style.opacity = Math.min(1, ctaProgress * 2); // Multiplier par 2 pour que ça apparaisse plus vite
-            finalCta.style.visibility = 'visible';
-        } else {
-            finalCta.style.opacity = '0';
-            finalCta.style.visibility = 'hidden';
+        // Gérer la transition de contenu sur le dernier panneau
+        if (panel4Content && panel4Cta) {
+            const ctaStartProgress = 1 - (1 / numPanels); 
+            if (progress >= ctaStartProgress) {
+                const ctaProgress = (progress - ctaStartProgress) / (1 / numPanels);
+                panel4Content.style.opacity = 1 - (ctaProgress * 2); // Disparaît
+                panel4Cta.style.opacity = ctaProgress * 2; // Apparaît
+            } else {
+                panel4Content.style.opacity = '1';
+                panel4Cta.style.opacity = '0';
+            }
         }
     };
 
