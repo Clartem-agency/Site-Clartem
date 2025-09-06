@@ -40,14 +40,10 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/style.css">
 
-    <!-- ======================================================= -->
-    <!--    AJOUTS POUR LES NOUVELLES FONCTIONNALITÉS          -->
-    <!-- ======================================================= -->
-
-    <!-- 1. ScrollReveal.js via CDN -->
+    <!-- ScrollReveal.js via CDN -->
     <script src="https://unpkg.com/scrollreveal"></script>
 
-    <!-- 2. CSS pour Smooth Scrolling & Lazy Loading Animation -->
+    <!-- CSS pour Smooth Scrolling, Lazy Loading & NOUVEAUX BOUTONS -->
     <style>
         /* Active le défilement fluide sur toute la page */
         html {
@@ -62,6 +58,83 @@
 
         img.lazy-load.loaded {
             opacity: 1;
+        }
+
+        /* ======================================================= */
+        /*          NOUVEAUX STYLES DE BOUTONS INTERACTIFS         */
+        /* ======================================================= */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px; /* Augmentation légère du padding pour correspondre à h-14 */
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700; /* Correspond à font-bold */
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            font-size: 1rem;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-image: linear-gradient(120deg, #3B82F6, #1E3A8A, #3B82F6); /* clarity-blue, deep-blue */
+            background-size: 250% auto;
+            background-position: 30% 0;
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            transition: background-position 0.6s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-position: 70% 0;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #1E3A8A; /* deep-blue */
+            border: 2px solid #1E3A8A; /* deep-blue */
+            transition: all 0.35s ease;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: #1E3A8A; /* deep-blue */
+            transition: width 0.35s ease-out;
+            z-index: -1;
+        }
+
+        .btn-secondary:hover {
+            color: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.25);
+        }
+
+        .btn-secondary:hover::before {
+            width: 100%;
+        }
+
+        .btn-orange {
+            background-image: linear-gradient(120deg, #fb923c, #F97316); /* warm-orange */
+            color: #ffffff;
+            border: none;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-orange:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 25px rgba(249, 115, 22, 0.4);
+            filter: brightness(1.1);
         }
     </style>
 
@@ -83,7 +156,7 @@
                         <a href="../index.html#offres" class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes Offres</a>
                         <a href="../index.html#portfolio" class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Portfolio</a>
                     </div>
-                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center justify-center gap-2 bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl hover:scale-105 transition-all duration-300 font-bold h-11 rounded-md px-8 shadow-lg">Planifier un appel clarté</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 py-2 h-auto">Planifier un appel clarté</a>
                     <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg></button>
                 </div>
                 <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
@@ -91,21 +164,17 @@
                     <a href="../index.html#plan" class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Notre Plan</a>
                     <a href="../index.html#offres" class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Nos Offres</a>
                     <a href="../index.html#portfolio" class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Portfolio</a>
-                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="block mt-2 w-full text-center bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl transition-all duration-300 font-bold py-2 rounded-md px-8 shadow-lg">Planifier un appel clarté</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier un appel clarté</a>
                 </div>
             </div>
         </nav>
 
         <main class="flex-grow">
 
-            <!-- ======================================================= -->
-            <!--                 NOUVELLE SECTION HERO                   -->
-            <!-- ======================================================= -->
+            <!-- SECTION HERO -->
             <section class="relative bg-soft-blue flex items-center min-h-screen pt-32 pb-20">
                 <div class="container mx-auto px-6">
                     <div class="grid lg:grid-cols-2 gap-12 items-center">
-                        
-                        <!-- Colonne de gauche : Texte & CTA -->
                         <div class="text-center lg:text-left">
                             <h1 class="text-4xl md:text-6xl font-bold text-neutral-dark leading-tight" data-sr>
                                 Un Site Web Qui <span class="text-warm-orange">Remplit Vos Tables</span>
@@ -113,79 +182,51 @@
                             <p class="text-xl text-neutral-light mt-6 leading-relaxed max-w-xl mx-auto lg:mx-0" data-sr-delay="100">
                                 Arrêtez de dépendre uniquement des plateformes. Avec un Site Clarté, reprenez le contrôle de votre image, simplifiez la vie de vos clients et maximisez vos réservations directes.
                             </p>
-
-                            <!-- Appel à l'action avec 2 boutons -->
                             <div class="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4" data-sr-delay="200">
-                                <a href="#cta" class="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-gradient-to-r from-clarity-blue to-deep-blue text-white hover:shadow-xl hover:scale-105 transition-all duration-300 font-bold h-14 rounded-md px-10 shadow-lg text-lg">
+                                <a href="#cta" class="btn btn-primary w-full sm:w-auto text-lg">
                                     Obtenir mon site
                                 </a>
-                                <a href="#process-section" class="inline-flex items-center justify-center w-full sm:w-auto border-2 border-deep-blue text-deep-blue font-bold h-14 rounded-md px-10 transition-all duration-300 hover:bg-deep-blue hover:text-white">
+                                <a href="#process-section" class="btn btn-secondary w-full sm:w-auto text-lg">
                                     Voir le processus
                                 </a>
                             </div>
-
-                            <!-- Points de réassurance (NOUVELLE VERSION AVEC GRILLE) -->
                             <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-y-4 sm:gap-x-6" data-sr-delay="300">
-                                <!-- Avantage 1 -->
                                 <div class="flex items-center justify-center sm:justify-start gap-3">
                                     <svg class="w-5 h-5 text-success-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                                     <span class="text-neutral-dark font-medium">Plus de réservations directes</span>
                                 </div>
-                                <!-- Avantage 2 -->
                                 <div class="flex items-center justify-center sm:justify-start gap-3">
                                     <svg class="w-5 h-5 text-success-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                                     <span class="text-neutral-dark font-medium">Zéro commission</span>
                                 </div>
-                                <!-- Avantage 3 -->
                                 <div class="flex items-center justify-center sm:justify-start gap-3">
                                     <svg class="w-5 h-5 text-success-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                                     <span class="text-neutral-dark font-medium">Reprenez le contrôle</span>
                                 </div>
                             </div>
-
                         </div>
-
-                        <!-- Colonne de droite : Image -->
                         <div class="hidden lg:block" data-sr-origin="right">
                             <img src="https://via.placeholder.com/600x450/F97316/FFFFFF?text=Votre+Restaurant+en+Ligne" alt="Exemple de site web professionnel pour un restaurant" class="rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500 ease-out">
                         </div>
-
                     </div>
                 </div>
             </section>
-            <!-- ======================================================= -->
-            <!--                FIN NOUVELLE SECTION HERO                -->
-            <!-- ======================================================= -->
             
-
             <!-- Section Défis -->
-<section class="py-20 bg-white">
-    <div class="container mx-auto px-6 max-w-5xl">
-        <div class="text-center" data-sr>
-            <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-4">Vos Défis en tant que Restaurateur</h2>
-            <p class="text-xl text-neutral-light max-w-3xl mx-auto">Je sais que votre quotidien est déjà bien rempli. Votre site web ne devrait pas être un problème de plus.</p>
-        </div>
-        <div class="mt-16 grid md:grid-cols-2 gap-8">
-            <!-- CARTE 1 (GAUCHE) -->
-            <div class="bg-soft-blue/50 rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-gray-200" data-sr-origin="left">
-                <div class="w-12 h-12 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-6"><svg class="w-6 h-6 text-destructive" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 10.5L3 3"></path></svg></div><h3 class="text-xl font-bold text-neutral-dark mb-2">Visibilité Limitée</h3><p class="text-neutral-light leading-relaxed">Difficile de se démarquer face à la concurrence et aux grandes plateformes de réservation.</p>
-            </div>
-            <!-- CARTE 2 (DROITE) -->
-            <div class="bg-soft-blue/50 rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-gray-200" data-sr-origin="right">
-                <div class="w-12 h-12 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-6"><svg class="w-6 h-6 text-destructive" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div><h3 class="text-xl font-bold text-neutral-dark mb-2">Gestion Complexe</h3><p class="text-neutral-light leading-relaxed">Jongler entre les appels, les emails et les plateformes de réservation est chronophage.</p>
-            </div>
-            <!-- CARTE 3 (GAUCHE) -->
-            <div class="bg-soft-blue/50 rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-gray-200" data-sr-origin="left">
-                <div class="w-12 h-12 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-6"><svg class="w-6 h-6 text-destructive" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg></div><h3 class="text-xl font-bold text-neutral-dark mb-2">Menu Peu Attrayant</h3><p class="text-neutral-light leading-relaxed">Un simple PDF ou une photo de mauvaise qualité ne met pas en valeur la qualité de vos plats.</p>
-            </div>
-            <!-- CARTE 4 (DROITE) -->
-            <div class="bg-soft-blue/50 rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-gray-200" data-sr-origin="right">
-                <div class="w-12 h-12 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-6"><svg class="w-6 h-6 text-destructive" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></div><h3 class="text-xl font-bold text-neutral-dark mb-2">Commissions Élevées</h3><p class="text-neutral-light leading-relaxed">Les plateformes tierces prennent une part importante de votre marge sur chaque réservation.</p>
-            </div>
-        </div>
-    </div>
-</section>
-            
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-6 max-w-5xl">
+                    <div class="text-center" data-sr>
+                        <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-4">Vos Défis en tant que Restaurateur</h2>
+                        <p class="text-xl text-neutral-light max-w-3xl mx-auto">Je sais que votre quotidien est déjà bien rempli. Votre site web ne devrait pas être un problème de plus.</p>
+                    </div>
+                    <div class="mt-16 grid md:grid-cols-2 gap-8">
+                        <div class="bg-soft-blue/50 rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-gray-200" data-sr-origin="left"><div class="w-12 h-12 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-6"><svg class="w-6 h-6 text-destructive" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.5 10.5L3 3"></path></svg></div><h3 class="text-xl font-bold text-neutral-dark mb-2">Visibilité Limitée</h3><p class="text-neutral-light leading-relaxed">Difficile de se démarquer face à la concurrence et aux grandes plateformes de réservation.</p></div>
+                        <div class="bg-soft-blue/50 rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-gray-200" data-sr-origin="right"><div class="w-12 h-12 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-6"><svg class="w-6 h-6 text-destructive" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div><h3 class="text-xl font-bold text-neutral-dark mb-2">Gestion Complexe</h3><p class="text-neutral-light leading-relaxed">Jongler entre les appels, les emails et les plateformes de réservation est chronophage.</p></div>
+                        <div class="bg-soft-blue/50 rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-gray-200" data-sr-origin="left"><div class="w-12 h-12 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-6"><svg class="w-6 h-6 text-destructive" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg></div><h3 class="text-xl font-bold text-neutral-dark mb-2">Menu Peu Attrayant</h3><p class="text-neutral-light leading-relaxed">Un simple PDF ou une photo de mauvaise qualité ne met pas en valeur la qualité de vos plats.</p></div>
+                        <div class="bg-soft-blue/50 rounded-2xl p-8 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-gray-200" data-sr-origin="right"><div class="w-12 h-12 bg-destructive/10 rounded-full flex items-center justify-center mx-auto mb-6"><svg class="w-6 h-6 text-destructive" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></div><h3 class="text-xl font-bold text-neutral-dark mb-2">Commissions Élevées</h3><p class="text-neutral-light leading-relaxed">Les plateformes tierces prennent une part importante de votre marge sur chaque réservation.</p></div>
+                    </div>
+                </div>
+            </section>
 
             <!-- Section Solution -->
             <section class="py-20 bg-soft-blue">
@@ -219,25 +260,23 @@
             </section>
 
             <!-- Section Études de Cas -->
-<section class="py-20 bg-white">
-    <div class="container mx-auto px-6 max-w-6xl">
-        <div class="text-center mb-12" data-sr><h2 class="text-3xl font-bold text-neutral-dark mb-4">Découvrez-le en Action</h2><p class="text-lg text-neutral-light max-w-3xl mx-auto">Plongez dans les détails d'un projet concret pour voir comment la méthode Clarté s'applique au monde de la restauration.</p></div>
-        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <!-- CARTE DE GAUCHE -->
-            <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200" data-sr-origin="left">
-                <img src="https://via.placeholder.com/600x400/F97316/FFFFFF?text=Bistrot+Le+Gourmand" alt="Aperçu du site pour le projet Bistrot Le Gourmand" class="w-full h-56 object-cover lazy-load" loading="lazy">
-                <div class="p-8 flex flex-col flex-grow"><h3 class="text-xl font-bold text-neutral-dark mb-2">Projet Concept : Bistrot Le Gourmand</h3><p class="text-neutral-light mb-4 flex-grow">Comment un design épuré et l'intégration d'un système de réservation peuvent augmenter les couverts et simplifier la gestion.</p><a href="../study-case-pages/bistrot-le-gourmand.html" class="mt-auto inline-block text-center bg-soft-blue text-deep-blue font-semibold py-3 px-6 rounded-lg hover:bg-clarity-blue/20 transition-colors">Voir l'étude de cas</a></div>
-            </div>
-            <!-- CARTE DE DROITE -->
-            <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200" data-sr-origin="right">
-                <img src="https://via.placeholder.com/600x400/1E3A8A/FFFFFF?text=Pizza+Pronto" alt="Aperçu du site pour le projet Pizza Pronto" class="w-full h-56 object-cover lazy-load" loading="lazy">
-                <div class="p-8 flex flex-col flex-grow"><h3 class="text-xl font-bold text-neutral-dark mb-2">Projet Concept : Pizza Pronto</h3><p class="text-neutral-light mb-4 flex-grow">L'optimisation d'un site pour le Click & Collect : un parcours client sans friction pour booster la vente à emporter.</p><a href="../study-case-pages/pizza-pronto.html" class="mt-auto inline-block text-center bg-soft-blue text-deep-blue font-semibold py-3 px-6 rounded-lg hover:bg-clarity-blue/20 transition-colors">Voir l'étude de cas</a></div>
-            </div>
-        </div>
-    </div>
-</section>
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-6 max-w-6xl">
+                    <div class="text-center mb-12" data-sr><h2 class="text-3xl font-bold text-neutral-dark mb-4">Découvrez-le en Action</h2><p class="text-lg text-neutral-light max-w-3xl mx-auto">Plongez dans les détails d'un projet concret pour voir comment la méthode Clarté s'applique au monde de la restauration.</p></div>
+                    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                        <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200" data-sr-origin="left">
+                            <img src="https://via.placeholder.com/600x400/F97316/FFFFFF?text=Bistrot+Le+Gourmand" alt="Aperçu du site pour le projet Bistrot Le Gourmand" class="w-full h-56 object-cover lazy-load" loading="lazy">
+                            <div class="p-8 flex flex-col flex-grow"><h3 class="text-xl font-bold text-neutral-dark mb-2">Projet Concept : Bistrot Le Gourmand</h3><p class="text-neutral-light mb-4 flex-grow">Comment un design épuré et l'intégration d'un système de réservation peuvent augmenter les couverts et simplifier la gestion.</p><a href="../study-case-pages/bistrot-le-gourmand.html" class="mt-auto inline-block text-center bg-soft-blue text-deep-blue font-semibold py-3 px-6 rounded-lg hover:bg-clarity-blue/20 transition-colors">Voir l'étude de cas</a></div>
+                        </div>
+                        <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200" data-sr-origin="right">
+                            <img src="https://via.placeholder.com/600x400/1E3A8A/FFFFFF?text=Pizza+Pronto" alt="Aperçu du site pour le projet Pizza Pronto" class="w-full h-56 object-cover lazy-load" loading="lazy">
+                            <div class="p-8 flex flex-col flex-grow"><h3 class="text-xl font-bold text-neutral-dark mb-2">Projet Concept : Pizza Pronto</h3><p class="text-neutral-light mb-4 flex-grow">L'optimisation d'un site pour le Click & Collect : un parcours client sans friction pour booster la vente à emporter.</p><a href="../study-case-pages/pizza-pronto.html" class="mt-auto inline-block text-center bg-soft-blue text-deep-blue font-semibold py-3 px-6 rounded-lg hover:bg-clarity-blue/20 transition-colors">Voir l'étude de cas</a></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-            <!-- NOUVEAU : Section Offre Idéale affinée -->
+            <!-- Section Offre Idéale -->
             <section class="py-20 bg-soft-blue">
                 <div class="container mx-auto px-6 text-center max-w-4xl">
                     <div data-sr>
@@ -251,7 +290,7 @@
                             <li class="flex items-center gap-3"><svg class="w-5 h-5 text-success-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span><strong>Intégration</strong> de votre outil de réservation</span></li>
                             <li class="flex items-center gap-3"><svg class="w-5 h-5 text-success-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Section <strong>"Passez à l'action"</strong> dédiée</span></li>
                         </ul>
-                        <a href="../index.html#offres" class="inline-flex items-center justify-center w-full gap-2 bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold rounded-md text-lg px-8 py-3 shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">Voir le détail de l'offre</a>
+                        <a href="../index.html#offres" class="btn btn-primary w-full text-lg">Voir le détail de l'offre</a>
                     </div>
                 </div>
             </section>
@@ -286,12 +325,12 @@
                 </div>
             </section>
             
-            <!-- NOUVEAU : Section "Explorer" avec lien de retour -->
+            <!-- Section "Explorer" -->
             <section class="py-20 bg-white border-t border-gray-200">
                 <div class="container mx-auto px-6 text-center" data-sr>
                     <h2 class="text-3xl font-bold text-neutral-dark mb-4">Explorer d'Autres Solutions</h2>
                     <p class="text-lg text-neutral-light mb-8">Découvrez comment j'adapte la méthode Clarté à d'autres corps de métier.</p>
-                    <a href="../solutions-par-metier.html" class="inline-flex items-center justify-center gap-2 bg-soft-blue text-deep-blue font-semibold rounded-md text-lg px-8 py-3 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+                    <a href="../solutions-par-metier.html" class="btn btn-secondary text-lg">
                         Voir toutes les solutions
                     </a>
                 </div>
@@ -303,7 +342,7 @@
                     <div class="text-center max-w-4xl mx-auto" data-sr>
                         <h2 class="text-3xl md:text-5xl font-bold mb-6">Prêt(e) à Transformer les Visiteurs en Couverts ?</h2>
                         <p class="text-xl md:text-2xl mb-12 opacity-90 leading-relaxed">Planifiez votre appel gratuit de 15 minutes. Je vous montrerai comment un Site Clarté peut augmenter vos réservations directes et vous faire gagner un temps précieux.</p>
-                        <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-warm-orange text-white hover:bg-warm-orange/90 font-semibold rounded-md text-xl px-12 py-6 h-auto shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
+                        <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="btn btn-orange text-xl px-12 py-6 inline-flex items-center justify-center gap-2">
                             Planifier mon appel clarté
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 ml-2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
                         </a>
@@ -410,33 +449,24 @@
         });
     </script>
 
-    <!-- ======================================================= -->
-    <!--    NOUVEAU SCRIPT POUR LES ANIMATIONS                 -->
-    <!-- ======================================================= -->
+    <!-- SCRIPT POUR LES ANIMATIONS (LAZY LOAD & SCROLL REVEAL) -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             
             // --- 1. SCRIPT POUR L'ANIMATION DES IMAGES EN LAZY LOADING ---
             const lazyImages = document.querySelectorAll('img.lazy-load');
-
             const handleImageLoad = (img) => {
-                // Si l'image est déjà chargée (cache), on ajoute la classe directement
                 if (img.complete) {
                     img.classList.add('loaded');
                 } else {
-                    // Sinon, on attend l'événement 'load'
                     img.addEventListener('load', () => {
                         img.classList.add('loaded');
-                    }, { once: true }); // L'écouteur se retire après exécution
+                    }, { once: true });
                 }
             };
-
-            // On applique la logique à toutes les images concernées
             lazyImages.forEach(handleImageLoad);
 
-
             // --- 2. SCRIPT POUR SCROLL REVEAL ---
-            // Configuration par défaut pour les animations
             const srConfig = {
                 origin: 'bottom',
                 distance: '20px',
@@ -445,40 +475,16 @@
                 opacity: 0,
                 scale: 1,
                 easing: 'cubic-bezier(0.5, 0, 0, 1)',
-                reset: false // Les animations ne se rejouent pas
+                reset: false
             };
-
-            // Initialisation de ScrollReveal
             const sr = ScrollReveal(srConfig);
-
-            // Application des animations sur les éléments ciblés par l'attribut `data-sr`
-            // Cela permet de ne pas surcharger le HTML avec des classes
-            sr.reveal('[data-sr]', {
-                delay: 200
-            });
-            sr.reveal('[data-sr-delay="100"]', {
-                delay: 300
-            });
-            sr.reveal('[data-sr-delay="200"]', {
-                delay: 400
-            });
-            sr.reveal('[data-sr-delay="300"]', {
-                delay: 500
-            });
-            sr.reveal('[data-sr-origin="right"]', {
-                origin: 'right',
-                distance: '40px',
-                delay: 200
-            });
-            sr.reveal('[data-sr-origin="left"]', {
-                origin: 'left',
-                distance: '40px',
-                delay: 200
-            });
-            sr.reveal('[data-sr-scale="0.9"]', {
-                scale: 0.9,
-                delay: 200
-            });
+            sr.reveal('[data-sr]', { delay: 200 });
+            sr.reveal('[data-sr-delay="100"]', { delay: 300 });
+            sr.reveal('[data-sr-delay="200"]', { delay: 400 });
+            sr.reveal('[data-sr-delay="300"]', { delay: 500 });
+            sr.reveal('[data-sr-origin="right"]', { origin: 'right', distance: '40px', delay: 200 });
+            sr.reveal('[data-sr-origin="left"]', { origin: 'left', distance: '40px', delay: 200 });
+            sr.reveal('[data-sr-scale="0.9"]', { scale: 0.9, delay: 200 });
         });
     </script>
     
