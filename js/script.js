@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // ==================================================================
-// NOUVEAU : LOGIQUE POUR L'EFFET STACKING CARDS (Version Fiable)
+// LOGIQUE POUR L'EFFET STACKING CARDS (Version Finale Corrigée)
 // ==================================================================
 const planSection = document.getElementById('plan');
 
@@ -227,49 +227,41 @@ if (planSection) {
     const panels = Array.from(planSection.querySelectorAll('.panel'));
     const numPanels = panels.length;
 
-    // Cette fonction sera appelée à chaque fois que l'utilisateur fait défiler la page
     const handleScroll = () => {
-        // Calcule la progression du défilement à l'intérieur de la section #plan
         const rect = planSection.getBoundingClientRect();
         const scrollTop = -rect.top;
         const scrollHeight = planSection.offsetHeight - window.innerHeight;
-        
-        // La progression est une valeur de 0 (début de la section) à 1 (fin de la section)
         const progress = Math.min(1, Math.max(0, scrollTop / scrollHeight));
 
         panels.forEach((panel, i) => {
-            // On inverse l'index pour que la première carte (index 0) soit la dernière à s'animer
             const panelIndex = numPanels - 1 - i;
-            
-            // Chaque carte a une plage de progression où elle doit s'animer
             const startProgress = panelIndex / numPanels;
             const endProgress = (panelIndex + 1) / numPanels;
 
-            // On vérifie si la progression globale du scroll est dans la plage de la carte actuelle
             if (progress >= startProgress && progress < endProgress) {
-                // La carte est active, elle reste en place
+                // La carte est active : elle est 100% visible
                 panel.style.transform = 'translateY(0) scale(1)';
                 panel.style.opacity = '1';
+                panel.style.visibility = 'visible'; // On s'assure qu'elle est visible
                 panel.querySelector('div').style.transform = 'translateY(0)';
             } 
-            // Si on a dépassé la plage de la carte, on la fait "partir"
             else if (progress >= endProgress) {
+                // La carte a été dépassée : on la rend 100% invisible
                 panel.style.transform = 'translateY(-5rem) scale(0.9)';
-                panel.style.opacity = '0.7';
+                panel.style.opacity = '0'; // <-- CORRECTION CLÉ : 0 au lieu de 0.7
+                panel.style.visibility = 'hidden'; // On la cache complètement
                 panel.querySelector('div').style.transform = 'translateY(3rem)';
             } 
-            // Sinon, la carte est en attente (en dessous)
             else {
+                // La carte est en attente : elle est 100% visible
                 panel.style.transform = 'translateY(0) scale(1)';
                 panel.style.opacity = '1';
+                panel.style.visibility = 'visible';
                 panel.querySelector('div').style.transform = 'translateY(0)';
             }
         });
     };
 
-    // On attache la fonction à l'événement de défilement
     window.addEventListener('scroll', handleScroll);
-
-    // On l'appelle une fois au chargement pour initialiser les positions
     handleScroll();
 }
