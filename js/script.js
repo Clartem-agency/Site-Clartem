@@ -218,13 +218,13 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // ==================================================================
-// LOGIQUE POUR L'EFFET STACKING CARDS (Version Finale Corrigée)
+// LOGIQUE POUR L'EFFET STACKING CARDS (Version avec transition CTA)
 // ==================================================================
 const planSection = document.getElementById('plan');
 
 if (planSection) {
-    const stickyContainer = planSection.querySelector('.sticky');
     const panels = Array.from(planSection.querySelectorAll('.panel'));
+    const finalCta = document.getElementById('final-cta');
     const numPanels = panels.length;
 
     const handleScroll = () => {
@@ -233,33 +233,50 @@ if (planSection) {
         const scrollHeight = planSection.offsetHeight - window.innerHeight;
         const progress = Math.min(1, Math.max(0, scrollTop / scrollHeight));
 
+        // Gérer la visibilité des panneaux
         panels.forEach((panel, i) => {
             const panelIndex = numPanels - 1 - i;
             const startProgress = panelIndex / numPanels;
             const endProgress = (panelIndex + 1) / numPanels;
 
+            // Ne pas faire disparaître le dernier panneau (l'arrière-plan du CTA)
+            const isLastPanel = i === 0;
+
             if (progress >= startProgress && progress < endProgress) {
-                // La carte est active : elle est 100% visible
-                panel.style.transform = 'translateY(0) scale(1)';
-                panel.style.opacity = '1';
-                panel.style.visibility = 'visible'; // On s'assure qu'elle est visible
-                panel.querySelector('div').style.transform = 'translateY(0)';
-            } 
-            else if (progress >= endProgress) {
-                // La carte a été dépassée : on la rend 100% invisible
-                panel.style.transform = 'translateY(-5rem) scale(0.9)';
-                panel.style.opacity = '0'; // <-- CORRECTION CLÉ : 0 au lieu de 0.7
-                panel.style.visibility = 'hidden'; // On la cache complètement
-                panel.querySelector('div').style.transform = 'translateY(3rem)';
-            } 
-            else {
-                // La carte est en attente : elle est 100% visible
                 panel.style.transform = 'translateY(0) scale(1)';
                 panel.style.opacity = '1';
                 panel.style.visibility = 'visible';
-                panel.querySelector('div').style.transform = 'translateY(0)';
+            } 
+            else if (progress >= endProgress) {
+                if (isLastPanel) { // Si c'est le dernier panneau, on le garde visible
+                    panel.style.transform = 'translateY(0) scale(1)';
+                    panel.style.opacity = '1';
+                    panel.style.visibility = 'visible';
+                } else { // Les autres panneaux disparaissent normalement
+                    panel.style.transform = 'translateY(-5rem) scale(0.9)';
+                    panel.style.opacity = '0';
+                    panel.style.visibility = 'hidden';
+                }
+            } 
+            else {
+                panel.style.transform = 'translateY(0) scale(1)';
+                panel.style.opacity = '1';
+                panel.style.visibility = 'visible';
             }
         });
+
+        // Gérer l'apparition du CTA final
+        // Le CTA apparaît dans les derniers 20% du scroll total (1.0 / 5 panneaux = 0.2)
+        const ctaStartProgress = 1 - (1 / numPanels); 
+        if (progress >= ctaStartProgress) {
+            // Calcule la progression de l'opacité pour un fondu en douceur
+            const ctaProgress = (progress - ctaStartProgress) / (1 / numPanels);
+            finalCta.style.opacity = Math.min(1, ctaProgress * 2); // Multiplier par 2 pour que ça apparaisse plus vite
+            finalCta.style.visibility = 'visible';
+        } else {
+            finalCta.style.opacity = '0';
+            finalCta.style.visibility = 'hidden';
+        }
     };
 
     window.addEventListener('scroll', handleScroll);
