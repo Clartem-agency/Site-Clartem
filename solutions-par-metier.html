@@ -496,6 +496,40 @@
         });
     </script>
     <!-- FIN DU SCRIPT POUR L'ACCORDÉON -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const processSection = document.getElementById('process-section');
+            const steps = document.querySelectorAll('.process-step');
+            const line = document.querySelector('.connecting-line');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Animer la ligne
+                        if(line) {
+                           line.style.transitionDelay = '300ms';
+                           line.classList.remove('opacity-0');
+                        }
+                        
+                        // Animer les étapes
+                        steps.forEach(step => {
+                            step.classList.remove('opacity-0', 'translate-y-8');
+                        });
+                        
+                        // Cesser d'observer une fois l'animation lancée
+                        observer.unobserve(processSection);
+                    }
+                });
+            }, {
+                threshold: 0.3 // L'animation se déclenche quand 30% de la section est visible
+            });
+
+            if (processSection) {
+                observer.observe(processSection);
+            }
+        });
+    </script>
     
 </body>
 
