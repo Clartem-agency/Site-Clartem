@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // ==================================================================
-// LOGIQUE POUR L'EFFET STACKING CARDS (Version Storytelling + CTA Final)
+// LOGIQUE POUR L'EFFET STACKING CARDS (Version avec Pacing Amélioré)
 // ==================================================================
 const planSection = document.getElementById('plan');
 
@@ -231,21 +231,36 @@ if (planSection) {
     const numPanels = panels.length;
 
     // Constantes pour l'animation
-    const STACK_SCALE_FACTOR = 0.05; // Réduction de 5%
-    const STACK_Y_OFFSET = 20;     // Décalage de 20px
+    const STACK_SCALE_FACTOR = 0.05;
+    const STACK_Y_OFFSET = 20;
+    
+    // NOUVEAU : Constantes de Pacing
+    // On garde la première carte visible pendant les 10% premiers du scroll
+    const START_DELAY = 0.10; 
+    // On garde la dernière carte visible pendant les 20% derniers du scroll
+    const END_DELAY = 0.20; 
 
     const handleScroll = () => {
-        const stickyContainer = planSection.querySelector('.h-\\[500vh\\]');
+        const stickyContainer = planSection.querySelector('.h-\\[700vh\\]'); // Assurez-vous que cette valeur correspond au HTML
         if (!stickyContainer) return;
 
         const rect = stickyContainer.getBoundingClientRect();
         const scrollTop = -rect.top;
         const scrollHeight = stickyContainer.offsetHeight - window.innerHeight;
 
+        // Progrès total du scroll dans la section (de 0 à 1)
         const totalProgress = Math.min(1, Math.max(0, scrollTop / scrollHeight));
-        const panelProgress = totalProgress * (numPanels - 1);
+
+        // NOUVELLE LOGIQUE DE PACING
+        // On calcule la portion du scroll où l'animation doit réellement se produire
+        const animationDuration = 1.0 - START_DELAY - END_DELAY;
+        // On calcule le progrès de l'animation (de 0 à 1) UNIQUEMENT pendant sa durée
+        const animationProgress = Math.min(1, Math.max(0, (totalProgress - START_DELAY) / animationDuration));
         
-        panels.forEach((panel, i) => {
+        // Le progrès par panneau est maintenant basé sur le progrès de l'animation, pas le progrès total
+        const panelProgress = animationProgress * (numPanels - 1);
+        
+        panels.forEach((panel) => {
             const panelIndex = parseInt(panel.style.getPropertyValue('--index'), 10);
             const distance = panelIndex - panelProgress;
 
@@ -264,13 +279,14 @@ if (planSection) {
             }
         });
 
-        // NOUVEAU : Gérer la transition du CTA sur la dernière carte
-        if (finalContent && finalCta) {
-            // On déclenche la transition quand on a dépassé 85% du scroll total de la section
-            const transitionTriggerProgress = 0.85; 
+        // LOGIQUE CTA AMÉLIORÉE
+        // On déclenche la transition vers le CTA lorsque la dernière carte est presque entièrement révélée
+        const ctaTriggerPoint = numPanels - 1.5; // (Commence à mi-chemin de la révélation de la dernière carte)
+        const ctaDuration = 0.5; // (La transition se fait sur la dernière moitié)
 
-            if (totalProgress >= transitionTriggerProgress) {
-                const ctaProgress = Math.min(1, (totalProgress - transitionTriggerProgress) / (1 - transitionTriggerProgress));
+        if (finalContent && finalCta) {
+            if (panelProgress >= ctaTriggerPoint) {
+                const ctaProgress = Math.min(1, (panelProgress - ctaTriggerPoint) / ctaDuration);
                 
                 finalContent.style.opacity = 1 - ctaProgress;
                 finalContent.style.pointerEvents = 'none';
@@ -278,7 +294,6 @@ if (planSection) {
                 finalCta.style.opacity = ctaProgress;
                 finalCta.style.pointerEvents = 'auto';
             } else {
-                // On s'assure que c'est bien dans l'état initial avant le trigger
                 finalContent.style.opacity = '1';
                 finalContent.style.pointerEvents = 'auto';
                 finalCta.style.opacity = '0';
@@ -288,5 +303,5 @@ if (planSection) {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Appel initial
+    handleScroll();
 }
