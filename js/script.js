@@ -218,78 +218,67 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+
 // ==================================================================
-// LOGIQUE POUR L'EFFET STACKING CARDS (Version finale, fluide et cliquable)
+// LOGIQUE POUR L'EFFET STACKING CARDS (Version Storytelling Visuel)
 // ==================================================================
 const planSection = document.getElementById('plan');
 
 if (planSection) {
     const panels = Array.from(planSection.querySelectorAll('.panel'));
-    const panel4Content = document.getElementById('panel-4-content');
-    const panel4Cta = document.getElementById('panel-4-cta');
     const numPanels = panels.length;
 
+    // Constantes pour l'animation
+    const STACK_SCALE_FACTOR = 0.05; // Réduction de 5% pour chaque carte dans la pile
+    const STACK_Y_OFFSET = 20;     // Décalage de 20px vers le bas pour chaque carte
+
     const handleScroll = () => {
-        const rect = planSection.getBoundingClientRect();
+        const stickyContainer = planSection.querySelector('.h-\\[500vh\\]');
+        if (!stickyContainer) return;
+
+        const rect = stickyContainer.getBoundingClientRect();
+        // scrollTop est 0 quand le haut de la section atteint le haut de la fenêtre
+        // et augmente à mesure qu'on scrolle dans la section.
         const scrollTop = -rect.top;
-        const scrollHeight = planSection.offsetHeight - window.innerHeight;
+        const scrollHeight = stickyContainer.offsetHeight - window.innerHeight;
 
-        const animationDurationRatio = numPanels / (numPanels + 1.0); 
-        const progress = Math.min(1, Math.max(0, scrollTop / (scrollHeight * animationDurationRatio)));
+        // Le progrès de l'animation globale (de 0 à 1)
+        const totalProgress = Math.min(1, Math.max(0, scrollTop / scrollHeight));
 
-        // Gérer la visibilité des panneaux
+        // Le progrès par panneau (ex: pour 5 panneaux, va de 0 à 4)
+        const panelProgress = totalProgress * (numPanels - 1);
+        
         panels.forEach((panel, i) => {
-            const panelIndex = numPanels - 1 - i;
-            const startProgress = panelIndex / numPanels;
-            const endProgress = (panelIndex + 1) / numPanels;
-            const isLastPanel = i === 0;
+            // L'index inversé : la carte 0 est celle du fond, la dernière est au-dessus.
+            const panelIndex = parseInt(panel.style.getPropertyValue('--index'), 10);
+            
+            // La distance de la carte par rapport au point de scroll actuel.
+            // Une distance de 0 signifie que la carte est en haut de la pile.
+            // Une distance de 1 signifie qu'elle est juste en dessous, etc.
+            const distance = panelIndex - panelProgress;
 
-            if (progress >= startProgress && progress < endProgress) {
-                // Le panneau est actuellement "actif"
-                panel.style.transform = 'translateY(0) scale(1)';
+            if (distance >= 0) {
+                // La carte est active ou dans la pile
+                const scale = 1 - (distance * STACK_SCALE_FACTOR);
+                const translateY = distance * STACK_Y_OFFSET;
+                
+                panel.style.transform = `translateY(${translateY}px) scale(${Math.max(0, scale)})`;
                 panel.style.opacity = '1';
-                panel.style.pointerEvents = 'auto'; // On s'assure que le panneau actif est cliquable
-            } 
-            else if (progress >= endProgress) {
-                // Le panneau a été dépassé par le scroll
-                if (isLastPanel) {
-                    // On garde le dernier panneau visible et cliquable
-                    panel.style.transform = 'translateY(0) scale(1)';
-                    panel.style.opacity = '1';
-                    panel.style.pointerEvents = 'auto'; 
-                } else {
-                    // On anime sa sortie et on le rend non-cliquable
-                    panel.style.transform = 'translateY(-5rem) scale(0.9)';
-                    panel.style.opacity = '0';
-                    panel.style.pointerEvents = 'none'; // <-- LA CORRECTION CLÉ : le panneau n'intercepte plus les clics
-                }
-            } 
-            else {
-                // Le panneau est en dessous, en attente (et doit être cliquable)
-                panel.style.transform = 'translateY(0) scale(1)';
-                panel.style.opacity = '1';
-                panel.style.pointerEvents = 'auto';
+                panel.style.pointerEvents = 'auto'; // La carte est visible et potentiellement cliquable
+                
+                // La carte du dessus (distance proche de 0) a un z-index plus élevé
+                panel.style.zIndex = numPanels - Math.floor(distance);
+
+            } else {
+                // La carte a été dépassée par le scroll
+                // On la fait sortir vers le haut et disparaître
+                panel.style.transform = 'translateY(-100%) scale(0.9)';
+                panel.style.opacity = '0';
+                panel.style.pointerEvents = 'none';
             }
         });
-
-        // Gérer la transition de contenu sur le dernier panneau
-        if (panel4Content && panel4Cta) {
-            const lastPanelStartProgress = 1 - (1 / numPanels); 
-            const transitionTriggerProgress = lastPanelStartProgress + (1 / numPanels / 2);
-
-            if (progress >= transitionTriggerProgress) {
-                const transitionDuration = 1 - transitionTriggerProgress;
-                const ctaProgress = Math.min(1, (progress - transitionTriggerProgress) / transitionDuration);
-                
-                panel4Content.style.opacity = 1 - ctaProgress;
-                panel4Cta.style.opacity = ctaProgress;
-            } else {
-                panel4Content.style.opacity = '1';
-                panel4Cta.style.opacity = '0';
-            }
-        }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Appel initial pour positionner correctement au chargement
 }
