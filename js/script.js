@@ -1,4 +1,4 @@
-// script.js - VERSION MISE À JOUR
+// script.js - VERSION CORRIGÉE
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -218,78 +218,60 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+
 // ==================================================================
-// LOGIQUE POUR L'EFFET STACKING CARDS (Version finale, fluide et cliquable)
+// LOGIQUE POUR L'EFFET STACKING CARDS (Version avec Pacing et CTA ajusté)
 // ==================================================================
 const planSection = document.getElementById('plan');
 
 if (planSection) {
     const panels = Array.from(planSection.querySelectorAll('.panel'));
-    const panel4Content = document.getElementById('panel-4-content');
-    const panel4Cta = document.getElementById('panel-4-cta');
     const numPanels = panels.length;
 
+    // Constantes pour l'animation
+    const STACK_SCALE_FACTOR = 0.05;
+    const STACK_Y_OFFSET = 20;
+    
+    // Constantes de Pacing
+    const START_DELAY = 0.10; 
+    const END_DELAY = 0.20; 
+
     const handleScroll = () => {
-        const rect = planSection.getBoundingClientRect();
+        // LIGNE CORRIGÉE CI-DESSOUS
+        const stickyContainer = planSection.querySelector('.h-\\[800vh\\]');
+        if (!stickyContainer) return;
+
+        const rect = stickyContainer.getBoundingClientRect();
         const scrollTop = -rect.top;
-        const scrollHeight = planSection.offsetHeight - window.innerHeight;
+        const scrollHeight = stickyContainer.offsetHeight - window.innerHeight;
 
-        const animationDurationRatio = numPanels / (numPanels + 1.0); 
-        const progress = Math.min(1, Math.max(0, scrollTop / (scrollHeight * animationDurationRatio)));
+        const totalProgress = Math.min(1, Math.max(0, scrollTop / scrollHeight));
 
-        // Gérer la visibilité des panneaux
-        panels.forEach((panel, i) => {
-            const panelIndex = numPanels - 1 - i;
-            const startProgress = panelIndex / numPanels;
-            const endProgress = (panelIndex + 1) / numPanels;
-            const isLastPanel = i === 0;
+        const animationDuration = 1.0 - START_DELAY - END_DELAY;
+        const animationProgress = Math.min(1, Math.max(0, (totalProgress - START_DELAY) / animationDuration));
+        
+        const panelProgress = animationProgress * (numPanels - 1);
+        
+        panels.forEach((panel) => {
+            const panelIndex = parseInt(panel.style.getPropertyValue('--index'), 10);
+            const distance = panelIndex - panelProgress;
 
-            if (progress >= startProgress && progress < endProgress) {
-                // Le panneau est actuellement "actif"
-                panel.style.transform = 'translateY(0) scale(1)';
-                panel.style.opacity = '1';
-                panel.style.pointerEvents = 'auto'; // On s'assure que le panneau actif est cliquable
-            } 
-            else if (progress >= endProgress) {
-                // Le panneau a été dépassé par le scroll
-                if (isLastPanel) {
-                    // On garde le dernier panneau visible et cliquable
-                    panel.style.transform = 'translateY(0) scale(1)';
-                    panel.style.opacity = '1';
-                    panel.style.pointerEvents = 'auto'; 
-                } else {
-                    // On anime sa sortie et on le rend non-cliquable
-                    panel.style.transform = 'translateY(-5rem) scale(0.9)';
-                    panel.style.opacity = '0';
-                    panel.style.pointerEvents = 'none'; // <-- LA CORRECTION CLÉ : le panneau n'intercepte plus les clics
-                }
-            } 
-            else {
-                // Le panneau est en dessous, en attente (et doit être cliquable)
-                panel.style.transform = 'translateY(0) scale(1)';
+            if (distance >= 0) {
+                const scale = 1 - (distance * STACK_SCALE_FACTOR);
+                const translateY = distance * STACK_Y_OFFSET;
+                
+                panel.style.transform = `translateY(${translateY}px) scale(${Math.max(0, scale)})`;
                 panel.style.opacity = '1';
                 panel.style.pointerEvents = 'auto';
+                panel.style.zIndex = numPanels - Math.floor(distance);
+            } else {
+                panel.style.transform = 'translateY(-100%) scale(0.9)';
+                panel.style.opacity = '0';
+                panel.style.pointerEvents = 'none';
             }
         });
-
-        // Gérer la transition de contenu sur le dernier panneau
-        if (panel4Content && panel4Cta) {
-            const lastPanelStartProgress = 1 - (1 / numPanels); 
-            const transitionTriggerProgress = lastPanelStartProgress + (1 / numPanels / 2);
-
-            if (progress >= transitionTriggerProgress) {
-                const transitionDuration = 1 - transitionTriggerProgress;
-                const ctaProgress = Math.min(1, (progress - transitionTriggerProgress) / transitionDuration);
-                
-                panel4Content.style.opacity = 1 - ctaProgress;
-                panel4Cta.style.opacity = ctaProgress;
-            } else {
-                panel4Content.style.opacity = '1';
-                panel4Cta.style.opacity = '0';
-            }
-        }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Appel initial pour positionner correctement au chargement
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
 }
