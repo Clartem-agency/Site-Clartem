@@ -1,4 +1,4 @@
-// script.js - VERSION MISE À JOUR
+// script.js - VERSION CORRIGÉE
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -226,8 +226,6 @@ const planSection = document.getElementById('plan');
 
 if (planSection) {
     const panels = Array.from(planSection.querySelectorAll('.panel'));
-    const finalContent = document.getElementById('panel-final-content');
-    const finalCta = document.getElementById('panel-final-cta');
     const numPanels = panels.length;
 
     // Constantes pour l'animation
@@ -239,7 +237,8 @@ if (planSection) {
     const END_DELAY = 0.20; 
 
     const handleScroll = () => {
-        const stickyContainer = planSection.querySelector('.h-\\[700vh\\]');
+        // LIGNE CORRIGÉE CI-DESSOUS
+        const stickyContainer = planSection.querySelector('.h-\\[800vh\\]');
         if (!stickyContainer) return;
 
         const rect = stickyContainer.getBoundingClientRect();
@@ -271,29 +270,6 @@ if (planSection) {
                 panel.style.pointerEvents = 'none';
             }
         });
-
-        // LOGIQUE CTA AMÉLIORÉE ET AJUSTÉE
-        // MODIFIÉ : Le point de départ est maintenant beaucoup plus tard (quand la carte est révélée à 80%)
-        const ctaTriggerPoint = numPanels - 1.2; 
-        // MODIFIÉ : La transition est maintenant plus courte et plus rapide, se produisant à la toute fin.
-        const ctaDuration = 0.2; 
-
-        if (finalContent && finalCta) {
-            if (panelProgress >= ctaTriggerPoint) {
-                const ctaProgress = Math.min(1, (panelProgress - ctaTriggerPoint) / ctaDuration);
-                
-                finalContent.style.opacity = 1 - ctaProgress;
-                finalContent.style.pointerEvents = 'none';
-
-                finalCta.style.opacity = ctaProgress;
-                finalCta.style.pointerEvents = 'auto';
-            } else {
-                finalContent.style.opacity = '1';
-                finalContent.style.pointerEvents = 'auto';
-                finalCta.style.opacity = '0';
-                finalCta.style.pointerEvents = 'none';
-            }
-        }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
