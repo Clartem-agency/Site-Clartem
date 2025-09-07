@@ -217,8 +217,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+
 // ==================================================================
-// LOGIQUE POUR L'EFFET STACKING CARDS (Version finale avec transition de contenu)
+// LOGIQUE POUR L'EFFET STACKING CARDS (Version finale, fluide et cliquable)
 // ==================================================================
 const planSection = document.getElementById('plan');
 
@@ -232,7 +233,9 @@ if (planSection) {
         const rect = planSection.getBoundingClientRect();
         const scrollTop = -rect.top;
         const scrollHeight = planSection.offsetHeight - window.innerHeight;
-        const progress = Math.min(1, Math.max(0, scrollTop / scrollHeight));
+
+        const animationDurationRatio = numPanels / (numPanels + 1.0); 
+        const progress = Math.min(1, Math.max(0, scrollTop / (scrollHeight * animationDurationRatio)));
 
         // Gérer la visibilité des panneaux
         panels.forEach((panel, i) => {
@@ -242,35 +245,44 @@ if (planSection) {
             const isLastPanel = i === 0;
 
             if (progress >= startProgress && progress < endProgress) {
+                // Le panneau est actuellement "actif"
                 panel.style.transform = 'translateY(0) scale(1)';
                 panel.style.opacity = '1';
-                panel.style.visibility = 'visible';
+                panel.style.pointerEvents = 'auto'; // On s'assure que le panneau actif est cliquable
             } 
             else if (progress >= endProgress) {
+                // Le panneau a été dépassé par le scroll
                 if (isLastPanel) {
+                    // On garde le dernier panneau visible et cliquable
                     panel.style.transform = 'translateY(0) scale(1)';
                     panel.style.opacity = '1';
-                    panel.style.visibility = 'visible';
+                    panel.style.pointerEvents = 'auto'; 
                 } else {
+                    // On anime sa sortie et on le rend non-cliquable
                     panel.style.transform = 'translateY(-5rem) scale(0.9)';
                     panel.style.opacity = '0';
-                    panel.style.visibility = 'hidden';
+                    panel.style.pointerEvents = 'none'; // <-- LA CORRECTION CLÉ : le panneau n'intercepte plus les clics
                 }
             } 
             else {
+                // Le panneau est en dessous, en attente (et doit être cliquable)
                 panel.style.transform = 'translateY(0) scale(1)';
                 panel.style.opacity = '1';
-                panel.style.visibility = 'visible';
+                panel.style.pointerEvents = 'auto';
             }
         });
 
         // Gérer la transition de contenu sur le dernier panneau
         if (panel4Content && panel4Cta) {
-            const ctaStartProgress = 1 - (1 / numPanels); 
-            if (progress >= ctaStartProgress) {
-                const ctaProgress = (progress - ctaStartProgress) / (1 / numPanels);
-                panel4Content.style.opacity = 1 - (ctaProgress * 2); // Disparaît
-                panel4Cta.style.opacity = ctaProgress * 2; // Apparaît
+            const lastPanelStartProgress = 1 - (1 / numPanels); 
+            const transitionTriggerProgress = lastPanelStartProgress + (1 / numPanels / 2);
+
+            if (progress >= transitionTriggerProgress) {
+                const transitionDuration = 1 - transitionTriggerProgress;
+                const ctaProgress = Math.min(1, (progress - transitionTriggerProgress) / transitionDuration);
+                
+                panel4Content.style.opacity = 1 - ctaProgress;
+                panel4Cta.style.opacity = ctaProgress;
             } else {
                 panel4Content.style.opacity = '1';
                 panel4Cta.style.opacity = '0';
@@ -279,5 +291,5 @@ if (planSection) {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll();
+    handleScroll(); // Appel initial pour positionner correctement au chargement
 }
