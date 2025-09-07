@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // ==================================================================
-// LOGIQUE POUR L'EFFET STACKING CARDS (Version avec Pacing Amélioré)
+// LOGIQUE POUR L'EFFET STACKING CARDS (Version avec Pacing et CTA ajusté)
 // ==================================================================
 const planSection = document.getElementById('plan');
 
@@ -234,30 +234,23 @@ if (planSection) {
     const STACK_SCALE_FACTOR = 0.05;
     const STACK_Y_OFFSET = 20;
     
-    // NOUVEAU : Constantes de Pacing
-    // On garde la première carte visible pendant les 10% premiers du scroll
+    // Constantes de Pacing
     const START_DELAY = 0.10; 
-    // On garde la dernière carte visible pendant les 20% derniers du scroll
     const END_DELAY = 0.20; 
 
     const handleScroll = () => {
-        const stickyContainer = planSection.querySelector('.h-\\[700vh\\]'); // Assurez-vous que cette valeur correspond au HTML
+        const stickyContainer = planSection.querySelector('.h-\\[700vh\\]');
         if (!stickyContainer) return;
 
         const rect = stickyContainer.getBoundingClientRect();
         const scrollTop = -rect.top;
         const scrollHeight = stickyContainer.offsetHeight - window.innerHeight;
 
-        // Progrès total du scroll dans la section (de 0 à 1)
         const totalProgress = Math.min(1, Math.max(0, scrollTop / scrollHeight));
 
-        // NOUVELLE LOGIQUE DE PACING
-        // On calcule la portion du scroll où l'animation doit réellement se produire
         const animationDuration = 1.0 - START_DELAY - END_DELAY;
-        // On calcule le progrès de l'animation (de 0 à 1) UNIQUEMENT pendant sa durée
         const animationProgress = Math.min(1, Math.max(0, (totalProgress - START_DELAY) / animationDuration));
         
-        // Le progrès par panneau est maintenant basé sur le progrès de l'animation, pas le progrès total
         const panelProgress = animationProgress * (numPanels - 1);
         
         panels.forEach((panel) => {
@@ -279,10 +272,11 @@ if (planSection) {
             }
         });
 
-        // LOGIQUE CTA AMÉLIORÉE
-        // On déclenche la transition vers le CTA lorsque la dernière carte est presque entièrement révélée
-        const ctaTriggerPoint = numPanels - 1.5; // (Commence à mi-chemin de la révélation de la dernière carte)
-        const ctaDuration = 0.5; // (La transition se fait sur la dernière moitié)
+        // LOGIQUE CTA AMÉLIORÉE ET AJUSTÉE
+        // MODIFIÉ : Le point de départ est maintenant beaucoup plus tard (quand la carte est révélée à 80%)
+        const ctaTriggerPoint = numPanels - 1.2; 
+        // MODIFIÉ : La transition est maintenant plus courte et plus rapide, se produisant à la toute fin.
+        const ctaDuration = 0.2; 
 
         if (finalContent && finalCta) {
             if (panelProgress >= ctaTriggerPoint) {
