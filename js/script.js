@@ -272,28 +272,7 @@ if (planSection) {
             }
         });
 
-        // LOGIQUE CTA AMÉLIORÉE ET AJUSTÉE
-        // MODIFIÉ : Le point de départ est maintenant beaucoup plus tard (quand la carte est révélée à 80%)
-        const ctaTriggerPoint = numPanels - 1.2; 
-        // MODIFIÉ : La transition est maintenant plus courte et plus rapide, se produisant à la toute fin.
-        const ctaDuration = 0.2; 
-
-        if (finalContent && finalCta) {
-            if (panelProgress >= ctaTriggerPoint) {
-                const ctaProgress = Math.min(1, (panelProgress - ctaTriggerPoint) / ctaDuration);
-                
-                finalContent.style.opacity = 1 - ctaProgress;
-                finalContent.style.pointerEvents = 'none';
-
-                finalCta.style.opacity = ctaProgress;
-                finalCta.style.pointerEvents = 'auto';
-            } else {
-                finalContent.style.opacity = '1';
-                finalContent.style.pointerEvents = 'auto';
-                finalCta.style.opacity = '0';
-                finalCta.style.pointerEvents = 'none';
-            }
-        }
+       
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
