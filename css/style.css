@@ -128,3 +128,30 @@ nav.scrolled {
     transition: transform 0.6s ease-out;
 }
 
+/* ======================================================= */
+/*             STYLES POUR LA NOUVELLE SECTION HERO        */
+/* ======================================================= */
+.hero-bg {
+    position: relative;
+    background-image: url('https://images.unsplash.com/photo-1508625087330-2614a45a1167?q=80&w=2070&auto=format&fit=crop'); /* Image de remplacement de haute qualité */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Effet de parallaxe subtil */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Superposition dégradée du bleu foncé de votre charte */
+    background: linear-gradient(0deg, rgba(30, 58, 138, 0.7), rgba(30, 58, 138, 0.5)); 
+    z-index: 1;
+}
+
+/* Assurez-vous que le contenu est au-dessus de la superposition */
+.hero-bg > .container {
+    position: relative;
+    z-index: 2;
+}
