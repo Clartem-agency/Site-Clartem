@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // ==================================================================
-// LOGIQUE POUR L'EFFET STACKING CARDS (Version corrigée et fluide)
+// LOGIQUE POUR L'EFFET STACKING CARDS (Version finale, fluide et cliquable)
 // ==================================================================
 const planSection = document.getElementById('plan');
 
@@ -248,25 +248,27 @@ if (planSection) {
                 // Le panneau est actuellement "actif"
                 panel.style.transform = 'translateY(0) scale(1)';
                 panel.style.opacity = '1';
+                panel.style.pointerEvents = 'auto'; // On s'assure que le panneau actif est cliquable
             } 
             else if (progress >= endProgress) {
                 // Le panneau a été dépassé par le scroll
                 if (isLastPanel) {
-                    // On garde le dernier panneau visible
+                    // On garde le dernier panneau visible et cliquable
                     panel.style.transform = 'translateY(0) scale(1)';
                     panel.style.opacity = '1';
+                    panel.style.pointerEvents = 'auto'; 
                 } else {
-                    // On anime sa sortie
+                    // On anime sa sortie et on le rend non-cliquable
                     panel.style.transform = 'translateY(-5rem) scale(0.9)';
                     panel.style.opacity = '0';
-                    // MODIFICATION : La ligne 'panel.style.visibility = 'hidden';' a été supprimée ici.
-                    // C'est cette suppression qui rend l'animation fluide vers le bas.
+                    panel.style.pointerEvents = 'none'; // <-- LA CORRECTION CLÉ : le panneau n'intercepte plus les clics
                 }
             } 
             else {
-                // Le panneau est en dessous, en attente
+                // Le panneau est en dessous, en attente (et doit être cliquable)
                 panel.style.transform = 'translateY(0) scale(1)';
                 panel.style.opacity = '1';
+                panel.style.pointerEvents = 'auto';
             }
         });
 
