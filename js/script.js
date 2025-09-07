@@ -220,65 +220,73 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // ==================================================================
-// LOGIQUE POUR L'EFFET STACKING CARDS (Version Storytelling Visuel)
+// LOGIQUE POUR L'EFFET STACKING CARDS (Version Storytelling + CTA Final)
 // ==================================================================
 const planSection = document.getElementById('plan');
 
 if (planSection) {
     const panels = Array.from(planSection.querySelectorAll('.panel'));
+    const finalContent = document.getElementById('panel-final-content');
+    const finalCta = document.getElementById('panel-final-cta');
     const numPanels = panels.length;
 
     // Constantes pour l'animation
-    const STACK_SCALE_FACTOR = 0.05; // Réduction de 5% pour chaque carte dans la pile
-    const STACK_Y_OFFSET = 20;     // Décalage de 20px vers le bas pour chaque carte
+    const STACK_SCALE_FACTOR = 0.05; // Réduction de 5%
+    const STACK_Y_OFFSET = 20;     // Décalage de 20px
 
     const handleScroll = () => {
         const stickyContainer = planSection.querySelector('.h-\\[500vh\\]');
         if (!stickyContainer) return;
 
         const rect = stickyContainer.getBoundingClientRect();
-        // scrollTop est 0 quand le haut de la section atteint le haut de la fenêtre
-        // et augmente à mesure qu'on scrolle dans la section.
         const scrollTop = -rect.top;
         const scrollHeight = stickyContainer.offsetHeight - window.innerHeight;
 
-        // Le progrès de l'animation globale (de 0 à 1)
         const totalProgress = Math.min(1, Math.max(0, scrollTop / scrollHeight));
-
-        // Le progrès par panneau (ex: pour 5 panneaux, va de 0 à 4)
         const panelProgress = totalProgress * (numPanels - 1);
         
         panels.forEach((panel, i) => {
-            // L'index inversé : la carte 0 est celle du fond, la dernière est au-dessus.
             const panelIndex = parseInt(panel.style.getPropertyValue('--index'), 10);
-            
-            // La distance de la carte par rapport au point de scroll actuel.
-            // Une distance de 0 signifie que la carte est en haut de la pile.
-            // Une distance de 1 signifie qu'elle est juste en dessous, etc.
             const distance = panelIndex - panelProgress;
 
             if (distance >= 0) {
-                // La carte est active ou dans la pile
                 const scale = 1 - (distance * STACK_SCALE_FACTOR);
                 const translateY = distance * STACK_Y_OFFSET;
                 
                 panel.style.transform = `translateY(${translateY}px) scale(${Math.max(0, scale)})`;
                 panel.style.opacity = '1';
-                panel.style.pointerEvents = 'auto'; // La carte est visible et potentiellement cliquable
-                
-                // La carte du dessus (distance proche de 0) a un z-index plus élevé
+                panel.style.pointerEvents = 'auto';
                 panel.style.zIndex = numPanels - Math.floor(distance);
-
             } else {
-                // La carte a été dépassée par le scroll
-                // On la fait sortir vers le haut et disparaître
                 panel.style.transform = 'translateY(-100%) scale(0.9)';
                 panel.style.opacity = '0';
                 panel.style.pointerEvents = 'none';
             }
         });
+
+        // NOUVEAU : Gérer la transition du CTA sur la dernière carte
+        if (finalContent && finalCta) {
+            // On déclenche la transition quand on a dépassé 85% du scroll total de la section
+            const transitionTriggerProgress = 0.85; 
+
+            if (totalProgress >= transitionTriggerProgress) {
+                const ctaProgress = Math.min(1, (totalProgress - transitionTriggerProgress) / (1 - transitionTriggerProgress));
+                
+                finalContent.style.opacity = 1 - ctaProgress;
+                finalContent.style.pointerEvents = 'none';
+
+                finalCta.style.opacity = ctaProgress;
+                finalCta.style.pointerEvents = 'auto';
+            } else {
+                // On s'assure que c'est bien dans l'état initial avant le trigger
+                finalContent.style.opacity = '1';
+                finalContent.style.pointerEvents = 'auto';
+                finalCta.style.opacity = '0';
+                finalCta.style.pointerEvents = 'none';
+            }
+        }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Appel initial pour positionner correctement au chargement
+    handleScroll(); // Appel initial
 }
