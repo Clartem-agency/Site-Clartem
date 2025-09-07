@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // ==================================================================
-// LOGIQUE POUR L'EFFET STACKING CARDS (Version finale avec pause à la fin)
+// LOGIQUE POUR L'EFFET STACKING CARDS (Version corrigée et fluide)
 // ==================================================================
 const planSection = document.getElementById('plan');
 
@@ -234,41 +234,39 @@ if (planSection) {
         const scrollTop = -rect.top;
         const scrollHeight = planSection.offsetHeight - window.innerHeight;
 
-        // ======================= MODIFICATION CLÉ CI-DESSOUS =======================
-        // On définit que l'animation doit se dérouler sur 5/6 de la hauteur totale de la section.
-        // Le dernier 1/6 sera la zone de "pause".
         const animationDurationRatio = numPanels / (numPanels + 1.0); 
         const progress = Math.min(1, Math.max(0, scrollTop / (scrollHeight * animationDurationRatio)));
-        // ======================= FIN DE LA MODIFICATION CLÉ =======================
 
         // Gérer la visibilité des panneaux
         panels.forEach((panel, i) => {
             const panelIndex = numPanels - 1 - i;
-            // On utilise numPanels ici car la logique de division des cartes reste la même
             const startProgress = panelIndex / numPanels;
             const endProgress = (panelIndex + 1) / numPanels;
             const isLastPanel = i === 0;
 
             if (progress >= startProgress && progress < endProgress) {
+                // Le panneau est actuellement "actif"
                 panel.style.transform = 'translateY(0) scale(1)';
                 panel.style.opacity = '1';
-                panel.style.visibility = 'visible';
             } 
             else if (progress >= endProgress) {
+                // Le panneau a été dépassé par le scroll
                 if (isLastPanel) {
+                    // On garde le dernier panneau visible
                     panel.style.transform = 'translateY(0) scale(1)';
                     panel.style.opacity = '1';
-                    panel.style.visibility = 'visible';
                 } else {
+                    // On anime sa sortie
                     panel.style.transform = 'translateY(-5rem) scale(0.9)';
                     panel.style.opacity = '0';
-                    panel.style.visibility = 'hidden';
+                    // MODIFICATION : La ligne 'panel.style.visibility = 'hidden';' a été supprimée ici.
+                    // C'est cette suppression qui rend l'animation fluide vers le bas.
                 }
             } 
             else {
+                // Le panneau est en dessous, en attente
                 panel.style.transform = 'translateY(0) scale(1)';
                 panel.style.opacity = '1';
-                panel.style.visibility = 'visible';
             }
         });
 
@@ -291,5 +289,5 @@ if (planSection) {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll();
+    handleScroll(); // Appel initial pour positionner correctement au chargement
 }
