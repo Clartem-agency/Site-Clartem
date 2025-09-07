@@ -1,4 +1,4 @@
-// script.js - VERSION MISE À JOUR
+// script.js - VERSION CORRIGÉE
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -226,8 +226,6 @@ const planSection = document.getElementById('plan');
 
 if (planSection) {
     const panels = Array.from(planSection.querySelectorAll('.panel'));
-    const finalContent = document.getElementById('panel-final-content');
-    const finalCta = document.getElementById('panel-final-cta');
     const numPanels = panels.length;
 
     // Constantes pour l'animation
@@ -239,7 +237,8 @@ if (planSection) {
     const END_DELAY = 0.20; 
 
     const handleScroll = () => {
-        const stickyContainer = planSection.querySelector('.h-\\[700vh\\]');
+        // LIGNE CORRIGÉE CI-DESSOUS
+        const stickyContainer = planSection.querySelector('.h-\\[800vh\\]');
         if (!stickyContainer) return;
 
         const rect = stickyContainer.getBoundingClientRect();
@@ -271,8 +270,6 @@ if (planSection) {
                 panel.style.pointerEvents = 'none';
             }
         });
-
-       
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
