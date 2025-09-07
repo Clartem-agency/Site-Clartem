@@ -217,8 +217,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+
 // ==================================================================
-// LOGIQUE POUR L'EFFET STACKING CARDS (Version finale avec transition de contenu)
+// LOGIQUE POUR L'EFFET STACKING CARDS (Version finale avec pause à la fin)
 // ==================================================================
 const planSection = document.getElementById('plan');
 
@@ -232,11 +233,18 @@ if (planSection) {
         const rect = planSection.getBoundingClientRect();
         const scrollTop = -rect.top;
         const scrollHeight = planSection.offsetHeight - window.innerHeight;
-        const progress = Math.min(1, Math.max(0, scrollTop / scrollHeight));
+
+        // ======================= MODIFICATION CLÉ CI-DESSOUS =======================
+        // On définit que l'animation doit se dérouler sur 5/6 de la hauteur totale de la section.
+        // Le dernier 1/6 sera la zone de "pause".
+        const animationDurationRatio = numPanels / (numPanels + 1.0); 
+        const progress = Math.min(1, Math.max(0, scrollTop / (scrollHeight * animationDurationRatio)));
+        // ======================= FIN DE LA MODIFICATION CLÉ =======================
 
         // Gérer la visibilité des panneaux
         panels.forEach((panel, i) => {
             const panelIndex = numPanels - 1 - i;
+            // On utilise numPanels ici car la logique de division des cartes reste la même
             const startProgress = panelIndex / numPanels;
             const endProgress = (panelIndex + 1) / numPanels;
             const isLastPanel = i === 0;
@@ -266,21 +274,16 @@ if (planSection) {
 
         // Gérer la transition de contenu sur le dernier panneau
         if (panel4Content && panel4Cta) {
-            // Le défilement de la dernière carte commence à cette progression
             const lastPanelStartProgress = 1 - (1 / numPanels); 
-            
-            // NOUVEAU : On définit le point de départ de la transition à la moitié du défilement de la dernière carte
             const transitionTriggerProgress = lastPanelStartProgress + (1 / numPanels / 2);
 
             if (progress >= transitionTriggerProgress) {
-                // On calcule la progression uniquement sur la deuxième moitié du défilement
                 const transitionDuration = 1 - transitionTriggerProgress;
                 const ctaProgress = Math.min(1, (progress - transitionTriggerProgress) / transitionDuration);
                 
-                panel4Content.style.opacity = 1 - ctaProgress; // Disparaît
-                panel4Cta.style.opacity = ctaProgress; // Apparaît
+                panel4Content.style.opacity = 1 - ctaProgress;
+                panel4Cta.style.opacity = ctaProgress;
             } else {
-                // Avant le point de déclenchement, on s'assure que seul le contenu est visible
                 panel4Content.style.opacity = '1';
                 panel4Cta.style.opacity = '0';
             }
