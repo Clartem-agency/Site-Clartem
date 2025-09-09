@@ -175,6 +175,55 @@ document.addEventListener('DOMContentLoaded', function () {
         handleProblemScroll();
     }
 
+// ==================================================================
+    // NOUVEAU : LOGIQUE POUR L'EFFET STICKY (SECTION VALUE PROPOSITION)
+    // ==================================================================
+    const valuePropScrollContainer = document.getElementById('value-prop-scroll-container');
+    if (valuePropScrollContainer) {
+        const valuePropCards = valuePropScrollContainer.querySelectorAll('.value-prop-card');
+        
+        const ANIMATION_START_PROGRESS = 0.20; 
+        const ANIMATION_END_PROGRESS = 0.80;   
+        const ANIMATION_DURATION = ANIMATION_END_PROGRESS - ANIMATION_START_PROGRESS;
+
+        const handleValuePropScroll = () => {
+            const rect = valuePropScrollContainer.getBoundingClientRect();
+            
+            if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+
+            const scrollAmount = -rect.top;
+            const scrollDistance = valuePropScrollContainer.offsetHeight - window.innerHeight;
+            
+            let totalProgress = scrollAmount / scrollDistance;
+            totalProgress = Math.max(0, Math.min(1, totalProgress));
+
+            let animationProgress = (totalProgress - ANIMATION_START_PROGRESS) / ANIMATION_DURATION;
+            animationProgress = Math.max(0, Math.min(1, animationProgress));
+
+            valuePropCards.forEach((card, index) => {
+                const cardCount = valuePropCards.length;
+                
+                const startProgress = index / cardCount;
+                const endProgress = (index + 0.9) / cardCount;
+                
+                let cardProgress = (animationProgress - startProgress) / (endProgress - startProgress);
+                cardProgress = Math.max(0, Math.min(1, cardProgress));
+
+                // MODIFICATION CLÉ : Animation sur l'axe X (horizontal)
+                const initialTranslateX = 150; // Vient de la droite
+                const translateX = initialTranslateX * (1 - cardProgress);
+                const opacity = cardProgress;
+
+                card.style.opacity = opacity;
+                card.style.transform = `translateX(${translateX}px)`;
+            });
+        };
+
+        window.addEventListener('scroll', handleValuePropScroll, { passive: true });
+        handleValuePropScroll(); // Appel initial pour positionner correctement au chargement
+    }
+
+    
     // ==================================================================
     // LOGIQUE POUR L'EFFET STACKING CARDS (SECTION PLAN)
     // ==================================================================

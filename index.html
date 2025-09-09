@@ -216,56 +216,58 @@
 
         
         
-       <!-- Value Proposition Section (VERSION FINALE - SANS CERCLE, ICÔNES AGRANDIES) -->
-<section class="py-20 bg-soft-blue">
-    <div class="container mx-auto px-6">
-        <div class="text-center max-w-4xl mx-auto mb-16" data-sr>
-            <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">La Clarté au Service de Votre
-                Croissance</h2>
-            <p class="text-xl leading-relaxed text-neutral-light">
-                Chez clartem.com, j'ai un seul objectif : vous fournir un site web professionnel et efficace
-                grâce à un processus simple, rapide et transparent.
-                <span class="font-semibold text-warm-orange">Fini la confusion, place à la clarté.</span>
-            </p>
-        </div>
+      <!-- Value Proposition Section (VERSION FINALE AVEC EFFET STICKY) -->
+<section id="value-proposition-section" class="relative bg-soft-blue py-20">
+    <!-- Le conteneur qui aura une grande hauteur pour permettre le scroll de l'animation -->
+    <div id="value-prop-scroll-container">
+        <!-- Le contenu qui deviendra "sticky" (collant) en haut de l'écran -->
+        <div id="value-prop-sticky-content" class="h-screen w-full">
+            <!-- Conteneur pour centrer le contenu verticalement et horizontalement -->
+            <div class="container mx-auto px-6 h-full flex flex-col justify-center">
 
-        <div class="grid lg:grid-cols-3 gap-8">
-            <!-- Carte 1: Rapidité -->
-            <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col items-center text-center"
-                data-sr>
-                <!-- DIV du cercle SUPPRIMÉ, icône directement placée et agrandie -->
-                <img src="assets/icones/icon-rapide.png" alt="Icône de rapidité" class="w-20 h-20 mb-6">
-                
-                <h3 class="text-2xl font-bold text-neutral-dark mb-4">Livraison en 7 Jours</h3>
-                <p class="text-neutral-light leading-relaxed">
-                    Votre temps est précieux. Mon processus optimisé garantit la mise en ligne de votre site
-                    professionnel en une semaine, sans compromis sur la qualité.
-                </p>
-            </div>
+                <div>
+                    <div class="text-center max-w-4xl mx-auto mb-16" data-sr>
+                        <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">La Clarté au Service de Votre
+                            Croissance</h2>
+                        <p class="text-xl leading-relaxed text-neutral-light">
+                            Chez clartem.com, j'ai un seul objectif : vous fournir un site web professionnel et efficace
+                            grâce à un processus simple, rapide et transparent.
+                            <span class="font-semibold text-warm-orange">Fini la confusion, place à la clarté.</span>
+                        </p>
+                    </div>
 
-            <!-- Carte 2: Personnalisation -->
-            <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col items-center text-center"
-                data-sr data-sr-delay="100">
-                <!-- DIV du cercle SUPPRIMÉ, icône directement placée et agrandie -->
-                <img src="assets/icones/icon-sur-mesure.png" alt="Icône de conception sur-mesure" class="w-20 h-20 mb-6">
-                
-                <h3 class="text-2xl font-bold text-neutral-dark mb-4">Conception 100% Sur-Mesure</h3>
-                <p class="text-neutral-light leading-relaxed">
-                    Pas de templates génériques. Je crée un design unique qui reflète votre identité, raconte
-                    votre histoire et parle directement à vos clients idéaux.
-                </p>
-            </div>
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <!-- Carte 1: Rapidité (NOUVELLE CLASSE "value-prop-card" et data-sr retiré) -->
+                        <div class="value-prop-card bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col items-center text-center">
+                            <img src="assets/icones/icon-rapide.png" alt="Icône de rapidité" class="w-20 h-20 mb-6">
+                            <h3 class="text-2xl font-bold text-neutral-dark mb-4">Livraison en 7 Jours</h3>
+                            <p class="text-neutral-light leading-relaxed">
+                                Votre temps est précieux. Mon processus optimisé garantit la mise en ligne de votre site
+                                professionnel en une semaine, sans compromis sur la qualité.
+                            </p>
+                        </div>
 
-            <!-- Carte 3: Transparence -->
-            <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col items-center text-center"
-                data-sr data-sr-delay="200">
-                <!-- DIV du cercle SUPPRIMÉ, icône directement placée et agrandie -->
-                <img src="assets/icones/icon-transparence.png" alt="Icône de transparence" class="w-20 h-20 mb-6">
-                
-                <h3 class="text-2xl font-bold text-neutral-dark mb-4">Transparence Totale</h3>
-                <p class="text-neutral-light leading-relaxed">
-                    Pas de surprises. Vous savez exactement où vous allez, combien ça coûte et ce que vous obtenez. Un processus simple et des tarifs clairs, du début à la fin.
-                </p>
+                        <!-- Carte 2: Personnalisation (NOUVELLE CLASSE "value-prop-card" et data-sr retiré) -->
+                        <div class="value-prop-card bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col items-center text-center">
+                            <img src="assets/icones/icon-sur-mesure.png" alt="Icône de conception sur-mesure" class="w-20 h-20 mb-6">
+                            <h3 class="text-2xl font-bold text-neutral-dark mb-4">Conception 100% Sur-Mesure</h3>
+                            <p class="text-neutral-light leading-relaxed">
+                                Pas de templates génériques. Je crée un design unique qui reflète votre identité, raconte
+                                votre histoire et parle directement à vos clients idéaux.
+                            </p>
+                        </div>
+
+                        <!-- Carte 3: Transparence (NOUVELLE CLASSE "value-prop-card" et data-sr retiré) -->
+                        <div class="value-prop-card bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col items-center text-center">
+                            <img src="assets/icones/icon-transparence.png" alt="Icône de transparence" class="w-20 h-20 mb-6">
+                            <h3 class="text-2xl font-bold text-neutral-dark mb-4">Transparence Totale</h3>
+                            <p class="text-neutral-light leading-relaxed">
+                                Pas de surprises. Vous savez exactement où vous allez, combien ça coûte et ce que vous obtenez. Un processus simple et des tarifs clairs, du début à la fin.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

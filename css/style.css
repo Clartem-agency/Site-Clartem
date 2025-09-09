@@ -255,3 +255,24 @@ nav.scrolled {
     transition: none; 
     will-change: transform, opacity;
 }
+
+/* ======================================================= */
+/*    STYLES POUR L'EFFET STICKY (SECTION VALUE PROPOSITION) */
+/* ======================================================= */
+
+#value-prop-scroll-container {
+    height: 300vh; /* Hauteur suffisante pour l'animation, peut être ajustée */
+}
+
+#value-prop-sticky-content {
+    position: sticky;
+    top: 0;
+}
+
+.value-prop-card {
+    opacity: 0;
+    /* État initial : décalé de 150px vers la droite */
+    transform: translateX(150px); 
+    transition: none; /* L'animation est gérée par JS, pas par CSS */
+    will-change: transform, opacity; /* Optimisation des performances */
+}
