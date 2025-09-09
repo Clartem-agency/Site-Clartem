@@ -276,3 +276,38 @@ nav.scrolled {
     transition: none; /* L'animation est gérée par JS, pas par CSS */
     will-change: transform, opacity; /* Optimisation des performances */
 }
+
+/* ======================================================= */
+/*       STYLES POUR L'ANIMATION DE LA SECTION CLARTÉ      */
+/* ======================================================= */
+
+#clarity-section-container {
+    /* On donne une grande hauteur au conteneur pour avoir de l'espace de scroll */
+    height: 350vh; 
+}
+
+#clarity-sticky-content {
+    position: sticky;
+    /* On le colle à 120px du haut pour laisser de la place à la barre de navigation fixe.
+       Ajustez cette valeur si la hauteur de votre nav change. */
+    top: 120px;
+    /* Le conteneur sticky prend la hauteur de l'écran moins l'espace pour la nav */
+    height: calc(100vh - 120px);
+    overflow: hidden; /* Empêche les débordements pendant l'animation */
+}
+
+/* État initial des éléments à animer : invisibles et légèrement décalés vers le bas */
+.clarity-text-reveal,
+#clarity-includes-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    will-change: opacity, transform; /* Optimisation pour le navigateur */
+}
+
+/* État final : visible et à sa position normale */
+.clarity-text-reveal.is-visible,
+#clarity-includes-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
