@@ -236,13 +236,25 @@ nav.scrolled {
 }
 
 /* ======================================================= */
-/*             STYLES POUR L'EFFET DE CHUTE (SECTION PROBLÈME)        */
+/*             STYLES POUR L'EFFET STICKY (SECTION PROBLÈME)        */
 /* ======================================================= */
+
+/* Ce conteneur a une grande hauteur pour permettre le scroll de l'animation. */
+#problem-scroll-container {
+    height: 250vh; 
+}
+
+/* Ce conteneur devient "collant" en haut de l'écran. */
+#problem-sticky-content {
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+}
+
+/* État initial des cartes, SANS transition CSS. */
 .problem-card {
-    /* État initial : invisible et décalé vers le haut */
     opacity: 0;
     transform: translateY(-150px);
-    /* La transition adoucit les mises à jour du JavaScript */
-    transition: transform 0.2s linear, opacity 0.2s linear;
-    will-change: transform, opacity; /* Optimisation des performances */
+    transition: none; 
+    will-change: transform, opacity;
 }
