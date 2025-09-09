@@ -234,3 +234,15 @@ nav.scrolled {
     font-size: 1.125rem; /* text-lg */
     font-weight: 600;
 }
+
+/* ======================================================= */
+/*             STYLES POUR L'EFFET DE CHUTE (SECTION PROBLÈME)        */
+/* ======================================================= */
+.problem-card {
+    /* État initial : invisible et décalé vers le haut */
+    opacity: 0;
+    transform: translateY(-150px);
+    /* La transition adoucit les mises à jour du JavaScript */
+    transition: transform 0.2s linear, opacity 0.2s linear;
+    will-change: transform, opacity; /* Optimisation des performances */
+}
