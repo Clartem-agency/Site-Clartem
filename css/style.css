@@ -239,19 +239,16 @@ nav.scrolled {
 /*             STYLES POUR L'EFFET STICKY (SECTION PROBLÈME)        */
 /* ======================================================= */
 
-/* Ce conteneur a une grande hauteur pour permettre le scroll de l'animation. */
 #problem-scroll-container {
     height: 350vh; 
 }
 
-/* Ce conteneur devient "collant" en haut de l'écran. */
 #problem-sticky-content {
     position: sticky;
     top: 0;
-    overflow: hidden;
+    /* La ligne overflow: hidden; a été retirée */
 }
 
-/* État initial des cartes, SANS transition CSS. */
 .problem-card {
     opacity: 0;
     transform: translateY(-150px);
