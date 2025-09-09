@@ -277,13 +277,14 @@ nav.scrolled {
     will-change: transform, opacity; /* Optimisation des performances */
 }
 
+
 /* ======================================================= */
 /*       STYLES POUR L'ANIMATION DE LA SECTION CLARTÉ      */
 /* ======================================================= */
 
 #clarity-section-container {
     /* On donne une grande hauteur au conteneur pour avoir de l'espace de scroll */
-    height: 350vh; 
+    height: 400vh; /* Augmenté pour donner plus de temps à l'animation de droite */
 }
 
 #clarity-sticky-content {
@@ -298,7 +299,7 @@ nav.scrolled {
 
 /* État initial des éléments à animer : invisibles et légèrement décalés vers le bas */
 .clarity-text-reveal,
-#clarity-includes-card {
+.clarity-list-item {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
@@ -307,7 +308,9 @@ nav.scrolled {
 
 /* État final : visible et à sa position normale */
 .clarity-text-reveal.is-visible,
-#clarity-includes-card.is-visible {
+.clarity-list-item.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
+
+
