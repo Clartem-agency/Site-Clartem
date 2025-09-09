@@ -351,3 +351,30 @@ nav.scrolled {
     opacity: 1;
     transform: translateY(0);
 }
+
+
+/* ======================================================= */
+/*             STYLES POUR L'EFFET STICKY (SECTION PROBLÈME)        */
+/* ======================================================= */
+
+#problem-scroll-container {
+    height: 350vh; 
+}
+
+#problem-sticky-content {
+    position: sticky;
+    top: 0;
+}
+
+.problem-card {
+    opacity: 0;
+    transform: translateY(-100vh); 
+    transition: none; 
+    will-change: transform, opacity;
+}
+
+/* NOUVEAU : Style pour l'icône de frustration */
+#frustration-knot-container {
+    will-change: transform, opacity;
+    transition: opacity 0.3s ease-in-out; /* Pour le fade-in initial */
+}
