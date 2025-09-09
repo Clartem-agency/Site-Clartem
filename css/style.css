@@ -234,3 +234,24 @@ nav.scrolled {
     font-size: 1.125rem; /* text-lg */
     font-weight: 600;
 }
+
+/* ======================================================= */
+/*             STYLES POUR L'EFFET STICKY (SECTION PROBLÈME)        */
+/* ======================================================= */
+
+#problem-scroll-container {
+    height: 350vh; 
+}
+
+#problem-sticky-content {
+    position: sticky;
+    top: 0;
+    /* La ligne overflow: hidden; a été retirée */
+}
+
+.problem-card {
+    opacity: 0;
+    transform: translateY(-150px);
+    transition: none; 
+    will-change: transform, opacity;
+}
