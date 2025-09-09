@@ -276,15 +276,15 @@ document.addEventListener('DOMContentLoaded', function () {
         handleScroll();
     }
 
-        // ==================================================================
-    // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION "SITE CLARTÉ" (VERSION 2)
+         // ==================================================================
+    // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION "SITE CLARTÉ" (VERSION 3)
     // ==================================================================
     const clarityContainer = document.getElementById('clarity-section-container');
     if (clarityContainer) {
-        // On sélectionne TOUS les éléments à animer, à gauche comme à droite
         const animatedElements = clarityContainer.querySelectorAll('.clarity-text-reveal, .clarity-list-item');
+        // NOUVEAU : On récupère le conteneur de droite
+        const rightCard = document.getElementById('clarity-right-card');
 
-        // On étend la liste des seuils pour inclure les nouveaux éléments de droite
         const thresholds = [
             // Gauche
             0.05, // Étape 0: Titre "Pourquoi..."
@@ -293,7 +293,7 @@ document.addEventListener('DOMContentLoaded', function () {
             0.26, // Étape 3: "Optimisé pour la Conversion"
             0.34, // Étape 4: "Rapidité et Performance"
             // Droite
-            0.45, // Étape 5: Titre "Ce que votre site inclut"
+            0.45, // Étape 5: Titre "Ce que votre site inclut" (C'est le seuil pour le cadre)
             0.52, // Étape 6: Item 1
             0.59, // Étape 7: Item 2
             0.66, // Étape 8: Item 3
@@ -315,14 +315,21 @@ document.addEventListener('DOMContentLoaded', function () {
             let progress = scrollAmount / scrollHeight;
             progress = Math.max(0, Math.min(1, progress));
 
-            // Une seule boucle pour gérer tous les éléments
+            // NOUVEAU : Logique séparée pour le conteneur de droite
+            // Il devient visible au seuil de son premier enfant (étape 5)
+            if (progress >= thresholds[5]) {
+                rightCard.classList.add('is-visible');
+            } else {
+                rightCard.classList.remove('is-visible');
+            }
+
+            // La boucle pour le texte reste la même
             animatedElements.forEach(el => {
                 const step = parseInt(el.dataset.step, 10);
                 if (progress >= thresholds[step]) {
                     el.classList.add('is-visible');
                 } else {
-                    // Optionnel : décommentez pour réinitialiser en remontant
-                    // el.classList.remove('is-visible');
+                    el.classList.remove('is-visible');
                 }
             });
         };
