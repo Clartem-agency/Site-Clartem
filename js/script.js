@@ -1,4 +1,4 @@
-// script.js - VERSION FINALE INTÉGRÉE
+// script.js - VERSION FINALE AVEC ANIMATION CORRIGÉE
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -215,42 +215,56 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==================================================================
-    // NOUVEAU : LOGIQUE POUR L'EFFET DE CHUTE DES CARTES (SECTION PROBLÈME)
+    // NOUVEAU : LOGIQUE POUR L'EFFET DE CHUTE DES CARTES (SECTION PROBLÈME) - VERSION CORRIGÉE
     // ==================================================================
-    const problemSection = document.getElementById('problem-section');
+    const problemCardsGrid = document.getElementById('problem-cards-grid');
 
-    if (problemSection) {
-        const problemCards = problemSection.querySelectorAll('.problem-card');
+    if (problemCardsGrid) {
+        const problemCards = problemCardsGrid.querySelectorAll('.problem-card');
 
         const handleProblemScroll = () => {
-            const rect = problemSection.getBoundingClientRect();
-            const sectionTop = rect.top;
+            const rect = problemCardsGrid.getBoundingClientRect();
+            const gridTop = rect.top;
             const windowHeight = window.innerHeight;
 
-            const startAnimate = windowHeight;
-            const endAnimate = windowHeight / 2;
-            const animationDistance = startAnimate - endAnimate;
-            const currentPosition = sectionTop - endAnimate;
+            // L'animation commence quand le haut de la grille des cartes atteint 90% du bas de l'écran
+            const startAnimate = windowHeight * 0.9;
             
-            let progress = 1 - (currentPosition / animationDistance);
-            progress = Math.max(0, Math.min(1, progress));
+            // L'animation se termine quand le haut de la grille atteint 10% du haut de l'écran
+            const endAnimate = windowHeight * 0.1;
 
+            // Distance totale en pixels sur laquelle l'animation se déroule
+            const animationDistance = startAnimate - endAnimate;
+            
+            // Position actuelle par rapport au début de l'animation
+            const currentPosition = gridTop - endAnimate;
+            
+            // Progression globale de l'animation (de 0 à 1)
+            let progress = 1 - (currentPosition / animationDistance);
+            progress = Math.max(0, Math.min(1, progress)); // On s'assure que la valeur reste entre 0 et 1
+
+            // On applique l'animation à chaque carte séquentiellement
             problemCards.forEach((card, index) => {
                 const cardCount = problemCards.length;
+                
+                // On définit quand l'animation de chaque carte doit commencer et finir
                 const startProgress = index / cardCount;
                 const endProgress = (index + 1) / cardCount;
                 
+                // On calcule la progression spécifique à cette carte
                 let cardProgress = (progress - startProgress) / (endProgress - startProgress);
                 cardProgress = Math.max(0, Math.min(1, cardProgress));
 
                 if (cardProgress > 0) {
-                    const initialTranslateY = -150;
+                    // On calcule la nouvelle position et opacité
+                    const initialTranslateY = -150; // Doit correspondre à la valeur en CSS
                     const translateY = initialTranslateY * (1 - cardProgress);
                     const opacity = cardProgress;
 
                     card.style.opacity = opacity;
                     card.style.transform = `translateY(${translateY}px)`;
                 } else {
+                    // On réinitialise si on remonte
                     card.style.opacity = 0;
                     card.style.transform = `translateY(-150px)`;
                 }
@@ -258,7 +272,7 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         window.addEventListener('scroll', handleProblemScroll, { passive: true });
-        handleProblemScroll();
+        handleProblemScroll(); // Appel initial
     }
 
     // ==================================================================
