@@ -276,4 +276,59 @@ document.addEventListener('DOMContentLoaded', function () {
         handleScroll();
     }
 
+    // ==================================================================
+    // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION "SITE CLARTÉ"
+    // ==================================================================
+    const clarityContainer = document.getElementById('clarity-section-container');
+    if (clarityContainer) {
+        const textElements = clarityContainer.querySelectorAll('.clarity-text-reveal');
+        const includesCard = document.getElementById('clarity-includes-card');
+
+        // Définir les seuils de progression (en %) où chaque animation se déclenche
+        const thresholds = [
+            0.10, // Étape 0: Titre "Pourquoi..."
+            0.20, // Étape 1: Paragraphe "Dans un monde..."
+            0.35, // Étape 2: "Impact Immédiat"
+            0.50, // Étape 3: "Optimisé pour la Conversion"
+            0.65, // Étape 4: "Rapidité et Performance"
+            0.85  // Seuil pour la carte de droite
+        ];
+
+        const handleClarityScroll = () => {
+            const rect = clarityContainer.getBoundingClientRect();
+            
+            // Si la section n'est pas visible, on ne fait rien
+            if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+
+            const scrollAmount = -rect.top;
+            const scrollHeight = clarityContainer.offsetHeight - window.innerHeight;
+            
+            // Calcule la progression du scroll à l'intérieur du conteneur (de 0 à 1)
+            let progress = scrollAmount / scrollHeight;
+            progress = Math.max(0, Math.min(1, progress)); // On s'assure que la valeur reste entre 0 et 1
+
+            // On parcourt les éléments de texte à gauche
+            textElements.forEach(el => {
+                const step = parseInt(el.dataset.step, 10);
+                if (progress >= thresholds[step]) {
+                    el.classList.add('is-visible');
+                } else {
+                    // Optionnel : décommentez la ligne suivante pour que l'animation se réinitialise en remontant
+                    // el.classList.remove('is-visible');
+                }
+            });
+
+            // On gère la carte de droite
+            if (progress >= thresholds[thresholds.length - 1]) {
+                includesCard.classList.add('is-visible');
+            } else {
+                // Optionnel : décommentez la ligne suivante pour que l'animation se réinitialise en remontant
+                // includesCard.classList.remove('is-visible');
+            }
+        };
+
+        window.addEventListener('scroll', handleClarityScroll, { passive: true });
+        handleClarityScroll(); // Appel initial pour vérifier l'état au chargement de la page
+    }
+    
 });
