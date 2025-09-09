@@ -236,7 +236,7 @@ nav.scrolled {
 }
 
 /* ======================================================= */
-/*     STYLES POUR L'EFFET STICKY (SECTION PROBLÈME) - MODIFIÉ    */
+/*             STYLES POUR L'EFFET STICKY (SECTION PROBLÈME)        */
 /* ======================================================= */
 
 #problem-scroll-container {
@@ -251,14 +251,13 @@ nav.scrolled {
 
 .problem-card {
     opacity: 0;
-    /* MODIFICATION CLÉ : L'état initial est maintenant 100% de la hauteur de l'écran vers le haut */
     transform: translateY(-100vh); 
     transition: none; 
     will-change: transform, opacity;
 }
 
 /* ======================================================= */
-/*    STYLES POUR L'EFFET STICKY (SECTION VALUE PROPOSITION) */
+/*    STYLES POUR L'EFFET STICKY (SECTION VALUE PROPOSITION) - MODIFIÉ */
 /* ======================================================= */
 
 #value-prop-scroll-container {
@@ -272,8 +271,8 @@ nav.scrolled {
 
 .value-prop-card {
     opacity: 0;
-    /* État initial : décalé de 150px vers la droite */
-    transform: translateX(150px); 
+    /* MODIFICATION CLÉ : L'état initial est maintenant 100% de la largeur de l'écran vers la droite */
+    transform: translateX(100vw); 
     transition: none; /* L'animation est gérée par JS, pas par CSS */
     will-change: transform, opacity; /* Optimisation des performances */
 }

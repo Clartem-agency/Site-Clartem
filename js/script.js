@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==================================================================
-    // NOUVEAU : LOGIQUE POUR L'EFFET DE CHUTE "STICKY" (SECTION PROBLÈME) - VERSION MODIFIÉE
+    // NOUVEAU : LOGIQUE POUR L'EFFET DE CHUTE "STICKY" (SECTION PROBLÈME)
     // ==================================================================
     const scrollContainer = document.getElementById('problem-scroll-container');
     if (scrollContainer) {
@@ -162,7 +162,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 let cardProgress = (animationProgress - startProgress) / (endProgress - startProgress);
                 cardProgress = Math.max(0, Math.min(1, cardProgress));
 
-                // MODIFICATION CLÉ : La translation initiale est maintenant la hauteur de l'écran
                 const initialTranslateY = -window.innerHeight; 
                 const translateY = initialTranslateY * (1 - cardProgress);
                 const opacity = cardProgress;
@@ -177,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 // ==================================================================
-    // NOUVEAU : LOGIQUE POUR L'EFFET STICKY (SECTION VALUE PROPOSITION)
+    // NOUVEAU : LOGIQUE POUR L'EFFET STICKY (SECTION VALUE PROPOSITION) - VERSION MODIFIÉE
     // ==================================================================
     const valuePropScrollContainer = document.getElementById('value-prop-scroll-container');
     if (valuePropScrollContainer) {
@@ -210,8 +209,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 let cardProgress = (animationProgress - startProgress) / (endProgress - startProgress);
                 cardProgress = Math.max(0, Math.min(1, cardProgress));
 
-                // MODIFICATION CLÉ : Animation sur l'axe X (horizontal)
-                const initialTranslateX = 150; // Vient de la droite
+                // MODIFICATION CLÉ : La translation initiale est maintenant la largeur de l'écran
+                const initialTranslateX = window.innerWidth; // Vient de la droite
                 const translateX = initialTranslateX * (1 - cardProgress);
                 const opacity = cardProgress;
 
