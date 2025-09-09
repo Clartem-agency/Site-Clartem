@@ -338,8 +338,8 @@ document.addEventListener('DOMContentLoaded', function () {
         handleClarityScroll();
     }
 
-    // ==================================================================
-    // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION "GUIDE"
+        // ==================================================================
+    // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION "GUIDE" (CORRIGÉE)
     // ==================================================================
     const guideContainer = document.getElementById('guide-section-container');
     if (guideContainer) {
@@ -377,8 +377,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (progress >= thresholds[step]) {
                     el.classList.add('is-visible');
                 } else {
-                    // Optionnel : décommentez pour réinitialiser en remontant
-                    // el.classList.remove('is-visible');
+                    // LIGNE DÉCOMMENTÉE CI-DESSOUS : C'est la correction clé.
+                    // Elle retire la classe de visibilité quand on remonte.
+                    el.classList.remove('is-visible');
                 }
             });
         };
