@@ -128,52 +128,80 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('.filter-btn[data-filter="all"]').click();
     }
 
-    // ==================================================================
-    // NOUVEAU : LOGIQUE POUR L'EFFET DE CHUTE "STICKY" (SECTION PROBLÈME)
-    // ==================================================================
-    const scrollContainer = document.getElementById('problem-scroll-container');
-    if (scrollContainer) {
-        const problemCards = scrollContainer.querySelectorAll('.problem-card');
+
+
+// ==================================================================
+// NOUVEAU : LOGIQUE POUR L'EFFET DE CHUTE "STICKY" (SECTION PROBLÈME)
+// ==================================================================
+const scrollContainer = document.getElementById('problem-scroll-container');
+if (scrollContainer) {
+    const problemCards = scrollContainer.querySelectorAll('.problem-card');
+    // NOUVEAU : On récupère notre icône
+    const knotContainer = document.getElementById('frustration-knot-container'); 
+    
+    const ANIMATION_START_PROGRESS = 0.20; 
+    const ANIMATION_END_PROGRESS = 0.80;   
+    const ANIMATION_DURATION = ANIMATION_END_PROGRESS - ANIMATION_START_PROGRESS;
+
+    const handleProblemScroll = () => {
+        const rect = scrollContainer.getBoundingClientRect();
         
-        const ANIMATION_START_PROGRESS = 0.20; 
-        const ANIMATION_END_PROGRESS = 0.80;   
-        const ANIMATION_DURATION = ANIMATION_END_PROGRESS - ANIMATION_START_PROGRESS;
+        if (rect.bottom < 0 || rect.top > window.innerHeight) return;
 
-        const handleProblemScroll = () => {
-            const rect = scrollContainer.getBoundingClientRect();
+        const scrollAmount = -rect.top;
+        const scrollDistance = scrollContainer.offsetHeight - window.innerHeight;
+        
+        let totalProgress = scrollAmount / scrollDistance;
+        totalProgress = Math.max(0, Math.min(1, totalProgress));
+
+        // NOUVELLE LOGIQUE POUR L'ICÔNE
+        if (knotContainer) {
+            // L'animation de l'icône se produit entre 0% et 20% du scroll total
+            const knotProgress = Math.min(1, totalProgress / ANIMATION_START_PROGRESS);
             
-            if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+            // On calcule l'opacité, la taille et la rotation
+            const opacity = 1 - knotProgress;
+            const scale = 1 - (knotProgress * 0.5); // Rétrécit jusqu'à 50%
+            const rotate = knotProgress * -180; // Tourne de 180 degrés
 
-            const scrollAmount = -rect.top;
-            const scrollDistance = scrollContainer.offsetHeight - window.innerHeight;
+            // On applique les styles
+            knotContainer.style.opacity = opacity;
+            knotContainer.style.transform = `scale(${scale}) rotate(${rotate}deg)`;
+            // On le rend non-cliquable quand il est invisible
+            knotContainer.style.pointerEvents = opacity > 0 ? 'auto' : 'none';
+        }
+
+        let animationProgress = (totalProgress - ANIMATION_START_PROGRESS) / ANIMATION_DURATION;
+        animationProgress = Math.max(0, Math.min(1, animationProgress));
+
+        problemCards.forEach((card, index) => {
+            const cardCount = problemCards.length;
             
-            let totalProgress = scrollAmount / scrollDistance;
-            totalProgress = Math.max(0, Math.min(1, totalProgress));
+            const startProgress = index / cardCount;
+            const endProgress = (index + 0.9) / cardCount;
+            
+            let cardProgress = (animationProgress - startProgress) / (endProgress - startProgress);
+            cardProgress = Math.max(0, Math.min(1, cardProgress));
 
-            let animationProgress = (totalProgress - ANIMATION_START_PROGRESS) / ANIMATION_DURATION;
-            animationProgress = Math.max(0, Math.min(1, animationProgress));
+            const initialTranslateY = -window.innerHeight; 
+            const translateY = initialTranslateY * (1 - cardProgress);
+            const cardOpacity = cardProgress; // Renommé pour éviter le conflit
 
-            problemCards.forEach((card, index) => {
-                const cardCount = problemCards.length;
-                
-                const startProgress = index / cardCount;
-                const endProgress = (index + 0.9) / cardCount;
-                
-                let cardProgress = (animationProgress - startProgress) / (endProgress - startProgress);
-                cardProgress = Math.max(0, Math.min(1, cardProgress));
+            card.style.opacity = cardOpacity;
+            card.style.transform = `translateY(${translateY}px)`;
+        });
+    };
 
-                const initialTranslateY = -window.innerHeight; 
-                const translateY = initialTranslateY * (1 - cardProgress);
-                const opacity = cardProgress;
-
-                card.style.opacity = opacity;
-                card.style.transform = `translateY(${translateY}px)`;
-            });
-        };
-
-        window.addEventListener('scroll', handleProblemScroll, { passive: true });
-        handleProblemScroll();
+    window.addEventListener('scroll', handleProblemScroll, { passive: true });
+    
+    // NOUVEAU : On s'assure que l'icône est visible au chargement
+    if (knotContainer) {
+        knotContainer.style.opacity = 1; 
     }
+    
+    handleProblemScroll();
+}
+    
 
 // ==================================================================
     // NOUVEAU : LOGIQUE POUR L'EFFET STICKY (SECTION VALUE PROPOSITION) - VERSION MODIFIÉE
