@@ -276,4 +276,66 @@ document.addEventListener('DOMContentLoaded', function () {
         handleScroll();
     }
 
+         // ==================================================================
+    // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION "SITE CLARTÉ" (VERSION 3)
+    // ==================================================================
+    const clarityContainer = document.getElementById('clarity-section-container');
+    if (clarityContainer) {
+        const animatedElements = clarityContainer.querySelectorAll('.clarity-text-reveal, .clarity-list-item');
+        // NOUVEAU : On récupère le conteneur de droite
+        const rightCard = document.getElementById('clarity-right-card');
+
+        const thresholds = [
+            // Gauche
+            0.05, // Étape 0: Titre "Pourquoi..."
+            0.10, // Étape 1: Paragraphe "Dans un monde..."
+            0.18, // Étape 2: "Impact Immédiat"
+            0.26, // Étape 3: "Optimisé pour la Conversion"
+            0.34, // Étape 4: "Rapidité et Performance"
+            // Droite
+            0.45, // Étape 5: Titre "Ce que votre site inclut" (C'est le seuil pour le cadre)
+            0.52, // Étape 6: Item 1
+            0.59, // Étape 7: Item 2
+            0.66, // Étape 8: Item 3
+            0.73, // Étape 9: Item 4
+            0.80, // Étape 10: Item 5
+            0.87, // Étape 11: Item 6
+            0.94, // Étape 12: Item 7
+            0.98  // Étape 13: Bouton
+        ];
+
+        const handleClarityScroll = () => {
+            const rect = clarityContainer.getBoundingClientRect();
+            
+            if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+
+            const scrollAmount = -rect.top;
+            const scrollHeight = clarityContainer.offsetHeight - window.innerHeight;
+            
+            let progress = scrollAmount / scrollHeight;
+            progress = Math.max(0, Math.min(1, progress));
+
+            // NOUVEAU : Logique séparée pour le conteneur de droite
+            // Il devient visible au seuil de son premier enfant (étape 5)
+            if (progress >= thresholds[5]) {
+                rightCard.classList.add('is-visible');
+            } else {
+                rightCard.classList.remove('is-visible');
+            }
+
+            // La boucle pour le texte reste la même
+            animatedElements.forEach(el => {
+                const step = parseInt(el.dataset.step, 10);
+                if (progress >= thresholds[step]) {
+                    el.classList.add('is-visible');
+                } else {
+                    el.classList.remove('is-visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', handleClarityScroll, { passive: true });
+        handleClarityScroll();
+    }
+    
 });
