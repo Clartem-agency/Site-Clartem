@@ -1,4 +1,4 @@
-// script.js - VERSION FINALE AVEC ANIMATION STICKY
+// script.js - VERSION FINALE AVEC PAUSES AU DÉBUT ET À LA FIN
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -70,52 +70,53 @@ document.addEventListener('DOMContentLoaded', function () {
     lazyImages.forEach(handleImageLoad);
 
     // ==================================================================
-    // LOGIQUE POUR L'EFFET DE CHUTE "STICKY" (SECTION PROBLÈME)
+    // LOGIQUE POUR L'EFFET DE CHUTE "STICKY" (SECTION PROBLÈME) - AVEC PAUSES
     // ==================================================================
     const scrollContainer = document.getElementById('problem-scroll-container');
 
     if (scrollContainer) {
         const problemCards = scrollContainer.querySelectorAll('.problem-card');
+        
+        // --- NOUVEAU : Constantes pour contrôler les pauses ---
+        // L'animation commencera après 20% du scroll total
+        const ANIMATION_START_PROGRESS = 0.20; 
+        // L'animation se terminera à 80% du scroll total, laissant 20% pour la pause finale
+        const ANIMATION_END_PROGRESS = 0.80;   
+        const ANIMATION_DURATION = ANIMATION_END_PROGRESS - ANIMATION_START_PROGRESS;
 
         const handleProblemScroll = () => {
             const rect = scrollContainer.getBoundingClientRect();
             
-            // Si le conteneur n'est pas dans la vue, on ne fait rien
-            if (rect.bottom < 0 || rect.top > window.innerHeight) {
-                return;
-            }
+            if (rect.bottom < 0 || rect.top > window.innerHeight) return;
 
-            // Calcul de la progression du scroll A L'INTERIEUR du conteneur sticky
-            // -rect.top = combien de pixels on a scrollé dans le conteneur
-            // scrollContainer.offsetHeight - window.innerHeight = la distance totale de scroll possible
             const scrollAmount = -rect.top;
             const scrollDistance = scrollContainer.offsetHeight - window.innerHeight;
             
-            let progress = scrollAmount / scrollDistance;
-            progress = Math.max(0, Math.min(1, progress)); // On s'assure que la valeur reste entre 0 et 1
+            // `totalProgress` va de 0 à 1 sur TOUTE la hauteur de 300vh
+            let totalProgress = scrollAmount / scrollDistance;
+            totalProgress = Math.max(0, Math.min(1, totalProgress));
 
-            // On applique l'animation à chaque carte séquentiellement
+            // --- NOUVEAU : On calcule une progression dédiée à l'animation ---
+            // `animationProgress` n'ira de 0 à 1 que lorsque `totalProgress` est entre 0.2 et 0.8
+            let animationProgress = (totalProgress - ANIMATION_START_PROGRESS) / ANIMATION_DURATION;
+            animationProgress = Math.max(0, Math.min(1, animationProgress));
+
             problemCards.forEach((card, index) => {
                 const cardCount = problemCards.length;
                 
-                // On divise la progression totale en segments pour chaque carte
+                // La logique suivante utilise maintenant `animationProgress`
                 const startProgress = index / cardCount;
-                const endProgress = (index + 0.8) / cardCount; // Le 0.8 laisse un petit temps mort entre les cartes
+                const endProgress = (index + 0.9) / cardCount; // 0.9 pour un léger chevauchement
                 
-                let cardProgress = (progress - startProgress) / (endProgress - startProgress);
+                let cardProgress = (animationProgress - startProgress) / (endProgress - startProgress);
                 cardProgress = Math.max(0, Math.min(1, cardProgress));
 
-                if (cardProgress > 0) {
-                    const initialTranslateY = -150;
-                    const translateY = initialTranslateY * (1 - cardProgress);
-                    const opacity = cardProgress;
+                const initialTranslateY = -150;
+                const translateY = initialTranslateY * (1 - cardProgress);
+                const opacity = cardProgress;
 
-                    card.style.opacity = opacity;
-                    card.style.transform = `translateY(${translateY}px)`;
-                } else {
-                    card.style.opacity = 0;
-                    card.style.transform = `translateY(-150px)`;
-                }
+                card.style.opacity = opacity;
+                card.style.transform = `translateY(${translateY}px)`;
             });
         };
 
@@ -176,9 +177,4 @@ document.addEventListener('DOMContentLoaded', function () {
         window.addEventListener('scroll', handleScroll, { passive: true });
         handleScroll();
     }
-    
-    // NOTE : Le code pour le bandeau promo, le compte à rebours et le filtre portfolio est omis pour la clarté,
-    // mais il était correct et peut être réintégré si nécessaire. S'ils sont utilisés, ils doivent être
-    // placés ici, à l'intérieur de l'écouteur DOMContentLoaded.
-
 });
