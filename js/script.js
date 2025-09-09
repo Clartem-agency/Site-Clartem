@@ -337,5 +337,54 @@ document.addEventListener('DOMContentLoaded', function () {
         window.addEventListener('scroll', handleClarityScroll, { passive: true });
         handleClarityScroll();
     }
+
+    // ==================================================================
+    // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION "GUIDE"
+    // ==================================================================
+    const guideContainer = document.getElementById('guide-section-container');
+    if (guideContainer) {
+        const animatedElements = guideContainer.querySelectorAll('.guide-reveal-item');
+
+        // Définition des seuils pour chaque étape de l'animation
+        const thresholds = [
+            // Colonne de gauche
+            0.10, // Étape 0: Titre "Je comprends..."
+            0.18, // Étape 1: Paragraphe
+            0.26, // Étape 2: Item 1
+            0.34, // Étape 3: Item 2
+            0.42, // Étape 4: Item 3
+            // Colonne de droite
+            0.55, // Étape 5: Titre "Et j'ai un plan..."
+            0.63, // Étape 6: Paragraphe
+            0.71, // Étape 7: Item 1
+            0.79, // Étape 8: Item 2
+            0.87  // Étape 9: Item 3
+        ];
+
+        const handleGuideScroll = () => {
+            const rect = guideContainer.getBoundingClientRect();
+            
+            if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+
+            const scrollAmount = -rect.top;
+            const scrollHeight = guideContainer.offsetHeight - window.innerHeight;
+            
+            let progress = scrollAmount / scrollHeight;
+            progress = Math.max(0, Math.min(1, progress));
+
+            animatedElements.forEach(el => {
+                const step = parseInt(el.dataset.step, 10);
+                if (progress >= thresholds[step]) {
+                    el.classList.add('is-visible');
+                } else {
+                    // Optionnel : décommentez pour réinitialiser en remontant
+                    // el.classList.remove('is-visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', handleGuideScroll, { passive: true });
+        handleGuideScroll();
+    }
     
 });
