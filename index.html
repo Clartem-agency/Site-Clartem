@@ -147,14 +147,14 @@
 
 
 
-     <!-- Problem Section (VERSION FINALE AVEC EFFET STICKY ET POSITIONNEMENT CORRIGÉ) -->
+    <!-- Problem Section (VERSION FINALE AVEC EFFET STICKY ET POSITIONNEMENT CORRIGÉ) -->
 <section id="problem-section" class="relative bg-neutral-dark text-white py-20">
     <!-- Le conteneur qui aura une grande hauteur pour permettre le scroll de l'animation -->
     <div id="problem-scroll-container">
         <!-- Le contenu qui deviendra "sticky" (collant) en haut de l'écran -->
         <div id="problem-sticky-content" class="h-screen w-full">
             
-            <!-- Éléments décoratifs en arrière-plan, placés ici pour couvrir tout l'écran -->
+            <!-- Éléments décoratifs en arrière-plan -->
             <div aria-hidden="true" class="absolute inset-0 z-0 opacity-20">
                 <div class="absolute -top-20 -left-20 w-96 h-96 bg-destructive rounded-full filter blur-3xl"></div>
                 <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-clarity-blue rounded-full filter blur-3xl"></div>
@@ -165,16 +165,16 @@
                 
                 <div class="py-20">
                     <div class="relative z-10">
-                        <!-- MODIFIÉ : Marge inférieure réduite de mb-16 à mb-8 -->
-                        <div class="text-center mb-8">
+                        <!-- MODIFIÉ : Marge inférieure remise à mb-16 pour créer l'espace pour l'icône -->
+                        <div class="text-center mb-16">
                             <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Votre présence en ligne vous
                                 semble<br><span class="text-clarity-blue"> compliquée, coûteuse et chronophage</span> ?</h2>
                             <p class="text-xl text-white/80 max-w-3xl mx-auto">Vous n'êtes pas seul(e). Je comprends ces
                                 frustrations car je les ai entendues des centaines de fois.</p>
                         </div>
 
-                        <!-- NOUVEL ÉLÉMENT VISUEL POUR COMBLER L'ESPACE -->
-                        <div id="frustration-knot-container" class="text-center my-12 opacity-0">
+                        <!-- L'icône est maintenant positionnée en absolu pour flotter sur l'espace vide -->
+                        <div id="frustration-knot-container" class="absolute inset-x-0 top-40 text-center pointer-events-none">
                             <svg class="inline-block" width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M15.3807 7.31924C16.2505 5.79525 18.1253 5.31839 19.6493 6.18819C21.1733 7.05799 21.6502 8.93282 20.7804 10.4568L12.5695 23.9999L3.21942 10.519C2.34962 9.00696 2.82648 7.12017 4.35047 6.25037C5.87446 5.38057 7.74929 5.85743 8.61909 7.38142L12.0019 13.003L15.3807 7.31924Z" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M12 13L5 2" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
