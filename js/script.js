@@ -1,4 +1,4 @@
-// script.js - VERSION FINALE AVEC PAUSES AU DÉBUT ET À LA FIN
+// script.js - VERSION FINALE INTÉGRÉE
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==================================================================
-    // ANIMATION DES IMAGES (LAZY LOAD)
+    // ANIMATION DES IMAGES
     // ==================================================================
     const lazyImages = document.querySelectorAll('img.lazy-load');
     const handleImageLoad = (img) => {
@@ -70,17 +70,148 @@ document.addEventListener('DOMContentLoaded', function () {
     lazyImages.forEach(handleImageLoad);
 
     // ==================================================================
-    // LOGIQUE POUR L'EFFET DE CHUTE "STICKY" (SECTION PROBLÈME) - AVEC PAUSES
+    // LOGIQUE DU BANDEAU PROMOTIONNEL (SI EXISTANT)
+    // ==================================================================
+    const banner = document.getElementById('promo-banner');
+    const closeButton = document.getElementById('close-banner-button');
+    const ctaButton = document.getElementById('banner-cta-button');
+
+    if (banner && closeButton && ctaButton) {
+        const showBanner = () => banner.classList.remove('translate-y-full');
+        const hideBanner = () => banner.classList.add('translate-y-full');
+
+        if (sessionStorage.getItem('promoBannerClosed') !== 'true') {
+            setTimeout(showBanner, 3000);
+        }
+
+        closeButton.addEventListener('click', () => {
+            hideBanner();
+            sessionStorage.setItem('promoBannerClosed', 'true');
+        });
+
+        ctaButton.addEventListener('click', () => {
+            hideBanner();
+        });
+    }
+
+    // ==================================================================
+    // LOGIQUE UNIFIÉE POUR LES COMPTES À REBOURS (SI EXISTANT)
+    // ==================================================================
+    const countdownDate = new Date("Aug 31, 2025 23:59:59").getTime();
+
+    const mainDaysEl = document.getElementById('days');
+    const mainHoursEl = document.getElementById('hours');
+    const mainMinutesEl = document.getElementById('minutes');
+    const mainSecondsEl = document.getElementById('seconds');
+    const mainTimerContainer = document.getElementById('countdown-timer');
+
+    const bannerDaysEl = document.getElementById('banner-days');
+    const bannerHoursEl = document.getElementById('banner-hours');
+    const bannerMinutesEl = document.getElementById('banner-minutes');
+    const bannerSecondsEl = document.getElementById('banner-seconds');
+    const bannerTimerContainer = document.getElementById('banner-countdown-timer');
+
+    const updateTimerDisplay = (distance, elements, container) => {
+        if (!container) return;
+
+        if (distance < 0) {
+            container.innerHTML = '<div class="text-lg font-bold text-center w-full">L\'offre est terminée !</div>';
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        const format = (num) => num < 10 ? '0' + num : num;
+
+        if (elements.days) elements.days.innerHTML = format(days);
+        if (elements.hours) elements.hours.innerHTML = format(hours);
+        if (elements.minutes) elements.minutes.innerHTML = format(minutes);
+        if (elements.seconds) elements.seconds.innerHTML = format(seconds);
+    };
+
+    const interval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = countdownDate - now;
+
+        if (mainTimerContainer) {
+            updateTimerDisplay(distance, { days: mainDaysEl, hours: mainHoursEl, minutes: mainMinutesEl, seconds: mainSecondsEl }, mainTimerContainer);
+        }
+        if (bannerTimerContainer) {
+            updateTimerDisplay(distance, { days: bannerDaysEl, hours: bannerHoursEl, minutes: bannerMinutesEl, seconds: bannerSecondsEl }, bannerTimerContainer);
+        }
+        if (distance < 0) {
+            clearInterval(interval);
+        }
+    }, 1000);
+
+    // ==================================================================
+    // LOGIQUE FILTRE ET "VOIR PLUS" DU PORTFOLIO (SI EXISTANT)
+    // ==================================================================
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const portfolioGrid = document.getElementById('portfolio-grid');
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    const loadMoreContainer = document.getElementById('load-more-container');
+
+    if (filterButtons.length > 0 && portfolioGrid && loadMoreBtn) {
+        const itemsToShowInitially = 6;
+        const itemsToLoadOnClick = 6;
+        let currentlyVisibleCount;
+
+        const applyVisibility = () => {
+            const visibleItems = Array.from(portfolioGrid.querySelectorAll('.portfolio-item:not(.hidden)'));
+            visibleItems.forEach((item, index) => {
+                if (index < currentlyVisibleCount) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            if (visibleItems.length > currentlyVisibleCount) {
+                loadMoreContainer.style.display = 'block';
+            } else {
+                loadMoreContainer.style.display = 'none';
+            }
+        };
+
+        loadMoreBtn.addEventListener('click', () => {
+            currentlyVisibleCount += itemsToLoadOnClick;
+            applyVisibility();
+        });
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.dataset.filter;
+                filterButtons.forEach(btn => btn.classList.remove('bg-deep-blue', 'text-white'));
+                button.classList.add('bg-deep-blue', 'text-white');
+                const allItems = portfolioGrid.querySelectorAll('.portfolio-item');
+                allItems.forEach(item => {
+                    item.style.display = '';
+                    const category = item.dataset.category;
+                    if (filter === 'all' || filter === category) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+                currentlyVisibleCount = itemsToShowInitially;
+                applyVisibility();
+            });
+        });
+
+        document.querySelector('.filter-btn[data-filter="all"]').click();
+    }
+
+    // ==================================================================
+    // NOUVEAU : LOGIQUE POUR L'EFFET DE CHUTE "STICKY" (SECTION PROBLÈME)
     // ==================================================================
     const scrollContainer = document.getElementById('problem-scroll-container');
-
     if (scrollContainer) {
         const problemCards = scrollContainer.querySelectorAll('.problem-card');
         
-        // --- NOUVEAU : Constantes pour contrôler les pauses ---
-        // L'animation commencera après 20% du scroll total
         const ANIMATION_START_PROGRESS = 0.20; 
-        // L'animation se terminera à 80% du scroll total, laissant 20% pour la pause finale
         const ANIMATION_END_PROGRESS = 0.80;   
         const ANIMATION_DURATION = ANIMATION_END_PROGRESS - ANIMATION_START_PROGRESS;
 
@@ -92,21 +223,17 @@ document.addEventListener('DOMContentLoaded', function () {
             const scrollAmount = -rect.top;
             const scrollDistance = scrollContainer.offsetHeight - window.innerHeight;
             
-            // `totalProgress` va de 0 à 1 sur TOUTE la hauteur de 300vh
             let totalProgress = scrollAmount / scrollDistance;
             totalProgress = Math.max(0, Math.min(1, totalProgress));
 
-            // --- NOUVEAU : On calcule une progression dédiée à l'animation ---
-            // `animationProgress` n'ira de 0 à 1 que lorsque `totalProgress` est entre 0.2 et 0.8
             let animationProgress = (totalProgress - ANIMATION_START_PROGRESS) / ANIMATION_DURATION;
             animationProgress = Math.max(0, Math.min(1, animationProgress));
 
             problemCards.forEach((card, index) => {
                 const cardCount = problemCards.length;
                 
-                // La logique suivante utilise maintenant `animationProgress`
                 const startProgress = index / cardCount;
-                const endProgress = (index + 0.9) / cardCount; // 0.9 pour un léger chevauchement
+                const endProgress = (index + 0.9) / cardCount;
                 
                 let cardProgress = (animationProgress - startProgress) / (endProgress - startProgress);
                 cardProgress = Math.max(0, Math.min(1, cardProgress));
@@ -121,15 +248,13 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         window.addEventListener('scroll', handleProblemScroll, { passive: true });
-        handleProblemScroll(); // Appel initial
+        handleProblemScroll();
     }
 
-
     // ==================================================================
-    // LOGIQUE POUR L'EFFET STACKING CARDS (PLAN SECTION)
+    // LOGIQUE POUR L'EFFET STACKING CARDS (SECTION PLAN)
     // ==================================================================
     const planSection = document.getElementById('plan');
-
     if (planSection) {
         const panels = Array.from(planSection.querySelectorAll('.panel'));
         const numPanels = panels.length;
@@ -177,4 +302,5 @@ document.addEventListener('DOMContentLoaded', function () {
         window.addEventListener('scroll', handleScroll, { passive: true });
         handleScroll();
     }
+
 });
