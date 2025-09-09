@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==================================================================
-    // NOUVEAU : LOGIQUE POUR L'EFFET DE CHUTE "STICKY" (SECTION PROBLÈME)
+    // NOUVEAU : LOGIQUE POUR L'EFFET DE CHUTE "STICKY" (SECTION PROBLÈME) - VERSION MODIFIÉE
     // ==================================================================
     const scrollContainer = document.getElementById('problem-scroll-container');
     if (scrollContainer) {
@@ -162,7 +162,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 let cardProgress = (animationProgress - startProgress) / (endProgress - startProgress);
                 cardProgress = Math.max(0, Math.min(1, cardProgress));
 
-                const initialTranslateY = -150;
+                // MODIFICATION CLÉ : La translation initiale est maintenant la hauteur de l'écran
+                const initialTranslateY = -window.innerHeight; 
                 const translateY = initialTranslateY * (1 - cardProgress);
                 const opacity = cardProgress;
 
