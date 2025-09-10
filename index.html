@@ -146,16 +146,19 @@
 
 
 
+<!-- Problem Section (VERSION MODIFIÉE AVEC IMAGE DE FOND) -->
+<section id="problem-section" class="relative text-white py-20">
+    <!-- NOUVEAU : Superposition sombre pour la lisibilité sur l'image de fond -->
+    <div class="absolute inset-0 bg-neutral-dark/80 z-0"></div>
 
-     <!-- Problem Section (VERSION FINALE AVEC EFFET STICKY ET POSITIONNEMENT CORRIGÉ) -->
-<section id="problem-section" class="relative bg-neutral-dark text-white py-20">
     <!-- Le conteneur qui aura une grande hauteur pour permettre le scroll de l'animation -->
     <div id="problem-scroll-container">
         <!-- Le contenu qui deviendra "sticky" (collant) en haut de l'écran -->
         <div id="problem-sticky-content" class="h-screen w-full">
             
-            <!-- Éléments décoratifs en arrière-plan, placés ici pour couvrir tout l'écran -->
-            <div aria-hidden="true" class="absolute inset-0 z-0 opacity-20">
+            <!-- Éléments décoratifs en arrière-plan (halos) -->
+            <!-- MODIFIÉ : z-index augmenté pour être au-dessus de la superposition -->
+            <div aria-hidden="true" class="absolute inset-0 z-10 opacity-20">
                 <div class="absolute -top-20 -left-20 w-96 h-96 bg-destructive rounded-full filter blur-3xl"></div>
                 <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-clarity-blue rounded-full filter blur-3xl"></div>
             </div>
@@ -163,15 +166,25 @@
             <!-- Conteneur pour centrer le contenu verticalement et horizontalement -->
             <div class="container mx-auto px-6 h-full flex flex-col justify-center">
                 
-                <!-- MODIFIÉ : La classe "pb-20" a été remplacée par "py-20" pour ajouter de l'espace en haut -->
                 <div class="py-20">
-                    <div class="relative z-10">
+                    <!-- MODIFIÉ : z-index augmenté pour être au-dessus des halos et de la superposition -->
+                    <div class="relative z-20">
                         <div class="text-center mb-16">
                             <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Votre présence en ligne vous
                                 semble<br><span class="text-clarity-blue"> compliquée, coûteuse et chronophage</span> ?</h2>
                             <p class="text-xl text-white/80 max-w-3xl mx-auto">Vous n'êtes pas seul(e). Je comprends ces
                                 frustrations car je les ai entendues des centaines de fois.</p>
                         </div>
+
+                        <!-- MODIFIÉ : L'icône est positionnée encore plus bas avec top-80 -->
+                        <div id="frustration-knot-container" class="absolute inset-x-0 top-80 text-center pointer-events-none">
+                            <svg class="inline-block" width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15.3807 7.31924C16.2505 5.79525 18.1253 5.31839 19.6493 6.18819C21.1733 7.05799 21.6502 8.93282 20.7804 10.4568L12.5695 23.9999L3.21942 10.519C2.34962 9.00696 2.82648 7.12017 4.35047 6.25037C5.87446 5.38057 7.74929 5.85743 8.61909 7.38142L12.0019 13.003L15.3807 7.31924Z" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 13L5 2" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12.0019 13.003L19 2" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+
                         <div id="problem-cards-grid" class="grid md:grid-cols-3 gap-8">
                             <!-- Carte 1: Problème Externe -->
                             <div class="problem-card bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:shadow-2xl hover:-translate-y-2 flex flex-col">
@@ -211,6 +224,7 @@
         </div>
     </div>
 </section>
+ 
         
 
 

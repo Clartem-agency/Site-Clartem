@@ -142,6 +142,17 @@ nav.scrolled {
 
 
 /* ======================================================= */
+/*    STYLES POUR LA SECTION PROBLÈME AVEC FOND D'ÉCRAN     */
+/* ======================================================= */
+#problem-section {
+    background-image: url('../assets/image-background/background-chaos.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Crée un bel effet de parallaxe au défilement */
+}
+
+
+/* ======================================================= */
 /*    STYLES POUR L'EFFET STACKING CARDS (Version Storytelling)  */
 /* ======================================================= */
 
@@ -350,4 +361,31 @@ nav.scrolled {
 .guide-reveal-item.is-visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+
+/* ======================================================= */
+/*             STYLES POUR L'EFFET STICKY (SECTION PROBLÈME)        */
+/* ======================================================= */
+
+#problem-scroll-container {
+    height: 350vh; 
+}
+
+#problem-sticky-content {
+    position: sticky;
+    top: 0;
+}
+
+.problem-card {
+    opacity: 0;
+    transform: translateY(-100vh); 
+    transition: none; 
+    will-change: transform, opacity;
+}
+
+/* NOUVEAU : Style pour l'icône de frustration */
+#frustration-knot-container {
+    will-change: transform, opacity;
+    transition: opacity 0.3s ease-in-out; /* Pour le fade-in initial */
 }
