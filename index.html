@@ -118,7 +118,7 @@
 
         
         
-<!-- Hero Section (NOUVELLE VERSION PLEINE LARGEUR) -->
+        <!-- Hero Section (NOUVELLE VERSION PLEINE LARGEUR) -->
 <section
     class="hero-bg min-h-screen flex items-center justify-center text-white relative pt-32 pb-20">
     <!-- Superposition de couleur pour la lisibilité -->
@@ -127,13 +127,11 @@
     <!-- Contenu centré -->
     <div class="container mx-auto px-6 relative z-10 text-center">
         <div class="max-w-3xl mx-auto">
-            <!-- MODIFIÉ POUR LE RESPONSIVE : Ajustement de la taille du titre sur mobile -->
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight" data-sr>
                 Sortez du brouillard digital.<br>
                 <span class="text-warm-orange">Trouvez la Clarté.</span>
             </h1>
-            <!-- MODIFIÉ POUR LE RESPONSIVE : Ajustement de la taille du paragraphe sur mobile -->
-            <p class="text-lg md:text-xl text-white/90 mt-6 leading-relaxed" data-sr-delay="100">
+            <p class="text-xl text-white/90 mt-6 leading-relaxed" data-sr-delay="100">
                 Je crée des sites one-page professionnels qui transforment votre expertise en un message clair et puissant, pour attirer les clients que vous méritez.
             </p>
             <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4" data-sr-delay="200">
@@ -141,9 +139,10 @@
                     target="_blank" rel="noopener noreferrer" class="btn btn-orange w-full sm:w-auto text-lg">
                     Obtenir mon Site Clarté
                 </a>
-                <a href="#plan" class="btn !border-white !text-white hover:!bg-white hover:!text-deep-blue w-full sm:w-auto text-lg">
-                    Découvrir le processus
-                </a>
+<a href="#plan" class="btn !border-white !text-white hover:!bg-white hover:!text-deep-blue w-full sm:w-auto text-lg">
+    Découvrir le processus
+</a>
+                
             </div>
         </div>
     </div>
@@ -155,7 +154,7 @@
 
 
 <!-- Problem Section (VERSION MODIFIÉE AVEC IMAGE DE FOND ET CARTES AMÉLIORÉES) -->
-<section id="problem-section" class="relative text-white py-20 md:py-28">
+<section id="problem-section" class="relative text-white py-20">
     <!-- NOUVEAU : Superposition sombre pour la lisibilité sur l'image de fond -->
     <div class="absolute inset-0 bg-neutral-dark/80 z-0"></div>
 
@@ -165,6 +164,7 @@
         <div id="problem-sticky-content" class="h-screen w-full">
             
             <!-- Éléments décoratifs en arrière-plan (halos) -->
+            <!-- MODIFIÉ : z-index augmenté pour être au-dessus de la superposition -->
             <div aria-hidden="true" class="absolute inset-0 z-10 opacity-20">
                 <div class="absolute -top-20 -left-20 w-96 h-96 bg-destructive rounded-full filter blur-3xl"></div>
                 <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-clarity-blue rounded-full filter blur-3xl"></div>
@@ -174,13 +174,12 @@
             <div class="container mx-auto px-6 h-full flex flex-col justify-center">
                 
                 <div class="py-20">
+                    <!-- MODIFIÉ : z-index augmenté pour être au-dessus des halos et de la superposition -->
                     <div class="relative z-20">
                         <div class="text-center mb-16">
-                            <!-- MODIFIÉ POUR LE RESPONSIVE : Ajustement de la taille du titre sur mobile -->
                             <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Votre présence en ligne vous
                                 semble<br><span class="text-clarity-blue"> compliquée, coûteuse et chronophage</span> ?</h2>
-                            <!-- MODIFIÉ POUR LE RESPONSIVE : Ajustement de la taille du paragraphe sur mobile -->
-                            <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto">Vous n'êtes pas seul(e). Je comprends ces
+                            <p class="text-xl text-white/80 max-w-3xl mx-auto">Vous n'êtes pas seul(e). Je comprends ces
                                 frustrations car je les ai entendues des centaines de fois.</p>
                         </div>
 
@@ -193,7 +192,6 @@
                             </svg>
                         </div>
 
-                        <!-- La classe `md:grid-cols-3` assure que les cartes s'empilent sur mobile -->
                         <div id="problem-cards-grid" class="grid md:grid-cols-3 gap-8">
                             <!-- Carte 1: Problème Externe (MISE À JOUR) -->
                             <div class="problem-card bg-neutral-dark/50 border border-white/15 rounded-2xl p-8 backdrop-blur-md transition-all duration-300 hover:bg-neutral-dark/60 hover:border-white/25 hover:shadow-2xl hover:-translate-y-2 flex flex-col">
@@ -240,8 +238,9 @@
         
         
    <!-- Value Proposition Section (VERSION MODIFIÉE AVEC IMAGE DE FOND) -->
-<section id="value-proposition-section" class="relative py-20 md:py-28">
+<section id="value-proposition-section" class="relative py-20">
     <!-- Le conteneur qui aura une grande hauteur pour permettre le scroll de l'animation -->
+    <!-- MODIFIÉ : Ajout de z-10 pour que le contenu soit au-dessus de la superposition -->
     <div id="value-prop-scroll-container" class="relative z-10">
         <!-- Le contenu qui deviendra "sticky" (collant) en haut de l'écran -->
         <div id="value-prop-sticky-content" class="h-screen w-full">
@@ -250,18 +249,16 @@
 
                 <div>
                     <div class="text-center max-w-4xl mx-auto mb-16" data-sr>
-                        <!-- MODIFIÉ POUR LE RESPONSIVE : Ajustement de la taille du titre sur mobile -->
+                        <!-- MODIFIÉ : Couleurs de texte changées pour du blanc pour un meilleur contraste -->
                         <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">La Clarté au Service de Votre
                             Croissance</h2>
-                        <!-- MODIFIÉ POUR LE RESPONSIVE : Ajustement de la taille du paragraphe sur mobile -->
-                        <p class="text-lg md:text-xl leading-relaxed text-white/80">
+                        <p class="text-xl leading-relaxed text-white/80">
                             Chez clartem.com, j'ai un seul objectif : vous fournir un site web professionnel et efficace
                             grâce à un processus simple, rapide et transparent.
                             <span class="font-semibold text-warm-orange">Fini la confusion, place à la clarté.</span>
                         </p>
                     </div>
 
-                    <!-- La classe `lg:grid-cols-3` assure que les cartes s'empilent sur mobile et tablette -->
                     <div class="grid lg:grid-cols-3 gap-8">
                         <!-- Carte 1: Rapidité -->
                         <div class="value-prop-card bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col items-center text-center">
@@ -304,16 +301,15 @@
         
      
   <!-- Section: Qu'est-ce qu'un Site Clarté ? (VERSION AVEC EFFET DE TRANSITION AMÉLIORÉ) -->
-<section id="clarity-background-section" class="py-20 md:py-28 relative">
+<section id="clarity-background-section" class="py-20 relative">
     <div id="clarity-overlay" class="absolute inset-0 bg-soft-blue/80 backdrop-blur-sm z-0"></div>
 
     <div class="container mx-auto px-6 relative z-10">
+        <!-- MODIFIÉ : Ajout de id="clarity-title-block" pour un ciblage précis du déclenchement -->
         <div id="clarity-title-block" class="text-center mb-16" data-sr>
-            <!-- MODIFIÉ POUR LE RESPONSIVE : Ajustement de la taille du titre sur mobile -->
             <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">Le Site Clarté : Plus qu'une
                 Page,<br><span class="text-clarity-blue"> un Outil de Conversion Stratégique</span></h2>
-            <!-- MODIFIÉ POUR LE RESPONSIVE : Ajustement de la taille du paragraphe sur mobile -->
-            <p class="text-lg md:text-xl text-neutral-light max-w-3xl mx-auto">J'ai conçu le Site Clarté pour être la
+            <p class="text-xl text-neutral-light max-w-3xl mx-auto">J'ai conçu le Site Clarté pour être la
                 solution parfaite pour les indépendants et PME. Il concentre toute votre valeur sur une seule
                 page, guidant vos visiteurs vers une action unique : vous contacter.</p>
         </div>
@@ -322,8 +318,7 @@
         <div id="clarity-section-container" class="relative">
             <!-- Le contenu qui deviendra "sticky" (collant) -->
             <div id="clarity-sticky-content" class="h-screen w-full">
-                <!-- MODIFIÉ POUR LE RESPONSIVE : La grille s'empile sur mobile (`lg:grid-cols-2`) et l'espacement est ajusté -->
-                <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-6xl mx-auto h-full">
+                <div class="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto h-full">
                     
                     <!-- COLONNE GAUCHE (ANIMÉE) -->
                     <div class="space-y-8">
@@ -397,7 +392,8 @@
                     </div>
 
                     <!-- COLONNE DROITE (ANIMÉE ÉLÉMENT PAR ÉLÉMENT) -->
-                    <div id="clarity-right-card" class="p-8 bg-gradient-to-br from-soft-blue to-white rounded-2xl shadow-lg border border-gray-200">
+<div id="clarity-right-card" class="p-8 bg-gradient-to-br from-soft-blue to-white rounded-2xl shadow-lg border border-gray-200">
+                       <!-- ... Contenu de la carte droite sans changement ... -->
                        <h3 class="clarity-list-item text-2xl font-bold text-neutral-dark mb-6" data-step="5">Ce que votre Site Clarté inclut :</h3>
                         <ul class="space-y-4">
                             <li class="clarity-list-item flex items-center gap-3 text-lg" data-step="6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-success-green flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Une accroche percutante qui capte l'attention.</li>
@@ -421,15 +417,13 @@
         
 
                <!-- Guide Section ENTIÈREMENT REVUE - Empathie & Autorité (VERSION ANIMÉE) -->
-<section class="py-20 md:py-28 bg-soft-blue">
+<section class="py-20 bg-soft-blue">
     <!-- Conteneur principal qui définit la hauteur de la zone de défilement pour l'animation -->
     <div id="guide-section-container" class="relative">
         <!-- Le contenu qui deviendra "sticky" (collant) -->
         <div id="guide-sticky-content" class="h-screen w-full flex items-center justify-center">
             <div class="container mx-auto px-6">
-                <!-- MODIFIÉ POUR LE RESPONSIVE : Padding ajusté pour mobile -->
                 <div class="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl p-8 md:p-12 lg:p-16">
-                    <!-- MODIFIÉ POUR LE RESPONSIVE : La grille s'empile sur mobile et l'espacement est ajusté -->
                     <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                         
                         <!-- COLONNE 1 : L'EMPATHIE (Je vous comprends) -->
@@ -477,7 +471,6 @@
                         </div>
 
                         <!-- COLONNE 2 : L'AUTORITÉ (Voici pourquoi vous pouvez me faire confiance) -->
-                        <!-- La bordure `lg:border-l` ne s'affiche que sur grand écran -->
                         <div class="space-y-6 lg:border-l lg:border-gray-200 lg:pl-12">
                              <div class="guide-reveal-item flex items-center gap-4" data-step="5">
                                 <div class="flex-shrink-0 bg-clarity-blue/10 text-clarity-blue rounded-full p-3">
@@ -535,13 +528,11 @@
         
        
         <!-- Plan Section (VERSION FINALE AVEC STORYTELLING VISUEL ET CTA DÉDIÉ) -->
-<section id="plan" class="bg-soft-blue py-20 md:py-28">
+<section id="plan" class="bg-soft-blue py-20">
     <!-- Titre de la section, placé à l'extérieur de l'animation -->
     <div class="container mx-auto px-6 text-center mb-16">
-        <!-- MODIFIÉ POUR LE RESPONSIVE : Ajustement de la taille du titre sur mobile -->
         <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">Votre Site Clarté en 7 Jours :<br><span class="text-clarity-blue"> Un Plan Simple en 4 Étapes</span></h2>
-        <!-- MODIFIÉ POUR LE RESPONSIVE : Ajustement de la taille du paragraphe sur mobile -->
-        <p class="text-lg md:text-xl text-neutral-light max-w-3xl mx-auto">Découvrez mon processus optimisé pour vous livrer un site professionnel en une semaine, sans stress ni surprises.</p>
+        <p class="text-xl text-neutral-light max-w-3xl mx-auto">Découvrez mon processus optimisé pour vous livrer un site professionnel en une semaine, sans stress ni surprises.</p>
         <p class="mt-8 text-neutral-dark font-medium animate-pulse">↓ Faites défiler pour découvrir l'histoire ↓</p>
     </div>
 
@@ -617,21 +608,21 @@
             </div>
             
            <!-- Carte 1 : Introduction - Le Chaos (Hauteur Corrigée) -->
-            <div class="panel absolute h-auto w-[90%] max-w-4xl" style="--index: 0;">
-                <div class="panel-card">
-                    <img src="assets/plan-etape-0.webp" alt="Illustration du brouillard digital" class="panel-image">
-                    <div class="panel-content">
-                        <!-- Ligne ajoutée pour occuper l'espace du badge -->
-                        <div class="panel-step-badge !bg-transparent !shadow-none border-none"></div> 
+<div class="panel absolute h-auto w-[90%] max-w-4xl" style="--index: 0;">
+    <div class="panel-card">
+        <img src="assets/plan-etape-0.webp" alt="Illustration du brouillard digital" class="panel-image">
+        <div class="panel-content">
+            <!-- Ligne ajoutée pour occuper l'espace du badge -->
+            <div class="panel-step-badge !bg-transparent !shadow-none border-none"></div> 
 
-                        <h3 class="panel-title">Le Brouillard Digital</h3>
-                        <p class="panel-text">Vous avez une expertise incroyable, mais le monde digital semble complexe, coûteux et chronophage. Par où commencer ?</p>
+            <h3 class="panel-title">Le Brouillard Digital</h3>
+            <p class="panel-text">Vous avez une expertise incroyable, mais le monde digital semble complexe, coûteux et chronophage. Par où commencer ?</p>
 
-                        <!-- Ligne ajoutée pour occuper l'espace du "Jour X-Y" -->
-                        <p class="panel-days">&nbsp;</p> 
-                    </div>
-                </div>
-            </div>
+            <!-- Ligne ajoutée pour occuper l'espace du "Jour X-Y" -->
+            <p class="panel-days">&nbsp;</p> 
+        </div>
+    </div>
+</div>
 
         </div>
     </div>
