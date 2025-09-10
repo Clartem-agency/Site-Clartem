@@ -1,4 +1,4 @@
-// script.js - VERSION FINALE INTÉGRÉE
+// script.js - VERSION FINALE INTÉGRÉE (Aucune modification nécessaire pour le responsive)
 
 document.addEventListener('DOMContentLoaded', function () {
 
