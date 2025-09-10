@@ -433,3 +433,108 @@ nav.scrolled {
     will-change: transform, opacity;
     transition: opacity 0.3s ease-in-out; /* Pour le fade-in initial */
 }
+
+
+/* ======================================================= */
+/* NOUVEAU : STYLES RESPONSIVES POUR DÉSACTIVER LES ANIMATIONS STICKY SUR MOBILE */
+/* (S'applique aux écrans de moins de 768px de large) */
+/* ======================================================= */
+@media (max-width: 767px) {
+
+    /* --- Section Problème --- */
+    #problem-scroll-container {
+        height: auto !important; /* Annule la hauteur immense */
+    }
+    #problem-sticky-content {
+        position: static !important; /* Annule le sticky */
+        height: auto !important;
+    }
+    .problem-card {
+        opacity: 1 !important; /* Rend les cartes visibles par défaut */
+        transform: none !important; /* Annule la position initiale animée */
+    }
+    #frustration-knot-container {
+        display: none !important; /* Cache l'icône qui n'a plus d'animation */
+    }
+    #problem-cards-grid {
+        margin-top: -10rem; /* Compense la disparition de l'icône */
+    }
+
+    /* --- Section Value Proposition --- */
+    #value-prop-scroll-container {
+        height: auto !important;
+    }
+    #value-prop-sticky-content {
+        position: static !important;
+        height: auto !important;
+    }
+    .value-prop-card {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    /* --- Section Site Clarté --- */
+    #clarity-section-container {
+        height: auto !important;
+    }
+    #clarity-sticky-content {
+        position: static !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+    .clarity-text-reveal,
+    .clarity-list-item,
+    #clarity-right-card {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    /* Rétablit le flux normal pour la grille sur mobile */
+    #clarity-sticky-content .grid {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    /* --- Section Guide --- */
+    #guide-section-container {
+        height: auto !important;
+    }
+    #guide-sticky-content {
+        position: static !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+    .guide-reveal-item {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    /* --- Section Plan (Stacking Cards) --- */
+    .relative.h-\[800vh\] {
+        height: auto !important; /* Annule la hauteur immense du conteneur principal */
+    }
+    .sticky.top-0.flex.h-screen {
+        position: relative !important; /* Annule le sticky et le flexbox centré */
+        height: auto !important;
+        display: block !important; /* Rétablit un affichage normal */
+        padding: 1rem 0;
+    }
+    .panel {
+        position: relative !important; /* Annule la position absolue */
+        opacity: 1 !important;
+        transform: none !important;
+        width: 100% !important; /* Prend toute la largeur disponible */
+        max-width: 100% !important;
+        margin-bottom: 2rem; /* Ajoute de l'espace entre les cartes */
+    }
+    .panel:last-child {
+        margin-bottom: 0;
+    }
+    .panel-card {
+        grid-template-columns: 1fr; /* Force une seule colonne */
+        padding: 1.5rem;
+    }
+    .panel-image {
+        height: 250px; /* Hauteur fixe pour l'image */
+    }
+}
