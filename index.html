@@ -117,8 +117,8 @@
 
 
         
-        
-        <!-- Hero Section (NOUVELLE VERSION PLEINE LARGEUR) -->
+
+<!-- Hero Section (NOUVELLE VERSION PLEINE LARGEUR) -->
 <section
     class="hero-bg min-h-screen flex items-center justify-center text-white relative pt-32 pb-20">
     <!-- Superposition de couleur pour la lisibilité -->
@@ -139,20 +139,16 @@
                     target="_blank" rel="noopener noreferrer" class="btn btn-orange w-full sm:w-auto text-lg">
                     Obtenir mon Site Clarté
                 </a>
-<a href="#plan" class="btn !border-white !text-white hover:!bg-white hover:!text-deep-blue w-full sm:w-auto text-lg">
-    Découvrir le processus
-</a>
-                
+                <a href="#plan" class="btn !border-white !text-white hover:!bg-white hover:!text-deep-blue w-full sm:w-auto text-lg">
+                    Découvrir le processus
+                </a>
             </div>
         </div>
     </div>
 </section>
 
-        
 
         
-
-
 <!-- Problem Section (VERSION MODIFIÉE AVEC IMAGE DE FOND ET CARTES AMÉLIORÉES) -->
 <section id="problem-section" class="relative text-white py-20">
     <!-- NOUVEAU : Superposition sombre pour la lisibilité sur l'image de fond -->
@@ -164,7 +160,6 @@
         <div id="problem-sticky-content" class="h-screen w-full">
             
             <!-- Éléments décoratifs en arrière-plan (halos) -->
-            <!-- MODIFIÉ : z-index augmenté pour être au-dessus de la superposition -->
             <div aria-hidden="true" class="absolute inset-0 z-10 opacity-20">
                 <div class="absolute -top-20 -left-20 w-96 h-96 bg-destructive rounded-full filter blur-3xl"></div>
                 <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-clarity-blue rounded-full filter blur-3xl"></div>
@@ -174,16 +169,14 @@
             <div class="container mx-auto px-6 h-full flex flex-col justify-center">
                 
                 <div class="py-20">
-                    <!-- MODIFIÉ : z-index augmenté pour être au-dessus des halos et de la superposition -->
                     <div class="relative z-20">
-                        <div class="text-center mb-16">
+                        <div class="text-center mb-16" data-sr>
                             <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Votre présence en ligne vous
                                 semble<br><span class="text-clarity-blue"> compliquée, coûteuse et chronophage</span> ?</h2>
                             <p class="text-xl text-white/80 max-w-3xl mx-auto">Vous n'êtes pas seul(e). Je comprends ces
                                 frustrations car je les ai entendues des centaines de fois.</p>
                         </div>
 
-                        <!-- MODIFIÉ : L'icône est positionnée encore plus bas avec top-80 -->
                         <div id="frustration-knot-container" class="absolute inset-x-0 top-80 text-center pointer-events-none">
                             <svg class="inline-block" width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M15.3807 7.31924C16.2505 5.79525 18.1253 5.31839 19.6493 6.18819C21.1733 7.05799 21.6502 8.93282 20.7804 10.4568L12.5695 23.9999L3.21942 10.519C2.34962 9.00696 2.82648 7.12017 4.35047 6.25037C5.87446 5.38057 7.74929 5.85743 8.61909 7.38142L12.0019 13.003L15.3807 7.31924Z" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -193,8 +186,8 @@
                         </div>
 
                         <div id="problem-cards-grid" class="grid md:grid-cols-3 gap-8">
-                            <!-- Carte 1: Problème Externe (MISE À JOUR) -->
-                            <div class="problem-card bg-neutral-dark/50 border border-white/15 rounded-2xl p-8 backdrop-blur-md transition-all duration-300 hover:bg-neutral-dark/60 hover:border-white/25 hover:shadow-2xl hover:-translate-y-2 flex flex-col">
+                            <!-- Carte 1: Problème Externe (MISE À JOUR AVEC data-sr) -->
+                            <div class="problem-card bg-neutral-dark/50 border border-white/15 rounded-2xl p-8 backdrop-blur-md transition-all duration-300 hover:bg-neutral-dark/60 hover:border-white/25 hover:shadow-2xl hover:-translate-y-2 flex flex-col" data-sr>
                                 <div class="flex-shrink-0 mb-6 flex justify-center">
                                     <img src="assets/icones/icon-probleme-externe.png" alt="Icône illustrant la confusion digitale" class="w-40 h-40 rounded-full">
                                 </div>
@@ -203,8 +196,8 @@
                                     <p class="text-white/70">Entre les plateformes, les designs, les fonctionnalités... le choix semble infini et déroutant.</p>
                                 </div>
                             </div>
-                            <!-- Carte 2: Problème Interne (MISE À JOUR) -->
-                            <div class="problem-card bg-neutral-dark/50 border border-white/15 rounded-2xl p-8 backdrop-blur-md transition-all duration-300 hover:bg-neutral-dark/60 hover:border-white/25 hover:shadow-2xl hover:-translate-y-2 flex flex-col">
+                            <!-- Carte 2: Problème Interne (MISE À JOUR AVEC data-sr) -->
+                            <div class="problem-card bg-neutral-dark/50 border border-white/15 rounded-2xl p-8 backdrop-blur-md transition-all duration-300 hover:bg-neutral-dark/60 hover:border-white/25 hover:shadow-2xl hover:-translate-y-2 flex flex-col" data-sr data-sr-delay="100">
                                 <div class="flex-shrink-0 mb-6 flex justify-center">
                                     <img src="assets/icones/icon-probleme-interne.png" alt="Icône illustrant l'anxiété technique" class="w-40 h-40 rounded-full">
                                 </div>
@@ -213,8 +206,8 @@
                                     <p class="text-white/70">La peur de perdre du temps et de l'argent vous paralyse et vous empêche d'avancer.</p>
                                 </div>
                             </div>
-                            <!-- Carte 3: Problème Philosophique (MISE À JOUR) -->
-                            <div class="problem-card bg-neutral-dark/50 border border-white/15 rounded-2xl p-8 backdrop-blur-md transition-all duration-300 hover:bg-neutral-dark/60 hover:border-white/25 hover:shadow-2xl hover:-translate-y-2 flex flex-col">
+                            <!-- Carte 3: Problème Philosophique (MISE À JOUR AVEC data-sr) -->
+                            <div class="problem-card bg-neutral-dark/50 border border-white/15 rounded-2xl p-8 backdrop-blur-md transition-all duration-300 hover:bg-neutral-dark/60 hover:border-white/25 hover:shadow-2xl hover:-translate-y-2 flex flex-col" data-sr data-sr-delay="200">
                                 <div class="flex-shrink-0 mb-6 flex justify-center">
                                     <img src="assets/icones/icon-probleme-philosophique.png" alt="Icône illustrant le besoin de simplicité" class="w-40 h-40 rounded-full">
                                 </div>
@@ -231,6 +224,7 @@
         </div>
     </div>
 </section>
+       
  
         
 

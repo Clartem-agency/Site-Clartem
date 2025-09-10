@@ -130,6 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
 // ==================================================================
 // NOUVEAU : LOGIQUE POUR L'EFFET DE CHUTE "STICKY" (SECTION PROBLÈME)
 // ==================================================================
@@ -143,6 +144,11 @@ if (scrollContainer) {
     const ANIMATION_DURATION = ANIMATION_END_PROGRESS - ANIMATION_START_PROGRESS;
 
     const handleProblemScroll = () => {
+        // AJOUT CLÉ : On empêche l'exécution de toute la fonction sur les écrans plus petits.
+        if (window.innerWidth < 1024) {
+            return; // Ne rien faire sur mobile/tablette
+        }
+
         const rect = scrollContainer.getBoundingClientRect();
         
         if (rect.bottom < 0 || rect.top > window.innerHeight) return;
@@ -169,23 +175,17 @@ if (scrollContainer) {
 
         problemCards.forEach((card, index) => {
             
-            // ======================================================================
-            // MODIFICATION CLÉ : On définit un ordre précis : Milieu -> Gauche -> Droite
-            // ======================================================================
             let animationOrder;
-            // Nous avons maintenant 3 étapes distinctes, donc 3 animationSteps.
             const animationSteps = 3; 
 
-            if (index === 1) {      // Si c'est la carte du milieu (index 1)
-                animationOrder = 0; // Elle est la première à tomber (étape 0)
-            } else if (index === 0) { // Si c'est la carte de gauche (index 0)
-                animationOrder = 1; // Elle est la deuxième à tomber (étape 1)
-            } else {                // Sinon, c'est la carte de droite (index 2)
-                animationOrder = 2; // Elle est la troisième à tomber (étape 2)
+            if (index === 1) {
+                animationOrder = 0;
+            } else if (index === 0) {
+                animationOrder = 1;
+            } else {
+                animationOrder = 2;
             }
-            // ======================================================================
             
-            // Le reste du calcul s'adapte automatiquement à ce nouvel ordre.
             const startProgress = animationOrder / animationSteps;
             const endProgress = (animationOrder + 0.9) / animationSteps; 
             
@@ -203,12 +203,16 @@ if (scrollContainer) {
 
     window.addEventListener('scroll', handleProblemScroll, { passive: true });
     
+    // On s'assure que l'état initial est correct même si l'utilisateur redimensionne sa fenêtre.
+    window.addEventListener('resize', handleProblemScroll, { passive: true });
+
     if (knotContainer) {
         knotContainer.style.opacity = 1; 
     }
     
     handleProblemScroll();
 }
+
 
     
     
