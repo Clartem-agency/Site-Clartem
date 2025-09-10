@@ -176,6 +176,24 @@ nav.scrolled {
 }
 
 
+/* ======================================================= */
+/*       STYLES POUR L'EFFET DE TRANSITION DE L'OVERLAY POUR LA SECTION "SITE CLARTÉ"   */
+/* ======================================================= */
+
+#clarity-overlay {
+    /* Ajout d'une transition douce sur l'opacité et le flou */
+    transition: opacity 0.6s ease-in-out, backdrop-filter 0.6s ease-in-out;
+    will-change: opacity, backdrop-filter;
+}
+
+#clarity-overlay.is-faded {
+    /* État final : la superposition devient transparente et le flou disparaît */
+    opacity: 0;
+    backdrop-filter: blur(0px);
+}
+
+
+
 
 
 /* ======================================================= */
