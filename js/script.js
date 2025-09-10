@@ -136,7 +136,6 @@ document.addEventListener('DOMContentLoaded', function () {
 const scrollContainer = document.getElementById('problem-scroll-container');
 if (scrollContainer) {
     const problemCards = scrollContainer.querySelectorAll('.problem-card');
-    // NOUVEAU : On récupère notre icône
     const knotContainer = document.getElementById('frustration-knot-container'); 
     
     const ANIMATION_START_PROGRESS = 0.20; 
@@ -154,20 +153,14 @@ if (scrollContainer) {
         let totalProgress = scrollAmount / scrollDistance;
         totalProgress = Math.max(0, Math.min(1, totalProgress));
 
-        // NOUVELLE LOGIQUE POUR L'ICÔNE
         if (knotContainer) {
-            // L'animation de l'icône se produit entre 0% et 20% du scroll total
             const knotProgress = Math.min(1, totalProgress / ANIMATION_START_PROGRESS);
-            
-            // On calcule l'opacité, la taille et la rotation
             const opacity = 1 - knotProgress;
-            const scale = 1 - (knotProgress * 0.5); // Rétrécit jusqu'à 50%
-            const rotate = knotProgress * -180; // Tourne de 180 degrés
+            const scale = 1 - (knotProgress * 0.5);
+            const rotate = knotProgress * -180; 
 
-            // On applique les styles
             knotContainer.style.opacity = opacity;
             knotContainer.style.transform = `scale(${scale}) rotate(${rotate}deg)`;
-            // On le rend non-cliquable quand il est invisible
             knotContainer.style.pointerEvents = opacity > 0 ? 'auto' : 'none';
         }
 
@@ -175,17 +168,31 @@ if (scrollContainer) {
         animationProgress = Math.max(0, Math.min(1, animationProgress));
 
         problemCards.forEach((card, index) => {
-            const cardCount = problemCards.length;
             
-            const startProgress = index / cardCount;
-            const endProgress = (index + 0.9) / cardCount;
+            // ===============================================================
+            // MODIFICATION CLÉ : On redéfinit l'ordre de l'animation ici !
+            // ===============================================================
+            let animationOrder;
+            const animationSteps = 2; // Nous avons 2 étapes : 1. la carte du milieu, 2. les cartes des côtés.
+
+            if (index === 1) { // Si c'est la carte du milieu (index 1)
+                animationOrder = 0; // Elle est la première à tomber (étape 0)
+            } else { // Pour les autres cartes (index 0 et 2)
+                animationOrder = 1; // Elles tombent en deuxième, ensemble (étape 1)
+            }
+            // ===============================================================
+            
+            // On calcule le début et la fin de l'animation en fonction du nouvel ordre.
+            const startProgress = animationOrder / animationSteps;
+            // On utilise une valeur un peu plus petite que 1 pour que les cartes des côtés aient le temps de finir leur animation.
+            const endProgress = (animationOrder + 0.9) / animationSteps; 
             
             let cardProgress = (animationProgress - startProgress) / (endProgress - startProgress);
             cardProgress = Math.max(0, Math.min(1, cardProgress));
 
             const initialTranslateY = -window.innerHeight; 
             const translateY = initialTranslateY * (1 - cardProgress);
-            const cardOpacity = cardProgress; // Renommé pour éviter le conflit
+            const cardOpacity = cardProgress;
 
             card.style.opacity = cardOpacity;
             card.style.transform = `translateY(${translateY}px)`;
@@ -194,13 +201,14 @@ if (scrollContainer) {
 
     window.addEventListener('scroll', handleProblemScroll, { passive: true });
     
-    // NOUVEAU : On s'assure que l'icône est visible au chargement
     if (knotContainer) {
         knotContainer.style.opacity = 1; 
     }
     
     handleProblemScroll();
 }
+
+    
     
 
 // ==================================================================
