@@ -375,6 +375,42 @@ if (scrollContainer) {
         window.addEventListener('scroll', handleClarityScroll, { passive: true });
         handleClarityScroll();
     }
+    
+    // --- DÉBUT DU NOUVEAU BLOC AJOUTÉ ---
+    // ==================================================================
+    // LOGIQUE POUR LA TRANSITION DE L'OVERLAY DE LA SECTION CLARTÉ
+    // ==================================================================
+    const clarityOverlay = document.getElementById('clarity-overlay');
+    const clarityTrigger = document.getElementById('clarity-section-container');
+
+    if (clarityOverlay && clarityTrigger) {
+        const observerCallback = (entries) => {
+            entries.forEach(entry => {
+                // Si le conteneur de l'animation entre dans la vue (en respectant la marge),
+                // on estompe l'overlay pour révéler l'image de fond.
+                if (entry.isIntersecting) {
+                    clarityOverlay.classList.add('is-faded');
+                } else {
+                    // Si on remonte et que le conteneur sort de la vue,
+                    // on réaffiche l'overlay pour la lisibilité du titre.
+                    clarityOverlay.classList.remove('is-faded');
+                }
+            });
+        };
+
+        // On configure l'observateur pour qu'il se déclenche lorsque le haut
+        // du conteneur de l'animation atteint 120px du haut de la fenêtre.
+        // Cela correspond au moment où le contenu devient "sticky".
+        const observerOptions = {
+            rootMargin: "-120px 0px 0px 0px",
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        observer.observe(clarityTrigger);
+    }
+    // --- FIN DU NOUVEAU BLOC AJOUTÉ ---
+
 
         // ==================================================================
     // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION "GUIDE" (CORRIGÉE)
