@@ -230,10 +230,14 @@
 
         
         
-      <!-- Value Proposition Section (VERSION FINALE AVEC EFFET STICKY) -->
-<section id="value-proposition-section" class="relative bg-soft-blue py-20">
+    <!-- Value Proposition Section (VERSION MODIFIÉE AVEC IMAGE DE FOND) -->
+<section id="value-proposition-section" class="relative py-20">
+    <!-- NOUVEAU : Superposition de couleur pour la lisibilité -->
+    <div class="absolute inset-0 bg-deep-blue/70 z-0"></div>
+
     <!-- Le conteneur qui aura une grande hauteur pour permettre le scroll de l'animation -->
-    <div id="value-prop-scroll-container">
+    <!-- MODIFIÉ : Ajout de z-10 pour que le contenu soit au-dessus de la superposition -->
+    <div id="value-prop-scroll-container" class="relative z-10">
         <!-- Le contenu qui deviendra "sticky" (collant) en haut de l'écran -->
         <div id="value-prop-sticky-content" class="h-screen w-full">
             <!-- Conteneur pour centrer le contenu verticalement et horizontalement -->
@@ -241,9 +245,10 @@
 
                 <div>
                     <div class="text-center max-w-4xl mx-auto mb-16" data-sr>
-                        <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">La Clarté au Service de Votre
+                        <!-- MODIFIÉ : Couleurs de texte changées pour du blanc pour un meilleur contraste -->
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">La Clarté au Service de Votre
                             Croissance</h2>
-                        <p class="text-xl leading-relaxed text-neutral-light">
+                        <p class="text-xl leading-relaxed text-white/80">
                             Chez clartem.com, j'ai un seul objectif : vous fournir un site web professionnel et efficace
                             grâce à un processus simple, rapide et transparent.
                             <span class="font-semibold text-warm-orange">Fini la confusion, place à la clarté.</span>
@@ -251,7 +256,7 @@
                     </div>
 
                     <div class="grid lg:grid-cols-3 gap-8">
-                        <!-- Carte 1: Rapidité (NOUVELLE CLASSE "value-prop-card" et data-sr retiré) -->
+                        <!-- Carte 1: Rapidité -->
                         <div class="value-prop-card bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col items-center text-center">
                             <img src="assets/icones/icon-rapide.png" alt="Icône de rapidité" class="w-20 h-20 mb-6">
                             <h3 class="text-2xl font-bold text-neutral-dark mb-4">Livraison en 7 Jours</h3>
@@ -261,7 +266,7 @@
                             </p>
                         </div>
 
-                        <!-- Carte 2: Personnalisation (NOUVELLE CLASSE "value-prop-card" et data-sr retiré) -->
+                        <!-- Carte 2: Personnalisation -->
                         <div class="value-prop-card bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col items-center text-center">
                             <img src="assets/icones/icon-sur-mesure.png" alt="Icône de conception sur-mesure" class="w-20 h-20 mb-6">
                             <h3 class="text-2xl font-bold text-neutral-dark mb-4">Conception 100% Sur-Mesure</h3>
@@ -271,7 +276,7 @@
                             </p>
                         </div>
 
-                        <!-- Carte 3: Transparence (NOUVELLE CLASSE "value-prop-card" et data-sr retiré) -->
+                        <!-- Carte 3: Transparence -->
                         <div class="value-prop-card bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col items-center text-center">
                             <img src="assets/icones/icon-transparence.png" alt="Icône de transparence" class="w-20 h-20 mb-6">
                             <h3 class="text-2xl font-bold text-neutral-dark mb-4">Transparence Totale</h3>
