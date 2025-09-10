@@ -169,22 +169,24 @@ if (scrollContainer) {
 
         problemCards.forEach((card, index) => {
             
-            // ===============================================================
-            // MODIFICATION CLÉ : On redéfinit l'ordre de l'animation ici !
-            // ===============================================================
+            // ======================================================================
+            // MODIFICATION CLÉ : On définit un ordre précis : Milieu -> Gauche -> Droite
+            // ======================================================================
             let animationOrder;
-            const animationSteps = 2; // Nous avons 2 étapes : 1. la carte du milieu, 2. les cartes des côtés.
+            // Nous avons maintenant 3 étapes distinctes, donc 3 animationSteps.
+            const animationSteps = 3; 
 
-            if (index === 1) { // Si c'est la carte du milieu (index 1)
+            if (index === 1) {      // Si c'est la carte du milieu (index 1)
                 animationOrder = 0; // Elle est la première à tomber (étape 0)
-            } else { // Pour les autres cartes (index 0 et 2)
-                animationOrder = 1; // Elles tombent en deuxième, ensemble (étape 1)
+            } else if (index === 0) { // Si c'est la carte de gauche (index 0)
+                animationOrder = 1; // Elle est la deuxième à tomber (étape 1)
+            } else {                // Sinon, c'est la carte de droite (index 2)
+                animationOrder = 2; // Elle est la troisième à tomber (étape 2)
             }
-            // ===============================================================
+            // ======================================================================
             
-            // On calcule le début et la fin de l'animation en fonction du nouvel ordre.
+            // Le reste du calcul s'adapte automatiquement à ce nouvel ordre.
             const startProgress = animationOrder / animationSteps;
-            // On utilise une valeur un peu plus petite que 1 pour que les cartes des côtés aient le temps de finir leur animation.
             const endProgress = (animationOrder + 0.9) / animationSteps; 
             
             let cardProgress = (animationProgress - startProgress) / (endProgress - startProgress);
