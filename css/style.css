@@ -433,3 +433,61 @@ nav.scrolled {
     will-change: transform, opacity;
     transition: opacity 0.3s ease-in-out; /* Pour le fade-in initial */
 }
+
+
+
+/* ======================================================= */
+/*             STYLES RESPONSIVES (TABLETTE & MOBILE)      */
+/* ======================================================= */
+
+/* On utilise 1023px (breakpoint 'lg' de Tailwind) pour cibler tablettes et mobiles */
+@media (max-width: 1023px) {
+
+    /* --- Section Hero --- */
+    /* Désactivation de l'effet parallaxe sur mobile pour des raisons de performance et de compatibilité.
+       L'image de fond défilera maintenant normalement avec la page. */
+    .hero-bg {
+        background-attachment: scroll;
+    }
+
+
+    /* --- Section Problème --- */
+    /* On désactive l'animation "sticky" complexe sur mobile pour une expérience plus fluide. */
+
+    /* 1. On annule la hauteur du conteneur de défilement. */
+    #problem-scroll-container {
+        height: auto; 
+    }
+
+    /* 2. On remet le contenu en flux normal (non-sticky). */
+    #problem-sticky-content {
+        position: static;
+        height: auto;
+    }
+
+    /* 3. On s'assure que les cartes sont visibles par défaut et empilées verticalement. */
+    .problem-card {
+        opacity: 1;
+        transform: none; 
+    }
+    #problem-cards-grid {
+        grid-template-columns: 1fr; /* Les cartes s'empilent sur une seule colonne */
+    }
+
+    /* 4. On cache l'icône animée qui n'a plus de sens sans l'animation. */
+    #frustration-knot-container {
+        display: none;
+    }
+
+    /* 5. On ajuste le conteneur principal pour qu'il n'y ait pas d'espaces vides étranges. */
+    #problem-sticky-content .container {
+        justify-content: flex-start;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    #problem-sticky-content > .container > div {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
