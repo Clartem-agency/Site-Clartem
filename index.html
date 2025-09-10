@@ -55,6 +55,8 @@
 
 <body class="bg-white">
 
+
+    
     <div class="min-h-screen">
         <!-- Navigation -->
         <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
@@ -112,6 +114,10 @@
             </div>
         </nav>
 
+
+
+        
+        
         <!-- Hero Section (NOUVELLE VERSION PLEINE LARGEUR) -->
 <section
     class="hero-bg min-h-screen flex items-center justify-center text-white relative pt-32 pb-20">
@@ -144,6 +150,7 @@
 
         
 
+        
 
 
 <!-- Problem Section (VERSION MODIFIÉE AVEC IMAGE DE FOND) -->
@@ -295,15 +302,19 @@
      
 
         
-
-    <!-- Section: Qu'est-ce qu'un Site Clarté ? (VERSION ANIMÉE) -->
-<section class="py-20 bg-white">
-    <div class="container mx-auto px-6">
+        <!-- Section: Qu'est-ce qu'un Site Clarté ? (VERSION AVEC FOND D'ÉCRAN) -->
+<section id="clarity-background-section" class="py-20 relative text-white">
+    <!-- Superposition pour le contraste -->
+    <div class="absolute inset-0 bg-deep-blue/80 z-0"></div>
+    
+    <!-- Contenu original, maintenant avec un z-index -->
+    <div class="container mx-auto px-6 relative z-10">
         <!-- Le titre reste en dehors de l'animation pour être toujours visible -->
         <div class="text-center mb-16" data-sr>
-            <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">Le Site Clarté : Plus qu'une
+            <!-- MODIFIÉ : Le texte du titre est maintenant blanc -->
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Le Site Clarté : Plus qu'une
                 Page,<br><span class="text-clarity-blue"> un Outil de Conversion Stratégique</span></h2>
-            <p class="text-xl text-neutral-light max-w-3xl mx-auto">J'ai conçu le Site Clarté pour être la
+            <p class="text-xl text-white/80 max-w-3xl mx-auto">J'ai conçu le Site Clarté pour être la
                 solution parfaite pour les indépendants et PME. Il concentre toute votre valeur sur une seule
                 page, guidant vos visiteurs vers une action unique : vous contacter.</p>
         </div>
@@ -315,70 +326,48 @@
                 <div class="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto h-full">
                     
                     <!-- COLONNE GAUCHE (ANIMÉE) -->
+                    <!-- MODIFIÉ : Le texte est maintenant blanc pour la lisibilité -->
                     <div class="space-y-8">
-                        <!-- Chaque élément à animer a la classe "clarity-text-reveal" et un data-step -->
                         <div class="clarity-text-reveal" data-step="0">
-                            <h3 class="text-2xl font-bold text-neutral-dark mb-4">Pourquoi un Site Clarté est si
+                            <h3 class="text-2xl font-bold text-white mb-4">Pourquoi un Site Clarté est si
                                 efficace ?</h3>
                         </div>
                         <div class="clarity-text-reveal" data-step="1">
-                            <p class="text-lg text-neutral-light leading-relaxed">Dans un monde où l'attention est
+                            <p class="text-lg text-white/80 leading-relaxed">Dans un monde où l'attention est
                                 limitée, la simplicité gagne. Le Site Clarté élimine le superflu pour aller droit au
                                 but.</p>
                         </div>
                         <div class="space-y-4">
                             <div class="clarity-text-reveal flex items-start gap-4 p-4 rounded-lg" data-step="2">
-                                <div
-                                    class="flex-shrink-0 w-8 h-8 bg-clarity-blue text-white rounded-full flex items-center justify-center mt-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-5 h-5">
-                                        <path
-                                            d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z">
-                                        </path>
-                                        <path d="m9 12 2 2 4-4"></path>
-                                    </svg>
+                                <div class="flex-shrink-0 w-8 h-8 bg-clarity-blue text-white rounded-full flex items-center justify-center mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-neutral-dark">Impact Immédiat</h4>
-                                    <p class="text-neutral-light">Votre message est clair et direct. Le visiteur
+                                    <h4 class="font-semibold text-white">Impact Immédiat</h4>
+                                    <p class="text-white/80">Votre message est clair et direct. Le visiteur
                                         comprend immédiatement ce que vous faites et pourquoi il devrait vous choisir.
                                     </p>
                                 </div>
                             </div>
+                            <!-- ... Répétez le changement de couleur pour les autres points ... -->
+                            <!-- Exemple pour le point suivant -->
                             <div class="clarity-text-reveal flex items-start gap-4 p-4 rounded-lg" data-step="3">
-                                <div
-                                    class="flex-shrink-0 w-8 h-8 bg-warm-orange text-white rounded-full flex items-center justify-center mt-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-5 h-5">
-                                        <path
-                                            d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z">
-                                        </path>
-                                        <path d="M16.24 7.76A6 6 0 0 0 7.76 16.24"></path>
-                                        <path d="M14.12 14.12 7.76 7.76"></path>
-                                    </svg>
+                                <div class="flex-shrink-0 w-8 h-8 bg-warm-orange text-white rounded-full flex items-center justify-center mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M16.24 7.76A6 6 0 0 0 7.76 16.24"></path><path d="M14.12 14.12 7.76 7.76"></path></svg>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-neutral-dark">Optimisé pour la Conversion</h4>
-                                    <p class="text-neutral-light">Chaque section est conçue pour amener le visiteur vers
+                                    <h4 class="font-semibold text-white">Optimisé pour la Conversion</h4>
+                                    <p class="text-white/80">Chaque section est conçue pour amener le visiteur vers
                                         l'action, sans le perdre dans des pages inutiles.</p>
                                 </div>
                             </div>
                             <div class="clarity-text-reveal flex items-start gap-4 p-4 rounded-lg" data-step="4">
-                                <div
-                                    class="flex-shrink-0 w-8 h-8 bg-success-green text-white rounded-full flex items-center justify-center mt-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="w-5 h-5">
-                                        <path
-                                            d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z">
-                                        </path>
-                                    </svg>
+                               <div class="flex-shrink-0 w-8 h-8 bg-success-green text-white rounded-full flex items-center justify-center mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-neutral-dark">Rapidité et Performance</h4>
-                                    <p class="text-neutral-light">Moins de pages à charger signifie un site plus rapide,
+                                    <h4 class="font-semibold text-white">Rapidité et Performance</h4>
+                                    <p class="text-white/80">Moins de pages à charger signifie un site plus rapide,
                                         ce qui est crucial pour l'expérience utilisateur et le SEO.</p>
                                 </div>
                             </div>
@@ -386,68 +375,30 @@
                     </div>
 
                     <!-- COLONNE DROITE (ANIMÉE ÉLÉMENT PAR ÉLÉMENT) -->
-                    <!-- NOUVEAU : Ajout de l'id "clarity-right-card" -->
+                    <!-- La carte de droite reste blanche, donc pas de changement de couleur de texte ici -->
                     <div id="clarity-right-card" class="p-8 bg-gradient-to-br from-soft-blue to-white rounded-2xl shadow-lg border border-gray-200">
-                        <h3 class="clarity-list-item text-2xl font-bold text-neutral-dark mb-6" data-step="5">Ce que votre Site Clarté inclut :</h3>
+                       <!-- ... Contenu de la carte droite sans changement ... -->
+                       <h3 class="clarity-list-item text-2xl font-bold text-neutral-dark mb-6" data-step="5">Ce que votre Site Clarté inclut :</h3>
                         <ul class="space-y-4">
-                            <li class="clarity-list-item flex items-center gap-3 text-lg" data-step="6"><svg xmlns="http://www.w3.org/2000/svg"
-                                    width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                    class="w-6 h-6 text-success-green flex-shrink-0">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                                </svg>Une accroche percutante qui capte l'attention.</li>
-                            <li class="clarity-list-item flex items-center gap-3 text-lg" data-step="7"><svg xmlns="http://www.w3.org/2000/svg"
-                                    width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                    class="w-6 h-6 text-success-green flex-shrink-0">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                                </svg>Présentation claire de vos services ou produits.</li>
-                            <li class="clarity-list-item flex items-center gap-3 text-lg" data-step="8"><svg xmlns="http://www.w3.org/2000/svg"
-                                    width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                    class="w-6 h-6 text-success-green flex-shrink-0">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                                </svg>Une section "À Propos" pour créer du lien.</li>
-                            <li class="clarity-list-item flex items-center gap-3 text-lg" data-step="9"><svg xmlns="http://www.w3.org/2000/svg"
-                                    width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                    class="w-6 h-6 text-success-green flex-shrink-0">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                                </svg>Des témoignages clients pour la preuve sociale.</li>
-                            <li class="clarity-list-item flex items-center gap-3 text-lg" data-step="10"><svg xmlns="http://www.w3.org/2000/svg"
-                                    width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                    class="w-6 h-6 text-success-green flex-shrink-0">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                                </svg>Un formulaire de contact simple et efficace.</li>
-                            <li class="clarity-list-item flex items-center gap-3 text-lg" data-step="11"><svg xmlns="http://www.w3.org/2000/svg"
-                                    width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                    class="w-6 h-6 text-success-green flex-shrink-0">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                                </svg>Un design 100% personnalisé et responsive.</li>
-                            <li class="clarity-list-item flex items-center gap-3 text-lg" data-step="12"><svg xmlns="http://www.w3.org/2000/svg"
-                                    width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                    class="w-6 h-6 text-success-green flex-shrink-0">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                                </svg>Optimisation technique de base pour Google.</li>
+                            <li class="clarity-list-item flex items-center gap-3 text-lg" data-step="6"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-success-green flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Une accroche percutante qui capte l'attention.</li>
+                            <li class="clarity-list-item flex items-center gap-3 text-lg" data-step="7"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-success-green flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Présentation claire de vos services ou produits.</li>
+                            <li class="clarity-list-item flex items-center gap-3 text-lg" data-step="8"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-success-green flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Une section "À Propos" pour créer du lien.</li>
+                            <li class="clarity-list-item flex items-center gap-3 text-lg" data-step="9"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-success-green flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Des témoignages clients pour la preuve sociale.</li>
+                            <li class="clarity-list-item flex items-center gap-3 text-lg" data-step="10"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-success-green flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Un formulaire de contact simple et efficace.</li>
+                            <li class="clarity-list-item flex items-center gap-3 text-lg" data-step="11"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-success-green flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Un design 100% personnalisé et responsive.</li>
+                            <li class="clarity-list-item flex items-center gap-3 text-lg" data-step="12"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-success-green flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>Optimisation technique de base pour Google.</li>
                         </ul>
-                        <a href="#offres" class="clarity-list-item mt-8 inline-block w-full text-center btn btn-orange" data-step="13">Voir
-                            les formules</a>
+                        <a href="#offres" class="clarity-list-item mt-8 inline-block w-full text-center btn btn-orange" data-step="13">Voir les formules</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+   
+
+
 
 
         
@@ -557,6 +508,11 @@
     </div>
 </section>
 
+
+
+
+
+        
        
         <!-- Plan Section (VERSION FINALE AVEC STORYTELLING VISUEL ET CTA DÉDIÉ) -->
 <section id="plan" class="bg-soft-blue py-20">
@@ -658,6 +614,11 @@
         </div>
     </div>
 </section>
+
+
+
+
+
         
 
         <!-- Section "Quel est votre objectif N°1 ?" -->
@@ -1038,6 +999,11 @@
             </div>
         </section>
 
+
+
+
+
+        
        <!-- CTA Section (NOUVELLE VERSION PROFESSIONNELLE) -->
 <section id="cta" class="py-20 sm:py-24 bg-neutral-dark text-white relative overflow-hidden">
     <!-- Éléments décoratifs en arrière-plan -->
@@ -1103,6 +1069,10 @@
                 </div>
             </div>
 
+
+
+
+            
             <!-- Bouton d'action final et réassurance -->
             <div class="flex flex-col items-center gap-4">
                 <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
@@ -1123,6 +1093,9 @@
     </div>
 </section>
 
+
+
+        
         <!-- Section Portfolio -->
         <section id="portfolio" class="py-20 bg-white">
             <div class="container mx-auto px-6">
@@ -1323,6 +1296,9 @@
         </section>
         
 
+
+
+        
        <!-- Lead Magnet Section (Badge repositionné) -->
 <section class="py-20 bg-soft-blue relative overflow-hidden">
     <div class="container mx-auto px-6 relative z-10">
@@ -1402,7 +1378,9 @@
         </div>
     </div>
 </section>
-       
+
+
+        
 
         <!-- Footer -->
         <footer class="bg-neutral-dark text-white py-16">
