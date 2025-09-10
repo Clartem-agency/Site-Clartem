@@ -175,6 +175,20 @@ nav.scrolled {
     background-attachment: fixed;
 }
 
+/* ======================================================= */
+/*   MODIFICATION RESPONSIVE : OPTIMISATION POUR MOBILE    */
+/* ======================================================= */
+@media (max-width: 1024px) {
+  /* L'effet background-attachment: fixed peut causer des saccades et des bugs de rendu sur mobile.
+     On le désactive sur les tablettes et mobiles pour une expérience plus fluide. */
+  .hero-bg,
+  #problem-section,
+  #value-proposition-section,
+  #clarity-background-section {
+    background-attachment: scroll;
+  }
+}
+
 
 /* ======================================================= */
 /*       STYLES POUR L'EFFET DE TRANSITION DE L'OVERLAY POUR LA SECTION "SITE CLARTÉ"   */
