@@ -146,16 +146,19 @@
 
 
 
+<!-- Problem Section (VERSION MODIFIÉE AVEC IMAGE DE FOND) -->
+<section id="problem-section" class="relative text-white py-20">
+    <!-- NOUVEAU : Superposition sombre pour la lisibilité sur l'image de fond -->
+    <div class="absolute inset-0 bg-neutral-dark/80 z-0"></div>
 
-  <!-- Problem Section (VERSION FINALE AVEC EFFET STICKY ET POSITIONNEMENT CORRIGÉ) -->
-<section id="problem-section" class="relative bg-neutral-dark text-white py-20">
     <!-- Le conteneur qui aura une grande hauteur pour permettre le scroll de l'animation -->
     <div id="problem-scroll-container">
         <!-- Le contenu qui deviendra "sticky" (collant) en haut de l'écran -->
         <div id="problem-sticky-content" class="h-screen w-full">
             
-            <!-- Éléments décoratifs en arrière-plan -->
-            <div aria-hidden="true" class="absolute inset-0 z-0 opacity-20">
+            <!-- Éléments décoratifs en arrière-plan (halos) -->
+            <!-- MODIFIÉ : z-index augmenté pour être au-dessus de la superposition -->
+            <div aria-hidden="true" class="absolute inset-0 z-10 opacity-20">
                 <div class="absolute -top-20 -left-20 w-96 h-96 bg-destructive rounded-full filter blur-3xl"></div>
                 <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-clarity-blue rounded-full filter blur-3xl"></div>
             </div>
@@ -164,7 +167,8 @@
             <div class="container mx-auto px-6 h-full flex flex-col justify-center">
                 
                 <div class="py-20">
-                    <div class="relative z-10">
+                    <!-- MODIFIÉ : z-index augmenté pour être au-dessus des halos et de la superposition -->
+                    <div class="relative z-20">
                         <div class="text-center mb-16">
                             <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Votre présence en ligne vous
                                 semble<br><span class="text-clarity-blue"> compliquée, coûteuse et chronophage</span> ?</h2>
@@ -220,6 +224,7 @@
         </div>
     </div>
 </section>
+ 
         
 
 
