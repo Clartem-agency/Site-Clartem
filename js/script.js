@@ -376,43 +376,45 @@ if (scrollContainer) {
         handleClarityScroll();
     }
     
-    // --- DÉBUT DU NOUVEAU BLOC AJOUTÉ ---
+    // --- DÉBUT DU BLOC MODIFIÉ ---
     // ==================================================================
-    // LOGIQUE POUR LA TRANSITION DE L'OVERLAY DE LA SECTION CLARTÉ
+    // LOGIQUE POUR LA TRANSITION DE L'OVERLAY DE LA SECTION CLARTÉ (VERSION AMÉLIORÉE)
     // ==================================================================
     const clarityOverlay = document.getElementById('clarity-overlay');
-    const clarityTrigger = document.getElementById('clarity-section-container');
+    // On cible maintenant le bloc de titre, pas le conteneur de l'animation
+    const clarityTitleBlock = document.getElementById('clarity-title-block'); 
 
-    if (clarityOverlay && clarityTrigger) {
+    if (clarityOverlay && clarityTitleBlock) {
         const observerCallback = (entries) => {
             entries.forEach(entry => {
-                // Si le conteneur de l'animation entre dans la vue (en respectant la marge),
-                // on estompe l'overlay pour révéler l'image de fond.
-                if (entry.isIntersecting) {
+                // On vérifie si l'élément n'est PLUS visible DANS la zone d'observation
+                // ET si sa position est AU-DESSUS de cette zone (c'est-à-dire < 120px du haut).
+                // Cela signifie qu'on a bien scrollé vers le bas, au-delà du titre.
+                if (!entry.isIntersecting && entry.boundingClientRect.bottom < 120) {
+                    // On estompe l'overlay pour révéler l'image de fond.
                     clarityOverlay.classList.add('is-faded');
                 } else {
-                    // Si on remonte et que le conteneur sort de la vue,
-                    // on réaffiche l'overlay pour la lisibilité du titre.
+                    // Sinon (au chargement, ou en remontant), on s'assure que l'overlay est visible.
                     clarityOverlay.classList.remove('is-faded');
                 }
             });
         };
 
-        // On configure l'observateur pour qu'il se déclenche lorsque le haut
-        // du conteneur de l'animation atteint 120px du haut de la fenêtre.
-        // Cela correspond au moment où le contenu devient "sticky".
+        // On configure l'observateur pour qu'il surveille une zone qui commence
+        // à 120px du haut de l'écran. C'est juste avant que le titre ne disparaisse sous la nav.
         const observerOptions = {
             rootMargin: "-120px 0px 0px 0px",
             threshold: 0
         };
 
         const observer = new IntersectionObserver(observerCallback, observerOptions);
-        observer.observe(clarityTrigger);
+        // On observe le bloc de titre.
+        observer.observe(clarityTitleBlock);
     }
-    // --- FIN DU NOUVEAU BLOC AJOUTÉ ---
+    // --- FIN DU BLOC MODIFIÉ ---
 
 
-        // ==================================================================
+    // ==================================================================
     // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION "GUIDE" (CORRIGÉE)
     // ==================================================================
     const guideContainer = document.getElementById('guide-section-container');
