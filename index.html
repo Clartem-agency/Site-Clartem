@@ -53,14 +53,35 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
+
+<!-- ======================================================= -->
+<!--    CORPS PRINCIPAL DU DOCUMENT (BODY)                   -->
+<!-- C'est ici que commence tout le contenu VISIBLE de la page. -->
+<!-- La classe "bg-white" définit le fond blanc par défaut.   -->
+<!-- ======================================================= -->
 <body class="bg-white">
 
 
-    
+    <!-- ======================================================= -->
+    <!--    CONTENEUR PRINCIPAL DE LA PAGE (WRAPPER)             -->
+    <!-- Rôle : Assure que la page remplit au moins tout l'écran -->
+    <!-- pour éviter que le footer ne "flotte" au milieu.       -->
+    <!-- Sa balise fermante </div> est tout à la fin du contenu. -->
+    <!-- ======================================================= -->
     <div class="min-h-screen">
-        <!-- Navigation -->
-        <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
-            <div class="container mx-auto px-6 py-4">
+
+
+        
+
+
+<!-- ======================================================= -->
+<!--                Section Navigation                       -->
+<!-- ID "main-nav" ajouté pour un ciblage JS plus robuste    -->
+<!-- et pour les bonnes pratiques d'accessibilité.           -->
+<!-- ======================================================= -->
+        
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+        <div class="container mx-auto px-6 py-4">
                 <div class="flex items-center justify-between">
                     <a href="#">
                         <img class="h-14 w-auto" src="assets/logo-clartem.svg" alt="Logo clartem.com">
@@ -92,7 +113,13 @@
                         </svg>
                     </button>
                 </div>
-                <!-- Mobile Menu -->
+
+
+
+                
+         <!-- ======================================================= -->
+         <!--                        Mobile Menu                      -->
+         <!-- ======================================================= -->
                 <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
                     <a href="a-propos.html"
                         class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
@@ -119,7 +146,7 @@
         
         
         <!-- ======================================================= -->
-        <!--                Section Hero                           -->
+        <!--                Section Hero                             -->
         <!-- ======================================================= -->
         <section id="hero"
             class="hero-bg min-h-screen flex items-center justify-center text-white relative pt-28 pb-16 md:pt-32 md:pb-20">
@@ -154,9 +181,10 @@
         
 
         
+        <!-- ======================================================= -->
+        <!--                Section : Probleme                       -->
+        <!-- ======================================================= -->
 
-
-<!-- Problem Section (VERSION MODIFIÉE AVEC IMAGE DE FOND ET CARTES AMÉLIORÉES) -->
 <section id="problem-section" class="relative text-white py-20">
     <!-- NOUVEAU : Superposition sombre pour la lisibilité sur l'image de fond -->
     <div class="absolute inset-0 bg-neutral-dark/80 z-0"></div>
@@ -238,9 +266,10 @@
         
 
 
+         <!-- ======================================================= -->
+        <!--                Section : Value Proposition               -->
+        <!-- ======================================================= -->
         
-        
-   <!-- Value Proposition Section (VERSION MODIFIÉE AVEC IMAGE DE FOND) -->
 <section id="value-proposition-section" class="relative py-20">
     <!-- Le conteneur qui aura une grande hauteur pour permettre le scroll de l'animation -->
     <!-- MODIFIÉ : Ajout de z-10 pour que le contenu soit au-dessus de la superposition -->
@@ -304,7 +333,7 @@
         
      
         <!-- ======================================================= -->
-        <!--                Section "Qu'est-ce qu'un Site Clarté ?"    -->
+        <!--                Section : Site Clarté                    -->
         <!-- ======================================================= -->
         <section id="site-clarte" class="py-20 relative">
             <div id="clarity-overlay" class="absolute inset-0 bg-soft-blue/80 backdrop-blur-sm z-0"></div>
@@ -422,8 +451,9 @@
         
 
         <!-- ======================================================= -->
-        <!--                Section Guide (Empathie & Autorité)      -->
+        <!--            Section : Guide (Empathie & Autorité)        -->
         <!-- ======================================================= -->
+        
         <section id="guide" class="py-20 bg-soft-blue">
             <!-- Conteneur principal qui définit la hauteur de la zone de défilement pour l'animation -->
             <div id="guide-section-container" class="relative">
@@ -532,10 +562,11 @@
 
 
 
-        
+         <!-- ======================================================= -->
+        <!--                Section : Plan                            -->
+        <!-- ======================================================= -->
        
-        <!-- Plan Section (VERSION FINALE AVEC STORYTELLING VISUEL ET CTA DÉDIÉ) -->
-<section id="plan" class="bg-soft-blue py-20">
+    <section id="plan" class="bg-soft-blue py-20">
     <!-- Titre de la section, placé à l'extérieur de l'animation -->
     <div class="container mx-auto px-6 text-center mb-16">
         <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">Votre Site Clarté en 7 Jours :<br><span class="text-clarity-blue"> Un Plan Simple en 4 Étapes</span></h2>
@@ -638,8 +669,9 @@
 
 
         <!-- ======================================================= -->
-        <!--                Section "Quel est votre objectif N°1 ?"    -->
+        <!--                Section Objectifs                        -->
         <!-- ======================================================= -->
+        
         <section id="objectifs" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16" data-sr>
@@ -740,7 +772,7 @@
 
         
         <!-- ======================================================= -->
-        <!--                Section Portfolio            
+        <!--                Section Portfolio                        -->
         <!-- ======================================================= -->
 
         <section id="portfolio" class="py-20 bg-soft-blue">
@@ -943,9 +975,12 @@
         
         
 
+
+        
         <!-- ======================================================= -->
         <!--                Section Lead Magnet (Guide Gratuit)      -->
         <!-- ======================================================= -->
+        
         <section id="lead-magnet" class="py-20 bg-white relative overflow-hidden">
             <div class="container mx-auto px-6 relative z-10">
                 <div class="max-w-6xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl overflow-hidden" data-sr>
@@ -1402,7 +1437,12 @@
             </div>
         </section>
 
-        <!-- Footer -->
+
+        
+        <!-- ======================================================= -->
+        <!--                        Footer                           -->
+        <!-- ======================================================= -->
+
         <footer class="bg-neutral-dark text-white py-16">
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-3 gap-12">
@@ -1466,10 +1506,12 @@
                 </div>
             </div>
         </footer>
-    </div>
+        
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
 
     <!-- Custom JS -->
     <script src="js/script.js"></script>
-</body>
+    
+</body> <!-- Fin du corps principal </body> -->
 
 </html>
