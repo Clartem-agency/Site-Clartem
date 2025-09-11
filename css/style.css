@@ -1,6 +1,13 @@
 /* style.css */
 
 /* ======================================================= */
+/*    CORRECTIF : Empêche le débordement horizontal        */
+/* ======================================================= */
+body {
+    overflow-x: hidden;
+}
+
+/* ======================================================= */
 /*          NOUVEAUX STYLES DE BOUTONS INTERACTIFS         */
 /* ======================================================= */
 .btn {
@@ -301,7 +308,7 @@ nav.scrolled {
 #problem-sticky-content {
     position: sticky;
     top: 0;
-    /* La ligne overflow: hidden; a été retirée */
+    overflow: hidden;
 }
 
 .problem-card {
@@ -322,6 +329,7 @@ nav.scrolled {
 #value-prop-sticky-content {
     position: sticky;
     top: 0;
+    overflow: hidden;
 }
 
 .value-prop-card {
