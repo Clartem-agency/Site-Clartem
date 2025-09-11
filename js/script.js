@@ -1,3 +1,4 @@
+
 // script.js - VERSION FINALE INTÉGRÉE
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -32,8 +33,9 @@ const nav = document.getElementById('main-nav');
 
     // ==================================================================
     // ANIMATIONS AVEC SCROLLREVEAL
+    // MODIFIÉ : N'active ScrollReveal que sur les écrans > 768px
     // ==================================================================
-    if (typeof ScrollReveal !== 'undefined') {
+    if (typeof ScrollReveal !== 'undefined' && window.innerWidth >= 768) {
         const srConfig = {
             origin: 'bottom',
             distance: '20px',
