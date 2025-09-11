@@ -134,7 +134,8 @@ document.addEventListener('DOMContentLoaded', function () {
 // NOUVEAU : LOGIQUE POUR L'EFFET DE CHUTE "STICKY" (SECTION PROBLÈME)
 // ==================================================================
 const scrollContainer = document.getElementById('problem-scroll-container');
-if (scrollContainer) {
+// MODIFIÉ : Ajout de la condition de largeur d'écran
+if (scrollContainer && window.innerWidth >= 768) {
     const problemCards = scrollContainer.querySelectorAll('.problem-card');
     const knotContainer = document.getElementById('frustration-knot-container'); 
     
@@ -217,7 +218,8 @@ if (scrollContainer) {
     // NOUVEAU : LOGIQUE POUR L'EFFET STICKY (SECTION VALUE PROPOSITION) - VERSION MODIFIÉE
     // ==================================================================
     const valuePropScrollContainer = document.getElementById('value-prop-scroll-container');
-    if (valuePropScrollContainer) {
+    // MODIFIÉ : Ajout de la condition de largeur d'écran
+    if (valuePropScrollContainer && window.innerWidth >= 768) {
         const valuePropCards = valuePropScrollContainer.querySelectorAll('.value-prop-card');
         
         const ANIMATION_START_PROGRESS = 0.20; 
@@ -266,7 +268,8 @@ if (scrollContainer) {
     // LOGIQUE POUR L'EFFET STACKING CARDS (SECTION PLAN)
     // ==================================================================
     const planSection = document.getElementById('plan');
-    if (planSection) {
+    // MODIFIÉ : Ajout de la condition de largeur d'écran
+    if (planSection && window.innerWidth >= 768) {
         const panels = Array.from(planSection.querySelectorAll('.panel'));
         const numPanels = panels.length;
 
@@ -318,7 +321,8 @@ if (scrollContainer) {
     // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION "SITE CLARTÉ" (VERSION 3)
     // ==================================================================
     const clarityContainer = document.getElementById('clarity-section-container');
-    if (clarityContainer) {
+    // MODIFIÉ : Ajout de la condition de largeur d'écran
+    if (clarityContainer && window.innerWidth >= 768) {
         const animatedElements = clarityContainer.querySelectorAll('.clarity-text-reveal, .clarity-list-item');
         // NOUVEAU : On récupère le conteneur de droite
         const rightCard = document.getElementById('clarity-right-card');
@@ -418,7 +422,8 @@ if (scrollContainer) {
     // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION "GUIDE" (CORRIGÉE)
     // ==================================================================
     const guideContainer = document.getElementById('guide-section-container');
-    if (guideContainer) {
+    // MODIFIÉ : Ajout de la condition de largeur d'écran
+    if (guideContainer && window.innerWidth >= 768) {
         const animatedElements = guideContainer.querySelectorAll('.guide-reveal-item');
 
         // Définition des seuils pour chaque étape de l'animation
