@@ -200,6 +200,14 @@ nav.scrolled {
 }
 
 
+/* ======================================================= */
+/* NOUVEAU : STYLES POUR L'EFFET DE TRANSITION DE L'OVERLAY POUR LA SECTION "VALUE PROPOSITION" */
+/* ======================================================= */
+
+#value-prop-overlay {
+ /* La transition est retirée car l'animation est gérée par JS */
+    will-change: opacity, backdrop-filter;
+}
 
 
 
@@ -480,6 +488,11 @@ nav.scrolled {
         opacity: 1 !important;
         transform: none !important;
     }
+   /* MODIFIÉ : Assure que l'overlay reste visible sur mobile */
+    #value-prop-overlay {
+        opacity: 1 !important;
+        backdrop-filter: blur(4px) !important; /* Correspond à backdrop-blur-sm */
+    }
 
     /* --- Section Site Clarté --- */
     #clarity-section-container {
@@ -502,7 +515,7 @@ nav.scrolled {
         flex-direction: column;
         gap: 2rem;
     }
-    /* NOUVEAU : Maintient le flou de l'overlay sur mobile pour la lisibilité */
+    /* Maintient le flou de l'overlay sur mobile pour la lisibilité */
     #clarity-overlay.is-faded {
         opacity: 1; /* Annule la disparition de l'overlay */
         backdrop-filter: blur(4px); /* Rétablit le flou (valeur de 'backdrop-blur-sm') */

@@ -213,19 +213,24 @@ if (scrollContainer && window.innerWidth >= 768) {
 }
 
     
-    
 
-// ==================================================================
-    // NOUVEAU : LOGIQUE POUR L'EFFET STICKY (SECTION VALUE PROPOSITION) - VERSION MODIFIÉE
+    // ==================================================================
+    // LOGIQUE POUR L'EFFET STICKY (SECTION VALUE PROPOSITION) - VERSION MODIFIÉE
     // ==================================================================
     const valuePropScrollContainer = document.getElementById('value-prop-scroll-container');
-    // MODIFIÉ : Ajout de la condition de largeur d'écran
+    
     if (valuePropScrollContainer && window.innerWidth >= 768) {
         const valuePropCards = valuePropScrollContainer.querySelectorAll('.value-prop-card');
+        // NOUVEAU : On récupère l'overlay
+        const valuePropOverlay = document.getElementById('value-prop-overlay');
         
         const ANIMATION_START_PROGRESS = 0.20; 
         const ANIMATION_END_PROGRESS = 0.80;   
         const ANIMATION_DURATION = ANIMATION_END_PROGRESS - ANIMATION_START_PROGRESS;
+
+        // NOUVEAU : Constantes pour le fondu de l'overlay
+        const FADE_START_PROGRESS = 0.05; // Début du fondu (très tôt)
+        const FADE_END_PROGRESS = 0.20;   // Fin du fondu (quand les cartes commencent à apparaître)
 
         const handleValuePropScroll = () => {
             const rect = valuePropScrollContainer.getBoundingClientRect();
@@ -238,6 +243,22 @@ if (scrollContainer && window.innerWidth >= 768) {
             let totalProgress = scrollAmount / scrollDistance;
             totalProgress = Math.max(0, Math.min(1, totalProgress));
 
+            // --- DÉBUT DU BLOC MODIFIÉ ---
+            // Logique pour le fondu progressif de l'overlay
+            if (valuePropOverlay) {
+                // Calcule la progression du fondu uniquement dans sa plage définie
+                let fadeProgress = (totalProgress - FADE_START_PROGRESS) / (FADE_END_PROGRESS - FADE_START_PROGRESS);
+                fadeProgress = Math.max(0, Math.min(1, fadeProgress)); // Bloque la valeur entre 0 et 1
+
+                const opacity = 1 - fadeProgress; // L'opacité diminue à mesure que le fondu progresse
+                const blurAmount = 4 * (1 - fadeProgress); // Le flou diminue (de 4px à 0px)
+
+                valuePropOverlay.style.opacity = opacity;
+                valuePropOverlay.style.backdropFilter = `blur(${blurAmount}px)`;
+            }
+            // --- FIN DU BLOC MODIFIÉ ---
+
+            // Logique existante pour l'animation des cartes
             let animationProgress = (totalProgress - ANIMATION_START_PROGRESS) / ANIMATION_DURATION;
             animationProgress = Math.max(0, Math.min(1, animationProgress));
 
@@ -250,8 +271,7 @@ if (scrollContainer && window.innerWidth >= 768) {
                 let cardProgress = (animationProgress - startProgress) / (endProgress - startProgress);
                 cardProgress = Math.max(0, Math.min(1, cardProgress));
 
-                // MODIFICATION CLÉ : La translation initiale est maintenant la largeur de l'écran
-                const initialTranslateX = window.innerWidth; // Vient de la droite
+                const initialTranslateX = window.innerWidth;
                 const translateX = initialTranslateX * (1 - cardProgress);
                 const opacity = cardProgress;
 
@@ -261,8 +281,10 @@ if (scrollContainer && window.innerWidth >= 768) {
         };
 
         window.addEventListener('scroll', handleValuePropScroll, { passive: true });
-        handleValuePropScroll(); // Appel initial pour positionner correctement au chargement
+        handleValuePropScroll();
     }
+
+
 
     
     // ==================================================================
@@ -390,42 +412,33 @@ if (scrollContainer && window.innerWidth >= 768) {
         handleClarityScroll();
     }
     
-    // --- DÉBUT DU BLOC MODIFIÉ ---
     // ==================================================================
-    // LOGIQUE POUR LA TRANSITION DE L'OVERLAY DE LA SECTION CLARTÉ (VERSION AMÉLIORÉE)
+    // LOGIQUE POUR LA TRANSITION DE L'OVERLAY DE LA SECTION CLARTÉ
     // ==================================================================
     const clarityOverlay = document.getElementById('clarity-overlay');
-    // On cible maintenant le bloc de titre, pas le conteneur de l'animation
     const clarityTitleBlock = document.getElementById('clarity-title-block'); 
 
     if (clarityOverlay && clarityTitleBlock) {
         const observerCallback = (entries) => {
             entries.forEach(entry => {
-                // On vérifie si l'élément n'est PLUS visible DANS la zone d'observation
-                // ET si sa position est AU-DESSUS de cette zone (c'est-à-dire < 120px du haut).
-                // Cela signifie qu'on a bien scrollé vers le bas, au-delà du titre.
                 if (!entry.isIntersecting && entry.boundingClientRect.bottom < 120) {
-                    // On estompe l'overlay pour révéler l'image de fond.
                     clarityOverlay.classList.add('is-faded');
                 } else {
-                    // Sinon (au chargement, ou en remontant), on s'assure que l'overlay est visible.
                     clarityOverlay.classList.remove('is-faded');
                 }
             });
         };
 
-        // On configure l'observateur pour qu'il surveille une zone qui commence
-        // à 120px du haut de l'écran. C'est juste avant que le titre ne disparaisse sous la nav.
         const observerOptions = {
             rootMargin: "-120px 0px 0px 0px",
             threshold: 0
         };
 
         const observer = new IntersectionObserver(observerCallback, observerOptions);
-        // On observe le bloc de titre.
         observer.observe(clarityTitleBlock);
     }
-    // --- FIN DU BLOC MODIFIÉ ---
+    
+    
 
 
     // ==================================================================
