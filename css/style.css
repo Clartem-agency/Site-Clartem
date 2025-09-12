@@ -200,6 +200,19 @@ nav.scrolled {
 }
 
 
+/* ======================================================= */
+/* NOUVEAU : STYLES POUR L'EFFET DE TRANSITION DE L'OVERLAY POUR LA SECTION "VALUE PROPOSITION" */
+/* ======================================================= */
+
+#value-prop-overlay {
+    transition: opacity 0.6s ease-in-out, backdrop-filter 0.6s ease-in-out;
+    will-change: opacity, backdrop-filter;
+}
+
+#value-prop-overlay.is-faded {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+}
 
 
 
@@ -480,6 +493,11 @@ nav.scrolled {
         opacity: 1 !important;
         transform: none !important;
     }
+    /* NOUVEAU : Maintient le flou de l'overlay sur mobile pour la lisibilité */
+    #value-prop-overlay.is-faded {
+        opacity: 1; /* Annule la disparition de l'overlay */
+        backdrop-filter: blur(4px); /* Rétablit le flou */
+    }
 
     /* --- Section Site Clarté --- */
     #clarity-section-container {
@@ -502,7 +520,7 @@ nav.scrolled {
         flex-direction: column;
         gap: 2rem;
     }
-    /* NOUVEAU : Maintient le flou de l'overlay sur mobile pour la lisibilité */
+    /* Maintient le flou de l'overlay sur mobile pour la lisibilité */
     #clarity-overlay.is-faded {
         opacity: 1; /* Annule la disparition de l'overlay */
         backdrop-filter: blur(4px); /* Rétablit le flou (valeur de 'backdrop-blur-sm') */
