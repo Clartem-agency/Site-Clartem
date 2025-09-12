@@ -1,4 +1,3 @@
-
 // script.js - VERSION FINALE INTÉGRÉE
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -308,7 +307,11 @@ if (scrollContainer && window.innerWidth >= 768) {
                     panel.style.pointerEvents = 'auto';
                     panel.style.zIndex = numPanels - Math.floor(distance);
                 } else {
-                    panel.style.transform = 'translateY(-100%) scale(0.9)';
+                    // ======================================================================
+                    // MODIFICATION CLÉ : On supprime le "scale(0.9)" pour une sortie plus propre.
+                    // On utilise 'vh' pour s'assurer que la carte sort complètement de l'écran.
+                    // ======================================================================
+                    panel.style.transform = 'translateY(-100vh)';
                     panel.style.opacity = '0';
                     panel.style.pointerEvents = 'none';
                 }
