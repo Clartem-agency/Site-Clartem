@@ -1,4 +1,3 @@
-
 // script.js - VERSION FINALE INTÉGRÉE
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -295,23 +294,32 @@ if (scrollContainer && window.innerWidth >= 768) {
             
             const panelProgress = animationProgress * (numPanels - 1);
             
-            panels.forEach((panel) => {
-                const panelIndex = parseInt(panel.style.getPropertyValue('--index'), 10);
+            panels.forEach((panel, panelIndex) => {
+                // --- DÉBUT DE LA CORRECTION ---
+                // On utilise l'index du panel dans la boucle (panelIndex) qui correspond à son ordre dans le DOM.
                 const distance = panelIndex - panelProgress;
 
+                // On définit un z-index fixe et décroissant.
+                // Le premier panel (index 0) a le z-index le plus élevé (numPanels),
+                // garantissant qu'il est toujours au-dessus des autres.
+                panel.style.zIndex = numPanels - panelIndex;
+
                 if (distance >= 0) {
+                    // Ce panel est encore visible dans la pile.
                     const scale = 1 - (distance * STACK_SCALE_FACTOR);
                     const translateY = distance * STACK_Y_OFFSET;
                     
                     panel.style.transform = `translateY(${translateY}px) scale(${Math.max(0, scale)})`;
                     panel.style.opacity = '1';
                     panel.style.pointerEvents = 'auto';
-                    panel.style.zIndex = numPanels - Math.floor(distance);
                 } else {
+                    // Ce panel a été "décollé" et doit disparaître vers le haut.
+                    // Son z-index élevé garantit qu'il passe au-dessus du reste.
                     panel.style.transform = 'translateY(-100%) scale(0.9)';
                     panel.style.opacity = '0';
                     panel.style.pointerEvents = 'none';
                 }
+                // --- FIN DE LA CORRECTION ---
             });
         };
 
