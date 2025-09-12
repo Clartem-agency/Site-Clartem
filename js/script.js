@@ -390,42 +390,57 @@ if (scrollContainer && window.innerWidth >= 768) {
         handleClarityScroll();
     }
     
-    // --- DÉBUT DU BLOC MODIFIÉ ---
     // ==================================================================
-    // LOGIQUE POUR LA TRANSITION DE L'OVERLAY DE LA SECTION CLARTÉ (VERSION AMÉLIORÉE)
+    // LOGIQUE POUR LA TRANSITION DE L'OVERLAY DE LA SECTION CLARTÉ
     // ==================================================================
     const clarityOverlay = document.getElementById('clarity-overlay');
-    // On cible maintenant le bloc de titre, pas le conteneur de l'animation
     const clarityTitleBlock = document.getElementById('clarity-title-block'); 
 
     if (clarityOverlay && clarityTitleBlock) {
         const observerCallback = (entries) => {
             entries.forEach(entry => {
-                // On vérifie si l'élément n'est PLUS visible DANS la zone d'observation
-                // ET si sa position est AU-DESSUS de cette zone (c'est-à-dire < 120px du haut).
-                // Cela signifie qu'on a bien scrollé vers le bas, au-delà du titre.
                 if (!entry.isIntersecting && entry.boundingClientRect.bottom < 120) {
-                    // On estompe l'overlay pour révéler l'image de fond.
                     clarityOverlay.classList.add('is-faded');
                 } else {
-                    // Sinon (au chargement, ou en remontant), on s'assure que l'overlay est visible.
                     clarityOverlay.classList.remove('is-faded');
                 }
             });
         };
 
-        // On configure l'observateur pour qu'il surveille une zone qui commence
-        // à 120px du haut de l'écran. C'est juste avant que le titre ne disparaisse sous la nav.
         const observerOptions = {
             rootMargin: "-120px 0px 0px 0px",
             threshold: 0
         };
 
         const observer = new IntersectionObserver(observerCallback, observerOptions);
-        // On observe le bloc de titre.
         observer.observe(clarityTitleBlock);
     }
-    // --- FIN DU BLOC MODIFIÉ ---
+    
+    // ==================================================================
+    // NOUVEAU : LOGIQUE POUR LA TRANSITION DE L'OVERLAY DE LA SECTION VALUE PROPOSITION
+    // ==================================================================
+    const valuePropOverlay = document.getElementById('value-prop-overlay');
+    const valuePropTitleBlock = document.getElementById('value-prop-title-block');
+
+    if (valuePropOverlay && valuePropTitleBlock) {
+        const observerCallback = (entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting && entry.boundingClientRect.bottom < 120) {
+                    valuePropOverlay.classList.add('is-faded');
+                } else {
+                    valuePropOverlay.classList.remove('is-faded');
+                }
+            });
+        };
+
+        const observerOptions = {
+            rootMargin: "-120px 0px 0px 0px",
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        observer.observe(valuePropTitleBlock);
+    }
 
 
     // ==================================================================
