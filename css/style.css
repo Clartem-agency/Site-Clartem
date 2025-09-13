@@ -655,23 +655,43 @@ nav.scrolled {
 }
 
 
+
 /* ======================================================= */
 /*    NOUVEAUX STYLES POUR LA SECTION OBJECTIFS AMÉLIORÉE  */
 /* ======================================================= */
 
 .objectif-card {
     position: relative;
-    border-radius: 1rem; /* 16px */
+    border-radius: 1.5rem; /* 24px - comme les cartes CTA */
     overflow: hidden;
     padding: 2rem; /* 32px */
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 2px solid transparent;
-    background-color: white; /* Fond par défaut */
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 2px solid #e5e7eb; /* Bordure grise par défaut, comme les cartes CTA */
+    background-color: white;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* Ombre par défaut, comme les cartes CTA */
+}
+
+/* NOUVEAU : Style pour le conteneur de l'icône, inspiré des cartes CTA */
+.objectif-icon-wrapper {
+    width: 4rem; /* 64px */
+    height: 4rem; /* 64px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.25rem; /* 20px - pour un effet "squircle" */
+    margin-bottom: 1.5rem; /* 24px */
+    /* Utilise la variable de couleur pour un fond semi-transparent */
+    background-color: color-mix(in srgb, var(--objectif-color) 10%, transparent);
+    transition: background-color 0.3s ease;
+}
+
+/* L'icône (SVG) hérite de la couleur de la variable */
+.objectif-icon-wrapper svg {
+    color: var(--objectif-color);
 }
 
 /* Superposition pour l'image de fond */
@@ -720,7 +740,7 @@ nav.scrolled {
 
 .objectif-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); /* Ombre plus prononcée */
     /* La bordure prend la couleur de la variable */
     border-color: var(--objectif-color);
 }
