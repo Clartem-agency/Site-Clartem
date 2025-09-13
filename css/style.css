@@ -398,6 +398,19 @@ nav.scrolled {
 /*     NOUVEAU : STYLES POUR L'ANIMATION SECTION EMPATHIE    */
 /* ======================================================= */
 
+/* NOUVEAU : Ces styles ne s'appliquent que sur les grands écrans */
+@media (min-width: 768px) {
+    #empathy-title-block {
+        position: relative;
+        z-index: 10; /* Assure que le titre est AU-DESSUS de l'animation */
+        background-color: white; /* Cache l'image qui passe derrière */
+    }
+    #empathy-scroll-container {
+        /* La clé est ici : on remonte le conteneur d'animation */
+        margin-top: -20rem; 
+    }
+}
+
 #empathy-scroll-container {
     height: 300vh; 
 }
@@ -409,14 +422,12 @@ nav.scrolled {
     overflow: hidden; 
 }
 
-/* NOUVEAU : État initial pour l'image (hors de l'écran, à droite) */
 #empathy-image-container {
     opacity: 0;
     transform: translateX(100vw);
     will-change: opacity, transform;
 }
 
-/* MODIFIÉ : Ce style s'applique maintenant uniquement aux textes */
 .empathy-reveal-item {
     opacity: 0;
     transform: translateY(20px);
@@ -434,6 +445,19 @@ nav.scrolled {
 /*     NOUVEAU : STYLES POUR L'ANIMATION SECTION AUTORITÉ    */
 /* ======================================================= */
 
+/* NOUVEAU : Ces styles ne s'appliquent que sur les grands écrans */
+@media (min-width: 768px) {
+    #authority-title-block {
+        position: relative;
+        z-index: 10; /* Assure que le titre est AU-DESSUS de l'animation */
+        background-color: #EFF6FF; /* soft-blue, pour correspondre au fond de la section */
+    }
+    #authority-scroll-container {
+        /* On remonte également ce conteneur */
+        margin-top: -20rem;
+    }
+}
+
 #authority-scroll-container {
     height: 300vh; 
 }
@@ -445,14 +469,12 @@ nav.scrolled {
     overflow: hidden; 
 }
 
-/* NOUVEAU : État initial pour l'image (hors de l'écran, à gauche) */
 #authority-image-container {
     opacity: 0;
     transform: translateX(-100vw);
     will-change: opacity, transform;
 }
 
-/* MODIFIÉ : Ce style s'applique maintenant uniquement aux textes */
 .authority-reveal-item {
     opacity: 0;
     transform: translateY(20px);
