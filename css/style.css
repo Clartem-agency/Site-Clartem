@@ -71,6 +71,24 @@ body {
     width: 100%;
 }
 
+/* ======================================================= */
+/*    NOUVEAU : Style inversé pour btn-secondary           */
+/*    S'applique sur les fonds sombres comme le hero.      */
+/* ======================================================= */
+.hero-bg .btn-secondary {
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.hero-bg .btn-secondary::before {
+    background-color: #ffffff;
+}
+
+.hero-bg .btn-secondary:hover {
+    color: #1E3A8A; /* deep-blue */
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.25);
+}
+
 .btn-orange {
     background-image: linear-gradient(120deg, #fb923c, #F97316); /* warm-orange */
     color: #ffffff;
