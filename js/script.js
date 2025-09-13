@@ -440,38 +440,27 @@ if (scrollContainer && window.innerWidth >= 768) {
     
     
 
-
     // ==================================================================
-    // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION "GUIDE" (CORRIGÉE)
+    // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION "EMPATHIE"
     // ==================================================================
-    const guideContainer = document.getElementById('guide-section-container');
-    // MODIFIÉ : Ajout de la condition de largeur d'écran
-    if (guideContainer && window.innerWidth >= 768) {
-        const animatedElements = guideContainer.querySelectorAll('.guide-reveal-item');
+    const empathyContainer = document.getElementById('empathy-scroll-container');
+    if (empathyContainer && window.innerWidth >= 768) {
+        const animatedElements = empathyContainer.querySelectorAll('.empathy-reveal-item');
 
-        // Définition des seuils pour chaque étape de l'animation
         const thresholds = [
-            // Colonne de gauche
-            0.10, // Étape 0: Titre "Je comprends..."
-            0.18, // Étape 1: Paragraphe
-            0.26, // Étape 2: Item 1
-            0.34, // Étape 3: Item 2
-            0.42, // Étape 4: Item 3
-            // Colonne de droite
-            0.55, // Étape 5: Titre "Et j'ai un plan..."
-            0.63, // Étape 6: Paragraphe
-            0.71, // Étape 7: Item 1
-            0.79, // Étape 8: Item 2
-            0.87  // Étape 9: Item 3
+            0.15, // Étape 0: Image
+            0.30, // Étape 1: Titre "Une approche..."
+            0.45, // Étape 2: Item 1 "Je respecte..."
+            0.60, // Étape 3: Item 2 "Je comprends..."
+            0.75  // Étape 4: Item 3 "Je parle..."
         ];
 
-        const handleGuideScroll = () => {
-            const rect = guideContainer.getBoundingClientRect();
-            
+        const handleEmpathyScroll = () => {
+            const rect = empathyContainer.getBoundingClientRect();
             if (rect.bottom < 0 || rect.top > window.innerHeight) return;
 
             const scrollAmount = -rect.top;
-            const scrollHeight = guideContainer.offsetHeight - window.innerHeight;
+            const scrollHeight = empathyContainer.offsetHeight - window.innerHeight;
             
             let progress = scrollAmount / scrollHeight;
             progress = Math.max(0, Math.min(1, progress));
@@ -481,15 +470,55 @@ if (scrollContainer && window.innerWidth >= 768) {
                 if (progress >= thresholds[step]) {
                     el.classList.add('is-visible');
                 } else {
-                    // LIGNE DÉCOMMENTÉE CI-DESSOUS : C'est la correction clé.
-                    // Elle retire la classe de visibilité quand on remonte.
                     el.classList.remove('is-visible');
                 }
             });
         };
 
-        window.addEventListener('scroll', handleGuideScroll, { passive: true });
-        handleGuideScroll();
+        window.addEventListener('scroll', handleEmpathyScroll, { passive: true });
+        handleEmpathyScroll();
     }
+
+    // ==================================================================
+    // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION "AUTORITÉ"
+    // ==================================================================
+    const authorityContainer = document.getElementById('authority-scroll-container');
+    if (authorityContainer && window.innerWidth >= 768) {
+        const animatedElements = authorityContainer.querySelectorAll('.authority-reveal-item');
+
+        const thresholds = [
+            0.15, // Étape 0: Titre "Un guide..."
+            0.30, // Étape 1: Item 1 "Un processus..."
+            0.45, // Étape 2: Item 2 "Une expertise..."
+            0.60, // Étape 3: Item 3 "Un objectif..."
+            0.75  // Étape 4: Image
+        ];
+
+        const handleAuthorityScroll = () => {
+            const rect = authorityContainer.getBoundingClientRect();
+            if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+
+            const scrollAmount = -rect.top;
+            const scrollHeight = authorityContainer.offsetHeight - window.innerHeight;
+            
+            let progress = scrollAmount / scrollHeight;
+            progress = Math.max(0, Math.min(1, progress));
+
+            animatedElements.forEach(el => {
+                const step = parseInt(el.dataset.step, 10);
+                if (progress >= thresholds[step]) {
+                    el.classList.add('is-visible');
+                } else {
+                    el.classList.remove('is-visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', handleAuthorityScroll, { passive: true });
+        handleAuthorityScroll();
+    }
+
+
+    
     
 });
