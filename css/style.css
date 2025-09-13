@@ -423,9 +423,9 @@ nav.scrolled {
 }
 
 #empathy-image-container {
-    opacity: 0;
+    opacity: 1; /* MODIFIÉ : L'image est opaque par défaut */
     transform: translateX(100vw);
-    will-change: opacity, transform;
+    will-change: transform; /* MODIFIÉ : On n'anime plus l'opacité */
 }
 
 .empathy-reveal-item {
@@ -470,9 +470,9 @@ nav.scrolled {
 }
 
 #authority-image-container {
-    opacity: 0;
+    opacity: 1; /* MODIFIÉ : L'image est opaque par défaut */
     transform: translateX(-100vw);
-    will-change: opacity, transform;
+    will-change: transform; /* MODIFIÉ : On n'anime plus l'opacité */
 }
 
 .authority-reveal-item {
