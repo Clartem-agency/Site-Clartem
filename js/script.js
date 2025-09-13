@@ -441,18 +441,24 @@ if (scrollContainer && window.innerWidth >= 768) {
     
 
     // ==================================================================
-    // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION "EMPATHIE"
+    // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION "EMPATHIE" (VERSION 2)
     // ==================================================================
     const empathyContainer = document.getElementById('empathy-scroll-container');
     if (empathyContainer && window.innerWidth >= 768) {
-        const animatedElements = empathyContainer.querySelectorAll('.empathy-reveal-item');
+        const empathyImage = document.getElementById('empathy-image-container');
+        const empathyTextItems = empathyContainer.querySelectorAll('.empathy-reveal-item');
 
-        const thresholds = [
-            0.15, // Étape 0: Image
-            0.30, // Étape 1: Titre "Une approche..."
-            0.45, // Étape 2: Item 1 "Je respecte..."
-            0.60, // Étape 3: Item 2 "Je comprends..."
-            0.75  // Étape 4: Item 3 "Je parle..."
+        // Paramètres de l'animation de l'image
+        const IMAGE_ANIM_START = 0.0; // L'animation commence dès le début du scroll
+        const IMAGE_ANIM_END = 0.35;  // L'animation se termine à 35% du scroll
+        const IMAGE_ANIM_DURATION = IMAGE_ANIM_END - IMAGE_ANIM_START;
+
+        // Seuils d'apparition pour les textes (commencent APRES la fin de l'animation de l'image)
+        const textThresholds = [
+            0.40, // Étape 0: Titre "Une approche..."
+            0.55, // Étape 1: Item 1 "Je respecte..."
+            0.70, // Étape 2: Item 2 "Je comprends..."
+            0.85  // Étape 3: Item 3 "Je parle..."
         ];
 
         const handleEmpathyScroll = () => {
@@ -465,9 +471,23 @@ if (scrollContainer && window.innerWidth >= 768) {
             let progress = scrollAmount / scrollHeight;
             progress = Math.max(0, Math.min(1, progress));
 
-            animatedElements.forEach(el => {
+            // --- Animation continue de l'image ---
+            if (empathyImage) {
+                // Calcule la progression spécifique à l'animation de l'image
+                let imageProgress = (progress - IMAGE_ANIM_START) / IMAGE_ANIM_DURATION;
+                imageProgress = Math.max(0, Math.min(1, imageProgress)); // Bloque entre 0 et 1
+
+                // Calcule la position X. Commence à 100% de la largeur de la vue et va vers 0.
+                const translateX = window.innerWidth * (1 - imageProgress);
+                
+                empathyImage.style.opacity = imageProgress;
+                empathyImage.style.transform = `translateX(${translateX}px)`;
+            }
+
+            // --- Animation en escalier des textes ---
+            empathyTextItems.forEach(el => {
                 const step = parseInt(el.dataset.step, 10);
-                if (progress >= thresholds[step]) {
+                if (progress >= textThresholds[step]) {
                     el.classList.add('is-visible');
                 } else {
                     el.classList.remove('is-visible');
@@ -476,22 +496,32 @@ if (scrollContainer && window.innerWidth >= 768) {
         };
 
         window.addEventListener('scroll', handleEmpathyScroll, { passive: true });
-        handleEmpathyScroll();
+        handleEmpathyScroll(); // Appel initial pour positionner correctement au chargement
     }
 
     // ==================================================================
-    // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION "AUTORITÉ"
+    // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION "AUTORITÉ" (VERSION 2)
     // ==================================================================
     const authorityContainer = document.getElementById('authority-scroll-container');
     if (authorityContainer && window.innerWidth >= 768) {
-        const animatedElements = authorityContainer.querySelectorAll('.authority-reveal-item');
+        const authorityImage = document.getElementById('authority-image-container');
+        const authorityTextItems = authorityContainer.querySelectorAll('.authority-reveal-item');
 
-        const thresholds = [
-            0.15, // Étape 0: Titre "Un guide..."
-            0.30, // Étape 1: Item 1 "Un processus..."
-            0.45, // Étape 2: Item 2 "Une expertise..."
-            0.60, // Étape 3: Item 3 "Un objectif..."
-            0.75  // Étape 4: Image
+        // Paramètres de l'animation de l'image
+        const IMAGE_ANIM_START = 0.0;
+        const IMAGE_ANIM_END = 0.35;
+        const IMAGE_ANIM_DURATION = IMAGE_ANIM_END - IMAGE_ANIM_START;
+
+        // ==================================================================
+        //                      *** CORRECTION ICI ***
+        // Les anciens seuils commençaient trop tôt. Les nouveaux seuils
+        // commencent après la fin de l'animation de l'image (0.35).
+        // ==================================================================
+        const textThresholds = [
+            0.40, // Étape 0: Titre "Un guide..."
+            0.55, // Étape 1: Item 1 "Un processus..."
+            0.70, // Étape 2: Item 2 "Une expertise..."
+            0.85  // Étape 3: Item 3 "Un objectif..."
         ];
 
         const handleAuthorityScroll = () => {
@@ -504,9 +534,22 @@ if (scrollContainer && window.innerWidth >= 768) {
             let progress = scrollAmount / scrollHeight;
             progress = Math.max(0, Math.min(1, progress));
 
-            animatedElements.forEach(el => {
+            // --- Animation continue de l'image ---
+            if (authorityImage) {
+                let imageProgress = (progress - IMAGE_ANIM_START) / IMAGE_ANIM_DURATION;
+                imageProgress = Math.max(0, Math.min(1, imageProgress));
+
+                // Calcule la position X. Commence à -100% (gauche) et va vers 0.
+                const translateX = -window.innerWidth * (1 - imageProgress);
+                
+                authorityImage.style.opacity = imageProgress;
+                authorityImage.style.transform = `translateX(${translateX}px)`;
+            }
+
+            // --- Animation en escalier des textes ---
+            authorityTextItems.forEach(el => {
                 const step = parseInt(el.dataset.step, 10);
-                if (progress >= thresholds[step]) {
+                if (progress >= textThresholds[step]) {
                     el.classList.add('is-visible');
                 } else {
                     el.classList.remove('is-visible');
@@ -515,7 +558,7 @@ if (scrollContainer && window.innerWidth >= 768) {
         };
 
         window.addEventListener('scroll', handleAuthorityScroll, { passive: true });
-        handleAuthorityScroll();
+        handleAuthorityScroll(); // Appel initial
     }
 
 
