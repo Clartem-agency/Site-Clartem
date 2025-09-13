@@ -393,6 +393,7 @@ nav.scrolled {
 }
 
 
+
 /* ======================================================= */
 /*     NOUVEAU : STYLES POUR L'ANIMATION SECTION EMPATHIE    */
 /* ======================================================= */
@@ -408,6 +409,14 @@ nav.scrolled {
     overflow: hidden; 
 }
 
+/* NOUVEAU : État initial pour l'image (hors de l'écran, à droite) */
+#empathy-image-container {
+    opacity: 0;
+    transform: translateX(100vw);
+    will-change: opacity, transform;
+}
+
+/* MODIFIÉ : Ce style s'applique maintenant uniquement aux textes */
 .empathy-reveal-item {
     opacity: 0;
     transform: translateY(20px);
@@ -436,6 +445,14 @@ nav.scrolled {
     overflow: hidden; 
 }
 
+/* NOUVEAU : État initial pour l'image (hors de l'écran, à gauche) */
+#authority-image-container {
+    opacity: 0;
+    transform: translateX(-100vw);
+    will-change: opacity, transform;
+}
+
+/* MODIFIÉ : Ce style s'applique maintenant uniquement aux textes */
 .authority-reveal-item {
     opacity: 0;
     transform: translateY(20px);
@@ -447,6 +464,7 @@ nav.scrolled {
     opacity: 1;
     transform: translateY(0);
 }
+
 
 
 /* ======================================================= */
