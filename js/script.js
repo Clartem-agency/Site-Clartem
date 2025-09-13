@@ -480,7 +480,7 @@ if (scrollContainer && window.innerWidth >= 768) {
                 // Calcule la position X. Commence à 100% de la largeur de la vue et va vers 0.
                 const translateX = window.innerWidth * (1 - imageProgress);
                 
-                empathyImage.style.opacity = imageProgress;
+                // MODIFIÉ : La ligne qui contrôlait l'opacité a été supprimée.
                 empathyImage.style.transform = `translateX(${translateX}px)`;
             }
 
@@ -542,7 +542,7 @@ if (scrollContainer && window.innerWidth >= 768) {
                 // Calcule la position X. Commence à -100% (gauche) et va vers 0.
                 const translateX = -window.innerWidth * (1 - imageProgress);
                 
-                authorityImage.style.opacity = imageProgress;
+                // MODIFIÉ : La ligne qui contrôlait l'opacité a été supprimée.
                 authorityImage.style.transform = `translateX(${translateX}px)`;
             }
 
