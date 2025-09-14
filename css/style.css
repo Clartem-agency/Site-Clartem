@@ -744,14 +744,16 @@ nav.scrolled {
 .objectif-card-button {
     opacity: 0;
     transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    /* MODIFICATION 1 : Ajout de 'box-shadow' à la transition */
+    transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     margin-top: 1.5rem; /* 24px */
     pointer-events: none; /* Non cliquable quand invisible */
     /* Utilise la variable de couleur définie dans le HTML */
     background: var(--objectif-color) !important;
-    color: white !important; /* <-- LA CORRECTION EST ICI */
+    color: white !important;
     border: none !important;
-    box-shadow: 0 4px 15px color-mix(in srgb, var(--objectif-color) 40%, transparent);
+    /* MODIFICATION 2 : L'ombre est retirée de l'état par défaut */
+    box-shadow: none;
 }
 
 
@@ -776,6 +778,8 @@ nav.scrolled {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto; /* Re-devient cliquable */
+    /* MODIFICATION 3 : L'ombre est maintenant appliquée uniquement au survol */
+    box-shadow: 0 4px 15px color-mix(in srgb, var(--objectif-color) 40%, transparent);
 }
 
 /* Le texte "→ Formule..." disparaît pour laisser place au bouton */
