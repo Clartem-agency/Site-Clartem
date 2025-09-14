@@ -350,32 +350,33 @@ if (scrollContainer && window.innerWidth >= 768) {
     }
 
          // ==================================================================
-    // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION "SITE CLARTÉ" (VERSION 3)
+    // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION SITE CLARTÉ
     // ==================================================================
-    const clarityContainer = document.getElementById('clarity-section-container');
+const clarityContainer = document.getElementById('clarity-section-container');
     // MODIFIÉ : Ajout de la condition de largeur d'écran
     if (clarityContainer && window.innerWidth >= 768) {
         const animatedElements = clarityContainer.querySelectorAll('.clarity-text-reveal, .clarity-list-item');
         // NOUVEAU : On récupère le conteneur de droite
         const rightCard = document.getElementById('clarity-right-card');
 
+        // MODIFIÉ : Seuils ajustés pour une animation plus rapide et précoce
         const thresholds = [
-            // Gauche
-            0.05, // Étape 0: Titre "Pourquoi..."
-            0.10, // Étape 1: Paragraphe "Dans un monde..."
-            0.18, // Étape 2: "Impact Immédiat"
-            0.26, // Étape 3: "Optimisé pour la Conversion"
-            0.34, // Étape 4: "Rapidité et Performance"
-            // Droite
-            0.45, // Étape 5: Titre "Ce que votre site inclut" (C'est le seuil pour le cadre)
-            0.52, // Étape 6: Item 1
-            0.59, // Étape 7: Item 2
-            0.66, // Étape 8: Item 3
-            0.73, // Étape 9: Item 4
-            0.80, // Étape 10: Item 5
-            0.87, // Étape 11: Item 6
-            0.94, // Étape 12: Item 7
-            0.98  // Étape 13: Bouton
+            // Gauche (Apparition plus rapide)
+            0.02, // Étape 0: Titre "Pourquoi..."
+            0.05, // Étape 1: Paragraphe "Dans un monde..."
+            0.10, // Étape 2: "Impact Immédiat"
+            0.15, // Étape 3: "Optimisé pour la Conversion"
+            0.20, // Étape 4: "Rapidité et Performance"
+            // Droite (Démarre plus tôt et est plus resserrée)
+            0.30, // Étape 5: Titre "Ce que votre site inclut" (seuil pour le cadre)
+            0.35, // Étape 6: Item 1
+            0.40, // Étape 7: Item 2
+            0.45, // Étape 8: Item 3
+            0.50, // Étape 9: Item 4
+            0.55, // Étape 10: Item 5
+            0.60, // Étape 11: Item 6
+            0.65, // Étape 12: Item 7
+            0.70  // Étape 13: Bouton
         ];
 
         const handleClarityScroll = () => {
@@ -411,6 +412,8 @@ if (scrollContainer && window.innerWidth >= 768) {
         window.addEventListener('scroll', handleClarityScroll, { passive: true });
         handleClarityScroll();
     }
+
+    
     
     // ==================================================================
     // LOGIQUE POUR LA TRANSITION DE L'OVERLAY DE LA SECTION CLARTÉ
