@@ -351,7 +351,7 @@ if (scrollContainer && window.innerWidth >= 768) {
 
 
 
-        // ==================================================================
+         // ==================================================================
     // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION SITE CLARTÉ
     // ==================================================================
     const clarityContainer = document.getElementById('clarity-section-container');
