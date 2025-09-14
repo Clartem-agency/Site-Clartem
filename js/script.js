@@ -349,20 +349,28 @@ if (scrollContainer && window.innerWidth >= 768) {
         handleScroll();
     }
 
-       // ==================================================================
-    // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION "SITE CLARTÉ" (VERSION 4 - CORRIGÉE)
+    // ==================================================================
+    // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION SITE CLARTÉ
     // ==================================================================
     const clarityContainer = document.getElementById('clarity-section-container');
     if (clarityContainer && window.innerWidth >= 768) {
         const animatedElements = clarityContainer.querySelectorAll('.clarity-text-reveal, .clarity-list-item');
         const rightCard = document.getElementById('clarity-right-card');
 
-        // NOUVEAU : On définit une durée d'animation plus courte en "hauteur de vue" (vh).
-        // L'animation se terminera après avoir scrollé l'équivalent de 150% de la hauteur de l'écran.
-        // Cela la rend beaucoup plus rapide et réactive.
         const CLARITY_ANIMATION_SCROLL_HEIGHT_VH = 150;
 
-        // Les seuils sont maintenant beaucoup plus intuitifs et répartis sur cette nouvelle durée.
+        // --- DÉBUT DE LA CORRECTION CLÉ ---
+        // 1. On calcule la hauteur nécessaire pour que l'animation se déroule.
+        const animationScrollHeight = (CLARITY_ANIMATION_SCROLL_HEIGHT_VH / 100) * window.innerHeight;
+        
+        // 2. La hauteur totale du conteneur doit être la hauteur de l'animation + la hauteur de l'écran
+        //    (pour permettre à l'élément "sticky" de se détacher à la fin).
+        const totalContainerHeight = animationScrollHeight + window.innerHeight;
+
+        // 3. On applique dynamiquement cette hauteur au conteneur.
+        clarityContainer.style.height = `${totalContainerHeight}px`;
+        // --- FIN DE LA CORRECTION CLÉ ---
+
         const thresholds = [
             // Gauche
             0.05, // Étape 0: Titre "Pourquoi..."
@@ -389,20 +397,16 @@ if (scrollContainer && window.innerWidth >= 768) {
 
             const scrollAmount = -rect.top;
             
-            // NOUVEAU : Le calcul de la progression se base sur cette nouvelle durée plus courte.
-            const animationScrollHeight = (CLARITY_ANIMATION_SCROLL_HEIGHT_VH / 100) * window.innerHeight;
-            
+            // Le calcul de la progression utilise maintenant la variable `animationScrollHeight` que nous avons définie.
             let progress = scrollAmount / animationScrollHeight;
-            progress = Math.max(0, Math.min(1, progress)); // On bloque la progression entre 0 et 1
+            progress = Math.max(0, Math.min(1, progress));
 
-            // La logique pour la carte de droite reste la même
             if (progress >= thresholds[5]) {
                 rightCard.classList.add('is-visible');
             } else {
                 rightCard.classList.remove('is-visible');
             }
 
-            // La boucle pour le texte reste la même
             animatedElements.forEach(el => {
                 const step = parseInt(el.dataset.step, 10);
                 if (progress >= thresholds[step]) {
