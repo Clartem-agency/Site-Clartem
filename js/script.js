@@ -349,7 +349,9 @@ if (scrollContainer && window.innerWidth >= 768) {
         handleScroll();
     }
 
-    // ==================================================================
+
+
+        // ==================================================================
     // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION SITE CLARTÉ
     // ==================================================================
     const clarityContainer = document.getElementById('clarity-section-container');
@@ -357,7 +359,9 @@ if (scrollContainer && window.innerWidth >= 768) {
         const animatedElements = clarityContainer.querySelectorAll('.clarity-text-reveal, .clarity-list-item');
         const rightCard = document.getElementById('clarity-right-card');
 
-        const CLARITY_ANIMATION_SCROLL_HEIGHT_VH = 150;
+        // ANCIENNE VALEUR : const CLARITY_ANIMATION_SCROLL_HEIGHT_VH = 150;
+        // NOUVELLE VALEUR : Augmentée pour donner plus d'espace à l'animation
+        const CLARITY_ANIMATION_SCROLL_HEIGHT_VH = 250;
 
         // --- DÉBUT DE LA CORRECTION CLÉ ---
         // 1. On calcule la hauteur nécessaire pour que l'animation se déroule.
@@ -420,6 +424,7 @@ if (scrollContainer && window.innerWidth >= 768) {
         window.addEventListener('scroll', handleClarityScroll, { passive: true });
         handleClarityScroll();
     }
+    
 
     
     
