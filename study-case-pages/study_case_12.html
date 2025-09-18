@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Étude de Cas : Équilibre & Nature | Clartem</title>
+    <title>Étude de Cas : Cocon de Soi | Clartem</title>
     <meta name="description"
-        content="Découvrez comment l'agence Clartem a conçu un Site Clarté pour Équilibre & Nature, une naturopathe, afin de bâtir la confiance et d'attirer des clients qualifiés.">
+        content="Découvrez comment Clartem a conçu un Site Clarté pour Cocon de Soi, un espace de massage bien-être, afin de traduire une expérience sensorielle en confiance digitale.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Favicon de votre site - CHEMIN CORRIGÉ -->
+    <!-- Favicon de votre site -->
     <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
 
     <style>
@@ -101,25 +101,15 @@
         }
 
         .btn-primary {
-            /* 1. Le dégradé "infini" : on va du bleu clair au bleu foncé, PUIS de nouveau au bleu clair. */
-            /*    Cela crée une transition douce au centre, sans bords abrupts. */
             background-image: linear-gradient(120deg, var(--accent-blue), var(--dark-blue), var(--accent-blue));
-
-            /* 2. Taille beaucoup plus grande pour que les bords ne soient jamais visibles. */
             background-size: 250% auto;
-
-            /* 3. Position de départ stratégique pour n'afficher que la plus belle partie du dégradé. */
             background-position: 30% 0;
-
             color: var(--white);
             box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-
-            /* 4. On ajoute la transition pour toutes les propriétés animées. */
             transition: background-position 0.6s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .btn-primary:hover {
-            /* 5. On déplace le dégradé vers une autre "belle" position, créant une animation riche. */
             background-position: 70% 0;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
@@ -127,26 +117,20 @@
 
         .btn-secondary {
             background-color: transparent;
-            /* Fond transparent au départ */
             color: var(--dark-blue);
             border: 2px solid var(--dark-blue);
-            /* Bordure foncée pour un bon contraste */
             transition: all 0.35s ease;
             position: relative;
-            /* Nécessaire pour le pseudo-élément */
             z-index: 1;
             overflow: hidden;
-            /* Cache le pseudo-élément qui arrive */
         }
 
-        /* On crée une couche de couleur qui sera animée */
         .btn-secondary::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 0;
-            /* Commence avec une largeur de 0 */
             height: 100%;
             background-color: var(--dark-blue);
             transition: width 0.35s ease-out;
@@ -155,33 +139,25 @@
 
         .btn-secondary:hover {
             color: var(--white);
-            /* Le texte devient blanc pour contraster avec le fond */
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(30, 58, 138, 0.25);
         }
 
-        /* Au survol, la couche de couleur prend toute la largeur */
         .btn-secondary:hover::before {
             width: 100%;
         }
 
         .btn-orange {
-            /* On remplace la couleur plate par un dégradé subtil pour plus de profondeur */
             background-image: linear-gradient(120deg, #fb923c, var(--accent-orange));
             color: var(--white);
             border: none;
-            /* On s'assure qu'il n'y a pas de bordure par défaut */
-            /* On ajoute une ombre colorée assortie pour un effet "premium" */
             box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
             transition: all 0.3s ease-in-out;
         }
 
         .btn-orange:hover {
-            /* On lève le bouton et on intensifie l'ombre pour un effet de "lueur" engageant */
             transform: translateY(-3px);
-            /* Un peu plus de "lift" pour le bouton principal */
             box-shadow: 0 7px 25px rgba(249, 115, 22, 0.4);
-            /* On augmente légèrement la luminosité pour un effet plus dynamique */
             filter: brightness(1.1);
         }
 
@@ -236,7 +212,6 @@
             background: linear-gradient(180deg, var(--light-bg) 0%, var(--white) 100%);
             text-align: center;
             padding-top: 60px;
-            /* On ajuste le padding du bas pour éviter un double espacement */
             padding-bottom: 40px;
         }
 
@@ -388,18 +363,13 @@
         .cta-buttons {
             display: flex;
             justify-content: center;
-            /* Centre les boutons horizontalement */
             align-items: center;
-            /* Aligne les boutons verticalement */
             flex-wrap: wrap;
-            /* Permet aux boutons de passer à la ligne si l'espace manque */
             gap: 20px;
-            /* Crée un espace propre entre les boutons */
         }
 
         .cta-buttons .btn {
             margin: 0;
-            /* On supprime l'ancienne marge pour éviter les conflits avec 'gap' */
         }
 
         /* --- FOOTER --- */
@@ -457,165 +427,54 @@
             margin: 0;
         }
 
-        /* 
-        -------------------------------------------
-        --- SECTION RESPONSIVE DESIGN
-        -------------------------------------------
-        */
-
+        /* RESPONSIVE DESIGN */
         @media (max-width: 992px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            section {
-                padding: 60px 0;
-            }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            section { padding: 60px 0; }
         }
 
         @media (max-width: 768px) {
-            body {
-                font-size: 16px;
-                line-height: 1.6;
-            }
-
-            .container {
-                padding: 0 15px;
-            }
-
-            .content-wrapper {
-                padding: 0 15px;
-            }
-
-            .main-nav {
-                display: none;
-            }
-
-            .main-header .header-cta {
-                padding: 8px 18px;
-                font-size: 0.9rem;
-            }
-
-            h1 {
-                font-size: 2.1rem;
-                line-height: 1.2;
-            }
-
-            h2 {
-                font-size: 1.75rem;
-                line-height: 1.3;
-            }
-
-            h3 {
-                font-size: 1.4rem;
-            }
-
-            h4 {
-                font-size: 1.15rem;
-            }
-
-            section {
-                padding: 50px 0;
-            }
-
-            .hero {
-                padding-top: 40px;
-                padding-bottom: 30px;
-            }
-
-            .hero .case-study-title {
-                font-size: 1.1rem;
-                margin-bottom: 30px;
-            }
-
-            .pillars-list li {
-                padding-left: 45px;
-            }
-
-            .pillars-list li::before {
-                width: 30px;
-                height: 30px;
-                font-size: 1rem;
-            }
-
-            .cta-section {
-                padding: 40px 25px;
-                margin: 20px auto;
-            }
-
-            .cta-buttons {
-                display: flex;
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .cta-buttons .btn {
-                margin: 0;
-                width: 100%;
-            }
-
-            .footer-grid {
-                text-align: center;
-                gap: 30px;
-            }
-
-            .footer-col .logo {
-                margin: 0 auto 15px auto;
-            }
+            body { font-size: 16px; line-height: 1.6; }
+            .container { padding: 0 15px; }
+            .content-wrapper { padding: 0 15px; }
+            .main-nav { display: none; }
+            .main-header .header-cta { padding: 8px 18px; font-size: 0.9rem; }
+            h1 { font-size: 2.1rem; line-height: 1.2; }
+            h2 { font-size: 1.75rem; line-height: 1.3; }
+            h3 { font-size: 1.4rem; }
+            h4 { font-size: 1.15rem; }
+            section { padding: 50px 0; }
+            .hero { padding-top: 40px; padding-bottom: 30px; }
+            .hero .case-study-title { font-size: 1.1rem; margin-bottom: 30px; }
+            .pillars-list li { padding-left: 45px; }
+            .pillars-list li::before { width: 30px; height: 30px; font-size: 1rem; }
+            .cta-section { padding: 40px 25px; margin: 20px auto; }
+            .cta-buttons { display: flex; flex-direction: column; gap: 15px; }
+            .cta-buttons .btn { margin: 0; width: 100%; }
+            .footer-grid { text-align: center; gap: 30px; }
+            .footer-col .logo { margin: 0 auto 15px auto; }
         }
 
         @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            h2 {
-                font-size: 1.6rem;
-            }
-
-            .logo img {
-                height: 2.5rem;
-            }
-
-            .main-header .header-cta {
-                padding: 8px 12px;
-                font-size: 0.8rem;
-            }
-
-            .concept-tag {
-                top: 10px;
-                right: 10px;
-                padding: 4px 8px;
-                font-size: 0.75rem;
-            }
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.6rem; }
+            .logo img { height: 2.5rem; }
+            .main-header .header-cta { padding: 8px 12px; font-size: 0.8rem; }
+            .concept-tag { top: 10px; right: 10px; padding: 4px 8px; font-size: 0.75rem; }
         }
 
         /* --- AJOUT POUR LE BOUTON SUR FOND SOMBRE --- */
-
-        /* On cible spécifiquement le bouton secondaire à l'intérieur de la section CTA */
         .cta-section .btn-secondary {
             color: var(--white);
-            /* Texte blanc pour être visible */
             border-color: var(--white);
-            /* Bordure blanche pour être visible */
         }
-
-        /* On change la couleur de remplissage pour ce contexte spécifique */
         .cta-section .btn-secondary::before {
             background-color: var(--white);
-            /* Le remplissage sera blanc */
         }
-
-        /* On inverse la couleur du texte au survol pour qu'il reste lisible sur le fond blanc */
         .cta-section .btn-secondary:hover {
             color: var(--dark-blue);
-            /* Le texte devient bleu foncé */
             box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
-            /* Ombre blanche subtile */
         }
     </style>
 </head>
@@ -642,81 +501,83 @@
         <section class="hero">
             <div class="container">
                 <p class="subtitle fade-in">Étude de Cas</p>
-                <h1 class="fade-in">Naturopathe</h1>
-                <!-- MODIFICATION #1 : Le sous-titre introduit votre concept. -->
-                <p class="case-study-title fade-in">Le cas d'Équilibre & Nature : ou comment nous avons conçu un
-                    <strong>Site Clarté</strong> pour bâtir la confiance et attirer les bons clients.</p>
+                <h1 class="fade-in">Cocon de Soi, Masseuse Bien-être</h1>
+                <p class="case-study-title fade-in">Au-delà du Toucher : Comment un <strong>Site Clarté</strong> a
+                    Incarcéré la Promesse d'un Cocon de Soi</p>
 
                 <div class="mockup-container fade-in">
-                    <img src="../assets/image-portfolio/mockup-portfolio-03.jpg"
-                        alt="Mockup du site web Équilibre & Nature sur un ordinateur portable" class="mockup-image">
+                    <!-- NOTE : Mettez à jour le chemin de l'image pour le mockup de Cocon de Soi -->
+                    <img src="../assets/image-portfolio/mockup-portfolio-12.jpg"
+                        alt="Mockup du site web Cocon de Soi sur un ordinateur portable" class="mockup-image">
                     <div class="concept-tag">[ PROJET CONCEPT ]</div>
                 </div>
             </div>
         </section>
 
-        <!-- MODIFICATION : Réduction de l'espacement en bas de cette section -->
         <section class="case-study-content" style="padding-bottom: 20px;">
             <div class="content-wrapper">
 
                 <div class="fade-in">
-                    <h2>Le Défi : Bâtir la Confiance dans un Univers Saturé</h2>
-                    <p>Notre persona conceptuel, Sophie Martin, est le visage de la reconversion passionnée. Ancienne
-                        chef de projet, elle a trouvé sa voie dans la naturopathie après avoir elle-même traversé un
-                        burn-out. Avec son cabinet "Équilibre & Nature" à Lyon, sa mission est limpide : aider les
-                        femmes actives, submergées par le stress et la fatigue, à se reconnecter à leur énergie vitale.
-                    </p>
-                    <p>Cependant, son expertise se heurtait à un paradoxe numérique. Le monde du bien-être en ligne est
-                        saturé de solutions miracles et de conseils génériques. Pour Sophie, dont l'approche repose sur
-                        l'hyper-personnalisation, la science et une écoute profonde, le défi était immense. Comment
-                        pouvait-elle, à travers un écran, transmettre la chaleur, le sérieux et la bienveillance d'une
-                        consultation ? Comment attirer des clientes en quête d'un accompagnement de fond, et non d'une
-                        solution de surface, sans que son message ne soit noyé dans le bruit ambiant ?</p>
+                    <h2>Traduire le Silence en Confiance, le Dilemme du Soin par le Toucher</h2>
+                    <p>Notre persona conceptuel, Élodie Lambert, incarne la reconversion qui a du sens. Ancienne chef de
+                        projet marketing, elle a découvert le massage bien-être non comme un luxe, mais comme un chemin
+                        de reconnexion à soi après un burn-out. Son espace, "Cocon de Soi" à Lyon, est le prolongement
+                        de son histoire : une bulle de douceur pour les femmes actives qui, comme elle autrefois, se
+                        sentent déconnectées de leur corps et submergées par le tumulte du quotidien.</p>
+                    <p>Son défi, cependant, était immense et subtil. Le massage bien-être est une expérience
+                        profondément non-verbale. C'est une affaire de silence, de ressenti, de confiance intime. Comment
+                        un site web, fait de mots et d'images, pouvait-il transmettre la chaleur d'une huile, la
+                        sécurité d'un toucher bienveillant et la promesse d'un véritable lâcher-prise ? Dans un marché
+                        où le massage est souvent réduit à une prestation technique et impersonnelle, comment Élodie
+                        pouvait-elle attirer des clientes en quête d'une expérience de ressourcement profond, et non
+                        d'une simple transaction ? Son dilemme était de bâtir un pont digital vers une expérience
+                        purement sensorielle.</p>
                 </div>
 
                 <div class="fade-in" style="margin-top: 60px;">
-                    <!-- MODIFICATION #2 : Le titre et le premier paragraphe définissent le "Site Clarté". -->
-                    <h2>La Solution : Le Site Clarté, l'ADN de notre approche One-Page</h2>
-                    <p>Face à ce besoin d'incarner la confiance, nous n'avons pas proposé un site web classique, mais un
-                        véritable <strong>Site Clarté</strong>. C'est notre philosophie : un site One-Page stratégique
-                        qui agit comme une consultation digitale. Il prend le visiteur par la main à travers un parcours
-                        fluide et rassurant, qui construit la relation avant même le premier contact.</p>
-                    <p>Cette stratégie narrative s'articule autour de trois piliers fondamentaux :</p>
+                    <h2>La Solution : Le Site Clarté, l'ADN de notre Approche One-Page</h2>
+                    <p>Face à ce besoin d'incarner une expérience sensorielle, nous n'avons pas proposé un site web
+                        classique, mais un véritable <strong>Site Clarté</strong>. C'est le cœur de notre philosophie
+                        chez Clartem : un site One-Page stratégique qui agit comme une consultation digitale. Il ne se
+                        contente pas d'informer ; il prend la visiteuse par la main et la guide à travers un parcours
+                        narratif qui recrée, étape par étape, l'ambiance d'un soin.</p>
+                    <p>Cette stratégie s'articule autour de trois piliers fondamentaux, conçus sur mesure pour Élodie :
+                    </p>
                     <ol class="pillars-list">
                         <li>
-                            <h4>La Connexion Humaine avant la Prestation</h4>
-                            <p>La structure du site place délibérément la section "Mon Histoire" juste après
-                                l'introduction. Le visiteur ne découvre pas d'abord ce que Sophie <em>vend</em>, mais
-                                <em>qui elle est</em> et <em>pourquoi</em> elle fait ce métier. Ce choix stratégique
-                                répond directement au besoin de confiance. Dans le domaine de la santé et du bien-être,
-                                on choisit avant tout un praticien, une personne. En partageant sa vulnérabilité et sa
-                                mission, Sophie crée un lien d'authenticité immédiat.</p>
+                            <h4>L'Humain comme Porte d'Entrée</h4>
+                            <p>La structure du Site Clarté place délibérément la section "À Propos" juste après
+                                l'introduction. Avant de découvrir les soins, la visiteuse rencontre Élodie, son
+                                histoire, sa vulnérabilité et sa mission. Ce choix stratégique ancre la confiance. On ne
+                                choisit pas un massage, on choisit la personne qui va prendre soin de nous. En créant ce
+                                lien humain d'emblée, nous transformons une relation commerciale potentielle en une
+                                relation de confiance.</p>
                         </li>
                         <li>
-                            <h4>La Démystification de la Naturopathie</h4>
-                            <p>Les services ne sont pas une liste technique, mais des "Accompagnements" aux noms
-                                évocateurs ("Bilan Vitalité", "Sérénité", "Détox & Énergie"). Chaque offre est présentée
-                                avec son bénéfice final, son public cible et son déroulé. Cette clarté transforme un
-                                concept parfois flou en solutions concrètes et accessibles, permettant à la future
-                                cliente de s'identifier à un parcours et de comprendre la valeur de l'investissement.
+                            <h4>Transformer le Service en Rituel</h4>
+                            <p>Nous avons banni le vocabulaire technique. Les prestations ne sont pas des "massages
+                                californiens" mais des "Rituels de Soin" aux noms évocateurs : "Cocon de Soi", "Pause
+                                Sérénité". Chaque rituel est décrit non par sa technique, mais par le voyage émotionnel
+                                qu'il propose et le bénéfice qu'il apporte. Cette sémantique élève la perception de
+                                l'offre, la faisant passer d'un service à une expérience de transformation.</p>
+                        </li>
+                        <li>
+                            <h4>Rendre l'Expérience Concrète et Rassurante</h4>
+                            <p>Pour lever la peur de l'inconnu, le site détaille le déroulé d'une séance dans la section
+                                "Mon Approche". De "L'Accueil & L'Écoute" au "Retour en Douceur", chaque étape est
+                                expliquée avec des mots simples et bienveillants. Associée à la galerie "L'Univers", qui
+                                révèle le cabinet comme un havre de paix, cette transparence totale permet à la future
+                                cliente de se projeter et de se sentir en sécurité avant même d'avoir franchi la porte.
                             </p>
-                        </li>
-                        <li>
-                            <h4>L'Expertise Partagée pour Asseoir la Légitimité</h4>
-                            <p>La section Blog n'est pas un simple gadget. En offrant généreusement des conseils de
-                                qualité, Sophie démontre son expertise et son désir sincère d'aider. Associée aux
-                                témoignages qui apportent la preuve sociale, cette démarche la positionne non pas comme
-                                une vendeuse de consultations, mais comme une éducatrice et une partenaire de confiance,
-                                une référence fiable dans son domaine.</p>
                         </li>
                     </ol>
                 </div>
 
                 <div class="fade-in" style="margin-top: 60px;">
                     <h2>L'Impact Potentiel : Plus qu'un Site, un Actif Stratégique</h2>
-                    <p>Pour une professionnelle comme Sophie Martin, un site web conçu de cette manière devient le
-                        pilier de sa pratique, un outil qui travaille en permanence pour elle, en alignement avec ses
-                        valeurs.</p>
+                    <p>Pour une professionnelle comme Élodie Lambert, un Site Clarté conçu de cette manière devient le
+                        prolongement digital de son cabinet. C'est un outil qui travaille en permanence pour elle, en
+                        parfaite harmonie avec ses valeurs de douceur et d'écoute.</p>
                     <p>L'impact attendu est concret et transformateur :</p>
                     <ul class="impact-list">
                         <li>
@@ -725,9 +586,8 @@
                                     d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
                                     clip-rule="evenodd" />
                             </svg>
-                            <span><strong>Un Flux de Consultations Qualifiées :</strong> Le site agit comme un filtre
-                                naturel, attirant des clientes qui ont déjà adhéré à son approche humaine et
-                                sérieuse.</span>
+                            <span><strong>Une Clientèle en Quête de Sens :</strong> Le site agit comme un filtre
+                                bienveillant, attirant des clientes qui comprennent la valeur d'une approche holistique.</span>
                         </li>
                         <li>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -735,8 +595,8 @@
                                     d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
                                     clip-rule="evenodd" />
                             </svg>
-                            <span><strong>Une Charge Mentale Allégée :</strong> L'intégration d'un outil de prise de
-                                rendez-vous et la clarté des informations automatisent les tâches répétitives.</span>
+                            <span><strong>Un Agenda Automatisé, une Énergie Préservée :</strong> La réservation en ligne
+                                libère Élodie de la charge administrative pour qu'elle se concentre sur ses soins.</span>
                         </li>
                         <li>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -744,8 +604,8 @@
                                     d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
                                     clip-rule="evenodd" />
                             </svg>
-                            <span><strong>Une Autorité Naturelle et Reconnue :</strong> Le professionnalisme du site
-                                établit Sophie comme une voix crédible dans l'écosystème du bien-être lyonnais.</span>
+                            <span><strong>Une Valorisation de l'Expertise et des Tarifs :</strong> Le site justifie la
+                                valeur de ses rituels, la positionnant comme une praticienne premium.</span>
                         </li>
                         <li>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -753,25 +613,24 @@
                                     d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
                                     clip-rule="evenodd" />
                             </svg>
-                            <span><strong>Une Pratique Sereine et Alignée :</strong> Sophie peut développer son activité
-                                avec sérénité, en parfait accord avec les principes d'équilibre qu'elle prône.</span>
+                            <span><strong>Une Pratique Sereine et Authentique :</strong> Son site devient son meilleur
+                                allié, travaillant pour elle 24/7 de manière éthique et alignée.</span>
                         </li>
                     </ul>
 
-                    <!-- BOUTON DÉPLACÉ ICI -->
                     <div class="fade-in" style="text-align: center; margin-top: 40px;">
-                        <a href="https://clartem-agency.github.io/site-portfolio-03_naturopathe"
+                        <!-- NOTE : Mettez à jour le lien vers le site portfolio de Cocon de Soi -->
+                        <a href="https://clartem-agency.github.io/site-portfolio-12_masseuse-bien-etre/"
                             class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Voir le site</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- MODIFICATION : Réduction de l'espacement en haut de cette section -->
         <section id="cta" class="container" style="padding-top: 0;">
             <div class="cta-section fade-in">
                 <h2>Prêt(e) à construire votre propre Site Clarté ?</h2>
-                <p>Comme pour Équilibre & Nature, nous pouvons concevoir votre Site Clarté pour qu'il incarne vos
+                <p>Comme pour Cocon de Soi, nous pouvons concevoir votre Site Clarté pour qu'il incarne vos
                     valeurs et attire les clients que vous souhaitez vraiment accompagner. Discutons de votre vision.
                 </p>
                 <div class="cta-buttons">

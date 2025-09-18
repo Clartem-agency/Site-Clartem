@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Étude de Cas : Équilibre & Nature | Clartem</title>
+    <title>Étude de Cas : Levier Marketing | Clartem</title>
     <meta name="description"
-        content="Découvrez comment l'agence Clartem a conçu un Site Clarté pour Équilibre & Nature, une naturopathe, afin de bâtir la confiance et d'attirer des clients qualifiés.">
+        content="Découvrez comment Clartem a conçu un Site Clarté pour Levier Marketing, un consultant B2B, pour prouver sa rentabilité et attirer des dirigeants de PME.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Favicon de votre site - CHEMIN CORRIGÉ -->
+    <!-- Favicon de votre site -->
     <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
 
     <style>
@@ -101,25 +101,15 @@
         }
 
         .btn-primary {
-            /* 1. Le dégradé "infini" : on va du bleu clair au bleu foncé, PUIS de nouveau au bleu clair. */
-            /*    Cela crée une transition douce au centre, sans bords abrupts. */
             background-image: linear-gradient(120deg, var(--accent-blue), var(--dark-blue), var(--accent-blue));
-
-            /* 2. Taille beaucoup plus grande pour que les bords ne soient jamais visibles. */
             background-size: 250% auto;
-
-            /* 3. Position de départ stratégique pour n'afficher que la plus belle partie du dégradé. */
             background-position: 30% 0;
-
             color: var(--white);
             box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-
-            /* 4. On ajoute la transition pour toutes les propriétés animées. */
             transition: background-position 0.6s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .btn-primary:hover {
-            /* 5. On déplace le dégradé vers une autre "belle" position, créant une animation riche. */
             background-position: 70% 0;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
@@ -127,26 +117,20 @@
 
         .btn-secondary {
             background-color: transparent;
-            /* Fond transparent au départ */
             color: var(--dark-blue);
             border: 2px solid var(--dark-blue);
-            /* Bordure foncée pour un bon contraste */
             transition: all 0.35s ease;
             position: relative;
-            /* Nécessaire pour le pseudo-élément */
             z-index: 1;
             overflow: hidden;
-            /* Cache le pseudo-élément qui arrive */
         }
 
-        /* On crée une couche de couleur qui sera animée */
         .btn-secondary::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 0;
-            /* Commence avec une largeur de 0 */
             height: 100%;
             background-color: var(--dark-blue);
             transition: width 0.35s ease-out;
@@ -155,33 +139,25 @@
 
         .btn-secondary:hover {
             color: var(--white);
-            /* Le texte devient blanc pour contraster avec le fond */
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(30, 58, 138, 0.25);
         }
 
-        /* Au survol, la couche de couleur prend toute la largeur */
         .btn-secondary:hover::before {
             width: 100%;
         }
 
         .btn-orange {
-            /* On remplace la couleur plate par un dégradé subtil pour plus de profondeur */
             background-image: linear-gradient(120deg, #fb923c, var(--accent-orange));
             color: var(--white);
             border: none;
-            /* On s'assure qu'il n'y a pas de bordure par défaut */
-            /* On ajoute une ombre colorée assortie pour un effet "premium" */
             box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
             transition: all 0.3s ease-in-out;
         }
 
         .btn-orange:hover {
-            /* On lève le bouton et on intensifie l'ombre pour un effet de "lueur" engageant */
             transform: translateY(-3px);
-            /* Un peu plus de "lift" pour le bouton principal */
             box-shadow: 0 7px 25px rgba(249, 115, 22, 0.4);
-            /* On augmente légèrement la luminosité pour un effet plus dynamique */
             filter: brightness(1.1);
         }
 
@@ -236,7 +212,6 @@
             background: linear-gradient(180deg, var(--light-bg) 0%, var(--white) 100%);
             text-align: center;
             padding-top: 60px;
-            /* On ajuste le padding du bas pour éviter un double espacement */
             padding-bottom: 40px;
         }
 
@@ -388,18 +363,13 @@
         .cta-buttons {
             display: flex;
             justify-content: center;
-            /* Centre les boutons horizontalement */
             align-items: center;
-            /* Aligne les boutons verticalement */
             flex-wrap: wrap;
-            /* Permet aux boutons de passer à la ligne si l'espace manque */
             gap: 20px;
-            /* Crée un espace propre entre les boutons */
         }
 
         .cta-buttons .btn {
             margin: 0;
-            /* On supprime l'ancienne marge pour éviter les conflits avec 'gap' */
         }
 
         /* --- FOOTER --- */
@@ -457,165 +427,54 @@
             margin: 0;
         }
 
-        /* 
-        -------------------------------------------
-        --- SECTION RESPONSIVE DESIGN
-        -------------------------------------------
-        */
-
         @media (max-width: 992px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            section {
-                padding: 60px 0;
-            }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            section { padding: 60px 0; }
         }
 
         @media (max-width: 768px) {
-            body {
-                font-size: 16px;
-                line-height: 1.6;
-            }
-
-            .container {
-                padding: 0 15px;
-            }
-
-            .content-wrapper {
-                padding: 0 15px;
-            }
-
-            .main-nav {
-                display: none;
-            }
-
-            .main-header .header-cta {
-                padding: 8px 18px;
-                font-size: 0.9rem;
-            }
-
-            h1 {
-                font-size: 2.1rem;
-                line-height: 1.2;
-            }
-
-            h2 {
-                font-size: 1.75rem;
-                line-height: 1.3;
-            }
-
-            h3 {
-                font-size: 1.4rem;
-            }
-
-            h4 {
-                font-size: 1.15rem;
-            }
-
-            section {
-                padding: 50px 0;
-            }
-
-            .hero {
-                padding-top: 40px;
-                padding-bottom: 30px;
-            }
-
-            .hero .case-study-title {
-                font-size: 1.1rem;
-                margin-bottom: 30px;
-            }
-
-            .pillars-list li {
-                padding-left: 45px;
-            }
-
-            .pillars-list li::before {
-                width: 30px;
-                height: 30px;
-                font-size: 1rem;
-            }
-
-            .cta-section {
-                padding: 40px 25px;
-                margin: 20px auto;
-            }
-
-            .cta-buttons {
-                display: flex;
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .cta-buttons .btn {
-                margin: 0;
-                width: 100%;
-            }
-
-            .footer-grid {
-                text-align: center;
-                gap: 30px;
-            }
-
-            .footer-col .logo {
-                margin: 0 auto 15px auto;
-            }
+            body { font-size: 16px; line-height: 1.6; }
+            .container { padding: 0 15px; }
+            .content-wrapper { padding: 0 15px; }
+            .main-nav { display: none; }
+            .main-header .header-cta { padding: 8px 18px; font-size: 0.9rem; }
+            h1 { font-size: 2.1rem; line-height: 1.2; }
+            h2 { font-size: 1.75rem; line-height: 1.3; }
+            h3 { font-size: 1.4rem; }
+            h4 { font-size: 1.15rem; }
+            section { padding: 50px 0; }
+            .hero { padding-top: 40px; padding-bottom: 30px; }
+            .hero .case-study-title { font-size: 1.1rem; margin-bottom: 30px; }
+            .pillars-list li { padding-left: 45px; }
+            .pillars-list li::before { width: 30px; height: 30px; font-size: 1rem; }
+            .cta-section { padding: 40px 25px; margin: 20px auto; }
+            .cta-buttons { display: flex; flex-direction: column; gap: 15px; }
+            .cta-buttons .btn { margin: 0; width: 100%; }
+            .footer-grid { text-align: center; gap: 30px; }
+            .footer-col .logo { margin: 0 auto 15px auto; }
         }
 
         @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            h2 {
-                font-size: 1.6rem;
-            }
-
-            .logo img {
-                height: 2.5rem;
-            }
-
-            .main-header .header-cta {
-                padding: 8px 12px;
-                font-size: 0.8rem;
-            }
-
-            .concept-tag {
-                top: 10px;
-                right: 10px;
-                padding: 4px 8px;
-                font-size: 0.75rem;
-            }
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.6rem; }
+            .logo img { height: 2.5rem; }
+            .main-header .header-cta { padding: 8px 12px; font-size: 0.8rem; }
+            .concept-tag { top: 10px; right: 10px; padding: 4px 8px; font-size: 0.75rem; }
         }
 
-        /* --- AJOUT POUR LE BOUTON SUR FOND SOMBRE --- */
-
-        /* On cible spécifiquement le bouton secondaire à l'intérieur de la section CTA */
         .cta-section .btn-secondary {
             color: var(--white);
-            /* Texte blanc pour être visible */
             border-color: var(--white);
-            /* Bordure blanche pour être visible */
         }
 
-        /* On change la couleur de remplissage pour ce contexte spécifique */
         .cta-section .btn-secondary::before {
             background-color: var(--white);
-            /* Le remplissage sera blanc */
         }
 
-        /* On inverse la couleur du texte au survol pour qu'il reste lisible sur le fond blanc */
         .cta-section .btn-secondary:hover {
             color: var(--dark-blue);
-            /* Le texte devient bleu foncé */
             box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
-            /* Ombre blanche subtile */
         }
     </style>
 </head>
@@ -642,82 +501,86 @@
         <section class="hero">
             <div class="container">
                 <p class="subtitle fade-in">Étude de Cas</p>
-                <h1 class="fade-in">Naturopathe</h1>
-                <!-- MODIFICATION #1 : Le sous-titre introduit votre concept. -->
-                <p class="case-study-title fade-in">Le cas d'Équilibre & Nature : ou comment nous avons conçu un
-                    <strong>Site Clarté</strong> pour bâtir la confiance et attirer les bons clients.</p>
+                <h1 class="fade-in">Consultant en Marketing Digital</h1>
+                <p class="case-study-title fade-in">Du Marketing-Dépense au Marketing-Levier : La Naissance d'un Actif
+                    Commercial pour un Consultant B2B</p>
 
                 <div class="mockup-container fade-in">
-                    <img src="../assets/image-portfolio/mockup-portfolio-03.jpg"
-                        alt="Mockup du site web Équilibre & Nature sur un ordinateur portable" class="mockup-image">
+                    <img src="../assets/image-portfolio/mockup-portfolio-04.jpg"
+                        alt="Mockup du site web Levier Marketing sur un ordinateur portable" class="mockup-image">
                     <div class="concept-tag">[ PROJET CONCEPT ]</div>
                 </div>
             </div>
         </section>
 
-        <!-- MODIFICATION : Réduction de l'espacement en bas de cette section -->
         <section class="case-study-content" style="padding-bottom: 20px;">
             <div class="content-wrapper">
 
                 <div class="fade-in">
-                    <h2>Le Défi : Bâtir la Confiance dans un Univers Saturé</h2>
-                    <p>Notre persona conceptuel, Sophie Martin, est le visage de la reconversion passionnée. Ancienne
-                        chef de projet, elle a trouvé sa voie dans la naturopathie après avoir elle-même traversé un
-                        burn-out. Avec son cabinet "Équilibre & Nature" à Lyon, sa mission est limpide : aider les
-                        femmes actives, submergées par le stress et la fatigue, à se reconnecter à leur énergie vitale.
-                    </p>
-                    <p>Cependant, son expertise se heurtait à un paradoxe numérique. Le monde du bien-être en ligne est
-                        saturé de solutions miracles et de conseils génériques. Pour Sophie, dont l'approche repose sur
-                        l'hyper-personnalisation, la science et une écoute profonde, le défi était immense. Comment
-                        pouvait-elle, à travers un écran, transmettre la chaleur, le sérieux et la bienveillance d'une
-                        consultation ? Comment attirer des clientes en quête d'un accompagnement de fond, et non d'une
-                        solution de surface, sans que son message ne soit noyé dans le bruit ambiant ?</p>
+                    <h2>Le Défi : Parler ROI dans un Monde de Promesses Vides</h2>
+                    <p>Notre persona conceptuel, Julien Moreau, incarne le pragmatisme. Ancien Directeur Marketing et
+                        Commercial d'une PME industrielle, il a passé plus de dix ans sur le terrain, à justifier
+                        chaque euro et à traduire des stratégies complexes en résultats tangibles. Sa mission avec
+                        "Levier Marketing" est claire : rendre le marketing B2B accessible, mesurable et rentable pour
+                        les dirigeants de PME des secteurs traditionnels.</p>
+                    <p>Mais son expertise se heurtait à un mur de scepticisme. Ses clients idéaux – des dirigeants de
+                        PME industrielles et de services – sont souvent échaudés par des agences déconnectées de leur
+                        réalité. Ils perçoivent le marketing comme un centre de coût nébuleux, sont allergiques au
+                        jargon digital et ne jurent que par le retour sur investissement. Le défi de Julien était donc
+                        redoutable : comment son site web pouvait-il, en quelques secondes, briser cette méfiance ?
+                        Comment prouver qu'il n'était pas un "vendeur de vent" de plus, mais un partenaire stratégique
+                        qui comprend leur langage et partage leur obsession pour la rentabilité ?</p>
                 </div>
 
                 <div class="fade-in" style="margin-top: 60px;">
-                    <!-- MODIFICATION #2 : Le titre et le premier paragraphe définissent le "Site Clarté". -->
-                    <h2>La Solution : Le Site Clarté, l'ADN de notre approche One-Page</h2>
-                    <p>Face à ce besoin d'incarner la confiance, nous n'avons pas proposé un site web classique, mais un
-                        véritable <strong>Site Clarté</strong>. C'est notre philosophie : un site One-Page stratégique
-                        qui agit comme une consultation digitale. Il prend le visiteur par la main à travers un parcours
-                        fluide et rassurant, qui construit la relation avant même le premier contact.</p>
-                    <p>Cette stratégie narrative s'articule autour de trois piliers fondamentaux :</p>
+                    <h2>La Solution : Le Site Clarté, l'ADN de notre Approche One-Page</h2>
+                    <p>Face à ce besoin de crédibilité immédiate, nous n'avons pas proposé un site web classique, mais
+                        un véritable <strong>Site Clarté</strong>. C'est notre philosophie : un site One-Page
+                        stratégique qui agit comme un argumentaire commercial parfaitement huilé. Il ne se contente pas
+                        d'informer ; il prend le dirigeant sceptique par la main et le guide à travers un parcours de
+                        réassurance logique et implacable.</p>
+                    <p>Cette stratégie narrative s'articule autour de quatre piliers fondamentaux :</p>
                     <ol class="pillars-list">
                         <li>
-                            <h4>La Connexion Humaine avant la Prestation</h4>
-                            <p>La structure du site place délibérément la section "Mon Histoire" juste après
-                                l'introduction. Le visiteur ne découvre pas d'abord ce que Sophie <em>vend</em>, mais
-                                <em>qui elle est</em> et <em>pourquoi</em> elle fait ce métier. Ce choix stratégique
-                                répond directement au besoin de confiance. Dans le domaine de la santé et du bien-être,
-                                on choisit avant tout un praticien, une personne. En partageant sa vulnérabilité et sa
-                                mission, Sophie crée un lien d'authenticité immédiat.</p>
+                            <h4>L'Expertise par l'Expérience, pas par l'Affirmation</h4>
+                            <p>La structure du <strong>Site Clarté</strong> place délibérément la section "À Propos"
+                                juste après l'accroche. Le visiteur découvre d'abord le parcours de Julien <em>en tant
+                                    qu'ancien Directeur Marketing en PME</em> avant même de voir ses offres. Ce choix
+                                crucial ancre sa crédibilité dans une réalité partagée, répondant à l'objection
+                                "comprend-il vraiment mes problèmes ?".</p>
                         </li>
                         <li>
-                            <h4>La Démystification de la Naturopathie</h4>
-                            <p>Les services ne sont pas une liste technique, mais des "Accompagnements" aux noms
-                                évocateurs ("Bilan Vitalité", "Sérénité", "Détox & Énergie"). Chaque offre est présentée
-                                avec son bénéfice final, son public cible et son déroulé. Cette clarté transforme un
-                                concept parfois flou en solutions concrètes et accessibles, permettant à la future
-                                cliente de s'identifier à un parcours et de comprendre la valeur de l'investissement.
-                            </p>
+                            <h4>La Clarté des Offres face à la Complexité du Marché</h4>
+                            <p>Les services ne sont pas une liste technique de compétences (SEO, SEA...), mais des
+                                solutions packagées qui répondent à des problèmes business concrets. L'offre "Directeur
+                                Marketing Externalisé" parle directement à un dirigeant qui a besoin de compétences
+                                stratégiques sans vouloir recruter. Cette simplicité tranche avec le jargon habituel des
+                                agences et positionne Julien comme un solutionneur de problèmes.</p>
                         </li>
                         <li>
-                            <h4>L'Expertise Partagée pour Asseoir la Légitimité</h4>
-                            <p>La section Blog n'est pas un simple gadget. En offrant généreusement des conseils de
-                                qualité, Sophie démontre son expertise et son désir sincère d'aider. Associée aux
-                                témoignages qui apportent la preuve sociale, cette démarche la positionne non pas comme
-                                une vendeuse de consultations, mais comme une éducatrice et une partenaire de confiance,
-                                une référence fiable dans son domaine.</p>
+                            <h4>La Méthodologie comme Gage de Rigueur</h4>
+                            <p>La section "Ma Méthodologie" en 4 étapes transforme le marketing d'une "boîte noire" en
+                                un processus structuré et prévisible. Pour un public d'ingénieurs et de gestionnaires,
+                                voir un plan clair (Diagnostic > Feuille de Route > Déploiement > Mesure) est
+                                extrêmement rassurant. Cela prouve que l'approche de Julien est un projet maîtrisé, pas
+                                une improvisation.</p>
+                        </li>
+                        <li>
+                            <h4>La Générosité comme Preuve de Valeur</h4>
+                            <p>Le <strong>Site Clarté</strong> intègre une section "Ressource Offerte" proposant
+                                "L'Auto-Diagnostic Marketing". C'est un acte stratégique : Julien ne demande pas la
+                                confiance, il la gagne en offrant d'emblée un outil à forte valeur ajoutée. Il prouve
+                                son expertise et son état d'esprit orienté ROI avant même le premier contact.</p>
                         </li>
                     </ol>
                 </div>
 
                 <div class="fade-in" style="margin-top: 60px;">
                     <h2>L'Impact Potentiel : Plus qu'un Site, un Actif Stratégique</h2>
-                    <p>Pour une professionnelle comme Sophie Martin, un site web conçu de cette manière devient le
-                        pilier de sa pratique, un outil qui travaille en permanence pour elle, en alignement avec ses
-                        valeurs.</p>
-                    <p>L'impact attendu est concret et transformateur :</p>
+                    <p>Pour un consultant comme Julien Moreau, dont le succès repose sur la confiance et la crédibilité,
+                        un <strong>Site Clarté</strong> devient le fondement de son développement commercial. Il
+                        travaille pour lui 24/7, en parfaite adéquation avec son positionnement pragmatique.</p>
+                    <p>L'impact attendu est direct et puissant :</p>
                     <ul class="impact-list">
                         <li>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -725,9 +588,9 @@
                                     d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
                                     clip-rule="evenodd" />
                             </svg>
-                            <span><strong>Un Flux de Consultations Qualifiées :</strong> Le site agit comme un filtre
-                                naturel, attirant des clientes qui ont déjà adhéré à son approche humaine et
-                                sérieuse.</span>
+                            <span><strong>Une Crédibilité Instantanée auprès des Décideurs :</strong> Le site ne se
+                                contente pas de présenter Julien, il valide son expérience et le positionne comme un
+                                pair qui a "été dans les tranchées", désamorçant ainsi le scepticisme initial.</span>
                         </li>
                         <li>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -735,8 +598,10 @@
                                     d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
                                     clip-rule="evenodd" />
                             </svg>
-                            <span><strong>Une Charge Mentale Allégée :</strong> L'intégration d'un outil de prise de
-                                rendez-vous et la clarté des informations automatisent les tâches répétitives.</span>
+                            <span><strong>Un Moteur de Leads Qualifiés Autonome :</strong> Grâce à sa ressource offerte
+                                et son contenu expert, le site attire et qualifie des prospects qui ont déjà compris et
+                                adhéré à son approche pragmatique, rendant les appels de découverte infiniment plus
+                                efficaces.</span>
                         </li>
                         <li>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -744,8 +609,10 @@
                                     d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
                                     clip-rule="evenodd" />
                             </svg>
-                            <span><strong>Une Autorité Naturelle et Reconnue :</strong> Le professionnalisme du site
-                                établit Sophie comme une voix crédible dans l'écosystème du bien-être lyonnais.</span>
+                            <span><strong>Un Discours Commercial Structuré et Efficace :</strong> Le <strong>Site
+                                    Clarté</strong> devient un outil pour Julien lui-même, lui fournissant un
+                                argumentaire parfaitement rodé qu'il peut dérouler lors de ses rendez-vous, assurant une
+                                cohérence totale entre sa promesse en ligne et sa posture en clientèle.</span>
                         </li>
                         <li>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -753,27 +620,26 @@
                                     d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
                                     clip-rule="evenodd" />
                             </svg>
-                            <span><strong>Une Pratique Sereine et Alignée :</strong> Sophie peut développer son activité
-                                avec sérénité, en parfait accord avec les principes d'équilibre qu'elle prône.</span>
+                            <span><strong>Le Passage de Consultant à Partenaire Stratégique :</strong> En communiquant
+                                si clairement sa valeur, sa méthode et sa compréhension des enjeux clients, le site élève
+                                la perception de Julien, qui n'est plus vu comme un simple prestataire, mais comme un
+                                partenaire indispensable à la croissance de la PME.</span>
                         </li>
                     </ul>
 
-                    <!-- BOUTON DÉPLACÉ ICI -->
                     <div class="fade-in" style="text-align: center; margin-top: 40px;">
-                        <a href="https://clartem-agency.github.io/site-portfolio-03_naturopathe"
+                        <a href="https://clartem-agency.github.io/site-portfolio-04_consultant-marketing-digital/"
                             class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Voir le site</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- MODIFICATION : Réduction de l'espacement en haut de cette section -->
         <section id="cta" class="container" style="padding-top: 0;">
             <div class="cta-section fade-in">
-                <h2>Prêt(e) à construire votre propre Site Clarté ?</h2>
-                <p>Comme pour Équilibre & Nature, nous pouvons concevoir votre Site Clarté pour qu'il incarne vos
-                    valeurs et attire les clients que vous souhaitez vraiment accompagner. Discutons de votre vision.
-                </p>
+                <h2>Prêt(e) à transformer votre expertise en actif commercial ?</h2>
+                <p>Comme pour Levier Marketing, nous pouvons concevoir un Site Clarté qui brise la méfiance, prouve
+                    votre valeur et attire les clients qui comprennent votre approche. Discutons de votre stratégie.</p>
                 <div class="cta-buttons">
                     <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
                         rel="noopener noreferrer" class="btn btn-orange">Concevoir mon Site Clarté</a>
@@ -823,7 +689,6 @@
     </footer>
 
     <script>
-        // --- SCRIPT POUR L'ANIMATION D'APPARITION AU SCROLL ---
         document.addEventListener('DOMContentLoaded', function () {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
