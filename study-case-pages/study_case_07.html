@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Étude de Cas : Horizon Stratégie | Clartem</title>
+    <meta name="description"
+        content="Découvrez comment Clartem a conçu un Site Clarté pour Horizon Stratégie, afin de convaincre les dirigeants de PME et de redonner le contrôle stratégique.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon de votre site - CHEMIN CORRIGÉ -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <style>
+        /* --- VARIABLES & STYLES GLOBAUX --- */
+        :root {
+            --dark-blue: #1E3A8A;
+            /* Correspond à deep-blue */
+            --accent-blue: #3B82F6;
+            /* Correspond à clarity-blue */
+            --accent-orange: #F97316;
+            /* Correspond à warm-orange */
+            --light-bg: #EFF6FF;
+            /* Correspond à soft-blue */
+            --text-color: #6B7280;
+            /* Correspond à neutral-light */
+            --heading-color: #1F2937;
+            /* Correspond à neutral-dark */
+            --white: #ffffff;
+            --gray: #6b7280;
+            --border-color: #e5e7eb;
+            --success-green: #16A34A;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--white);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: var(--heading-color);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        h4 {
+            font-size: 1.25rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .btn-primary {
+            /* 1. Le dégradé "infini" : on va du bleu clair au bleu foncé, PUIS de nouveau au bleu clair. */
+            /*    Cela crée une transition douce au centre, sans bords abrupts. */
+            background-image: linear-gradient(120deg, var(--accent-blue), var(--dark-blue), var(--accent-blue));
+
+            /* 2. Taille beaucoup plus grande pour que les bords ne soient jamais visibles. */
+            background-size: 250% auto;
+
+            /* 3. Position de départ stratégique pour n'afficher que la plus belle partie du dégradé. */
+            background-position: 30% 0;
+
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+
+            /* 4. On ajoute la transition pour toutes les propriétés animées. */
+            transition: background-position 0.6s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            /* 5. On déplace le dégradé vers une autre "belle" position, créant une animation riche. */
+            background-position: 70% 0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            /* Fond transparent au départ */
+            color: var(--dark-blue);
+            border: 2px solid var(--dark-blue);
+            /* Bordure foncée pour un bon contraste */
+            transition: all 0.35s ease;
+            position: relative;
+            /* Nécessaire pour le pseudo-élément */
+            z-index: 1;
+            overflow: hidden;
+            /* Cache le pseudo-élément qui arrive */
+        }
+
+        /* On crée une couche de couleur qui sera animée */
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            /* Commence avec une largeur de 0 */
+            height: 100%;
+            background-color: var(--dark-blue);
+            transition: width 0.35s ease-out;
+            z-index: -1;
+        }
+
+        .btn-secondary:hover {
+            color: var(--white);
+            /* Le texte devient blanc pour contraster avec le fond */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.25);
+        }
+
+        /* Au survol, la couche de couleur prend toute la largeur */
+        .btn-secondary:hover::before {
+            width: 100%;
+        }
+
+        .btn-orange {
+            /* On remplace la couleur plate par un dégradé subtil pour plus de profondeur */
+            background-image: linear-gradient(120deg, #fb923c, var(--accent-orange));
+            color: var(--white);
+            border: none;
+            /* On s'assure qu'il n'y a pas de bordure par défaut */
+            /* On ajoute une ombre colorée assortie pour un effet "premium" */
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-orange:hover {
+            /* On lève le bouton et on intensifie l'ombre pour un effet de "lueur" engageant */
+            transform: translateY(-3px);
+            /* Un peu plus de "lift" pour le bouton principal */
+            box-shadow: 0 7px 25px rgba(249, 115, 22, 0.4);
+            /* On augmente légèrement la luminosité pour un effet plus dynamique */
+            filter: brightness(1.1);
+        }
+
+        /* --- ANIMATION D'APPARITION --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- HEADER --- */
+        .main-header {
+            padding: 1rem 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 3rem;
+            width: auto;
+        }
+
+        .main-nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--heading-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(180deg, var(--light-bg) 0%, var(--white) 100%);
+            text-align: center;
+            padding-top: 60px;
+            /* On ajuste le padding du bas pour éviter un double espacement */
+            padding-bottom: 40px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 {
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        .hero .case-study-title {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .mockup-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .mockup-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .concept-tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: var(--accent-orange);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid #ffe8d6;
+        }
+
+        /* --- CASE STUDY CONTENT --- */
+        .case-study-content {
+            background-color: var(--white);
+        }
+
+        .content-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-wrapper h2 {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--accent-blue);
+            display: inline-block;
+        }
+
+        .content-wrapper p,
+        .content-wrapper ul {
+            margin-bottom: 25px;
+        }
+
+        .pillars-list {
+            list-style: none;
+            counter-reset: pillars-counter;
+            padding-left: 0;
+        }
+
+        .pillars-list li {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 30px;
+        }
+
+        .pillars-list li::before {
+            counter-increment: pillars-counter;
+            content: counter(pillars-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 35px;
+            height: 35px;
+            background-color: var(--light-bg);
+            color: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .pillars-list h4 {
+            margin-bottom: 5px;
+            color: var(--dark-blue);
+        }
+
+        .impact-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .impact-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .impact-list svg {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            color: var(--success-green);
+            margin-right: 12px;
+            margin-top: 4px;
+        }
+
+        /* --- CTA SECTION --- */
+        .cta-section {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            text-align: center;
+            border-radius: 20px;
+            margin: 40px auto;
+            padding: 60px 40px;
+        }
+
+        .cta-section h2 {
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #d1d5db;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            /* Centre les boutons horizontalement */
+            align-items: center;
+            /* Aligne les boutons verticalement */
+            flex-wrap: wrap;
+            /* Permet aux boutons de passer à la ligne si l'espace manque */
+            gap: 20px;
+            /* Crée un espace propre entre les boutons */
+        }
+
+        .cta-buttons .btn {
+            margin: 0;
+            /* On supprime l'ancienne marge pour éviter les conflits avec 'gap' */
+        }
+
+        /* --- FOOTER --- */
+        .main-footer {
+            background-color: var(--heading-color);
+            color: #9ca3af;
+            padding: 60px 0 20px 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #374151;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-col p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul a:hover {
+            color: var(--accent-blue);
+        }
+
+        .footer-bottom {
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+        }
+
+        /* 
+        -------------------------------------------
+        --- SECTION RESPONSIVE DESIGN
+        -------------------------------------------
+        */
+
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+                line-height: 1.6;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .content-wrapper {
+                padding: 0 15px;
+            }
+
+            .main-nav {
+                display: none;
+            }
+
+            .main-header .header-cta {
+                padding: 8px 18px;
+                font-size: 0.9rem;
+            }
+
+            h1 {
+                font-size: 2.1rem;
+                line-height: 1.2;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+                line-height: 1.3;
+            }
+
+            h3 {
+                font-size: 1.4rem;
+            }
+
+            h4 {
+                font-size: 1.15rem;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+
+            .hero {
+                padding-top: 40px;
+                padding-bottom: 30px;
+            }
+
+            .hero .case-study-title {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
+            }
+
+            .pillars-list li {
+                padding-left: 45px;
+            }
+
+            .pillars-list li::before {
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+            }
+
+            .cta-section {
+                padding: 40px 25px;
+                margin: 20px auto;
+            }
+
+            .cta-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .cta-buttons .btn {
+                margin: 0;
+                width: 100%;
+            }
+
+            .footer-grid {
+                text-align: center;
+                gap: 30px;
+            }
+
+            .footer-col .logo {
+                margin: 0 auto 15px auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .logo img {
+                height: 2.5rem;
+            }
+
+            .main-header .header-cta {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+
+            .concept-tag {
+                top: 10px;
+                right: 10px;
+                padding: 4px 8px;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* --- AJOUT POUR LE BOUTON SUR FOND SOMBRE --- */
+
+        /* On cible spécifiquement le bouton secondaire à l'intérieur de la section CTA */
+        .cta-section .btn-secondary {
+            color: var(--white);
+            /* Texte blanc pour être visible */
+            border-color: var(--white);
+            /* Bordure blanche pour être visible */
+        }
+
+        /* On change la couleur de remplissage pour ce contexte spécifique */
+        .cta-section .btn-secondary::before {
+            background-color: var(--white);
+            /* Le remplissage sera blanc */
+        }
+
+        /* On inverse la couleur du texte au survol pour qu'il reste lisible sur le fond blanc */
+        .cta-section .btn-secondary:hover {
+            color: var(--dark-blue);
+            /* Le texte devient bleu foncé */
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+            /* Ombre blanche subtile */
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+            </a>
+            <nav class="main-nav">
+                <a href="../a-propos.html">À Propos</a>
+                <a href="../index.html#plan">Mon Plan</a>
+                <a href="../index.html#offres">Mes Offres</a>
+                <a href="../index.html#portfolio">Portfolio</a>
+            </nav>
+            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                rel="noopener noreferrer" class="btn btn-primary header-cta">Planifier un appel clarté</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <p class="subtitle fade-in">Étude de Cas</p>
+                <h1 class="fade-in">Horizon Stratégie</h1>
+                <p class="case-study-title fade-in">De la Réaction à la Vision : Comment un <strong>Site
+                        Clarté</strong> Redonne le Contrôle aux Dirigeants de PME</p>
+
+                <div class="mockup-container fade-in">
+                    <!-- MISE À JOUR : Chemin d'image et texte alternatif pour le nouveau projet -->
+                    <img src="../assets/image-portfolio/mockup-portfolio-07.jpg"
+                        alt="Mockup du site web Horizon Stratégie sur un ordinateur portable" class="mockup-image">
+                    <div class="concept-tag">[ PROJET CONCEPT ]</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-content" style="padding-bottom: 20px;">
+            <div class="content-wrapper">
+
+                <div class="fade-in">
+                    <h2>Le Défi : Convaincre le Dirigeant qui n'a plus le Temps de S'arrêter</h2>
+                    <p>Notre persona conceptuel, Julien Moreau, incarne l'expertise née du terrain. Ancien Directeur
+                        des Opérations, il a passé 15 ans à transformer la vision d'un dirigeant en une réalité
+                        opérationnelle, faisant passer une PME de 20 à 200 employés. Aujourd'hui, avec son cabinet
+                        <strong>Horizon Stratégie</strong>, sa mission est de devenir le "sparring partner" des
+                        fondateurs de PME qui, ironiquement, sont devenus les principaux freins à leur propre
+                        croissance.
+                    </p>
+                    <p>Le dilemme de Julien était profond. Ses clients idéaux, des dirigeants submergés par le
+                        quotidien, ne pensent pas avoir besoin d'un coach. Ils ont besoin de solutions
+                        <em>maintenant</em> : un meilleur commercial, un process plus fluide, des marges plus saines. Le
+                        coaching leur semble être un luxe, un concept "soft" déconnecté de leurs urgences. Comment un
+                        site web peut-il, en quelques secondes, convaincre un leader sceptique et pressé que la prise de
+                        hauteur stratégique est la solution la plus <em>pratique</em> à ses problèmes opérationnels ?
+                        Comment prouver que Julien n'est pas un théoricien, mais un opérateur aguerri qui parle leur
+                        langage et comprend leurs batailles ?</p>
+                </div>
+
+                <div class="fade-in" style="margin-top: 60px;">
+                    <h2>La Solution : Le Site Clarté, l'ADN de notre Approche One-Page</h2>
+                    <p>Face à ce besoin de crédibilité instantanée et de ROI perçu, nous n'avons pas créé un site web,
+                        mais un véritable <strong>Site Clarté</strong>. C'est notre philosophie : un site One-Page
+                        stratégique qui agit comme une première session de diagnostic. Il ne se contente pas de lister
+                        des services ; il guide le visiteur à travers un argumentaire logique qui déconstruit ses
+                        objections et le mène naturellement à la conviction.</p>
+                    <p>Cette stratégie narrative s'articule autour de trois piliers fondamentaux :</p>
+                    <ol class="pillars-list">
+                        <li>
+                            <h4>La Crédibilité Opérationnelle avant la Prestation</h4>
+                            <p>La structure du site place délibérément la section "Mon Parcours" (À Propos) juste après
+                                l'accroche principale. Le visiteur ne découvre pas ce que Julien <em>vend</em>, mais
+                                <em>qui il est</em> : un ancien COO. Ce choix stratégique est crucial. Il ancre
+                                immédiatement la conversation dans le concret et le pragmatisme, répondant à l'objection
+                                silencieuse : "Est-ce qu'il comprend vraiment mes problèmes ?".</p>
+                        </li>
+                        <li>
+                            <h4>La Transformation des Services en Solutions Business</h4>
+                            <p>Nous avons banni le jargon du coaching. Les offres ne sont pas des "forfaits de 10
+                                séances", mais des solutions aux noms évocateurs : "Programme Cap Croissance", "Journée
+                                Vision Stratégique". Chaque offre est présentée non pas par son processus, mais par le
+                                résultat business qu'elle produit. Le coaching est ainsi repositionné, passant d'une
+                                dépense de "développement personnel" à un investissement stratégique pour l'entreprise.
+                            </p>
+                        </li>
+                        <li>
+                            <h4>La Méthodologie comme Gage de Sérieux</h4>
+                            <p>La section "Ma Méthodologie" en 4 étapes (Diagnostic → Feuille de Route → Accompagnement
+                                → Autonomisation) est la clé pour rassurer un esprit cartésien. Elle transforme le
+                                concept "flou" de l'accompagnement en un processus clair, prévisible et structuré. Le
+                                dirigeant ne s'engage pas dans l'inconnu, il investit dans un plan.</p>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="fade-in" style="margin-top: 60px;">
+                    <h2>L'Impact Potentiel : Plus qu'un Site, un Actif Stratégique</h2>
+                    <p>Pour un expert comme Julien Moreau, un <strong>Site Clarté</strong> devient le commercial
+                        silencieux qui travaille 24/7 pour éduquer et qualifier ses prospects. L'impact attendu va bien
+                        au-delà de la simple génération de leads ; il redéfinit la nature même de sa pratique.</p>
+                    <ul class="impact-list">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span><strong>Un Aimant à Dirigeants Stratégiques :</strong> Le site agit comme un filtre
+                                puissant, repoussant les clients en quête de solutions miracles et attirant les leaders
+                                prêts à s'investir dans un travail de fond. Le discours est conçu pour résonner avec
+                                ceux qui sont prêts pour le changement.</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span><strong>Des Conversations à Haute Valeur Ajoutée :</strong> Les prospects qui arrivent
+                                en appel ont déjà validé son expertise, compris sa méthode et se sont projetés dans les
+                                résultats. Le premier échange n'est plus une phase de conviction, mais le début du
+                                travail.</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span><strong>Une Catégorie à Part : Le "Sparring Partner Stratégique" :</strong> Le site ne
+                                le positionne pas comme un "coach" parmi d'autres, mais comme une ressource rare : un
+                                ancien opérateur de haut niveau qui a choisi de partager son expérience. Il ne vend pas
+                                du coaching, il vend une accélération.</span>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <span><strong>Un Levier de Croissance pour sa Propre Pratique :</strong> En automatisant la
+                                qualification et l'éducation de ses prospects, le site libère un temps précieux pour
+                                Julien, lui permettant de se concentrer sur sa zone de génie : accompagner les
+                                dirigeants vers leurs plus grandes ambitions.</span>
+                        </li>
+                    </ul>
+
+                    <div class="fade-in" style="text-align: center; margin-top: 40px;">
+                        <!-- MISE À JOUR : Lien hypothétique vers le site conceptuel -->
+                        <a href="https://clartem-agency.github.io/site-portfolio-07_coach-business-pour-tpe-pme/"
+                            class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Voir le site</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta" class="container" style="padding-top: 0;">
+            <div class="cta-section fade-in">
+                <h2>Prêt(e) à construire votre propre Site Clarté ?</h2>
+                <p>Comme pour Horizon Stratégie, nous pouvons concevoir votre Site Clarté pour qu'il incarne vos
+                    valeurs et attire les clients que vous souhaitez vraiment accompagner. Discutons de votre vision.
+                </p>
+                <div class="cta-buttons">
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="btn btn-orange">Concevoir mon Site Clarté</a>
+                    <a href="../portfolio.html" class="btn btn-secondary">Voir d'autres réalisations</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="../index.html" class="logo" style="margin-bottom: 15px; display: block;">
+                        <img src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com en blanc">
+                    </a>
+                    <p>Apporter de la clarté dans le chaos digital. Je crée des sites web pour les indépendants
+                        passionnés qui méritent une présence en ligne professionnelle.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="../index.html">Accueil</a></li>
+                        <li><a href="../a-propos.html">À Propos</a></li>
+                        <li><a href="../index.html#plan">Mon Plan</a></li>
+                        <li><a href="../index.html#offres">Mes Offres</a></li>
+                        <li><a href="../index.html#portfolio">Portfolio</a></li>
+                        <li><a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web"
+                                target="_blank" rel="noopener noreferrer">Prendre Rendez-vous</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Informations Légales</h4>
+                    <ul>
+                        <li><a href="../mentions-legales.html">Mentions Légales</a></li>
+                        <li><a href="../politique-de-confidentialite.html">Politique de Confidentialité</a></li>
+                        <li><a href="../cgv.html">Conditions Générales de Vente</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 clartem.com. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- SCRIPT POUR L'ANIMATION D'APPARITION AU SCROLL ---
+        document.addEventListener('DOMContentLoaded', function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            const elementsToAnimate = document.querySelectorAll('.fade-in');
+            elementsToAnimate.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+
+</html>
