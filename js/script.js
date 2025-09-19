@@ -1,5 +1,3 @@
-// script.js - VERSION FINALE INTÉGRÉE
-
 document.addEventListener('DOMContentLoaded', function () {
 
     // ==================================================================
@@ -19,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-const nav = document.getElementById('main-nav');
+    const nav = document.getElementById('main-nav');
     if (nav) {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 10) {
@@ -53,6 +51,27 @@ const nav = document.getElementById('main-nav');
         sr.reveal('[data-sr-delay="300"]', { delay: 500 });
         sr.reveal('[data-sr-origin="right"]', { origin: 'right', distance: '40px', delay: 200 });
         sr.reveal('[data-sr-origin="left"]', { origin: 'left', distance: '40px', delay: 200 });
+    }
+    
+    // ==================================================================
+    // NOUVEAU : LOGIQUE POUR L'ACCORDÉON FAQ (CENTRALISÉE)
+    // ==================================================================
+    const faqToggles = document.querySelectorAll('.faq-toggle');
+    if (faqToggles.length > 0) {
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const answer = toggle.nextElementSibling;
+                const icon = toggle.querySelector('svg');
+
+                if (answer.style.maxHeight) {
+                    answer.style.maxHeight = null;
+                    icon.classList.remove('rotate-180');
+                } else {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                    icon.classList.add('rotate-180');
+                }
+            });
+        });
     }
 
     // ==================================================================
