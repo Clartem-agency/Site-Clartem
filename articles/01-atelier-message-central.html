@@ -5,237 +5,296 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- ======================================================= -->
-    <!--    INFORMATIONS SPÉCIFIQUES À CET ARTICLE               -->
-    <!-- ======================================================= -->
-    <title>Atelier Gratuit : Définissez le Message Central de votre Site Web en 4 Questions</title>
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Atelier Gratuit : Définir le Message Central de votre Site Web</title>
     <meta name="description"
         content="Vous êtes coach ou thérapeute et vous bloquez sur le message de votre site ? Découvrez notre atelier gratuit en 4 questions pour définir une accroche claire et percutante qui captive vos clients idéaux en moins de 3 secondes.">
-    
-    <!-- Meta Open Graph & Twitter pour le partage sur les réseaux sociaux -->
-    <meta property="og:title" content="Atelier Gratuit : Définissez le Message Central de votre Site Web en 4 Questions">
-    <meta property="og:description" content="Découvrez notre atelier en 4 questions pour définir une accroche claire qui captive vos clients idéaux.">
-    <!-- MODIFIEZ L'URL CI-DESSOUS avec votre nom de domaine et le bon chemin d'image -->
-    <meta property="og:image" content="https://www.votre-site.com/assets/image-blog/atelier-clarte-cover.webp"> 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://www.votre-site.com/assets/image-blog/atelier-clarte-cover.webp">
-    <!-- ======================================================= -->
+    <meta name="author" content="clartem.com">
 
-    <!-- Le reste du <head> avec les chemins relatifs ../ -->
-    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+    <!-- FAVICON (INCHANGÉ) -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon-clartem.ico">
+
+    <!-- META OPEN GRAPH & TWITTER (SPÉCIFIQUES À L'ARTICLE) -->
+    <meta property="og:title" content="Atelier Gratuit : Définir le Message Central de votre Site Web">
+    <meta property="og:description"
+        content="Découvrez 4 questions stratégiques pour définir une accroche claire qui captive vos clients idéaux.">
+    <meta property="og:type" content="article">
+    <!-- NOUVEAU : Créez une image spécifique pour le partage de cet article (format 1200x630px) -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-atelier-clarte.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-atelier-clarte.png">
+
+    <!-- Tailwind CSS via CDN (INCHANGÉ) -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN (INCHANGÉ) -->
     <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config (INCHANGÉ) -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: { 'deep-blue': '#1E3A8A', 'clarity-blue': '#3B82F6', 'soft-blue': '#EFF6FF', 'warm-orange': '#F97316', 'success-green': '#16A34A', 'neutral-dark': '#1F2937', 'neutral-light': '#6B7280', 'destructive': '#DC2626', }
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
                 }
             }
         }
     </script>
-    <link rel="stylesheet" href="../css/style.css">
-    
-    <!-- Plugin Tailwind Typography pour un style d'article impeccable -->
-    <script src="https://cdn.tailwindcss.com/3.3.3?plugins=typography"></script>
+
+    <!-- Custom CSS (INCHANGÉ) -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="bg-white">
-    <!-- CORRECTION : Ajout de "flex flex-col" pour une mise en page robuste -->
-    <div class="min-h-screen flex flex-col">
-        <!-- Navigation (liens relatifs ajustés ../) -->
-        <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+
+    <div class="min-h-screen">
+
+        <!-- ======================================================= -->
+        <!--      HEADER / NAVIGATION (REPRIS DE L'ACCUEIL)        -->
+        <!-- ======================================================= -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
             <div class="container mx-auto px-6 py-4">
-                 <div class="flex items-center justify-between">
-                    <a href="../index.html">
-                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                <div class="flex items-center justify-between">
+                    <a href="index.html">
+                        <img class="h-14 w-auto" src="assets/logo-clartem.svg" alt="Logo clartem.com">
                     </a>
                     <div class="hidden md:flex items-center space-x-8" id="nav-links">
-                        <a href="../index.html" class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
-                        <a href="../a-propos.html" class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À Propos</a>
-                        <a href="../blog.html" class="text-clarity-blue font-bold transition-colors duration-300">Blog</a>
-                        <a href="../index.html#plan" class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mon Plan</a>
-                        <a href="../index.html#offres" class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes Offres</a>
-                        <a href="../portfolio.html" class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
-                        <a href="../faq.html" class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <!-- NOUVEAU : Lien vers la page principale du blog -->
+                        <a href="blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
                     </div>
-                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier un appel clarté</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
                     <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
                     </button>
                 </div>
-                 <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
-                    <a href="../index.html" class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
-                    <a href="../a-propos.html" class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À Propos</a>
-                    <a href="../blog.html" class="block text-clarity-blue font-bold py-2">Blog</a>
-                    <a href="../index.html#plan" class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mon Plan</a>
-                    <a href="../index.html#offres" class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes Offres</a>
-                    <a href="../portfolio.html" class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
-                    <a href="../faq.html" class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
-                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier un appel clarté</a>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <!-- NOUVEAU : Lien vers la page principale du blog -->
+                    <a href="blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
                 </div>
             </div>
         </nav>
 
-        <!-- CORRECTION : Le contenu principal est maintenant dans un <main> avec "flex-grow" -->
-        <main class="flex-grow">
-            <!-- Header de l'Article -->
-            <header class="hero-bg relative text-white pt-32 pb-16 md:pt-40 md:pb-24" style="background-image: url('../assets/image-blog/atelier-clarte-cover.webp'); min-height: 50vh;">
-                <div class="hero-overlay bg-neutral-dark/70"></div>
-                <div class="container mx-auto px-6 relative z-10 text-center">
-                    <div class="max-w-3xl mx-auto">
-                        <a href="../blog.html" class="text-warm-orange text-lg font-semibold mb-4 inline-block hover:underline">→ Retour au Blog</a>
-                        <h1 class="text-4xl sm:text-5xl font-bold leading-tight">
+        <!-- ======================================================= -->
+        <!--                DÉBUT DU CONTENU DE L'ARTICLE            -->
+        <!-- ======================================================= -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
                             Atelier Gratuit : Définissez le Message Central de votre Site Web en 4 Questions Stratégiques
                         </h1>
-                        <div class="mt-8 flex items-center justify-center text-white/80">
-                             <img src="../assets/image-blog/auteur.webp" alt="Auteur" class="w-12 h-12 rounded-full mr-4 border-2 border-white/50">
-                            <span>Par l'équipe Clartem • Le 20 Juillet 2024</span>
-                        </div>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                            Vous êtes coach ou thérapeute et vous bloquez sur le message de votre site ? Découvrez notre atelier gratuit pour définir une accroche claire et percutante qui captive vos clients idéaux en moins de 3 secondes.
+                        </p>
                     </div>
                 </div>
             </header>
 
-            <!-- Contenu de l'Article -->
-            <article class="py-20">
-                <div class="container mx-auto px-6 max-w-3xl">
-                    <div class="prose lg:prose-xl max-w-none text-lg text-neutral-light leading-relaxed">
-                        
-                        <p class="lead text-xl text-neutral-dark">Vous êtes devant votre écran. Le curseur clignote sur une page blanche. Vous savez que vous devez écrire le texte de votre site web, mais les mots ne viennent pas. Vous êtes un excellent coach, un thérapeute passionné, un expert dans votre domaine... mais pas un pro du marketing.</p>
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
 
-                        <p>Ce sentiment, ce "brouillard digital", est la raison pour laquelle la plupart des sites de professionnels de l'accompagnement manquent leur cible. Ils sont remplis de jargon, de messages vagues et ne répondent pas à la question la plus importante de votre visiteur : <strong>"Êtes-vous la bonne personne pour m'aider ?"</strong></p>
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="assets/image-blog/atelier-clarte-intro.webp" alt="Carnet ouvert avec un stylo, symbolisant la clarté et la stratégie" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
 
-                        <p>Chez Clartem, ma philosophie est simple : <strong>la clarté avant le code</strong>. Un site web efficace n'est pas une question de design tape-à-l'œil, mais de message percutant. C'est pourquoi mon processus commence toujours par un "Atelier de Clarté".</p>
+                    <p data-sr>Vous êtes devant votre écran. Le curseur clignote sur une page blanche. Vous savez que vous devez écrire le texte de votre site web, mais les mots ne viennent pas. Vous êtes un excellent coach, un thérapeute passionné, un expert dans votre domaine... mais pas un pro du marketing.</p>
 
-                        <p>Aujourd'hui, je vous offre un extrait de cet atelier. L'exercice le plus fondamental. Celui qui va transformer votre site d'une simple brochure en un aimant à clients.</p>
+                    <p data-sr>Ce sentiment, ce "brouillard digital", est la raison pour laquelle la plupart des sites de professionnels de l'accompagnement manquent leur cible. Ils sont remplis de jargon, de messages vagues et ne répondent pas à la question la plus importante de votre visiteur : <strong class="text-neutral-dark">"Êtes-vous la bonne personne pour m'aider ?"</strong></p>
 
-                        <h2 class="text-3xl font-bold text-neutral-dark pt-8 border-t border-gray-200 mt-12">La Règle des 3 Secondes : Le Test de la Porte d'Entrée</h2>
-                        
+                    <p data-sr>Chez Clartem, ma philosophie est simple : <strong class="text-clarity-blue">la clarté avant le code</strong>. Un site web efficace n'est pas une question de design tape-à-l'œil, mais de message percutant. C'est pourquoi mon processus commence toujours par un "Atelier de Clarté".</p>
+
+                    <p data-sr>Aujourd'hui, je vous offre un extrait de cet atelier. L'exercice le plus fondamental. Celui qui va transformer votre site d'une simple brochure en un aimant à clients.</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">La Règle des 3 Secondes : Le Test de la Porte d'Entrée</h2>
                         <p>Imaginez votre site comme la porte d'entrée de votre cabinet. Un visiteur arrive. Vous avez moins de 3 secondes pour qu'il se dise : "Je suis au bon endroit".</p>
-                        
-                        <p>Pour cela, le message tout en haut de votre page d'accueil (la section "Héros") doit répondre instantanément à trois questions silencieuses :</p>
-                        
-                        <ol>
+                        <p class="mt-4">Pour cela, le message tout en haut de votre page d'accueil (la section "Héros") doit répondre instantanément à trois questions silencieuses :</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
                             <li><strong>Où suis-je ?</strong> (Quelle est votre spécialité ?)</li>
                             <li><strong>Quelle transformation puis-je espérer ici ?</strong> (Quel est le bénéfice principal ?)</li>
                             <li><strong>Pourquoi devrais-je rester ?</strong> (Quelle est votre promesse ?)</li>
-                        </ol>
-
-                        <p>Si votre message est flou, le visiteur repart aussi vite qu'il est arrivé. S'il est clair, il est captivé et prêt à découvrir la suite.</p>
-
-                        <h2 class="text-3xl font-bold text-neutral-dark pt-8 border-t border-gray-200 mt-12">L'Atelier : Trouvez Votre Message en 4 Questions</h2>
-                        
-                        <p>Assez de théorie. Prenez une feuille, un stylo, et préparez-vous à trouver la clarté. L'erreur commune est de vouloir décrire sa technique. Nous allons faire l'inverse : nous allons nous concentrer sur la <strong>transformation</strong> que vous offrez.</p>
-
-                        <!-- Question 1 -->
-                        <h3 class="text-2xl font-bold text-neutral-dark pt-6">Question 1 : Qui est votre Client de Cœur ?</h3>
-                        <p>N'essayez pas de parler à tout le monde. Pensez à LA personne que vous rêvez d'accompagner. Soyez précis.</p>
-                        <div class="bg-red-50 border-l-4 border-red-400 p-4 my-4 rounded-r-lg">
-                            <p><strong>Piège à éviter :</strong> "Les gens qui veulent aller mieux."</p>
-                            <p><strong>Visez plutôt :</strong> "Les femmes entrepreneurs de 35-45 ans qui se sentent au bord du burn-out." ou "Les jeunes managers qui luttent avec le syndrome de l'imposteur."</p>
-                        </div>
-                        <div class="bg-soft-blue p-6 rounded-lg my-6">
-                            <p class="font-bold text-neutral-dark flex items-center gap-2">✍️ À vous :</p>
-                            <p class="mt-2">Qui est la personne que vous souhaitez le plus aider ? Décrivez-la.</p>
-                        </div>
-
-                        <!-- Question 2 -->
-                        <h3 class="text-2xl font-bold text-neutral-dark pt-6">Question 2 : Quel Problème Urgent Vive-t-il ?</h3>
-                        <p>Quelle est la douleur, la frustration, le problème qui l'empêche de dormir la nuit ? Parlez son langage, pas le vôtre.</p>
-                        <div class="bg-red-50 border-l-4 border-red-400 p-4 my-4 rounded-r-lg">
-                            <p><strong>Piège à éviter :</strong> "Elle a besoin d'un rééquilibrage de ses chakras." (Votre jargon technique).</p>
-                            <p><strong>Visez plutôt :</strong> "Elle se sent épuisée, vidée de son énergie, et ne sait plus par où commencer pour prendre soin d'elle." (Sa réalité émotionnelle).</p>
-                        </div>
-                        <div class="bg-soft-blue p-6 rounded-lg my-6">
-                            <p class="font-bold text-neutral-dark flex items-center gap-2">✍️ À vous :</p>
-                            <p class="mt-2">Quel est le problème le plus profond de votre client de cœur ?</p>
-                        </div>
-                        
-                        <!-- Question 3 -->
-                        <h3 class="text-2xl font-bold text-neutral-dark pt-6">Question 3 : Quelle Transformation Offrez-vous ?</h3>
-                        <p>Ne décrivez pas votre outil (la sophrologie, la PNL...), décrivez la destination. Quel est le résultat final, l'état d'esprit après votre accompagnement ?</p>
-                        <div class="bg-red-50 border-l-4 border-red-400 p-4 my-4 rounded-r-lg">
-                            <p><strong>Piège à éviter :</strong> "Je propose des séances de coaching."</p>
-                            <p><strong>Visez plutôt :</strong> "Je vous aide à retrouver une confiance inébranlable pour oser enfin lancer le projet qui vous tient à cœur."</p>
-                        </div>
-                        <div class="bg-soft-blue p-6 rounded-lg my-6">
-                            <p class="font-bold text-neutral-dark flex items-center gap-2">✍️ À vous :</p>
-                            <p class="mt-2">Quelle est la transformation concrète que vous permettez d'atteindre ?</p>
-                        </div>
-
-                        <!-- Question 4 -->
-                        <h3 class="text-2xl font-bold text-neutral-dark pt-6">Question 4 : Quelle est Votre Couleur Unique ?</h3>
-                        <p>Qu'est-ce qui rend votre approche différente ? Votre parcours, votre énergie, une double compétence ? C'est ce qui rend votre accompagnement inimitable.</p>
-                        <div class="bg-green-50 border-l-4 border-green-400 p-4 my-4 rounded-r-lg">
-                            <p><strong>Exemples :</strong> "Mon approche pragmatique et orientée action, issue de mes 15 ans en entreprise." ou "Ma grande capacité d'écoute sans jugement, qui crée un espace de confiance immédiat."</p>
-                        </div>
-                        <div class="bg-soft-blue p-6 rounded-lg my-6">
-                            <p class="font-bold text-neutral-dark flex items-center gap-2">✍️ À vous :</p>
-                            <p class="mt-2">Quelle est votre touche personnelle, votre super-pouvoir ?</p>
-                        </div>
-
-                        <h2 class="text-3xl font-bold text-neutral-dark pt-8 border-t border-gray-200 mt-12">La Recette : Assemblez vos Ingrédients</h2>
-                        <p>Vous avez maintenant les 4 ingrédients d'un message puissant. Il ne reste plus qu'à les assembler.</p>
-                        <ul class="list-disc list-inside">
-                            <li><strong>Votre Titre Principal (H1) = La Transformation (Question 3)</strong></li>
-                            <li><strong>Votre Sous-titre = Pour Qui (Question 1) + Comment (Question 4)</strong></li>
                         </ul>
+                        <p class="mt-4">Si votre message est flou, le visiteur repart aussi vite qu'il est arrivé. S'il est clair, il est captivé et prêt à découvrir la suite.</p>
+                    </div>
 
-                        <div class="bg-white border-2 border-clarity-blue rounded-xl p-8 my-8 shadow-lg">
-                            <h4 class="text-xl font-bold text-neutral-dark mb-4">Exemple concret pour une Naturopathe :</h4>
-                            <ul class="text-base space-y-2">
-                                <li><strong>Q1 (Client) :</strong> Les femmes actives stressées.</li>
-                                <li><strong>Q2 (Problème) :</strong> Elles se sentent fatiguées et dépassées.</li>
-                                <li><strong>Q3 (Transformation) :</strong> Retrouver leur énergie vitale, naturellement.</li>
-                                <li><strong>Q4 (Couleur) :</strong> Une approche bienveillante et pragmatique.</li>
-                            </ul>
-                            <hr class="my-6">
-                            <p class="font-bold text-neutral-dark">➡️ Résultat sur son site :</p>
-                            <blockquote class="mt-2 p-4 bg-soft-blue rounded-lg border-l-4 border-warm-orange">
-                                <p class="font-bold text-2xl text-neutral-dark">Retrouvez votre énergie vitale, naturellement.</p>
-                                <p class="mt-2 text-neutral-light">Accompagnement en naturopathie pour les femmes actives qui veulent se libérer du stress et de la fatigue, grâce à une approche bienveillante et pragmatique.</p>
+                    <!-- Section 2 : L'Atelier -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">L'Atelier : Trouvez Votre Message en 4 Questions</h2>
+                        <p>Assez de théorie. Prenez une feuille, un stylo, et préparez-vous à trouver la clarté. L'erreur commune est de vouloir décrire sa technique. Nous allons faire l'inverse : nous allons nous concentrer sur la <strong class="text-neutral-dark">transformation</strong> que vous offrez.</p>
+                        <p class="mt-4">Répondez à ces quatre questions avec le plus d'honnêteté et de précision possible. Ce sont les ingrédients de votre message.</p>
+                    </div>
+
+                    <!-- Question 1 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Question 1 : Qui est votre Client de Cœur ?</h3>
+                        <p>N'essayez pas de parler à tout le monde. Pensez à LA personne que vous rêvez d'accompagner. Soyez précis.</p>
+                        <ul class="list-none space-y-2 mt-4 text-base">
+                            <li><span class="text-destructive font-bold mr-2">Piège à éviter :</span> "Les gens qui veulent aller mieux."</li>
+                            <li><span class="text-success-green font-bold mr-2">Visez plutôt :</span> "Les femmes entrepreneurs de 35-45 ans qui se sentent au bord du burn-out." ou "Les jeunes managers qui luttent avec le syndrome de l'imposteur."</li>
+                        </ul>
+                        <p class="font-semibold text-neutral-dark mt-6">✍️ À vous : Qui est la personne que vous souhaitez le plus aider ? Décrivez-la.</p>
+                    </div>
+                    
+                    <!-- Question 2 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Question 2 : Quel est son Blocage N°1 ?</h3>
+                        <p>Quelle est la douleur, la frustration, le problème qui l'empêche de dormir la nuit ? Parlez son langage, pas le vôtre.</p>
+                        <ul class="list-none space-y-2 mt-4 text-base">
+                            <li><span class="text-destructive font-bold mr-2">Piège à éviter :</span> "Elle a besoin d'un rééquilibrage de ses chakras." (Votre jargon technique).</li>
+                            <li><span class="text-success-green font-bold mr-2">Visez plutôt :</span> "Elle se sent épuisée, vidée de son énergie, et ne sait plus par où commencer pour prendre soin d'elle." (Sa réalité émotionnelle).</li>
+                        </ul>
+                        <p class="font-semibold text-neutral-dark mt-6">✍️ À vous : Quel est le problème le plus profond de votre client de cœur ?</p>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Question 3 : Quelle est la Transformation que vous lui offrez ?</h3>
+                        <p>Ne décrivez pas votre outil (la sophrologie, la PNL...), décrivez la destination. Quel est le résultat final, l'état d'esprit après votre accompagnement ?</p>
+                        <ul class="list-none space-y-2 mt-4 text-base">
+                            <li><span class="text-destructive font-bold mr-2">Piège à éviter :</span> "Je propose des séances de coaching."</li>
+                            <li><span class="text-success-green font-bold mr-2">Visez plutôt :</span> "Je vous aide à retrouver une confiance inébranlable pour oser enfin lancer le projet qui vous tient à cœur."</li>
+                        </ul>
+                        <p class="font-semibold text-neutral-dark mt-6">✍️ À vous : Quelle est la transformation concrète que vous permettez d'atteindre ?</p>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Question 4 : Quelle est votre "Couleur" Unique ?</h3>
+                        <p>Qu'est-ce qui rend votre approche différente ? Votre parcours, votre énergie, une double compétence ? C'est ce qui rend votre accompagnement inimitable.</p>
+                        <ul class="list-none space-y-2 mt-4 text-base">
+                            <li><span class="text-success-green font-bold mr-2">Exemples :</span> "Mon approche pragmatique et orientée action, issue de mes 15 ans en entreprise." ou "Ma grande capacité d'écoute sans jugement, qui crée un espace de confiance immédiat."</li>
+                        </ul>
+                        <p class="font-semibold text-neutral-dark mt-6">✍️ À vous : Quelle est votre touche personnelle, votre super-pouvoir ?</p>
+                    </div>
+
+                    <!-- Section 3 : La Recette -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">La Recette : Assemblez vos Ingrédients</h2>
+                        <p>Vous avez maintenant les 4 ingrédients d'un message puissant. Il ne reste plus qu'à les assembler.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong>Votre Titre Principal (H1) =</strong> La Transformation (Question 3)</li>
+                            <li><strong>Votre Sous-titre =</strong> Pour Qui (Question 1) + Comment (Question 4)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Bloc Exemple -->
+                    <div class="bg-gradient-to-br from-clarity-blue to-deep-blue text-white p-8 rounded-2xl shadow-lg my-8" data-sr>
+                        <h4 class="text-xl font-bold mb-4">Exemple concret pour une Naturopathe :</h4>
+                        <ul class="list-none space-y-2">
+                            <li><strong>Q1 (Client) :</strong> Les femmes actives stressées.</li>
+                            <li><strong>Q2 (Problème) :</strong> Elles se sentent fatiguées et dépassées.</li>
+                            <li><strong>Q3 (Transformation) :</strong> Retrouver leur énergie vitale, naturellement.</li>
+                            <li><strong>Q4 (Couleur) :</strong> Une approche bienveillante et pragmatique.</li>
+                        </ul>
+                        <div class="mt-6 border-t border-white/20 pt-6">
+                            <p class="text-lg font-semibold mb-2">➡️ Résultat sur son site :</p>
+                            <blockquote class="border-l-4 border-warm-orange pl-4 italic">
+                                <p class="font-bold text-xl">Retrouvez votre énergie vitale, naturellement.</p>
+                                <p class="mt-2 text-white/90">Accompagnement en naturopathie pour les femmes actives qui veulent se libérer du stress et de la fatigue, grâce à une approche bienveillante et pragmatique.</p>
                             </blockquote>
                         </div>
-                        <p>Vous voyez la puissance ? En 3 secondes, une femme active et fatiguée sait qu'elle est au bon endroit et que la solution proposée est faite pour elle.</p>
-                        
-                        <h2 class="text-3xl font-bold text-neutral-dark pt-8 border-t border-gray-200 mt-12">De la Clarté à la Conversion : Et Maintenant ?</h2>
-                        <p>Cet exercice n'est que la première brique. C'est la fondation. Imaginez maintenant un site web entier où chaque section, chaque mot, chaque image est construit avec ce même niveau de clarté et d'intention stratégique.</p>
-                        <p>Un site où :</p>
-                        <ul>
-                            <li>Votre histoire personnelle crée une <strong>connexion humaine instantanée</strong>.</li>
-                            <li>Vos offres sont présentées comme des <strong>transformations désirables</strong>.</li>
-                            <li>Vos témoignages sont des <strong>preuves sociales irréfutables</strong>.</li>
-                        </ul>
-                        <p>C'est exactement la promesse de mon offre "Site Clarté". L'Atelier de Clarté complet nous permet de définir ensemble toutes ces briques. Ensuite, et seulement ensuite, je construis votre site en 7 jours.</p>
-                        <p><strong>Vous ne payez pas pour un site web. Vous investissez dans un message clair qui attire les clients que vous méritez.</strong></p>
+                        <p class="mt-6 font-semibold">Vous voyez la puissance ? En 3 secondes, une femme active et fatiguée sait qu'elle est au bon endroit et que la solution proposée est faite pour elle.</p>
+                    </div>
 
+                    <!-- Section 4 : Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">De la Clarté à la Conversion : Et Maintenant ?</h2>
+                        <p>Cet exercice n'est que la première brique. C'est la fondation. Imaginez maintenant un site web entier où chaque section, chaque mot, chaque image est construit avec ce même niveau de clarté et d'intention stratégique.</p>
+                        <p class="mt-4">Un site où :</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li>Votre histoire personnelle crée une <strong class="text-neutral-dark">connexion humaine instantanée</strong>.</li>
+                            <li>Vos offres sont présentées comme des <strong class="text-neutral-dark">transformations désirables</strong>.</li>
+                            <li>Vos témoignages sont des <strong class="text-neutral-dark">preuves sociales irréfutables</strong>.</li>
+                        </ul>
+                        <p class="mt-4">C'est exactement la promesse de mon offre "Site Clarté". L'Atelier de Clarté complet nous permet de définir ensemble toutes ces briques. Ensuite, et seulement ensuite, je construis votre site en 7 jours.</p>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">Vous ne payez pas pour un site web. Vous investissez dans un message clair qui attire les clients que vous méritez.</p>
                     </div>
                 </div>
             </article>
-            
+
             <!-- Appel à l'action final -->
-            <section class="bg-soft-blue py-20">
-                <div class="container mx-auto px-6 text-center">
-                     <div class="max-w-2xl mx-auto">
-                        <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">Prêt(e) à transformer votre brouillard digital en clarté ?</h2>
-                        <p class="text-lg md:text-xl text-neutral-light leading-relaxed mb-10">Discutons-en pendant 15 minutes. C'est gratuit, sans engagement, et vous repartirez avec une vision plus claire pour votre projet.</p>
-                        <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="btn btn-orange text-lg">
+            <section class="bg-neutral-dark text-white">
+                <div class="container mx-auto px-6 py-16 text-center">
+                    <div class="max-w-3xl mx-auto" data-sr>
+                        <h3 class="text-3xl md:text-4xl font-bold mb-6">Prêt(e) à transformer votre brouillard digital en clarté ?</h3>
+                        <p class="text-lg md:text-xl text-white/80 mb-10">Discutons-en pendant 15 minutes. C'est gratuit, sans engagement, et vous repartirez avec une vision plus claire pour votre projet.</p>
+                        <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="btn btn-orange text-lg px-10 py-4">
                             Planifier mon Appel Clarté Gratuit
                         </a>
                     </div>
                 </div>
             </section>
+
         </main>
 
-
-        <!-- Footer -->
+        <!-- ======================================================= -->
+        <!--        FOOTER (REPRIS DE L'ACCUEIL)                     -->
+        <!-- ======================================================= -->
         <footer class="bg-neutral-dark text-white py-16">
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-3 gap-12">
-                     <div class="space-y-6">
+                    <div class="space-y-6">
                         <div>
-                            <a href="../index.html">
-                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            <a href="index.html">
+                                <img class="h-14 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
                             </a>
                             <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
                         </div>
@@ -246,23 +305,36 @@
                     <div class="space-y-6">
                         <h4 class="text-xl font-bold text-white">Navigation</h4>
                         <div class="space-y-3">
-                            <a href="../index.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
-                            <a href="../a-propos.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À Propos</a>
-                            <a href="../blog.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
-                            <a href="../index.html#plan" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mon Plan</a>
-                            <a href="../index.html#offres" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes Offres</a>
-                            <a href="../portfolio.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
-                            <a href="../faq.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
-                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Prendre Rendez-vous</a>
+                            <a href="index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
                         </div>
                     </div>
                     <div class="space-y-6">
                         <h4 class="text-xl font-bold text-white">Informations Légales</h4>
                         <div class="space-y-3">
-                            <a href="../mentions-legales.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions Légales</a>
-                            <a href="../politique-de-confidentialite.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique de Confidentialité</a>
-                            <a href="../cgv.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions Générales de Vente</a>
-                            <a href="../contact.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                            <a href="mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
                         </div>
                     </div>
                 </div>
@@ -277,7 +349,11 @@
             </div>
         </footer>
 
-    </div>
-    <script src="../js/script.js"></script>
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (INCHANGÉ) -->
+    <script src="js/script.js"></script>
+    
 </body>
+
 </html>
