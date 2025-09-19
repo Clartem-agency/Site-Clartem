@@ -1166,31 +1166,6 @@
     <!-- Custom JS -->
     <script src="js/script.js"></script>
 
-    <!-- JS spécifique à la page FAQ -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const faqToggles = document.querySelectorAll('.faq-toggle');
-
-            faqToggles.forEach(toggle => {
-                toggle.addEventListener('click', () => {
-                    const answer = toggle.nextElementSibling;
-                    const icon = toggle.querySelector('svg');
-
-                    // Animation pour l'ouverture/fermeture
-                    if (answer.style.maxHeight) {
-                        // Si l'élément est ouvert, on le ferme
-                        answer.style.maxHeight = null;
-                        icon.classList.remove('rotate-180');
-                    } else {
-                        // Si l'élément est fermé, on l'ouvre
-                        answer.style.maxHeight = answer.scrollHeight + "px";
-                        icon.classList.add('rotate-180');
-                    }
-                });
-            });
-        });
-    </script>
-
 </body>
 
 </html>
