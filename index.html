@@ -72,50 +72,51 @@
 
 
         
-
-
-        <!-- ======================================================= -->
-<!--                Section Navigation                       -->
-<!-- ID "main-nav" ajouté pour un ciblage JS plus robuste    -->
-<!-- et pour les bonnes pratiques d'accessibilité.           -->
 <!-- ======================================================= -->
-        
-<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
-        <div class="container mx-auto px-6 py-4">
-                <div class="flex items-center justify-between">
-                    <a href="index.html">
-                        <img class="h-14 w-auto" src="assets/logo-clartem.svg" alt="Logo clartem.com">
-                    </a>
-                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
-                        <a href="index.html"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
-                        <a href="a-propos.html"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
-                            Propos</a>
-                        <a href="index.html#plan"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mon
-                            Plan</a>
-                        <a href="index.html#offres"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
-                            Offres</a>
-                        <a href="solutions-par-metier.html"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes solutions</a>
-                        <!-- LIEN CORRIGÉ CI-DESSOUS -->
-                        <a href="portfolio.html"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Portfolio</a>
-                    </div>
-                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
-                        rel="noopener noreferrer"
-                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
-                        un appel clarté</a>
-                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16m-7 6h7"></path>
-                        </svg>
-                    </button>
-                </div>
+<!--                Section Navigation (MODIFIÉE)            -->
+<!-- ======================================================= -->
+
+<nav id="main-nav"
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+    <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+            <a href="index.html">
+                <img class="h-14 w-auto" src="assets/logo-clartem.svg" alt="Logo clartem.com">
+            </a>
+            <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                <a href="index.html"
+                    class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                <a href="a-propos.html"
+                    class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                    Propos</a>
+                <a href="index.html#plan"
+                    class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mon
+                    Plan</a>
+                <a href="index.html#offres"
+                    class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                    Offres</a>
+                <!-- MODIFIÉ : "Portfolio" renommé en "Mes réalisations" -->
+                <a href="portfolio.html"
+                    class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                <!-- AJOUTÉ : Lien FAQ -->
+                <a href="faq.html"
+                    class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                <!-- SUPPRIMÉ : Le lien "Mes solutions" a été enlevé -->
+            </div>
+            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                rel="noopener noreferrer"
+                class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                un appel clarté</a>
+            <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+
+ 
 
 
 
@@ -123,29 +124,31 @@
          <!-- ======================================================= -->
          <!--                        Mobile Menu                      -->
          <!-- ======================================================= -->
-                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
-                    <a href="index.html"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
-                    <a href="a-propos.html"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
-                        Propos</a>
-                    <a href="index.html#plan"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mon
-                        Plan</a>
-                    <a href="index.html#offres"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
-                        Offres</a>
-                    <a href="solutions-par-metier.html"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes solutions</a>
-                    <!-- LIEN CORRIGÉ CI-DESSOUS -->
-                    <a href="portfolio.html"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Portfolio</a>
-                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
-                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
-                        un appel clarté</a>
-                </div>
-            </div>
-        </nav>
+               <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+            <a href="index.html"
+                class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+            <a href="a-propos.html"
+                class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                Propos</a>
+            <a href="index.html#plan"
+                class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mon
+                Plan</a>
+            <a href="index.html#offres"
+                class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                Offres</a>
+            <!-- MODIFIÉ : "Portfolio" renommé en "Mes réalisations" -->
+            <a href="portfolio.html"
+                class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+            <!-- AJOUTÉ : Lien FAQ -->
+            <a href="faq.html"
+                class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+            <!-- SUPPRIMÉ : Le lien "Mes solutions" a été enlevé -->
+            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                un appel clarté</a>
+        </div>
+    </div>
+</nav>
 
 
 
@@ -188,11 +191,11 @@
 
         
         <!-- ======================================================= -->
-        <!--                Section Probleme                       -->
-        <!-- ======================================================= -->
+<!--                Section Probleme (SANS HALOS)          -->
+<!-- ======================================================= -->
 
 <section id="problem-section" class="relative text-white py-20">
-    <!-- NOUVEAU : Superposition sombre pour la lisibilité sur l'image de fond -->
+    <!-- Superposition sombre pour la lisibilité sur l'image de fond -->
     <div class="absolute inset-0 bg-neutral-dark/80 z-0"></div>
 
     <!-- Le conteneur qui aura une grande hauteur pour permettre le scroll de l'animation -->
@@ -200,18 +203,11 @@
         <!-- Le contenu qui deviendra "sticky" (collant) en haut de l'écran -->
         <div id="problem-sticky-content" class="h-screen w-full">
             
-            <!-- Éléments décoratifs en arrière-plan (halos) -->
-            <!-- MODIFIÉ : z-index augmenté pour être au-dessus de la superposition -->
-            <div aria-hidden="true" class="absolute inset-0 z-10 opacity-20">
-                <div class="absolute -top-20 -left-20 w-96 h-96 bg-destructive rounded-full filter blur-3xl"></div>
-                <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-clarity-blue rounded-full filter blur-3xl"></div>
-            </div>
-
             <!-- Conteneur pour centrer le contenu verticalement et horizontalement -->
             <div class="container mx-auto px-6 h-full flex flex-col justify-center">
                 
                 <div class="py-20">
-                    <!-- MODIFIÉ : z-index augmenté pour être au-dessus des halos et de la superposition -->
+                    <!-- Le z-index est conservé pour s'assurer que le contenu est bien au-dessus de la superposition -->
                     <div class="relative z-20">
                         <div class="text-center mb-16">
                             <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Votre présence en ligne vous
@@ -220,7 +216,7 @@
                                 frustrations car je les ai entendues des centaines de fois.</p>
                         </div>
 
-                        <!-- MODIFIÉ : L'icône est positionnée encore plus bas avec top-80 -->
+                        <!-- L'icône est positionnée encore plus bas avec top-80 -->
                         <div id="frustration-knot-container" class="absolute inset-x-0 top-80 text-center pointer-events-none">
                             <svg class="inline-block" width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M15.3807 7.31924C16.2505 5.79525 18.1253 5.31839 19.6493 6.18819C21.1733 7.05799 21.6502 8.93282 20.7804 10.4568L12.5695 23.9999L3.21942 10.519C2.34962 9.00696 2.82648 7.12017 4.35047 6.25037C5.87446 5.38057 7.74929 5.85743 8.61909 7.38142L12.0019 13.003L15.3807 7.31924Z" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -230,7 +226,7 @@
                         </div>
 
                         <div id="problem-cards-grid" class="grid md:grid-cols-3 gap-8">
-                            <!-- Carte 1: Problème Externe (MISE À JOUR) -->
+                            <!-- Carte 1: Problème Externe -->
                             <div class="problem-card bg-neutral-dark/50 border border-white/15 rounded-2xl p-8 backdrop-blur-md transition-all duration-300 hover:bg-neutral-dark/60 hover:border-white/25 hover:shadow-2xl hover:-translate-y-2 flex flex-col">
                                 <div class="flex-shrink-0 mb-6 flex justify-center">
                                     <img src="assets/icones/icon-probleme-externe.png" alt="Icône illustrant la confusion digitale" class="w-40 h-40 rounded-full">
@@ -240,7 +236,7 @@
                                     <p class="text-white/70">Entre les plateformes, les designs, les fonctionnalités... le choix semble infini et déroutant.</p>
                                 </div>
                             </div>
-                            <!-- Carte 2: Problème Interne (MISE À JOUR) -->
+                            <!-- Carte 2: Problème Interne -->
                             <div class="problem-card bg-neutral-dark/50 border border-white/15 rounded-2xl p-8 backdrop-blur-md transition-all duration-300 hover:bg-neutral-dark/60 hover:border-white/25 hover:shadow-2xl hover:-translate-y-2 flex flex-col">
                                 <div class="flex-shrink-0 mb-6 flex justify-center">
                                     <img src="assets/icones/icon-probleme-interne.png" alt="Icône illustrant l'anxiété technique" class="w-40 h-40 rounded-full">
@@ -250,7 +246,7 @@
                                     <p class="text-white/70">La peur de perdre du temps et de l'argent vous paralyse et vous empêche d'avancer.</p>
                                 </div>
                             </div>
-                            <!-- Carte 3: Problème Philosophique (MISE À JOUR) -->
+                            <!-- Carte 3: Problème Philosophique -->
                             <div class="problem-card bg-neutral-dark/50 border border-white/15 rounded-2xl p-8 backdrop-blur-md transition-all duration-300 hover:bg-neutral-dark/60 hover:border-white/25 hover:shadow-2xl hover:-translate-y-2 flex flex-col">
                                 <div class="flex-shrink-0 mb-6 flex justify-center">
                                     <img src="assets/icones/icon-probleme-philosophique.png" alt="Icône illustrant le besoin de simplicité" class="w-40 h-40 rounded-full">
@@ -1579,74 +1575,78 @@
 
 
        
-       
-        <!-- ======================================================= -->
-        <!--                        Footer                           -->
-        <!-- ======================================================= -->
+       <!-- ======================================================= -->
+<!--                        Footer (MODIFIÉ)                 -->
+<!-- ======================================================= -->
 
-        <footer class="bg-neutral-dark text-white py-16">
-            <div class="container mx-auto px-6">
-                <div class="grid md:grid-cols-3 gap-12">
-                    <div class="space-y-6">
-                        <div>
-                            <a href="index.html">
-                                <img class="h-14 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
-                            </a>
-                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
-                        </div>
-                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
-                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
-                            et les coûts exorbitants.</p>
-                    </div>
-                    <div class="space-y-6">
-                        <h4 class="text-xl font-bold text-white">Navigation</h4>
-                        <div class="space-y-3">
-                            <a href="index.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
-                            <a href="a-propos.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
-                                Propos</a>
-                            <a href="index.html#plan"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mon
-                                Plan</a>
-                            <a href="index.html#offres"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
-                                Offres</a>
-                            <a href="portfolio.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Portfolio</a>
-                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web"
-                                target="_blank" rel="noopener noreferrer"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Prendre
-                                Rendez-vous</a>
-                        </div>
-                    </div>
-                    <div class="space-y-6">
-                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
-                        <div class="space-y-3">
-                            <a href="mentions-legales.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
-                                Légales</a>
-                            <a href="politique-de-confidentialite.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
-                                de Confidentialité</a>
-                            <a href="cgv.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
-                                Générales de Vente</a>
-                            <a href="contact.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
-                        </div>
-                    </div>
+<footer class="bg-neutral-dark text-white py-16">
+    <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-12">
+            <div class="space-y-6">
+                <div>
+                    <a href="index.html">
+                        <img class="h-14 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
                 </div>
-                <div class="border-t border-neutral-light/20 mt-12 pt-8">
-                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
-                        <div class="text-sm text-neutral-light">
-                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
-                        </div>
-                    </div>
+                <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                    une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                    et les coûts exorbitants.</p>
+            </div>
+            <div class="space-y-6">
+                <h4 class="text-xl font-bold text-white">Navigation</h4>
+                <div class="space-y-3">
+                    <a href="index.html"
+                        class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                    <a href="a-propos.html"
+                        class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                        Propos</a>
+                    <a href="index.html#plan"
+                        class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mon
+                        Plan</a>
+                    <a href="index.html#offres"
+                        class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                        Offres</a>
+                    <!-- MODIFIÉ : "Portfolio" renommé en "Mes réalisations" -->
+                    <a href="portfolio.html"
+                        class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                    <!-- AJOUTÉ : Lien FAQ -->
+                    <a href="faq.html"
+                        class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web"
+                        target="_blank" rel="noopener noreferrer"
+                        class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Prendre
+                        Rendez-vous</a>
                 </div>
             </div>
-        </footer>
+            <div class="space-y-6">
+                <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                <div class="space-y-3">
+                    <a href="mentions-legales.html"
+                        class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                        Légales</a>
+                    <a href="politique-de-confidentialite.html"
+                        class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                        de Confidentialité</a>
+                    <a href="cgv.html"
+                        class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                        Générales de Vente</a>
+                    <a href="contact.html"
+                        class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-neutral-light/20 mt-12 pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                <div class="text-sm text-neutral-light">
+                    <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+        
 
         
        
