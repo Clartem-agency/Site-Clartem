@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Votre Site n'est pas une Brochure, C'est le Premier Chapitre de la Transformation</title>
+    <meta name="description"
+        content="Coachs, arrêtez de voir votre site comme une simple brochure. Découvrez comment le transformer en un parcours narratif puissant qui engage vos clients et initie leur transformation avant même le premier appel.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- META OPEN GRAPH & TWITTER (SPÉCIFIQUES À L'ARTICLE) -->
+    <meta property="og:title" content="Votre Site n'est pas une Brochure, C'est le Premier Chapitre de la Transformation">
+    <meta property="og:description"
+        content="Découvrez comment transformer votre site en un parcours narratif qui engage vos clients et initie leur transformation.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-site-transformation.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-site-transformation.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- ======================================================= -->
+        <!--      HEADER / NAVIGATION (CHEMINS CORRIGÉS)           -->
+        <!-- ======================================================= -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ======================================================= -->
+        <!--                DÉBUT DU CONTENU DE L'ARTICLE            -->
+        <!-- ======================================================= -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Votre Site n'est pas une Brochure, C'est le Premier Chapitre de la Transformation
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                            Coachs, arrêtez de voir votre site comme une simple brochure. Découvrez comment le transformer en un parcours narratif puissant qui engage vos clients et initie leur transformation avant même le premier appel.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/site-transformation-intro.webp" alt="Un livre ancien s'ouvrant sur une page blanche, symbolisant le début d'une histoire de transformation." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>En tant que coach, votre métier est de guider les gens d'un point A à un point B. Vous êtes un architecte de la transformation, un conteur d'avenirs possibles. Vous savez qu'un parcours réussi commence toujours par une première étape claire et inspirante.</p>
+
+                    <p data-sr>Pourtant, quand il s'agit de votre propre site web, vous tombez souvent dans le piège de la "brochure".</p>
+
+                    <p data-sr>Vous créez une page "Accueil", une page "Mes Services", une page "Qui suis-je"... Vous présentez les informations comme des faits isolés, des sections bien rangées dans des boîtes. Votre site devient une collection de fiches techniques. Une brochure, en somme.</p>
+
+                    <p data-sr>Le problème ? <strong class="text-neutral-dark">Personne n'a jamais été transformé par une brochure.</strong></p>
+
+                    <p data-sr class="bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">Une brochure informe. Une histoire transforme.</p>
+                    
+                    <p data-sr>Votre site web ne doit pas être une brochure. Il doit être <strong class="text-clarity-blue">le premier chapitre du livre de la transformation de votre client</strong>. Il doit être le début du parcours que vous lui proposez.</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Le Scénario du Labyrinthe vs le Scénario du Chemin Guidé</h2>
+                        <p>Un site web "brochure" est un labyrinthe. Le visiteur arrive sur la page d'accueil et voit 5 portes différentes : "À Propos", "Services", "Blog", "Contact"... Il peut cliquer dans n'importe quel ordre, se perdre, revenir en arrière, et finalement, frustré ou confus, quitter le navire sans avoir saisi l'essence de votre message.</p>
+                        <p class="mt-4">Un site "transformationnel", lui, est un <strong class="text-neutral-dark">chemin guidé</strong>. Il n'y a qu'une seule voie à suivre : celle que vous avez tracée pour lui. C'est la philosophie derrière le <a href="../index.html#offres" class="font-semibold text-clarity-blue hover:underline">Site Clarté</a> que je propose, souvent sous la forme d'une page unique (one-page).</p>
+                        <p class="mt-4">Le défilement vers le bas n'est plus une action technique. Il devient un acte narratif. Le visiteur ne navigue pas, il chemine. Et chaque section est une étape de ce chemin, conçue pour arriver au moment psychologique parfait.</p>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/site-transformation-chemin.webp" alt="Un chemin clair et balisé serpentant à travers un paysage serein, représentant un parcours client guidé." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 : Les 5 Actes -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Les 5 Actes de votre Récit de Transformation</h2>
+                        <p>Comment scénariser ce parcours ? En pensant votre site comme une histoire en 5 actes, où votre client est le héros.</p>
+                    </div>
+
+                    <!-- Acte 1 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Acte 1 : L'Appel à l'Aventure (Votre Section "Héros")</h3>
+                        <p>C'est la première phrase du livre. Elle doit captiver le héros (votre client) en lui montrant un aperçu de la destination finale. Elle ne décrit pas le voyage, elle promet la transformation.</p>
+                        <blockquote class="border-l-4 border-warm-orange pl-4 mt-4 text-neutral-dark">
+                            <p class="italic">Au lieu de : "Coaching en prise de parole en public"</p>
+                            <p class="mt-2 font-bold">Pensez : "Devenez le Leader Confiant et Inspirant que vous êtes Vraiment"</p>
+                        </blockquote>
+                        <p class="mt-4">Le héros se reconnaît. Il se dit : "C'est de moi qu'on parle. C'est ce que je veux devenir." Il est accroché. Il veut lire la suite.</p>
+                    </div>
+                    
+                    <!-- Acte 2 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Acte 2 : La Rencontre avec le Guide (Votre Section "À Propos")</h3>
+                        <p>Le héros ne peut pas accomplir sa quête seul. Il a besoin d'un guide sage et expérimenté. Ce guide, c'est vous. C'est le moment de vous présenter, non pas par votre CV, mais par votre histoire. Pourquoi êtes-vous le guide parfait pour *sa* quête ?</p>
+                        <p class="mt-4 font-semibold text-neutral-dark">Au lieu de lister vos diplômes, racontez l'épreuve que vous avez vous-même surmontée, le déclic qui a fait de vous un expert. C'est ce qui crée la confiance et la connexion.</p>
+                        <p class="mt-4">Le héros se dit : "Ce guide a déjà fait le chemin. Il me comprend. Je peux lui faire confiance."</p>
+                    </div>
+
+                    <!-- Acte 3 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Acte 3 : La Carte du Monde (Vos "Accompagnements")</h3>
+                        <p>Maintenant que la confiance est établie, le guide peut enfin présenter la carte du voyage. Vos offres ne sont pas des "services". Ce sont les différentes étapes du parcours, les chemins possibles vers la transformation.</p>
+                        <blockquote class="border-l-4 border-warm-orange pl-4 mt-4 text-neutral-dark">
+                            <p class="italic">Au lieu de : "Forfait 10 séances"</p>
+                            <p class="mt-2 font-bold">Pensez : "Le Parcours 'Prise de Parole d'Impact' : 10 étapes pour maîtriser votre message et captiver votre audience."</p>
+                        </blockquote>
+                        <p class="mt-4">Le héros regarde la carte. Il voit un plan clair, une destination tangible. Il n'achète plus des séances, il investit dans un itinéraire vers son succès.</p>
+                    </div>
+
+                    <!-- Acte 4 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Acte 4 : Les Récits des Anciens Voyageurs (Vos "Témoignages")</h3>
+                        <p>Pour rassurer le héros avant le grand départ, le guide lui montre les histoires de ceux qui ont déjà réussi le voyage.</p>
+                        <blockquote class="border-l-4 border-warm-orange pl-4 mt-4 text-neutral-dark">
+                            <p class="italic">Au lieu d'un simple : "Super coach, je recommande !"</p>
+                            <p class="mt-2 font-bold">Présentez une histoire : "Avant, j'étais terrifié à l'idée de présenter en réunion. Grâce à [Votre Nom], j'ai récemment animé une conférence devant 100 personnes. C'était impensable il y a 6 mois."</p>
+                        </blockquote>
+                        <p class="mt-4">Le héros se dit : "Si ça a marché pour eux, ça peut marcher pour moi." La peur se transforme en espoir.</p>
+                    </div>
+
+                    <!-- Acte 5 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Acte 5 : Le Premier Pas sur le Chemin (Votre "Appel à l'Action")</h3>
+                        <p>L'histoire a été racontée, la confiance est bâtie, la carte est claire. Il ne reste plus qu'une chose : inviter le héros à faire le premier pas.</p>
+                        <blockquote class="border-l-4 border-warm-orange pl-4 mt-4 text-neutral-dark">
+                            <p class="italic">Au lieu d'un simple : "Contactez-moi"</p>
+                            <p class="mt-2 font-bold">Pensez : "Prêt(e) à commencer votre propre histoire ? Planifions votre appel stratégique."</p>
+                        </blockquote>
+                        <p class="mt-4">Le clic n'est plus une demande de contact. C'est le début de l'aventure.</p>
+                    </div>
+
+                    <!-- Image 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/site-transformation-resultat.webp" alt="Personne regardant un horizon lumineux depuis un point de vue élevé, symbolisant la réussite de la transformation." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Devenez le Scénariste de votre Succès</h2>
+                        <p>Arrêtez de penser à votre site web comme à une collection de pages. Pensez-y comme à votre meilleur scénario. Un récit intentionnel qui prend votre visiteur par la main, le fait passer de l'état de "curieux" à "convaincu", et de "convaincu" à "client engagé".</p>
+                        <p class="mt-4">C'est cette approche narrative que nous mettons en place dans l'<a href="01-atelier-message-central.html" class="font-semibold text-clarity-blue hover:underline">Atelier de Clarté</a>. Nous ne remplissons pas des cases. Nous écrivons le premier chapitre de la réussite de vos clients.</p>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">Votre expertise mérite mieux qu'une brochure. Elle mérite une histoire qui transforme.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- NOUVELLE SECTION CTA (REMPLACE LE LEAD MAGNET) -->
+            <section id="cta-blog" class="py-20 bg-white relative overflow-hidden">
+                <div class="container mx-auto px-6 relative z-10">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl overflow-hidden p-8 md:p-12 text-center" data-sr>
+                        <div class="space-y-6">
+                            <div>
+                                <h3 class="text-2xl md:text-3xl font-bold">Votre site raconte-t-il la bonne histoire ?</h3>
+                                <p class="text-lg text-white/80 leading-relaxed mt-4">
+                                    Si vous sentez que votre site actuel est plus une brochure qu'un best-seller, il est peut-être temps de revoir le scénario.
+                                </p>
+                            </div>
+                            <div class="pt-2">
+                                <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="btn btn-primary inline-flex items-center justify-center text-lg h-14 px-8">
+                                    Discutons de votre histoire lors d'un Appel Clarté
+                                </a>
+                                <p class="text-sm text-center text-white/60 mt-4">
+                                    Gratuit et sans engagement
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ======================================================= -->
+        <!--        FOOTER (CHEMINS CORRIGÉS)                      -->
+        <!-- ======================================================= -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>
