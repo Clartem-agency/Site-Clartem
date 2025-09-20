@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Votre Page d'Accueil Fait-elle Fuir vos Meilleurs Prospects ? L'Audit en 5 Points</title>
+    <meta name="description"
+        content="Votre page d'accueil ne convertit pas ? Réalisez notre audit simple en 5 points (clarté, preuve, CTA...) pour savoir si votre site de coach ou consultant attire ou fait fuir vos clients idéaux.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- META OPEN GRAPH & TWITTER (SPÉCIFIQUES À L'ARTICLE) -->
+    <meta property="og:title" content="Votre Page d'Accueil Fait-elle Fuir vos Meilleurs Prospects ? L'Audit en 5 Points">
+    <meta property="og:description"
+        content="Réalisez notre audit simple en 5 points pour savoir si votre site attire ou fait fuir vos clients idéaux.">
+    <meta property="og:type" content="article">
+    <!-- NOUVELLE IMAGE OG -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-audit-accueil.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-audit-accueil.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- ======================================================= -->
+        <!--      HEADER / NAVIGATION (CHEMINS CORRIGÉS)           -->
+        <!-- ======================================================= -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ======================================================= -->
+        <!--                DÉBUT DU CONTENU DE L'ARTICLE            -->
+        <!-- ======================================================= -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Votre Page d'Accueil Fait-elle Fuir vos Meilleurs Prospects ? L'Audit en 5 Points
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                            Votre page d'accueil ne convertit pas ? Réalisez notre audit simple en 5 points pour savoir si votre site de coach ou consultant attire ou fait fuir vos clients idéaux.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/audit-accueil-intro.webp" alt="Personne arrivant sur une page web avec un air confus, symbolisant une mauvaise première impression." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Votre page d'accueil est la porte d'entrée de votre business en ligne. C'est la première chose qu'un prospect voit après avoir cliqué sur votre profil LinkedIn ou sur un lien dans votre signature d'email.</p>
+
+                    <p data-sr>Vous avez environ <strong class="text-neutral-dark">3 à 5 secondes</strong> pour le convaincre de rester.</p>
+
+                    <p data-sr>Pendant ce court laps de temps, votre visiteur, souvent un décideur pressé, scanne la page et se pose inconsciemment une série de questions. S'il ne trouve pas les réponses rapidement, il clique sur "Retour" sans même vous laisser une chance.</p>
+
+                    <p data-sr>Beaucoup de consultants et de coachs pensent que leur page d'accueil est "bonne" parce qu'elle est "jolie" ou "complète". Mais est-elle <strong class="text-warm-orange">efficace</strong> ? Fait-elle son travail de commercial ? Ou, sans que vous le sachiez, est-elle en train de faire fuir vos prospects les plus qualifiés ?</p>
+
+                    <p data-sr>Je vous propose un audit simple et rapide. Prenez 5 minutes, ouvrez votre page d'accueil dans un autre onglet, et évaluez-la honnêtement sur ces 5 points critiques.</p>
+
+                    <!-- Point d'Audit n°1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Point d'Audit n°1 : Le Test des 5 Secondes (La Clarté de la Promesse)</h2>
+                        <p>Imaginez que vous êtes votre client idéal et que vous arrivez sur votre site pour la toute première fois. Regardez uniquement la partie visible de l'écran, sans faire défiler. Pouvez-vous répondre clairement à ces trois questions en moins de 5 secondes ?</p>
+                        <ol class="list-decimal list-inside space-y-2 mt-4 pl-4">
+                            <li><strong>Qui</strong> est cette personne/entreprise ?</li>
+                            <li><strong>Que</strong> fait-elle ?</li>
+                            <li><strong>Pour qui</strong> le fait-elle ?</li>
+                        </ol>
+                        <ul class="list-none space-y-2 mt-6">
+                            <li><span class="text-destructive font-bold mr-2">🔴 Feu Rouge :</span> Si votre titre principal est vague ("Bienvenue", "Conseil en Management") ou si vous devez lire trois paragraphes pour comprendre ce que vous vendez, vous avez échoué au test. Votre prospect est déjà confus.</li>
+                            <li class="mt-2"><span class="text-success-green font-bold mr-2">🟢 Feu Vert :</span> Si votre titre est une promesse claire et que votre sous-titre désigne une cible précise (ex: "J'aide les PME industrielles à optimiser leur production"), bravo. Le visiteur sait qu'il est au bon endroit.</li>
+                        </ul>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark"><strong>Action :</strong> Revoyez votre accroche. Elle doit vendre la <strong class="text-clarity-blue">transformation</strong>, pas la technique. C'est le point le plus crucial, celui que nous abordons en premier dans mon <a href="01-atelier-message-central.html" class="font-semibold text-clarity-blue hover:underline">Atelier de Clarté</a>.</p>
+                    </div>
+
+                    <!-- Point d'Audit n°2 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Point d'Audit n°2 : Le Facteur Confiance (La Preuve Sociale)</h2>
+                        <p>Un prospect B2B est par nature sceptique. Il a besoin de preuves. Votre page d'accueil doit lui fournir un signal de confiance immédiat, avant même qu'il ne fasse défiler la page.</p>
+                        <p class="mt-4">Regardez à nouveau la partie supérieure de votre page. Y a-t-il une forme de preuve sociale visible ?</p>
+                        <ul class="list-none space-y-2 mt-6">
+                            <li><span class="text-destructive font-bold mr-2">🔴 Feu Rouge :</span> S'il n'y a que votre promesse et votre photo, c'est insuffisant. Vous demandez au prospect de vous croire sur parole.</li>
+                            <li class="mt-2"><span class="text-success-green font-bold mr-2">🟢 Feu Vert :</span> Si vous affichez discrètement les logos de quelques clients connus ("Ils me font confiance :"), une citation percutante d'un témoignage, ou une mention de média ("Vu dans..."), vous activez un puissant levier psychologique. La crédibilité est instantanément renforcée.</li>
+                        </ul>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark"><strong>Action :</strong> Ne cachez pas vos meilleures preuves sociales au fin fond d'une page "Témoignages". Mettez-en un échantillon en avant, dès le début.</p>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/audit-accueil-confiance.webp" alt="Une poignée de main solide devant un graphique en hausse, symbolisant la confiance et la crédibilité." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Point d'Audit n°3 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Point d'Audit n°3 : L'Invitation à l'Action (Le CTA Stratégique)</h2>
+                        <p>Quel est le premier bouton sur lequel vous voulez que votre visiteur clique ? Ce bouton (votre Appel à l'Action ou CTA) doit être visible, clair et... désirable.</p>
+                        <ul class="list-none space-y-2 mt-6">
+                            <li><span class="text-destructive font-bold mr-2">🔴 Feu Rouge :</span> Si votre bouton principal est un simple "Contactez-moi" ou "En savoir plus", il est passif et n'offre aucune valeur. Il demande un effort sans promettre de bénéfice.</li>
+                            <li class="mt-2"><span class="text-success-green font-bold mr-2">🟢 Feu Vert :</span> Si votre bouton est une offre en soi (ex: "Planifier ma Session Stratégique Gratuite", "Télécharger le Cas d'Étude", "Demander mon Audit Offert"), vous transformez une simple invitation en une opportunité. Le prospect ne clique pas pour vous contacter, il clique pour <strong class="text-neutral-dark">obtenir quelque chose de valeur</strong>.</li>
+                        </ul>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark"><strong>Action :</strong> Remplacez votre CTA passif par une offre de diagnostic ou de clarté. C'est la meilleure façon de qualifier vos prospects et de remplir votre agenda.</p>
+                        <p class="mt-4">➡️ <strong>Pour aller plus loin :</strong> <a href="#" class="font-semibold text-clarity-blue hover:underline">Lisez mon guide complet sur l'Appel à l'Action qui convertit</a></p>
+                    </div>
+
+                    <!-- Point d'Audit n°4 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Point d'Audit n°4 : Le Chemin Évident (Le Parcours Visiteur)</h2>
+                        <p>Une bonne page d'accueil n'est pas un cul-de-sac. Elle doit guider le visiteur vers la prochaine étape logique de son parcours de réflexion.</p>
+                        <ul class="list-none space-y-2 mt-6">
+                            <li><span class="text-destructive font-bold mr-2">🔴 Feu Rouge :</span> Si votre page est un long bloc de texte sans structure claire, sans titres percutants ni boutons intermédiaires, le visiteur se sent perdu. Il ne sait pas où regarder ni quoi faire, alors il s'en va.</li>
+                            <li class="mt-2"><span class="text-success-green font-bold mr-2">🟢 Feu Vert :</span> Si votre page est structurée comme une histoire (Promesse -> Problème -> Solution -> Preuve -> Action), avec des titres clairs pour chaque section et des boutons qui guident vers les informations pertinentes, vous prenez votre visiteur par la main. Le parcours est fluide et intuitif.</li>
+                        </ul>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark"><strong>Action :</strong> Pensez à votre page d'accueil comme à une conversation. Chaque section doit répondre à la question que le prospect se pose à ce moment précis, et l'inviter naturellement à l'étape suivante.</p>
+                    </div>
+
+                    <!-- Image 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/audit-accueil-parcours.webp" alt="Un chemin clair et balisé menant à un objectif, représentant un parcours utilisateur intuitif sur un site web." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Point d'Audit n°5 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Point d'Audit n°5 : L'Incarnation (Le Facteur Humain)</h2>
+                        <p>Les gens n'achètent pas à des logos. Ils achètent à des gens. Surtout dans le conseil et le coaching, où la relation est primordiale. Votre page d'accueil doit montrer qu'il y a un expert humain et accessible derrière l'entreprise.</p>
+                        <ul class="list-none space-y-2 mt-6">
+                            <li><span class="text-destructive font-bold mr-2">🔴 Feu Rouge :</span> Si votre page est remplie de photos "stock" impersonnelles et qu'il faut chercher pour trouver une photo de vous, vous créez une distance.</li>
+                            <li class="mt-2"><span class="text-success-green font-bold mr-2">🟢 Feu Vert :</span> Si une photo professionnelle et chaleureuse de vous est présente, idéalement dans la section "À Propos" qui suit l'introduction, vous incarnez votre expertise. Vous n'êtes plus une entité abstraite, mais une personne avec qui le prospect peut s'imaginer travailler.</li>
+                        </ul>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark"><strong>Action :</strong> Investissez dans un bon portrait. C'est l'un des meilleurs ROI pour votre site. Votre visage est votre meilleur outil pour bâtir la confiance.</p>
+                    </div>
+
+                    <!-- Conclusion -->
+                    <div class="pt-6 border-t border-gray-200" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Votre Score ?</h2>
+                        <p>Alors, quel est le résultat de votre audit ? Si vous avez plus de deux feux rouges, il est probable que votre page d'accueil soit une "passoire à prospects". Elle laisse s'échapper des opportunités précieuses chaque jour.</p>
+                        <p class="mt-4">La bonne nouvelle, c'est que chaque point de cette checklist peut être corrigé. En passant d'un site "brouillon" à un site "stratégique", vous ne faites pas que l'améliorer. Vous le transformez en un commercial qui travaille pour vous, sans relâche, pour attirer, rassurer et convertir vos clients idéaux.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- NOUVELLE SECTION : Appel à l'action final (remplace le Lead Magnet) -->
+            <section id="cta-blog" class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+                        <div class="space-y-6">
+                            <h3 class="text-2xl md:text-3xl font-bold">Prêt(e) à transformer votre page d'accueil en une machine à leads qualifiés ?</h3>
+                            <p class="text-lg text-white/80 leading-relaxed max-w-2xl mx-auto">
+                                Si cet audit a révélé des failles dans votre site actuel, ne restez pas avec vos questions. Discutons-en.
+                            </p>
+                            <div class="pt-4">
+                                <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="btn btn-orange text-lg">
+                                    Je réserve mon Audit Stratégique gratuit de 15 minutes
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ======================================================= -->
+        <!--        FOOTER (CHEMINS CORRIGÉS)                      -->
+        <!-- ======================================================= -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>
