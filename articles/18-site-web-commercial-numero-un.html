@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Votre Site Web n'est pas une Carte de Visite, c'est Votre Commercial n°1</title>
+    <meta name="description"
+        content="Consultants, coachs, formateurs : votre site web est-il un simple coût ou votre meilleur commercial ? Découvrez les 3 rôles stratégiques d'un site B2B qui travaille activement pour vous.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- META OPEN GRAPH & TWITTER (SPÉCIFIQUES À L'ARTICLE) -->
+    <meta property="og:title" content="Votre Site Web n'est pas une Carte de Visite, c'est Votre Commercial n°1">
+    <meta property="og:description"
+        content="Découvrez les 3 rôles stratégiques d'un site B2B qui travaille activement pour vous.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-site-commercial.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-site-commercial.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- ======================================================= -->
+        <!--      HEADER / NAVIGATION (CHEMINS CORRIGÉS)           -->
+        <!-- ======================================================= -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ======================================================= -->
+        <!--                DÉBUT DU CONTENU DE L'ARTICLE            -->
+        <!-- ======================================================= -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Votre Site Web n'est pas une Carte de Visite, c'est Votre Commercial n°1
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                            Consultants, coachs, formateurs : votre site web est-il un simple coût ou votre meilleur commercial ? Découvrez les 3 rôles stratégiques d'un site B2B qui travaille activement pour vous.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/site-commercial-intro.webp" alt="Comparaison entre une pile de cartes de visite et un graphique de croissance sur un ordinateur" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>En tant que consultant, coach d'affaires ou formateur, vous avez probablement un site web. Et si je vous demande à quoi il sert, vous me répondrez peut-être : "C'est ma carte de visite en ligne. Un endroit où les gens peuvent trouver mes coordonnées."</p>
+
+                    <p data-sr>Si c'est votre réponse, je suis désolé de vous le dire, mais vous êtes assis sur un actif commercial sous-exploité. Pire, vous pensez probablement à votre site comme à un <strong class="text-neutral-dark">coût</strong> – un mal nécessaire qu'il a fallu payer une fois.</p>
+
+                    <p data-sr>Il est temps de changer radicalement de perspective.</p>
+                    
+                    <p data-sr>Un site web stratégique n'est pas une brochure passive. Ce n'est pas une carte de visite statique. <strong class="text-clarity-blue">C'est votre commercial le plus travailleur, le plus rentable et le plus infatigable.</strong> Il travaille pour vous 24h/24, 7j/7, sans jamais prendre de vacances ni demander de commissions.</p>
+
+                    <p data-sr>Mais pour qu'il devienne ce commercial d'élite, il doit remplir trois missions stratégiques. Votre site actuel remplit-il ces trois rôles ?</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Rôle n°1 : Le Videur (Votre Filtre à Prospects)</h2>
+                        <p>Le temps est votre ressource la plus précieuse. Le pire ennemi de votre productivité ? Perdre des heures en appels avec des prospects qui ne sont pas les bons : pas le bon budget, pas le bon problème, pas la bonne mentalité.</p>
+                        <p class="mt-4">Un site "carte de visite" attire tout le monde et personne. Son message est souvent vague ("Conseil pour entreprises"), ce qui vous oblige à passer le premier quart d'heure de chaque appel à réexpliquer ce que vous faites.</p>
+                        <p class="mt-4">Votre commercial n°1, lui, est un <strong class="text-neutral-dark">filtre impitoyable (mais poli)</strong>.</p>
+                        <p class="mt-4">Grâce à un message d'une clarté absolue, il accomplit deux choses en moins de 5 secondes :</p>
+                        <ol class="list-decimal list-inside space-y-2 mt-4 pl-4">
+                            <li><strong class="text-neutral-dark">Il attire votre client idéal :</strong> En lisant votre accroche ("J'aide les PME du secteur industriel à optimiser leur chaîne logistique"), le bon prospect se dit immédiatement : "C'est exactement pour moi."</li>
+                            <li><strong class="text-neutral-dark">Il repousse poliment les autres :</strong> Le coach de vie qui cherchait un site pour sa pratique comprend tout de suite qu'il n'est pas au bon endroit et s'en va, sans vous faire perdre votre temps.</li>
+                        </ol>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">Un site web clair ne vous apporte pas plus de leads. Il vous apporte de meilleurs leads. Il qualifie les prospects en amont pour que vous ne parliez qu'à des personnes qui ont déjà compris votre valeur.</p>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/site-commercial-autorite.webp" alt="Consultant présentant une méthodologie claire à un client, symbolisant l'autorité" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Rôle n°2 : L'Expert (Votre Bâtisseur d'Autorité)</h2>
+                        <p>Un prospect B2B n'achète pas un service. Il achète de la confiance dans une expertise. Avant de vous contacter, il veut être convaincu que vous êtes crédible.</p>
+                        <p class="mt-4">Un site "carte de visite" se contente d'affirmer votre expertise avec une liste de services et un CV.</p>
+                        <p class="mt-4">Votre commercial n°1, lui, <strong class="text-neutral-dark">démontre votre expertise</strong>. Il ne dit pas "faites-moi confiance", il prouve que vous êtes digne de confiance.</p>
+                        <p class="mt-4">Comment ?</p>
+                         <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong class="text-neutral-dark">Par votre Méthodologie :</strong> Il détaille votre approche en étapes claires ("Mon Approche"), montrant que votre travail est structuré et professionnel, pas improvisé.</li>
+                            <li><strong class="text-neutral-dark">Par la Preuve Sociale :</strong> Il présente des études de cas chiffrées ("Leurs Résultats"), prouvant que votre méthode a déjà fonctionné pour d'autres.</li>
+                            <li><strong class="text-neutral-dark">Par le Partage de Valeur :</strong> Il offre des articles de blog ou des ressources ("Insights") qui résolvent un petit bout du problème de votre prospect, lui donnant un avant-goût de votre savoir-faire.</li>
+                        </ul>
+                        <p class="mt-4">Quand un prospect vous appelle après avoir lu une de vos études de cas, la conversation ne commence pas à zéro. Elle commence avec un capital confiance déjà élevé.</p>
+                    </div>
+
+                    <!-- Image 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/site-commercial-closer.webp" alt="Interface de réservation de rendez-vous en ligne, simple et efficace" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 3 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Rôle n°3 : Le "Closer" (Votre Machine à Rendez-vous)</h2>
+                        <p>Votre prospect est qualifié et convaincu. La dernière mission de votre site est de rendre la prise de contact si simple et si fluide qu'il n'a aucune raison d'hésiter.</p>
+                        <p class="mt-4">Un site "carte de visite" se termine souvent par une simple adresse email ou un bouton "Contactez-moi". C'est une impasse. Cela oblige le prospect à faire tout l'effort : ouvrir sa messagerie, rédiger un email, puis attendre votre réponse pour entamer une série d'échanges afin de trouver un créneau. Chaque étape est une occasion de perdre le prospect.</p>
+                        <p class="mt-4">Votre commercial n°1, lui, est un <strong class="text-neutral-dark">facilitateur</strong>.</p>
+                        <p class="mt-4">Il transforme l'appel à l'action en une offre de valeur ("Planifiez votre Session Stratégique Gratuite") et l'intègre à un outil de planification comme Calendly.</p>
+                        <p class="mt-4">En 3 clics, sans quitter votre site, le prospect peut voir vos disponibilités, réserver le créneau qui l'arrange et recevoir une confirmation automatique. C'est une expérience client impeccable qui envoie un message puissant : <strong class="text-neutral-dark">"Je suis un professionnel organisé et je respecte votre temps."</strong></p>
+                    </div>
+
+                    <!-- Section 4 : Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Votre Site est-il un Coût ou un Actif ?</h2>
+                        <p>Arrêtez de voir votre site web comme une ligne sur votre budget de communication. Commencez à le voir comme un membre de votre équipe commerciale.</p>
+                        <p class="mt-4">Posez-vous la question : si votre site était un commercial, le garderiez-vous ?</p>
+                         <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li>Filtre-t-il efficacement vos prospects ?</li>
+                            <li>Bâtit-il votre autorité de manière convaincante ?</li>
+                            <li>Génère-t-il des rendez-vous qualifiés dans votre agenda de manière autonome ?</li>
+                        </ul>
+                         <p class="mt-4">Si la réponse est non, alors il n'est pas un commercial. C'est une carte de visite coûteuse.</p>
+                         <p class="mt-4">Le but de mon approche <a href="../index.html#offres" class="font-bold text-clarity-blue hover:underline">Site Clarté</a> n'est pas de vous livrer un "joli site". C'est de construire pour vous ce commercial n°1 : une machine stratégique conçue pour attirer, convaincre et convertir vos clients idéaux.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- NOUVELLE SECTION : Appel à l'action final (CTA) -->
+            <section id="cta-blog" class="py-20 bg-white relative overflow-hidden">
+                <div class="container mx-auto px-6 relative z-10">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl overflow-hidden p-8 md:p-12 text-center" data-sr>
+                        <h3 class="text-2xl md:text-3xl font-bold">Prêt(e) à recruter le meilleur commercial de votre équipe ?</h3>
+                        <p class="text-lg md:text-xl text-white/80 mt-4 leading-relaxed">
+                            Si vous êtes prêt à transformer votre site "carte de visite" en un véritable moteur de croissance pour votre activité, discutons-en.
+                        </p>
+                        <div class="mt-8">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="btn btn-orange text-lg inline-flex items-center justify-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                <span>Je planifie mon audit stratégique (15 min)</span>
+                            </a>
+                             <p class="text-sm text-white/60 mt-4">
+                                C'est gratuit et sans engagement.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ======================================================= -->
+        <!--        FOOTER (CHEMINS CORRIGÉS)                      -->
+        <!-- ======================================================= -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>
