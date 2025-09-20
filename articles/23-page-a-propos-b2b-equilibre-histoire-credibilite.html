@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Votre Page "À Propos" B2B : L'Équilibre entre Histoire et Crédibilité</title>
+    <meta name="description"
+        content="Consultants, coachs : votre page 'À Propos' est-elle trop personnelle ou trop corporate ? Découvrez la méthode pour équilibrer votre histoire et vos preuves de crédibilité afin de convaincre les décideurs B2B.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- META OPEN GRAPH & TWITTER (SPÉCIFIQUES À L'ARTICLE) -->
+    <meta property="og:title" content="Votre Page 'À Propos' B2B : L'Équilibre entre Histoire et Crédibilité">
+    <meta property="og:description"
+        content="Découvrez la méthode pour équilibrer votre histoire personnelle et vos preuves de crédibilité pour convaincre les décideurs B2B.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-page-a-propos.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-page-a-propos.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- ======================================================= -->
+        <!--      HEADER / NAVIGATION (CHEMINS CORRIGÉS)           -->
+        <!-- ======================================================= -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ======================================================= -->
+        <!--                DÉBUT DU CONTENU DE L'ARTICLE            -->
+        <!-- ======================================================= -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Votre Page "À Propos" B2B : L'Équilibre entre Histoire et Crédibilité
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                            Consultants, coachs : votre page "À Propos" est-elle trop personnelle ou trop corporate ? Découvrez la méthode pour équilibrer votre histoire et vos preuves de crédibilité afin de convaincre les décideurs B2B.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/page-a-propos-equilibre.webp" alt="Balance symbolisant l'équilibre entre l'histoire personnelle (cœur) et la crédibilité professionnelle (cerveau) sur une page À Propos." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>C'est l'une des pages les plus visitées de votre site web. Juste après avoir lu votre promesse sur la page d'accueil, le réflexe de tout prospect B2B sérieux est de cliquer sur "À Propos".</p>
+
+                    <p data-sr>Pourquoi ? Parce qu'il ne cherche pas seulement à savoir <strong class="text-neutral-dark">ce que</strong> vous faites. Il veut savoir <strong class="text-neutral-dark">qui</strong> vous êtes. Dans le monde du conseil, du coaching et de la formation, on n'achète pas un produit sur une étagère. On investit dans une relation de confiance avec un expert.</p>
+                    
+                    <p data-sr>Et c'est là que le dilemme commence.</p>
+
+                    <ul class="list-disc list-inside space-y-4 pl-4" data-sr>
+                        <li><strong class="text-neutral-dark">Option 1 : Le CV Clinique.</strong> Vous listez vos 20 ans d'expérience, vos diplômes, les logos des entreprises où vous êtes passé. C'est factuel, c'est rassurant, mais c'est froid. Le prospect voit un expert, mais il ne ressent aucune connexion. Vous êtes interchangeable.</li>
+                        <li><strong class="text-neutral-dark">Option 2 : L'Histoire Trop Personnelle.</strong> Vous racontez le burn-out qui a changé votre vie, votre passion d'enfance pour l'humain... C'est touchant, ça crée de l'empathie, mais un DAF ou un CEO peut se demander : "C'est bien joli, mais est-ce que cette personne comprend mes enjeux de rentabilité et de performance ?"</li>
+                    </ul>
+
+                    <p data-sr>La vérité, c'est que vous n'avez pas à choisir. Une page "À Propos" B2B qui convertit n'est ni l'un ni l'autre. C'est un <strong class="text-clarity-blue">mélange stratégique des deux</strong>. C'est l'art de raconter une histoire qui humanise votre expertise et d'utiliser votre expertise pour crédibiliser votre histoire.</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">La Formule "Crédibilité Incarnée" : Histoire + Preuves</h2>
+                        <p>Pensez à votre page "À Propos" comme à une plaidoirie. Vous avez besoin d'un argumentaire logique (les preuves) et d'une connexion émotionnelle (l'histoire) pour convaincre le jury (votre prospect).</p>
+                        <p class="mt-4">Voici comment orchestrer cet équilibre, une méthode que nous affinons en détail dans l'<a href="01-atelier-message-central.html" class="text-clarity-blue font-semibold hover:underline">Atelier de Clarté</a>.</p>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/page-a-propos-preuves.webp" alt="Consultant B2B présentant des preuves de crédibilité comme des logos clients et des chiffres clés." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Sous-section 1.1 -->
+                    <div data-sr>
+                        <h3 class="text-xl md:text-2xl font-bold text-neutral-dark mb-4">1. Commencez par l'Histoire : Le "Pourquoi" qui Crée le Lien</h3>
+                        <p>Ne commencez pas par votre diplôme de 1998. Commencez par le "déclic", le moment de votre parcours qui explique pourquoi vous faites ce métier aujourd'hui avec tant de conviction. C'est votre "Origin Story" professionnelle.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong>La structure :</strong> Utilisez le modèle narratif "Contexte → Déclic → Mission".</li>
+                        </ul>
+                    </div>
+
+                    <!-- Bloc Exemple -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h4 class="text-lg font-bold text-clarity-blue mb-2">Exemple pour un consultant en transformation digitale :</h4>
+                        <blockquote class="border-l-4 border-warm-orange pl-4 mt-4">
+                            <p class="text-neutral-light italic">
+                                <strong class="text-neutral-dark">(Contexte)</strong> "Après 15 ans passés à diriger des équipes marketing dans des grands groupes, j'ai vu de l'intérieur des dizaines de projets de 'transformation digitale'. 
+                                <strong class="text-neutral-dark">(Déclic)</strong> Le constat était toujours le même : les plus beaux outils du monde ne servent à rien si l'humain n'est pas au cœur du processus. J'ai vu des millions d'euros gaspillés par manque d'accompagnement au changement. 
+                                <strong class="text-neutral-dark">(Mission)</strong> C'est pourquoi j'ai fondé mon cabinet : pour mettre la technologie au service de l'humain, et non l'inverse. Ma mission est de rendre vos transformations digitales non seulement performantes, mais aussi humaines et durables."
+                            </p>
+                        </blockquote>
+                        <p class="mt-4 font-semibold text-neutral-dark">Pourquoi ça marche ? En 5 phrases, vous avez créé une connexion, montré votre expérience de terrain et affirmé une conviction forte. Vous n'êtes plus un consultant lambda, vous êtes un expert avec une mission.</p>
+                    </div>
+
+                    <!-- Sous-section 1.2 -->
+                    <div data-sr>
+                        <h3 class="text-xl md:text-2xl font-bold text-neutral-dark mb-4">2. Ancrez l'Histoire dans la Réalité : Les Preuves qui Rassurent</h3>
+                        <p>Maintenant que vous avez créé le lien émotionnel, il est temps de rassurer l'hémisphère gauche de votre prospect avec des preuves tangibles. C'est le moment de "montrer les galons", mais de manière intégrée et élégante.</p>
+                        <ul class="list-disc list-inside space-y-4 mt-4 pl-4">
+                            <li><strong>Comment faire ?</strong> Saupoudrez votre récit ou la section juste en dessous de "pépites de crédibilité".</li>
+                            <li>
+                                <strong>Exemples de pépites :</strong>
+                                <ul class="list-['–'] list-inside space-y-2 mt-2 pl-6">
+                                    <li><strong>Les Chiffres Clés :</strong> "Plus de 50 entreprises accompagnées", "15 ans d'expérience en direction commerciale", "Un impact moyen de +20% sur la performance des équipes formées".</li>
+                                    <li><strong>Les Logos :</strong> Une simple ligne "Ils m'ont fait confiance" avec 3 ou 4 logos de clients pertinents est incroyablement puissante.</li>
+                                    <li><strong>Les Certifications Stratégiques :</strong> Ne listez pas tout. Mentionnez uniquement la ou les deux certifications qui sont les plus reconnues dans votre domaine (ex: "Coach certifié HEC", "Certifié PMP® pour la gestion de projet").</li>
+                                    <li><strong>Les Médias & Conférences :</strong> "Conférencier TEDx", "Intervenant à [Nom d'une grande école]", "Cité dans Forbes".</li>
+                                </ul>
+                            </li>
+                        </ul>
+                         <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">Ces éléments ne sont plus une liste froide. Ils viennent <strong class="text-clarity-blue">valider l'histoire</strong> que vous venez de raconter. Ils prouvent que votre mission n'est pas qu'une belle parole, mais qu'elle est reconnue et qu'elle produit des résultats.</p>
+                    </div>
+
+                    <!-- Sous-section 1.3 -->
+                    <div data-sr>
+                        <h3 class="text-xl md:text-2xl font-bold text-neutral-dark mb-4">3. Finissez par l'Humain : La Photo qui Incarne Tout</h3>
+                        <p>La touche finale est votre portrait. Il doit refléter cet équilibre.</p>
+                    </div>
+                    
+                    <!-- Image 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/page-a-propos-portrait.webp" alt="Portrait professionnel et accessible d'un consultant, reflétant la confiance et l'humanité." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <div data-sr>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong>Le bon portrait B2B :</strong> Professionnel, mais accessible. Confiant, mais pas arrogant. Souriant, mais pas guilleret. Il doit dire : "Je suis un expert sérieux avec qui il est agréable et constructif de travailler."</li>
+                            <li><strong>L'erreur à éviter :</strong> Une photo trop corporate et rigide, ou à l'inverse, un selfie pris à la va-vite.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Soyez un Expert, mais Restez un Humain</h2>
+                        <p>Le plus grand mythe du marketing B2B est de croire qu'il faut effacer sa personnalité pour paraître professionnel. C'est faux. Les décideurs sont des humains. Ils veulent travailler avec d'autres humains qu'ils apprécient et en qui ils ont confiance.</p>
+                        <p class="mt-4">Votre page "À Propos" est l'endroit où cette alchimie opère. En mariant habilement le récit de votre "pourquoi" avec les preuves de votre "comment", vous ne créez pas seulement une page web.</p>
+                        <p class="mt-4 font-bold text-neutral-dark">Vous bâtissez un pont de confiance solide entre votre expertise et les besoins de votre client idéal.</p>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- Appel à l'action final (STYLE MODIFIÉ) -->
+            <section id="cta-blog" class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 md:p-12 text-center" data-sr>
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4">Votre page "À Propos" est-elle à la hauteur de votre expertise ?</h3>
+                        <p class="text-lg text-white/80 leading-relaxed mb-8">
+                            Si vous avez du mal à trouver le juste équilibre entre votre histoire et vos preuves, et à articuler un récit qui à la fois connecte et convainc, c'est un point central que nous abordons pour construire un site qui vous ressemble et qui convertit.
+                        </p>
+                        <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="btn btn-primary inline-block">
+                            Discutons de votre histoire lors d'un Appel Stratégique gratuit
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ======================================================= -->
+        <!--        FOOTER (CHEMINS CORRIGÉS)                      -->
+        <!-- ======================================================= -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>
