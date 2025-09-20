@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Votre Page "À Propos" n'est pas un CV : Racontez l'Histoire qui Crée la Confiance</title>
+    <meta name="description"
+        content="Coachs, thérapeutes : votre page 'À Propos' est votre meilleur outil de conversion. Arrêtez de lister vos diplômes. Découvrez comment raconter votre histoire pour créer un lien de confiance immédiat.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- META OPEN GRAPH & TWITTER (SPÉCIFIQUES À L'ARTICLE) -->
+    <meta property="og:title" content="Votre Page 'À Propos' n'est pas un CV : Racontez l'Histoire qui Crée la Confiance">
+    <meta property="og:description"
+        content="Découvrez comment raconter votre histoire pour créer un lien de confiance immédiat avec vos futurs clients.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-histoire-confiance.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-histoire-confiance.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- ======================================================= -->
+        <!--      HEADER / NAVIGATION (CHEMINS CORRIGÉS)           -->
+        <!-- ======================================================= -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ======================================================= -->
+        <!--                DÉBUT DU CONTENU DE L'ARTICLE            -->
+        <!-- ======================================================= -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                           Votre Page "À Propos" n'est pas un CV : Racontez l'Histoire qui Crée la Confiance
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Coachs, thérapeutes : votre page "À Propos" est votre meilleur outil de conversion. Arrêtez de lister vos diplômes. Découvrez comment raconter votre histoire pour créer un lien de confiance immédiat.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/histoire-confiance-intro.webp" alt="Personne écrivant son histoire dans un carnet, symbolisant l'authenticité" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Un visiteur intéressé arrive sur votre site. Il a lu votre accroche percutante. Il est intrigué. Il se pose alors la question la plus humaine et la plus décisive de toutes :</p>
+
+                    <blockquote class="border-l-4 border-warm-orange pl-4 mt-4" data-sr>
+                        <p class="font-bold text-xl text-neutral-dark italic">"Qui est la personne derrière ce site ?"</p>
+                    </blockquote>
+
+                    <p data-sr>Son doigt survole le menu et clique sur "À Propos". C'est le moment de vérité. C'est ici que vous allez soit créer une connexion profonde qui le mènera à prendre rendez-vous, soit ériger un mur invisible qui le fera fuir.</p>
+                    
+                    <p data-sr>Pourtant, c'est la page que la plupart des coachs et thérapeutes ratent complètement. Pourquoi ? Parce qu'ils la traitent comme un CV. Ils listent leurs certifications, leurs formations, leurs diplômes, dans l'espoir de prouver leur légitimité.</p>
+                    
+                    <p data-sr>Le résultat ? Un texte froid, impersonnel, qui ne crée aucune émotion. C'est une erreur fondamentale, car vos clients n'achètent pas vos diplômes. <strong class="text-neutral-dark">Ils achètent une relation de confiance avec un être humain.</strong></p>
+                    
+                    <p data-sr>Votre page "À Propos" n'est pas là pour prouver que vous êtes qualifié. Elle est là pour prouver que vous êtes la <em class="text-clarity-blue font-semibold">bonne personne</em> pour eux. Et pour cela, il n'y a rien de plus puissant que votre histoire.</p>
+
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Pourquoi votre Histoire est votre Meilleur Outil Marketing</h2>
+                        <p>Dans nos métiers d'accompagnement, la confiance est tout. Un prospect a besoin de sentir qu'il peut être vulnérable avec vous, qu'il sera écouté sans jugement. Il a besoin de répondre à ces questions silencieuses :</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li>Cette personne comprend-elle vraiment ce que je vis ?</li>
+                            <li>Partageons-nous des valeurs communes ?</li>
+                            <li>Puis-je me sentir en sécurité avec elle ?</li>
+                        </ul>
+                        <p class="mt-4">Une liste de certifications ne répond à aucune de ces questions. Votre histoire, si.</p>
+                        <p class="mt-4">Votre parcours, vos défis surmontés, le "pourquoi" profond qui vous anime... C'est ce qui vous rend unique et crédible. C'est ce qui transforme un "praticien certifié" en un "guide humain et inspirant".</p>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">N'ayez pas peur de partager un bout de votre chemin. Ce n'est pas un signe de faiblesse, c'est la source de votre légitimité.</p>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/histoire-confiance-parcours.webp" alt="Un chemin qui serpente vers une lumière, symbolisant le parcours personnel et la vocation" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 : La Structure -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">La Structure Narrative qui Touche le Cœur (sans trop en dévoiler)</h2>
+                        <p>Raconter son histoire ne veut pas dire tout déballer. Il s'agit de partager les moments clés qui expliquent pourquoi vous faites ce métier aujourd'hui. C'est une structure narrative que j'appelle le <strong class="text-neutral-dark">"Parcours du Guide"</strong>.</p>
+                        <p class="mt-4">Elle se déroule en 3 actes simples, que nous explorons en profondeur dans mon <a href="01-atelier-message-central.html" class="text-clarity-blue hover:underline font-semibold">Atelier de Clarté</a> :</p>
+                    </div>
+
+                    <!-- Acte 1 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Acte 1 : Le Contexte (L'Origine)</h3>
+                        <p>D'où venez-vous ? Quelle expérience personnelle ou professionnelle a planté la graine de votre vocation ? C'est le "avant".</p>
+                        <ul class="list-none space-y-3 mt-4 text-base">
+                            <li><strong class="text-neutral-dark mr-2">Exemple pour un coach carrière :</strong> <em class="text-neutral-light">"Pendant 15 ans, j'ai gravi les échelons dans le monde de la finance. J'avais la réussite extérieure, mais je sentais un vide intérieur grandissant."</em></li>
+                            <li><strong class="text-neutral-dark mr-2">Exemple pour une sophrologue :</strong> <em class="text-neutral-light">"J'ai découvert la sophrologie en tant que jeune maman, complètement dépassée par le stress et l'anxiété."</em></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Acte 2 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Acte 2 : Le Déclic (La Prise de Conscience)</h3>
+                        <p>Quel a été le moment charnière, la réalisation qui a tout changé et vous a mis sur cette voie ? C'est le point de bascule de votre histoire.</p>
+                         <ul class="list-none space-y-3 mt-4 text-base">
+                            <li><strong class="text-neutral-dark mr-2">Exemple coach carrière :</strong> <em class="text-neutral-light">"Le déclic a été un burn-out. Il m'a forcé à me poser la seule question qui compte : 'Qu'est-ce qui a vraiment du sens pour moi ?'. J'ai réalisé que ma vraie passion n'était pas les chiffres, mais d'aider les autres à trouver leur propre voie."</em></li>
+                            <li><strong class="text-neutral-dark mr-2">Exemple sophrologue :</strong> <em class="text-neutral-light">"Cette pratique a été une révélation. J'ai appris à respirer, à écouter mon corps, et à trouver en moi des ressources que j'ignorais. J'ai compris que je devais transmettre ces outils."</em></li>
+                        </ul>
+                    </div>
+
+                    <!-- Acte 3 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Acte 3 : La Mission (Le Présent)</h3>
+                        <p>Comment cette histoire influence-t-elle votre manière d'accompagner aujourd'hui ? C'est votre "pourquoi" incarné.</p>
+                        <ul class="list-none space-y-3 mt-4 text-base">
+                            <li><strong class="text-neutral-dark mr-2">Exemple coach carrière :</strong> <em class="text-neutral-light">"Aujourd'hui, ma mission est d'aider les cadres comme je l'étais à construire une carrière qui ne soit pas seulement réussie, mais profondément alignée. Mon approche n'est pas théorique ; elle est ancrée dans le réel."</em></li>
+                            <li><strong class="text-neutral-dark mr-2">Exemple sophrologue :</strong> <em class="text-neutral-light">"Ma mission est de vous offrir un espace de sécurité pour que vous puissiez, vous aussi, vous reconnecter à vos ressources intérieures. Je sais ce que c'est de se sentir dépassée, et je suis là pour vous guider avec bienveillance sur ce chemin."</em></li>
+                        </ul>
+                    </div>
+
+                    <!-- Image 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/histoire-confiance-connexion.webp" alt="Portrait professionnel et chaleureux d'un coach ou thérapeute" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 3 : La Photo -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Mettez un Visage sur l'Histoire</h2>
+                        <p>Une fois votre récit écrit, il manque un élément crucial : <strong class="text-neutral-dark">vous</strong>.</p>
+                        <p class="mt-4">Une photo professionnelle, chaleureuse et authentique est non-négociable. Elle met un visage sur les mots et scelle le pacte de confiance. Un sourire sincère, un regard qui s'adresse directement au visiteur, une lumière douce... C'est la touche finale qui rend votre histoire vivante et crédible.</p>
+                    </div>
+
+                    <!-- Section 4 : Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Cessez de Prouver, Commencez à Connecter</h2>
+                        <p>Votre page "À Propos" est l'endroit où un prospect décide s'il peut vous faire confiance. Arrêtez d'essayer de le convaincre avec une liste de qualifications. Il ne s'en souviendra pas.</p>
+                        <p class="mt-4">Racontez-lui plutôt une histoire qu'il n'oubliera pas : la vôtre.</p>
+                        <p class="mt-4">Montrez-lui le chemin que vous avez parcouru, le déclic qui vous a transformé, et la mission qui vous anime. C'est ainsi que vous passerez de "un coach parmi tant d'autres" à <strong class="text-clarity-blue">"LA personne que je veux appeler"</strong>.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Appel à l'action final (STYLE MODIFIÉ) -->
+            <section id="cta-blog" class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 text-center" data-sr>
+                        <h3 class="text-2xl md:text-3xl font-bold">Votre histoire est unique. Votre site doit l'être aussi.</h3>
+                        <p class="text-lg text-white/80 leading-relaxed mt-4 max-w-2xl mx-auto">
+                            Si vous avez du mal à mettre des mots sur votre parcours et à le transformer en un récit puissant qui attire vos clients de cœur, c'est précisément là que mon travail commence.
+                        </p>
+                        <div class="mt-8">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="btn btn-orange text-lg">
+                                Discutons de votre histoire lors d'un Appel Clarté gratuit
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ======================================================= -->
+        <!--        FOOTER (CHEMINS CORRIGÉS)                      -->
+        <!-- ======================================================= -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>
