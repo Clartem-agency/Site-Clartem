@@ -1,1 +1,333 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Créez un Effet "Waouh" : Le Guide de Loom pour Humaniser votre Relation Client</title>
+    <meta name="description"
+        content="Découvrez Loom, l'outil secret pour humaniser votre communication de coach ou consultant. Apprenez à utiliser la vidéo asynchrone pour créer un lien de confiance immédiat avec vos prospects et clients.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- META OPEN GRAPH & TWITTER (SPÉCIFIQUES À L'ARTICLE) -->
+    <meta property="og:title" content="Créez un Effet 'Waouh' : Le Guide de Loom pour Humaniser votre Relation Client">
+    <meta property="og:description"
+        content="Apprenez à utiliser la vidéo asynchrone pour créer un lien de confiance immédiat avec vos prospects et clients.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-loom-guide.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-loom-guide.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- ======================================================= -->
+        <!--      HEADER / NAVIGATION (CHEMINS CORRIGÉS)           -->
+        <!-- ======================================================= -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ======================================================= -->
+        <!--                DÉBUT DU CONTENU DE L'ARTICLE            -->
+        <!-- ======================================================= -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Créez un Effet "Waouh" en 30 Secondes : Le Guide de Loom pour Humaniser votre Relation Client
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Découvrez Loom, l'outil secret pour humaniser votre communication de coach ou consultant. Apprenez à utiliser la vidéo asynchrone pour créer un lien de confiance immédiat avec vos prospects et clients.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/loom-intro.webp" alt="Email avec une vignette vidéo Loom sur un bureau à côté d'une tasse de café" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Imaginez ce scénario. Un prospect qualifié, le dirigeant d'une PME, vient de réserver un "Appel Stratégique" avec vous via votre page Calendly.</p>
+
+                    <p data-sr>Quelques minutes plus tard, il reçoit un email de votre part. Il s'attend à une confirmation automatique, froide et impersonnelle. À la place, il voit ça :</p>
+                    
+                    <blockquote class="border-l-4 border-clarity-blue pl-6 my-8 bg-soft-blue p-6 rounded-r-lg" data-sr>
+                        <p class="font-semibold text-neutral-dark">Objet : Hâte d'échanger avec vous mardi !</p>
+                        <p class="mt-4">Bonjour [Prénom du prospect],</p>
+                        <p class="mt-4">Juste un petit mot pour vous remercier d'avoir planifié notre appel. Au lieu d'un long email, j'ai préféré vous enregistrer un court message personnel :</p>
+                        <p class="mt-4"><strong class="text-clarity-blue">[Cliquez ici pour voir la vidéo]</strong></p>
+                    </blockquote>
+
+                    <p data-sr>Intrigué, il clique. Une page s'ouvre, et il voit votre visage dans une petite bulle vidéo. Vous le regardez et lui dites, avec un sourire sincère :</p>
+
+                    <blockquote class="border-l-4 border-warm-orange pl-6 my-8 italic" data-sr>
+                        <p>"Bonjour [Prénom du prospect], Jean Dupont. J'ai bien vu que vous aviez réservé notre appel pour mardi à 10h, merci pour votre confiance. J'ai jeté un œil à votre site et j'ai déjà quelques idées concernant votre défi sur [son sujet]. J'ai vraiment hâte d'en discuter avec vous. D'ici là, passez une excellente journée !"</p>
+                    </blockquote>
+
+                    <p data-sr>La vidéo dure 30 secondes.</p>
+
+                    <p data-sr>En 30 secondes, vous venez de passer du statut de "consultant inconnu" à celui de "partenaire humain et proactif". Vous avez créé un <strong class="text-neutral-dark">effet "Waouh"</strong>. Vous avez bâti un pont de confiance avant même d'avoir prononcé le premier mot de votre appel.</p>
+
+                    <p data-sr>Cet outil magique, c'est <strong class="text-clarity-blue">Loom</strong>. Et c'est probablement l'arme secrète la plus puissante pour vous démarquer dans un monde digital saturé d'emails et de messages automatisés.</p>
+                    
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Qu'est-ce que Loom ? (Et Pourquoi c'est Révolutionnaire pour les Experts)</h2>
+                        <p>Loom est un outil de <strong class="text-neutral-dark">vidéo asynchrone</strong>. En clair, il vous permet d'enregistrer très simplement votre écran et/ou votre webcam, et de partager l'enregistrement via un simple lien. Votre interlocuteur peut le regarder quand il le souhaite, sans avoir besoin de télécharger quoi que ce soit.</p>
+                        <p class="mt-4">Pourquoi est-ce si puissant pour un coach ou un consultant ? Parce que votre business repose sur une chose : <strong class="text-neutral-dark">la relation humaine</strong>. L'email est efficace, mais il est froid. Il ne transmet ni votre énergie, ni votre empathie, ni votre sourire.</p>
+                        <p class="mt-4">Loom réinjecte de l'humain dans vos communications digitales. C'est le chaînon manquant entre l'email impersonnel et l'appel visio chronophage.</p>
+                    </div>
+                    
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/loom-interface.webp" alt="Interface de Loom montrant une personne en bulle vidéo sur un partage d'écran" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 : Cas d'usage -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">3 Cas d'Usage Concrets pour Intégrer Loom dans votre Business (dès Aujourd'hui)</h2>
+                        <p>L'utilisation de Loom n'est pas limitée à la prise de rendez-vous. Voici 3 façons de l'intégrer dans votre flux de travail pour créer des expériences mémorables.</p>
+                    </div>
+
+                    <!-- Cas 1 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">1. Le "Merci" Post-Réservation (Votre Poignée de Main Virtuelle)</h3>
+                        <p>C'est le cas d'usage que nous avons vu plus haut. C'est le plus simple à mettre en place et le plus impactant.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong class="text-neutral-dark">Le Processus :</strong> Vous recevez une notification de réservation, vous enregistrez un Loom de 30s et vous l'envoyez par email.</li>
+                            <li><strong class="text-neutral-dark">Le Résultat :</strong> Vous vous démarquez instantanément de 99% de vos concurrents. Le prospect se sent considéré et est beaucoup moins susceptible d'annuler ou de ne pas se présenter au rendez-vous ("no-show").</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Cas 2 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">2. Le "Débrief" Post-Appel (Votre Compte-Rendu Augmenté)</h3>
+                        <p>Après un appel découverte ou une séance de travail, au lieu d'envoyer un long email de résumé que votre client lira en diagonale...</p>
+                         <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong class="text-neutral-dark">Le Processus :</strong> Vous enregistrez un Loom de 2-3 minutes où vous récapitulez de vive voix les points clés, les décisions et les prochaines étapes.</li>
+                            <li><strong class="text-neutral-dark">Le Résultat :</strong> C'est beaucoup plus personnel, plus facile à digérer pour votre client, et cela montre un niveau de service exceptionnel. Vous ancrez les points importants de manière beaucoup plus efficace.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Cas 3 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">3. La "Réponse Experte" (Votre Démonstration de Valeur)</h3>
+                        <p>Un prospect vous pose une question un peu complexe par email ou sur LinkedIn.</p>
+                         <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong class="text-neutral-dark">Le Processus :</strong> Au lieu de taper une longue réponse, vous enregistrez un Loom de 2 minutes en partageant votre écran pour illustrer votre propos avec un schéma, un site ou un document.</li>
+                            <li><strong class="text-neutral-dark">Le Résultat :</strong> Effet "expert" garanti. Vous ne vous contentez pas de répondre, vous démontrez votre pédagogie et votre maîtrise. C'est un avant-goût puissant de ce que serait une collaboration avec vous.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Image 3 -->
+                     <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/loom-wow-effect.webp" alt="Personne ayant une réaction positive devant son ordinateur, symbolisant l'effet Waouh de Loom" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 4 : Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Votre Visage est Votre Meilleur Argument de Vente</h2>
+                        <p>Dans un monde où l'automatisation est reine, la touche humaine est devenue le luxe ultime.</p>
+                        <p class="mt-4">Loom n'est pas un gadget technologique de plus. C'est un pont. Un pont entre vous et vos clients. Un moyen simple de leur rappeler qu'derrière l'expert, le consultant ou le coach, il y a une personne réelle, accessible et prête à les aider.</p>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">Intégrer cet outil dans votre communication ne vous prendra que quelques minutes par jour. Mais l'impact sur la confiance et la loyauté de vos clients sera inestimable.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Appel à l'action final (REMPLACE LE LEAD MAGNET) -->
+            <section id="cta-blog" class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-12 text-center" data-sr>
+                        <h3 class="text-2xl md:text-3xl font-bold">Prêt(e) à construire une expérience client qui commence bien avant le premier appel ?</h3>
+                        <p class="text-lg text-white/80 leading-relaxed mt-6">
+                            Un site web efficace attire le prospect. Des outils comme Loom et Calendly transforment son parcours en une expérience fluide et humaine. L'intégration de cette "boîte à outils digitale" est une partie essentielle de la réflexion que nous menons pour créer un <a href="../index.html#offres" class="font-bold text-warm-orange hover:underline">Site Clarté</a>.
+                        </p>
+                        <div class="mt-10">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="btn btn-orange text-lg inline-block">
+                                Discutons de votre expérience client "Waouh"
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ======================================================= -->
+        <!--        FOOTER (CHEMINS CORRIGÉS)                      -->
+        <!-- ======================================================= -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>
