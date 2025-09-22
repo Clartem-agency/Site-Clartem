@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Google Maps : 5 Optimisations pour Faire Remonter votre Cabinet</title>
+    <meta name="description"
+        content="Votre cabinet de coaching ou de thérapie est mal classé sur Google Maps ? Découvrez 5 optimisations essentielles (catégorie, photos, avis...) pour améliorer votre référencement local et attirer plus de clients de votre quartier.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Google Maps : 5 Optimisations pour Faire Remonter votre Cabinet">
+    <meta property="og:description"
+        content="Découvrez 5 optimisations essentielles pour améliorer votre référencement local sur Google Maps et attirer plus de clients.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-google-maps.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-google-maps.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Google Maps : Les 5 Optimisations pour Faire Remonter votre Cabinet en Tête des Résultats
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Votre cabinet de coaching ou de thérapie est mal classé sur Google Maps ? Découvrez 5 optimisations essentielles pour améliorer votre référencement local et attirer plus de clients de votre quartier.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/google-maps-intro.webp" alt="Loupe pointant sur un cabinet bien classé dans les résultats de recherche Google Maps" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Vous avez créé votre Fiche d'Établissement Google. Bravo, vous êtes maintenant visible sur la carte digitale de votre ville. Mais un nouveau défi apparaît : quand un prospect tape "coach de vie à [votre ville]", des dizaines de vos confrères apparaissent aussi.</p>
+                    <p data-sr>Comment faire pour que ce soit <strong class="text-neutral-dark">votre cabinet</strong> qui remonte dans le fameux "Pack Local", ce top 3 si convoité qui capte la majorité des clics ?</p>
+                    <p data-sr>Le référencement local sur Google Maps n'est pas de la magie. C'est un jeu de pertinence, de confiance et d'activité. Google cherche à proposer à ses utilisateurs le résultat le plus fiable et le plus pertinent pour leur recherche.</p>
+                    <p data-sr>Votre mission ? Envoyer à Google tous les bons signaux pour lui prouver que vous êtes ce résultat.</p>
+                    <p data-sr>Voici 5 optimisations fondamentales, souvent négligées, pour transformer votre fiche d'un simple point sur la carte à un aimant à clients locaux.</p>
+
+                    <!-- Optimisation 1 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Optimisation n°1 : La Catégorie Principale (Votre Spécialité)</h3>
+                        <p>C'est le réglage le plus important de toute votre fiche. La catégorie que vous choisissez est le signal principal que vous envoyez à Google pour lui dire ce que vous faites.</p>
+                        <ul class="list-none space-y-3 mt-4 text-base">
+                            <li><span class="text-destructive font-bold mr-2">L'erreur courante :</span> Choisir une catégorie trop vague comme "Service" ou "Centre de bien-être".</li>
+                            <li><span class="text-success-green font-bold mr-2">La bonne pratique :</span> Soyez <strong>ultra-spécifique</strong>. Choisissez la suggestion la plus précise que Google vous propose. Exemples : "Sophrologue", "Naturopathe", "Coach de vie".</li>
+                            <li><span class="text-warm-orange font-bold mr-2">L'astuce pro :</span> Ajoutez des catégories secondaires pertinentes (ex: "Nutritionniste" pour un naturopathe) pour élargir votre visibilité.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Optimisation 2 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Optimisation n°2 : Le Remplissage à 100% (Le Signal de Sérieux)</h3>
+                        <p>Une fiche à moitié remplie est un signal négatif pour Google. Cela suggère une activité peu entretenue ou peu professionnelle.</p>
+                        <ul class="list-none space-y-3 mt-4 text-base">
+                            <li><span class="text-destructive font-bold mr-2">L'erreur courante :</span> Ne remplir que le nom, l'adresse et le téléphone.</li>
+                            <li><span class="text-success-green font-bold mr-2">La bonne pratique :</span> Soyez obsessionnel. Remplissez <strong>ABSOLUMENT TOUS</strong> les champs : description détaillée avec mots-clés, horaires précis, services spécifiques ("Coaching en confiance en soi" au lieu de "Coaching"), et tous les attributs pertinents.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Image 2 : Fiche complète -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/google-maps-fiche-complete.webp" alt="Exemple d'une fiche d'établissement Google bien remplie avec tous les détails." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Optimisation 3 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Optimisation n°3 : Les Photos (La Vitrine de votre Cabinet)</h3>
+                        <p>Après les avis, les photos sont l'élément le plus consulté par les prospects. Elles humanisent votre fiche et rassurent.</p>
+                        <ul class="list-none space-y-3 mt-4 text-base">
+                            <li><span class="text-destructive font-bold mr-2">L'erreur courante :</span> Ne mettre aucune photo, ou une seule photo de mauvaise qualité.</li>
+                            <li><span class="text-success-green font-bold mr-2">La bonne pratique :</span> Visez au moins 10 photos de haute qualité : extérieur (pour vous trouver), intérieur (pour rassurer), ambiance (pour l'atmosphère) et un portrait professionnel de vous.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Optimisation 4 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Optimisation n°4 : Les Avis Clients (Le Moteur de votre Réputation)</h3>
+                        <p>C'est le facteur de classement le plus puissant. Une fiche avec de nombreux avis positifs et récents sera presque toujours mieux classée.</p>
+                        <ul class="list-none space-y-3 mt-4 text-base">
+                            <li><span class="text-destructive font-bold mr-2">L'erreur courante :</span> Attendre passivement que les avis arrivent.</li>
+                            <li><span class="text-success-green font-bold mr-2">La bonne pratique :</span> Mettez en place un <strong>système proactif</strong>. Demandez un avis à la fin d'un accompagnement réussi en envoyant un lien direct. Et surtout, répondez à <strong>TOUS</strong> vos avis.</li>
+                        </ul>
+                    </div>
+
+                     <!-- Image 3 : Avis clients -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/google-maps-avis-clients.webp" alt="Section des avis d'une fiche Google avec une note de 5 étoiles et des commentaires positifs." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Optimisation 5 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Optimisation n°5 : Le Lien vers un Site Web de Qualité (Le Sceau de Confiance)</h3>
+                        <p>Google ne juge pas seulement votre fiche. Il juge la cohérence et la qualité de l'ensemble de votre présence en ligne.</p>
+                        <ul class="list-none space-y-3 mt-4 text-base">
+                            <li><span class="text-destructive font-bold mr-2">L'erreur courante :</span> Pas de site web, ou un lien vers une page Facebook ou un site amateur.</li>
+                            <li><span class="text-success-green font-bold mr-2">La bonne pratique :</span> Le lien doit pointer vers un site professionnel, sécurisé (HTTPS), rapide, et dont le contenu est aligné avec votre fiche. Un site de qualité est un signal de confiance majeur pour Google qui favorisera votre classement.</li>
+                        </ul>
+                        <p class="mt-4">C'est là que le <a href="../index.html#offres" class="font-semibold text-clarity-blue hover:underline">Site Clarté</a> joue un rôle fondamental en complétant et en renforçant la puissance de votre fiche.</p>
+                    </div>
+
+                    <!-- Section Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Devenez le Choix Évident de Votre Quartier</h2>
+                        <p>Le référencement sur Google Maps n'est pas une loterie. C'est le résultat d'un travail de fond, d'optimisations constantes et d'une attention portée aux détails.</p>
+                        <p class="mt-4">En appliquant ces 5 optimisations, vous n'essayez pas de "tromper" l'algorithme. Vous lui donnez exactement ce qu'il veut : la preuve que vous êtes un professionnel sérieux, actif, apprécié de ses clients, et que vous offrez une expérience de qualité, en ligne comme hors ligne.</p>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">Et c'est ainsi que vous deviendrez, petit à petit, le choix évident pour tous les prospects de votre quartier.</p>
+                    </div>
+
+                    <!-- CTA final de l'article -->
+                    <div class="pt-8 text-center" data-sr>
+                        <h3 class="text-xl md:text-2xl font-bold text-neutral-dark mb-4">Prêt(e) à mettre en place une stratégie locale qui attire vraiment des clients ?</h3>
+                        <p class="mb-6">L'optimisation de votre fiche Google est la première étape. Mais pour transformer cette visibilité en rendez-vous, vous avez besoin d'un site web qui convertit. Mon offre "Site Clarté + SEO Local" est conçue pour créer ce duo gagnant.</p>
+                        <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="btn btn-primary text-lg">Discutons de votre stratégie locale</a>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <!-- Titre et sous-titre -->
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Prêt(e) à devenir <br><span class="text-clarity-blue">le choix évident de votre quartier ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            L'optimisation de votre fiche Google est cruciale. Associons-la à un site web professionnel pour transformer cette nouvelle visibilité en clients concrets. Discutons-en.
+                        </p>
+            
+                        <!-- Bouton d'action final et réassurance -->
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Planifier mon Appel Clarté
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>
