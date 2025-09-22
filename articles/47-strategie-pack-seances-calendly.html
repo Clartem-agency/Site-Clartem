@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Vendez un Parcours (pas juste un RDV) : La Stratégie du "Pack de Séances" avec Calendly</title>
+    <meta name="description"
+        content="Coachs, thérapeutes : sortez de la vente de séances à l'unité. Découvrez la stratégie du 'pack de séances' et comment utiliser Calendly pour vendre des parcours de transformation complets et fidéliser vos clients.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Vendez un Parcours (pas juste un RDV) : La Stratégie du 'Pack de Séances' avec Calendly">
+    <meta property="og:description"
+        content="Découvrez comment utiliser Calendly pour vendre des parcours de transformation complets et fidéliser vos clients.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-pack-seances-calendly.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-pack-seances-calendly.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Vendez un Parcours (pas juste un RDV) : La Stratégie du "Pack de Séances" avec Calendly
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Coachs, thérapeutes : sortez de la vente de séances à l'unité. Découvrez comment utiliser Calendly pour vendre des parcours de transformation complets et fidéliser vos clients.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/pack-seances-parcours.webp" alt="Série de pas menant vers un objectif lumineux, symbolisant un parcours de transformation." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Un client termine sa première séance avec vous. Il est ravi, plein d'énergie. À la fin, vous lui dites : "Alors, on se revoit quand vous voulez, n'hésitez pas à reprendre rendez-vous."</p>
+                    <p data-sr>Et puis... plus rien. La vie reprend son cours, l'élan retombe, et ce client plein de potentiel ne revient jamais.</p>
+                    <p data-sr>Si ce scénario vous est familier, c'est probablement parce que vous vendez des <strong class="text-neutral-dark">séances à l'unité</strong>. Vous vendez des "coups de pouce" ponctuels.</p>
+                    <p data-sr>Le problème ? La véritable transformation, celle que vous promettez et que vos clients recherchent, se produit rarement en une seule séance. Elle nécessite un <strong class="text-clarity-blue">parcours</strong>, un <strong class="text-clarity-blue">engagement</strong>, un <strong class="text-clarity-blue">suivi</strong>.</p>
+                    <p data-sr>Vendre des séances à l'unité est non seulement moins efficace pour vos clients, mais aussi moins rentable et plus stressant pour vous. Vous êtes dans une course constante pour remplir votre agenda, sans aucune visibilité sur vos revenus futurs.</p>
+                    <p data-sr>La solution ? Cesser de vendre des rendez-vous. Commencer à vendre des <strong class="text-neutral-dark">parcours de transformation</strong>.</p>
+                    <p data-sr>Et pour gérer cela de manière fluide et professionnelle, votre meilleur allié est, encore une fois, une utilisation intelligente de Calendly.</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Le Changement de Paradigme : Du "One-Shot" au "Parcours"</h2>
+                        <p>Vendre un "Pack de 6 Séances" ou un "Parcours de Transformation de 3 mois" change tout :</p>
+                        <ul class="list-disc list-inside space-y-3 mt-4 pl-4">
+                            <li><strong class="text-neutral-dark">Pour votre client :</strong> Il s'engage mentalement dans un processus. Il n'achète plus une "séance", il investit dans un <strong class="text-neutral-dark">résultat</strong>. Son implication et ses chances de succès sont décuplées.</li>
+                            <li><strong class="text-neutral-dark">Pour vous :</strong>
+                                <ul class="list-['–'] list-inside space-y-2 mt-2 pl-6">
+                                    <li><strong class="text-neutral-dark">Stabilité financière :</strong> Vous encaissez le paiement du pack en amont, ce qui vous donne de la visibilité et sécurise votre chiffre d'affaires.</li>
+                                    <li><strong class="text-neutral-dark">Profondeur d'accompagnement :</strong> Vous pouvez construire un vrai travail dans la durée, bien plus satisfaisant et impactant.</li>
+                                    <li><strong class="text-neutral-dark">Simplicité administrative :</strong> Une seule vente, une seule facture pour plusieurs séances.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p class="mt-4">Mais comment gérer la logistique de réservation de ces multiples séances sans que cela ne devienne un cauchemar administratif ?</p>
+                    </div>
+
+                    <!-- NOUVELLE IMAGE 2 : LE LIEN DORÉ -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/pack-seances-calendly-secret.webp" alt="Une clé dorée ouvrant un calendrier, symbolisant l'accès exclusif à la réservation via Calendly." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 : La Stratégie -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">La Stratégie du "Lien Doré" : Comment Utiliser Calendly pour vos Packs</h2>
+                        <p>La méthode est simple, élégante et ultra-professionnelle. Elle repose sur l'utilisation des <strong class="text-neutral-dark">événements secrets</strong> (ou "non répertoriés") de Calendly.</p>
+                        <p class="mt-4">Voici le flux de travail en 3 étapes :</p>
+                    </div>
+                    
+                    <!-- Étape 1 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Étape 1 : Vendez le Pack sur Votre Site</h3>
+                        <p>Votre site web ne doit pas proposer de réserver une "séance à l'unité". Il doit vendre vos <strong class="text-neutral-dark">programmes d'accompagnement</strong>.</p>
+                         <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong>L'Offre :</strong> Créez une offre claire sur votre page services, par exemple :
+                                <blockquote class="border-l-4 border-warm-orange pl-4 my-2 text-base italic">
+                                    <p class="font-bold text-neutral-dark">Parcours "Confiance Retrouvée" - 6 Séances</p>
+                                    <p class="mt-1">Un accompagnement sur 3 mois pour déconstruire vos blocages et oser prendre votre place.</p>
+                                    <p class="font-semibold mt-1">Investissement : 540€</p>
+                                </blockquote>
+                            </li>
+                            <li><strong>Le Paiement :</strong> Utilisez un bouton de paiement (via Stripe, Paypal, ou des outils comme Thrivecart) pour que le client puisse acheter le pack directement en ligne.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Étape 2 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Étape 2 : Offrez le "Lien Doré" Post-Achat</h3>
+                        <p>C'est ici que la magie opère. Une fois le paiement effectué, le client ne doit pas être laissé dans la nature.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong>La Page de Remerciement :</strong> Sur la page qui s'affiche juste après son paiement, donnez-lui des instructions claires et chaleureuses.</li>
+                            <li><strong>Le Lien Secret :</strong> C'est sur cette page que vous lui donnez accès à son <strong class="text-neutral-dark">"lien de réservation personnel"</strong>. C'est un lien vers un événement Calendly secret, créé spécialement pour les clients de ce pack.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Étape 3 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Étape 3 : Configurez l'Événement Calendly "Secret"</h3>
+                        <p>Cet événement est différent de votre événement public pour les prospects.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li>Créez un nouvel événement dans Calendly et nommez-le de manière exclusive : <strong class="text-neutral-dark">"Séance de votre Parcours 'Confiance Retrouvée'"</strong>.</li>
+                            <li><strong class="text-destructive">Important :</strong> Ne demandez <strong class="text-destructive">AUCUN PAIEMENT</strong> pour cet événement, puisqu'il a déjà été réglé.</li>
+                            <li>Dans les paramètres avancés, cochez <strong class="text-neutral-dark">"Rendre cet événement secret"</strong>. Il sera invisible sur votre page publique.</li>
+                            <li><strong class="text-success-green">L'Astuce Pro :</strong> Utilisez des intégrations (avec Zapier) pour limiter le nombre d'utilisations du lien (ex: 6 fois). Pour commencer, un suivi manuel suffit.</li>
+                        </ul>
+                        <p class="mt-4 font-semibold text-neutral-dark">Le résultat : Votre client a payé pour un parcours. Il reçoit un "lien doré" qui lui donne accès à un agenda privé pour réserver ses séances à son rythme. L'expérience est fluide, premium et valorisante.</p>
+                    </div>
+
+                    <!-- NOUVELLE IMAGE 3 : LES BÉNÉFICES -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/pack-seances-resultat.webp" alt="Graphique montrant une croissance stable, représentant la stabilité financière et la fidélisation client." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 3 : Bénéfices -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Les Bénéfices de cette Stratégie</h2>
+                        <p>En adoptant ce modèle, vous ne faites pas que changer votre manière de vendre.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong>Vous augmentez la Valeur Vie Client (LTV) :</strong> Un client qui achète un pack vous rapporte immédiatement plus qu'un client qui prend une seule séance.</li>
+                            <li><strong>Vous améliorez vos résultats :</strong> Des clients plus engagés sur la durée obtiennent de meilleures transformations, ce qui génère de meilleurs témoignages... et donc plus de nouveaux clients.</li>
+                            <li><strong>Vous clarifiez votre offre :</strong> Vous n'êtes plus un "distributeur de séances", mais un <strong class="text-neutral-dark">architecte de parcours de transformation</strong>. Votre positionnement d'expert est renforcé.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 4 : Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Pensez en "Parcours", pas en "Rendez-vous"</h2>
+                        <p>La vente de séances à l'unité est le mode par défaut de beaucoup de coachs et thérapeutes. C'est aussi ce qui les maintient dans un état de précarité et limite l'impact qu'ils peuvent avoir.</p>
+                        <p class="mt-4">En structurant votre offre sous forme de packs et en utilisant la puissance de Calendly pour en gérer la logistique, vous faites un saut quantique dans la professionnalisation de votre activité.</p>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">Vous offrez à vos clients ce qu'ils recherchent vraiment – un chemin clair vers un résultat – et vous vous offrez à vous-même la sérénité et la stabilité pour les y accompagner au mieux.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <!-- Titre et sous-titre -->
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Prêt(e) à structurer des offres qui <br><span class="text-clarity-blue">valorisent votre expertise ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            La création d'offres "packagées" et leur intégration technique dans un parcours de vente fluide est une étape clé. C'est une réflexion stratégique que nous menons ensemble lors de la création de votre <a href="../index.html#offres" class="font-semibold text-warm-orange hover:underline">Site Clarté</a>.
+                        </p>
+            
+                        <!-- Bouton d'action final et réassurance -->
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Discutons de votre modèle économique
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>
