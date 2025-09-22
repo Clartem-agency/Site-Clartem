@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Paiement en Ligne via Calendly : La Clé pour Valoriser votre Temps et Alléger votre Esprit</title>
+    <meta name="description"
+        content="Thérapeutes, coachs : la gestion des paiements est une source de stress ? Découvrez comment l'intégration du paiement en ligne sur Calendly peut réduire votre charge mentale, valoriser votre travail et professionnaliser votre pratique.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Paiement en Ligne via Calendly : La Clé pour Valoriser votre Temps">
+    <meta property="og:description"
+        content="Découvrez comment l'intégration du paiement en ligne sur Calendly peut réduire votre charge mentale, valoriser votre travail et professionnaliser votre pratique.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-calendly-paiement.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-calendly-paiement.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Paiement en Ligne via Calendly : La Clé pour Valoriser votre Temps et Alléger votre Esprit
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Thérapeutes, coachs : la gestion des paiements est une source de stress ? Découvrez comment l'intégration du paiement en ligne sur Calendly peut réduire votre charge mentale, valoriser votre travail et professionnaliser votre pratique.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/calendly-paiement-intro.webp" alt="Personne fermant sereinement son ordinateur, symbolisant la fin du travail administratif" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>La séance a été profonde, intense. Votre client(e) est encore dans sa bulle, ému(e) par les prises de conscience. Et c'est à ce moment précis que vous devez briser la magie.</p>
+                    <p data-sr>Vous devez prononcer cette phrase, souvent maladroite, qui vous ramène brutalement à la réalité matérielle :</p>
+                    <blockquote class="border-l-4 border-warm-orange pl-4 italic text-neutral-dark" data-sr>
+                        "Alors... ça fera 70€, s'il vous plaît. Vous payez par chèque ou en espèces ?"
+                    </blockquote>
+                    <p data-sr>Ce moment est un point de friction pour de nombreux professionnels de l'accompagnement. Il peut générer de la gêne, casser l'énergie de fin de séance, et vous replonger dans des considérations administratives (faire un reçu, gérer la monnaie, déposer un chèque...). Sans parler du stress des oublis, des retards de paiement ou des impayés.</p>
+                    <p data-sr>Cette charge mentale, liée à la transaction financière, vous empêche d'être pleinement ce que vous êtes : un guide, un accompagnant.</p>
+                    <p data-sr>Et si vous pouviez <strong class="text-neutral-dark">dissocier complètement l'acte de soin de l'acte de paiement</strong> ? Si vous pouviez faire en sorte que l'aspect financier soit réglé en amont, de manière fluide, transparente et professionnelle, pour que vos séances ne soient plus que des espaces de pure présence ?</p>
+                    <p data-sr>C'est précisément ce que permet la fonction de paiement intégré de Calendly. Et l'adopter n'est pas un choix "commercial". C'est un acte de soin pour votre pratique, et pour vous-même.</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Le Problème : Quand l'Argent S'invite dans la Relation Thérapeutique</h2>
+                        <p>Quand le paiement se fait à la fin de la séance, il crée plusieurs problèmes subtils mais réels :</p>
+                        <ul class="list-disc list-inside space-y-3 mt-4 pl-4">
+                            <li><strong class="text-neutral-dark">Pour vous :</strong> Il vous sort de votre posture de thérapeute pour vous mettre dans celle de "commerçant". Il génère une charge mentale (ai-je bien été payé ? dois-je relancer ?).</li>
+                            <li><strong class="text-neutral-dark">Pour votre client :</strong> Il peut "casser" l'état de relaxation ou d'introspection de fin de séance. Il peut aussi être une source de stress ("ai-je pensé à retirer de l'argent ?").</li>
+                            <li><strong class="text-neutral-dark">Pour la relation :</strong> Il peut créer une dynamique transactionnelle qui parasite le cadre de confiance.</li>
+                        </ul>
+                        <p class="mt-4">Le paiement en amont ne supprime pas l'échange financier. Il le <strong class="text-clarity-blue">déplace</strong> à un moment plus neutre et le rend plus sain.</p>
+                    </div>
+
+                    <!-- Section 2 : La Solution -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">La Solution : Le Paiement à la Réservation avec Calendly</h2>
+                        <p>Les plans payants de Calendly vous permettent de connecter votre compte à des plateformes de paiement sécurisées comme <strong class="text-neutral-dark">Stripe</strong> (pour les cartes bancaires) ou <strong class="text-neutral-dark">Paypal</strong>.</p>
+                        <p class="mt-4">Une fois connecté, vous pouvez exiger le paiement complet (ou un acompte) <strong class="text-neutral-dark">au moment où votre client réserve sa séance</strong>.</p>
+                    </div>
+
+                    <!-- IMAGE 2 : LE PROCESSUS -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/calendly-paiement-processus.webp" alt="Schéma montrant le processus de réservation et de paiement via Calendly" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <div data-sr>
+                        <h3 class="text-xl font-bold text-neutral-dark mb-4">Comment ça marche concrètement ?</h3>
+                        <ol class="list-decimal list-inside space-y-3 pl-4">
+                            <li>Votre client choisit son créneau sur votre page Calendly.</li>
+                            <li>Avant de pouvoir valider, une fenêtre de paiement s'affiche.</li>
+                            <li>Il entre ses informations de carte bancaire de manière 100% sécurisée.</li>
+                            <li>Une fois le paiement effectué, le rendez-vous est confirmé.</li>
+                            <li>L'argent est transféré sur votre compte.</li>
+                        </ol>
+                        <p class="mt-6 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">Le jour de la séance, l'aspect financier est déjà réglé. Vous n'avez plus à y penser. La séance peut commencer et se terminer en se concentrant sur l'essentiel : votre client.</p>
+                    </div>
+
+                    <!-- Section 3 : Les Bénéfices -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Les 3 Bénéfices "Bien-être" du Paiement en Ligne pour Vous</h2>
+                        <p>Adopter ce système n'est pas qu'une question d'efficacité. C'est une décision qui va améliorer votre propre bien-être en tant que professionnel.</p>
+                    </div>
+
+                    <!-- Bénéfice 1 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">1. Une Charge Mentale Allégée</h3>
+                        <p>Fini de vérifier vos comptes, de relancer pour un virement qui n'arrive pas, de courir à la banque pour déposer un chèque. Tout est automatisé. Vous libérez un espace mental précieux que vous pouvez réinvestir dans ce qui compte vraiment : la qualité de vos accompagnements et le développement de votre activité.</p>
+                    </div>
+                    
+                    <!-- Bénéfice 2 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">2. Une Posture Professionnelle Clarifiée</h3>
+                        <p>Le paiement en amont pose un cadre clair et professionnel. Il établit que votre temps et votre expertise ont une valeur, et que l'échange d'énergie (votre soin contre sa contribution financière) est un prérequis à la séance. C'est une manière saine et non-conflictuelle d'affirmer la valeur de votre travail.</p>
+                    </div>
+
+                    <!-- Bénéfice 3 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">3. Un Engagement Client Renforcé</h3>
+                        <p>C'est un fait psychologique : on accorde plus de valeur à ce pour quoi on a payé. Un client qui a payé sa séance à l'avance est un client qui s'est déjà engagé dans le processus. Le taux de "no-shows" et d'annulations de dernière minute chute de manière spectaculaire. Le client arrive en séance avec une intention et une implication beaucoup plus fortes.</p>
+                    </div>
+                    
+                    <!-- Section 4 : Communication -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Comment le Communiquer avec Bienveillance ?</h2>
+                        <p>Pour que ce système soit bien perçu, il suffit de l'expliquer simplement et de manière transparente sur votre site.</p>
+                        <div class="bg-soft-blue p-6 rounded-2xl shadow-lg my-8 border border-clarity-blue/20">
+                            <h4 class="text-lg font-semibold text-neutral-dark mb-2">Exemple de phrase à ajouter sur votre page "Tarifs" ou "Accompagnements" :</h4>
+                            <blockquote class="border-l-4 border-warm-orange pl-4 mt-4 text-neutral-light italic">
+                                "Pour simplifier notre organisation et nous permettre de nous concentrer pleinement sur l'essentiel lors de nos séances, le règlement s'effectue de manière sécurisée en ligne au moment de la réservation. Cela vous garantit que votre créneau est bien validé et nous libère l'esprit à tous les deux."
+                            </blockquote>
+                        </div>
+                    </div>
+                    
+                    <!-- IMAGE 3 : LE RÉSULTAT -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/calendly-paiement-resultat.webp" alt="Thérapeute en séance avec un client, l'ambiance est sereine et concentrée" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 5 : Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Valoriser Votre Temps est un Acte de Soin</h2>
+                        <p>En tant que professionnel du soin, il est parfois difficile de poser un cadre ferme autour de l'argent. Mais protéger votre temps et votre énergie n'est pas égoïste. C'est la condition sine qua non pour pouvoir continuer à accompagner les autres de manière sereine et durable.</p>
+                        <p class="mt-4">Le paiement en ligne via Calendly n'est pas un gadget. C'est un outil qui vous permet de déléguer la partie la plus inconfortable de votre administration, de valoriser votre travail et d'alléger votre esprit. C'est un investissement minime pour une immense tranquillité.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <!-- Titre et sous-titre -->
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Prêt(e) à construire un système qui prend soin de vous ?
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            L'intégration d'un système de paiement fluide est une étape clé pour professionnaliser votre activité. C'est une des stratégies que nous mettons en place pour créer un <a href="../index.html#offres" class="font-bold text-clarity-blue hover:underline">Site Clarté</a> qui travaille pour vous.
+                        </p>
+            
+                        <!-- Bouton d'action final et réassurance -->
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Simplifier mon business (Appel Gratuit)
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>
