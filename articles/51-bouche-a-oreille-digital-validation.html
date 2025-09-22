@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Le Bouche-à-Oreille est Mort : Comment un Site Web Valide vos Recommandations</title>
+    <meta name="description"
+        content="Votre activité de coach ou thérapeute repose sur le bouche-à-oreille ? Découvrez pourquoi cette stratégie ne suffit plus en 2025 et comment un site web professionnel est devenu indispensable pour convertir vos recommandations en clients.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Le Bouche-à-Oreille est Mort : Comment un Site Web Valide vos Recommandations">
+    <meta property="og:description"
+        content="Découvrez comment un site web professionnel est devenu indispensable pour convertir vos recommandations en clients.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-bouche-a-oreille.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-bouche-a-oreille.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Le Bouche-à-Oreille est Mort (ou presque) : Comment un Site Web Valide vos Recommandations
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Le bouche-à-oreille vous apporte des clients ? Parfait. Mais sans un site web pour valider ces recommandations, vous en perdez plus que vous ne le pensez. Voici pourquoi.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/bouche-a-oreille-intro.webp" alt="Deux personnes discutant, une bulle de dialogue se transforme en flèche pointant vers un site web professionnel." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <blockquote class="border-l-4 border-warm-orange pl-6 italic text-xl text-neutral-dark" data-sr>
+                        "Je n'ai pas besoin d'un site web. Mon agenda est plein grâce au bouche-à-oreille."
+                    </blockquote>
+
+                    <p data-sr>Si vous êtes un coach, un thérapeute ou un consultant bien établi, il y a de fortes chances que cette phrase vous soit familière. Et vous avez raison : le bouche-à-oreille est, et restera toujours, la forme de marketing la plus puissante. C'est la preuve ultime de la qualité de votre travail.</p>
+                    <p data-sr>Mais voici une vérité qui dérange : <strong class="text-neutral-dark">en 2025, le bouche-à-oreille, tel que nous le connaissions, est mort.</strong></p>
+                    <p data-sr>Il n'est pas vraiment mort. Il a muté. Il a évolué. Et si vous n'adaptez pas votre pratique à sa nouvelle forme, vous êtes en train de laisser filer, silencieusement, une part croissante de ces précieuses recommandations.</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Le Nouveau Parcours du Client Recommandé</h2>
+                        <p>Revenons 15 ans en arrière. Le processus était simple. Marie, ravie de vos séances, dit à son amie Sophie : "Tu devrais appeler Jean, mon sophrologue, il est incroyable. Voici son numéro." Sophie, en confiance, appelle Jean.</p>
+                        <p class="mt-4">Aujourd'hui, le parcours a changé. Il comporte une étape intermédiaire, devenue un réflexe quasi-universel.</p>
+                         <ol class="list-decimal list-inside space-y-2 mt-4 pl-4 bg-soft-blue p-6 rounded-lg">
+                            <li>Marie dit à Sophie : "Tu devrais voir Jean, mon coach, il est incroyable."</li>
+                            <li>Sophie, intéressée, répond : "Super, tu as son nom ? Je vais regarder."</li>
+                            <li class="font-bold text-neutral-dark">Le premier réflexe de Sophie n'est plus de prendre son téléphone. C'est d'ouvrir Google et de taper : "Jean Dupont coach Bordeaux".</li>
+                        </ol>
+                        <p class="mt-4">C'est ce que j'appelle le <strong class="text-clarity-blue">"Moment de Vérité Digital"</strong>. C'est à cet instant précis que votre bouche-à-oreille peut soit se transformer en un nouveau client, soit s'évaporer dans les limbes d'Internet.</p>
+                    </div>
+                    
+                    <!-- Image 2 : Le "Moment de Vérité Digital" -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/bouche-a-oreille-recherche-google.webp" alt="Smartphone affichant une recherche Google pour un nom de professionnel." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Que se Passe-t-il lors du "Moment de Vérité Digital" ?</h2>
+                        <p>Quand Sophie fait sa recherche, deux scénarios sont possibles.</p>
+                        
+                        <div class="mt-8 space-y-8">
+                            <!-- Scénario A -->
+                            <div class="bg-red-50 border-l-4 border-destructive p-6 rounded-lg" data-sr>
+                                <h3 class="text-xl font-bold text-destructive mb-4">Scénario A : Le "Trou Noir" Digital</h3>
+                                <p>Sophie tape votre nom et...</p>
+                                <ul class="list-disc list-inside space-y-2 mt-4">
+                                    <li><strong class="text-neutral-dark">Pire cas :</strong> Elle ne trouve rien. Le doute s'installe. "Est-ce qu'il existe vraiment ? Est-ce qu'il est professionnel ?"</li>
+                                    <li><strong class="text-neutral-dark">Cas moyen :</strong> Elle trouve un profil LinkedIn obsolète ou une page d'annuaire impersonnelle. La confiance s'érode.</li>
+                                </ul>
+                                <p class="mt-4 font-semibold text-neutral-dark">Dans les deux cas, la chaleur de la recommandation humaine vient de se heurter à la froideur d'une présence digitale médiocre. La recommandation est perdue.</p>
+                            </div>
+
+                            <!-- Scénario B -->
+                             <div class="bg-green-50 border-l-4 border-success-green p-6 rounded-lg" data-sr>
+                                <h3 class="text-xl font-bold text-success-green mb-4">Scénario B : La Validation Professionnelle</h3>
+                                <p>Sophie tape votre nom et trouve immédiatement votre site web professionnel.</p>
+                                <p class="mt-4">Elle clique. Elle atterrit sur une page d'accueil avec une promesse claire, votre photo, votre histoire, des témoignages... La recommandation de Marie est <strong class="text-neutral-dark">validée, confirmée et amplifiée</strong>.</p>
+                                <p class="mt-4 font-semibold text-neutral-dark">La confiance est à son maximum. Sophie clique pour vous contacter.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image 3 : La Validation Professionnelle -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/bouche-a-oreille-validation-site.webp" alt="Site web professionnel et rassurant affiché sur un ordinateur portable." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 3 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Votre Site n'est plus un Outil d'Acquisition, c'est un Outil de Confirmation</h2>
+                        <p>C'est le changement de paradigme fondamental que beaucoup de professionnels établis n'ont pas encore intégré.</p>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">Vous avez absolument besoin d'un site web pour ne pas <em class="italic">perdre</em> les clients que le bouche-à-oreille vous envoie.</p>
+                        <p class="mt-4">Votre site est devenu votre agent de confirmation. C'est le dernier maillon de la chaîne de la recommandation. S'il est faible ou manquant, toute la chaîne se brise.</p>
+                        <p class="mt-4">Un <a href="../index.html#offres" class="font-bold text-clarity-blue hover:underline">Site Clarté</a>, avec sa structure simple et son message percutant, est l'outil parfait pour ce rôle. Il doit juste faire une chose parfaitement : rassurer et convertir la personne qui arrive déjà avec une intention positive.</p>
+                    </div>
+
+                    <!-- Section 4 : Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Ne Laissez pas le Digital Saboter votre Réputation</h2>
+                        <p>Votre réputation, bâtie sur des années de travail exceptionnel, est votre plus grand trésor. Le bouche-à-oreille en est le fruit.</p>
+                        <p class="mt-4">En 2025, ne pas avoir de site web professionnel, c'est comme refuser de donner une carte de visite. C'est un risque que votre réputation ne peut plus se permettre de courir.</p>
+                        <p class="mt-4">Assurez-vous que lorsque quelqu'un prononce votre nom avec éloge, la recherche Google qui s'ensuit soit le point d'orgue de cette recommandation, et non sa pierre tombale.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Votre présence en ligne est-elle <br><span class="text-clarity-blue">à la hauteur de votre réputation ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Si votre activité repose sur le bouche-à-oreille, il est crucial que votre vitrine digitale valide et amplifie la confiance que vos clients vous accordent. Discutons-en.
+                        </p>
+            
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Planifier mon Appel Clarté
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>
