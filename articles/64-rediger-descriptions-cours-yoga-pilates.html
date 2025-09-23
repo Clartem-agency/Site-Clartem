@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Rédigez des Descriptions de Cours qui Donnent Envie de Dérouler son Tapis</title>
+    <meta name="description"
+        content="Professeurs de yoga, Pilates : vos descriptions de cours sont-elles inspirantes ? Découvrez notre méthode en 4 points pour rédiger des textes qui attirent les élèves, rassurent les débutants et transmettent l'énergie de votre enseignement.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Rédigez des Descriptions de Cours qui Donnent Envie de Dérouler son Tapis">
+    <meta property="og:description"
+        content="Découvrez 4 points clés pour rédiger des textes qui attirent les élèves, rassurent les débutants et transmettent l'énergie de votre enseignement.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-description-cours-yoga.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-description-cours-yoga.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Rédigez des Descriptions de Cours qui Donnent Envie de Dérouler son Tapis
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Professeurs de yoga, Pilates : vos descriptions de cours sont-elles inspirantes ? Découvrez notre méthode en 4 points pour rédiger des textes qui attirent les élèves, rassurent les débutants et transmettent l'énergie de votre enseignement.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/description-cours-yoga-intro.webp" alt="Main écrivant sur un carnet avec un tapis de yoga et une tasse de thé à côté" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Vous avez préparé une séquence de Vinyasa magnifique. Une chorégraphie fluide, intelligente, qui va laisser vos élèves détendus et pleins d'énergie. Vous allez sur votre site ou votre plateforme de réservation pour ajouter le cours au planning, et vous arrivez à la case "Description".</p>
+                    <p data-sr>Votre premier réflexe ? Être factuel.</p>
+                    
+                    <blockquote class="bg-soft-blue p-6 rounded-lg border-l-4 border-destructive my-8 italic" data-sr>
+                        <p class="font-semibold text-neutral-dark">Vinyasa Flow - Tous Niveaux</p>
+                        <p class="text-neutral-light">Cours de yoga dynamique basé sur la synchronisation du souffle et du mouvement. Enchaînement de postures (asanas) pour renforcer et assouplir le corps.</p>
+                    </blockquote>
+
+                    <p data-sr>C'est correct. C'est précis. Et c'est terriblement ennuyeux.</p>
+                    <p data-sr>Cette description parle à la tête, pas au cœur. Elle parle à ceux qui connaissent déjà, mais elle est intimidante et opaque pour le grand débutant qui se demande surtout : <strong class="text-neutral-dark">"Est-ce que ce cours est fait pour moi ? Et qu'est-ce que ça va m'apporter concrètement ?"</strong></p>
+                    <p data-sr>Vos descriptions de cours ne sont pas des fiches techniques. Ce sont des <strong class="text-clarity-blue">invitations</strong>. Ce sont des poèmes. Elles doivent donner un avant-goût du <strong class="text-neutral-dark">ressenti</strong>, de l'<strong class="text-neutral-dark">énergie</strong> et des <strong class="text-neutral-dark">bénéfices</strong> de votre enseignement.</p>
+                    <p data-sr>Arrêtez de décrire la technique. Commencez à décrire l'expérience. Voici la recette en 4 ingrédients pour transformer vos descriptions en aimants à élèves.</p>
+
+                    <!-- Image 2 : L'expérience -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/description-cours-yoga-experience.webp" alt="Personne souriante et détendue pendant un cours de yoga, symbolisant l'expérience positive" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Ingrédient 1 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Ingrédient n°1 : Le Nom Évocateur (La Promesse)</h3>
+                        <p>Le titre de votre cours est sa promesse. Il doit être plus inspirant que le simple nom technique du style de yoga.</p>
+                        <ul class="list-none space-y-2 mt-4 text-base">
+                            <li><span class="text-destructive font-bold mr-2">L'approche "Catalogue" à éviter :</span> "Hatha Yoga", "Pilates Matwork", "Méditation Guidée".</li>
+                            <li><span class="text-success-green font-bold mr-2">L'approche "Expérience" :</span> Ajoutez un ou deux adjectifs qui décrivent l'<strong>énergie</strong> ou le <strong>bénéfice</strong>.</li>
+                        </ul>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4 text-base">
+                            <li>"Hatha Doux & Restaurateur"</li>
+                            <li>"Pilates Fondamental & Postural"</li>
+                            <li>"Méditation de Pleine Conscience pour Apaiser le Mental"</li>
+                            <li>"Vinyasa Flow Énergisant"</li>
+                        </ul>
+                        <p class="font-semibold text-neutral-dark mt-6">L'impact : Le futur élève comprend immédiatement l'intention du cours. Il ne choisit plus un nom, il choisit une sensation.</p>
+                    </div>
+                    
+                    <!-- Ingrédient 2 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Ingrédient n°2 : La Description Orientée Bénéfice (Le "Pourquoi")</h3>
+                        <p>C'est le cœur de votre texte. Ne décrivez pas <em>ce que</em> vous allez faire, mais <em>pourquoi</em> un élève devrait le faire. Qu'est-ce qu'il va en retirer ?</p>
+                        <ul class="list-none space-y-2 mt-4 text-base">
+                             <li><span class="text-destructive font-bold mr-2">L'erreur à éviter :</span> Lister les postures. "Nous ferons des salutations au soleil, la posture du guerrier..." C'est du jargon qui peut faire peur.</li>
+                            <li><span class="text-success-green font-bold mr-2">La bonne pratique :</span> Parlez des <strong>bénéfices concrets</strong> dans la vie de tous les jours.</li>
+                        </ul>
+                        <div class="mt-4 border-t border-clarity-blue/20 pt-4">
+                            <p class="text-sm font-semibold text-deep-blue mb-2">Exemple pour un cours de Yin Yoga :</p>
+                            <p class="text-base text-destructive italic"><strong>Version "Technique" :</strong> "Cours de Yin Yoga. Maintien de postures passives au sol pendant plusieurs minutes pour cibler les tissus conjonctifs."</p>
+                            <p class="text-base text-success-green mt-2 italic"><strong>Version "Bénéfice" :</strong> "Une pratique méditative et profonde pour relâcher les tensions physiques et mentales. Idéal si vous avez besoin de ralentir, de créer de l'espace dans votre corps et votre esprit, et de vous offrir une véritable bulle de régénération. Vous repartirez avec une sensation de calme et de légèreté durable."</p>
+                        </div>
+                    </div>
+
+                    <!-- Ingrédient 3 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Ingrédient n°3 : Le "Pour Qui ?" (La Réassurance)</h3>
+                        <p>C'est l'ingrédient crucial pour ne pas effrayer les débutants et attirer les bonnes personnes. Soyez explicite sur le niveau requis et l'intensité.</p>
+                        <ul class="list-none space-y-2 mt-4 text-base">
+                            <li><span class="text-destructive font-bold mr-2">L'erreur à éviter :</span> Mettre un simple "Tous Niveaux", qui peut être intimidant.</li>
+                            <li><span class="text-success-green font-bold mr-2">La bonne pratique :</span> Soyez plus précis et accueillant.</li>
+                        </ul>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4 text-base italic">
+                            <li><strong>Pour un cours débutant :</strong> "Aucune expérience préalable n'est requise. Ce cours est une porte d'entrée bienveillante pour découvrir les bases du yoga à votre rythme."</li>
+                            <li><strong>Pour un cours "tous niveaux" :</strong> "Que vous soyez débutant ou pratiquant avancé, ce cours est pour vous. Des variations sont proposées pour que chacun puisse adapter la pratique à son corps."</li>
+                            <li><strong>Pour un cours avancé :</strong> "Une bonne connaissance des postures de base est recommandée pour explorer des enchaînements plus complexes."</li>
+                        </ul>
+                    </div>
+
+                    <!-- Ingrédient 4 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Ingrédient n°4 : Le Focus du Jour (La Touche Personnelle)</h3>
+                        <p>C'est le petit "plus" qui montre que votre cours n'est pas un script répété à l'infini, mais une création vivante.</p>
+                        <ul class="list-none space-y-2 mt-4 text-base">
+                            <li><span class="text-success-green font-bold mr-2">La bonne pratique :</span> Ajoutez une petite phrase qui donne une saveur particulière à la séance.</li>
+                        </ul>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4 text-base italic">
+                            <li>"Cette semaine, nous mettrons un accent particulier sur les postures d'ouverture du cœur."</li>
+                            <li>"Un flow créatif pour délier la colonne vertébrale et libérer les tensions du dos."</li>
+                        </ul>
+                        <p class="font-semibold text-neutral-dark mt-6">L'impact : Cela rend votre offre unique et donne envie de revenir pour découvrir le focus de la semaine suivante.</p>
+                    </div>
+
+                    <!-- Section Exemple Complet -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">L'Exemple Complet : Avant / Après</h2>
+                    </div>
+
+                    <!-- Bloc Avant/Après -->
+                    <div class="bg-soft-blue p-8 rounded-2xl shadow-lg my-8 border border-clarity-blue/20 grid md:grid-cols-2 gap-8" data-sr>
+                        <div>
+                            <h4 class="text-xl font-bold text-destructive mb-4">AVANT (La description "Catalogue")</h4>
+                            <blockquote class="border-l-4 border-destructive pl-4">
+                                <p class="font-bold text-lg text-neutral-dark">Pilates Mat I</p>
+                                <p class="mt-2 text-neutral-light">Cours de Pilates au sol niveau débutant. Exercices de renforcement des muscles profonds basés sur la méthode de Joseph Pilates.</p>
+                            </blockquote>
+                        </div>
+                        <div class="border-t md:border-t-0 md:border-l border-clarity-blue/30 pt-8 md:pt-0 md:pl-8">
+                             <h4 class="text-xl font-bold text-success-green mb-4">APRÈS (La description "Expérience")</h4>
+                             <blockquote class="border-l-4 border-success-green pl-4">
+                                <p class="font-bold text-lg text-neutral-dark">Pilates Fondamental : Bâtir des Fondations Solides</p>
+                                <p class="mt-2 text-neutral-light">Le cours parfait pour découvrir la méthode Pilates ou pour revoir les bases de l'alignement postural. Nous travaillerons en douceur mais en profondeur pour renforcer le centre du corps, améliorer votre posture et soulager les tensions.</p>
+                                <p class="mt-2 text-neutral-light"><strong>Pour qui ?</strong> Idéal pour les débutants. Aucune expérience n'est requise.</p>
+                                <p class="mt-2 text-neutral-light"><strong>Le focus :</strong> Retrouver une sensation de force tranquille et de stabilité.</p>
+                            </blockquote>
+                        </div>
+                    </div>
+
+                    <!-- Section Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Vos Mots sont Votre Première Posture d'Accueil</h2>
+                        <p>La manière dont vous décrivez vos cours est le reflet de votre enseignement. Est-il technique et distant, ou est-il humain, accueillant et inspirant ?</p>
+                        <p class="mt-4">En prenant quelques minutes pour infuser vos descriptions avec ces 4 ingrédients, vous ne ferez pas que "mieux vendre". Vous commencerez à enseigner avant même que l'élève n'ait déroulé son tapis. Vous créerez un espace de confiance et de désir qui transformera les simples curieux en une communauté d'élèves fidèles.</p>
+                    </div>
+
+                    <!-- Image 3 : Le résultat -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/description-cours-yoga-resultat.webp" alt="Maquette d'un planning de réservation en ligne clair et inspirant sur un ordinateur portable" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    
+                </div>
+            </article>
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Vos mots sont prêts. <br><span class="text-clarity-blue">Construisons votre Shala virtuel.</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Si cet article vous a parlé, imaginez ce que nous pouvons accomplir ensemble. Planifiez un appel gratuit pour transformer l'énergie de votre enseignement en un site web qui attire et fidélise vos élèves.
+                        </p>
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Planifier mon Appel Clarté
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>
