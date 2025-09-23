@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Votre "Appel Découverte" : Interrogatoire ou Session de Coaching ? La Méthode pour Convertir sans "Vendre"</title>
+    <meta name="description"
+        content="Coachs, consultants : transformez votre appel découverte en une expérience de valeur qui convertit naturellement. Découvrez notre méthode en 4 étapes pour coacher, pas pour vendre, et signer plus de clients.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Votre 'Appel Découverte' : La Méthode pour Convertir sans 'Vendre'">
+    <meta property="og:description"
+        content="Coachs, consultants : transformez votre appel découverte en une expérience de valeur qui convertit naturellement.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-appel-decouverte.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-appel-decouverte.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Votre "Appel Découverte" : Interrogatoire ou Session de Coaching ? La Méthode pour Convertir sans "Vendre"
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Transformez votre appel découverte en une expérience de valeur qui convertit naturellement. Découvrez notre méthode en 4 étapes pour coacher, pas pour vendre, et signer plus de clients.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/appel-decouverte-intro.webp" alt="Comparaison entre un interrogatoire et une conversation de coaching fluide" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Le rendez-vous est dans votre agenda. Un prospect qualifié, intéressé par vos services de coaching ou de conseil, a réservé un "Appel Découverte". Une petite pression monte. C'est le moment de vérité. C'est le moment de "closer".</p>
+                    <p data-sr>Alors, vous préparez votre liste de questions : "Quels sont vos besoins ?", "Quel est votre budget ?", "Quel est votre délai ?". Vous vous préparez à dérouler votre pitch commercial.</p>
+                    <p data-sr class="font-semibold text-neutral-dark">Et c'est précisément là que vous risquez de tout faire échouer.</p>
+                    <p data-sr>Personne n'aime se sentir "vendu". Personne n'aime subir un interrogatoire. En adoptant une posture de vendeur, vous créez une distance et mettez votre prospect sur la défensive. Vous transformez une opportunité de connexion en une transaction froide.</p>
+                    <p data-sr>Et si vous changiez radicalement de posture ? Si, au lieu d'essayer de <strong class="text-clarity-blue">vendre</strong> votre coaching, vous commenciez à <strong class="text-clarity-blue">coacher</strong> dès la première minute de l'appel ?</p>
+                    <p data-sr>Un appel découverte réussi n'est pas un pitch de vente. C'est une <strong class="text-neutral-dark">mini-session de coaching</strong>. C'est une expérience de valeur qui donne à votre prospect un avant-goût si puissant de la transformation que la signature du contrat devient la suite logique et naturelle, et non une décision forcée.</p>
+                    <p data-sr>Voici la méthode en 4 étapes pour transformer vos appels et convertir sans jamais avoir l'impression de vendre.</p>
+                    
+                    <!-- NOUVELLE IMAGE 1 : LA TRANSFORMATION -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/appel-decouverte-transformation.webp" alt="Personne goûtant un produit, symbolisant l'avant-goût de la transformation" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">La Méthode du "Goûter" : Offrez un Avant-Goût de la Transformation</h2>
+                        <p>Pensez à cet appel comme à un artisan qui vous fait goûter un morceau de son produit. Il ne vous lit pas la liste des ingrédients. Il vous fait vivre une expérience.</p>
+                    </div>
+
+                    <!-- Étape 1 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Étape 1 : La Connexion (5 min) - Le SAS Humain</h3>
+                        <p>Ne sautez pas directement dans le business. Les 5 premières minutes sont cruciales pour passer d'une interaction formelle à une conversation humaine.</p>
+                        <ul class="list-none space-y-2 mt-4 text-base">
+                            <li><span class="text-destructive font-bold mr-2">Piège à éviter :</span> "Bonjour, alors, parlez-moi de vos besoins."</li>
+                            <li><span class="text-success-green font-bold mr-2">Visez plutôt :</span> Créez un espace de sécurité.</li>
+                        </ul>
+                        <div class="mt-4 pl-4 border-l-2 border-success-green/50 space-y-3 text-base">
+                            <p><strong class="text-neutral-dark">1. Remerciez et validez :</strong> "Bonjour [Prénom], merci d'avoir pris ce temps. Je sais que faire cette démarche est un premier pas important, bravo pour ça."</p>
+                            <p><strong class="text-neutral-dark">2. Posez une question ouverte et humaine :</strong> "Alors, qu'est-ce qui vous a amené à planifier cet appel avec moi *aujourd'hui* en particulier ?" (Le "aujourd'hui" est clé, il ancre la conversation dans le présent et l'urgence ressentie).</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Étape 2 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Étape 2 : L'Exploration Profonde (15 min) - Creuser l'Écart</h3>
+                        <p>C'est le cœur du coaching. Votre but n'est pas de collecter des informations, mais d'aider le prospect à <strong class="text-neutral-dark">clarifier sa propre situation</strong>. Pour cela, le concept le plus puissant est celui de "l'écart".</p>
+                        <div class="mt-4 space-y-4 text-base">
+                           <p><strong class="text-neutral-dark">Définir le Point A (La Douleur) :</strong> Aidez-le à articuler sa situation actuelle.<br><em>Questions puissantes : "Décrivez-moi la situation qui vous frustre le plus en ce moment.", "Quel est le coût (en énergie, en argent, en stress) de ce problème pour vous aujourd'hui ?"</em></p>
+                           <p><strong class="text-neutral-dark">Définir le Point B (Le Désir) :</strong> Aidez-le à visualiser l'avenir qu'il souhaite.<br><em>Questions puissantes : "Si nous nous reparlions dans 6 mois et que notre collaboration avait été un succès total, à quoi ressemblerait la situation ?", "Quel serait le plus grand changement que vous aimeriez voir ?"</em></p>
+                        </div>
+                         <p class="mt-4 font-semibold text-neutral-dark">Pendant cette phase, écoutez 80% du temps. Le prospect ne se sent pas interrogé. Il se sent écouté, compris. Il prend lui-même conscience de l'ampleur de son problème et de l'urgence à le résoudre.</p>
+                    </div>
+
+                    <!-- NOUVELLE IMAGE 2 : LE MOMENT "AHA" -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/appel-decouverte-aha-moment.webp" alt="Une ampoule qui s'allume au-dessus de la tête d'une personne, symbolisant une prise de conscience." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Étape 3 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Étape 3 : Le "Mini-Coaching" (5 min) - Le Moment "Aha!"</h3>
+                        <p>C'est votre moment de briller. C'est le "goûter". Vous allez lui offrir <strong class="text-neutral-dark">une pépite de valeur</strong>, un véritable insight qui lui donne un premier résultat.</p>
+                        <ul class="list-none space-y-2 mt-4 text-base">
+                            <li><span class="text-destructive font-bold mr-2">Piège à éviter :</span> Donner 10 conseils ou essayer de résoudre tout le problème.</li>
+                            <li><span class="text-success-green font-bold mr-2">Visez plutôt :</span> Offrez <strong class="text-neutral-dark">UN SEUL</strong> changement de perspective.</li>
+                        </ul>
+                         <ul class="list-disc list-inside space-y-2 mt-4 pl-4 text-base">
+                            <li><strong>Un Re-cadrage :</strong> "J'entends que vous voyez le problème comme un manque de temps. Et si nous le regardions sous l'angle d'un manque de priorités claires ?"</li>
+                            <li><strong>Une Question Puissante :</strong> "Quelle est la *plus petite* action que vous pourriez faire cette semaine pour vous rapprocher de votre Point B ?"</li>
+                            <li><strong>Une Révélation :</strong> "D'après mon expérience, le symptôme que vous décrivez cache souvent [cause profonde]."</li>
+                        </ul>
+                        <p class="mt-4 font-semibold text-neutral-dark">L'impact : Le prospect vient d'avoir une prise de conscience. Il ne se dit plus "peut-être qu'il peut m'aider". Il se dit "Wow, en 25 minutes, il m'a déjà plus aidé que moi en 6 mois."</p>
+                    </div>
+
+                    <!-- Étape 4 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Étape 4 : Le Pont vers l'Offre (5 min) - La Proposition Logique</h3>
+                        <p>Maintenant, et seulement maintenant, vous pouvez parler de vos services. La transition doit être naturelle.</p>
+                         <ul class="list-none space-y-2 mt-4 text-base">
+                            <li><span class="text-destructive font-bold mr-2">Piège à éviter :</span> "Bon, alors, voici mes tarifs..."</li>
+                        </ul>
+                        <div class="mt-6 border-t border-clarity-blue/30 pt-6">
+                            <p class="text-lg font-semibold mb-2 text-deep-blue">Le script du pont :</p>
+                            <blockquote class="border-l-4 border-warm-orange pl-4 mt-4">
+                                <p class="text-neutral-light italic">"L'écart que nous venons d'identifier entre votre situation actuelle et ce que vous souhaitez atteindre, c'est précisément le chemin que mon programme <strong class="text-neutral-dark">[Nom de votre Offre]</strong> est conçu pour vous faire parcourir. Il vous guide, étape par étape, pour [résultat principal].</p>
+                                <p class="mt-4 font-bold text-neutral-dark italic">Est-ce que vous voulez que je vous explique brièvement comment il fonctionne ?"</p>
+                            </blockquote>
+                        </div>
+                        <p class="mt-6">En demandant la permission, vous lui redonnez le contrôle. Sa réponse sera presque toujours "oui". Vous pouvez alors présenter votre offre non pas comme un produit, mais comme la <strong class="text-neutral-dark">solution logique et structurée</strong> au problème que vous venez de définir ensemble.</p>
+                    </div>
+
+                    <!-- Section Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Le Rôle Crucial de Votre Site en Amont</h2>
+                        <p>Ce type d'appel est infiniment plus facile lorsque votre prospect arrive déjà "chauffé". C'est le travail de votre <a href="../index.html#offres" class="text-clarity-blue font-semibold hover:underline">Site Clarté</a>. Un site qui a déjà clairement expliqué votre valeur, montré des preuves sociales et bâti votre autorité fait 80% du travail de conviction avant même que vous ne décrochiez le téléphone.</p>
+                    </div>
+                     <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Vendez la Clarté, pas le Coaching</h2>
+                        <p>Arrêtez de vendre vos programmes. Vendez de la clarté.</p>
+                        <p class="mt-4">En transformant votre appel découverte en une véritable session de coaching, vous changez radicalement la dynamique. Vous n'êtes plus un vendeur qui cherche à convaincre. Vous êtes un expert qui guide et qui apporte de la valeur dès la première seconde.</p>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">C'est une approche plus éthique, plus agréable pour vous, et paradoxalement, infiniment plus efficace pour convertir vos meilleurs prospects en vos meilleurs clients.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <!-- Titre et sous-titre -->
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Votre site prépare-t-il le terrain<br><span class="text-clarity-blue">pour des appels de grande valeur ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Un appel découverte puissant commence par un site web qui attire et qualifie les bons prospects. Si votre message en ligne est flou, vos appels le seront aussi. Discutons de la manière de clarifier votre message.
+                        </p>
+            
+                        <!-- Bouton d'action final et réassurance -->
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Planifier mon Appel Clarté
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>
