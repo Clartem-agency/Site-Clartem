@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Recycler votre Expertise Yoga en Contenu Marketing | Clartem</title>
+    <meta name="description"
+        content="Professeurs de yoga : manquez-vous de temps pour votre marketing ? Découvrez 3 façons simples de recycler vos séquences de cours en contenu engageant (blog, réseaux sociaux, newsletter) pour attirer plus d'élèves.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Votre Séquence de Yoga est du Contenu : 3 Façons de Recycler votre Expertise pour Attirer des Élèves">
+    <meta property="og:description"
+        content="Découvrez 3 façons simples de recycler vos séquences de cours en contenu engageant (blog, réseaux sociaux, newsletter) pour attirer plus d'élèves.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-recyclage-yoga.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-recyclage-yoga.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Votre Séquence de Yoga est du Contenu : 3 Façons de Recycler votre Expertise pour Attirer des Élèves
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                            Professeurs de yoga : manquez-vous de temps pour votre marketing ? Découvrez 3 façons simples de recycler vos séquences de cours en contenu engageant pour attirer plus d'élèves.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/recyclage-yoga-intro.webp" alt="Personne planifiant une séquence de yoga avec des icônes symbolisant le recyclage de contenu vers un blog, Instagram et une newsletter." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>"Je devrais créer plus de contenu."</p>
+                    <p data-sr>Cette petite phrase tourne en boucle dans la tête de nombreux professeurs de yoga, de Pilates et de méditation. Vous savez que pour être visible en ligne, il faut partager, publier, écrire... Mais entre la préparation de vos cours, l'enseignement, la gestion administrative et votre propre pratique, l'idée de devoir en plus devenir "créateur de contenu" est tout simplement épuisante.</p>
+                    <p data-sr>Et si je vous disais que vous êtes déjà un créateur de contenu prolifique ? Et si je vous disais que chaque semaine, vous produisez des heures de contenu original, précieux et de haute qualité ?</p>
+                    <p data-sr>Ce contenu, c'est votre <strong class="text-neutral-dark">enseignement</strong>. Chaque séquence que vous construisez, chaque thème que vous explorez, chaque méditation que vous guidez est une mine d'or de contenu qui ne demande qu'à être partagée au-delà des murs de votre studio.</p>
+                    <p data-sr>Arrêtez de penser que vous devez "créer" quelque chose de nouveau pour votre marketing. Commencez à penser à comment <strong class="text-clarity-blue">recycler l'expertise</strong> que vous déployez déjà au quotidien. C'est plus simple, plus authentique et infiniment plus durable. Voici 3 façons de le faire.</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Idée n°1 : Le "Thème du Cours" devient un Article de Blog</h2>
+                        <p>Chaque cours ou chaque semaine, vous avez souvent une intention, un "focus" : l'ouverture des hanches, le renforcement du centre, l'équilibre, le lâcher-prise... Ce thème est la graine d'un article de blog simple et pertinent.</p>
+                        
+                        <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8 space-y-4">
+                            <h3 class="text-xl font-bold text-clarity-blue">Le Processus de Recyclage :</h3>
+                            <ul class="list-decimal list-inside space-y-3">
+                                <li><strong class="text-neutral-dark">Votre Thème :</strong> Cette semaine, vous avez axé vos cours sur les torsions pour détoxifier le corps.</li>
+                                <li><strong class="text-neutral-dark">L'Angle de l'Article :</strong> Ne décrivez pas les postures. Parlez des <strong class="text-neutral-dark">bénéfices</strong>. Le titre de votre article pourrait être : "3 Bienfaits Surprenants des Torsions en Yoga (au-delà de la Detox)".</li>
+                                <li><strong class="text-neutral-dark">Le Contenu :</strong> Écrivez 3 courts paragraphes sur les bienfaits (améliorer la digestion, libérer les tensions, calmer le système nerveux).</li>
+                                <li><strong class="text-neutral-dark">L'Appel à l'Action :</strong> Terminez par : "Nous explorons ces bienfaits en profondeur dans mes cours de Vinyasa cette semaine. Envie de nous rejoindre ? <a href="#" class="font-semibold text-clarity-blue hover:underline">Consultez mon planning</a>".</li>
+                            </ul>
+                        </div>
+                        
+                        <p class="font-semibold bg-green-50 border border-green-200 text-green-800 p-4 rounded-lg"><strong class="block mb-2">L'Impact :</strong> Vous démontrez votre expertise au-delà de la simple instruction physique. Vous éduquez votre audience, vous donnez envie de venir pratiquer, et vous créez du contenu qui va améliorer le référencement de votre site sur Google.</p>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/recyclage-yoga-blog.webp" alt="Professeur de yoga écrivant un article de blog sur son ordinateur, inspiré par sa pratique." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Idée n°2 : La "Posture Clé" devient un Post Instagram/Facebook</h2>
+                        <p>Vous n'avez pas besoin de vous filmer pendant une heure. Une seule posture de votre séquence peut devenir un contenu engageant pour vos réseaux sociaux.</p>
+                        
+                        <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8 space-y-4">
+                             <h3 class="text-xl font-bold text-clarity-blue">Le Processus de Recyclage :</h3>
+                             <ul class="list-decimal list-inside space-y-3">
+                                <li><strong class="text-neutral-dark">Votre Posture Clé :</strong> Dans votre séquence sur les torsions, vous avez travaillé la posture de la "Demi-torsion vertébrale assise" (Ardha Matsyendrasana).</li>
+                                <li><strong class="text-neutral-dark">Le Visuel :</strong> Prenez une photo claire et accessible de vous dans cette posture (en suivant nos <a href="#" class="font-semibold text-clarity-blue hover:underline">conseils pour des photos qui inspirent</a>).</li>
+                                <li><strong class="text-neutral-dark">Le Texte (La Légende) :</strong> Utilisez une structure simple "Quoi / Pourquoi / Comment" pour expliquer la posture, ses bienfaits, et donner une astuce de pro.</li>
+                                <li><strong class="text-neutral-dark">L'Appel à l'Action :</strong> "Envie d'explorer d'autres postures comme celle-ci ? Le lien vers mon planning est dans ma bio !"</li>
+                            </ul>
+                        </div>
+                        
+                        <p class="font-semibold bg-green-50 border border-green-200 text-green-800 p-4 rounded-lg"><strong class="block mb-2">L'Impact :</strong> Vous offrez une mini-leçon gratuite, vous montrez votre pédagogie et vous donnez un aperçu concret de ce qui se passe dans vos cours, ce qui est beaucoup plus parlant qu'une simple photo de vous en lotus.</p>
+                    </div>
+
+                     <!-- Image 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/recyclage-yoga-social.webp" alt="Smartphone affichant un post Instagram sur une posture de yoga, illustrant le recyclage de contenu." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 3 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Idée n°3 : La "Méditation d'Ouverture" devient un Cadeau pour votre Communauté</h2>
+                        <p>Presque tous les cours de yoga ou de méditation commencent ou se terminent par un court moment de centrage, de scan corporel ou de relaxation guidée. Cette guidance audio est un trésor.</p>
+                        
+                         <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8 space-y-4">
+                             <h3 class="text-xl font-bold text-clarity-blue">Le Processus de Recyclage :</h3>
+                             <ul class="list-decimal list-inside space-y-3">
+                                <li><strong class="text-neutral-dark">Votre Guidance :</strong> Prenez la méditation de 5 minutes que vous guidez le plus souvent.</li>
+                                <li><strong class="text-neutral-dark">L'Enregistrement :</strong> Une seule fois, dans un endroit calme, enregistrez-vous avec l'application "Dictaphone" de votre téléphone.</li>
+                                <li><strong class="text-neutral-dark">Le "Packaging" :</strong> Vous avez maintenant un fichier audio MP3. C'est un produit digital !</li>
+                                <li><strong class="text-neutral-dark">La Diffusion :</strong> C'est le <a href="#" class="font-semibold text-clarity-blue hover:underline">cadeau de bienvenue parfait</a> à offrir sur votre site web en échange d'une adresse email.</li>
+                            </ul>
+                        </div>
+                        
+                        <p class="font-semibold bg-green-50 border border-green-200 text-green-800 p-4 rounded-lg"><strong class="block mb-2">L'Impact :</strong> C'est la stratégie la plus puissante. Vous offrez une expérience directe de votre voix. Vous construisez votre liste d'emails (votre actif le plus précieux). Et vous renforcez le lien avec votre communauté bien au-delà du tapis.</p>
+                    </div>
+
+                    <!-- Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Votre Expertise est un Diamant Brut</h2>
+                        <p>Arrêtez de croire que vous devez constamment inventer du "contenu marketing". Votre contenu, vous le créez déjà, chaque jour, avec passion et expertise.</p>
+                        <p class="mt-4">Votre seule tâche est d'apprendre à tailler ce diamant brut. Prenez les facettes de votre enseignement et présentez-les sous différents formats pour toucher plus de monde.</p>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">En adoptant cette mentalité de "recyclage intelligent", la création de contenu ne sera plus une corvée, mais le prolongement naturel et joyeux de votre pratique.</p>
+                    </div>
+
+                </div>
+            </article>
+
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <!-- Titre et sous-titre -->
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Prêt(e) à construire la plateforme <br><span class="text-clarity-blue">qui mettra en valeur tout votre contenu ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Recycler votre expertise est une chose. Avoir un "hub" central – votre site web – où tout ce contenu peut vivre, interagir et construire votre communauté en est une autre.
+                        </p>
+            
+                        <!-- Bouton d'action final et réassurance -->
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Planifier mon Appel Clarté
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>
