@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Votre Site Spirituel : 3 Clés pour paraître "Ancré" et Professionnel, pas "Perché"</title>
+    <meta name="description"
+        content="Praticiens spirituels : votre site web inspire-t-il confiance ? Découvrez 3 clés (langage, structure, posture) pour créer une présence en ligne professionnelle et ancrée qui rassure et attire vos clients idéaux.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Votre Site Spirituel : 3 Clés pour paraître 'Ancré' et Professionnel, pas 'Perché'">
+    <meta property="og:description"
+        content="Découvrez 3 clés pour créer une présence en ligne qui inspire confiance et attire vos clients idéaux.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-site-spirituel.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-site-spirituel.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Votre Site Spirituel : 3 Clés pour paraître "Ancré" et Professionnel, pas "Perché"
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Praticiens spirituels : votre site web inspire-t-il confiance ? Découvrez 3 clés pour créer une présence en ligne professionnelle et ancrée qui rassure et attire vos clients idéaux.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/site-spirituel-ancrage.webp" alt="Arbre majestueux avec des racines profondes et visibles, symbolisant l'ancrage spirituel et professionnel." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Votre don est réel. Votre connexion est profonde. Votre capacité à guider les autres sur des chemins subtils est votre plus grande force. Vous êtes énergéticien, médium, coach spirituel, astrologue... et vous avez une mission de cœur.</p>
+                    <p data-sr>Mais au moment de créer votre site web, un doute immense s'installe. Comment traduire cette richesse intérieure dans un monde digital souvent sceptique et superficiel ?</p>
+                    <p data-sr>La plus grande peur des praticiens spirituels est de créer un site qui leur ressemble, mais qui, pour le visiteur non-initié, semble <strong class="text-neutral-dark">"perché", "flou" ou "amateur"</strong>. Un site qui, au lieu d'inviter à la confiance, déclenche la méfiance et fait fuir des clients qui auraient pourtant désespérément besoin de votre aide.</p>
+                    <p data-sr>La solution n'est pas de renier qui vous êtes ou d'adopter un langage "corporate" froid. La solution est de trouver le juste équilibre. C'est de construire un site <strong class="text-clarity-blue">ancré</strong>.</p>
+                    <p data-sr>Un site ancré est un site qui possède des racines solides de professionnalisme, de clarté et de structure, permettant à la branche la plus haute de votre spiritualité de s'élever en toute sécurité. Voici les 3 clés pour cultiver cet ancrage.</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Clé n°1 : La Clarté du Langage (L'Ancrage Mental)</h2>
+                        <p>C'est le point le plus crucial. Votre jargon est précis pour vous, mais il est souvent une barrière pour les autres.</p>
+                    </div>
+
+                    <!-- Bloc Piège / Stratégie 1 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="text-lg font-semibold text-destructive flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg>
+                                    Le Piège du Langage "Perché"
+                                </h3>
+                                <p class="mt-2 pl-7 text-neutral-dark italic">"Harmonisation de vos Corps Subtils et Nettoyage Karmique". Le visiteur se sent exclu et part.</p>
+                            </div>
+                            <div class="border-t border-clarity-blue/20 pt-4">
+                                <h3 class="text-lg font-semibold text-success-green flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                    La Stratégie de l'Ancrage
+                                </h3>
+                                <p class="mt-2 pl-7 text-neutral-dark"><strong class="font-bold">Parlez du BÉNÉFICE CONCRET.</strong> Traduisez le "comment" spirituel en "pourquoi" humain.</p>
+                                <blockquote class="mt-4 border-l-4 border-warm-orange pl-4 space-y-2">
+                                    <p>Au lieu de : "J'équilibre vos chakras."<br><strong class="text-neutral-dark">Dites : "Je vous aide à retrouver un sentiment de stabilité émotionnelle et d'énergie."</strong></p>
+                                    <p>Au lieu de : "Je canalise les messages de vos guides."<br><strong class="text-neutral-dark">Dites : "Je vous offre des guidances claires pour vous aider à prendre des décisions alignées."</strong></p>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                    <p data-sr>Vous ne simplifiez pas votre pratique, vous la rendez <strong class="text-neutral-dark">accessible</strong>. Vous pouvez très bien détailler votre jargon technique plus loin sur votre site, mais votre porte d'entrée doit parler un langage universel.</p>
+
+                    <!-- IMAGE 2 : STRUCTURE -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/site-spirituel-structure-simple.webp" alt="Maquette de site web épurée et professionnelle sur un ordinateur portable, symbolisant une structure claire." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Clé n°2 : La Structure du Site (L'Ancrage Visuel)</h2>
+                        <p>L'énergie que vous dégagez en séance est probablement calme, contenue et maîtrisée. Votre site doit refléter cette même énergie.</p>
+                    </div>
+
+                    <!-- Bloc Piège / Stratégie 2 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="text-lg font-semibold text-destructive flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg>
+                                    Le Piège du Design "Perché"
+                                </h3>
+                                <p class="mt-2 pl-7 text-neutral-dark italic">Un site chaotique, des polices illisibles, des couleurs confuses... Visuellement, c'est le désordre.</p>
+                            </div>
+                            <div class="border-t border-clarity-blue/20 pt-4">
+                                <h3 class="text-lg font-semibold text-success-green flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                    La Stratégie de l'Ancrage
+                                </h3>
+                                <p class="mt-2 pl-7 text-neutral-dark"><strong class="font-bold">La Simplicité est le Nouveau Sacré.</strong> Un design professionnel est rassurant.</p>
+                                <ul class="list-disc list-inside space-y-2 mt-4 pl-7">
+                                    <li><strong class="text-neutral-dark">L'Espace :</strong> Laissez vos textes respirer avec beaucoup d'espace blanc. C'est le calme.</li>
+                                    <li><strong class="text-neutral-dark">La Clarté :</strong> Optez pour une structure simple comme celle du <a href="../index.html" class="text-clarity-blue hover:underline font-semibold">Site Clarté</a>. Un parcours guidé prend le visiteur par la main.</li>
+                                    <li><strong class="text-neutral-dark">Les Couleurs :</strong> Choisissez une palette limitée et harmonieuse pour apaiser l'esprit.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <p data-sr>Un site clair et structuré envoie un message inconscient très puissant : <strong class="text-neutral-dark">"Cette personne est organisée, son esprit est clair, je peux lui faire confiance."</strong></p>
+
+                    <!-- IMAGE 3 : POSTURE -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/site-spirituel-posture-humaine.webp" alt="Portrait professionnel et chaleureux d'une praticienne souriant à la caméra, créant une connexion humaine." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 3 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Clé n°3 : La Posture de l'Expert (L'Ancrage Humain)</h2>
+                        <p>Votre crédibilité ne repose pas sur des diplômes, mais sur votre parcours et votre incarnation. Vous devez le montrer de manière juste et professionnelle.</p>
+                    </div>
+
+                    <!-- Bloc Piège / Stratégie 3 -->
+                     <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="text-lg font-semibold text-destructive flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg>
+                                    Le Piège de l'Image "Perchée"
+                                </h3>
+                                <p class="mt-2 pl-7 text-neutral-dark italic">Une photo vous plaçant sur un piédestal inaccessible, créant une distance avec le visiteur.</p>
+                            </div>
+                            <div class="border-t border-clarity-blue/20 pt-4">
+                                <h3 class="text-lg font-semibold text-success-green flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                    La Stratégie de l'Ancrage
+                                </h3>
+                                <p class="mt-2 pl-7 text-neutral-dark"><strong class="font-bold">Soyez un Guide, pas un Gourou.</strong></p>
+                                <ul class="list-disc list-inside space-y-2 mt-4 pl-7">
+                                    <li><strong class="text-neutral-dark">Votre Photo :</strong> Choisissez un portrait professionnel et accessible où vous regardez l'objectif.</li>
+                                    <li><strong class="text-neutral-dark">Votre Histoire :</strong> Racontez votre parcours de manière sincère, en incluant les doutes et les défis.</li>
+                                    <li><strong class="text-neutral-dark">Les Témoignages :</strong> Mettez en avant des résultats concrets dans la vie de vos clients.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Honorez Votre Don avec Professionnalisme</h2>
+                        <p>Être "ancré" ne signifie pas renier votre spiritualité. C'est tout le contraire.</p>
+                        <p class="mt-4">C'est lui construire le plus beau des temples : un contenant solide, clair et professionnel, qui permet à la lumière de votre don de briller de mille feux, sans éblouir ni effrayer.</p>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">En adoptant ce langage clair, cette structure rassurante et cette posture humaine, vous ne ferez pas que "professionnaliser" votre site. Vous le rendrez accessible à des centaines de personnes qui ont besoin de votre lumière, mais qui avaient peur de l'ésotérisme.</p>
+                        <p class="mt-4">Vous ne vous trahissez pas. Vous vous rendez simplement disponible à un plus grand nombre.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Prêt(e) à construire le temple digital <br><span class="text-clarity-blue">que votre pratique mérite ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Traduire une énergie subtile en une structure web claire est un art. C'est le cœur de la philosophie du <a href="../index.html#offres" class="text-warm-orange font-semibold hover:underline">Site Clarté</a>. Discutons de la manière d'ancrer votre lumière.
+                        </p>
+            
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Planifier mon Appel Clarté
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>
