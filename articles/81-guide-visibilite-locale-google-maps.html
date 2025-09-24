@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Mon Adresse sur Google Maps ! Le Guide pour être Visible Localement sans Afficher son Domicile</title>
+    <meta name="description"
+        content="Coachs, thérapeutes travaillant de chez vous : protégez votre vie privée ! Découvrez comment créer une fiche Google Business de zone de service pour être visible localement sans que votre adresse personnelle ne soit publique.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Guide : Être Visible sur Google Maps sans Afficher son Domicile">
+    <meta property="og:description"
+        content="Protégez votre vie privée ! Découvrez comment créer une fiche Google Business de 'zone de service' pour être visible localement sans afficher votre domicile.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-google-maps-local.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-google-maps-local.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Mon Adresse est sur Google Maps ! Le Guide pour être Visible Localement sans Afficher son Domicile
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Vous êtes coach ou thérapeute et travaillez de chez vous ? Découvrez comment attirer les clients de votre quartier sur Google Maps, sans jamais afficher votre adresse personnelle.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/google-maps-intro.webp" alt="Maison protégée par une bulle de confidentialité avec une zone de service Google Maps à l'extérieur." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Vous êtes coach, thérapeute, consultant. Vous travaillez depuis votre domicile. Vous savez que vous <em>devriez</em> être sur Google Maps pour attirer les clients de votre quartier, mais une pensée vous glace le sang :</p>
+                    <blockquote class="border-l-4 border-destructive pl-4 my-6 text-xl italic font-semibold text-neutral-dark" data-sr>
+                        "Je ne veux absolument pas que mon adresse personnelle soit affichée publiquement sur Internet !"
+                    </blockquote>
+                    <p data-sr>Cette crainte est non seulement légitime, elle est saine. Votre domicile est votre sanctuaire. L'idée que n'importe qui puisse le trouver sur une carte, ou pire, qu'un client se présente à votre porte sans rendez-vous, est un cauchemar.</p>
+                    <p data-sr>Face à ce dilemme, beaucoup de professionnels choisissent la seule option qui leur semble sûre : ils renoncent à avoir une fiche Google Business. Et en faisant cela, ils deviennent <strong class="text-neutral-dark">complètement invisibles</strong> pour la clientèle locale qui cherche activement leurs services.</p>
+                    <p class="font-semibold text-clarity-blue bg-soft-blue p-4 rounded-lg" data-sr>C'est un sacrifice que vous n'avez plus à faire.</p>
+                    <p data-sr>Google a parfaitement compris cette problématique. Il a créé une solution spécifiquement pour les professionnels comme vous : la <strong class="text-neutral-dark">Fiche d'Établissement de "Zone de Service"</strong>.</p>
+                    <p data-sr>C'est une fonctionnalité qui vous permet de bénéficier de tous les avantages d'une présence locale... sans jamais avoir à afficher votre adresse. Voici comment la mettre en place.</p>
+                    
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Le Principe : Vous ne Vendez pas un "Lieu", mais un "Service dans une Zone"</h2>
+                        <p>La clé est de changer la nature de votre "entreprise" aux yeux de Google.</p>
+                        <ul class="list-none space-y-4 mt-6">
+                            <li class="flex items-start gap-4 p-4 bg-white border rounded-lg shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-destructive flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                                <div><strong class="text-neutral-dark block">Une entreprise avec vitrine</strong> (magasin, cabinet...) accueille les clients à une adresse fixe. Google affiche une punaise sur la carte.</div>
+                            </li>
+                            <li class="flex items-start gap-4 p-4 bg-white border rounded-lg shadow-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-success-green flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l6.447 2.724A1 1 0 0023 18.382V7.618a1 1 0 00-.553-.894L15 4m-6 3l6 3m0 0l6-3m-6 3v10" /></svg>
+                                <div><strong class="text-neutral-dark block">Une entreprise de services</strong> (coach, consultant...) dessert une <strong class="text-neutral-dark">zone géographique</strong>. Google affiche une zone sur la carte, mais <strong class="text-neutral-dark">cache l'adresse</strong>.</div>
+                            </li>
+                        </ul>
+                         <p class="mt-4">C'est cette deuxième option que vous devez choisir.</p>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/google-maps-zone-vs-lieu.webp" alt="Comparaison entre une punaise de localisation sur un lieu et une zone de service délimitée sur une carte." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 : Tutoriel -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Tutoriel : Créer votre Fiche Locale "Discrète"</h2>
+                        <p>Que vous créiez votre fiche pour la première fois ou que vous deviez modifier une fiche existante, le processus est simple.</p>
+                    </div>
+                    
+                    <!-- Étape 1 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Étape 1 : Choisir le Bon Type d'Activité</h3>
+                        <p>Lors de la création de votre fiche, Google vous posera la question clé sur votre type d'activité.</p>
+                        <ul class="list-none space-y-2 mt-4 text-base">
+                            <li><span class="text-success-green font-bold mr-2">✅ L'option à choisir :</span> Sélectionnez <strong class="text-neutral-dark">"Entreprise de services"</strong> (ou une formulation similaire comme "Services à domicile et en ligne").</li>
+                             <li><span class="text-destructive font-bold mr-2">❌ À éviter :</span> Ne choisissez PAS "Magasin physique".</li>
+                        </ul>
+                    </div>
+
+                    <!-- Étape 2 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Étape 2 : Définir votre Zone de Service</h3>
+                        <p>C'est l'étape la plus importante. Google va vous demander "Où servez-vous vos clients ?".</p>
+                        <p class="mt-4"><strong class="text-neutral-dark">Ce qu'il faut faire :</strong> Ne mettez pas votre adresse. Indiquez la <strong class="text-neutral-dark">zone géographique</strong> que vous couvrez. Par exemple :</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4 text-base">
+                            <li><strong>Par villes :</strong> "Lyon", "Villeurbanne", "Caluire-et-Cuire"</li>
+                            <li><strong>Par codes postaux :</strong> "69006", "69001", "69004"</li>
+                            <li><strong>Par région :</strong> "Métropole de Lyon"</li>
+                        </ul>
+                        <p class="mt-4 font-semibold text-neutral-dark">L'astuce : Soyez réaliste. Indiquez la zone où vous êtes prêt(e) à vous déplacer ou d'où provient la majorité de votre clientèle.</p>
+                    </div>
+
+                    <!-- Étape 3 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Étape 3 : La Vérification de l'Adresse (ne craignez rien)</h3>
+                        <p>C'est là que beaucoup paniquent. Pour vérifier que vous êtes bien un professionnel local, Google va vous demander une adresse postale.</p>
+                        <ul class="list-none space-y-2 mt-4 text-base">
+                            <li><strong class="text-neutral-dark">Ce qu'il faut faire :</strong> Indiquez votre <strong class="text-neutral-dark">véritable adresse personnelle.</strong></li>
+                            <li><strong class="text-neutral-dark">Pourquoi ?</strong> Cette adresse est <strong class="text-neutral-dark">uniquement pour la vérification.</strong> Google va souvent vous envoyer un courrier postal avec un code. Cette adresse <strong class="text-destructive">ne sera PAS affichée publiquement</strong>, à une condition...</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Étape 4 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Étape 4 : Masquer l'Adresse Publique (La Case Magique)</h3>
+                        <p>Juste après avoir entré votre adresse, ou dans les paramètres de votre fiche ("Modifier le profil" > "Coordonnées"), vous verrez une option cruciale :</p>
+                        <div class="mt-4 p-4 bg-white rounded-lg border border-clarity-blue/20 shadow-sm text-center font-semibold text-neutral-dark">
+                        "Afficher l'adresse de l'établissement pour les clients"
+                        </div>
+                        <p class="mt-4">Assurez-vous que cette case est <strong class="text-destructive">DÉCOCHÉE</strong>.</p>
+                    </div>
+
+                    <!-- Image 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/google-maps-masquer-adresse.webp" alt="Capture d'écran de l'option 'Afficher l'adresse de l'établissement pour les clients' dans Google Business Profile." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+                    
+                    <p data-sr class="font-bold text-neutral-dark text-xl">Le résultat : Votre fiche sera validée grâce à votre adresse, mais elle n'apparaîtra jamais sur votre profil public. Les prospects verront "Dessert la zone de Lyon", mais ne verront pas de punaise sur votre domicile. Problème résolu.</p>
+
+                    <!-- Section 3 : Limites -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Les Limites à Connaître (en toute transparence)</h2>
+                        <p>Est-ce que cette méthode est aussi efficace qu'une fiche avec une adresse physique ?</p>
+                        <p class="mt-4">Soyons honnêtes : pour le classement dans le "Pack Local", Google a tendance à légèrement favoriser les établissements avec une adresse physique visible, car c'est un signal de confiance plus fort pour lui.</p>
+                        <p class="mt-4 font-bold text-success-green">MAIS...</p>
+                        <p class="mt-4">Une fiche de zone de service bien optimisée (avec des avis, des photos de vous, des services détaillés...) sera <strong class="text-neutral-dark">infiniment plus visible et plus performante que pas de fiche du tout.</strong></p>
+                        <p class="mt-4">C'est le meilleur compromis possible entre votre visibilité commerciale et la protection de votre vie privée.</p>
+                    </div>
+
+                    <!-- Section 4 : Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Soyez Visible, Restez Serein(e)</h2>
+                        <p>La peur de voir votre domicile exposé sur Internet n'est plus une excuse valable pour rester invisible aux yeux de vos clients locaux.</p>
+                        <p class="mt-4">En utilisant la fonctionnalité de "zone de service", vous pouvez enfin construire votre présence sur Google Maps en toute sérénité. Vous attirez les clients de votre quartier, vous développez votre activité, et vous préservez ce qui est le plus important : la tranquillité de votre foyer.</p>
+                    </div>
+
+                    
+                </div>
+            </article>
+
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <!-- Titre et sous-titre -->
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Votre fiche Google est une porte d'entrée. <br><span class="text-clarity-blue">Votre site transforme l'essai.</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Une fois que vos clients locaux vous trouvent, assurez-vous qu'ils soient convaincus par un site web clair et professionnel. C'est l'étape suivante pour transformer un curieux en client fidèle.
+                        </p>
+            
+                        <!-- Bouton d'action final et réassurance -->
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Planifier mon Appel Clarté
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>
