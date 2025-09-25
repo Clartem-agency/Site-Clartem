@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Coach/Thérapeute Débutant : Comment Fixer vos Premiers Tarifs</title>
+    <meta name="description"
+        content="Vous vous lancez comme coach ou thérapeute et vous bloquez sur vos tarifs ? Découvrez notre guide en 3 étapes pour fixer un prix juste qui valorise votre travail, rassure vos clients et vous permet de vivre de votre passion.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Coach/Thérapeute Débutant : Comment Fixer vos Premiers Tarifs">
+    <meta property="og:description"
+        content="Un guide en 3 étapes pour fixer un prix juste qui valorise votre travail, rassure vos clients et vous permet de vivre de votre passion.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-coach-therapeute-fixer-tarifs.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-coach-therapeute-fixer-tarifs.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Coach/Thérapeute Débutant : Comment Fixer vos Premiers Tarifs (sans vous brader ni faire fuir)
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                            Vous vous lancez et vous bloquez sur vos tarifs ? Découvrez notre guide en 3 étapes pour fixer un prix juste qui valorise votre travail, rassure vos clients et vous permet de vivre de votre passion.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/coach-therapeute-equilibre-valeur-tarif.webp" alt="Balance en équilibre avec un coeur d'un côté et des pièces de monnaie de l'autre, symbolisant un tarif juste." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>C'est la question qui hante les nuits de tous les coachs, thérapeutes et praticiens du bien-être qui se lancent. La question qui semble mille fois plus compliquée que n'importe quelle technique de PNL ou de sophrologie que vous avez apprise :</p>
+                    <blockquote class="border-l-4 border-clarity-blue pl-6 my-8 italic text-xl text-neutral-dark" data-sr>
+                        "Quel tarif dois-je fixer ?"
+                    </blockquote>
+                    <p data-sr>Cette question vous plonge dans un océan de doutes.</p>
+                     <ul class="list-disc list-inside space-y-2 mt-4 pl-4" data-sr>
+                        <li>Si je mets un prix trop bas, je vais me brader, attirer les mauvais clients et ne jamais pouvoir en vivre.</li>
+                        <li>Si je mets un prix trop haut, personne ne viendra ! Je n'ai pas encore assez d'expérience pour demander ça.</li>
+                    </ul>
+                    <p data-sr>Cette paralysie est normale. Elle est le symptôme d'un conflit entre votre syndrome de l'imposteur ("je ne vaux pas grand-chose") et votre désir légitime de construire une activité viable.</p>
+                    <p data-sr>La clé pour sortir de ce dilemme n'est pas de regarder ce que fait la voisine ou de tirer un chiffre au hasard. C'est de suivre une méthode simple et structurée pour arriver à un tarif qui soit <strong class="text-neutral-dark">juste</strong> : juste pour vous, juste pour vos clients, et juste pour la valeur que vous apportez.</p>
+                    <p data-sr>Voici la démarche en 3 étapes.</p>
+
+                    <!-- Étape 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Étape 1 : Cessez de Vendre votre Temps. Vendez un "Pack" de Transformation.</h2>
+                        <p>La première erreur du débutant est de raisonner en "taux horaire". "Combien vaut une heure de mon temps ?". C'est un piège.</p>
+                        <ul class="list-none space-y-4 mt-6 text-base bg-soft-blue p-6 rounded-lg">
+                            <li><strong class="text-destructive font-bold mr-2">Pourquoi c'est un piège ?</strong> Parce qu'en tant que débutant, vous avez l'impression que votre "heure" ne vaut pas grand-chose. De plus, une seule heure apporte rarement une transformation durable.</li>
+                            <li><strong class="text-success-green font-bold mr-2">La Solution : Créez votre "Offre de Lancement".</strong> Ne vendez pas des séances à l'unité. Packagez votre savoir-faire en une offre de départ claire et limitée dans le temps. C'est plus facile à vendre, et beaucoup plus efficace pour votre client.</li>
+                        </ul>
+                         <div class="bg-white border-l-4 border-clarity-blue p-6 rounded-lg my-8 shadow-md" data-sr>
+                            <h3 class="text-xl font-bold text-clarity-blue mb-4">Exemple d'Offre de Lancement :</h3>
+                             <p class="font-bold text-lg text-neutral-dark">Le Parcours "Clarté" - Votre Point de Départ</p>
+                            <p class="mt-2 text-neutral-light italic">"Un accompagnement de 3 séances sur 4 à 6 semaines pour clarifier votre situation, définir votre objectif principal et créer votre plan d'action."</p>
+                        </div>
+                        <p>En vendant un "parcours", vous ne vendez plus une heure, vous vendez un <strong class="text-neutral-dark">résultat</strong>. La question du tarif devient beaucoup plus simple.</p>
+                    </div>
+                    
+                    <!-- Image Étape 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/coach-therapeute-calculer-tarif-viabilite.webp" alt="Personne à un bureau avec une calculatrice, un carnet et un café, planifiant ses finances." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Étape 2 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Étape 2 : Calculez votre "Tarif de Viabilité" (Votre Plancher Incompressible)</h2>
+                        <p>Avant de penser à la "valeur", pensons à la <strong class="text-neutral-dark">réalité</strong>. Votre activité doit être viable. Vous devez fixer un tarif qui vous permet, au minimum, de couvrir vos charges et de commencer à vous rémunérer.</p>
+                        <div class="bg-soft-blue p-6 rounded-lg my-8 space-y-4">
+                            <h3 class="text-xl font-bold text-clarity-blue mb-2">L'Exercice (simplifié) :</h3>
+                            <ol class="list-decimal list-inside space-y-3">
+                                <li><strong>Listez vos charges pro mensuelles :</strong> Assurance, supervision, loyer, logiciels... (Ex: <strong class="text-neutral-dark">300€/mois</strong>).</li>
+                                <li><strong>Définissez votre objectif de rémunération mensuelle minimum :</strong> Soyez réaliste mais digne. (Ex: <strong class="text-neutral-dark">1500€/mois</strong>).</li>
+                                <li><strong>Votre besoin de chiffre d'affaires mensuel est de :</strong> 300€ + 1500€ = <strong class="text-neutral-dark">1800€</strong>.</li>
+                                <li><strong>Combien de clients pouvez-vous accompagner par mois au début ?</strong> Soyons conservateurs. (Ex: <strong class="text-neutral-dark">4 clients</strong>).</li>
+                                <li><strong>Le calcul de votre tarif plancher :</strong> 1800€ / 4 clients = <strong class="text-warm-orange font-bold text-xl">450€</strong>.</li>
+                            </ol>
+                        </div>
+                         <p>Votre "Parcours Clarté" de 3 séances doit donc être facturé <strong class="text-neutral-dark">au minimum 450€</strong> pour que votre activité soit viable. Ce chiffre n'est plus basé sur votre "sentiment de valeur", mais sur une réalité économique. C'est votre <strong class="text-neutral-dark">ancrage</strong>.</p>
+                    </div>
+
+                    <!-- Image Étape 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/coach-therapeute-strategie-offre-lancement-speciale.webp" alt="Illustration d'une offre spéciale de lancement avec une étiquette de prix promotionnel." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Étape 3 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Étape 3 : La Stratégie du "Tarif de Lancement" (Pour Gagner en Confiance)</h2>
+                        <p>450€ vous semble encore élevé et effrayant à annoncer ? C'est normal. C'est là qu'intervient une stratégie marketing éthique et très efficace pour les débutants.</p>
+                        <p class="mt-4"><strong class="text-neutral-dark">Le Principe :</strong> Vous n'allez pas baisser votre prix. Vous allez communiquer sur la <strong class="text-neutral-dark">valeur réelle</strong> de votre offre, et proposer une <strong class="text-neutral-dark">réduction exceptionnelle de lancement</strong> en échange de quelque chose de précieux pour vous : des témoignages.</p>
+                        
+                        <div class="bg-soft-blue p-8 rounded-2xl shadow-lg my-8 border border-clarity-blue/20" data-sr>
+                            <h4 class="text-xl font-bold text-neutral-dark mb-4">Comment le présenter sur votre site web :</h4>
+                             <div class="mt-6 border-t border-clarity-blue/30 pt-6">
+                                <blockquote class="border-l-4 border-warm-orange pl-4">
+                                    <p class="text-lg text-neutral-light">Investissement pour ce parcours de transformation : <span class="font-bold text-neutral-dark">450€</span></p>
+                                    <div class="bg-warm-orange/10 p-4 rounded-lg mt-4">
+                                        <p class="font-bold text-warm-orange text-lg">✨ OFFRE DE LANCEMENT SPÉCIALE ✨</p>
+                                        <p class="mt-2 text-neutral-dark">"Pour célébrer le lancement de mon activité et recueillir les premières histoires de succès, j'ai le plaisir d'offrir ce parcours à un <strong class="text-success-green">tarif exceptionnel de 290€</strong> aux <strong class="text-success-green">5 premières personnes</strong> qui s'engageront dans cette aventure avec moi."</p>
+                                        <p class="mt-3 text-sm text-neutral-light italic">"En échange de ce tarif préférentiel, je vous demanderai simplement de me fournir un témoignage détaillé à la fin de notre accompagnement."</p>
+                                    </div>
+                                </blockquote>
+                            </div>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-neutral-dark mt-8 mb-4">Pourquoi cette stratégie est-elle géniale ?</h3>
+                        <ol class="list-decimal list-inside space-y-3 pl-4">
+                            <li><strong>Vous ancrez votre "vrai" prix :</strong> Vous éduquez le marché sur la valeur réelle de votre travail (450€). Vous ne vous bradez pas.</li>
+                            <li><strong>Vous créez l'urgence et la rareté :</strong> "Seulement pour les 5 premiers !" incite à passer à l'action.</li>
+                            <li><strong>Vous rendez votre offre irrésistible :</strong> Le tarif réduit est très attractif.</li>
+                            <li><strong>Vous obtenez ce dont vous avez le plus besoin :</strong> Des témoignages clients, la clé pour vendre ensuite à plein tarif.</li>
+                        </ol>
+                    </div>
+
+                    <!-- Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Votre Tarif est une Déclaration de Valeur</h2>
+                        <p>Fixer ses tarifs est le premier grand acte entrepreneurial pour un coach ou un thérapeute. C'est le moment où vous déclarez au monde – et à vous-même – la valeur de la transformation que vous offrez.</p>
+                        <p class="mt-4">Arrêtez de laisser le syndrome de l'imposteur dicter vos prix. Suivez cette méthode structurée :</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4 font-semibold text-neutral-dark">
+                            <li>Packagez votre offre.</li>
+                            <li>Calculez votre plancher de viabilité.</li>
+                            <li>Communiquez avec une offre de lancement stratégique.</li>
+                        </ul>
+                         <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">En faisant cela, vous ne tirez pas un chiffre de votre chapeau. Vous posez un acte réfléchi, professionnel et juste, qui est la première fondation d'une activité saine, sereine et prospère.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Appel à l'action final -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Prêt(e) à créer un site qui présente vos offres <br><span class="text-clarity-blue">avec confiance et professionnalisme ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Une fois votre offre et votre tarif clarifiés, il est essentiel de les présenter dans un écrin qui en justifie la valeur. C'est le rôle d'un Site Clarté.
+                        </p>
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Planifier mon Appel Clarté
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>
