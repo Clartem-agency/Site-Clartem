@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Le "Retainer" Mensuel : Le Saint Graal du Consultant (et Comment le Vendre sur votre Site)</title>
+    <meta name="description"
+        content="Consultants, coachs : fatigués de chasser les contrats ? Découvrez comment structurer et vendre une offre de 'retainer' mensuel pour créer des revenus récurrents, fidéliser vos clients et asseoir votre statut d'expert.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Le 'Retainer' Mensuel : Le Saint Graal du Consultant">
+    <meta property="og:description"
+        content="Découvrez comment structurer et vendre une offre de 'retainer' pour créer des revenus récurrents et fidéliser vos clients.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-vendre-offre-retainer-mensuel-consultant-coach.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-vendre-offre-retainer-mensuel-consultant-coach.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                           Le "Retainer" Mensuel : Le Saint Graal du Consultant (et Comment le Vendre sur votre Site)
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Consultants, coachs : fatigués de chasser les contrats ? Découvrez comment structurer et vendre une offre de "retainer" pour créer des revenus récurrents, fidéliser vos clients et asseoir votre statut d'expert.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/consultant-transformer-revenus-instables-en-croissance-previsible.webp" alt="Graphique montrant des revenus instables se transformant en une croissance stable et prévisible" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Quel est le rêve de tout consultant ou coach indépendant ? Ce n'est pas de signer le "plus gros" contrat. C'est de mettre fin au cycle épuisant du "festin et de la famine" : l'alternance entre des mois surchargés de missions et des mois angoissants à chasser le prochain projet.</p>
+                    <p data-sr>Le rêve, c'est la <strong class="text-neutral-dark">prévisibilité</strong>. La stabilité. La sérénité de savoir que, mois après mois, un revenu de base est assuré.</p>
+                    <p data-sr>Ce rêve a un nom : le <strong class="text-warm-orange">"retainer" mensuel</strong>.</p>
+                    <p data-sr>Un retainer est un contrat par lequel un client vous paie une somme fixe chaque mois en échange d'un accès continu à votre expertise. Il transforme une relation client transactionnelle ("Je vous paie pour ce projet") en un véritable <strong class="text-clarity-blue">partenariat stratégique</strong> ("Je vous paie pour avoir votre cerveau à mes côtés").</p>
+                    <p data-sr>Mais comment passer de la vente de missions ponctuelles à la vente de cet engagement à long terme ? La clé n'est pas dans la vente, mais dans la <strong class="text-neutral-dark">structuration</strong> et la <strong class="text-neutral-dark">présentation</strong> de l'offre. Et votre site web est l'endroit parfait pour planter les graines de cette collaboration durable.</p>
+
+                    <!-- Étape 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Étape 1 : Changez de Perspective - Vous Vendez de la Proximité, Pas des Heures</h2>
+                        <p>La première erreur est de présenter un retainer comme un "pack d'heures". "Pour X€/mois, vous avez droit à 5 heures de mon temps." C'est une approche de technicien qui vous enferme dans la justification de chaque minute passée.</p>
+                        <p class="mt-4">Un retainer premium ne vend pas du temps. Il vend trois choses bien plus précieuses :</p>
+                        <ul class="list-disc list-inside space-y-3 mt-4 pl-4">
+                            <li><strong class="text-neutral-dark">L'Accès Prioritaire :</strong> La certitude pour le client qu'il peut vous joindre rapidement quand un problème urgent survient.</li>
+                            <li><strong class="text-neutral-dark">La Proactivité :</strong> L'assurance que vous pensez à son business même quand il ne vous appelle pas, et que vous lui apporterez des idées nouvelles.</li>
+                            <li><strong class="text-neutral-dark">La Tranquillité d'Esprit :</strong> Le confort de savoir qu'il a un partenaire stratégique, sans le coût d'un salarié.</li>
+                        </ul>
+                         <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">Votre communication doit être axée sur ces bénéfices, pas sur le décompte des heures.</p>
+                    </div>
+
+                     <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/structurer-offre-retainer-mensuel-packages-consulting-clairs.webp" alt="Illustration de trois packages clairs pour une offre de retainer" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Étape 2 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Étape 2 : Structurez votre Offre de Retainer (Le "Menu" de Partenariat)</h2>
+                        <p>Ne proposez pas un simple "retainer sur-mesure". Créez 2 ou 3 packages clairs pour guider la décision de votre client. Cela le rassure et vous positionne comme un professionnel structuré.</p>
+                    </div>
+                    
+                    <!-- Bloc Packages -->
+                    <div class="space-y-8 my-8" data-sr>
+                        <!-- Package 1 -->
+                        <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-clarity-blue mb-2">Package 1 : "Le Conseiller Stratégique"</h3>
+                            <p class="italic text-neutral-light mb-4">Idéal pour le suivi post-mission, garder un œil sur la stratégie.</p>
+                            <ul class="list-disc list-inside space-y-1 text-base text-neutral-dark">
+                                <li>1 appel stratégique de 90 min/mois</li>
+                                <li>Suivi par email illimité (réponse sous 48h)</li>
+                            </ul>
+                            <p class="text-lg font-bold text-deep-blue mt-4">Prix indicatif : 1000€/mois</p>
+                        </div>
+                        <!-- Package 2 -->
+                        <div class="bg-white border-l-4 border-warm-orange p-6 rounded-lg shadow-lg">
+                             <span class="inline-block bg-warm-orange text-white text-xs font-bold px-3 py-1 rounded-full mb-3">Le plus populaire</span>
+                            <h3 class="text-xl font-bold text-warm-orange mb-2">Package 2 : "Le Partenaire de Croissance"</h3>
+                            <p class="italic text-neutral-light mb-4">Idéal pour un accompagnement actif sur des projets clés.</p>
+                            <ul class="list-disc list-inside space-y-1 text-base text-neutral-dark">
+                                <li>2 appels de 90 min/mois</li>
+                                <li>1 workshop trimestriel avec l'équipe</li>
+                                <li>Support prioritaire par Slack/WhatsApp</li>
+                            </ul>
+                            <p class="text-lg font-bold text-deep-blue mt-4">Prix indicatif : 2500€/mois</p>
+                        </div>
+                        <!-- Package 3 -->
+                        <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-clarity-blue mb-2">Package 3 : "Le Directeur Externe"</h3>
+                            <p class="italic text-neutral-light mb-4">Idéal pour une intégration profonde dans la stratégie de l'entreprise.</p>
+                            <ul class="list-disc list-inside space-y-1 text-base text-neutral-dark">
+                                <li>4 appels/mois</li>
+                                <li>Participation au comité de direction</li>
+                                <li>Accès direct à votre ligne téléphonique</li>
+                            </ul>
+                            <p class="text-lg font-bold text-deep-blue mt-4">Prix indicatif : 5000€/mois</p>
+                        </div>
+                    </div>
+
+                    <!-- Image 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/presenter-offre-partenariat-long-terme-site-web-consultant.webp" alt="Maquette d'une page de site web présentant une offre de partenariat à long terme" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Étape 3 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Étape 3 : Vendez l'Offre sur votre Site (La Scène de la Valeur)</h2>
+                        <p>Comment présenter ces offres sans qu'elles ne semblent complexes ou intimidantes ?</p>
+                         <ul class="list-none space-y-3 mt-6">
+                            <li><span class="text-destructive font-bold mr-2">Piège à éviter :</span> Cacher cette offre. Si vous n'en parlez pas, personne ne saura qu'elle existe.</li>
+                            <li><span class="text-success-green font-bold mr-2">La Stratégie :</span> Créez une page dédiée intitulée <strong class="text-neutral-dark">"Partenariat à Long Terme"</strong>. C'est le sommet de votre <a href="#" class="text-clarity-blue font-semibold hover:underline">Escalier de Valeur</a>.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Bloc Contenu de la Page -->
+                    <div class="bg-soft-blue p-8 rounded-2xl shadow-lg my-8 border border-clarity-blue/20" data-sr>
+                        <h4 class="text-xl font-bold text-neutral-dark mb-4">Le Contenu Idéal de votre Page "Partenariat" :</h4>
+                        <ol class="list-decimal list-inside space-y-4 text-neutral-light">
+                            <li><strong class="text-neutral-dark">Titre :</strong> "Au-delà des Missions Ponctuelles : Devenons de Véritables Partenaires."</li>
+                            <li><strong class="text-neutral-dark">Décrivez la douleur :</strong> "Un projet réussi, c'est bien. Mais qui s'assure que les bénéfices perdurent dans le temps ? Qui vous aide à ajuster la stratégie face aux imprévus ?"</li>
+                            <li><strong class="text-neutral-dark">Présentez le bénéfice :</strong> "Imaginez avoir un expert de confiance à vos côtés, mois après mois, pour vous aider à prendre les bonnes décisions..."</li>
+                            <li><strong class="text-neutral-dark">Affichez vos packages</strong> de manière claire et comparative.</li>
+                            <li><strong class="text-neutral-dark">L'Appel à l'Action (CTA) :</strong> Un retainer ne s'achète pas en un clic. Le CTA doit être conversationnel.</li>
+                        </ol>
+                        <blockquote class="border-l-4 border-warm-orange pl-4 mt-6">
+                            <p class="text-neutral-light italic">"Ces offres sont réservées à un nombre limité de clients. Discutons-en pour voir si ce format de partenariat est le bon pour vous."</p>
+                            <p class="mt-2 font-semibold text-deep-blue">[Bouton : "Planifier un Appel Partenariat"]</p>
+                        </blockquote>
+                    </div>
+
+                    <!-- Conclusion & CTA -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Le Moment Parfait pour Proposer le Retainer</h2>
+                        <p>Votre site web plante la graine. Mais la proposition se fait souvent à un moment clé : <strong class="text-neutral-dark">à la fin d'une mission ponctuelle réussie.</strong></p>
+                        <p class="mt-4">C'est lors de votre <a href="#" class="text-clarity-blue font-semibold hover:underline">session de bilan de fin de mission</a> que vous pouvez dire : "Vous avez vu la valeur que nous avons créée ensemble en 3 mois. Pour vous assurer de maintenir cette dynamique, j'ai créé un format de partenariat à long terme, comme vous l'avez peut-être vu sur mon site..."</p>
+                    </div>
+                    
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Vendez la Stabilité, Obtenez la Stabilité</h2>
+                        <p>Le retainer mensuel est bien plus qu'un modèle économique. C'est une posture. C'est le passage du statut de "pompier" que l'on appelle pour éteindre un incendie, à celui d'<strong class="text-clarity-blue">"architecte"</strong> qui aide à construire l'édifice sur le long terme.</p>
+                        <p class="mt-4">En structurant et en présentant clairement cette offre sur votre site, vous ne faites pas que proposer un service. Vous éduquez votre marché. Vous montrez la vision la plus élevée de la collaboration que vous pouvez offrir.</p>
+                        <p class="mt-4">Et vous vous donnez les moyens de construire l'activité dont vous avez toujours rêvé : une activité stable, sereine et basée sur des relations de confiance profondes.</p>
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <!-- Titre et sous-titre -->
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Prêt(e) à construire l'offre qui va <br><span class="text-clarity-blue">stabiliser votre activité ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                           La conception et la communication d'une offre de retainer est un exercice stratégique. Intégrons-la parfaitement à votre <a href="../index.html#offres" class="font-semibold text-white hover:text-clarity-blue underline">Site Clarté</a> pour attirer des partenariats durables.
+                        </p>
+            
+                        <!-- Bouton d'action final et réassurance -->
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Discutons de votre modèle de revenus
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>
