@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Au-delà de la Niche : La Puissance de la "Micro-Niche" pour Facturer en Premium</title>
+    <meta name="description"
+        content="Consultants, coachs : votre niche est-elle assez précise ? Découvrez le concept de 'micro-niche' (cible + problème spécifique) pour éliminer la concurrence, devenir une autorité et justifier des tarifs premium.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Au-delà de la Niche : La Puissance de la 'Micro-Niche' pour Facturer en Premium">
+    <meta property="og:description"
+        content="Découvrez le concept de 'micro-niche' pour éliminer la concurrence, devenir une autorité et justifier des tarifs premium.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-au-dela-niche-puissance-micro-niche-premium.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-au-dela-niche-puissance-micro-niche-premium.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Au-delà de la Niche : La Puissance de la "Micro-Niche" pour Facturer en Premium
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                            Consultants, coachs : votre niche est-elle assez précise ? Découvrez le concept de "micro-niche" pour éliminer la concurrence, devenir une autorité et justifier des tarifs premium.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-12 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/consultant-coach-loupe-specialisation-micro-niche.webp" alt="Loupe se concentrant sur un point précis d'une carte, symbolisant la micro-niche" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <div class="space-y-6" data-sr>
+                        <p>Vous avez fait vos devoirs. Vous avez lu tous les conseils marketing. Vous avez compris que pour vous démarquer, il fallait "trouver sa niche".</p>
+                        <p>Alors, vous avez arrêté d'être un "coach pour entreprises". Vous êtes devenu un "coach pour entrepreneurs". C'est bien. C'est un premier pas essentiel.</p>
+                        <p>Mais en 2025, dans un marché de plus en plus sophistiqué, ce n'est souvent plus suffisant.</p>
+                        <p>Regardez sur LinkedIn. Des "coachs pour entrepreneurs", il y en a des milliers. Vous êtes passé d'un grand océan bruyant à un lac un peu moins grand, mais toujours très peuplé. La concurrence reste rude, et la conversation tourne encore trop souvent autour du prix.</p>
+                        <p>Si vous voulez vraiment sortir du lot, si vous aspirez à devenir une autorité incontestée dans votre domaine et à facturer les tarifs premium qui vont avec, vous devez aller un cran plus loin.</p>
+                        <p>Vous devez passer de la <strong class="text-neutral-dark">niche</strong> à la <strong class="text-clarity-blue">micro-niche</strong>.</p>
+                    </div>
+
+                    <!-- Section 1 : La Différence (STYLE OPTIMISÉ) -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">La Différence entre une Niche et une Micro-Niche</h2>
+                        <p>C'est une distinction subtile mais fondamentale.</p>
+                    </div>
+
+                    <!-- Bloc de comparaison Niche vs Micro-Niche (STYLE OPTIMISÉ) -->
+                    <div class="space-y-8" data-sr>
+                        <div class="grid md:grid-cols-2 gap-8 items-stretch">
+                            <!-- Carte Niche -->
+                            <div class="bg-white border border-gray-200 p-6 rounded-xl shadow-md flex flex-col">
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Une <span class="text-warm-orange">Niche</span>, c'est une <span class="underline decoration-warm-orange decoration-2">cible</span>.</h3>
+                                <blockquote class="border-l-4 border-warm-orange pl-4 mt-2 flex-grow flex items-center">
+                                    <p class="text-neutral-light italic">"Les PME du secteur du BTP."</p>
+                                </blockquote>
+                            </div>
+                            <!-- Carte Micro-Niche -->
+                            <div class="bg-soft-blue border border-clarity-blue/30 p-6 rounded-xl shadow-md flex flex-col">
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Une <span class="text-clarity-blue">Micro-Niche</span>, c'est une <span class="underline decoration-clarity-blue decoration-2">cible</span> + un <span class="underline decoration-clarity-blue decoration-2">problème</span>.</h3>
+                                <blockquote class="border-l-4 border-clarity-blue pl-4 mt-2 flex-grow flex items-center">
+                                     <p class="text-neutral-light italic">"J'aide les PME familiales du BTP à gérer la transition managériale lors du passage de la première à la deuxième génération."</p>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <p class="pt-4 font-semibold text-neutral-dark text-center">Vous voyez la différence ? Dans le second cas, vous êtes <strong class="text-deep-blue">LA</strong> solution. Vous ne vendez plus un service, vous vendez une expertise chirurgicale.</p>
+                    </div>
+                    
+                    <!-- Section 2 : Les Super-Pouvoirs -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Les 3 Super-Pouvoirs de l'Hyper-Spécialisation</h2>
+                        <p>Adopter une micro-niche peut faire peur. On a l'impression de se fermer à 99% du marché. En réalité, vous créez un aimant si puissant pour le 1% qui reste que les résultats sont spectaculaires.</p>
+                    </div>
+
+                    <!-- Image 2 : Le laser -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/marketing-laser-precis-eliminer-concurrence-micro-niche.webp" alt="Un laser de haute précision touchant une cible, symbolisant un marketing ultra-ciblé" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Liste des super-pouvoirs (STYLE OPTIMISÉ) -->
+                    <div class="space-y-12" data-sr>
+                        <!-- Pouvoir 1 -->
+                        <div class="flex items-start gap-6">
+                            <div class="flex-shrink-0 text-5xl font-bold text-clarity-blue/30 w-12 text-center">1</div>
+                            <div>
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Vous Éliminez la Concurrence</h3>
+                                <p>Combien de consultants en France sont spécialisés dans la transition générationnelle des PME du BTP ? Très peu. Peut-être même seulement vous.</p>
+                                <p class="mt-4">Vous ne jouez plus au même jeu que les autres. Vous créez votre propre catégorie. La question pour votre client idéal n'est plus "Quel consultant choisir ?", mais <strong class="text-neutral-dark">"Quand est-ce que [Votre Nom] est disponible ?".</strong></p>
+                            </div>
+                        </div>
+                        <!-- Pouvoir 2 -->
+                        <div class="flex items-start gap-6">
+                            <div class="flex-shrink-0 text-5xl font-bold text-clarity-blue/30 w-12 text-center">2</div>
+                            <div>
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Votre Marketing Devient d'une Simplicité Redoutable</h3>
+                                <p>Quand vous savez avec une telle précision qui vous aidez et sur quel problème, votre message devient un laser.</p>
+                                <ul class="list-disc list-inside space-y-3 mt-4 pl-4">
+                                    <li><strong class="text-neutral-dark">Votre site web :</strong> L'accroche de votre <a href="../index.html#offres" class="font-semibold text-clarity-blue hover:text-deep-blue underline">Site Clarté</a> peut être d'une puissance redoutable. <em class="text-neutral-light">"Vous préparez la transmission de votre entreprise familiale ? Assurez la pérennité de votre héritage."</em></li>
+                                    <li><strong class="text-neutral-dark">Votre prospection :</strong> Vous savez exactement quelles entreprises contacter sur LinkedIn.</li>
+                                    <li><strong class="text-neutral-dark">Votre contenu :</strong> Vous pouvez écrire des articles de blog qui assoient immédiatement votre autorité.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Pouvoir 3 -->
+                        <div class="flex items-start gap-6">
+                            <div class="flex-shrink-0 text-5xl font-bold text-clarity-blue/30 w-12 text-center">3</div>
+                            <div>
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Vous Pouvez Facturer des Tarifs Premium (sans discussion)</h3>
+                                <p>C'est le bénéfice le plus direct. Un médecin généraliste a un tarif standard. Un neurochirurgien spécialisé a des honoraires qui ne sont même pas discutés.</p>
+                                <p class="mt-4">Pourquoi ? Parce que plus le problème est spécifique et douloureux, et plus l'expert est rare, plus la valeur perçue de son intervention est élevée. Vous sortez complètement de la comparaison par le prix.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 3 : Comment trouver -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Comment Trouver Votre Propre Micro-Niche ?</h2>
+                        <p>Votre micro-niche se trouve à l'intersection de ces trois éléments :</p>
+                    </div>
+                    
+                    <!-- Image 3 : Intersection -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/trouver-sa-micro-niche-intersection-expertise-experience-probleme.webp" alt="Intersection de trois cercles représentant l'expertise, l'expérience et un problème client" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Liste des ingrédients (STYLE OPTIMISÉ) -->
+                    <div data-sr>
+                        <div class="space-y-6">
+                             <!-- Ingrédient 1 -->
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-8 h-8 bg-clarity-blue text-white rounded-full flex items-center justify-center font-bold mt-1">1</div>
+                                <div>
+                                    <h4 class="font-semibold text-neutral-dark">Votre Expertise Unique</h4>
+                                    <p class="text-neutral-light mt-1">Quelle est la compétence que vous maîtrisez le mieux ?</p>
+                                </div>
+                            </div>
+                            <!-- Ingrédient 2 -->
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-8 h-8 bg-clarity-blue text-white rounded-full flex items-center justify-center font-bold mt-1">2</div>
+                                <div>
+                                    <h4 class="font-semibold text-neutral-dark">Votre Expérience Personnelle/Professionnelle</h4>
+                                    <p class="text-neutral-light mt-1">Quel secteur connaissez-vous de l'intérieur ? Quel problème avez-vous déjà résolu ?</p>
+                                </div>
+                            </div>
+                            <!-- Ingrédient 3 -->
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-8 h-8 bg-clarity-blue text-white rounded-full flex items-center justify-center font-bold mt-1">3</div>
+                                <div>
+                                    <h4 class="font-semibold text-neutral-dark">Un Problème "Cher" et "Urgent"</h4>
+                                    <p class="text-neutral-light mt-1">Quel est le problème qui, s'il n'est pas résolu, coûte très cher (en argent, en temps, en stress) à un groupe de personnes spécifique ?</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mt-8">Votre micro-niche n'est souvent pas à inventer. C'est le reflet de votre propre parcours. C'est ce que j'appelle, dans mon <a href="01-atelier-message-central.html" class="font-semibold text-clarity-blue hover:text-deep-blue underline">Atelier de Clarté</a>, votre "zone de génie légitime".</p>
+                    </div>
+
+                    <!-- Section 4 : Conclusion -->
+                    <div class="pt-8 border-t border-gray-200 mt-12" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Arrêtez d'être un Couteau Suisse. Devenez un Scalpel.</h2>
+                        <div class="space-y-6">
+                            <p>Dans un monde de généralistes, le spécialiste est roi. Et le super-spécialiste est un empereur.</p>
+                            <p>Choisir une micro-niche est l'acte stratégique le plus puissant que puisse faire un consultant ou un coach qui aspire à l'excellence. C'est un acte de courage, car il demande de renoncer à l'illusion de pouvoir aider tout le monde.</p>
+                            <p class="bg-soft-blue p-6 rounded-lg font-semibold text-neutral-dark border-l-4 border-clarity-blue">Mais c'est un renoncement qui vous ouvre les portes d'un autre monde : celui où vous n'avez plus de concurrents, où vos clients idéaux viennent à vous naturellement, et où votre valeur n'est plus jamais remise en question.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Prêt(e) à définir la micro-niche qui fera de vous <span class="text-clarity-blue">une autorité ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Ce travail de forage pour trouver votre positionnement unique est le travail le plus rentable que vous puissiez faire. C'est la fondation de tout message marketing percutant.
+                        </p>
+            
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                                Creusons ensemble pour trouver votre diamant
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Appel Clarté gratuit &nbsp;•&nbsp; ✅ Sans engagement
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>
