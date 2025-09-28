@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Le Piège du Devis "au Nombre de Pages" : Ce que les Agences Web ne vous Disent Pas</title>
+    <meta name="description"
+        content="Vous comparez des devis de sites web ? Méfiez-vous du prix 'à la page'. Découvrez pourquoi ce modèle de tarification est un piège et où se situe la vraie valeur d'un site web efficace pour un coach ou un thérapeute.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Le Piège du Devis 'au Nombre de Pages' : Ce que les Agences Web ne vous Disent Pas">
+    <meta property="og:description"
+        content="Découvrez pourquoi le devis 'au nombre de pages' est un piège et comment investir dans la vraie valeur de votre site web : la stratégie.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-piege-devis-au-nombre-de-pages.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-piege-devis-au-nombre-de-pages.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Le Piège du Devis "au Nombre de Pages" : Ce que les Agences Web ne vous Disent Pas
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                            Vous comparez des devis de sites web ? Méfiez-vous du prix "à la page". Découvrez pourquoi ce modèle de tarification est un piège et où se situe la vraie valeur d'un site web efficace pour un coach ou un thérapeute.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/balance-avec-pages-et-cerveau-strategie-web.webp" alt="Balance déséquilibrée montrant un cerveau lumineux (stratégie) pesant plus lourd qu'une pile de pages de papier." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Vous avez fait le tour des agences et des freelances pour la création de votre site web. Vous avez maintenant plusieurs devis sur votre bureau. Et vous remarquez une constante : la plupart sont structurés de la même manière.</p>
+                    
+                    <blockquote class="border-l-4 border-clarity-blue pl-6 my-8 italic text-neutral-dark" data-sr>
+                        <ul class="space-y-2">
+                            <li>Site "Vitrine" 5 pages : 2500€</li>
+                            <li>Site "Corporate" 10 pages : 4000€</li>
+                            <li>Page supplémentaire : 300€</li>
+                        </ul>
+                    </blockquote>
+
+                    <p data-sr>Ce modèle de tarification "au nombre de pages" semble logique, transparent et facile à comparer. C'est rassurant.</p>
+                    <p data-sr>En réalité, c'est un <strong class="text-destructive">piège</strong>.</p>
+                    <p data-sr>C'est un modèle hérité de l'ère de l'imprimerie, où l'on payait pour la quantité d'encre et de papier. Mais sur le web, cette logique est non seulement dépassée, elle est <strong class="text-neutral-dark">contre-productive</strong>. Elle vous incite, vous et votre prestataire, à vous concentrer sur la mauvaise chose : la <strong class="text-neutral-dark">quantité</strong>, au détriment de la <strong class="text-clarity-blue">clarté</strong> et de la <strong class="text-warm-orange">conversion</strong>.</p>
+                    <p data-sr>Voici ce que ce modèle de devis ne vous dit pas, et pourquoi il peut mener à un investissement peu rentable.</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">1. Il Vous Pousse à Créer un "Site Labyrinthe"</h2>
+                        <p>Quand vous payez à la page, votre réflexe est de vouloir "en avoir pour votre argent". Vous vous sentez obligé(e) de créer du contenu pour remplir ces 5 ou 10 pages.</p>
+                        <p class="mt-4">Vous inventez des pages "Ma philosophie", "Mes valeurs", "Mon approche"... qui finissent souvent par répéter la même chose que votre page "À Propos". Vous diluez votre message. Vous créez un <a href="01-atelier-message-central.html" class="text-clarity-blue font-semibold hover:underline">labyrinthe d'informations</a> dans lequel votre visiteur va se perdre.</p>
+                        <div class="bg-soft-blue border-l-4 border-success-green p-6 rounded-lg my-6" data-sr>
+                            <p class="font-semibold text-neutral-dark">La vérité : Pour un coach ou un thérapeute, un site d'une seule page, mais d'une clarté absolue, est souvent infiniment plus efficace que 10 pages de "bla-bla". Le devis "à la page" vous incite à construire un site plus grand, mais pas forcément meilleur.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/deux-personnes-collaborant-strategie-site-web-efficace.webp" alt="Deux entrepreneurs collaborant devant un tableau blanc, se concentrant sur la stratégie et la valeur réelle d'un site web." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">2. Il Masque où se Situe la Vraie Valeur (et le Vrai Travail)</h2>
+                        <p>Créer une page web techniquement est la partie la plus simple et la plus rapide du travail. Un bon développeur peut cloner une page en moins d'une heure.</p>
+                        <p class="mt-4">Le travail le plus long, le plus difficile et le plus <strong class="text-neutral-dark">précieux</strong>, c'est ce qui se passe <strong class="text-neutral-dark">avant</strong> :</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong>La Stratégie :</strong> Comprendre votre client idéal.</li>
+                            <li><strong>Le Positionnement :</strong> Définir ce qui vous rend unique.</li>
+                            <li><strong>Le Copywriting :</strong> Trouver les mots qui persuadent et créent la confiance.</li>
+                            <li><strong>L'Architecture de l'Information :</strong> Décider de l'ordre dans lequel présenter les informations pour un impact maximal.</li>
+                        </ul>
+                        <p class="mt-4">Un devis "à la page" ne valorise absolument pas ce travail stratégique. Il met l'accent sur la tâche la moins qualifiée (la duplication de pages) et minimise la plus importante (la clarification du message).</p>
+                        <div class="bg-soft-blue border-l-4 border-success-green p-6 rounded-lg my-6" data-sr>
+                            <p class="font-semibold text-neutral-dark">La vérité : Vous ne devriez pas payer pour le nombre de "contenants" (les pages), mais pour la qualité du "contenu" (le message) et du "plan" (la stratégie).</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 3 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">3. Il Crée une Relation de "Fournisseur", pas de "Partenaire"</h2>
+                        <p>Un modèle "à la page" vous place dans une relation transactionnelle. Vous achetez des pages comme vous achèteriez des briques. Le prestataire est un simple exécutant.</p>
+                        <p class="mt-4">Cette approche vous prive de ce dont vous avez le plus besoin, surtout si vous débutez : un <strong class="text-neutral-dark">partenaire stratégique</strong>. Un expert qui ne se contente pas de vous demander "Quels textes voulez-vous mettre sur cette page ?", mais qui vous challenge en vous demandant "<strong class="text-clarity-blue italic">Cette page est-elle vraiment nécessaire pour atteindre votre objectif ?</strong>".</p>
+                        <p class="mt-4">Un bon partenaire ne vous vendra pas plus de pages si elles ne sont pas utiles. Il vous vendra de la clarté et de l'efficacité.</p>
+                    </div>
+                    
+                    <!-- Image 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/feuille-de-route-claire-pour-creation-site-web.webp" alt="Une feuille de route stratégique bien définie pour un projet de site web, symbolisant l'investissement dans un processus clair." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 4 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">L'Alternative : Investir dans un Processus, pas dans des Pages</h2>
+                        <p>Alors, à quoi ressemble un devis qui reflète la vraie valeur ? Il n'est pas basé sur la quantité, mais sur un <strong class="text-neutral-dark">processus</strong>.</p>
+                        <p class="mt-4">C'est la philosophie de l'offre <a href="../index.html#offres" class="text-clarity-blue font-semibold hover:underline">Site Clarté</a>. Mon devis ne mentionne pas un "nombre de pages". Il détaille les deux phases de la valeur que vous achetez :</p>
+                        <ol class="list-decimal list-inside space-y-4 mt-6 pl-4">
+                            <li><strong class="text-neutral-dark">Phase 1 : L'Atelier de Clarté (La Stratégie).</strong> C'est la partie la plus importante. C'est un travail de co-création de plusieurs heures où nous sculptons votre message, votre offre et votre parcours client. C'est 50% de la valeur de l'investissement.</li>
+                            <li><strong class="text-neutral-dark">Phase 2 : La Construction du Site (L'Outil).</strong> C'est la matérialisation de cette clarté en un outil de conversion optimisé, qu'il fasse une ou plusieurs pages (si stratégiquement nécessaire).</li>
+                        </ol>
+                        <p class="mt-6 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">La différence : Vous n'achetez pas un site. Vous investissez dans un <strong class="text-clarity-blue">système de conversion complet</strong>, de la clarification du message à sa mise en ligne.</p>
+                    </div>
+                    
+                    <!-- Conclusion -->
+                    <div class="pt-6 border-t border-gray-200 mt-8" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Regardez au-delà du Devis</h2>
+                        <p>La prochaine fois que vous comparerez des devis, ne vous laissez pas hypnotiser par le nombre de pages. Posez-vous les bonnes questions :</p>
+                         <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li>Combien de temps ce prestataire va-t-il passer avec moi sur la <strong class="text-neutral-dark">stratégie</strong> ?</li>
+                            <li>Est-ce que le <strong class="text-neutral-dark">copywriting</strong> (la rédaction de textes persuasifs) est inclus, ou est-ce que je dois tout fournir ?</li>
+                            <li>Est-ce que l'on me vend un simple "contenant" ou un véritable "<strong class="text-neutral-dark">processus de clarification</strong>" ?</li>
+                        </ul>
+                        <p class="mt-4">Un site web efficace n'est pas un assemblage de pages. C'est le résultat d'un message clair. Assurez-vous d'investir dans la clarté, pas seulement dans le code.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Prêt(e) à investir dans la stratégie,<br><span class="text-clarity-blue">pas seulement dans les pages ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Si vous cherchez un partenaire qui se concentre sur la clarté de votre message avant tout, et non sur le nombre de pages à vous facturer, alors notre approche est faite pour vous.
+                        </p>
+            
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Discutons de la vraie valeur de votre projet
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Appel Clarté gratuit &nbsp;•&nbsp; ✅ Sans engagement
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>
