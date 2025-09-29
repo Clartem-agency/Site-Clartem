@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>L'IA comme Assistant Créatif : 3 Façons Éthiques de l'Utiliser pour votre Contenu (sans perdre votre âme)</title>
+    <meta name="description"
+        content="Coachs, thérapeutes : comment utiliser l'IA (ChatGPT) pour créer du contenu sans paraître robotique ? Découvrez 3 façons éthiques de vous en servir comme un assistant pour brainstormer, synthétiser et clarifier vos idées.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="L'IA comme Assistant Créatif : 3 Façons Éthiques de l'Utiliser pour votre Contenu">
+    <meta property="og:description"
+        content="Découvrez 3 façons éthiques d'utiliser l'IA comme un assistant pour brainstormer, synthétiser et clarifier vos idées.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-ia-assistant-creatif-ethique-contenu.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-ia-assistant-creatif-ethique-contenu.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            L'IA comme Assistant Créatif : 3 Façons Éthiques de l'Utiliser pour votre Contenu (sans perdre votre âme)
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Coachs, thérapeutes : comment utiliser l'IA pour créer du contenu sans paraître robotique ? Découvrez 3 façons éthiques de vous en servir comme un assistant pour brainstormer, synthétiser et clarifier vos idées.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/personne-reflechit-ia-assistant-creatif-idee.webp" alt="Personne réfléchissant à son bureau avec une IA qui lui propose une idée lumineuse" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Dans l'article précédent, nous avons établi une chose : l'IA ne remplacera jamais votre humanité. Mais elle peut, si elle est bien utilisée, vous libérer du temps et de l'énergie pour que vous puissiez vous concentrer encore plus sur cette humanité.</p>
+                    <p data-sr>La peur de la page blanche. Le manque de temps pour la recherche. Le sentiment de tourner en rond sur une formulation... Ce sont des voleurs d'énergie qui vous freinent dans la création de contenu.</p>
+                    <p data-sr>C'est là que l'IA, comme ChatGPT, peut passer du statut de "menace" à celui de <strong class="text-neutral-dark">"meilleur assistant stagiaire que vous n'aurez jamais"</strong>.</p>
+                    <p data-sr>La clé est de changer de posture. N'utilisez pas l'IA comme un <strong class="text-destructive">auteur</strong>. Utilisez-la comme un <strong class="text-success-green">partenaire de brainstorming</strong>, un <strong class="text-success-green">assistant de recherche</strong> et un <strong class="text-success-green">révélateur de clarté</strong>. Vous restez le <strong class="text-clarity-blue">Directeur Artistique</strong>. L'IA est l'exécutant.</p>
+                    <p data-sr>Voici 3 façons éthiques et incroyablement efficaces d'intégrer l'IA dans votre processus de création de contenu, sans jamais perdre votre voix unique.</p>
+
+                    <!-- Image Usage 1 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/ia-brainstorming-idees-contenu-page-blanche.webp" alt="Un tableau blanc avec des idées générées par une intelligence artificielle pour vaincre la page blanche" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Usage n°1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Usage n°1 : Le Sparring-Partner d'Idées (Pour Vaincre la Page Blanche)</h2>
+                        <ul class="list-disc list-inside space-y-3 mt-4">
+                            <li><strong class="text-neutral-dark">Le Problème :</strong> Vous devez écrire un article de blog ou un post LinkedIn, mais vous ne savez pas par où commencer.</li>
+                            <li><strong class="text-neutral-dark">Le Rôle de l'IA :</strong> C'est votre partenaire de brainstorming infatigable. Il ne vous donne pas la réponse finale, il vous donne des pistes pour allumer votre propre créativité.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-6" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Le Prompt Magique :</h3>
+                        <blockquote class="text-neutral-dark italic">"Je suis [votre métier] et j'aide [votre cible] à [votre promesse]. Donne-moi 10 idées d'articles de blog sous forme de questions que mes clients se posent."</blockquote>
+                        <div class="mt-4 border-t border-clarity-blue/30 pt-4">
+                            <h4 class="font-semibold text-deep-blue mb-2">Exemple de Réponse de l'IA :</h4>
+                            <ol class="list-decimal list-inside text-neutral-light space-y-1">
+                                <li>"Comment puis-je gérer mon anxiété avant une présentation importante ?"</li>
+                                <li>"Quelles sont les premières étapes pour envisager une reconversion professionnelle ?"</li>
+                                <li>...</li>
+                             </ol>
+                        </div>
+                    </div>
+                    
+                    <div data-sr>
+                        <h3 class="text-xl font-bold text-neutral-dark mb-3">Votre Vrai Travail (La Touche Humaine) :</h3>
+                        <p>Vous ne prenez pas la liste pour argent comptant. Vous la lisez, et vous choisissez <strong>UNE SEULE</strong> idée qui fait "tilt", celle qui résonne avec une histoire que vous avez vécue, une anecdote de client. L'IA a fourni l'étincelle, mais c'est <strong>vous</strong> qui allumez le feu avec votre expérience.</p>
+                    </div>
+
+                    <!-- Image Usage 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/ia-synthetise-livres-recherche-gagner-temps.webp" alt="Une pile de livres transformée en un résumé clair par une IA, symbolisant le gain de temps" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Usage n°2 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Usage n°2 : Le Synthétiseur de Connaissance (Pour Gagner des Heures de Recherche)</h2>
+                        <ul class="list-disc list-inside space-y-3 mt-4">
+                            <li><strong class="text-neutral-dark">Le Problème :</strong> Vous voulez parler d'un concept (ex: l'ikigaï, la communication non-violente), mais vous n'avez pas le temps de relire tout un livre pour en extraire les points clés.</li>
+                            <li><strong class="text-neutral-dark">Le Rôle de l'IA :</strong> C'est votre assistant de recherche. Il lit le livre pour vous et vous en fait un résumé.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-6" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Le Prompt Magique :</h3>
+                        <blockquote class="text-neutral-dark italic">"Peux-tu me résumer en 5 points clés les principes fondamentaux du livre '[Titre du Livre]' de [Auteur] ?"</blockquote>
+                         <div class="mt-4 border-t border-clarity-blue/30 pt-4">
+                            <h4 class="font-semibold text-deep-blue mb-2">Exemple de Réponse de l'IA :</h4>
+                            <ol class="list-decimal list-inside text-neutral-light space-y-1">
+                                <li>Principe 1 : L'observation sans jugement...</li>
+                                <li>Principe 2 : L'identification des sentiments...</li>
+                                <li>...</li>
+                             </ol>
+                        </div>
+                    </div>
+                    
+                    <div data-sr>
+                        <h3 class="text-xl font-bold text-neutral-dark mb-3">Votre Vrai Travail (La Touche Humaine) :</h3>
+                        <p>Vous ne copiez-collez pas le résumé. Vous utilisez ces 5 points comme la <strong>structure</strong> de votre article ou de votre vidéo. Et pour chaque point, vous ajoutez ce que l'IA ne pourra jamais faire : <strong>votre interprétation personnelle, un exemple concret tiré de votre pratique, une histoire qui illustre le principe.</strong></p>
+                    </div>
+
+                    <!-- Image Usage 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/ia-ameliore-texte-message-clair-percutant.webp" alt="Un texte confus sur un écran est clarifié et rendu percutant par l'intervention d'une IA" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Usage n°3 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Usage n°3 : Le Révélateur de Clarté (Pour Affûter votre Message)</h2>
+                         <ul class="list-disc list-inside space-y-3 mt-4">
+                            <li><strong class="text-neutral-dark">Le Problème :</strong> Vous avez écrit un paragraphe pour votre site web, mais il est un peu long, un peu jargonnant. Vous sentez qu'il n'est pas assez percutant.</li>
+                            <li><strong class="text-neutral-dark">Le Rôle de l'IA :</strong> C'est votre coach en écriture. Il ne change pas le fond, il vous aide à améliorer la forme.</li>
+                        </ul>
+                    </div>
+
+                     <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-6" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Le Prompt Magique :</h3>
+                        <blockquote class="text-neutral-dark italic">"Voici un paragraphe que j'ai écrit. Peux-tu me proposer 3 reformulations pour le rendre plus simple, plus direct et plus impactant pour quelqu'un qui ne connaît pas mon métier ? Mon texte : '[Votre paragraphe]'"</blockquote>
+                    </div>
+
+                    <div data-sr>
+                        <h3 class="text-xl font-bold text-neutral-dark mb-3">Votre Vrai Travail (La Touche Humaine) :</h3>
+                        <p>L'IA va vous proposer plusieurs versions. Votre travail est de lire ces propositions et de choisir celle qui <strong>sonne le plus juste</strong>, celle qui préserve votre voix tout en étant plus claire. Parfois, la meilleure solution est un mélange de votre texte original et d'une des suggestions.</p>
+                    </div>
+
+                    <!-- Règle d'Or -->
+                    <div class="pt-6" data-sr>
+                        <div class="bg-amber-100 border-l-4 border-warm-orange p-6 rounded-lg">
+                            <h2 class="text-2xl font-bold text-warm-orange mb-4">La Règle d'Or de l'Utilisation Éthique</h2>
+                            <p class="text-neutral-dark">Il n'y a qu'une seule règle à ne jamais enfreindre : <strong class="font-bold">Ne jamais, JAMAIS, copier-coller un texte généré par l'IA directement sur votre site ou vos réseaux sociaux sans le retravailler.</strong></p>
+                            <p class="mt-3 text-neutral-dark">Un texte généré par l'IA est une base. C'est une matière première. Votre travail d'expert est de le malaxer, de l'infuser avec votre expérience, de le corriger avec votre sagesse et de le signer avec votre âme.</p>
+                        </div>
+                    </div>
+
+                    <!-- Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : L'IA est un Levier, pas un Remplacement</h2>
+                        <p>N'ayez pas peur de l'IA. Apprenez à danser avec elle.</p>
+                        <p class="mt-4">En l'utilisant comme un assistant créatif, vous ne perdez pas votre âme. Au contraire. Vous vous libérez des tâches qui drainent votre énergie créative (la page blanche, la recherche fastidieuse) pour vous concentrer sur ce que vous seul(e) pouvez faire : partager votre histoire, votre expérience, votre humanité.</p>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">L'IA peut vous aider à construire le contenant. Mais c'est vous, et vous seul(e), qui pouvez y verser le contenu sacré.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <!-- Titre et sous-titre -->
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           L'IA est un levier. <br><span class="text-clarity-blue">Votre message est la fondation.</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Avant de diffuser, il faut définir. C'est ce travail fondamental que nous faisons ensemble dans l'
+                            <a href="01-atelier-message-central.html" class="font-bold text-warm-orange hover:underline">Atelier de Clarté</a>.
+                            Construisons un message puissant que l'IA aidera ensuite à amplifier.
+                        </p>
+            
+                        <!-- Bouton d'action final et réassurance -->
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Planifier mon Appel Clarté
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>
