@@ -826,6 +826,128 @@ if (scrollContainer && window.innerWidth >= 768) {
             
 
 
+                        {
+                title: "L'Audit en 5 Points pour Savoir si Votre Page d'Accueil Fait Fuir vos Meilleurs Prospects",
+                description: "Réalisez notre audit simple en 5 points (clarté, preuve, CTA...) pour savoir si votre site de coach ou consultant attire ou fait fuir vos clients idéaux.",
+                link: "articles/20-audit-page-accueil-prospects.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "29 Juin 2024"
+            },
+            {
+                title: "Votre Profil Instagram ne Suffit Plus : 5 Raisons d'avoir un VRAI Site Web",
+                description: "Découvrez 5 raisons stratégiques pour lesquelles un site web professionnel est indispensable pour votre crédibilité et votre croissance en 2025.",
+                link: "articles/50-instagram-vs-site-web-coach.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "28 Juin 2024"
+            },
+            {
+                title: "Le 'Bouche-à-Oreille' est Mort (ou presque) : Comment un Site Web Valide vos Recommandations",
+                description: "Votre activité repose sur le bouche-à-oreille ? Découvrez pourquoi cette stratégie ne suffit plus et comment un site web valide et convertit vos recommandations.",
+                link: "articles/51-bouche-a-oreille-digital-validation.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "27 Juin 2024"
+            },
+            {
+                title: "Votre 'Appel Découverte' est-il un Interrogatoire ou une Session de Coaching ?",
+                description: "Transformez votre appel découverte en une expérience de valeur qui convertit naturellement. Découvrez notre méthode en 4 étapes pour coacher, pas pour vendre.",
+                link: "articles/74-appel-decouverte-methode-conversion.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "26 Juin 2024"
+            },
+            {
+                title: "Le 'Bouche-à-Oreille Énergétique' : Comment votre Site Amplifie les Recommandations",
+                description: "Pour les praticiens spirituels : découvrez comment votre site web et votre fiche Google peuvent amplifier le 'bouche-à-oreille énergétique' et valider vos recommandations.",
+                link: "articles/91-bouche-a-oreille-energetique-site-web.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "25 Juin 2024"
+            },
+            {
+                title: "Comment Trouver vos 3 Premiers Clients (sans Dépenser 1€ en Pub)",
+                description: "Découvrez notre stratégie simple en 3 étapes pour activer votre réseau et le rôle crucial de votre site web pour transformer les contacts en contrats.",
+                link: "articles/96-trouver-premiers-clients-sans-budget.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "24 Juin 2024"
+            },
+            {
+                title: "Le Calcul du Coach Débutant : Pourquoi un Site Web est votre Meilleur Investissement",
+                description: "Découvrez l'analyse de rentabilité qui prouve qu'un site professionnel est l'investissement de départ le plus rentable pour lancer votre activité.",
+                link: "articles/97-calcul-coach-debutant-site-web-investissement.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "23 Juin 2024"
+            },
+            {
+                title: "Votre Page d'Accueil est Votre 'Executive Summary' : Les 5 Éléments qu'un Décideur B2B Doit Voir",
+                description: "Votre page d'accueil B2B est-elle efficace ? Découvrez les 5 éléments essentiels qu'un décideur pressé doit voir en 5 secondes pour être convaincu.",
+                link: "articles/131-page-accueil-executive-summary.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "22 Juin 2024"
+            },
+            {
+                title: "La Proposition Commerciale est Morte : Comment votre Site Peut 'Pré-Vendre' vos Services",
+                description: "Fatigués des propositions sans réponse ? Transformez votre site en une 'proposition vivante' qui qualifie, convainc et pré-vend vos services avant le premier appel.",
+                link: "articles/132-site-web-remplace-proposition-commerciale.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "21 Juin 2024"
+            },
+            {
+                title: "Votre Profil LinkedIn Obtient le Clic, Votre Site Obtient le Client",
+                description: "Découvrez la stratégie du 'duo gagnant' : utilisez LinkedIn pour attirer l'attention et votre site web comme machine de conversion pour signer plus de contrats.",
+                link: "articles/133-linkedin-site-web-duo-gagnant.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "20 Juin 2024"
+            },
+            {
+                title: "Votre Site Web est Votre Meilleure Justification pour des Tarifs Élevés",
+                description: "Découvrez pourquoi un site web professionnel n'est pas une dépense, mais un investissement stratégique qui crée la perception de valeur pour justifier des prix premium.",
+                link: "articles/137-site-web-justification-tarifs-eleves.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "19 Juin 2024"
+            },
+            {
+                title: "Le 'Filtre à Prospects' : Comment la Clarté de Votre Site Vous Évite de Perdre du Temps",
+                description: "Découvrez comment un site web d'une clarté absolue agit comme un 'filtre à prospects' pour repousser les mauvais clients et attirer uniquement ceux qui sont faits pour vous.",
+                link: "articles/140-filtre-a-prospects-clarte-site-web.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "18 Juin 2024"
+            },
+            {
+                title: "Le 'Syndrome de l'Objet Brillant' : Pourquoi Ajouter un Blog, un Podcast et une Boutique est une Erreur",
+                description: "Vous voulez tout faire tout de suite ? Découvrez pourquoi c'est le meilleur moyen de ne rien accomplir, et quelle est la seule chose sur laquelle vous devriez vous concentrer.",
+                link: "articles/153-syndrome-objet-brillant-erreur-debutant.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "17 Juin 2024"
+            },
+            {
+                title: "Le 'Coût par Client' : Pourquoi un Site Clarté est Moins Cher qu'un Site 'Pas Cher'",
+                description: "Découvrez comment calculer le 'coût par client' et pourquoi investir dans un Site Clarté stratégique est en réalité l'option la plus rentable à long terme.",
+                link: "articles/158-cout-par-client-site-clarte-rentable.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "16 Juin 2024"
+            },
+            {
+                title: "La Fin du 'Coach Parfait' : Pourquoi la Transparence Radicale est Votre Meilleure Stratégie",
+                description: "Arrêtez d'essayer d'être un coach parfait. Découvrez pourquoi la 'transparence radicale' est la stratégie la plus puissante pour bâtir une confiance profonde.",
+                link: "articles/180-fin-coach-parfait-transparence-radicale-marketing.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "15 Juin 2024"
+            },
+
+            
 
             
             
