@@ -1686,7 +1686,7 @@ if (scrollContainer && window.innerWidth >= 768) {
             
 
 
-                        {
+             {
                 title: "Votre Site Spirituel : 3 Clés pour paraître 'Ancré' et Professionnel, pas 'Perché'",
                 description: "Découvrez 3 clés (langage, structure, posture) pour créer une présence en ligne professionnelle et ancrée qui rassure et attire vos clients idéaux.",
                 link: "articles/82-site-spirituel-ancre-professionnel.html",
@@ -1784,6 +1784,82 @@ if (scrollContainer && window.innerWidth >= 768) {
             },
 
 
+
+                        {
+                title: "Comment Créer une Expérience de Réservation 'Cocon' avec Calendly (pour Clients Anxieux)",
+                description: "Votre processus de réservation est-il aussi bienveillant que vos séances ? Découvrez comment configurer Calendly pour créer un cocon de confiance et rassurer vos clients.",
+                link: "articles/44-creer-experience-cocon-calendly.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "06 Mars 2024"
+            },
+            {
+                title: "Gérer les Annulations et les Reports avec Bienveillance (et Fermeté) grâce à Calendly",
+                description: "Subissez-vous les annulations de dernière minute ? Découvrez comment utiliser Calendly pour poser un cadre clair et bienveillant, et protéger votre temps.",
+                link: "articles/45-gerer-annulations-calendly.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "05 Mars 2024"
+            },
+            {
+                title: "Paiement en Ligne via Calendly : La Clé pour Valoriser votre Temps et Réduire la Charge Mentale",
+                description: "La gestion des paiements est un stress ? Découvrez comment l'intégration du paiement en ligne sur Calendly peut réduire votre charge mentale et valoriser votre travail.",
+                link: "articles/46-paiement-en-ligne-calendly-therapeutes.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "04 Mars 2024"
+            },
+            {
+                title: "Votre Cabinet est Invisible ? Le Guide Google Business pour les Thérapeutes & Praticiens",
+                description: "Votre cabinet est-il visible pour vos voisins ? Le guide complet pour optimiser votre fiche Google et attirer les clients de votre quartier.",
+                link: "articles/58-google-business-guide-therapeutes.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "03 Mars 2024"
+            },
+            {
+                title: "Votre Studio est Plein ? Le Guide Google Business pour Remplir vos Cours et Ateliers",
+                description: "Pour les profs de Yoga & Pilates. Remplissez vos cours grâce à Google ! Le guide complet pour optimiser votre fiche, promouvoir vos ateliers et attirer les élèves.",
+                link: "articles/60-guide-google-studio-yoga-pilates.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "02 Mars 2024"
+            },
+            {
+                title: "Le casse-tête du Planning en Ligne : 3 Solutions pour Gérer vos Réservations de Cours",
+                description: "Découvrez notre comparatif de 3 solutions (de la plus simple à la plus pro) pour automatiser votre planning de cours de yoga/Pilates et vous libérer l'esprit.",
+                link: "articles/63-solutions-planning-reservations-cours-en-ligne.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "01 Mars 2024"
+            },
+            {
+                title: "Au-delà des Cours : 3 Idées pour Créer une Communauté Engagée grâce à votre Site Web",
+                description: "Transformez vos élèves en une communauté fidèle. Découvrez 3 stratégies simples (blog, newsletter, événements) pour utiliser votre site web afin de nourrir le lien.",
+                link: "articles/65-communaute-engagee-yoga-pilates.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "29 Février 2024"
+            },
+            {
+                title: "Le Dilemme du Prof de Yoga : Faut-il un Site ou une Page sur une Plateforme comme Momoyoga ?",
+                description: "Découvrez pourquoi la bonne stratégie n'est pas l'un OU l'autre, mais l'un ET l'autre, et comment faire travailler votre site et votre plateforme de réservation ensemble.",
+                link: "articles/68-yoga-site-web-vs-momoyoga.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "28 Février 2024"
+            },
+            {
+                title: "Comment Animer une Communauté de Yoga en Ligne : 3 Idées pour Garder le Lien en Dehors du Tapis",
+                description: "Le yoga ne s'arrête pas au tapis. Découvrez 3 stratégies utilisant votre site web (blog, newsletter, événements) pour nourrir le lien avec vos élèves en dehors des cours.",
+                link: "articles/69-communaute-yoga-en-ligne.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "27 Février 2024"
+            },
+
+
+            
 
 
             
