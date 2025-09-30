@@ -611,23 +611,147 @@ if (scrollContainer && window.innerWidth >= 768) {
         // Respectez bien la structure : title, description, link, image, category, date.
         // Les catégories doivent correspondre aux "data-filter" des boutons en HTML.
         const allArticles = [
-            // -- Catégorie: Stratégie & Positionnement --
+            
+                        // -- Catégorie: Stratégie & Positionnement --
+            {
+                title: "Atelier Gratuit : Définissez le Message Central de votre Site Web",
+                description: "Découvrez 4 questions stratégiques pour définir une accroche claire qui captive vos clients idéaux en moins de 3 secondes.",
+                link: "articles/01-atelier-message-central.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "25 Juillet 2024"
+            },
+            {
+                title: "La Règle des 3 Secondes : L'Accroche qui Transforme un Visiteur en Prospect",
+                description: "Votre site a 3 secondes pour convaincre. Apprenez la méthode pour créer une accroche percutante qui transforme un simple visiteur en un prospect qualifié.",
+                link: "articles/03-regle-3-secondes-accroche-site-web.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "24 Juillet 2024"
+            },
+            {
+                title: "Votre Page 'À Propos' n'est pas un CV : Racontez l'Histoire qui Crée la Confiance",
+                description: "Arrêtez de lister vos diplômes. Découvrez comment raconter votre histoire personnelle pour créer un lien de confiance immédiat avec vos visiteurs.",
+                link: "articles/04-page-a-propos-histoire-confiance.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "23 Juillet 2024"
+            },
+            {
+                title: "Ne Vendez pas des Séances, Vendez une Transformation",
+                description: "Apprenez à transformer vos 'séances' en 'parcours de transformation' désirables. La clé pour créer des offres irrésistibles.",
+                link: "articles/05-vendre-transformation-offres-irresistibles.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "22 Juillet 2024"
+            },
+            {
+                title: "Comment Écrire une Page 'À Propos' qui Raconte votre 'Voyage de l'Âme'",
+                description: "Pour les praticiens spirituels : découvrez la structure du 'Voyage du Héros' pour raconter votre histoire d'âme de manière authentique et inspirante.",
+                link: "articles/87-page-a-propos-praticien-spirituel.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "21 Juillet 2024"
+            },
+            {
+                title: "Coach/Thérapeute Débutant : Comment Fixer vos Premiers Tarifs",
+                description: "Le guide en 3 étapes pour fixer un prix juste qui valorise votre travail, rassure vos clients et vous permet de vivre de votre passion.",
+                link: "articles/98-coach-therapeute-debutant-fixer-premiers-tarifs.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "20 Juillet 2024"
+            },
+            {
+                title: "Le Guide pour Créer votre Première Offre 'Signature'",
+                description: "Arrêtez de vendre des 'séances'. Découvrez notre guide en 5 étapes pour créer votre première offre signature, une solution packagée qui clarifie votre message.",
+                link: "articles/99-creer-premiere-offre-signature.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "19 Juillet 2024"
+            },
+            {
+                title: "Votre Bio Instagram/LinkedIn : Le Modèle en 4 Lignes pour un Coach qui se Lance",
+                description: "Vous avez 150 caractères pour convaincre. Découvrez notre modèle simple en 4 lignes pour rédiger une biographie percutante qui attire vos clients idéaux.",
+                link: "articles/100-bio-instagram-linkedin-modele-coach.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "18 Juillet 2024"
+            },
             {
                 title: "Le Test du 'Et Alors ?' : La Méthode pour Rédiger une Proposition de Valeur qui Convertit",
                 description: "Découvrez une méthode simple pour transformer une description de service fade en une proposition de valeur qui parle aux vrais besoins de vos clients B2B.",
                 link: "articles/129-test-et-alors-proposition-valeur.html",
                 image: "assets/blog/image-placeholder-strategie.webp",
                 category: "strategie",
-                date: "24 Juillet 2024"
+                date: "17 Juillet 2024"
             },
             {
-                title: "Au-delà de la Niche : La Puissance de la 'Micro-Niche' pour Facturer en Premium",
-                description: "Apprenez comment la micro-niche (cible + problème spécifique) peut éliminer la concurrence et justifier des tarifs plus élevés.",
-                link: "articles/130-au-dela-niche-puissance-micro-niche-premium.html",
+                title: "Le Syndrome du 'Bon Élève' : Pourquoi Lister vos Services est Moins Efficace que de Décrire les Problèmes",
+                description: "Sortez du 'syndrome du bon élève' et apprenez à décrire les problèmes que vous résolvez pour créer un message qui convertit vraiment vos clients B2B.",
+                link: "articles/139-syndrome-bon-eleve-vendre-solutions.html",
                 image: "assets/blog/image-placeholder-strategie.webp",
                 category: "strategie",
-                date: "23 Juillet 2024"
+                date: "16 Juillet 2024"
             },
+            {
+                title: "La 'Banalité du Bien' : Pourquoi les Mots comme 'Excellence' et 'Innovation' ne Veulent Plus Rien Dire",
+                description: "Votre site est rempli de jargon corporate ? Découvrez pourquoi ces mots sont devenus invisibles et comment les remplacer par un langage de preuve.",
+                link: "articles/141-banalite-du-bien-mots-vides-marketing.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "15 Juillet 2024"
+            },
+            {
+                title: "L'Escalier de Valeur : Comment Structurer vos Offres de Conseil",
+                description: "Ne proposez pas qu'une seule offre ! Découvrez le concept de 'l'Escalier de Valeur' pour créer un parcours client qui maximise la fidélisation.",
+                link: "articles/142-escalier-de-valeur-structure-offres.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "14 Juillet 2024"
+            },
+            {
+                title: "Le 'Retainer' Mensuel : Le Saint Graal du Consultant",
+                description: "Fatigués de chasser les contrats ? Découvrez comment structurer et vendre une offre de 'retainer' mensuel pour créer des revenus récurrents.",
+                link: "articles/143-vendre-offre-retainer-mensuel-consultant.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "13 Juillet 2024"
+            },
+            {
+                title: "Agence Web : Faut-il Choisir un Artiste du Design ou un Architecte du Message ?",
+                description: "Découvrez la différence cruciale entre une approche 'design-first' et 'message-first', et comment choisir le partenaire qui correspond à vos besoins.",
+                link: "articles/149-artiste-design-vs-architecte-message.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "12 Juillet 2024"
+            },
+            {
+                title: "Le Piège du Devis 'au Nombre de Pages'",
+                description: "Méfiez-vous du prix 'à la page'. Découvrez pourquoi ce modèle de tarification est un piège et où se situe la vraie valeur d'un site web efficace.",
+                link: "articles/150-piege-devis-nombre-de-pages.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "11 Juillet 2024"
+            },
+            {
+                title: "Le 'Briefing Client' d'une Agence Web vs. l'Atelier de Clarté",
+                description: "Ne vous contentez pas d'un simple 'briefing'. Découvrez la différence entre un questionnaire passif et un 'Atelier de Clarté' collaboratif.",
+                link: "articles/156-briefing-client-vs-atelier-clarte.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "10 Juillet 2024"
+            },
+            {
+                title: "Les Coulisses de l'Atelier de Clarté : Comment Nous Transformons Votre 'Brouillard'",
+                description: "Découvrez notre processus de co-création en 4 étapes pour transformer le 'brouillard' des coachs en un message marketing clair et authentique.",
+                link: "articles/159-coulisses-atelier-clarte.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "09 Juillet 2024"
+            },
+
+
+            
             // -- Catégorie: Débuter son Activité --
             {
                 title: "Le Syndrome de l'Imposteur du Débutant : Comment votre Site Web Devient votre Premier Acte de Légitimité",
