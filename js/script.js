@@ -1694,9 +1694,60 @@ if (scrollContainer && window.innerWidth >= 768) {
             },
 
 
+             {
+                title: "Votre Emailing est Votre 'Cercle Intime' : Pourquoi il est 10x Plus Précieux que votre Audience Instagram",
+                description: "Découvrez pourquoi votre liste d'emails est votre 'cercle intime', un actif 10 fois plus précieux pour bâtir une communauté engagée et une activité pérenne.",
+                link: "articles/123-emailing-cercle-intime-vs-instagram.html",
+                image: "assets/image-blog/personne-parlant-foule-vs-groupe-intime-projet.webp",
+                category: "outils",
+                date: "27 Mars 2025"
+            },
+            {
+                title: "L'Art du 'Cadeau de Bienvenue' : 5 Idées de Lead Magnets Authentiques pour les Coachs et Thérapeutes",
+                description: "Découvrez 5 idées de 'lead magnets' (cadeaux de bienvenue) authentiques et faciles à créer pour attirer vos clients idéaux et construire votre liste d'emails.",
+                link: "articles/124-idees-lead-magnets-coachs-therapeutes.html",
+                image: "assets/image-blog/coach-therapeute-offrant-cadeau-bienvenue-genereux-projet.webp",
+                category: "outils",
+                date: "26 Mars 2025"
+            },
+            {
+                title: "La Panne d'Inspiration ? Le Système des 3 Emails Simples pour Nourrir votre Newsletter",
+                description: "Vous ne savez jamais quoi écrire ? Découvrez le système simple des 3 emails (Connexion, Transmission, Invitation) pour créer du contenu engageant et régulier.",
+                link: "articles/125-systeme-3-emails-newsletter.html",
+                image: "assets/image-blog/systeme-trois-emails-connexion-transmission-invitation-projet.webp",
+                category: "outils",
+                date: "25 Mars 2025"
+            },
+            {
+                title: "L'Anatomie d'un Email qui Crée du Lien (et qui est VRAIMENT lu)",
+                description: "De l'objet qui intrigue au P.S. qui connecte, apprenez à écrire des emails qui créent un vrai lien et qui sont ouverts par votre communauté.",
+                link: "articles/126-anatomie-email-qui-cree-du-lien.html",
+                image: "assets/image-blog/lettre-manuscrite-ecran-ordinateur-email-authentique-projet.webp",
+                category: "outils",
+                date: "24 Mars 2025"
+            },
+            {
+                title: "La Séquence de Bienvenue : Le 'Rituel d'Accueil' Automatisé qui Transforme un Nouvel Abonné en Fan",
+                description: "Découvrez comment créer une séquence d'emails de bienvenue automatisée en 3 étapes pour accueillir vos nouveaux abonnés et bâtir la confiance.",
+                link: "articles/127-sequence-accueil-email-automatisee.html",
+                image: "assets/image-blog/personne-accueillant-invite-chaleureusement-porte-ouverte-projet.webp",
+                category: "outils",
+                date: "23 Mars 2025"
+            },
+            {
+                title: "Comment Lancer votre Atelier par Email (sans harceler votre liste) : La Séquence 'Invitation' en 3 Étapes",
+                description: "Vous voulez vendre votre atelier par email sans être 'lourd' ? Découvrez la séquence de lancement en 3 emails (Donner, Donner, Inviter) pour une approche éthique.",
+                link: "articles/128-lancer-atelier-email-sequence-invitation.html",
+                image: "assets/image-blog/main-qui-plante-graine-arrose-fleur-epanouie-projet.webp",
+                category: "outils",
+                date: "22 Mars 2025"
+            },
 
 
 
+
+
+            
             
 
 
