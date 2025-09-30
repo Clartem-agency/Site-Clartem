@@ -1515,7 +1515,89 @@ if (scrollContainer && window.innerWidth >= 768) {
             },
 
 
+                        {
+                title: "Coach, Thérapeute : Comment l'IA va Rendre Votre Humanité 10x Plus Précieuse",
+                description: "L'IA est-elle une menace ? Au contraire. Découvrez pourquoi elle va rendre votre humanité plus précieuse que jamais, et comment votre site devient la preuve de cette valeur.",
+                link: "articles/178-ia-humanite-coach-therapeute.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "07 Avril 2024"
+            },
+            {
+                title: "L'IA comme Assistant Créatif : 3 Façons Éthiques de l'Utiliser pour votre Contenu",
+                description: "Apprenez à utiliser l'IA comme un assistant pour brainstormer, synthétiser et clarifier vos idées, sans perdre votre âme et votre voix unique.",
+                link: "articles/182-ia-assistant-creatif-ethique.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "06 Avril 2024"
+            },
+            {
+                title: "Dans un Monde d'IA, Votre 'Pourquoi' Devient Votre Meilleur Marketing",
+                description: "Comment se démarquer à l'ère de l'IA ? Découvrez pourquoi votre histoire et votre mission personnelle sont devenus les seuls véritables différenciants marketing.",
+                link: "articles/183-pourquoi-marketing-ere-ia.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "05 Avril 2024"
+            },
+            {
+                title: "Votre Site Web est-il 'IA-Proof' ? La Checklist en 4 Points pour Prouver votre Humanité",
+                description: "Utilisez notre checklist en 4 points (photos, histoire, témoignages, voix) pour rendre votre site 'IA-proof' et créer une connexion authentique qui convertit.",
+                link: "articles/184-site-web-ia-proof-checklist-humanite.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "04 Avril 2024"
+            },
+            {
+                title: "Le Kit de Survie Digital du Coach/Thérapeute Débutant : Les 4 Outils (Vraiment) Essentiels",
+                description: "Noyé(e) sous la liste des outils digitaux ? Découvrez le kit de survie essentiel en 4 outils pour démarrer votre activité de manière professionnelle et sereine.",
+                link: "articles/103-kit-survie-digital-debutant.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "03 Avril 2024"
+            },
+            {
+                title: "Le 'Second Cerveau' du Consultant : Comment Utiliser Notion pour Préparer vos Appels et Suivre vos Clients",
+                description: "Découvrez comment utiliser un outil comme Notion pour créer un 'second cerveau' et transformer votre organisation en un avantage concurrentiel.",
+                link: "articles/145-second-cerveau-consultant-notion.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "02 Avril 2024"
+            },
+            {
+                title: "Le Kit d'Outils de l'Expert Indépendant en 2025 (au-delà de la Suite Office)",
+                description: "Quels outils digitaux utiliser pour être efficace en 2025 ? Découvrez notre 'kit d'outils' essentiel (vente, communication, gestion...) pour professionnaliser votre activité.",
+                link: "articles/146-kit-outils-expert-independant-2025.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "01 Avril 2024"
+            },
+            {
+                title: "La Checklist d'Onboarding Client Parfaite : Les 7 Étapes pour Démarrer une Mission sur les Rails",
+                description: "Découvrez notre checklist d'onboarding client en 7 étapes pour créer une expérience d'accueil professionnelle, rassurer votre client et poser les bases du succès.",
+                link: "articles/147-checklist-onboarding-client-parfait.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "31 Mars 2024"
+            },
+            {
+                title: "Comment Transformer une Mission Ponctuelle en un Contrat Annuel : L'Art du 'Bilan de Fin de Mission'",
+                description: "Ne laissez pas vos clients partir ! Découvrez comment utiliser la 'session de bilan' pour prouver votre ROI et transformer une mission ponctuelle en un contrat annuel.",
+                link: "articles/148-transformer-mission-en-contrat-annuel.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "30 Mars 2024"
+            },
+            {
+                title: "Le Système d'Onboarding Sans Friction : Automatisez les 3 Premières Étapes avec votre Site",
+                description: "Optimisez votre processus d'accueil client ! Découvrez comment utiliser votre site pour automatiser l'onboarding (paiement, contrat, 1er RDV) et offrir une expérience premium.",
+                link: "articles/138-systeme-onboarding-client-automatise.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "29 Mars 2024"
+            },
 
+
+            
 
 
 
