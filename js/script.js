@@ -2089,7 +2089,7 @@ if (scrollContainer && window.innerWidth >= 768) {
 
 
 
-                        // -- Catégorie: Approche "Site Clarté" --
+             // -- Catégorie: Approche "Site Clarté" --
             {
                 title: "Un Site Web en 7 Jours ? Pas avec un Plan Clair.",
                 description: "Découvrez comment nous créons votre site web professionnel en 7 jours sans sacrifier la qualité. Le secret ? Un processus collaboratif unique qui met la clarté au cœur du projet.",
@@ -2204,11 +2204,223 @@ if (scrollContainer && window.innerWidth >= 768) {
             },
 
             
+                        {
+                title: "Votre Site Clarté EST votre Tunnel de Vente (et vous n'avez pas besoin d'autre chose)",
+                description: "Le concept de 'tunnel de vente' vous effraie ? Découvrez comment un Site Clarté est, par sa nature même, le tunnel de vente le plus simple et le plus éthique pour démarrer.",
+                link: "articles/119-site-clarte-tunnel-de-vente-ethique.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "16 Janvier 2024"
+            },
+            {
+                title: "Anatomie d'un Tunnel de Confiance : Comment Chaque Section de votre Site Clarté Fait Avancer votre Prospect",
+                description: "Découvrez comment chaque section d'un 'Site Clarté' joue un rôle psychologique précis pour guider votre prospect vers la décision.",
+                link: "articles/120-anatomie-tunnel-confiance-site-clarte.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "15 Janvier 2024"
+            },
+            {
+                title: "Et Après le Clic ? Comment Connecter votre Site Clarté à un Mini-Tunnel de Vente par Email",
+                description: "Découvrez comment connecter votre site à un mini-tunnel de vente par email pour capturer, nourrir et convertir les 97% de visiteurs qui ne sont pas encore prêts à acheter.",
+                link: "articles/121-connecter-site-clarte-tunnel-email.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "14 Janvier 2024"
+            },
+            {
+                title: "La Stratégie du 'Mini-Produit' : Comment Utiliser un Site Clarté pour Vendre un Atelier",
+                description: "Découvrez comment transformer la structure de votre Site Clarté en une page de vente à haute conversion pour vendre votre premier produit digital.",
+                link: "articles/122-strategie-mini-produit-site-clarte.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "13 Janvier 2024"
+            },
+            {
+                title: "Toutes les Pages Uniques ne se Valent Pas : La Différence entre une 'Brochure qui Défile' et un 'Récit qui Convertit'",
+                description: "Un site one-page peut aussi être inefficace. Découvrez la différence entre un site 'brochure' basique et un 'Site Clarté' stratégique conçu pour convertir.",
+                link: "articles/112-site-one-page-brochure-vs-recit-convertit.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "12 Janvier 2024"
+            },
+            {
+                title: "Le Mythe du SEO et du Site One-Page : Pourquoi un 'Site Clarté' est Votre Meilleur Allié Local",
+                description: "Un site one-page peut-il être bien référencé ? Oui ! Découvrez pourquoi le format 'Site Clarté' est une stratégie SEO puissante pour le référencement local.",
+                link: "articles/114-mythe-seo-one-page.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "11 Janvier 2024"
+            },
+            {
+                title: "Agence Web : Faut-il Choisir un Artiste du Design ou un Architecte du Message ?",
+                description: "Découvrez la différence cruciale entre une approche 'design-first' et 'message-first', et comment choisir le partenaire qui correspond vraiment à vos besoins.",
+                link: "articles/149-artiste-design-vs-architecte-message.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "10 Janvier 2024"
+            },
+            {
+                title: "Le Piège du Devis 'au Nombre de Pages' : Ce que les Agences Web ne vous Disent Pas",
+                description: "Méfiez-vous du prix 'à la page'. Découvrez pourquoi ce modèle de tarification est un piège et où se situe la vraie valeur d'un site web efficace.",
+                link: "articles/150-piege-devis-nombre-de-pages.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "09 Janvier 2024"
+            },
+            {
+                title: "Pourquoi un Site de 10 Pages Peut Rapporter Moins qu'un Site d'Une Seule Page",
+                description: "Découvrez, chiffres à l'appui, pourquoi un site one-page optimisé pour la conversion peut être beaucoup plus rentable qu'un grand site multi-pages.",
+                link: "articles/151-conversion-site-one-page-vs-multi-pages.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "08 Janvier 2024"
+            },
+            {
+                title: "Le Prix d'un Site Web : Comparaison entre le 'Fait Maison', le 'Freelance' et l'Approche 'Clarté'",
+                description: "Découvrez notre comparatif complet des 3 options (DIY, freelance, approche Clarté) pour comprendre ce que vous achetez vraiment à chaque niveau de prix.",
+                link: "articles/154-prix-site-web-diy-freelance-clarte.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "07 Janvier 2024"
+            },
+            {
+                title: "Pourquoi les 'Templates Prêts à l'Emploi' sont un Mauvais Calcul",
+                description: "Découvrez pourquoi cette approche 'simple' peut nuire à votre message, votre crédibilité et votre conversion, et pourquoi une approche sur-mesure est essentielle.",
+                link: "articles/155-pourquoi-templates-mauvais-calcul-coachs-therapeutes.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "06 Janvier 2024"
+            },
+            {
+                title: "Le 'Briefing Client' d'une Agence Web vs. l'Atelier de Clarté : La Différence Fondamentale",
+                description: "Ne vous contentez pas d'un simple 'briefing'. Découvrez la différence entre un questionnaire passif et un 'Atelier de Clarté' collaboratif.",
+                link: "articles/156-briefing-client-vs-atelier-clarte.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "05 Janvier 2024"
+            },
+            {
+                title: "Le Site 'Livrable' vs. le Site 'Écosystème' : Pourquoi la Création du Site n'est que le Début",
+                description: "Découvrez la différence entre un site 'livrable' statique et un site 'écosystème' conçu pour la croissance, et pourquoi la mise en ligne n'est que le début.",
+                link: "articles/157-site-livrable-vs-ecosysteme.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "04 Janvier 2024"
+            },
+            {
+                title: "Le 'Coût par Client' : Pourquoi un Site Clarté est Moins Cher qu'un Site 'Pas Cher'",
+                description: "Découvrez comment calculer le 'coût par client' et pourquoi investir dans un Site Clarté stratégique est en réalité l'option la plus rentable à long terme.",
+                link: "articles/158-cout-par-client-site-clarte-rentable.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "03 Janvier 2024"
+            },
+
+
+                        {
+                title: "Les Coulisses de l'Atelier de Clarté : Comment Nous Transformons Votre 'Brouillard'",
+                description: "Découvrez notre processus de co-création en 4 étapes pour transformer le 'brouillard' des coachs en un message marketing clair, authentique et qui convertit.",
+                link: "articles/159-coulisses-atelier-clarte.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "02 Janvier 2024"
+            },
+            {
+                title: "Pourquoi je Code mes Sites 'à la Main' (et pourquoi c'est une meilleure garantie pour vous)",
+                description: "Découvrez pourquoi un site web codé à la main est souvent supérieur à un site WordPress ou Wix en termes de vitesse, de sécurité et de pérennité.",
+                link: "articles/160-pourquoi-coder-site-web-a-la-main.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "01 Janvier 2024"
+            },
+            {
+                title: "Le 'Moteur' de votre Site Clarté : Qu'est-ce que Tailwind CSS",
+                description: "Découvrez Tailwind CSS, l'outil secret derrière le design sur-mesure des Sites Clarté, et comment il permet de créer une identité visuelle unique et cohérente.",
+                link: "articles/161-tailwind-css-moteur-design-unique.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "31 Décembre 2023"
+            },
+            {
+                title: "Votre Site est-il Vraiment 'Responsive' ? Ma Méthode pour une Expérience Parfaite",
+                description: "Le 'responsive design' ne suffit plus. Découvrez ma méthode de conception 'Mobile First' pour garantir une expérience utilisateur impeccable sur tous les écrans.",
+                link: "articles/162-methode-responsive-design-parfait.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "30 Décembre 2023"
+            },
+            {
+                title: "Les Secrets d'un Site Ultra-Rapide : Comment j'optimise chaque image et chaque ligne de code",
+                description: "Découvrez les secrets de l'optimisation (images, code, lazy loading...) que j'utilise pour créer des sites web ultra-rapides qui améliorent votre SEO.",
+                link: "articles/163-secrets-site-ultra-rapide-optimisation.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "29 Décembre 2023"
+            },
+            {
+                title: "L'Autonomie après la Livraison : Comment je vous donne la main pour modifier vos textes",
+                description: "Un site codé à la main est-il modifiable ? Oui ! Découvrez comment je vous donne la main sur votre contenu grâce à un CMS simple, alliant performance et liberté.",
+                link: "articles/164-autonomie-modification-site-code-cms.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "28 Décembre 2023"
+            },
+            {
+                title: "JavaScript : La Touche de Magie Discrète qui Améliore l'Expérience",
+                description: "Découvrez comment JavaScript, utilisé avec subtilité, transforme un site statique en une expérience interactive et fluide (menus, formulaires, FAQ...).",
+                link: "articles/165-javascript-magie-discrete-experience-utilisateur.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "27 Décembre 2023"
+            },
+            {
+                title: "Le 'Zéro Dépendance' : Pourquoi je n'utilise pas de Thèmes ou de Plugins WordPress",
+                description: "Découvrez les risques cachés des sites WordPress. Apprenez pourquoi une approche 'Zéro Dépendance' avec un code sur-mesure est la meilleure garantie pour votre sécurité.",
+                link: "articles/166-zero-dependance-wordpress.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "26 Décembre 2023"
+            },
+            {
+                title: "Accessibilité Web : Comment je m'assure que votre Site Parle à Tout le Monde (y compris à Google)",
+                description: "Découvrez comment je construis des sites inclusifs pour tous les utilisateurs, et pourquoi c'est un avantage majeur pour votre éthique et votre SEO.",
+                link: "articles/167-accessibilite-web-inclusive-seo.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "25 Décembre 2023"
+            },
+            {
+                title: "Le Déploiement 'Zéro Interruption' : Les Coulisses de la Mise en Ligne",
+                description: "Découvrez les coulisses de mon processus de déploiement 'zéro interruption' avec Netlify, pour un lancement serein, rapide et sans stress technique.",
+                link: "articles/168-deploiement-zero-interruption-netlify.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "24 Décembre 2023"
+            },
+            {
+                title: "Votre Site Clarté est en Ligne. Et Maintenant ? 5 Actions Simples pour en Tirer le Meilleur Parti",
+                description: "Félicitations, votre nouveau site est en ligne ! Découvrez 5 actions simples et immédiates pour maximiser son impact et commencer à attirer des clients.",
+                link: "articles/169-5-actions-apres-lancement-site-clarte.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "23 Décembre 2023"
+            },
+            {
+                title: "Comment Utiliser Votre Nouveau Site Web comme 'Camp de Base' pour Votre Marketing sur LinkedIn",
+                description: "Vous ne savez pas quoi poster sur LinkedIn ? Découvrez comment 'recycler' chaque section de votre Site Clarté en un mois de contenu engageant.",
+                link: "articles/170-utiliser-site-web-marketing-linkedin.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "22 Décembre 2023"
+            },
+
+
+
+
+
+
             
-
-
-
-
             
             // ... AJOUTEZ VOS AUTRES ARTICLES ICI ...
         ];
