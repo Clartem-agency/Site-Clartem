@@ -1686,6 +1686,103 @@ if (scrollContainer && window.innerWidth >= 768) {
             
 
 
+                        {
+                title: "Votre Site Spirituel : 3 Clés pour paraître 'Ancré' et Professionnel, pas 'Perché'",
+                description: "Découvrez 3 clés (langage, structure, posture) pour créer une présence en ligne professionnelle et ancrée qui rassure et attire vos clients idéaux.",
+                link: "articles/82-site-spirituel-ancre-professionnel.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "18 Mars 2024"
+            },
+            {
+                title: "Ne Vendez pas une 'Séance de Reiki', Vendez une 'Expérience d'Alignement'",
+                description: "Comment décrire vos soins sur votre site ? Découvrez 3 techniques d'écriture (métaphores, bénéfices, témoignages) pour mettre des mots sur l'invisible.",
+                link: "articles/83-decrire-soin-energetique-site-web.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "17 Mars 2024"
+            },
+            {
+                title: "L'Échange Sacré : Comment Présenter vos Tarifs de Manière Alignée",
+                description: "Mal à l'aise avec vos tarifs ? Découvrez comment présenter vos prix comme un 'échange sacré' pour valoriser votre don et apaiser le syndrome de l'imposteur.",
+                link: "articles/84-echange-sacre-presenter-tarifs-alignement.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "16 Mars 2024"
+            },
+            {
+                title: "Votre Site Web est Votre Temple Virtuel : Créez un Espace Sacré qui Attire votre 'Tribu d'Âmes'",
+                description: "Découvrez comment transformer votre site en un 'temple virtuel' grâce au design, aux visuels et à une structure alignée, pour attirer naturellement votre tribu d'âmes.",
+                link: "articles/85-site-web-temple-virtuel-praticiens-spirituels.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "15 Mars 2024"
+            },
+            {
+                title: "Le 'Syndrome du Caméléon Spirituel' : Comment Trouver VOTRE Voix Unique",
+                description: "Votre site web manque-t-il d'âme ? Sortez du 'syndrome du caméléon' et découvrez comment révéler votre voix unique pour attirer une clientèle qui vous correspond.",
+                link: "articles/86-syndrome-cameleon-spirituel-trouver-sa-voix.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "14 Mars 2024"
+            },
+            {
+                title: "Comment Écrire une Page 'À Propos' qui Raconte votre 'Voyage de l'Âme'",
+                description: "Découvrez la structure du 'Voyage du Héros' pour raconter votre histoire d'âme de manière authentique et inspirante, sans paraître narcissique.",
+                link: "articles/87-page-a-propos-praticien-spirituel.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "13 Mars 2024"
+            },
+            {
+                title: "La FAQ Énergétique : Comment Utiliser votre Site pour Éduquer vos Clients et Poser des Limites Saines",
+                description: "Découvrez comment utiliser votre page FAQ pour poser un cadre sain, protéger votre énergie et éduquer vos clients en amont de vos séances.",
+                link: "articles/88-faq-energetique-proteger-energie-site-web.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "12 Mars 2024"
+            },
+            {
+                title: "Le Syndrome du 'Sauveur' : Pourquoi votre Site doit Promouvoir l'Autonomie",
+                description: "Votre marketing crée-t-il des clients autonomes ou dépendants ? Découvrez comment sortir du 'syndrome du sauveur' et construire un site qui reflète une posture éthique.",
+                link: "articles/89-syndrome-du-sauveur-site-web-autonomie-client.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "11 Mars 2024"
+            },
+            {
+                title: "Marketing 'Vibrationnel' : Comment Utiliser les Mots-Clés pour Attirer les Âmes qui Vous Cherchent",
+                description: "Le SEO vous semble compliqué ? Découvrez le 'marketing vibrationnel', une approche simple pour utiliser les mots-clés sur votre site afin d'entrer en résonance avec les âmes qui cherchent votre lumière.",
+                link: "articles/90-marketing-vibrationnel-mots-cles-spirituels.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "10 Mars 2024"
+            },
+            {
+                title: "Le 'Bouche-à-Oreille Énergétique' : Comment votre Site Amplifie les Recommandations",
+                description: "Découvrez comment votre site web et votre fiche Google peuvent amplifier le 'bouche-à-oreille énergétique' et valider l'énergie de vos recommandations.",
+                link: "articles/91-bouche-a-oreille-energetique-site-web.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "09 Mars 2024"
+            },
+            {
+                title: "Annoncer un Cercle de Femmes ou un Atelier sur votre Site : Le Guide pour Créer une Invitation Sacrée",
+                description: "Découvrez comment créer une page sur votre site qui n'est pas une simple annonce, mais une 'invitation sacrée' qui attire les bonnes personnes.",
+                link: "articles/92-annoncer-cercle-atelier-invitation-sacree.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "08 Mars 2024"
+            },
+            {
+                title: "Le Dilemme du 'Don Libre' : Comment Structurer une Offre Financièrement Viable",
+                description: "Le modèle du 'don libre' vous épuise ? Découvrez 3 stratégies pour structurer une offre financièrement viable tout en restant aligné avec vos valeurs de service.",
+                link: "articles/93-dilemme-don-libre-offre-viable-spirituelle.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "07 Mars 2024"
+            },
+
 
 
 
