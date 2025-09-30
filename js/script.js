@@ -1601,25 +1601,95 @@ if (scrollContainer && window.innerWidth >= 768) {
 
 
 
-
-            
             // -- Catégorie: Niche : Bien-être & Holistique --
+            {
+                title: "Pourquoi un Site One-Page est l'Outil Parfait pour un Coach ou Thérapeute",
+                description: "Découvrez pourquoi un site one-page est un choix stratégique pour les coachs et thérapeutes. Plus de clarté, une meilleure conversion et une histoire percutante.",
+                link: "articles/02-site-one-page-coach-therapeute.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "28 Mars 2024"
+            },
+            {
+                title: "Les 5 Sections Indispensables sur le Site d'un Professionnel du Bien-être",
+                description: "Découvrez les 5 sections essentielles (Héros, À Propos, Offres...) et nos conseils pour rédiger un contenu qui inspire confiance et attire des clients.",
+                link: "articles/06-5-sections-site-therapeute.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "27 Mars 2024"
+            },
+            {
+                title: "Les 5 Erreurs qui Rendent votre Site de Thérapeute Froid et Impersonnel",
+                description: "Votre site ne convertit pas ? Découvrez les 5 erreurs courantes qui brisent la confiance et apprenez à créer un 'cocon digital' qui rassure et attire.",
+                link: "articles/12-therapeute-erreurs-site-froid.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "26 Mars 2024"
+            },
+            {
+                title: "Du Clic à la Confiance : Comment Décrire le Déroulé d'une Séance sur votre Site",
+                description: "Apprenez à décrire le déroulé d'une séance de thérapie ou de bien-être pour transformer la peur de l'inconnu de vos prospects en confiance absolue.",
+                link: "articles/13-du-clic-a-la-confiance-decrire-une-seance.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "25 Mars 2024"
+            },
             {
                 title: "Votre Site de Yoga doit être un Shala Virtuel, pas un Catalogue de Cours",
                 description: "Découvrez 3 clés (intention, incarnation, ambiance) pour transformer votre site en un Shala virtuel qui inspire et accueille vos futurs élèves.",
                 link: "articles/62-site-yoga-shala-virtuel.html",
-                image: "assets/blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
                 category: "niche-bien-etre",
-                date: "16 Juillet 2024"
+                date: "24 Mars 2024"
+            },
+            {
+                title: "Comment Rédiger des Descriptions de Cours qui Donnent Envie de Dérouler son Tapis",
+                description: "Découvrez notre méthode en 4 points pour rédiger des textes qui attirent les élèves, rassurent les débutants et transmettent l'énergie de votre enseignement.",
+                link: "articles/64-rediger-descriptions-cours-yoga-pilates.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "23 Mars 2024"
+            },
+            {
+                title: "La Photo Parfaite pour votre Site de Yoga : 3 Erreurs à Éviter et 3 Poses qui Inspirent",
+                description: "Quelle photo choisir pour votre site de yoga ? Découvrez les 3 erreurs qui font fuir les débutants et 3 types de poses qui inspirent la confiance et l'authenticité.",
+                link: "articles/66-photo-site-yoga-erreurs-poses.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "22 Mars 2024"
+            },
+            {
+                title: "Tarifs de Yoga/Pilates : Comment Présenter vos Prix de Manière Claire et Professionnelle",
+                description: "Découvrez notre guide pour structurer et présenter vos prix afin de valoriser votre enseignement et attirer des élèves engagés, sans avoir l'air d'un 'marchand de tapis'.",
+                link: "articles/67-tarifs-yoga-clarte-professionnalisme.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "21 Mars 2024"
             },
             {
                 title: "Le Syndrome de la 'Bonne Copine' : Comment Poser un Cadre Professionnel sur votre Site",
                 description: "Votre empathie vous épuise ? Apprenez à utiliser votre site web pour poser un cadre professionnel clair et sain, et sortir du rôle de la 'bonne copine'.",
                 link: "articles/75-syndrome-bonne-copine-cadre-professionnel.html",
-                image: "assets/blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
                 category: "niche-bien-etre",
-                date: "15 Juillet 2024"
+                date: "20 Mars 2024"
             },
+            {
+                title: "Votre Séquence de Yoga est du Contenu : 3 Façons de Recycler votre Expertise",
+                description: "Manquez-vous de temps pour votre marketing ? Découvrez 3 façons simples de recycler vos séquences de cours en contenu engageant (blog, réseaux sociaux, newsletter).",
+                link: "articles/76-recycler-contenu-yoga.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "19 Mars 2024"
+            },
+            
+            
+
+
+
+
+
+            
             // -- Catégorie: Niche : Coachs Business & Consultants --
              {
                 title: "Votre Page d'Accueil est un 'Executive Summary' : Les 5 Éléments qu'un Décideur Doit Voir en 5 Secondes",
