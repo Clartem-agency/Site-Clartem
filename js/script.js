@@ -948,7 +948,64 @@ if (scrollContainer && window.innerWidth >= 768) {
             },
 
             
+                        {
+                title: "Votre Site n'est pas une Brochure, c'est Votre Plateforme de 'Thought Leadership'",
+                description: "Découvrez comment transformer votre site en une puissante plateforme de 'Thought Leadership' pour asseoir votre autorité et attirer des clients premium.",
+                link: "articles/136-site-web-scene-thought-leadership.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "14 Juin 2024"
+            },
+            {
+                title: "Les 3 Tendances du Marketing Digital pour les Thérapeutes en 2026",
+                description: "Anticipez l'avenir. Découvrez les 3 grandes tendances (hyper-personnalisation, vidéo, communautés) et comment préparer votre activité dès maintenant.",
+                link: "articles/176-tendances-marketing-digital-therapeutes-2026.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "13 Juin 2024"
+            },
+            {
+                title: "Pourquoi la 'Bienveillance' est le Prochain Levier de Conversion",
+                description: "Au-delà des techniques de vente, la bienveillance est devenue un puissant levier de conversion. Découvrez comment l'infuser dans votre site pour bâtir une confiance profonde.",
+                link: "articles/177-bienveillance-levier-conversion-site-web.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "12 Juin 2024"
+            },
+            {
+                title: "Coach, Thérapeute : Comment l'IA va Rendre Votre Humanité 10x Plus Précieuse",
+                description: "L'IA est-elle une menace ? Au contraire. Découvrez pourquoi elle va rendre votre humanité plus précieuse que jamais, et comment votre site devient la preuve de cette valeur.",
+                link: "articles/178-ia-humanite-coach-therapeute.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "11 Juin 2024"
+            },
+            {
+                title: "L'Avenir du Coaching n'est pas le 1-to-1 (c'est la Communauté)",
+                description: "Le coaching individuel limite votre impact. Découvrez pourquoi l'avenir est aux modèles communautaires et comment votre site doit évoluer pour devenir le campus de votre tribu.",
+                link: "articles/179-avenir-coaching-communaute.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "10 Juin 2024"
+            },
+            {
+                title: "Ce que vos Clients Attendent VRAIMENT de votre Présence en Ligne en 2026",
+                description: "Les attentes de vos clients ont changé. Découvrez les 3 piliers d'une présence en ligne réussie : une expérience sans friction, de la valeur avant la vente, et une connexion continue.",
+                link: "articles/181-attentes-clients-en-ligne-2026.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "09 Juin 2024"
+            },
+            {
+                title: "Dans un Monde d'IA, Votre 'Pourquoi' Devient Votre Meilleur Marketing",
+                description: "Comment se démarquer à l'ère de l'IA ? Découvrez pourquoi votre 'Pourquoi' et votre histoire sont devenus les seuls véritables différenciants marketing.",
+                link: "articles/183-pourquoi-marketing-ere-ia.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "08 Juin 2024"
+            },
 
+            
             
             
             // -- Catégorie: Débuter son Activité --
