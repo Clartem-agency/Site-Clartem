@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Le Calcul du Coach Débutant : Pourquoi un Site Web n'est pas un Coût, mais votre Meilleur Investissement</title>
+    <meta name="description"
+        content="Vous vous lancez comme coach et hésitez à investir dans un site web ? Découvrez l'analyse de rentabilité qui prouve qu'un site professionnel est l'investissement de départ le plus rentable pour lancer votre activité.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Le Calcul du Coach Débutant : Pourquoi un Site Web est votre Meilleur Investissement">
+    <meta property="og:description"
+        content="Découvrez l'analyse de rentabilité qui prouve qu'un site professionnel est l'investissement de départ le plus rentable pour votre activité de coaching.">
+    <meta property="og:type" content="article">
+    <!-- Image de partage (Open Graph) 1200x630px en PNG -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/calcul-rentabilite-site-web-coach-debutant.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/calcul-rentabilite-site-web-coach-debutant.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Le Calcul du Coach Débutant : Pourquoi un Site Web n'est pas un Coût, mais votre Meilleur Investissement
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                            Vous vous lancez comme coach et hésitez à investir dans un site web ? Découvrez l'analyse de rentabilité qui prouve qu'un site professionnel est l'investissement de départ le plus rentable pour lancer votre activité.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/coach-debutant-calcul-rentabilite-investissement-site-web.webp" alt="Balance symbolisant l'investissement dans un site web pesant plus lourd que son coût initial." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Vous êtes au seuil de votre nouvelle carrière de coach, thérapeute ou consultant. Vous avez investi des milliers d'euros dans votre formation. Vous avez investi des centaines d'heures de votre vie. Maintenant, vous faites face à la réalité du lancement, et chaque euro compte.</p>
+                    <p data-sr>Dans la liste de vos dépenses potentielles, une ligne vous fait probablement hésiter plus que les autres : <strong class="text-neutral-dark">la création d'un site web professionnel.</strong></p>
+                    <p data-sr>Face à un devis de 1000€, 1500€ ou plus, la tentation est grande de se dire : "C'est trop cher pour le moment. C'est un luxe. Je le ferai plus tard, quand j'aurai des clients."</p>
+                    <p data-sr>C'est une logique compréhensible. Et c'est une erreur de calcul fondamentale.</p>
+                    <p data-sr>Voir votre site web comme un <strong class="text-destructive">coût</strong> est la plus grande erreur que puisse faire un indépendant qui se lance. Un site web professionnel n'est pas une dépense. C'est votre <strong class="text-success-green">premier investissement stratégique</strong>. C'est l'actif qui va rentabiliser tous les autres investissements que vous avez déjà faits (votre formation, votre temps) et vous permettre de générer des revenus plus rapidement.</p>
+                    <p data-sr>Arrêtons de parler en termes de "joli" ou de "professionnel". Parlons chiffres. Faisons le calcul du coach débutant.</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Le Seuil de Rentabilité : Combien de Clients pour Rembourser votre Site ?</h2>
+                        <p>C'est le calcul le plus simple et le plus puissant.</p>
+                    </div>
+
+                    <!-- Bloc de calcul mis en avant -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-8 rounded-lg my-8" data-sr>
+                        <p class="text-neutral-dark">Imaginons que vous investissiez <strong class="text-clarity-blue">1500€</strong> dans un <a href="../index.html#offres" class="font-bold text-clarity-blue hover:underline">Site Clarté</a>, conçu pour vous lancer rapidement et efficacement.</p>
+                        <p class="mt-4 text-neutral-dark">Imaginons que votre première offre "signature" pour débutant soit un <strong class="text-clarity-blue">parcours de 3 séances à 450€</strong>.</p>
+                        <div class="mt-6 border-t border-clarity-blue/30 pt-6">
+                            <p class="text-lg font-semibold text-deep-blue">Le calcul est simple :</p>
+                            <p class="text-2xl font-bold text-neutral-dark mt-2">1500€ / 450€ = 3,33</p>
+                        </div>
+                        <p class="mt-6 font-semibold text-neutral-dark">Cela signifie que votre site web est <strong class="text-success-green">entièrement remboursé et rentabilisé dès que vous signez votre quatrième client.</strong></p>
+                    </div>
+
+                    <p data-sr>Quatre clients. Ce n'est pas un objectif lointain et inatteignable. C'est un objectif que vous pouvez atteindre en un ou deux mois si vous appliquez une stratégie de lancement simple, comme celle d'activer votre <a href="#" class="text-clarity-blue hover:underline">réseau chaleureux</a>.</p>
+                    <p data-sr>Tout client signé au-delà du quatrième représente un profit net généré par cet investissement initial.</p>
+
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/coach-independant-frustre-sans-site-web-professionnel.webp" alt="Coach indépendant regardant son téléphone avec frustration, symbolisant le coût caché de ne pas avoir de site web." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Le Coût Caché de "Ne Pas Avoir de Site"</h2>
+                        <p>Maintenant, inversons le calcul. Combien vous coûte le fait de *ne pas* avoir de site professionnel, ou d'avoir un site "fait maison" amateur ?</p>
+                        <ul class="list-disc list-inside space-y-4 mt-6 pl-4">
+                            <li><strong class="text-neutral-dark">Le Coût de la Lenteur :</strong> Sans un "pont de confiance" professionnel à partager, votre prospection est plus lente. Les recommandations de votre réseau aboutissent moins souvent. Si, à cause de cela, vous mettez 6 mois à trouver vos 4 premiers clients au lieu de 2, c'est <strong class="text-destructive">4 mois de revenus potentiels perdus</strong>.</li>
+                            <li><strong class="text-neutral-dark">Le Coût de la Dévalorisation :</strong> Sans une vitrine qui assoit votre crédibilité, vous n'êtes pas en position de force pour fixer vos tarifs. Vous aurez tendance à vous brader. Une différence de seulement 50€ sur votre premier pack, multipliée par vos 10 premiers clients, représente <strong class="text-destructive">500€ de manque à gagner</strong>.</li>
+                            <li><strong class="text-neutral-dark">Le Coût du Temps :</strong> Le temps que vous passez à expliquer au téléphone ce que vous faites, à gérer les RDV par email, à répondre aux mêmes questions... est du temps non facturable. Un site clair et un système de réservation automatisé vous font gagner des heures précieuses chaque mois.</li>
+                        </ul>
+                        <p class="mt-6">Le "non-investissement" dans un site professionnel n'est pas une économie. C'est un manque à gagner qui se chiffre rapidement en milliers d'euros.</p>
+                    </div>
+
+                    <!-- Image 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/coach-professionnel-legitime-grace-a-son-site-web.webp" alt="Coach professionnel discutant avec un client, symbolisant la légitimité et la confiance apportées par un site web." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 3 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Le Site Web comme Accélérateur de Légitimité (et de Revenus)</h2>
+                        <p>Un site web professionnel ne fait pas que "trouver" des clients. Il change votre posture et, par conséquent, votre potentiel de revenus.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-6 pl-4">
+                            <li><strong>Il vous permet de facturer plus cher, plus vite :</strong> En vous positionnant immédiatement comme un professionnel sérieux, vous n'avez pas besoin de passer par une longue phase de "tarifs cassés". Vous pouvez démarrer avec un tarif juste qui reflète la valeur de votre formation.</li>
+                            <li><strong>Il accélère la confiance :</strong> Le cycle de vente est plus court. Un prospect qui a visité un site clair et rassurant arrive à l'appel découverte déjà à moitié convaincu.</li>
+                            <li><strong>Il vous légitime à vos propres yeux :</strong> C'est l'<a href="#" class="text-clarity-blue hover:underline">antidote au syndrome de l'imposteur</a>. En investissant dans votre propre business, vous vous envoyez le message que vous y croyez. Cette confiance est palpable et se transmet à vos prospects.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Investissez dans votre Actif N°1</h2>
+                        <p>Quand vous vous lancez, vous avez le choix. Vous pouvez dépenser votre budget de départ dans des flyers qui finiront à la poubelle, dans une énième formation qui restera sur une étagère, ou dans des publicités qui ne cibleront personne.</p>
+                        <p class="mt-4">Ou vous pouvez investir dans la <strong class="text-neutral-dark">fondation</strong>. L'actif qui travaillera pour vous 24/7, qui validera votre expertise, qui rassurera vos prospects et qui vous permettra de générer des revenus pour financer tout le reste.</p>
+                        <p class="mt-6 bg-soft-blue p-6 rounded-lg font-semibold text-neutral-dark">Cet actif, c'est votre site web professionnel.<br>Ce n'est pas un luxe de "quand ça marchera". C'est l'investissement fondamental <strong class="text-clarity-blue">pour que ça marche</strong>.</p>
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- Appel à l'action final -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Prêt(e) à faire le meilleur investissement pour votre nouvelle activité ?
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            L'offre <a href="../index.html#offres" class="font-bold text-clarity-blue hover:underline">Site Clarté</a> a été spécifiquement conçue pour les indépendants qui se lancent : un investissement maîtrisé pour un résultat professionnel rapide, afin de vous permettre d'être rentable le plus vite possible.
+                        </p>
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
+                                </svg>
+                                Discutons de la rentabilité de votre projet
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Appel Clarté gratuit &nbsp;•&nbsp; ✅ Sans engagement
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

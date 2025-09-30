@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Pourquoi je Code mes Sites "à la Main" (vs WordPress/Wix)</title>
+    <meta name="description"
+        content="Découvrez pourquoi un site web codé à la main en HTML/CSS est souvent supérieur à un site WordPress ou Wix en termes de vitesse, de sécurité et de pérennité. Le choix de l'artisanat digital pour votre business.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Pourquoi je Code mes Sites à la Main (et pourquoi c'est mieux pour vous)">
+    <meta property="og:description"
+        content="Un site codé sur-mesure est plus rapide, plus sécurisé et plus durable qu'un site WordPress ou Wix. Découvrez la philosophie de l'artisanat digital.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-pourquoi-site-web-code-a-la-main-est-meilleur.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-pourquoi-site-web-code-a-la-main-est-meilleur.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Pourquoi je Code mes Sites "à la Main" (et pourquoi c'est une meilleure garantie pour vous qu'un site WordPress ou Wix)
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Découvrez pourquoi un site web codé à la main en HTML/CSS est souvent supérieur à un site WordPress ou Wix en termes de vitesse, de sécurité et de pérennité. Le choix de l'artisanat digital pour votre business.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/artisan-digital-ebeniste-codage-site-web-sur-mesure.webp" alt="Mains d'un ébéniste travaillant le bois avec précision, symbolisant l'artisanat digital." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Quand vous décidez de créer un site web, vous entrez dans un monde aux philosophies très différentes. D'un côté, il y a l'approche "industrielle" : les plateformes comme Wix ou les sites WordPress construits avec des "thèmes" et des "constructeurs de pages" (comme Elementor). C'est le monde du prêt-à-porter, du kit à monter, de l'assemblage de briques préfabriquées.</p>
+                    <p data-sr>De l'autre côté, il y a une approche plus rare, plus exigeante : celle de l'<strong class="text-neutral-dark">artisanat digital</strong>. C'est l'approche que j'ai choisie.</p>
+                    <p data-sr>Je code chaque <a href="../index.html#offres" class="font-semibold text-clarity-blue hover:underline">Site Clarté</a> "à la main", en utilisant les langages fondamentaux du web : HTML, CSS et JavaScript.</p>
+                    <p data-sr>Pour un non-initié, cela peut sembler être un détail technique sans importance. En réalité, c'est un choix philosophique et stratégique qui a des conséquences directes et majeures sur la <strong class="text-clarity-blue">qualité, la performance et la sécurité</strong> de votre investissement le plus important : votre vitrine digitale.</p>
+                    <p data-sr>Ce n'est pas une question de snobisme technique. C'est une question de vous offrir la meilleure garantie possible. Voici pourquoi.</p>
+
+                    <!-- Section 1 : Vitesse -->
+                    <div class="pt-8" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-6">1. La Vitesse Extrême : Un Site Léger comme une Plume</h2>
+                        <div class="space-y-6">
+                            <div class="p-6 bg-red-50 border-l-4 border-destructive rounded-r-lg">
+                                <h3 class="font-bold text-destructive mb-2">Le Problème des "Usines à Gaz"</h3>
+                                <p class="text-neutral-dark">Un site WordPress ou Wix est comme une maison construite avec un manuel de 1000 pages pour prévoir toutes les options possibles. Il doit charger des tonnes de code, de scripts et de styles "au cas où" vous décideriez d'ajouter un jour une boutique en ligne ou un forum. Le résultat ? Votre simple site vitrine pèse le poids d'un camion. Il est lent à charger.</p>
+                            </div>
+                            <div class="p-6 bg-blue-50 border-l-4 border-clarity-blue rounded-r-lg">
+                                <h3 class="font-bold text-clarity-blue mb-2">La Philosophie de l'Artisan</h3>
+                                <p class="text-neutral-dark">Quand je code votre site à la main, je suis un minimaliste. <strong class="text-deep-blue">Chaque ligne de code a un but.</strong> Il n'y a pas un seul octet de superflu. Je n'inclus que ce qui est strictement nécessaire pour que votre site soit beau et fonctionnel.</p>
+                            </div>
+                            <div class="p-6 bg-green-50 border-l-4 border-success-green rounded-r-lg">
+                                <h3 class="font-bold text-success-green mb-2">Le Bénéfice pour Vous</h3>
+                                <ul class="list-disc list-inside space-y-2 text-neutral-dark">
+                                    <li><strong>Une meilleure expérience utilisateur :</strong> Vos visiteurs, surtout sur mobile, sont impatients. Un site qui se charge en moins de 2 secondes les retient. Un site qui met 5 secondes les fait fuir.</li>
+                                    <li><strong>Un meilleur référencement Google :</strong> La vitesse de chargement est un critère de classement majeur pour Google. Un site plus rapide est un site mieux classé.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2 : Sécurité -->
+                    <div class="pt-8" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-6">2. La Sécurité Renforcée : Une Forteresse, pas une Passoire</h2>
+                        
+                        <!-- Image section 2 -->
+                        <div class="my-8">
+                            <img src="../assets/image-blog/site-web-rapide-securise-forteresse-digitale-code-html-css.webp" alt="Une forteresse solide symbolisant la sécurité d'un site web codé à la main." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                        </div>
+
+                        <div class="space-y-6">
+                            <div class="p-6 bg-red-50 border-l-4 border-destructive rounded-r-lg">
+                                <h3 class="font-bold text-destructive mb-2">Le Problème des "Dépendances"</h3>
+                                <p class="text-neutral-dark">Un site WordPress typique s'appuie sur un thème et une dizaine (parfois plus) de "plugins" (extensions) développés par des personnes différentes à travers le monde. Chaque plugin est une porte d'entrée potentielle. Si un seul d'entre eux n'est pas mis à jour ou contient une faille de sécurité, tout votre site est vulnérable aux piratages. C'est la cause n°1 des sites web hackés.</p>
+                            </div>
+                             <div class="p-6 bg-blue-50 border-l-4 border-clarity-blue rounded-r-lg">
+                                <h3 class="font-bold text-clarity-blue mb-2">La Philosophie de l'Artisan</h3>
+                                <p class="text-neutral-dark">Un site codé à la main est un système fermé. Il n'a pas de dépendances externes complexes. Les "portes d'entrée" sont réduites au strict minimum.</p>
+                            </div>
+                            <div class="p-6 bg-green-50 border-l-4 border-success-green rounded-r-lg">
+                                <h3 class="font-bold text-success-green mb-2">Le Bénéfice pour Vous</h3>
+                                <ul class="list-disc list-inside space-y-2 text-neutral-dark">
+                                    <li><strong>Tranquillité d'esprit :</strong> Le risque de voir votre site défacé, rempli de spam ou utilisé pour des activités malveillantes est drastiquement réduit.</li>
+                                    <li><strong>Moins de maintenance :</strong> Vous n'avez pas à vous soucier de mettre à jour 15 plugins chaque semaine en croisant les doigts pour que rien ne "casse".</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 3 : Pérennité -->
+                    <div class="pt-8" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-6">3. La Pérennité : Un Investissement qui Dure</h2>
+                        <div class="space-y-6">
+                            <div class="p-6 bg-red-50 border-l-4 border-destructive rounded-r-lg">
+                                <h3 class="font-bold text-destructive mb-2">Le Problème de l'Obsolescence</h3>
+                                <p class="text-neutral-dark">Le monde de WordPress bouge vite. Un thème que vous achetez aujourd'hui peut être abandonné par son développeur dans deux ans. Un plugin essentiel peut devenir incompatible avec une nouvelle version de WordPress. Votre site, qui fonctionnait parfaitement, peut soudainement cesser de fonctionner, vous obligeant à une refonte coûteuse et imprévue.</p>
+                            </div>
+                            <div class="p-6 bg-blue-50 border-l-4 border-clarity-blue rounded-r-lg">
+                                <h3 class="font-bold text-clarity-blue mb-2">La Philosophie de l'Artisan</h3>
+                                <p class="text-neutral-dark">Le HTML, le CSS et le JavaScript sont les <strong class="text-deep-blue">langages fondamentaux et standards du web.</strong> Ils ne deviendront jamais obsolètes. C'est comme construire une maison avec des briques et du ciment, plutôt qu'avec des panneaux préfabriqués d'une marque spécifique qui pourrait faire faillite.</p>
+                            </div>
+                            <div class="p-6 bg-green-50 border-l-4 border-success-green rounded-r-lg">
+                                <h3 class="font-bold text-success-green mb-2">Le Bénéfice pour Vous</h3>
+                                <ul class="list-disc list-inside space-y-2 text-neutral-dark">
+                                    <li><strong>Durabilité :</strong> Votre site est construit sur des fondations qui seront toujours valides. Il est beaucoup plus résistant à l'épreuve du temps.</li>
+                                    <li><strong>Indépendance :</strong> Votre site n'est pas "prisonnier" d'un écosystème. N'importe quel développeur web compétent dans le monde peut comprendre et modifier votre site, car il est écrit dans la "langue universelle" du web.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section Conclusion -->
+                    <div class="pt-8" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-6">Conclusion : Le Choix de la Qualité sur la Facilité</h2>
+                        
+                        <!-- Image conclusion -->
+                        <div class="my-8">
+                            <img src="../assets/image-blog/fondations-solides-site-web-perenne-briques-et-ciment.webp" alt="Une maison solide construite en briques, représentant la durabilité d'un site codé sur mesure." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                        </div>
+
+                        <p>Alors, pourquoi tout le monde ne code-t-il pas à la main ? Parce que c'est plus difficile. Cela demande une expertise plus profonde et plus de temps de développement initial.</p>
+                        <p class="mt-4">C'est un choix. Le choix de privilégier la facilité et la rapidité de production (les plateformes) ou de privilégier la <strong class="text-neutral-dark">qualité, la performance et la durabilité</strong> du produit final (l'artisanat).</p>
+                        <p class="mt-4 bg-soft-blue p-6 rounded-lg font-semibold text-neutral-dark shadow">Pour votre vitrine professionnelle, pour cet actif qui doit vous représenter et vous apporter des clients pendant des années, j'ai fait le choix de la qualité. Parce que je crois que votre business mérite des fondations solides comme le roc, pas un château de cartes.</p>
+                    </div>
+
+                    
+                </div>
+            </article>
+
+            <!-- Appel à l'action final -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Votre business mérite du solide. <br><span class="text-clarity-blue">Construisons-le ensemble.</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Si vous êtes prêt(e) à choisir la performance et la tranquillité d'esprit sur le long terme, planifiez votre Appel Clarté. Découvrons comment un site artisanal peut devenir votre meilleur allié.
+                        </p>
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Planifier mon Appel Clarté
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+</html>

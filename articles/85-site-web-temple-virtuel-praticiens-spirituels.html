@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Votre Site Web est Votre Temple Virtuel : Créez l'Espace Sacré qui Attirera votre "Tribu d'Âmes"</title>
+    <meta name="description"
+        content="Praticiens spirituels : votre site web reflète-t-il votre énergie ? Découvrez comment transformer votre site en un 'temple virtuel' grâce au design, aux visuels et à une structure alignée, pour attirer naturellement votre tribu d'âmes.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Votre Site Web est Votre Temple Virtuel : Créez l'Espace Sacré qui Attirera votre 'Tribu d'Âmes'">
+    <meta property="og:description"
+        content="Découvrez les 3 piliers (design, visuels, structure) pour transformer votre site en un phare énergétique qui attire naturellement vos clients idéaux.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-site-web-temple-virtuel-tribu-ames.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-site-web-temple-virtuel-tribu-ames.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Votre Site Web est Votre Temple Virtuel : Créez l'Espace Sacré qui Attirera votre "Tribu d'Âmes"
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Praticiens spirituels : votre site web reflète-t-il votre énergie ? Découvrez comment transformer votre site en un "temple virtuel" grâce au design, aux visuels et à une structure alignée, pour attirer naturellement votre tribu d'âmes.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/praticien-spirituel-creer-temple-virtuel-sacre.webp" alt="Temple virtuel symbolisé par un chemin lumineux et un mandala rayonnant sur un écran d'ordinateur" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Pensez à un lieu qui vous ressource profondément. Un temple ancien, une forêt silencieuse, une chapelle isolée. Quand vous y entrez, vous n'avez pas besoin de lire un panneau pour comprendre l'énergie du lieu. Vous la <strong class="text-neutral-dark">ressentez</strong>.</p>
+                    <p data-sr>Le calme, l'harmonie, le sacré... tout est communiqué de manière non-verbale, par la lumière, les formes, les sons, l'espace.</p>
+                    <p data-sr>Votre site web, pour remplir sa mission la plus élevée, doit être conçu de la même manière. Il ne doit pas être une simple vitrine d'informations. Il doit être votre <strong class="text-clarity-blue">Temple Virtuel</strong>.</p>
+                    <p data-sr>Un temple virtuel est un espace digital dont l'énergie et la vibration sont si alignées avec votre propre essence qu'il agit comme un phare. Il n'a pas besoin de "crier" pour attirer. Il <strong class="text-warm-orange italic">rayonne</strong>. Et par sa simple présence, il attire naturellement les personnes qui sont censées vous trouver, celles qui vibrent sur la même fréquence que vous : votre <strong class="text-neutral-dark">"tribu d'âmes"</strong>.</p>
+                    <p data-sr>Construire ce temple n'est pas une affaire de technique complexe. C'est une affaire d'<strong class="text-neutral-dark">intention</strong>. Voici les 3 piliers sur lesquels repose un espace digital sacré.</p>
+
+                    <!-- Pilier n°1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-6">Pilier n°1 : L'Intention (Le Design Énergétique)</h2>
+                        <p>L'énergie de votre site est d'abord définie par son design. Chaque choix visuel est une note de musique qui contribue à la symphonie globale.</p>
+                        
+                        <!-- CARTE PIÈGE -->
+                        <div class="mt-8 bg-white border-l-4 border-destructive p-6 rounded-lg shadow-md" data-sr>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 text-destructive mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-destructive mb-2">Le Piège du "Bruit" Visuel</h3>
+                                    <p class="text-neutral-light">Des couleurs criardes, des dizaines de polices de caractères différentes, des animations dans tous les sens... C'est l'équivalent d'un temple rempli de néons clignotants et de musique forte. C'est une agression énergétique.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CARTE VOIE -->
+                        <div class="mt-6 bg-white border-l-4 border-success-green p-6 rounded-lg shadow-md" data-sr>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 text-success-green mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                         <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-success-green mb-4">La Voie de l'Harmonie</h3>
+                                    <div class="space-y-4">
+                                        <div class="flex items-start gap-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-success-green mt-1.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                                            <p><strong class="text-neutral-dark">Les Couleurs :</strong> Choisissez une palette de 2 ou 3 couleurs maximum, inspirées de la nature ou de votre propre énergie. Des tons de terre pour l'ancrage, des bleus doux pour la sérénité... La cohérence crée une sensation de paix.</p>
+                                        </div>
+                                        <div class="flex items-start gap-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-success-green mt-1.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                                            <p><strong class="text-neutral-dark">Les Polices :</strong> Utilisez une police élégante et lisible pour les titres, et une police simple et claire pour les textes. La clarté de la forme amène la clarté de l'esprit.</p>
+                                        </div>
+                                        <div class="flex items-start gap-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-success-green mt-1.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                                            <p><strong class="text-neutral-dark">L'Espace Blanc :</strong> C'est l'élément le plus important. Ne surchargez pas vos pages. L'espace blanc, c'est le <em class="italic">silence</em>. C'est l'espace pour respirer, pour intégrer. C'est ce qui donne à votre site une sensation de calme et de luxe.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="border-t-2 border-dashed border-gray-200 my-16">
+                    
+                    <!-- Image Pilier 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/praticien-spirituel-visuels-authentiques-pour-site-web.webp" alt="Portrait authentique d'une praticienne spirituelle dans son espace de travail serein" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Pilier n°2 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-6">Pilier n°2 : L'Authenticité (Les Visuels de l'Âme)</h2>
+                        <p>Les images de votre temple sont les vitraux qui racontent votre histoire. Elles doivent être le reflet de votre âme, pas des clichés impersonnels.</p>
+                         
+                        <!-- CARTE PIÈGE -->
+                        <div class="mt-8 bg-white border-l-4 border-destructive p-6 rounded-lg shadow-md" data-sr>
+                             <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 text-destructive mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-destructive mb-2">Le Piège du "Spirituel de Supermarché"</h3>
+                                    <p class="text-neutral-light">Les photos de banques d'images de bouddhas, de mandalas génériques, de femmes en lotus sur la plage... Ces images ont été vues des milliers de fois. Elles sont vides de votre énergie personnelle.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CARTE VOIE -->
+                        <div class="mt-6 bg-white border-l-4 border-success-green p-6 rounded-lg shadow-md" data-sr>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 text-success-green mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                         <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-success-green mb-4">La Voie de l'Incarnation</h3>
+                                    <div class="space-y-4">
+                                        <div class="flex items-start gap-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-success-green mt-1.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                                            <p><strong class="text-neutral-dark">Vous :</strong> Votre portrait professionnel, mais un portrait qui capture votre essence. Un sourire sincère, un regard profond, une posture naturelle dans un lieu qui vous ressemble.</p>
+                                        </div>
+                                        <div class="flex items-start gap-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-success-green mt-1.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                                            <p><strong class="text-neutral-dark">Votre Espace :</strong> Montrez des photos de votre lieu de pratique, même s'il est simple. La lumière sur un mur, un cristal sur votre bureau... Ce sont des fragments de votre univers réel.</p>
+                                        </div>
+                                        <div class="flex items-start gap-3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-success-green mt-1.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                                            <p><strong class="text-neutral-dark">Votre Inspiration :</strong> Utilisez des photos que vous avez prises vous-même. Un paysage qui vous ressource, une fleur de votre jardin... Ces images sont chargées de votre vibration. Elles sont authentiques.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="border-t-2 border-dashed border-gray-200 my-16">
+
+                    <!-- Image Pilier 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/site-web-praticien-spirituel-chemin-de-clarte.webp" alt="Structure claire d'un site web 'one-page' montrant un chemin guidé pour le visiteur" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Pilier n°3 -->
+                     <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-6">Pilier n°3 : Le Chemin Sacré (Le Parcours Guidé)</h2>
+                        <p>Quand on entre dans un temple, le chemin est souvent balisé. Il y a un parcours qui guide le visiteur de l'entrée vers le cœur du sanctuaire. Votre site doit faire de même.</p>
+                         
+                        <!-- CARTE PIÈGE -->
+                        <div class="mt-8 bg-white border-l-4 border-destructive p-6 rounded-lg shadow-md" data-sr>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 text-destructive mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-destructive mb-2">Le Piège du "Labyrinthe"</h3>
+                                    <p class="text-neutral-light">Un site avec 10 pages dans le menu, des liens partout... Le visiteur se perd, son énergie se disperse, il ne sait pas où aller et finit par partir.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- CARTE VOIE -->
+                        <div class="mt-6 bg-white border-l-4 border-success-green p-6 rounded-lg shadow-md" data-sr>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 text-success-green mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                         <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold text-success-green mb-4">La Voie du Chemin de Clarté</h3>
+                                    <p class="mb-4">C'est la philosophie même du <a href="../index.html#offres" class="font-semibold text-clarity-blue hover:text-deep-blue transition-colors">Site Clarté</a>. En utilisant une structure de page unique, vous créez un <strong class="text-neutral-dark">parcours de méditation guidée</strong>.</p>
+                                    <ol class="space-y-3 text-neutral-dark">
+                                        <li class="flex items-start gap-2"><span class="font-bold">1.</span> <p><strong class="font-semibold">Le Seuil (L'Accroche) :</strong> Le visiteur arrive et reçoit l'intention du lieu.</p></li>
+                                        <li class="flex items-start gap-2"><span class="font-bold">2.</span> <p><strong class="font-semibold">La Rencontre (L'À Propos) :</strong> Il fait connaissance avec le gardien du temple (vous).</p></li>
+                                        <li class="flex items-start gap-2"><span class="font-bold">3.</span> <p><strong class="font-semibold">Les Voies Possibles (Les Offres) :</strong> Il découvre les différents chemins de transformation que vous proposez.</p></li>
+                                        <li class="flex items-start gap-2"><span class="font-bold">4.</span> <p><strong class="font-semibold">Les Échos des Pèlerins (Les Témoignages) :</strong> Il lit les histoires de ceux qui ont déjà fait le voyage.</p></li>
+                                        <li class="flex items-start gap-2"><span class="font-bold">5.</span> <p><strong class="font-semibold">L'Invitation (L'Appel à l'Action) :</strong> Il est invité à faire son premier pas.</p></li>
+                                    </ol>
+                                    <p class="mt-4 bg-soft-blue/60 p-4 rounded-md">Ce parcours linéaire, sans distraction, crée une expérience immersive et profondément rassurante. L'énergie du visiteur n'est pas dispersée, elle est concentrée et guidée.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Votre Site est une Extension de Votre Champ Énergétique</h2>
+                        <p>Ne considérez plus votre site web comme une tâche technique. Voyez-le comme une création sacrée. C'est l'extension de votre champ énergétique dans le monde digital.</p>
+                        <p class="mt-6 bg-soft-blue p-6 rounded-lg font-semibold text-neutral-dark shadow">En y infusant une intention claire, une authenticité vibrante et une structure guidée, vous ne construirez pas un simple outil marketing. Vous érigerez un Temple Virtuel. Un phare de lumière qui, par sa simple existence harmonieuse, appellera et accueillera naturellement les âmes qui sont prêtes à commencer leur chemin avec vous.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <!-- Titre et sous-titre -->
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Prêt(e) à bâtir les fondations de <br><span class="text-clarity-blue">votre Temple Virtuel ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                           Traduire une vibration subtile en une structure web claire, harmonieuse et efficace est un art. C'est la mission que je me donne avec chaque <a href="../index.html#offres" class="font-semibold text-warm-orange hover:text-white transition-colors">Site Clarté</a>. Discutons de l'architecture de votre espace sacré.
+                        </p>
+            
+                        <!-- Bouton d'action final et réassurance -->
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Discutons lors d'un Appel Clarté
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Arrêtez de Jouer à "Tetris" avec votre Agenda : Le Guide Calendly pour Coachs & Consultants</title>
+    <meta name="description"
+        content="Coachs, consultants : fatigués des allers-retours d'emails pour trouver un créneau ? Découvrez notre guide complet pour configurer Calendly, professionnaliser votre prise de RDV et gagner des heures chaque semaine.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- META OPEN GRAPH & TWITTER (SPÉCIFIQUES À L'ARTICLE) -->
+    <meta property="og:title" content="Le Guide Calendly pour Coachs & Consultants">
+    <meta property="og:description"
+        content="Découvrez comment configurer Calendly pour professionnaliser votre prise de RDV et gagner des heures chaque semaine.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-calendly-guide.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-calendly-guide.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- ======================================================= -->
+        <!--      HEADER / NAVIGATION (CHEMINS CORRIGÉS)           -->
+        <!-- ======================================================= -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ======================================================= -->
+        <!--                DÉBUT DU CONTENU DE L'ARTICLE            -->
+        <!-- ======================================================= -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Arrêtez de Jouer à "Tetris" avec votre Agenda : Le Guide Calendly pour Coachs & Consultants
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Coachs, consultants : fatigués des allers-retours d'emails pour trouver un créneau ? Découvrez notre guide complet pour configurer Calendly, professionnaliser votre prise de RDV et gagner des heures chaque semaine.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/calendly-guide-intro.webp" alt="Agenda papier chaotique à côté d'un calendrier en ligne Calendly clair et ordonné" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Vous connaissez cette danse. Ce ballet d'emails interminable qui précède presque chaque premier appel avec un nouveau prospect.</p>
+
+                    <blockquote class="border-l-4 border-warm-orange pl-6 my-8 italic text-neutral-dark" data-sr>
+                        <p class="mb-2"><strong>Vous :</strong> "Je suis disponible mardi à 15h ou jeudi à 10h. Est-ce que l'un de ces créneaux vous convient ?"</p>
+                        <p class="mb-2"><strong>Prospect :</strong> "Bonjour, merci. Le mardi 15h n'est pas possible pour moi. Le jeudi 10h non plus. Seriez-vous disponible mercredi matin ?"</p>
+                        <p class="mb-2"><strong>Vous :</strong> "Bonjour, le mercredi matin est déjà pris. Que diriez-vous de vendredi à 14h ?"</p>
+                        <p class="mb-2"><strong>Prospect :</strong> (ne répond pas pendant 2 jours)</p>
+                        <p><strong>Vous :</strong> (relance) "Bonjour, je me permets de revenir vers vous..."</p>
+                    </blockquote>
+
+                    <p data-sr>Ce jeu de "Tetris" avec votre agenda n'est pas seulement une perte de temps monumentale. C'est une <strong class="text-neutral-dark">friction</strong>. Chaque email échangé est une occasion pour le prospect de se refroidir, d'être distrait, et de finalement laisser tomber. Pire encore, cela envoie un signal inconscient de désorganisation.</p>
+
+                    <p data-sr>En 2025, un expert qui respecte son temps – et celui de ses clients – ne joue plus à ce jeu. Il utilise un assistant personnel qui travaille pour lui 24/7. Cet assistant s'appelle <strong class="text-clarity-blue">Calendly</strong>.</p>
+                    
+                    <p data-sr>Si vous n'utilisez pas encore un outil de planification en ligne, cet article n'est pas une simple suggestion. C'est une invitation urgente à révolutionner votre productivité et à professionnaliser votre image de marque.</p>
+
+                    <p data-sr>Voici le guide complet pour configurer Calendly en moins de 15 minutes et ne plus jamais avoir à dire : "Êtes-vous disponible mardi ?".</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Qu'est-ce que Calendly, Concrètement ?</h2>
+                        <p>Calendly est un outil qui se connecte à votre agenda principal (Google, Outlook, iCloud). Vous lui indiquez vos règles de disponibilité, et il génère un lien public.</p>
+                        <p class="mt-4">Quand un prospect clique sur ce lien, il voit <strong class="text-neutral-dark">uniquement</strong> vos créneaux libres, choisit celui qui l'arrange, et l'événement est <strong class="text-neutral-dark">automatiquement</strong> ajouté à vos deux agendas, avec un lien de visioconférence déjà inclus.</p>
+                        <p class="mt-4">Fini les allers-retours. Fini les erreurs de fuseau horaire. Fini les opportunités manquées.</p>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/calendly-guide-etapes.webp" alt="Interface de configuration d'un événement dans Calendly" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 : Le Guide -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Le Guide de Démarrage Rapide : Votre Compte Prêt en 4 Étapes</h2>
+                        <p>Pas besoin d'être un expert technique. Suivez le guide.</p>
+                    </div>
+
+                    <!-- Étape 1 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Étape 1 : Créer son Compte et Synchroniser son Agenda (5 min)</h3>
+                        <p>Rendez-vous sur Calendly.com et inscrivez-vous (vous pouvez utiliser votre compte Google ou Microsoft pour aller plus vite). La première chose que Calendly vous demandera est de vous connecter à votre agenda. <strong class="text-neutral-dark">C'est l'étape la plus importante.</strong></p>
+                        <p class="mt-4"><strong class="text-neutral-dark">Pourquoi ?</strong> C'est cette synchronisation qui est magique. Si vous avez un rendez-vous personnel "Dentiste" dans votre Google Calendar, Calendly le verra et rendra automatiquement ce créneau indisponible pour vos prospects. Zéro risque de double réservation.</p>
+                    </div>
+
+                    <!-- Étape 2 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Étape 2 : Créer son Premier "Type d'Événement" (5 min)</h3>
+                        <p>Dans le jargon de Calendly, un "Type d'Événement" est une offre de rendez-vous. Pour commencer, nous allons créer le plus important : votre appel découverte.</p>
+                        <p class="mt-4">Sur votre tableau de bord, cliquez sur "Créer" -> "Type d'événement".</p>
+                        <ul class="list-disc list-inside space-y-3 mt-4 pl-4">
+                            <li><strong>Nom de l'événement :</strong> C'est ici que vous montrez votre professionnalisme.
+                                <ul class="list-none space-y-2 mt-2 text-base pl-6">
+                                    <li><span class="text-destructive font-bold mr-2">❌ Évitez :</span> "Appel 30 min"</li>
+                                    <li><span class="text-success-green font-bold mr-2">✅ Visez :</span> "Appel Stratégique - 30 min" ou "Session Clarté Offerte". C'est une offre de valeur, pas un simple RDV.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Lieu :</strong> Choisissez "Google Meet" ou "Zoom". Calendly générera le lien automatiquement.</li>
+                            <li><strong>Description :</strong> C'est le "pitch" de votre appel. Expliquez la valeur que le prospect va en retirer.
+                                <p class="mt-2 pl-6 text-base italic">"Cet échange confidentiel nous permettra de faire le point sur votre défi principal et de définir si une collaboration est la bonne prochaine étape. Vous repartirez avec une vision plus claire, quoi qu'il arrive."</p>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Étape 3 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Étape 3 : Définir ses Disponibilités (3 min)</h3>
+                        <p>C'est ici que vous reprenez le contrôle de votre temps. Vous n'êtes pas disponible à la demande. Vous êtes un expert avec un agenda maîtrisé.</p>
+                        <ul class="list-disc list-inside space-y-3 mt-4 pl-4">
+                            <li><strong>La règle d'or : le "batching".</strong> Ne laissez pas les prospects réserver des appels n'importe quand, ce qui hacherait vos journées. Regroupez vos appels découverte sur des blocs de temps dédiés.</li>
+                            <li><strong>Exemple de configuration :</strong> Allez dans la section "Quand les personnes peuvent-elles réserver cet événement ?" et définissez des règles strictes. Par exemple : "Uniquement le mardi et le jeudi, de 14h à 17h".</li>
+                            <li><strong>L'astuce pro :</strong> Ajoutez des "buffers" (tampons) de 15 minutes avant et après chaque événement pour vous laisser le temps de vous préparer et de débriefer.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Étape 4 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Étape 4 : Ajouter des Questions de Qualification (2 min)</h3>
+                        <p>Ne venez pas à un premier appel à l'aveugle. Utilisez Calendly pour qualifier vos prospects en amont.</p>
+                        <p class="mt-4">Dans la section "Questions pour l'invité", en plus de "Nom" et "Email", ajoutez une ou deux questions personnalisées.</p>
+                        <p class="mt-4 font-semibold text-neutral-dark">Exemples puissants :</p>
+                        <ul class="list-disc list-inside space-y-2 mt-2 pl-4">
+                            <li>"Quel est votre principal objectif ou défi en ce moment ?"</li>
+                            <li>"Merci de partager le lien vers votre site web actuel."</li>
+                            <li>"Comment avez-vous entendu parler de moi ?"</li>
+                        </ul>
+                        <p class="mt-4">Vous arriverez à l'appel en étant déjà préparé, ce qui est un signal de professionnalisme immense.</p>
+                    </div>
+
+                    <!-- Image 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/calendly-guide-resultat.webp" alt="Exemples d'intégration d'un lien Calendly sur un site web, une signature d'email et un profil LinkedIn" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 3 : Diffusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">L'Astuce Finale : Mettez Votre Lien Partout !</h2>
+                        <p>Votre Calendly est prêt. Maintenant, il doit travailler pour vous. Copiez le lien de votre événement et intégrez-le partout où un prospect pourrait vouloir vous contacter :</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong>Sur votre site web :</strong> C'est le bouton d'appel à l'action principal.</li>
+                            <li><strong>Dans votre signature d'email :</strong> Ajoutez une ligne : <em class="text-neutral-dark">"Prêt(e) à discuter ? Planifiez directement un appel dans mon agenda."</em></li>
+                            <li><strong>Sur votre profil LinkedIn :</strong> Utilisez le champ "Lien" pour y mettre votre Calendly.</li>
+                            <li><strong>En réponse à un email :</strong> Au lieu de commencer le "Tetris", répondez simplement : <em class="text-neutral-dark">"Avec plaisir pour en discuter. Voici un lien pour choisir directement le créneau qui vous arrange dans mon agenda : [votre lien]"</em>.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 4 : Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Reprenez le Pouvoir sur Votre Temps</h2>
+                        <p>Calendly n'est pas un simple outil de productivité. C'est un changement de posture.</p>
+                        <p class="mt-4">En l'utilisant, vous passez du statut de prestataire réactif qui s'adapte à l'agenda des autres, à celui d'expert proactif qui maîtrise son temps et propose un parcours client fluide et professionnel.</p>
+                        <p class="mt-4">Vous arrêtez de jouer à Tetris. Vous commencez à construire votre business sur des fondations solides et efficaces. Et ça, ça n'a pas de prix.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- NOUVELLE SECTION : Appel à l'action final (CTA) -->
+            <section id="cta-blog" class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 md:p-12 text-center" data-sr>
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4">Prêt(e) à intégrer cet outil puissant à un site web tout aussi professionnel ?</h3>
+                        <p class="text-lg text-white/80 leading-relaxed mb-8">
+                            Un système de réservation efficace est une brique essentielle d'un <a href="../index.html#offres" class="font-bold text-warm-orange hover:underline">Site Clarté</a>. C'est la garantie que les visiteurs attirés par votre message clair peuvent passer à l'action sans la moindre friction.
+                        </p>
+                        <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="btn btn-primary inline-flex items-center gap-2">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span>Discutons-en lors d'un Appel Clarté</span>
+                        </a>
+                        <p class="text-sm text-white/60 mt-4">Gratuit & Sans engagement</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ======================================================= -->
+        <!--        FOOTER (CHEMINS CORRIGÉS)                      -->
+        <!-- ======================================================= -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>La FAQ Énergétique : Éduquer vos Clients et Poser des Limites Saines</title>
+    <meta name="description"
+        content="Praticiens spirituels : fatigués de répéter les mêmes choses et de gérer des attentes irréalistes ? Découvrez comment utiliser votre page FAQ pour poser un cadre sain, protéger votre énergie et éduquer vos clients en amont.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="La FAQ Énergétique : Éduquer vos Clients et Poser des Limites Saines">
+    <meta property="og:description"
+        content="Découvrez 5 questions pour votre FAQ qui posent un cadre sain, protègent votre énergie et éduquent vos clients idéaux.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-faq-energetique-proteger-energie.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-faq-energetique-proteger-energie.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            La FAQ Énergétique : Comment Éduquer vos Clients et Poser des Limites Saines sur votre Site
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Praticiens spirituels : fatigués de répéter les mêmes choses et de gérer des attentes irréalistes ? Découvrez comment utiliser votre page FAQ pour poser un cadre sain, protéger votre énergie et éduquer vos clients en amont.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/praticien-spirituel-protegeant-son-energie-avec-clarte.webp" alt="Personne méditant à l'intérieur d'une bulle de lumière protectrice, symbolisant la clarté et la protection énergétique" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>En tant que praticien spirituel ou énergétique, votre énergie est votre outil de travail le plus précieux. C'est la ressource que vous offrez, que vous partagez, et que vous devez absolument protéger pour ne pas vous épuiser.</p>
+                    <p data-sr>Pourtant, une grande partie de cette énergie est souvent drainée, non pas pendant les séances, mais <strong class="text-neutral-dark">autour</strong>. Elle est drainée par le fait de devoir :</p>
+                    <ul class="list-disc list-inside space-y-2 mt-4 pl-4" data-sr>
+                        <li>Répéter inlassablement les mêmes explications de base.</li>
+                        <li>Gérer les attentes irréalistes de "solutions miracles".</li>
+                        <li>Répondre à des questions qui dépassent le cadre de votre accompagnement.</li>
+                        <li>Clarifier votre éthique et vos limites.</li>
+                    </ul>
+                    <p data-sr>Chaque fois que vous faites cela, vous puisez dans votre réservoir.</p>
+                    <p data-sr>Et si votre site web pouvait faire ce travail de "gardien du temple" pour vous ? S'il pouvait éduquer, filtrer et poser le cadre en amont, pour que les personnes qui arrivent jusqu'à vous soient déjà informées, alignées et respectueuses de votre pratique ?</p>
+                    <p data-sr>Cet outil, souvent négligé, c'est votre page <strong class="text-clarity-blue">Foire Aux Questions (FAQ)</strong>.</p>
+                    <p data-sr>Arrêtez de voir la FAQ comme une page administrative ennuyeuse. Voyez-la comme votre <strong class="text-clarity-blue">FAQ Énergétique</strong> : un espace sacré où vous posez les fondations d'une relation client saine, claire et respectueuse.</p>
+                    
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Le Principe : Anticiper les Fuites d'Énergie</h2>
+                        <p>Une FAQ Énergétique ne répond pas à des questions logistiques ("Quels sont vos horaires ?"). Elle répond aux <strong class="text-neutral-dark">questions silencieuses</strong>, aux <strong class="text-neutral-dark">attentes implicites</strong> et aux <strong class="text-neutral-dark">zones de flou</strong> qui sont les plus grandes sources de malentendus et de perte d'énergie.</p>
+                        <p class="mt-4">En anticipant ces questions, vous n'attendez pas que le problème se présente. Vous l'adressez en amont, avec bienveillance et fermeté.</p>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/poser-limites-saines-pour-praticien-energetique.webp" alt="Un chemin clair et bien défini dans la nature, symbolisant des limites saines" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 : Les Questions -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">5 Questions pour votre FAQ Énergétique</h2>
+                        <p>Voici 5 questions essentielles à intégrer dans votre FAQ pour protéger votre énergie et élever la conscience de vos clients.</p>
+                    </div>
+
+                    <!-- Question 1 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">1. "Un soin énergétique / une guidance peut-il/elle tout guérir ou tout résoudre ?"</h3>
+                        <p><strong class="text-neutral-dark">Le Problème que ça résout :</strong> Gérer l'attente de la "baguette magique" et le syndrome du "sauveur".</p>
+                        <blockquote class="border-l-4 border-warm-orange pl-4 mt-4 text-base">
+                            <p class="font-semibold text-neutral-dark">La Réponse qui Pose le Cadre :</p>
+                            <p class="mt-2 italic">"Mon approche est un puissant catalyseur de transformation et de bien-être, mais elle n'est pas une solution miracle. Je suis une guide qui vous accompagne pour activer <strong class='text-neutral-dark not-italic'>votre propre pouvoir de guérison et de clarté</strong>. Le travail que nous faisons ensemble est une co-création : je vous offre les outils et l'espace, et votre engagement personnel est la clé du succès. Il est important de noter que mon accompagnement est complémentaire et ne se substitue en aucun cas à un suivi médical ou psychologique."</p>
+                        </blockquote>
+                    </div>
+                    
+                    <!-- Question 2 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">2. "Que se passe-t-il si je ne 'ressens' rien de spécial pendant la séance ?"</h3>
+                        <p><strong class="text-neutral-dark">Le Problème que ça résout :</strong> Dédramatiser l'expérience, gérer la pression de la "performance" du client et la peur de "mal faire".</p>
+                        <blockquote class="border-l-4 border-warm-orange pl-4 mt-4 text-base">
+                            <p class="font-semibold text-neutral-dark">La Réponse qui Rassure :</p>
+                            <p class="mt-2 italic">"Chaque personne et chaque séance est unique. Certains ressentent de la chaleur, des picotements ou des émotions intenses. D'autres ressentent un profond calme ou ont l'impression de s'endormir. Et certains ne ressentent rien de particulier sur le moment. <strong class='text-neutral-dark not-italic'>Tout est juste</strong>. L'énergie travaille à des niveaux subtils et les bienfaits se déploient souvent dans les heures et les jours qui suivent. L'invitation est de lâcher toute attente et de simplement accueillir l'expérience, quelle qu'elle soit."</p>
+                        </blockquote>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">3. "Combien de séances sont nécessaires pour voir un changement ?"</h3>
+                        <p><strong class="text-neutral-dark">Le Problème que ça résout :</strong> Gérer l'impatience et l'attente de résultats instantanés.</p>
+                        <blockquote class="border-l-4 border-warm-orange pl-4 mt-4 text-base">
+                            <p class="font-semibold text-neutral-dark">La Réponse qui Responsabilise :</p>
+                            <p class="mt-2 italic">"Il n'y a pas de réponse toute faite, car votre chemin est unique. Des bienfaits comme un sentiment de paix ou de clarté peuvent être ressentis dès la première rencontre. Cependant, un changement profond et durable est un processus qui demande du temps et de l'intégration. Je recommande souvent un parcours initial de 3 séances pour initier un travail en profondeur. Nous ferons toujours le point ensemble pour ajuster le rythme à vos besoins réels."</p>
+                        </blockquote>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">4. "Faites-vous des prédictions sur l'avenir ?"</h3>
+                        <p class="text-sm italic">(Pour les médiums, astrologues, tarologues...)</p>
+                        <p class="mt-2"><strong class="text-neutral-dark">Le Problème que ça résout :</strong> Clarifier votre éthique et vous différencier des approches "spectacles".</p>
+                        <blockquote class="border-l-4 border-warm-orange pl-4 mt-4 text-base">
+                            <p class="font-semibold text-neutral-dark">La Réponse qui Affirme votre Posture :</p>
+                            <p class="mt-2 italic">"Mon rôle n'est pas de prédire l'avenir, mais de vous éclairer sur le présent pour vous aider à créer le futur le plus aligné pour vous. Mes guidances sont des outils de clarté et de connaissance de soi. Elles vous redonnent votre pouvoir de décision, elles ne vous l'enlèvent pas en vous enfermant dans un futur prédéterminé."</p>
+                        </blockquote>
+                    </div>
+
+                    <!-- Question 5 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">5. "Puis-je vous contacter entre les séances si j'ai des questions ou si je ne vais pas bien ?"</h3>
+                        <p><strong class="text-neutral-dark">Le Problème que ça résout :</strong> Poser la limite la plus importante pour éviter de devenir un "support client" 24/7.</p>
+                        <blockquote class="border-l-4 border-warm-orange pl-4 mt-4 text-base">
+                            <p class="font-semibold text-neutral-dark">La Réponse qui Protège votre Espace :</p>
+                            <p class="mt-2 italic">"L'espace sacré de la séance est le contenant principal de notre travail. Le temps entre les rendez-vous est un temps d'intégration essentiel qui vous appartient. Pour cette raison, et afin de préserver mon énergie pour être pleinement présente pour tous mes clients, je ne propose pas de suivi par email ou SMS. Je vous encourage à noter vos questionnements dans un carnet, ils seront une matière précieuse pour notre prochaine séance. Pour toute urgence émotionnelle ou médicale, veuillez contacter les services appropriés."</p>
+                        </blockquote>
+                    </div>
+
+                    <!-- Image 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/praticien-energetique-serein-grace-a-un-cadre-clair.webp" alt="Une praticienne souriante et sereine, symbolisant le résultat d'un cadre de travail bien posé" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : La Clarté est la Plus Haute Forme de Bienveillance</h2>
+                        <p>Votre FAQ n'est pas une simple page d'information. C'est le gardien de votre temple.</p>
+                        <p class="mt-4">En prenant le temps de rédiger ces réponses, vous ne faites pas que vous protéger. Vous offrez à vos futurs clients un cadeau immense : un cadre clair, sécurisant et professionnel.</p>
+                        <p class="mt-4">Vous filtrez naturellement les personnes qui ne sont pas prêtes pour un travail en co-responsabilité, et vous attirez celles qui sont prêtes à s'engager dans une relation thérapeutique saine et respectueuse.</p>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">Vous n'avez plus à poser ces limites dans la conversation. Votre site le fait pour vous, avec clarté et bienveillance. Et cela vous libère pour faire ce que vous faites de mieux : être présent(e) et accompagner.</p>
+                    </div>
+
+                </div>
+            </article>
+
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <!-- Titre et sous-titre -->
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Votre cadre est défini. <br><span class="text-clarity-blue">Construisons le site qui le protège.</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Poser un cadre sain est essentiel. Lors de notre Appel Clarté gratuit, nous intégrerons cette philosophie dans chaque section de votre site pour attirer des clients respectueux et alignés.
+                        </p>
+            
+                        <!-- Bouton d'action final et réassurance -->
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Planifier mon Appel Clarté
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

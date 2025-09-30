@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Psychologie du Scroll : Bâtir la Confiance avec un Site Clarté</title>
+    <meta name="description"
+        content="Découvrez la psychologie cachée derrière le 'scroll'. Comment un site one-page de type 'Site Clarté' utilise chaque défilement pour guider le visiteur à travers un parcours émotionnel et bâtir une confiance qui mène à la conversion.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="La Psychologie du Défilement : Comment un Site Clarté Bâtit la Confiance">
+    <meta property="og:description"
+        content="Découvrez comment un site one-page utilise le scroll pour guider vos visiteurs et bâtir une confiance qui mène à la conversion.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-psychologie-scroll-confiance-site-clarte.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-psychologie-scroll-confiance-site-clarte.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            La Psychologie du Défilement : Comment un Site Clarté Bâtit la Confiance à Chaque Scroll
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Découvrez comment un site one-page utilise chaque défilement pour guider le visiteur à travers un parcours émotionnel et bâtir une confiance qui mène à la conversion.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/psychologie-scroll-parcours-confiance-visiteur.webp" alt="Illustration d'une molette de souris qui remplit une jauge de confiance" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Sur un site web, nous sommes obsédés par le "clic". Mais nous oublions souvent l'action que nos visiteurs font des centaines de fois par jour, de manière quasi-instinctive : le <strong class="text-neutral-dark">"scroll"</strong>, le défilement de la page.</p>
+                    <p data-sr>Sur un site multi-pages traditionnel, le scroll est une simple action mécanique pour lire un contenu avant de devoir cliquer ailleurs.</p>
+                    <p data-sr>Sur un <a href="../index.html#site-clarte" class="text-clarity-blue font-semibold hover:underline">Site Clarté</a>, le scroll devient un <strong class="text-neutral-dark">acte narratif</strong>. C'est le fil qui déroule l'histoire. Chaque coup de pouce vers le bas n'est pas un simple mouvement. C'est un micro-engagement. C'est un "oui" silencieux du visiteur qui dit : "Je suis intéressé(e). Dites-m'en plus."</p>
+                    <p data-sr>Un Site Clarté est conçu pour capitaliser sur cette psychologie. Sa structure n'est pas un simple empilement de sections. C'est un <strong class="text-clarity-blue">parcours émotionnel et psychologique</strong> délibéré, où chaque "scroll" est une étape conçue pour faire avancer le visiteur dans son processus de décision, jusqu'à ce que la prise de contact devienne la conclusion naturelle.</p>
+                    <p data-sr>Déroulons ensemble ce fil de la confiance.</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Le Parcours Émotionnel du Visiteur, Scroll après Scroll</h2>
+                    </div>
+                    
+                    <!-- Etape 0 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Arrivée - Scroll Zéro : L'Intrigue (Capter la Curiosité)</h3>
+                        <p>Le visiteur atterrit. Il n'a pas encore bougé. Il voit votre <strong class="text-neutral-dark">section "Héros"</strong>. Son cerveau reptilien, en une fraction de seconde, se demande : "Danger ou opportunité ? Pertinent ou pas ?".</p>
+                        <ul class="list-none space-y-3 mt-4 text-base">
+                            <li><strong class="text-neutral-dark">🎯 L'Objectif Psychologique :</strong> Créer une "boucle ouverte". Présenter une promesse de transformation si claire et si désirable que le cerveau du visiteur ne peut s'empêcher de se demander : "Comment ?"</li>
+                            <li><strong class="text-success-green font-semibold">✅ Le Résultat :</strong> La curiosité est piquée. Le premier scroll est engagé.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Etape 1 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Scroll n°1 : L'Identification (Créer la Résonance)</h3>
+                        <p>Le visiteur fait défiler et découvre la section qui décrit le <strong class="text-neutral-dark">problème</strong> que vous résolvez ou la <strong class="text-neutral-dark">cible</strong> que vous aidez.</p>
+                         <ul class="list-none space-y-3 mt-4 text-base">
+                            <li><strong class="text-neutral-dark">🎯 L'Objectif Psychologique :</strong> Activer l'effet "Miroir". Le visiteur doit se reconnaître. Il doit se dire : <strong class="text-neutral-dark italic">"Cette personne parle de moi. Elle comprend ma situation."</strong></li>
+                            <li><strong class="text-success-green font-semibold">✅ Le Résultat :</strong> La conversation n'est plus à sens unique. Une résonance s'est créée. Le visiteur se sent compris. Il est maintenant prêt à écouter qui est la personne qui le comprend si bien.</li>
+                        </ul>
+                    </div>
+
+                    <!-- NOUVELLE IMAGE 2 : LA CONNEXION -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/site-clarte-connexion-humaine-confiance-visiteur.webp" alt="Illustration d'une connexion humaine entre un prestataire et son client" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Etape 2 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Scroll n°2 : La Connexion (Bâtir la Confiance Humaine)</h3>
+                        <p>Le visiteur arrive sur votre section <strong class="text-neutral-dark">"À Propos"</strong>. Il découvre votre visage, votre histoire.</p>
+                         <ul class="list-none space-y-3 mt-4 text-base">
+                            <li><strong class="text-neutral-dark">🎯 L'Objectif Psychologique :</strong> Passer de l'expert anonyme au <strong class="text-neutral-dark">guide humain</strong>. Votre histoire, avec ses défis et ses apprentissages, crée un pont d'empathie. Le visiteur ne voit plus un "prestataire de services", mais une personne crédible et accessible.</li>
+                            <li><strong class="text-success-green font-semibold">✅ Le Résultat :</strong> La confiance émotionnelle est établie. Le "cœur" du prospect est conquis. Mais son cerveau logique a encore besoin d'être rassuré.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Etape 3 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Scroll n°3 : La Clarification (Rassurer la Logique)</h3>
+                        <p>Le visiteur découvre maintenant votre <strong class="text-neutral-dark">offre signature</strong>, votre solution.</p>
+                        <ul class="list-none space-y-3 mt-4 text-base">
+                            <li><strong class="text-neutral-dark">🎯 L'Objectif Psychologique :</strong> Apporter de la clarté et de la structure pour apaiser le cerveau rationnel. Votre offre, présentée comme un <a href="../blog.html" class="text-clarity-blue font-semibold hover:underline">parcours clair</a> avec des étapes et un résultat défini, transforme une promesse abstraite en un plan d'action tangible.</li>
+                            <li><strong class="text-success-green font-semibold">✅ Le Résultat :</strong> Le prospect comprend "comment" vous allez l'aider. Il n'achète plus du "vent", il achète un processus structuré et professionnel. Le doute logique recule.</li>
+                        </ul>
+                    </div>
+
+                    <!-- NOUVELLE IMAGE 3 : LA VALIDATION -->
+                     <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/site-clarte-validation-preuve-sociale-temoignages.webp" alt="Illustration de la preuve sociale avec des avis clients positifs" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Etape 4 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Scroll n°4 : La Validation (Confirmer le Bon Choix)</h3>
+                        <p>Le visiteur arrive sur la section des <strong class="text-neutral-dark">témoignages</strong>.</p>
+                         <ul class="list-none space-y-3 mt-4 text-base">
+                            <li><strong class="text-neutral-dark">🎯 L'Objectif Psychologique :</strong> Activer la <strong class="text-neutral-dark">preuve sociale</strong>. Le cerveau humain est câblé pour suivre le comportement des autres. En lisant les histoires de succès de personnes qui lui ressemblent, le prospect se dit : "Je ne suis pas le premier à faire ce saut. C'est sûr. D'autres l'ont fait et ont réussi."</li>
+                            <li><strong class="text-success-green font-semibold">✅ Le Résultat :</strong> La décision est validée par des tiers. La peur du risque diminue de façon drastique. Le prospect est maintenant convaincu.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Etape 5 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Scroll n°5 : L'Invitation (Faciliter l'Action)</h3>
+                        <p>Le visiteur arrive à la fin du récit. Il est convaincu émotionnellement et rationnellement. Il est prêt. Il découvre votre <strong class="text-neutral-dark">appel à l'action final</strong>.</p>
+                         <ul class="list-none space-y-3 mt-4 text-base">
+                            <li><strong class="text-neutral-dark">🎯 L'Objectif Psychologique :</strong> Rendre le passage à l'action aussi simple et évident que possible pour ne pas briser l'élan.</li>
+                            <li><strong class="text-success-green font-semibold">✅ Le Résultat :</strong> Le bouton "Planifier mon Appel Clarté" n'est plus une décision anxiogène. C'est la <strong class="text-neutral-dark">conclusion naturelle et désirée</strong> de la conversation que vous venez d'avoir avec lui. Le clic n'est pas forcé, il est une évidence.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Votre Site n'est pas une Page, c'est un Entonnoir de Confiance</h2>
+                        <p>Comme vous le voyez, la structure d'un <strong class="text-neutral-dark">Site Clarté</strong> n'a rien d'arbitraire.</p>
+                        <p class="mt-4">C'est un entonnoir psychologique, un parcours de persuasion éthique où chaque section est conçue pour faire franchir au visiteur une nouvelle étape dans son processus de décision.</p>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">Le défilement devient le moteur de cette transformation. À chaque scroll, le doute diminue et la confiance augmente.</p>
+                        <p class="mt-4">C'est en maîtrisant cette psychologie que l'on transforme une simple page d'information en une véritable machine à bâtir la confiance, conçue pour convertir.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <!-- Titre et sous-titre -->
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Prêt(e) à construire un site qui <br><span class="text-clarity-blue">guide vos visiteurs à chaque scroll ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            La conception d'un parcours utilisateur aussi stratégique est au cœur de ma méthode <a href="01-atelier-message-central.html" class="text-warm-orange font-semibold hover:underline">Atelier de Clarté</a>. Nous ne nous contentons pas de créer des sections, nous architecturons un véritable chemin de confiance.
+                        </p>
+            
+                        <!-- Bouton d'action final et réassurance -->
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Discutons de votre parcours client
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

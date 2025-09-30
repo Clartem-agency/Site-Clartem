@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Votre Fenêtre Zoom est une Vitrine : 7 Détails pour une Image d'Expert en Visio</title>
+    <meta name="description"
+        content="Coachs, consultants : votre image en visioconférence est-elle professionnelle ? Découvrez 7 astuces simples (cadrage, lumière, son...) pour maîtriser vos appels Zoom ou Meet et renforcer votre crédibilité.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- META OPEN GRAPH & TWITTER (SPÉCIFIQUES À L'ARTICLE) -->
+    <meta property="og:title" content="Votre Fenêtre Zoom est une Vitrine : 7 Détails pour une Image d'Expert en Visio">
+    <meta property="og:description"
+        content="Découvrez 7 astuces simples (cadrage, lumière, son...) pour maîtriser vos appels Zoom ou Meet et renforcer votre crédibilité.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-visio-expert.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-visio-expert.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- ======================================================= -->
+        <!--      HEADER / NAVIGATION (CHEMINS CORRIGÉS)           -->
+        <!-- ======================================================= -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ======================================================= -->
+        <!--                DÉBUT DU CONTENU DE L'ARTICLE            -->
+        <!-- ======================================================= -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                           Votre Fenêtre Zoom est une Vitrine : 7 Détails pour une Image d'Expert en Visio
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Coachs, consultants : votre image en visioconférence est-elle professionnelle ? Découvrez 7 astuces simples pour maîtriser vos appels Zoom ou Meet et renforcer votre crédibilité.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/visio-expert-intro-avant-apres.webp" alt="Comparaison avant/après d'une personne en appel visio, montrant l'amélioration de l'éclairage et du cadrage." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Le moment est arrivé. Votre site web a fait son travail. Votre processus de prise de rendez-vous avec <a href="#" class="text-clarity-blue font-semibold hover:underline">Calendly</a> a été d'une fluidité parfaite. Votre prospect, un client potentiel à haute valeur, clique sur le lien Zoom ou Google Meet pour votre premier appel.</p>
+
+                    <p data-sr>Pendant les 10 premières secondes de cet appel, avant même que vous n'ayez prononcé une phrase complète, il va se forger une opinion sur votre professionnalisme.</p>
+                    
+                    <p data-sr>Cette petite fenêtre de visioconférence sur son écran n'est pas juste une vidéo. C'est la <strong class="text-neutral-dark">vitrine de votre cabinet virtuel</strong>. C'est le prolongement direct de l'image de marque que vous avez si soigneusement construite sur votre site.</p>
+
+                    <p data-sr>Une image de mauvaise qualité, un son médiocre ou un arrière-plan chaotique peuvent saboter en un instant toute la crédibilité que vous avez mis des semaines à bâtir.</p>
+
+                    <p data-sr>Heureusement, projeter une image d'expert en visio ne nécessite pas un studio de production. Cela repose sur une série de détails simples mais cruciaux. Voici la checklist en 7 points que je partage avec mes clients pour s'assurer que leur vitrine virtuelle est aussi impeccable que leur expertise.</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">1. La Lumière : Le Secret d'une Image Nette et Professionnelle</h2>
+                        <p>C'est le facteur n°1. Une mauvaise lumière vous donne l'air fatigué, peu fiable et pixellise votre image.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong class="text-destructive">L'erreur fatale :</strong> Avoir une fenêtre dans votre dos. Vous apparaissez comme une silhouette sombre et mystérieuse.</li>
+                            <li><strong class="text-success-green">La solution simple :</strong> La lumière doit venir <strong class="text-neutral-dark">de face</strong>. La meilleure source de lumière est gratuite : placez votre bureau et votre ordinateur <strong class="text-neutral-dark">face à une fenêtre</strong>. La lumière naturelle adoucira vos traits et rendra votre image claire et professionnelle. Si ce n'est pas possible, une simple lampe de bureau avec une lumière douce (type "ring light" à 20€) placée derrière votre webcam fera des merveilles.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Section 2 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">2. Le Cadrage : La Règle du "Buste qui Parle"</h2>
+                        <p>Votre cadrage en dit long sur votre aisance et votre posture.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong class="text-destructive">L'erreur fatale :</strong> La "vue narines" (ordinateur portable trop bas) ou la "tête coupée" (trop près de la caméra).</li>
+                            <li><strong class="text-success-green">La solution simple :</strong> Surélevez votre ordinateur portable (avec une pile de livres, par exemple) pour que la webcam soit <strong class="text-neutral-dark">à la hauteur de vos yeux, ou très légèrement au-dessus</strong>. Cadrez-vous pour qu'on voie le haut de votre buste et vos épaules. Cela donne de l'air à l'image et permet de voir le langage de vos mains, ce qui rend la conversation plus naturelle.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/visio-expert-setup.webp" alt="Installation de visioconférence professionnelle : ordinateur surélevé, lumière de face, arrière-plan sobre." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 3 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">3. Le Son : La Clé de la Clarté de Votre Message</h2>
+                        <p>Votre prospect peut pardonner une image moyenne. Il ne pardonnera jamais un son exécrable. Si l'on doit se concentrer pour vous comprendre, le message est perdu.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong class="text-destructive">L'erreur fatale :</strong> Utiliser le micro intégré de votre ordinateur dans une pièce qui résonne. Le son est lointain, caverneux et capte tous les bruits parasites.</li>
+                            <li><strong class="text-success-green">La solution simple :</strong> Investissez dans un <strong class="text-neutral-dark">micro-casque</strong> ou même de simples écouteurs avec micro (ceux de votre smartphone). En rapprochant le micro de votre bouche, vous isolez votre voix, le son devient instantanément plus clair, plus intime et infiniment plus professionnel.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Section 4 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">4. L'Arrière-Plan : Votre Décor Scénique</h2>
+                        <p>Votre arrière-plan n'est pas neutre. Il communique pour vous.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong class="text-destructive">L'erreur fatale :</strong> Le désordre visible, la pile de linge, la porte de la cuisine ouverte... Cela crie l'amateurisme.</li>
+                            <li><strong class="text-success-green">La solution simple :</strong>
+                                <ul class="list-decimal list-inside space-y-2 mt-2 pl-4">
+                                    <li><strong class="text-neutral-dark">Option A (La meilleure) : Un arrière-plan réel et maîtrisé.</strong> Une bibliothèque bien rangée, un mur sobre avec un ou deux cadres, une plante verte. Cela montre un environnement de travail stable et organisé.</li>
+                                    <li><strong class="text-neutral-dark">Option B (L'alternative) : Un fond virtuel professionnel.</strong> Si votre environnement est chaotique, utilisez un fond virtuel. Mais attention : choisissez une image sobre (un bureau moderne flouté, un mur de couleur neutre) et non une plage des Maldives. Assurez-vous que votre éclairage est bon pour éviter les "découpages" disgracieux.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 5 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">5. Le Contact Visuel : Le Pont de la Confiance</h2>
+                        <p>C'est l'astuce la plus difficile, mais celle qui crée le plus de connexion.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong class="text-destructive">L'erreur fatale :</strong> Regarder votre propre image ou celle de votre interlocuteur sur l'écran. Pour lui, vous semblez regarder vers le bas, l'air fuyant.</li>
+                            <li><strong class="text-success-green">La solution simple :</strong> Entraînez-vous à parler directement au <strong class="text-neutral-dark">petit point lumineux de votre webcam</strong>. C'est l'œil de votre client. En le fixant régulièrement, vous créez un véritable contact visuel qui transmet l'écoute, l'assurance et la confiance.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Image 3 -->
+                     <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/visio-expert-contact-visuel.webp" alt="Personne regardant directement la webcam de son ordinateur pour établir un contact visuel." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 6 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">6. La Préparation : Le Rituel Anti-Stress</h2>
+                        <p>Le professionnalisme, c'est l'anticipation.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                             <li><strong class="text-destructive">L'erreur fatale :</strong> Cliquer sur le lien à l'heure exacte du RDV et se rendre compte que le micro ne marche pas ou qu'une mise à jour se lance.</li>
+                            <li><strong class="text-success-green">La solution simple :</strong> Connectez-vous <strong class="text-neutral-dark">5 minutes avant</strong> chaque appel. Testez votre micro, votre caméra, ajustez votre éclairage, fermez tous les onglets inutiles et coupez les notifications. Ces 5 minutes de calme vous permettent d'entrer dans l'appel serein(e) et pleinement présent(e).</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Section 7 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">7. La Stabilité : Le Socle de votre Discours</h2>
+                        <p>Un détail qui a son importance, surtout si vous utilisez un ordinateur portable.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong class="text-destructive">L'erreur fatale :</strong> Poser l'ordinateur sur vos genoux ou sur une table bancale. L'image qui tremble est extrêmement distrayante et donne une impression d'instabilité.</li>
+                            <li><strong class="text-success-green">La solution simple :</strong> Assurez-vous que votre ordinateur est sur une surface <strong class="text-neutral-dark">stable et solide</strong>. C'est un détail inconscient qui renforce la perception de votre propre stabilité en tant qu'expert.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Chaque Détail Compte</h2>
+                        <p>Votre expertise est immense. Ne laissez pas des détails techniques facilement corrigeables la saboter.</p>
+                        <p class="mt-4">En maîtrisant ces 7 points, vous ne faites pas que "bien passer en visio". Vous prolongez l'expérience professionnelle et rassurante de votre site web jusque dans votre salle de réunion virtuelle. Vous montrez à votre prospect, par des actes, que vous êtes un expert qui se soucie de la qualité, du détail et de l'expérience client.</p>
+                        <p class="mt-4">Et c'est cette cohérence qui transforme un premier appel prometteur en une collaboration fructueuse.</p>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- Appel à l'action final (STYLE MODIFIÉ) -->
+            <section id="cta-blog" class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 text-center" data-sr>
+                        <h3 class="text-2xl md:text-3xl font-bold">Votre image digitale est-elle cohérente du premier clic au premier appel ?</h3>
+                        <p class="text-lg text-white/80 leading-relaxed mt-6 max-w-2xl mx-auto">
+                            Construire une vitrine professionnelle sur Zoom est une chose. S'assurer que votre site web qui y mène est tout aussi impeccable en est une autre. La cohérence est la clé de la confiance.
+                        </p>
+                        <div class="mt-10">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="btn btn-primary text-lg">
+                                Discutons de la manière de bâtir une présence en ligne professionnelle de A à Z lors d'un Appel Clarté gratuit
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ======================================================= -->
+        <!--        FOOTER (CHEMINS CORRIGÉS)                      -->
+        <!-- ======================================================= -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

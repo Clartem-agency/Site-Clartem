@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Et Après le Clic ? Connectez votre Site Clarté à un Mini-Tunnel par Email</title>
+    <meta name="description"
+        content="Votre site web ne convertit que les visiteurs 'chauds' ? Découvrez comment connecter votre Site Clarté à un mini-tunnel de vente par email pour capturer, nourrir et convertir les 97% de visiteurs qui ne sont pas encore prêts à acheter.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Et Après le Clic ? Connectez votre Site Clarté à un Mini-Tunnel par Email">
+    <meta property="og:description"
+        content="Capturez, nourrissez et convertissez les 97% de visiteurs qui ne sont pas encore prêts à acheter grâce à un mini-tunnel de vente par email.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-connecter-site-clarte-tunnel-email.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-connecter-site-clarte-tunnel-email.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    },
+                    fontFamily: {
+                        'mono': ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Et Après le Clic ? Connectez votre Site Clarté à un Mini-Tunnel par Email
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Votre site web ne convertit que les visiteurs "chauds" ? Découvrez comment connecter votre Site Clarté à un mini-tunnel de vente par email pour capturer, nourrir et convertir les 97% de visiteurs qui ne sont pas encore prêts à acheter.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/site-clarte-filet-securite-lead-magnet-email.webp" alt="Illustration d'un site web où un filet de sécurité (lead magnet) capture des visiteurs pour les guider vers un tunnel email." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Votre <a href="../index.html#offres" class="text-clarity-blue font-semibold hover:underline">Site Clarté</a> est une machine de conversion redoutable. Il est conçu pour guider un visiteur intéressé et le transformer en un rendez-vous dans votre agenda. Il est parfait pour convertir les prospects "chauds", ceux qui sont prêts à agir maintenant.</p>
+                    <p data-sr>Mais que se passe-t-il avec tous les autres ?</p>
+                    
+                    <!-- NOUVEAU : Bloc statistique mis en avant -->
+                    <div class="bg-soft-blue rounded-2xl p-8 my-10 flex flex-col md:flex-row items-center gap-8 border border-clarity-blue/20" data-sr>
+                        <div class="text-center flex-1">
+                            <p class="text-5xl lg:text-6xl font-bold text-clarity-blue">3%</p>
+                            <p class="mt-2 text-neutral-dark font-semibold">Des visiteurs sont prêts à acheter maintenant.</p>
+                        </div>
+                        <div class="h-16 w-px bg-clarity-blue/30 hidden md:block"></div>
+                        <div class="text-center flex-1">
+                             <p class="text-5xl lg:text-6xl font-bold text-neutral-light">97%</p>
+                            <p class="mt-2 text-neutral-dark font-semibold">Ne le sont pas encore, mais sont des clients potentiels.</p>
+                        </div>
+                    </div>
+
+                    <p data-sr>Ce sont des prospects "tièdes". Ils sont curieux, ils ont un besoin, mais ils ne sont pas encore assez mûrs dans leur décision. Les laisser repartir dans la nature, c'est comme laisser de l'or sur la table.</p>
+                    <p data-sr>Alors, comment garder le contact avec ces 97% ? Comment continuer à bâtir la confiance avec eux jusqu'à ce qu'ils soient prêts ?</p>
+                    <p data-sr>La solution est de créer un <strong class="text-clarity-blue">"filet de sécurité"</strong>. Un moyen de capturer leur contact et de les faire entrer dans un <strong class="text-clarity-blue">mini-tunnel de vente par email</strong>. Et votre Site Clarté est la porte d'entrée parfaite pour ce système.</p>
+
+                    <!-- NOUVEAU : Séparateur visuel subtil -->
+                    <hr class="my-12 border-t border-gray-200" data-sr>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Étape 1 : Le "Filet de Sécurité" (Votre Lead Magnet)</h2>
+                        <p>Le principe est simple : sur votre Site Clarté, en plus de votre appel à l'action principal ("Planifier un appel"), vous allez proposer une <strong class="text-neutral-dark">alternative à faible engagement</strong>. Une offre gratuite si irrésistible que même un visiteur "tiède" n'hésitera pas à vous laisser son adresse email pour l'obtenir.</p>
+                        <p class="mt-4">C'est votre <strong class="text-neutral-dark">Lead Magnet, ou "cadeau de bienvenue"</strong>.</p>
+                    </div>
+
+                    <!-- Image 2 : Le Lead Magnet -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/coach-therapeute-propose-lead-magnet-gratuit-site-web.webp" alt="Exemple de lead magnet (checklist gratuite) proposé sur le site d'un coach pour capturer des emails." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <div class="space-y-6" data-sr>
+                        <h4 class="text-xl font-bold text-neutral-dark">Comment l'intégrer sur votre Site Clarté ?</h4>
+                        <p>Ajoutez une section dédiée, souvent juste avant la section de contact final.</p>
+                        
+                        <!-- NOUVEAU : Liste améliorée avec icônes -->
+                        <ul class="space-y-6">
+                            <li class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-clarity-blue/10 text-clarity-blue flex items-center justify-center mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" /></svg>
+                                </div>
+                                <div>
+                                    <strong class="text-neutral-dark block">Titre :</strong> "Pas encore prêt(e) pour un appel ? Commencez ici."
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-clarity-blue/10 text-clarity-blue flex items-center justify-center mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" /></svg>
+                                </div>
+                                <div>
+                                    <strong class="text-neutral-dark block">Offre :</strong> Proposez une ressource qui offre une victoire rapide.
+                                    <ul class="list-disc list-inside space-y-2 mt-2 pl-2 text-base">
+                                        <li><em>Pour un coach :</em> "La Checklist en 5 points pour Clarifier votre Prochain Objectif de Carrière."</li>
+                                        <li><em>Pour un thérapeute :</em> "Recevez ma Méditation Guidée de 5 minutes pour Apaiser l'Anxiété."</li>
+                                    </ul>
+                                </div>
+                            </li>
+                             <li class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-8 h-8 rounded-full bg-clarity-blue/10 text-clarity-blue flex items-center justify-center mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" /></svg>
+                                </div>
+                                <div>
+                                    <strong class="text-neutral-dark block">Formulaire :</strong> Un champ pour le prénom, un champ pour l'email, et un bouton "Je reçois mon cadeau !".
+                                </div>
+                            </li>
+                        </ul>
+                         <h4 class="text-xl font-bold text-neutral-dark pt-4">L'Impact :</h4>
+                         <p>Vous ne dites plus "Prenez RDV ou partez". Vous dites "Prenez RDV, ou si ce n'est pas le bon moment, laissez-moi au moins vous offrir ceci pour vous aider à démarrer." Vous capturez un contact qui, autrement, aurait été perdu à jamais.</p>
+                    </div>
+
+                    <!-- NOUVEAU : Séparateur visuel subtil -->
+                    <hr class="my-12 border-t border-gray-200" data-sr>
+
+                    <!-- Section 2 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Étape 2 : Le Mini-Tunnel de "Nurturing" (La Séquence de Confiance)</h2>
+                        <p>Maintenant que vous avez l'adresse email, la magie de l'automatisation commence. Vous allez configurer une courte séquence d'emails automatiques (avec un outil comme Brevo, Mailchimp, ConvertKit...) qui se déclenche dès que quelqu'un télécharge votre cadeau.</p>
+                        <p class="mt-4">Le but de ce tunnel n'est pas de harceler, mais de <strong class="text-neutral-dark">"nourrir"</strong> (<em>to nurture</em>) la relation en continuant à apporter de la valeur.</p>
+                        <p class="mt-4">Voici une séquence simple en 3 emails qui fonctionne à merveille.</p>
+                    </div>
+
+                    <!-- Image 3 : Le Tunnel Email -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/sequence-email-automatisee-nourrir-relation-prospect-chaud.webp" alt="Schéma d'une séquence d'emails automatisée pour nourrir la relation avec un prospect et bâtir la confiance." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- NOUVEAU : Cartes Emails Améliorées -->
+                    <div class="space-y-10">
+                        <!-- Email 1 -->
+                        <div class="bg-soft-blue p-6 rounded-2xl border border-clarity-blue/20" data-sr>
+                            <div class="flex items-center gap-4 mb-5">
+                                <div class="flex-shrink-0 w-10 h-10 bg-clarity-blue text-white font-bold text-xl rounded-full flex items-center justify-center">1</div>
+                                <h3 class="text-xl font-bold text-neutral-dark">Jour 0 : La Livraison & le Bienvenue</h3>
+                            </div>
+                            <div class="bg-gray-100 p-3 rounded-lg flex items-center gap-3 mb-4">
+                                <span class="font-semibold text-neutral-light text-sm">Objet :</span>
+                                <span class="text-neutral-dark font-mono text-base">Voici votre [Nom du Cadeau] !</span>
+                            </div>
+                            <div class="text-base space-y-3">
+                               <p><strong>1. Livrez la marchandise :</strong> Donnez immédiatement le lien pour télécharger le PDF ou écouter l'audio.</p>
+                               <p><strong>2. Accueillez chaleureusement :</strong> "Bienvenue dans mon univers ! Je suis ravi(e) de vous compter parmi mes contacts."</p>
+                               <p><strong>3. Annoncez la suite :</strong> "Dans les prochains jours, je vous enverrai une ou deux autres pépites pour vous aider à [résultat]. Gardez l'œil ouvert !"</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Email 2 -->
+                        <div class="bg-soft-blue p-6 rounded-2xl border border-clarity-blue/20" data-sr>
+                            <div class="flex items-center gap-4 mb-5">
+                                <div class="flex-shrink-0 w-10 h-10 bg-clarity-blue text-white font-bold text-xl rounded-full flex items-center justify-center">2</div>
+                                <h3 class="text-xl font-bold text-neutral-dark">Jour 2 : La Valeur Ajoutée</h3>
+                            </div>
+                             <div class="bg-gray-100 p-3 rounded-lg flex items-center gap-3 mb-4">
+                                <span class="font-semibold text-neutral-light text-sm">Objet :</span>
+                                <span class="text-neutral-dark font-mono text-base">Le piège que tout le monde oublie en [Sujet]</span>
+                            </div>
+                            <div class="text-base space-y-3">
+                               <p>Ne vendez rien. Racontez une histoire. Donnez un conseil supplémentaire.</p>
+                               <p><strong>Exemple (pour le coach carrière) :</strong> Racontez une courte anecdote sur un client qui a surmonté un blocage, ou donnez UNE astuce supplémentaire qui n'était pas dans la checklist.</p>
+                               <p><strong>L'Objectif :</strong> Bâtir votre autorité et votre crédibilité. Le prospect se dit : "Wow, son contenu gratuit est vraiment de qualité."</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Email 3 -->
+                        <div class="bg-soft-blue p-6 rounded-2xl border border-clarity-blue/20" data-sr>
+                           <div class="flex items-center gap-4 mb-5">
+                                <div class="flex-shrink-0 w-10 h-10 bg-clarity-blue text-white font-bold text-xl rounded-full flex items-center justify-center">3</div>
+                                <h3 class="text-xl font-bold text-neutral-dark">Jour 4 : L'Invitation Douce</h3>
+                            </div>
+                             <div class="bg-gray-100 p-3 rounded-lg flex items-center gap-3 mb-4">
+                                <span class="font-semibold text-neutral-light text-sm">Objet :</span>
+                                <span class="text-neutral-dark font-mono text-base">Prêt(e) pour la prochaine étape ?</span>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl shadow-inner mt-4 border border-gray-200">
+                                <blockquote class="text-base italic text-neutral-light space-y-4">
+                                    <p>"Bonjour [Prénom],</p>
+                                    <p>J'espère que ces quelques conseils vous ont déjà apporté de la clarté.</p>
+                                    <p>Souvent, la meilleure façon d'accélérer le processus est d'en discuter de vive voix avec un guide extérieur.</p>
+                                    <p>Si vous sentez que c'est le bon moment pour vous de passer à l'étape supérieure, je vous invite à planifier un Appel Clarté gratuit. C'est un échange de 15 minutes, sans engagement, pour faire le point sur votre situation.</p>
+                                    <p class="font-bold not-italic"><a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="text-clarity-blue hover:underline">→ Planifier mon Appel Clarté</a></p>
+                                    <p>Quoi qu'il en soit, je suis ravi(e) de vous avoir dans ma communauté.</p>
+                                    <p>Bien à vous,"</p>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Construisez un Système qui Travaille pour Vous</h2>
+                        <p>Votre Site Clarté est votre meilleur outil pour convertir les 3% de visiteurs prêts à acheter.</p>
+                        <p class="mt-4">En y connectant un simple tunnel par email, vous mettez en place un système pour <strong class="text-neutral-dark">convertir une partie des 97% restants</strong>.</p>
+                        <p class="mt-4">Vous construisez une relation de confiance sur la durée. Vous restez présent dans l'esprit de vos prospects. Et quand le moment sera venu pour eux de passer à l'action, vous ne serez plus un inconnu. Vous serez le guide évident et de confiance qu'ils choisiront sans hésiter.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <!-- Titre et sous-titre -->
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Prêt(e) à construire un système qui convertit les visiteurs <br><span class="text-clarity-blue">d'aujourd'hui ET de demain ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            L'intégration d'un lead magnet et la mise en place d'un tunnel de vente par email sont des stratégies de croissance puissantes. C'est le genre d'écosystème que nous pouvons concevoir ensemble, avec votre Site Clarté comme porte d'entrée.
+                        </p>
+            
+                        <!-- Bouton d'action final et réassurance -->
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                                Discutons de votre stratégie
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

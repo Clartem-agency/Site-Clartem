@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Votre Site Clarté EST votre Tunnel de Vente (et vous n'avez besoin de rien d'autre pour démarrer)</title>
+    <meta name="description"
+        content="Le concept de 'tunnel de vente' vous effraie ? Découvrez comment un 'Site Clarté' est, par sa nature même, le tunnel de vente le plus simple et le plus éthique pour un coach ou un thérapeute qui se lance.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Votre Site Clarté EST votre Tunnel de Vente">
+    <meta property="og:description"
+        content="Découvrez comment un site one-page est le tunnel de vente le plus simple et éthique pour un coach ou thérapeute.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-site-clarte-est-votre-tunnel-de-vente-ethique.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-site-clarte-est-votre-tunnel-de-vente-ethique.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Votre Site Clarté EST votre Tunnel de Vente (et vous n'avez besoin de rien d'autre pour démarrer)
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                            Le concept de "tunnel de vente" vous effraie ? Découvrez comment un "Site Clarté" est, par sa nature même, le tunnel de vente le plus simple et le plus éthique pour un coach ou un thérapeute qui se lance.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/tunnel-de-vente-simplifie-en-chemin-clair-lumineux.webp" alt="Schéma simple d'un entonnoir se transformant en un chemin droit et clair" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr><strong class="text-neutral-dark">"Tunnel de Vente".</strong></p>
+                    <p data-sr>Ce terme, vous l'avez probablement entendu partout. Il évoque des schémas complexes, des logiciels coûteux comme ClickFunnels, des stratégies marketing agressives avec des "upsells", des "downsells", des comptes à rebours...</p>
+                    <p data-sr>Pour un coach, un thérapeute ou un praticien du bien-être, cet univers peut sembler à des années-lumière de votre pratique. Il peut paraître froid, manipulateur, et complètement déconnecté de vos valeurs de service et d'authenticité.</p>
+                    <p data-sr>Alors, vous mettez l'idée de côté. "Les tunnels de vente, ce n'est pas pour moi."</p>
+                    <p data-sr>Et si je vous disais que vous avez tort ?<br>Et si je vous disais que vous avez <strong class="text-clarity-blue">absolument besoin</strong> d'un tunnel de vente, mais pas celui que vous imaginez ?</p>
+                    <p data-sr>Oubliez les usines à gaz. Revenons à l'essence. Un tunnel de vente, à son niveau le plus pur, n'est rien d'autre qu'un <strong class="text-neutral-dark">parcours de confiance</strong>. C'est un chemin balisé que vous créez pour guider en douceur un parfait inconnu, étape par étape, jusqu'à ce qu'il devienne un client.</p>
+                    <p data-sr>Et la bonne nouvelle ? Ce parcours de confiance, simple, éthique et redoutablement efficace, est précisément l'ADN de votre <a href="../index.html#offres" class="text-clarity-blue font-semibold hover:underline">Site Clarté</a>.</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Les 4 Étapes d'un Tunnel de Vente Éthique</h2>
+                        <p>Tout bon parcours de conversion, qu'il soit simple ou complexe, suit une trame psychologique universelle en 4 étapes, souvent résumée par l'acronyme AIDA (Attention, Intérêt, Désir, Action). Traduisons cela dans notre langage :</p>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/etapes-tunnel-vente-ethique-attention-interet-desir-action.webp" alt="Illustration des 4 étapes du tunnel de vente : Attention, Intérêt, Désir, Action." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Liste des 4 étapes -->
+                    <div class="space-y-6" data-sr>
+                        <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-clarity-blue mb-2">1. ATTENTION (La Rencontre)</h3>
+                            <p class="text-neutral-dark">Capter l'attention de la bonne personne et lui faire comprendre qu'elle est au bon endroit.</p>
+                        </div>
+                        <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-clarity-blue mb-2">2. INTÉRÊT (La Connexion)</h3>
+                            <p class="text-neutral-dark">Susciter son intérêt en lui montrant que vous comprenez son monde et que vous êtes digne de confiance.</p>
+                        </div>
+                        <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-clarity-blue mb-2">3. DÉSIR (La Solution)</h3>
+                            <p class="text-neutral-dark">Créer le désir pour votre solution en lui montrant la transformation possible et en prouvant que ça marche.</p>
+                        </div>
+                        <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-clarity-blue mb-2">4. ACTION (L'Invitation)</h3>
+                            <p class="text-neutral-dark">Rendre le passage à l'acte si simple et si logique qu'il devient la prochaine étape naturelle.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Section 2 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">La Révélation : Votre Site Clarté est Déjà ce Tunnel</h2>
+                        <p>Maintenant, regardons la structure d'un Site Clarté. Vous allez voir qu'il n'est pas un "site web". C'est l'incarnation parfaite de ce tunnel de vente minimaliste.</p>
+                    </div>
+                    
+                    <!-- Blocs explicatifs -->
+                    <div class="space-y-8 pt-4" data-sr>
+                        <div>
+                            <h4 class="text-xl font-semibold text-neutral-dark mb-3 border-b-2 border-warm-orange pb-2 inline-block">Étape 1 : ATTENTION (Votre Section "Héros")</h4>
+                            <p class="mt-2">C'est la toute première section de votre site. Son unique but est de capter l'attention en 3 secondes avec une promesse de transformation claire.</p>
+                            <blockquote class="border-l-4 border-clarity-blue pl-4 mt-4 italic text-neutral-dark">"Retrouvez Calme et Sérénité au Quotidien."</blockquote>
+                            <p class="mt-2">Le visiteur qui se sent stressé est immédiatement interpellé. <strong class="text-neutral-dark">Attention captée.</strong></p>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold text-neutral-dark mb-3 border-b-2 border-warm-orange pb-2 inline-block">Étape 2 : INTÉRÊT (Votre Section "À Propos")</h4>
+                            <p class="mt-2">Juste en dessous, vous racontez votre histoire. Vous montrez votre visage. Vous expliquez votre "pourquoi".</p>
+                            <p class="mt-2">Le visiteur ne lit pas un CV. Il rencontre un guide humain. Il se reconnaît dans votre parcours. Il se sent compris. <strong class="text-neutral-dark">Intérêt suscité.</strong></p>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold text-neutral-dark mb-3 border-b-2 border-warm-orange pb-2 inline-block">Étape 3 : DÉSIR (Vos Sections "Offre" & "Témoignages")</h4>
+                            <p class="mt-2">Vous présentez ensuite votre offre signature comme un parcours clair vers la transformation. Puis, juste après, vous affichez les témoignages de ceux qui ont déjà fait le voyage.</p>
+                            <p class="mt-2">Le visiteur voit une solution structurée à son problème, et la preuve que cette solution fonctionne. <strong class="text-neutral-dark">Désir créé.</strong></p>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold text-neutral-dark mb-3 border-b-2 border-warm-orange pb-2 inline-block">Étape 4 : ACTION (Votre Section "Appel à l'Action")</h4>
+                            <p class="mt-2">À la fin de ce récit logique et rassurant, vous lui tendez la main avec une invitation simple.</p>
+                            <blockquote class="border-l-4 border-clarity-blue pl-4 mt-4 italic text-neutral-dark">"Prêt(e) à faire le premier pas ? Planifions un Appel Clarté gratuit."</blockquote>
+                            <p class="mt-2">Le clic n'est plus une décision anxiogène. C'est la conclusion évidente de la conversation que vous venez d'avoir. <strong class="text-neutral-dark">Action facilitée.</strong></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Image 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/structure-site-clarte-correspondant-au-tunnel-de-vente.webp" alt="Schéma montrant comment la structure d'un Site Clarté correspond aux étapes du tunnel de vente." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 3 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Pourquoi ce Tunnel est Parfait pour un Débutant</h2>
+                        <p>Ce "tunnel-site" est le système de vente idéal pour un coach ou un thérapeute qui se lance, pour trois raisons :</p>
+                        <ul class="list-disc list-inside space-y-3 mt-4 pl-4">
+                            <li><strong class="text-neutral-dark">Il est Simple :</strong> Pas besoin de 5 logiciels différents. Un seul outil – votre site – fait tout le travail.</li>
+                            <li><strong class="text-neutral-dark">Il est Éthique :</strong> Il ne force pas, il ne manipule pas. Il <strong class="text-clarity-blue">guide</strong>. Il respecte l'intelligence du visiteur et le laisse cheminer à son rythme.</li>
+                            <li><strong class="text-neutral-dark">Il est Suffisant :</strong> Vous n'avez pas besoin de plus pour trouver vos premiers clients. Ce système simple, s'il est bien exécuté, est tout ce qu'il vous faut pour transformer des visiteurs en rendez-vous.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Vous n'avez pas besoin d'un Tunnel de Vente. Vous avez besoin de Clarté.</h2>
+                        <p>Arrêtez de vous laisser intimider par le jargon du marketing. La stratégie de conversion la plus puissante a toujours été, et sera toujours, la plus simple : une conversation claire qui bâtit la confiance.</p>
+                        <p class="mt-4">Votre <strong class="text-neutral-dark">Site Clarté</strong> n'est pas juste une alternative à un tunnel de vente complexe. C'est sa forme la plus pure, la plus élégante et la plus authentique.</p>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">C'est la preuve qu'on n'a pas besoin d'une usine à gaz pour construire un business prospère. On a juste besoin d'un chemin clair.</p>
+                    </div>
+
+                    
+                </div>
+            </article>
+
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <!-- Titre et sous-titre -->
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Vous avez le concept. <br><span class="text-clarity-blue">Construisons le parcours.</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Ce "tunnel-site" est la fondation. Lors de notre Appel Clarté gratuit, nous le transformerons en un outil puissant pour attirer vos premiers clients, sans la complexité technique.
+                        </p>
+            
+                        <!-- Bouton d'action final et réassurance -->
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Planifier mon Appel Clarté
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

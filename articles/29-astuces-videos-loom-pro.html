@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Votre Visage est Votre Meilleur Argument : 5 Astuces pour des Vidéos Loom Pro</title>
+    <meta name="description"
+        content="Peur de vous montrer en vidéo ? Découvrez 5 astuces simples (lumière, son, script...) pour enregistrer des vidéos Loom professionnelles et authentiques, même si vous n'aimez pas la caméra. Humanisez votre communication !">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- META OPEN GRAPH & TWITTER (SPÉCIFIQUES À L'ARTICLE) -->
+    <meta property="og:title" content="5 Astuces Simples pour des Vidéos Loom Pro (même si vous êtes timide)">
+    <meta property="og:description"
+        content="Découvrez comment enregistrer des vidéos authentiques et professionnelles qui inspirent confiance, sans matériel coûteux ni talent d'acteur.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-astuces-loom.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-astuces-loom.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- ======================================================= -->
+        <!--      HEADER / NAVIGATION (CHEMINS CORRIGÉS)           -->
+        <!-- ======================================================= -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ======================================================= -->
+        <!--                DÉBUT DU CONTENU DE L'ARTICLE            -->
+        <!-- ======================================================= -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Votre Visage est Votre Meilleur Argument : 5 Astuces pour des Vidéos Loom Pro (même si vous êtes timide)
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Peur de vous montrer en vidéo ? Découvrez 5 astuces simples pour enregistrer des vidéos professionnelles et authentiques qui humanisent votre communication et inspirent confiance.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/loom-astuces-intro.webp" alt="Personne souriante à son bureau préparant une vidéo Loom, symbolisant une approche simple et authentique." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Vous avez lu mon <a href="03-pourquoi-utiliser-loom.html" class="text-clarity-blue font-semibold hover:underline">article précédent sur Loom</a>. Vous êtes convaincu(e). L'idée d'envoyer une courte vidéo personnalisée à vos prospects pour créer un effet "Waouh" vous séduit. C'est plus humain, plus marquant, plus efficace.</p>
+
+                    <p data-sr>Mais au moment de cliquer sur "Enregistrer", une petite voix glaciale vous paralyse :</p>
+                    
+                    <blockquote class="border-l-4 border-warm-orange pl-6 my-8 italic text-neutral-dark" data-sr>
+                        "Je ne suis pas photogénique."<br>
+                        "Je vais bafouiller."<br>
+                        "Je n'ai pas le bon matériel."<br>
+                        "Je déteste voir ma tête en vidéo."
+                    </blockquote>
+
+                    <p data-sr>Si vous vous reconnaissez, sachez que vous n'êtes pas seul(e). La peur de la caméra est l'une des appréhensions les plus courantes. Mais elle repose sur un malentendu fondamental.</p>
+                    
+                    <p data-sr>L'objectif d'une vidéo Loom n'est pas de produire un chef-d'œuvre cinématographique. L'objectif est de transmettre de l'<strong class="text-neutral-dark">authenticité</strong>. Vos clients ne s'attendent pas à voir un présentateur télé. Ils veulent voir la personne réelle, l'expert accessible avec qui ils vont potentiellement travailler.</p>
+                    
+                    <p data-sr>La bonne nouvelle ? Avec quelques astuces très simples, vous pouvez créer des vidéos qui sont à la fois professionnelles et, surtout, qui vous ressemblent. Pas besoin de matériel coûteux ni de talent d'acteur.</p>
+                    
+                    <p class="font-semibold text-neutral-dark" data-sr>Voici 5 secrets pour enregistrer des vidéos Loom qui inspirent confiance, même si vous êtes timide.</p>
+
+                    <!-- Astuce 1 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Astuce n°1 : La Lumière Naturelle, Votre Filtre Beauté Gratuit</h3>
+                        <p>C'est le conseil le plus important, celui qui a 80% de l'impact sur la qualité de votre image. Oubliez les lampes de bureau agressives ou le plafonnier blafard.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong class="text-neutral-dark">La Règle d'Or :</strong> Placez-vous <strong>FACE</strong> à une fenêtre. Jamais dos à elle. La lumière du jour est douce, elle estompe les imperfections et vous donne instantanément l'air plus professionnel et plus éveillé.</li>
+                            <li><strong class="text-neutral-dark">Le Setup Simplissime :</strong> Votre ordinateur portable sur votre bureau, le bureau positionné face à la fenêtre. C'est tout. Pas besoin de ring light ou de matériel de studio. La lumière du jour est votre meilleure alliée.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Astuce 2 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Astuce n°2 : Le Son Clair, Votre Gage de Crédibilité</h3>
+                        <p>Une image moyenne avec un bon son sera toujours plus professionnelle qu'une belle image avec un son exécrable (écho, bruits de fond, son lointain...).</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                             <li><strong class="text-neutral-dark">Le Problème :</strong> Le micro intégré de votre ordinateur portable est souvent médiocre. Il capte tous les bruits de la pièce et donne l'impression que vous parlez depuis le fond d'une grotte.</li>
+                            <li><strong class="text-neutral-dark">La Solution Simple et Pas Chère :</strong> Utilisez un <strong>micro-casque</strong>. Même les écouteurs de votre smartphone avec le petit micro intégré feront un travail 1000 fois meilleur. Le son sera plus clair, plus proche, et isolera votre voix des bruits ambiants.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Image 2 : Le setup -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/loom-astuces-setup.webp" alt="Bureau bien organisé face à une fenêtre avec un micro-casque, illustrant les astuces de lumière et de son." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Astuce 3 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Astuce n°3 : Le "Script" Post-it, Votre Anti-Bafouillage</h3>
+                        <p>La peur de ne pas savoir quoi dire ou de perdre le fil est une cause majeure de stress. L'idée n'est pas d'écrire un script complet et de le lire, mais d'avoir un filet de sécurité.</p>
+                         <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong class="text-neutral-dark">La Technique :</strong> Prenez un simple Post-it. Écrivez dessus les <strong>3 points clés</strong> que vous voulez aborder. Pas des phrases, juste des mots-clés.</li>
+                            <li><strong class="text-neutral-dark">Où le coller ?</strong> Juste à côté de la webcam de votre ordinateur. Ainsi, votre regard restera proche de l'objectif, donnant l'impression que vous regardez votre interlocuteur.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Astuce 4 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Astuce n°4 : Le Contact Visuel avec la Caméra (et non avec votre visage)</h3>
+                        <p>C'est l'astuce la plus difficile mais la plus gratifiante. Quand vous enregistrez, votre réflexe est de vous regarder vous-même à l'écran.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong class="text-neutral-dark">Le Problème :</strong> Quand vous vous regardez, votre regard est dirigé vers le bas. Votre interlocuteur a l'impression que vous ne le regardez pas dans les yeux. La connexion est rompue.</li>
+                            <li><strong class="text-neutral-dark">La Solution :</strong> Entraînez-vous à parler au <strong>petit point vert ou noir de votre webcam</strong>. C'est votre public. C'est l'œil de votre prospect. En le regardant, vous créez un contact visuel direct et puissant.</li>
+                        </ul>
+                    </div>
+                    
+                     <!-- Astuce 5 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Astuce n°5 : L'Énergie du Sourire (et le Droit à l'Imperfection)</h3>
+                        <p>Rappelez-vous : le but n'est pas la perfection. C'est la connexion.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong class="text-neutral-dark">Le Secret :</strong> Juste avant de cliquer sur "Enregistrer", <strong>souriez</strong>. Le simple fait de contracter les muscles du sourire change l'intonation de votre voix et la rend plus chaleureuse.</li>
+                            <li><strong class="text-neutral-dark">Le Droit à l'Erreur :</strong> Vous avez bafouillé un mot ? Vous avez eu un petit trou de mémoire ? <strong>Ne recommencez pas !</strong> Ces petites imperfections vous rendent humain et accessible. Une petite hésitation montre que vous êtes une vraie personne, pas un robot marketing.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Section Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : L'Authenticité est le Nouveau Professionnalisme</h2>
+                        <p>Arrêtez de viser la vidéo parfaite. Visez la vidéo <strong>sincère</strong>.</p>
+                        <p class="mt-4">Vos clients ne vous choisissent pas pour votre talent d'orateur ou votre matériel de vidéaste. Ils vous choisissent pour votre expertise et votre capacité à créer un lien de confiance.</p>
+                    </div>
+
+                    <!-- Image 3 : La connexion -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/loom-astuces-connexion.webp" alt="Gros plan sur les yeux d'une personne regardant directement la caméra avec un léger sourire, symbolisant la connexion et l'authenticité." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <div data-sr>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">En appliquant ces 5 astuces simples, vous n'allez pas seulement améliorer la qualité technique de vos vidéos. Vous allez surtout vous donner la permission d'être vous-même, de manière professionnelle. Et c'est cette authenticité qui, au final, est l'argument de vente le plus puissant de tous.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Appel à l'action final (STYLE MODIFIÉ) -->
+            <section id="cta-blog" class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 text-center" data-sr>
+                        <h3 class="text-2xl md:text-3xl font-bold">Prêt(e) à intégrer des outils qui humanisent votre marque ?</h3>
+                        <p class="text-lg text-white/80 leading-relaxed mt-4 max-w-2xl mx-auto">
+                            Maîtriser des outils comme Loom est une chose. Les intégrer dans un site web et un parcours client pensés pour la confiance en est une autre. C'est cette vision globale que nous construisons ensemble avec l'approche <a href="../index.html#offres" class="font-semibold text-warm-orange hover:underline">Site Clarté</a>.
+                        </p>
+                        <div class="mt-8">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="btn btn-orange text-lg">
+                                Discutons de votre communication digitale
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ======================================================= -->
+        <!--        FOOTER (CHEMINS CORRIGÉS)                      -->
+        <!-- ======================================================= -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

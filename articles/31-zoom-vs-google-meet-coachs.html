@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Zoom vs Google Meet : Le Duel en 8 Rounds pour Choisir votre Outil de Coaching en 2025</title>
+    <meta name="description"
+        content="Comparatif complet Zoom vs Google Meet pour coachs et formateurs. Découvrez le vainqueur en 8 rounds (simplicité, interactivité, sécurité, enregistrement...) pour choisir le meilleur outil de visioconférence.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- META OPEN GRAPH & TWITTER (SPÉCIFIQUES À L'ARTICLE) -->
+    <meta property="og:title" content="Zoom vs Google Meet : Le Duel en 8 Rounds pour Choisir votre Outil de Coaching">
+    <meta property="og:description"
+        content="Découvrez le vainqueur en 8 rounds (simplicité, interactivité, sécurité...) pour choisir le meilleur outil de visioconférence.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-zoom-vs-meet.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-zoom-vs-meet.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- ======================================================= -->
+        <!--      HEADER / NAVIGATION (CHEMINS CORRIGÉS)           -->
+        <!-- ======================================================= -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ======================================================= -->
+        <!--                DÉBUT DU CONTENU DE L'ARTICLE            -->
+        <!-- ======================================================= -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Zoom vs Google Meet : Le Duel en 8 Rounds pour Choisir votre Outil de Coaching en 2025
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                            Comparatif complet pour coachs et formateurs. Découvrez le vainqueur en 8 rounds (simplicité, interactivité, sécurité, enregistrement...) pour choisir le meilleur outil de visioconférence.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/zoom-vs-meet-intro.webp" alt="Logos de Zoom et Google Meet face à face avec un VS au milieu." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Le monde du coaching et de la formation a basculé en ligne. Votre salle de réunion n'est plus un espace physique, mais une fenêtre sur l'écran de votre client. Le choix de cette "salle de réunion virtuelle" est bien plus qu'un détail technique : il a un impact direct sur l'expérience de vos clients, la fluidité de vos séances et votre image professionnelle.</p>
+
+                    <p data-sr>Deux géants s'affrontent sur le ring : le challenger <strong class="text-neutral-dark">Google Meet</strong>, intégré et ultra-simple, et le champion en titre <strong class="text-neutral-dark">Zoom</strong>, puissant et riche en fonctionnalités.</p>
+
+                    <p data-sr>Alors, qui remporte le match pour les coachs, consultants et formateurs ? Pour le savoir, nous allons les départager dans un duel en 8 rounds, en analysant les points qui comptent vraiment pour votre activité.</p>
+
+                    <p data-sr>Que le meilleur gagne !</p>
+
+                    <!-- Round 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Round 1 : La Simplicité d'Accès (Le "Zéro Friction")</h2>
+                        <p>Pour un premier contact, chaque clic compte. L'outil le plus simple est celui qui ne demande aucun effort à votre client.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong class="text-neutral-dark">Google Meet :</strong> Son coup maître est l'accès <strong class="text-neutral-dark">sans aucune installation</strong>. Un clic sur un lien dans un navigateur web (Chrome, Edge...) suffit. C'est la fluidité absolue, idéale pour les clients moins à l'aise avec la technologie.</li>
+                            <li><strong class="text-neutral-dark">Zoom :</strong> Pour une expérience complète, Zoom encourage fortement le téléchargement d'une application. Bien que rapide, c'est une étape supplémentaire, une micro-friction qui peut parfois dérouter un nouvel utilisateur.</li>
+                        </ul>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">🏆 Vainqueur : Google Meet. Pour la simplicité d'accès brute, Meet est imbattable.</p>
+                    </div>
+
+                    <!-- Round 2 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Round 2 : Les Fonctionnalités Interactives (L'Arsenal du Formateur)</h2>
+                        <p>Si vous faites plus que de la conversation, les outils d'engagement deviennent votre meilleur allié.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong class="text-neutral-dark">Google Meet :</strong> Il couvre l'essentiel : partage d'écran, chat, tableau blanc (Jamboard). C'est suffisant pour un coaching individuel efficace.</li>
+                            <li><strong class="text-neutral-dark">Zoom :</strong> C'est un véritable couteau suisse. Il propose nativement (même dans les versions abordables) des <strong class="text-neutral-dark">salles de sous-groupes</strong> (indispensables pour les ateliers), des <strong class="text-neutral-dark">sondages</strong> en direct, un module de <strong class="text-neutral-dark">Q&R</strong> structuré et des options d'<strong class="text-neutral-dark">annotation</strong> collaborative sur écran partagé.</li>
+                        </ul>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">🏆 Vainqueur : Zoom. Pour l'animation de groupes et les formations, l'arsenal de Zoom est largement supérieur.</p>
+                    </div>
+
+                    <!-- Round 3 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Round 3 : La Qualité Audio et Vidéo (La Stabilité de la Connexion)</h2>
+                        <p>Une image qui fige ou un son qui coupe peuvent ruiner une séance. La fiabilité est non-négociable.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong class="text-neutral-dark">Google Meet :</strong> Bénéficiant de l'infrastructure massive de Google, Meet est réputé pour sa <strong class="text-neutral-dark">stabilité et sa légèreté</strong>. Il s'adapte très bien aux connexions internet plus faibles en ajustant la qualité vidéo de manière fluide.</li>
+                            <li><strong class="text-neutral-dark">Zoom :</strong> Historiquement, Zoom a été le pionnier de la vidéo de haute qualité. Il offre souvent une image perçue comme légèrement plus nette sur de bonnes connexions, mais peut être un peu plus gourmand en ressources système et plus sensible aux instabilités du réseau.</li>
+                        </ul>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">🏆 Vainqueur : Égalité (avec un léger avantage à Google Meet pour les connexions modestes). Les deux sont excellents, mais la robustesse de Meet sur des réseaux moins performants est un atout.</p>
+                    </div>
+
+                    <!-- Round 4 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Round 4 : L'Enregistrement des Séances (La Création de Replays)</h2>
+                        <p>Pour les formations ou les coachings où le client souhaite revoir la séance, la fonction d'enregistrement est clé.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong class="text-neutral-dark">Google Meet :</strong> L'enregistrement est simple et se sauvegarde <strong class="text-neutral-dark">directement dans votre Google Drive</strong>. C'est incroyablement pratique. Cependant, cette fonctionnalité est <strong class="text-neutral-dark">exclusivement réservée aux versions payantes</strong> de Google Workspace.</li>
+                            <li><strong class="text-neutral-dark">Zoom :</strong> L'enregistrement est disponible <strong class="text-neutral-dark">dès la version gratuite</strong> (en local sur votre ordinateur). Les versions payantes ajoutent l'enregistrement dans le cloud, avec plus d'options comme la transcription automatique.</li>
+                        </ul>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">🏆 Vainqueur : Zoom. Le fait de proposer l'enregistrement local dès la version gratuite est un avantage décisif pour ceux qui veulent créer des replays sans investir immédiatement.</p>
+                    </div>
+
+                    <!-- Image d'illustration 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/zoom-vs-meet-recording.webp" alt="Écran d'ordinateur montrant une interface d'enregistrement de visioconférence avec un bouton REC." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Round 5 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Round 5 : La Sécurité et la Confidentialité (Le Coffre-Fort Virtuel)</h2>
+                        <p>En tant que coach ou thérapeute, la confidentialité de vos échanges est sacrée.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                             <li><strong class="text-neutral-dark">Google Meet :</strong> La sécurité est un point fort de Google. Les appels sont chiffrés par défaut, et l'intégration dans l'écosystème sécurisé de Google Workspace est un gage de confiance. L'accès via un compte Google ajoute une couche de contrôle.</li>
+                             <li><strong class="text-neutral-dark">Zoom :</strong> Après avoir connu des controverses par le passé, Zoom a massivement investi dans la sécurité. Il propose désormais un chiffrement de bout en bout (à activer), des salles d'attente et une protection par mot de passe robuste.</li>
+                        </ul>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">🏆 Vainqueur : Égalité. Aujourd'hui, les deux plateformes offrent des niveaux de sécurité très élevés, adaptés à un usage professionnel et confidentiel.</p>
+                    </div>
+
+                    <!-- Round 6 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Round 6 : L'Image de Marque et la Personnalisation</h2>
+                        <p>Votre salle de réunion virtuelle doit refléter votre marque.</p>
+                         <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                             <li><strong class="text-neutral-dark">Google Meet :</strong> L'interface est minimaliste et siglée Google. Les options de personnalisation sont quasi-inexistantes. C'est simple et efficace, mais pas très personnalisable.</li>
+                             <li><strong class="text-neutral-dark">Zoom :</strong> Les versions payantes de Zoom offrent plus de flexibilité. Vous pouvez créer des pages d'inscription personnalisées avec votre logo, des URL de réunion personnalisées ("votreentreprise.zoom.us") et des arrière-plans virtuels plus stables.</li>
+                        </ul>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">🏆 Vainqueur : Zoom. Pour ceux qui veulent pousser la personnalisation de l'expérience client, Zoom offre plus de possibilités.</p>
+                    </div>
+                    
+                    <!-- Round 7 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Round 7 : Le Modèle Économique (Le Coût de l'Efficacité)</h2>
+                        <p>Le budget est un critère clé, surtout au démarrage.</p>
+                         <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                             <li><strong class="text-neutral-dark">Google Meet :</strong> Son offre gratuite est imbattable pour le <strong class="text-neutral-dark">coaching individuel</strong> (appels 1-to-1 jusqu'à 24h). La limite de 60 minutes pour les groupes est sa seule contrainte.</li>
+                             <li><strong class="text-neutral-dark">Zoom :</strong> Son offre gratuite est limitée à <strong class="text-neutral-dark">40 minutes pour les appels de groupe</strong>, ce qui la rend rapidement frustrante pour les formations. L'abonnement Pro (environ 14€/mois) est quasi-indispensable pour un usage de groupe.</li>
+                        </ul>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">🏆 Vainqueur : Google Meet (pour le 1-to-1), Zoom (pour l'investissement de groupe). Le choix dépend vraiment de votre format principal.</p>
+                    </div>
+
+                    <!-- Round 8 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Round 8 : L'Intégration avec les Outils Tiers</h2>
+                        <p>Votre outil de visio ne vit pas en vase clos. Il doit se connecter à votre écosystème.</p>
+                         <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                             <li><strong class="text-neutral-dark">Google Meet :</strong> L'intégration avec <strong class="text-neutral-dark">Google Calendar et Calendly</strong> est native et parfaite. C'est un écosystème fermé mais ultra-efficace.</li>
+                             <li><strong class="text-neutral-dark">Zoom :</strong> En tant que leader du marché, Zoom dispose d'un <strong class="text-neutral-dark">"App Marketplace" gigantesque</strong>. Il s'intègre avec presque tout : Calendly, outils de CRM, plateformes de paiement, etc. C'est le champion de l'écosystème ouvert.</li>
+                        </ul>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">🏆 Vainqueur : Zoom. Pour une intégration poussée avec une large variété d'outils marketing et de gestion, l'écosystème de Zoom est plus vaste.</p>
+                    </div>
+
+                    <!-- Image d'illustration 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/zoom-vs-meet-integration.webp" alt="Schéma montrant le logo de Zoom se connectant à d'autres applications comme Calendly et un CRM." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Le Verdict Final -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Le Verdict Final : Quel Champion pour Votre Ring ?</h2>
+                        <p>Après 8 rounds, il n'y a pas de KO, mais une victoire aux points qui dépend de votre catégorie.</p>
+                        
+                        <div class="mt-6 bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-clarity-blue mb-2">Choisissez Google Meet si vous êtes...</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Un <strong class="text-neutral-dark">coach ou thérapeute en individuel</strong> qui privilégie la simplicité et la fiabilité avant tout.</li>
+                                <li>Un expert qui veut une <strong class="text-neutral-dark">expérience sans friction</strong> pour ses clients.</li>
+                                <li>Un utilisateur de l'écosystème Google qui cherche une solution <strong class="text-neutral-dark">intégrée et économique</strong>.</li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-6 bg-soft-blue border-l-4 border-warm-orange p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-warm-orange mb-2">Choisissez Zoom si vous êtes...</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Un <strong class="text-neutral-dark">formateur, un animateur d'ateliers ou de masterminds</strong> de groupe.</li>
+                                <li>Un coach qui a besoin d'<strong class="text-neutral-dark">outils d'interaction avancés</strong> (salles, sondages).</li>
+                                <li>Un expert qui veut <strong class="text-neutral-dark">enregistrer ses sessions</strong> (même avec un compte gratuit) et qui a besoin de <strong class="text-neutral-dark">personnaliser son image de marque</strong>.</li>
+                            </ul>
+                        </div>
+                        <p class="mt-6">L'important est de faire un choix éclairé, de maîtriser votre outil, et de vous assurer qu'il prolonge l'expérience professionnelle et rassurante de votre site web.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- NOUVELLE SECTION : Appel à l'action final (CTA) -->
+            <section id="cta-blog" class="py-20 bg-white relative overflow-hidden">
+                <div class="container mx-auto px-6 relative z-10">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl overflow-hidden p-8 md:p-12 text-center" data-sr>
+                        <h3 class="text-2xl md:text-3xl font-bold">Votre site est-il prêt à se connecter aux meilleurs outils ?</h3>
+                        <p class="text-lg text-white/80 leading-relaxed mt-4 mb-8">
+                            Le choix de votre plateforme de visio est une brique de votre système. Mais pour qu'elle soit efficace, elle doit être alimentée par un site web qui attire et convertit.
+                        </p>
+                        <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="btn btn-orange text-lg inline-block">
+                            Discutons de votre écosystème digital
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ======================================================= -->
+        <!--        FOOTER (CHEMINS CORRIGÉS)                      -->
+        <!-- ======================================================= -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

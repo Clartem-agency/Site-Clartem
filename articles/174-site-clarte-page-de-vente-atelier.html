@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Lancer un Atelier : Comment votre Site Clarté devient votre Page de Vente Parfaite</title>
+    <meta name="description"
+        content="Vous lancez un atelier ou une formation en ligne ? Pas besoin d'un nouvel outil ! Découvrez comment transformer la structure de votre Site Clarté en une page de vente à haute conversion pour vendre votre premier produit digital.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Lancer un Atelier : Comment votre Site Clarté devient votre Page de Vente Parfaite">
+    <meta property="og:description"
+        content="Découvrez comment transformer la structure de votre Site Clarté en une page de vente à haute conversion.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-transformer-site-clarte-page-vente-atelier.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-transformer-site-clarte-page-vente-atelier.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Prêt(e) à Lancer votre Atelier ? Comment votre Site Clarté Devient votre Page de Vente Parfaite
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Vous lancez un atelier ou une formation en ligne ? Pas besoin d'un nouvel outil ! Découvrez comment transformer la structure de votre Site Clarté en une page de vente à haute conversion pour vendre votre premier produit digital.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/une-cle-site-clarte-ouvre-plusieurs-portes-business.webp" alt="Une clé 'Site Clarté' ouvrant plusieurs portes, symbolisant la polyvalence de l'outil" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Votre activité de coaching ou de thérapie individuelle se développe bien. Vous avez des clients, votre message est clair. Et maintenant, une nouvelle idée germe en vous, une nouvelle ambition : lancer votre premier atelier de groupe, votre première masterclass en ligne, votre premier programme digital.</p>
+                    <p data-sr>C'est une étape de croissance passionnante. Elle vous permet de toucher plus de monde, de diversifier vos revenus et de partager votre expertise à plus grande échelle.</p>
+                    <p data-sr>Mais cette ambition s'accompagne d'une question technique angoissante : <strong class="text-neutral-dark">"Comment est-ce que je vends ça ?"</strong></p>
+                    <p data-sr>Faut-il investir dans un logiciel de tunnel de vente complexe comme ClickFunnels ? Faut-il créer un tout nouveau site web juste pour cette offre ?</p>
+                    <p data-sr>La réponse est non. La solution la plus simple, la plus élégante et la plus efficace est déjà en votre possession.</p>
+                    <p data-sr>La structure narrative de votre <a href="../index.html#offres" class="text-clarity-blue font-semibold underline hover:text-deep-blue">Site Clarté</a>, celle que nous avons conçue pour bâtir la confiance et convertir des prospects en clients individuels, est par nature une <strong class="text-clarity-blue">page de vente parfaite</strong>. Il suffit simplement de l'adapter pour "vendre" votre nouvelle offre.</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Pourquoi la Structure "Clarté" est une Structure de Vente Idéale</h2>
+                        <p>Une page de vente efficace n'est rien d'autre qu'un <a href="#" class="text-clarity-blue font-semibold underline hover:text-deep-blue">tunnel de confiance</a>. Elle doit guider le visiteur à travers un parcours psychologique précis : de la curiosité à la conviction, jusqu'à l'achat.</p>
+                        <p class="mt-4">C'est exactement ce pour quoi votre Site Clarté a été conçu. Voyons comment chaque section de votre site peut être "recyclée" pour devenir l'argumentaire de vente de votre atelier.</p>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/anatomie-page-de-vente-efficace-basee-site-clarte.webp" alt="Schéma montrant l'anatomie d'une page de vente basée sur la structure d'un Site Clarté" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 : L'Anatomie -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">L'Anatomie de votre Page de Vente (basée sur votre Site Clarté)</h2>
+                        <p>Imaginez que vous créez une nouvelle page sur votre site, dédiée uniquement à votre atelier. Voici comment vous allez réutiliser la structure "Clarté" :</p>
+                    </div>
+
+                    <!-- Bloc Héros -->
+                    <div class="bg-soft-blue p-6 rounded-lg my-8 border-l-4 border-clarity-blue" data-sr>
+                        <h3 class="text-xl font-bold text-neutral-dark mb-4">La Section "Héros" → Le Titre et la Promesse de votre Atelier</h3>
+                        <p class="mb-4">C'est l'accroche. Elle doit être percutante et vendre le résultat final de l'atelier.</p>
+                        <blockquote class="border-l-4 border-warm-orange pl-4">
+                            <p class="font-bold text-xl text-neutral-dark italic">L'Atelier en Ligne : Faites la Paix avec votre Critique Intérieur</p>
+                            <p class="mt-2 text-neutral-light">Un programme de 3 heures pour transformer le doute en confiance et libérer votre potentiel.</p>
+                        </blockquote>
+                    </div>
+
+                    <!-- Bloc Problème -->
+                    <div class="bg-soft-blue p-6 rounded-lg my-8 border-l-4 border-clarity-blue" data-sr>
+                        <h3 class="text-xl font-bold text-neutral-dark mb-4">La Section "Problème" → La Douleur que votre Atelier Résout</h3>
+                        <p class="mb-4">Vous décrivez ici, avec les mots de votre client idéal, le problème douloureux qui le pousse à chercher une solution. Vous créez l'identification.</p>
+                        <blockquote class="border-l-4 border-warm-orange pl-4">
+                            <p class="text-neutral-light italic">"Vous procrastinez sur vos projets les plus importants ? Une petite voix vous dit constamment que vous n'êtes pas à la hauteur ? Découvrez comment ce saboteur interne freine votre succès..."</p>
+                        </blockquote>
+                    </div>
+
+                    <!-- Bloc À Propos -->
+                    <div class="bg-soft-blue p-6 rounded-lg my-8 border-l-4 border-clarity-blue" data-sr>
+                        <h3 class="text-xl font-bold text-neutral-dark mb-4">La Section "À Propos" → Votre Légitimité (pour CET atelier)</h3>
+                        <p class="mb-4">Vous ne racontez pas toute votre histoire. Vous racontez la partie qui vous rend légitime pour enseigner <strong class="text-neutral-dark">ce sujet précis</strong>.</p>
+                        <blockquote class="border-l-4 border-warm-orange pl-4">
+                            <p class="text-neutral-light italic">"Pendant des années, j'ai été paralysée par le syndrome de l'imposteur. C'est en développant les outils que je partage dans cet atelier que j'ai pu enfin lancer mon activité avec confiance. Je ne vous enseigne pas une théorie, je vous transmets ce qui a fonctionné pour moi."</p>
+                        </blockquote>
+                    </div>
+
+                     <!-- Bloc Offre -->
+                    <div class="bg-soft-blue p-6 rounded-lg my-8 border-l-4 border-clarity-blue" data-sr>
+                        <h3 class="text-xl font-bold text-neutral-dark mb-4">La Section "Offre" → Le Contenu Détaillé de l'Atelier</h3>
+                        <p class="mb-4">C'est le "programme". Soyez concret. Utilisez des listes à puces pour détailler ce que les participants vont apprendre ou expérimenter.</p>
+                        <div class="border-l-4 border-warm-orange pl-4">
+                            <p class="font-semibold text-neutral-dark">Ce que vous allez découvrir dans cet atelier :</p>
+                            <ul class="list-disc list-inside space-y-2 mt-2 text-neutral-light">
+                                <li><strong class="text-neutral-dark">Module 1 :</strong> Identifier et nommer votre critique intérieur.</li>
+                                <li><strong class="text-neutral-dark">Module 2 :</strong> Les 3 techniques de PNL pour désamorcer les pensées négatives.</li>
+                                <li><strong class="text-neutral-dark">Module 3 :</strong> Créer votre plan d'action pour ancrer la confiance au quotidien.</li>
+                                <li><strong class="text-neutral-dark">Bonus :</strong> Un cahier d'exercices PDF et l'accès au replay.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Bloc Témoignages -->
+                    <div class="bg-soft-blue p-6 rounded-lg my-8 border-l-4 border-clarity-blue" data-sr>
+                        <h3 class="text-xl font-bold text-neutral-dark mb-4">La Section "Témoignages" → La Preuve Spécifique</h3>
+                        <p class="mb-4">Utilisez des témoignages de clients que vous avez aidés sur <strong class="text-neutral-dark">cette problématique</strong>, ou des retours de participants d'ateliers précédents.</p>
+                        <blockquote class="border-l-4 border-warm-orange pl-4">
+                            <p class="text-neutral-light italic">"L'atelier de Sarah a été une révélation. J'ai enfin compris d'où venait cette petite voix et j'ai des outils concrets pour la gérer." - Laura, participante de la session de juin.</p>
+                        </blockquote>
+                    </div>
+
+                    <!-- Bloc CTA -->
+                    <div class="bg-soft-blue p-6 rounded-lg my-8 border-l-4 border-clarity-blue" data-sr>
+                        <h3 class="text-xl font-bold text-neutral-dark mb-4">La Section "Appel à l'Action" → Le Bouton d'Achat</h3>
+                        <p class="mb-4">C'est l'invitation finale. Le bouton doit être clair et mener directement à votre système de paiement (Stripe, Paypal, Gumroad...).</p>
+                        <div class="text-center mt-6">
+                           <a href="#" class="btn btn-orange text-lg">Je Réserve ma Place dans l'Atelier pour 97€</a>
+                        </div>
+                    </div>
+
+                    <!-- Image 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/strategie-creation-page-dediee-par-offre-digitale.webp" alt="Diagramme illustrant la stratégie de création d'une page dédiée par offre digitale" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+                    
+                    <!-- Section 3 : La Stratégie -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">La Stratégie : Une Page Dédiée par Offre</h2>
+                        <p>La meilleure pratique n'est pas de surcharger votre page d'accueil. C'est de créer une <strong class="text-neutral-dark">nouvelle page "cachée"</strong> sur votre site pour chaque nouvelle offre majeure.</p>
+                        <ol class="list-decimal list-inside space-y-2 mt-4 pl-4">
+                            <li>Votre <strong class="text-neutral-dark">Site Clarté</strong> reste votre page d'accueil, votre porte d'entrée principale pour le coaching individuel.</li>
+                            <li>Vous créez une nouvelle page (ex: <code class="bg-gray-200 text-sm p-1 rounded">votresite.com/atelier-confiance</code>) qui est la page de vente de votre atelier.</li>
+                            <li>Vous faites la promotion de cette page spécifique dans votre newsletter ou sur vos réseaux sociaux.</li>
+                        </ol>
+                    </div>
+
+                    <!-- Section 4 : Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Votre Site est un Modèle de Croissance</h2>
+                        <p>Votre Site Clarté est bien plus qu'une simple page. C'est un <strong class="text-neutral-dark">modèle de conversion</strong>, un "template" stratégique que vous pouvez dupliquer et adapter pour chaque nouvelle brique de votre business.</p>
+                        <p class="mt-4">En utilisant cette structure éprouvée, vous n'avez pas besoin de réinventer la roue à chaque nouvelle offre. Vous avez déjà en main un système narratif puissant, conçu pour bâtir la confiance et inciter à l'action.</p>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">C'est la preuve qu'un investissement initial dans la clarté est un investissement qui continue de porter ses fruits à chaque nouvelle étape de votre croissance.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <!-- Titre et sous-titre -->
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Prêt(e) à créer la page de vente <br class="hidden sm:inline"><span class="text-clarity-blue">qui fera décoller votre atelier ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Si vous avez une offre de groupe prête à voir le jour mais que vous avez besoin d'aide pour la structurer et la présenter de manière convaincante, c'est une mission parfaite pour nous.
+                        </p>
+            
+                        <!-- Bouton d'action final et réassurance -->
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Discutons de votre stratégie de lancement
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

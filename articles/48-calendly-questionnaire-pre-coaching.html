@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Le Questionnaire de Pré-Coaching : Rendez Votre Première Séance 2x Plus Efficace avec Calendly</title>
+    <meta name="description"
+        content="Coachs, thérapeutes : optimisez votre première séance ! Découvrez comment utiliser les questions de votre formulaire Calendly comme un puissant questionnaire de pré-coaching pour des séances plus profondes et plus efficaces.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Le Questionnaire de Pré-Coaching : Rendez Votre Première Séance 2x Plus Efficace avec Calendly">
+    <meta property="og:description"
+        content="Découvrez comment utiliser votre formulaire Calendly comme un puissant questionnaire de pré-coaching.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-calendly-coaching.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-calendly-coaching.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Le Questionnaire de Pré-Coaching : Rendez Votre Première Séance 2x Plus Efficace avec Calendly
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                            Coachs, thérapeutes : optimisez votre première séance ! Découvrez comment utiliser les questions de votre formulaire Calendly comme un puissant questionnaire de pré-coaching pour des séances plus profondes et plus efficaces.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/calendly-coaching-intro.webp" alt="Personne remplissant un questionnaire en ligne, avec des ampoules d'idées s'allumant au-dessus de sa tête." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>La première séance avec un nouveau client est un moment crucial. C'est là que se tisse le lien de confiance, que se clarifie l'objectif, que s'amorce la transformation.</p>
+                    <p data-sr>Mais trop souvent, une grande partie de cette précieuse première heure est consacrée à "débroussailler" : comprendre le contexte, cerner la problématique, définir les attentes... C'est un travail nécessaire, mais il peut être optimisé.</p>
+                    <p data-sr>Imaginez si vous pouviez commencer cette première séance en ayant déjà une vision claire des enjeux de votre client. Imaginez si votre client arrivait non pas avec un esprit "vide", mais en ayant déjà commencé un travail d'introspection.</p>
+                    <p data-sr>Le résultat ? Une séance qui va <strong class="text-neutral-dark">droit à l'essentiel</strong>. Une séance deux fois plus profonde, deux fois plus efficace.</p>
+                    <p data-sr>Ce n'est pas un rêve. C'est le résultat d'une utilisation stratégique d'un outil que vous utilisez déjà : le formulaire de réservation de <strong class="text-clarity-blue">Calendly</strong>.</p>
+                    <p data-sr>En transformant les simples "questions pour l'invité" en un véritable <strong class="text-neutral-dark">questionnaire de pré-coaching</strong>, vous ne vous contentez pas de prendre un rendez-vous. Vous <strong class="text-neutral-dark">amorcez le travail de transformation</strong> avant même que la séance n'ait commencé.</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Le Problème : Le Formulaire "Logistique"</h2>
+                        <p>Par défaut, un formulaire Calendly demande le nom et l'email. Beaucoup d'indépendants s'arrêtent là. D'autres ajoutent une question logistique comme "Comment avez-vous entendu parler de moi ?".</p>
+                        <p class="mt-4">C'est utile, mais c'est une opportunité manquée.</p>
+                        <p class="mt-4">Ce formulaire est le <strong class="text-neutral-dark">premier espace de dialogue</strong> que vous offrez à votre client. En ne posant que des questions logistiques, vous envoyez le message que cette étape n'est qu'une formalité administrative.</p>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">En posant des questions puissantes, vous envoyez un message radicalement différent : "Notre travail ensemble a déjà commencé."</p>
+                    </div>
+                    
+                    <!-- Section 2 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">La Solution : Le Formulaire "Coaching"</h2>
+                        <p>L'idée n'est pas de créer un questionnaire de 20 questions qui ferait fuir votre prospect. L'art réside dans le choix de <strong class="text-neutral-dark">2 à 4 questions ouvertes et stratégiques</strong> qui vont à la fois vous informer et faire réfléchir votre futur client.</p>
+                        
+                        <div class="bg-soft-blue border-l-4 border-warm-orange p-6 rounded-lg my-8">
+                            <h3 class="text-xl font-bold text-deep-blue mb-4">Comment faire (Tutoriel Express) :</h3>
+                            <ol class="list-decimal list-inside space-y-2">
+                                <li>Dans Calendly, ouvrez les paramètres de votre événement (ex: "Séance Découverte").</li>
+                                <li>Allez dans la section "Questions pour l'invité".</li>
+                                <li>Cliquez sur "Ajouter une nouvelle question".</li>
+                                <li>Choisissez le type <strong class="text-neutral-dark">"Plusieurs lignes"</strong> pour laisser de l'espace à la réflexion.</li>
+                                <li>Cochez la case <strong class="text-neutral-dark">"Rendre obligatoire"</strong> pour vous assurer d'avoir les réponses.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/calendly-coaching-questions.webp" alt="Interface de Calendly montrant comment ajouter des questions personnalisées." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 3 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">3 Types de Questions Puissantes à Intégrer</h2>
+                        <p>Voici trois catégories de questions, inspirées de l'approche que nous définissons dans l'<a href="01-atelier-message-central.html" class="text-clarity-blue hover:underline font-semibold">Atelier de Clarté</a>, que vous pouvez adapter à votre propre pratique.</p>
+                    </div>
+
+                    <!-- Question 1 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">1. La Question de "Situation" (Le Point de Départ)</h3>
+                        <p class="font-semibold text-neutral-dark">Objectif : Comprendre le contexte et le point de douleur principal.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 text-base">
+                            <li><strong class="text-neutral-dark">Pour un Coach Carrière :</strong> "Quelle est la situation professionnelle qui vous amène à me contacter aujourd'hui ?" ou "Quel est le plus grand obstacle que vous rencontrez dans votre travail actuellement ?"</li>
+                            <li><strong class="text-neutral-dark">Pour un Thérapeute Bien-être :</strong> "Quel est le défi principal (stress, sommeil, émotions...) sur lequel vous aimeriez que nous nous concentrions ?"</li>
+                        </ul>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">2. La Question de "Vision" (La Destination)</h3>
+                        <p class="font-semibold text-neutral-dark">Objectif : Orienter le client vers la solution et le résultat désiré. C'est une question fondamentalement "coachante".</p>
+                         <ul class="list-disc list-inside space-y-2 mt-4 text-base">
+                            <li><strong class="text-neutral-dark">Pour un Coach de Vie :</strong> "Si notre accompagnement est un succès total, quel changement concret aimeriez-vous voir dans votre vie dans 3 mois ?"</li>
+                            <li><strong class="text-neutral-dark">Pour un Coach Business :</strong> "Quel est l'objectif n°1 que vous souhaitez atteindre grâce à notre collaboration ?"</li>
+                        </ul>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">3. La Question d'"Exploration" (L'Engagement)</h3>
+                        <p class="font-semibold text-neutral-dark">Objectif : Comprendre ce qui a déjà été tenté et évaluer le niveau de motivation du client.</p>
+                         <ul class="list-disc list-inside space-y-2 mt-4 text-base">
+                             <li><strong class="text-neutral-dark">Pour tous les domaines :</strong> "Qu'avez-vous déjà essayé par le passé pour surmonter ce défi ?"</li>
+                             <li><strong class="text-neutral-dark">Pour tous les domaines :</strong> "Sur une échelle de 1 à 10, à quel point êtes-vous prêt(e) à vous investir pour atteindre cet objectif ?"</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 4 : Bénéfices -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Les Bénéfices en Cascade de cette Simple Astuce</h2>
+                        <p>En ajoutant ces quelques questions à votre formulaire Calendly, vous déclenchez une série de bénéfices puissants :</p>
+                    </div>
+                    
+                    <!-- Image 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/calendly-coaching-resultat.webp" alt="Coach et client ayant une séance productive et souriante, symbolisant un résultat positif." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8" data-sr>
+                        <div class="bg-soft-blue p-6 rounded-lg">
+                            <h4 class="text-xl font-bold text-neutral-dark mb-4">Pour Vous :</h4>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><strong class="text-neutral-dark">Vous gagnez un temps précieux :</strong> Vous arrivez en séance en connaissant déjà 80% du contexte.</li>
+                                <li><strong class="text-neutral-dark">Vous qualifiez mieux vos prospects :</strong> La qualité des réponses vous donne une idée claire de l'engagement de la personne.</li>
+                                <li><strong class="text-neutral-dark">Vous avez l'air ultra-professionnel :</strong> Vous montrez que votre approche est structurée et soignée.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-soft-blue p-6 rounded-lg">
+                            <h4 class="text-xl font-bold text-neutral-dark mb-4">Pour Votre Client :</h4>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><strong class="text-neutral-dark">Le travail commence :</strong> Le simple fait d'écrire ses défis et désirs est un acte de clarification puissant.</li>
+                                <li><strong class="text-neutral-dark">Il se sent écouté :</strong> Il voit que vous vous intéressez sincèrement à sa situation.</li>
+                                <li><strong class="text-neutral-dark">Il est plus engagé :</strong> Ayant déjà réfléchi, il arrive en séance avec une implication plus forte.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Section 5 : Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Chaque Étape est une Opportunité de Coacher</h2>
+                        <p>Votre processus de prise de rendez-vous n'est pas séparé de votre pratique de coaching ou de thérapie. C'en est la première manifestation.</p>
+                        <p class="mt-4">En transformant votre formulaire Calendly en un outil d'introspection, vous ne faites pas que "collecter des informations". Vous envoyez un message clair : <strong class="text-neutral-dark">"Je prends votre démarche au sérieux. Notre temps est précieux. Et le travail commence maintenant."</strong></p>
+                        <p class="mt-4">C'est une manière simple mais radicalement efficace de poser le cadre d'un accompagnement de haute qualité.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Appel à l'action final -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Votre parcours client est-il aussi efficace <br><span class="text-clarity-blue">que vos séances de coaching ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Optimiser votre formulaire est une brique. Pour qu'elle soit efficace, elle doit s'intégrer dans un site web et un parcours client pensés de A à Z pour la clarté et la conversion.
+                        </p>
+            
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Discutons de votre système client
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

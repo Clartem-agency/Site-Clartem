@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Zéro Friction : Le Système Google Meet + Calendar pour un Coaching Individuel Impeccable</title>
+    <meta name="description"
+        content="Coachs, thérapeutes : simplifiez votre prise de RDV ! Découvrez comment combiner Google Meet et Google Calendar pour créer une expérience de coaching individuel fluide, professionnelle et sans friction pour vos clients.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- META OPEN GRAPH & TWITTER (SPÉCIFIQUES À L'ARTICLE) -->
+    <meta property="og:title" content="Zéro Friction : Le Système Google Meet + Calendar pour un Coaching Impeccable">
+    <meta property="og:description"
+        content="Découvrez comment combiner Google Meet et Calendar pour créer une expérience de coaching fluide et professionnelle.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-google-system-coaching.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-google-system-coaching.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- ======================================================= -->
+        <!--      HEADER / NAVIGATION (CHEMINS CORRIGÉS)           -->
+        <!-- ======================================================= -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ======================================================= -->
+        <!--                DÉBUT DU CONTENU DE L'ARTICLE            -->
+        <!-- ======================================================= -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                           Zéro Friction : Le Système Google Meet + Calendar pour un Coaching Individuel Impeccable
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Simplifiez votre prise de RDV ! Découvrez comment créer une expérience de coaching fluide et professionnelle qui rassure vos clients et vous libère l'esprit.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/google-system-coaching-intro.webp" alt="Écran d'ordinateur affichant une invitation Google Calendar, symbolisant une organisation sereine." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>En tant que coach ou thérapeute, votre zone de génie est l'accompagnement. C'est là que vous créez de la valeur. Votre pire ennemi ? Tout ce qui vous en éloigne : les tâches administratives, la logistique, les allers-retours d'emails...</p>
+
+                    <p data-sr>Et la gestion des rendez-vous est souvent en tête de liste.</p>
+
+                    <p data-sr>Le processus classique – échanger 5 emails pour trouver un créneau, puis envoyer manuellement un lien de visioconférence, puis espérer que le client ne l'oublie pas – n'est pas seulement chronophage. Il est <strong class="text-neutral-dark">rempli de frictions</strong>. Chaque étape est une occasion de perdre le client, de paraître désorganisé ou de commencer la relation sur une note chaotique.</p>
+
+                    <p data-sr>Heureusement, il existe un système d'une simplicité et d'une puissance redoutables pour automatiser tout ce processus. Un système que vous possédez probablement déjà en grande partie : l'écosystème Google.</p>
+
+                    <p data-sr>En combinant intelligemment <strong class="text-clarity-blue">Google Calendar</strong> et <strong class="text-clarity-blue">Google Meet</strong>, vous pouvez créer une expérience de coaching individuel d'une fluidité parfaite, qui rassure vos clients et vous libère l'esprit. Voici comment mettre en place ce système "Zéro Friction".</p>
+
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Le Principe Fondamental : Votre Calendrier est Votre Tour de Contrôle</h2>
+                        <p>La première étape est de changer de perspective. Votre Google Calendar n'est pas juste un endroit où vous notez vos rendez-vous. C'est le <strong class="text-neutral-dark">cerveau de votre organisation</strong>. C'est lui qui va dicter vos disponibilités et automatiser la communication.</p>
+                        <ul class="list-disc list-inside space-y-3 mt-4 pl-4">
+                            <li><strong class="text-neutral-dark">La Règle d'Or :</strong> Tout, absolument <strong class="text-neutral-dark">TOUT</strong>, doit être dans votre Google Calendar. Vos séances clients, bien sûr, mais aussi vos rendez-vous personnels ("Dentiste", "Récupérer les enfants"), et même vos blocs de travail personnel ("Temps de création", "Comptabilité").</li>
+                            <li><strong class="text-neutral-dark">Pourquoi ?</strong> Parce que les outils que nous allons connecter vont lire cet agenda. Si un bloc est pris, il deviendra indisponible pour vos clients. C'est la clé pour ne jamais être "double-booké" et pour protéger votre temps.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 2 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">L'Arme Secrète : Google Meet, le Roi de la Simplicité</h2>
+                        <p>Oubliez les outils qui demandent à vos clients de télécharger une application. Pour un coaching individuel, la simplicité est reine.</p>
+                        <ul class="list-disc list-inside space-y-3 mt-4 pl-4">
+                             <li><strong class="text-neutral-dark">Le Super-pouvoir de Google Meet :</strong> Il fonctionne directement dans le navigateur web. Votre client reçoit un lien, il clique, et il est dans l'appel. C'est tout. Cette absence totale de friction technique est incroyablement rassurante, surtout pour une clientèle qui n'est pas forcément à l'aise avec la technologie.</li>
+                             <li><strong class="text-neutral-dark">L'Intégration Magique :</strong> Le véritable génie de Meet, c'est son intégration native avec Google Calendar. Chaque fois que vous créez un événement dans votre agenda, vous avez un bouton "Ajouter une visioconférence Google Meet". En un clic, un lien unique est généré et attaché à l'invitation.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Image 2 : La Trinité -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/google-system-coaching-trinity.webp" alt="Logos de Calendly, Google Calendar et Google Meet connectés, illustrant le système automatisé." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 3 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">La "Trinité" Parfaite : L'Automatisation avec Calendly</h2>
+                        <p>Maintenant, assemblons les pièces. Comment permettre à vos clients de réserver eux-mêmes un créneau sans que vous ayez à intervenir ? En ajoutant le troisième élément : un outil comme <strong class="text-clarity-blue">Calendly</strong>.</p>
+                        <p class="mt-4">Voici le flux de travail automatisé qui va changer votre vie :</p>
+                        <ol class="list-decimal list-inside space-y-3 mt-4 pl-4">
+                            <li><strong class="text-neutral-dark">Le Prospect est sur Votre Site :</strong> Il est convaincu et clique sur votre bouton "Planifier ma séance découverte". Ce bouton le redirige vers votre page Calendly.</li>
+                            <li><strong class="text-neutral-dark">Calendly Fait le Travail :</strong> Il lit votre Google Calendar en temps réel, voit vos indisponibilités et ne présente au prospect que les créneaux que vous avez ouverts.</li>
+                            <li><strong class="text-neutral-dark">Le Prospect Choisit :</strong> Il sélectionne son créneau idéal.</li>
+                            <li><strong class="text-neutral-dark">La Magie Opère (sans vous) :</strong> Calendly crée l'événement dans votre agenda, Google Calendar y attache automatiquement un lien Meet, et une invitation complète est envoyée à tout le monde.</li>
+                        </ol>
+                         <p class="mt-4">Le rendez-vous est pris, confirmé et prêt, sans que vous ayez levé le petit doigt.</p>
+                    </div>
+
+                     <!-- Image 3 : L'invitation -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/google-system-coaching-invitation.webp" alt="Capture d'écran d'une invitation Google Calendar professionnelle et enrichie." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 4 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">L'Astuce Pro : Enrichir l'Invitation Google Calendar</h2>
+                        <p>Votre système est maintenant automatisé. La touche finale est de le rendre encore plus professionnel et utile en personnalisant la description de l'invitation.</p>
+                        
+                        <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                             <h3 class="text-xl font-bold text-clarity-blue mb-4">Exemple de description à ajouter :</h3>
+                             <blockquote class="border-l-4 border-warm-orange pl-4 mt-4 text-base">
+                                <p class="italic">"Bonjour [Prénom],</p>
+                                <p class="italic mt-2">Je me réjouis de notre séance de coaching prévue.</p>
+                                <p class="italic mt-2">Pour que notre temps ensemble soit le plus efficace possible, je vous invite à réfléchir à cette simple question avant notre appel : 'Quel serait le résultat idéal de cette séance pour moi ?'</p>
+                                <p class="italic mt-2">Le lien de notre salle de réunion virtuelle se trouve ci-dessous.</p>
+                                <p class="italic mt-2">À très bientôt,<br>[Votre Nom]"</p>
+                            </blockquote>
+                        </div>
+                        <p><strong>Le résultat :</strong> Chaque invitation envoyée est non seulement un rappel logistique, mais aussi un premier pas dans le travail de coaching. Vous montrez votre professionnalisme et votre implication dès le premier email.</p>
+                    </div>
+
+                    <!-- Section 5 : Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : La Simplicité est une Forme de Respect</h2>
+                        <p>En tant que coach ou thérapeute, vous vendez de la clarté et de la sérénité. Votre processus administratif doit incarner cette promesse.</p>
+                        <p class="mt-4">En adoptant le système "Google Meet + Calendar" (boosté par Calendly), vous ne faites pas que gagner du temps. Vous offrez à vos clients une expérience "Zéro Friction". Vous leur montrez, par des actes, que travailler avec vous est simple, fluide et professionnel.</p>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">C'est une manière puissante de commencer à bâtir la confiance, avant même d'avoir dit "bonjour".</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Appel à l'action final (REMPLACE LE LEAD MAGNET) -->
+            <section id="cta-blog" class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 md:p-12 text-center" data-sr>
+                        <h3 class="text-2xl md:text-3xl font-bold">Prêt(e) à intégrer ce système à un site web qui attire les bons clients ?</h3>
+                        <p class="text-lg text-white/80 leading-relaxed mt-6 mb-8">
+                           Un processus de réservation impeccable est essentiel. Mais il a besoin d'être alimenté par un site web au message clair qui donne envie à vos visiteurs de cliquer sur ce fameux bouton.
+                        </p>
+                        <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="btn btn-orange text-lg">
+                           Discutons de votre écosystème digital
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ======================================================= -->
+        <!--        FOOTER (CHEMINS CORRIGÉS)                      -->
+        <!-- ======================================================= -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

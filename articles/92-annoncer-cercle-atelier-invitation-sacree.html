@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF--8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Annoncer un Cercle ou un Atelier : Le Guide pour Créer une Invitation Sacrée sur votre Site</title>
+    <meta name="description"
+        content="Vous organisez un cercle de femmes, un atelier spirituel ? Découvrez comment créer une page sur votre site qui n'est pas une simple annonce, mais une invitation sacrée qui attire les bonnes personnes et remplit votre événement.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Annoncer un Cercle ou un Atelier : Créer une Invitation Sacrée">
+    <meta property="og:description"
+        content="Découvrez 5 éléments essentiels pour transformer une simple annonce en une invitation sacrée qui remplit vos cercles et ateliers.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-creer-invitation-sacree-evenement.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-creer-invitation-sacree-evenement.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Annoncer un Cercle ou un Atelier : Le Guide pour Créer une Invitation Sacrée sur votre Site
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Vous organisez un cercle de femmes, un atelier spirituel ? Découvrez comment créer une page sur votre site qui n'est pas une simple annonce, mais une "invitation sacrée" qui attire les bonnes personnes et remplit votre événement.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/cercle-de-femmes-bougies-allumees-ambiance-sacree.webp" alt="Cercle de bougies allumées au centre d'une pièce, symbolisant un espace sacré et communautaire." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Vous avez reçu l'appel. L'inspiration est là. Vous allez créer un espace sacré, un moment hors du temps pour que les âmes puissent se rassembler, partager, guérir. Vous allez animer un cercle de femmes, un atelier sur les archétypes, une cérémonie du cacao, une soirée de méditation guidée...</p>
+                    <p data-sr>Votre intention est pure. L'énergie est posée.</p>
+                    <p data-sr>Maintenant vient la partie la plus terrestre : <strong class="text-neutral-dark">comment l'annoncer ?</strong></p>
+                    <p data-sr>Trop souvent, cette énergie sacrée se perd dans une communication précipitée. Un simple post sur Instagram, une story qui disparaît en 24 heures, un paragraphe noyé dans une newsletter... Ces méthodes peuvent toucher quelques personnes, mais elles ne rendent pas justice à la profondeur de ce que vous proposez.</p>
+                    <p data-sr>Un événement sacré mérite une <strong class="text-clarity-blue">invitation sacrée</strong>.</p>
+                    <p data-sr>Et le meilleur endroit pour créer cette invitation, c'est sur votre site web. En dédiant une page entière à votre événement, vous ne faites pas que "l'annoncer". Vous créez un <strong class="text-neutral-dark">portail énergétique</strong>. Un espace digital qui prépare déjà les participantes, qui pose l'intention et qui appelle, par sa vibration, les personnes qui sont véritablement censées être là.</p>
+                    <p data-sr>Voici les 5 éléments essentiels pour transformer une simple page "événement" en une invitation sacrée qui remplit votre cercle.</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">1. Le Nom et l'Intention (Le Thème du Voyage)</h2>
+                        <p>Le titre de votre page n'est pas un simple libellé. C'est le <strong class="text-neutral-dark">nom du voyage</strong> que vous proposez. Il doit être à la fois clair et poétique.</p>
+                    </div>
+
+                    <!-- Bloc Conseil 1 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <ul class="list-none space-y-4 text-base">
+                            <li><span class="text-destructive font-bold mr-2">Piège à éviter :</span> Un titre trop simple ("Atelier du Samedi") ou trop ésotérique ("Activation du Féminin Divin Solaire").</li>
+                            <li>
+                                <span class="text-success-green font-bold mr-2">La Voie de l'Alignement :</span> Trouvez un équilibre qui évoque l'énergie et le bénéfice.
+                                <ul class="list-disc list-inside space-y-1 mt-2 pl-4 text-neutral-light">
+                                    <li>"Cercle de la Nouvelle Lune : Planter les Graines de son Intention"</li>
+                                    <li>"Atelier d'Écriture Intuitive : Se Conforter à la Voix de son Âme"</li>
+                                    <li>"Voyage Sonore & Bain de Gong : Une Soirée de Relaxation Profonde"</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <p data-sr>Juste en dessous du titre, écrivez un court paragraphe qui est le <strong class="text-neutral-dark">cœur de l'invitation</strong>. C'est l'intention que vous posez. Parlez au "vous" et au cœur.</p>
+                    <blockquote class="border-l-4 border-warm-orange pl-4 italic text-neutral-dark" data-sr>
+                        "Je vous invite à nous rejoindre pour un temps sacré, un espace de sororité et de partage où nous pourrons déposer nos masques et nous reconnecter à notre essence..."
+                    </blockquote>
+
+                    <!-- Section 2 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">2. Le Déroulé (La Carte du Voyage)</h2>
+                        <p>Le sacré n'exclut pas la structure. Au contraire, un cadre clair crée un sentiment de sécurité. Rassurez vos futures participantes en leur montrant la carte du chemin que vous allez parcourir ensemble.</p>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/preparer-atelier-spirituel-carnet-notes-cristaux.webp" alt="Carnet de notes ouvert à côté de cristaux et d'une bougie, symbolisant la préparation et la structure d'un atelier." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Bloc Conseil 2 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                         <ul class="list-none space-y-4 text-base">
+                            <li><span class="text-destructive font-bold mr-2">Piège à éviter :</span> Rester trop vague ("Nous ferons des rituels et des partages").</li>
+                            <li>
+                                <span class="text-success-green font-bold mr-2">La Voie de la Clarté :</span> Utilisez une liste à puces ou un déroulé horaire simple pour décrire les étapes.
+                                <div class="mt-2 pl-4 bg-white p-4 rounded-md border">
+                                    <p class="font-semibold text-neutral-dark mb-2">Exemple :</p>
+                                    <ul class="list-none space-y-2 text-neutral-light">
+                                        <li><strong>19h00 :</strong> Accueil & Tisane d'ouverture</li>
+                                        <li><strong>19h15 :</strong> Méditation d'ancrage et ouverture du cercle</li>
+                                        <li><strong>19h45 :</strong> Temps de partage guidé sur le thème de [Thème]</li>
+                                        <li><strong>20h30 :</strong> Rituel de [Rituel]</li>
+                                        <li><strong>21h00 :</strong> Clôture du cercle & temps d'intégration</li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 3 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">3. Le Cadre Sacré (Les "Règles" du Temple)</h2>
+                        <p>Chaque espace sacré a ses règles, ses codes qui garantissent la sécurité et le respect. Les énoncer clairement sur votre page est un acte de protection pour le groupe.</p>
+                    </div>
+                     <!-- Bloc Conseil 3 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                         <ul class="list-none space-y-4 text-base">
+                            <li><span class="text-destructive font-bold mr-2">Piège à éviter :</span> Penser que tout le monde connaît les règles implicites d'un cercle.</li>
+                            <li>
+                                <span class="text-success-green font-bold mr-2">La Voie de la Transparence :</span> Créez un petit encart "Notre Espace Sacré" ou "Ce que nous honorons".
+                                <ul class="list-disc list-inside space-y-1 mt-2 pl-4 text-neutral-light">
+                                    <li><strong class="text-neutral-dark">La Confidentialité :</strong> "Tout ce qui est partagé dans le cercle reste dans le cercle."</li>
+                                    <li><strong class="text-neutral-dark">Le Non-Jugement :</strong> "Nous nous accueillons les unes les autres avec bienveillance, sans conseil ni interruption."</li>
+                                    <li><strong class="text-neutral-dark">L'Authenticité :</strong> "Nous nous engageons à parler depuis le cœur, avec notre vérité du moment."</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <p data-sr>En posant ce cadre en amont, vous attirez des participantes qui sont prêtes à le respecter et vous vous donnez la permission d'y faire référence si nécessaire pendant l'événement.</p>
+                    
+                    <!-- Section 4 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">4. Les Détails Pratiques (L'Ancrage dans la Matière)</h2>
+                        <p>Le spirituel doit être ancré. Une fois que l'âme est séduite, le mental a besoin d'informations claires pour pouvoir s'organiser.</p>
+                    </div>
+                    <!-- Bloc Conseil 4 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                         <ul class="list-none space-y-4 text-base">
+                            <li><span class="text-destructive font-bold mr-2">Piège à éviter :</span> Disperser les informations.</li>
+                            <li>
+                                <span class="text-success-green font-bold mr-2">La Voie de la Simplicité :</span> Regroupez toutes les informations logistiques dans une section claire.
+                                <ul class="list-disc list-inside space-y-1 mt-2 pl-4 text-neutral-light">
+                                    <li><strong>Date & Heure</strong></li>
+                                    <li><strong>Lieu</strong> (avec l'adresse exacte et peut-être un lien Google Maps)</li>
+                                    <li><strong>Contribution / Échange d'Énergie</strong> (le prix)</li>
+                                    <li><strong>Ce qu'il faut apporter</strong> (ex: "un carnet, un coussin, un objet à déposer sur l'autel...")</li>
+                                    <li><strong>Nombre de places</strong> ("Cercle intime limité à 10 femmes")</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 5 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">5. L'Appel du Cœur (Le Bouton d'Inscription)</h2>
+                        <p>C'est l'invitation finale à franchir le seuil. Le bouton ne doit pas être un simple "Acheter".</p>
+                    </div>
+                     <!-- Bloc Conseil 5 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                         <ul class="list-none space-y-4 text-base">
+                            <li><span class="text-destructive font-bold mr-2">Piège à éviter :</span> Un bouton froid et transactionnel.</li>
+                            <li>
+                                <span class="text-success-green font-bold mr-2">La Voie de l'Invitation :</span> Utilisez des mots qui sont un appel, un engagement.
+                                <ul class="list-disc list-inside space-y-1 mt-2 pl-4 text-neutral-light">
+                                    <li>"Je Réserve ma Place dans le Cercle"</li>
+                                    <li>"Je Rejoins l'Atelier"</li>
+                                    <li>"Je m'Inscris au Voyage"</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <p data-sr>Ce bouton doit mener directement à votre système de paiement et de réservation, rendant le passage à l'acte aussi fluide et simple que possible.</p>
+
+                    <!-- Section Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Votre Page est le Gardien du Seuil</h2>
+                    </div>
+
+                    <!-- Image 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/creer-page-evenement-site-web-professionnel.webp" alt="Maquette d'une page d'événement claire et professionnelle sur un ordinateur portable." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <div data-sr>
+                        <p>Créer une page dédiée à votre événement sur votre site est bien plus qu'une simple communication.</p>
+                        <p class="mt-4">C'est un acte énergétique. C'est poser une intention claire dans l'univers. C'est créer un réceptacle sacré qui va attirer les bonnes personnes et préparer le terrain pour la magie qui va opérer lors de votre rassemblement.</p>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">Honorez vos événements avec des invitations à leur hauteur.</p>
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <!-- Titre et sous-titre -->
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Prêt(e) à créer des invitations <br><span class="text-clarity-blue">qui remplissent vos cercles ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Intégrer des pages d'événements qui sont à la fois belles, sacrées et efficaces est une des forces d'un <a href="../index.html#offres" class="font-bold text-white underline hover:text-clarity-blue transition">Site Clarté</a> bien pensé. Discutons de la manière de mettre en lumière vos événements.
+                        </p>
+            
+                        <!-- Bouton d'action final et réassurance -->
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Planifier mon Appel Clarté
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

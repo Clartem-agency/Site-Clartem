@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>La Checklist d'Onboarding Client Parfaite : 7 Étapes Clés</title>
+    <meta name="description"
+        content="Comment bien démarrer une nouvelle mission de conseil ou de coaching ? Découvrez notre checklist d'onboarding client en 7 étapes pour créer une expérience d'accueil professionnelle, rassurer votre client et poser les bases du succès.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="La Checklist d'Onboarding Client Parfaite : 7 Étapes Clés">
+    <meta property="og:description"
+        content="Découvrez 7 étapes pour créer une expérience d'accueil professionnelle qui rassure votre client et pose les bases du succès.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-checklist-parfaite-onboarding-client-professionnel.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-checklist-parfaite-onboarding-client-professionnel.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            La Checklist d'Onboarding Client Parfaite : 7 Étapes pour Démarrer une Mission sur les Rails
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Comment bien démarrer une nouvelle mission de conseil ou de coaching ? Découvrez notre checklist en 7 étapes pour créer une expérience d'accueil professionnelle, rassurer votre client et poser les bases du succès.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/checklist-professionnelle-demarrage-mission-reussie.webp" alt="Checklist stylisée avec les premières cases cochées, symbolisant un départ de mission parfait" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Vous avez réussi. Le prospect a dit "oui". Le contrat est sur le point d'être signé. C'est un moment d'excitation.</p>
+                    <p data-sr>Mais c'est aussi un moment de danger.</p>
+                    <p data-sr>La période qui s'écoule entre l'accord verbal et la première véritable séance de travail est une "zone de turbulence" potentielle. C'est là que l'enthousiasme du client peut retomber, que le doute peut s'installer, et que la première impression de votre professionnalisme se joue.</p>
+                    <p data-sr>Un processus d'accueil ("onboarding") chaotique, fait d'emails désordonnés et d'étapes floues, envoie un message terrible : "Je suis peut-être un bon coach/consultant, mais je suis un mauvais gestionnaire de projet."</p>
+                    <p data-sr>À l'inverse, un onboarding fluide, structuré et rassurant envoie un message puissant : <strong class="text-clarity-blue">"Vous avez fait le bon choix. Vous êtes entre les mains d'un professionnel qui maîtrise son sujet et ses processus. Vous pouvez vous détendre, je pilote."</strong></p>
+                    <p data-sr>L'onboarding n'est pas une formalité administrative. C'est la <strong class="text-neutral-dark">première promesse de l'expérience client</strong> que vous allez offrir. C'est le tapis rouge que vous déroulez pour votre nouveau partenaire.</p>
+                    <p data-sr>Pour vous assurer de ne rien oublier, voici la checklist d'onboarding parfaite en 7 étapes.</p>
+
+                    <!-- Section 1 : La Philosophie -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">La Philosophie : "Zéro Question, Zéro Friction"</h2>
+                        <p>L'objectif de votre processus d'onboarding est simple : votre nouveau client ne doit <strong class="text-neutral-dark">jamais</strong> avoir à se demander "Et maintenant, quelle est la prochaine étape ?". Vous devez anticiper chaque question et le guider en douceur.</p>
+                    </div>
+                    
+                    <!-- Image 2 : Illustration du processus fluide -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/consultant-accueillant-nouveau-client-experience-fluide.webp" alt="Consultant accueillant un nouveau client dans un bureau moderne et organisé, illustrant une expérience fluide." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 : La Checklist -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">La Checklist d'Onboarding en 7 Étapes</h2>
+                    </div>
+
+                    <!-- Étape 1 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">✅ Étape 1 : Le Contrat Clair et la Signature Facile</h3>
+                        <ul class="list-disc list-inside space-y-3">
+                            <li><strong class="text-neutral-dark">L'Action :</strong> Envoyez le contrat ou la lettre de mission pour signature.</li>
+                            <li><strong class="text-neutral-dark">L'Outil Pro :</strong> Utilisez un outil de signature électronique (Docusign, PandaDoc...). Oubliez le PDF à imprimer/scanner. C'est plus rapide, plus professionnel et juridiquement plus solide.</li>
+                            <li><strong class="text-neutral-dark">La Clé :</strong> Votre contrat doit être d'une clarté absolue sur le périmètre, les livrables, les conditions et les responsabilités de chacun.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Étape 2 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">✅ Étape 2 : La Facture d'Acompte et le Paiement Simple</h3>
+                        <ul class="list-disc list-inside space-y-3">
+                            <li><strong class="text-neutral-dark">L'Action :</strong> Envoyez la facture d'acompte (généralement 30% à 50%) pour valider le démarrage de la mission.</li>
+                            <li><strong class="text-neutral-dark">L'Outil Pro :</strong> Utilisez un outil de facturation (Stripe, Paypal...) qui permet le <strong class="text-warm-orange">paiement en ligne par carte bancaire</strong>. C'est instantané et beaucoup plus simple pour votre client qu'un virement.</li>
+                            <li><strong class="text-neutral-dark">La Clé :</strong> Le paiement de l'acompte est l'acte qui scelle l'engagement mutuel. Ne commencez jamais une mission avant qu'il ne soit réglé.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Étape 3 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">✅ Étape 3 : L'Email de "Bienvenue à Bord"</h3>
+                        <ul class="list-disc list-inside space-y-3">
+                            <li><strong class="text-neutral-dark">L'Action :</strong> Une fois le contrat signé et l'acompte payé, envoyez un email qui n'est pas administratif, mais <strong class="text-warm-orange">relationnel</strong>.</li>
+                            <li><strong class="text-neutral-dark">Le Contenu :</strong>
+                                <ol class="list-decimal list-inside pl-4 mt-2 space-y-1">
+                                    <li><strong>Célébrez !</strong> "Je suis absolument ravi(e) de démarrer cette collaboration avec vous !"</li>
+                                    <li><strong>Récapitulez :</strong> "Pour résumer, notre objectif commun est de [Objectif principal]."</li>
+                                    <li><strong>Annoncez la suite :</strong> "La prochaine étape est notre réunion de lancement..."</li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Étape 4 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">✅ Étape 4 : La Planification de la Réunion de Lancement</h3>
+                        <ul class="list-disc list-inside space-y-3">
+                             <li><strong class="text-neutral-dark">L'Action :</strong> Invitez votre client à réserver la première séance de travail.</li>
+                             <li><strong class="text-neutral-dark">L'Outil Pro :</strong> Ne demandez pas "Quelles sont vos disponibilités ?". Envoyez votre lien <a href="../blog.html" class="text-clarity-blue underline hover:text-deep-blue">Calendly "secret"</a>, celui qui est réservé à vos clients actifs.</li>
+                             <li><strong class="text-neutral-dark">La Clé :</strong> L'automatisation de cette étape montre votre efficacité et vous fait gagner un temps précieux.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Étape 5 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">✅ Étape 5 : Le Partage de l'Espace de Travail Collaboratif</h3>
+                        <ul class="list-disc list-inside space-y-3">
+                             <li><strong class="text-neutral-dark">L'Action :</strong> Créez et partagez le dossier central qui servira de "maison" à votre projet.</li>
+                             <li><strong class="text-neutral-dark">L'Outil Pro :</strong> Un dossier partagé sur Google Drive, un tableau Trello, ou une page dédiée sur votre <a href="../blog.html" class="text-clarity-blue underline hover:text-deep-blue">"second cerveau" Notion</a>.</li>
+                             <li><strong class="text-neutral-dark">La Clé :</strong> Centralisez tout. Le client doit savoir qu'il y a UN seul endroit où trouver tous les documents.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Étape 6 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">✅ Étape 6 : Le Questionnaire de Démarrage</h3>
+                        <ul class="list-disc list-inside space-y-3">
+                            <li><strong class="text-neutral-dark">L'Action :</strong> Envoyez un questionnaire pour collecter en amont toutes les informations dont vous avez besoin.</li>
+                            <li><strong class="text-neutral-dark">L'Outil Pro :</strong> Un formulaire Google Forms, Typeform, ou une page dans Notion.</li>
+                            <li><strong class="text-neutral-dark">La Clé :</strong> Cela vous permet d'arriver à la première réunion déjà immergé dans le contexte de votre client. Vous allez directement à la stratégie.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Étape 7 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">✅ Étape 7 : La Réunion de Lancement (Le "Kick-off")</h3>
+                        <ul class="list-disc list-inside space-y-3">
+                            <li><strong class="text-neutral-dark">L'Action :</strong> C'est votre première séance de travail.</li>
+                            <li><strong class="text-neutral-dark">La Clé :</strong> Son objectif n'est pas seulement de travailler, mais de <strong class="text-warm-orange">valider le cadre</strong>. Repassez en revue les objectifs, la méthodologie, les modes de communication, et assurez-vous que tout le monde est parfaitement aligné.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Image 3 : Résultat d'un bon onboarding -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/deux-professionnels-collaborant-sereinement-sur-projet.webp" alt="Deux professionnels collaborant sereinement sur un projet, illustrant le succès d'un bon onboarding." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 3 : Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Une Première Impression ne se Rattrape Jamais</h2>
+                        <p>Un processus d'onboarding fluide et professionnel n'est pas un "petit plus". C'est le fondement d'une mission réussie.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li>Il <strong class="text-neutral-dark">rassure votre client</strong> sur le fait qu'il a fait le bon choix.</li>
+                            <li>Il pose un <strong class="text-neutral-dark">cadre de travail clair</strong> qui prévient les malentendus.</li>
+                            <li>Il vous <strong class="text-neutral-dark">positionne</strong>, dès la première heure, comme un expert qui ne laisse rien au hasard.</li>
+                        </ul>
+                        <p class="mt-4">En systématisant cette checklist, vous ne ferez pas que gagner en efficacité. Vous construirez des relations clients plus fortes, plus saines et plus durables.</p>
+                    </div>
+
+                    
+
+                </div>
+            </article>
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Prêt à professionnaliser <br><span class="text-clarity-blue">votre expérience client ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Un onboarding réussi commence par un site web clair. Discutons de la manière dont un Site Clarté peut automatiser et professionnaliser votre accueil client, dès le premier clic.
+                        </p>
+            
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Planifier mon Appel Clarté
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Page d'Accueil : 5 Éléments qu'un Décideur Doit Voir en 5 Secondes</title>
+    <meta name="description"
+        content="Votre page d'accueil B2B est-elle efficace ? Découvrez les 5 éléments essentiels (promesse, preuve, problème...) qu'un décideur pressé doit voir en 5 secondes pour être convaincu, et comment les structurer.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Votre Page d'Accueil est un 'Executive Summary' : 5 Éléments Clés en 5 Secondes">
+    <meta property="og:description"
+        content="Découvrez les 5 éléments qu'un décideur B2B doit voir sur votre page d'accueil pour être convaincu.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-page-accueil-executive-summary-b2b.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-page-accueil-executive-summary-b2b.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Votre Page d'Accueil est un "Executive Summary" : Les 5 Éléments qu'un Décideur Doit Voir en 5 Secondes
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                            Votre page d'accueil B2B est-elle efficace ? Découvrez les 5 éléments essentiels qu'un décideur pressé doit voir en 5 secondes pour être convaincu, et comment les structurer.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/decideur-presse-scanne-page-accueil-5-secondes.webp" alt="Un dirigeant pressé scanne une page d'accueil, symbolisant le test des 5 secondes" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Imaginez la scène. Un dirigeant de PME, votre client idéal, vient d'entendre parler de vous. Entre deux réunions et trois urgences, il prend 30 secondes pour taper votre nom sur Google. Il clique sur votre site.</p>
+                    <p data-sr>Votre page d'accueil se charge.</p>
+                    <p data-sr>Vous n'avez pas une minute. Vous n'avez pas 30 secondes. Vous avez <strong class="text-warm-orange">5 secondes</strong>.</p>
+                    <p data-sr>Cinq secondes, c'est le temps que met un décideur pressé pour scanner la partie visible de votre page ("au-dessus de la ligne de flottaison") et prendre une décision binaire : "Pertinent, je reste" ou "Pas clair, je pars".</p>
+                    <p data-sr>Votre page d'accueil n'est pas un roman. Ce n'est pas une biographie. C'est un <strong class="text-clarity-blue">"Executive Summary"</strong>. C'est un résumé stratégique conçu pour donner à un lecteur à haute responsabilité, en un clin d'œil, toutes les informations dont il a besoin pour valider l'intérêt de votre proposition.</p>
+                    <p data-sr>Si votre "Executive Summary" est flou, verbeux ou centré sur vous, le rapport entier (votre site) part à la poubelle.</p>
+                    <p data-sr>Alors, quels sont les 5 éléments indispensables que ce décideur doit voir dans ces 5 premières secondes ?</p>
+                    
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">1. La Promesse Chiffrée (Le Résultat Business)</h2>
+                        <p>Le décideur ne se soucie pas de votre "processus de coaching systémique". Il se soucie de ses propres problèmes : sa marge, sa croissance, la performance de ses équipes. Votre accroche doit parler ce langage.</p>
+                        <ul class="list-none space-y-3 mt-6 text-base bg-soft-blue p-6 rounded-lg">
+                            <li><span class="text-destructive font-bold mr-2">L'Erreur :</span> "Accompagnement et Conseil en Management"</li>
+                            <li><span class="text-success-green font-bold mr-2">La Clé :</span> Traduisez votre service en un <strong class="text-neutral-dark">résultat business quantifiable</strong>.</li>
+                            <li><span class="text-neutral-dark font-semibold">Exemples :</span>
+                                <ul class="list-disc list-inside space-y-1 mt-2 pl-4 text-neutral-light">
+                                    <li>"Augmentez la Performance de vos Équipes Commerciales de 20% en 6 Mois."</li>
+                                    <li>"Réduisez le Turnover de vos Managers et Économisez sur vos Coûts de Recrutement."</li>
+                                    <li>"Libérez 10h par Semaine de votre Agenda de Dirigeant pour vous Concentrer sur la Stratégie."</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <blockquote class="border-l-4 border-clarity-blue pl-4 mt-6 italic">
+                            <p class="font-semibold text-neutral-dark">Ce que le décideur voit :</p>
+                            <p>"Cette personne comprend mes indicateurs de performance (KPIs). Elle ne vend pas du rêve, elle vend du ROI."</p>
+                        </blockquote>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/logos-clients-b2b-preuve-sociale-immediate.webp" alt="Logos de clients affichés sur un site web comme preuve sociale immédiate" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">2. La Preuve Sociale Immédiate (La Réassurance par les Pairs)</h2>
+                        <p>Juste après avoir lu votre promesse, le cerveau du décideur cherche une validation. "Qui d'autre a fait confiance à cette personne ?".</p>
+                         <ul class="list-none space-y-3 mt-6 text-base bg-soft-blue p-6 rounded-lg">
+                            <li><span class="text-destructive font-bold mr-2">L'Erreur :</span> Cacher vos témoignages et logos sur une page "Références" séparée.</li>
+                            <li><span class="text-success-green font-bold mr-2">La Clé :</span> Affichez votre meilleure preuve sociale <strong class="text-neutral-dark">directement sous votre promesse</strong>.</li>
+                            <li><span class="text-neutral-dark font-semibold">Exemples :</span>
+                                <ul class="list-disc list-inside space-y-1 mt-2 pl-4 text-neutral-light">
+                                    <li>Une simple ligne "Ils nous font confiance :" suivie des 3 ou 4 logos de vos clients les plus connus.</li>
+                                    <li>Une citation très courte et percutante d'un dirigeant : *"L'intervention de [Votre Nom] a été l'investissement le plus rentable de notre année." - CEO, Société X.*</li>
+                                </ul>
+                            </li>
+                        </ul>
+                         <blockquote class="border-l-4 border-clarity-blue pl-4 mt-6 italic">
+                            <p class="font-semibold text-neutral-dark">Ce que le décideur voit :</p>
+                            <p>"Ok, cette personne n'est pas une inconnue. Des entreprises que je respecte (ou qui me ressemblent) lui ont déjà fait confiance. Le risque est plus faible."</p>
+                        </blockquote>
+                    </div>
+
+                    <!-- Section 3 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">3. Le Problème Spécifique (La Connexion par la Douleur)</h2>
+                        <p>Vous avez son attention. Maintenant, montrez-lui que vous comprenez sa réalité en profondeur.</p>
+                         <ul class="list-none space-y-3 mt-6 text-base bg-soft-blue p-6 rounded-lg">
+                            <li><span class="text-destructive font-bold mr-2">L'Erreur :</span> Parler de vous et de votre "approche unique".</li>
+                            <li><span class="text-success-green font-bold mr-2">La Clé :</span> Avoir une très courte section juste en dessous qui décrit la <strong class="text-neutral-dark">douleur</strong> de votre client idéal.</li>
+                        </ul>
+                        <div class="bg-white border-l-4 border-warm-orange p-6 rounded-lg my-8 shadow-lg">
+                            <p class="font-semibold text-neutral-dark mb-2">Exemple :</p>
+                            <blockquote class="italic text-neutral-light">
+                                "Vos managers sont excellents techniquement, mais peinent à motiver leurs équipes ? Les conflits internes freinent votre productivité et le turnover augmente ? Vous n'êtes pas seul."
+                            </blockquote>
+                        </div>
+                         <blockquote class="border-l-4 border-clarity-blue pl-4 mt-6 italic">
+                            <p class="font-semibold text-neutral-dark">Ce que le décideur voit :</p>
+                            <p>"Cette personne a mis des mots exacts sur le problème qui m'empêche de dormir. Elle connaît mon secteur."</p>
+                        </blockquote>
+                    </div>
+
+                    <!-- Section 4 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">4. La Solution Claire (Le Chemin vers la Résolution)</h2>
+                        <p>Vous avez connecté avec le problème. Présentez maintenant votre solution de manière structurée.</p>
+                         <ul class="list-none space-y-3 mt-6 text-base bg-soft-blue p-6 rounded-lg">
+                            <li><span class="text-destructive font-bold mr-2">L'Erreur :</span> Une liste à puces de 10 services différents.</li>
+                            <li><span class="text-success-green font-bold mr-2">La Clé :</span> Présentez votre offre principale comme un <strong class="text-neutral-dark">processus simple en 3 étapes</strong>.</li>
+                        </ul>
+                         <div class="bg-white border border-gray-200 p-6 rounded-lg my-8 shadow-lg">
+                            <p class="font-semibold text-neutral-dark mb-4 text-center">Exemple de processus :</p>
+                            <ol class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-center">
+                                <li class="flex-1">
+                                    <div class="bg-clarity-blue text-white w-10 h-10 rounded-full flex items-center justify-center mx-auto font-bold text-xl mb-2">1</div>
+                                    <h4 class="font-bold text-neutral-dark">Diagnostic</h4>
+                                    <p class="text-sm text-neutral-light">Audit de vos pratiques managériales.</p>
+                                </li>
+                                <li class="text-clarity-blue/50 my-2 md:my-0">→</li>
+                                <li class="flex-1">
+                                    <div class="bg-clarity-blue text-white w-10 h-10 rounded-full flex items-center justify-center mx-auto font-bold text-xl mb-2">2</div>
+                                    <h4 class="font-bold text-neutral-dark">Formation</h4>
+                                    <p class="text-sm text-neutral-light">Déploiement d'ateliers sur-mesure.</p>
+                                </li>
+                                 <li class="text-clarity-blue/50 my-2 md:my-0">→</li>
+                                <li class="flex-1">
+                                    <div class="bg-clarity-blue text-white w-10 h-10 rounded-full flex items-center justify-center mx-auto font-bold text-xl mb-2">3</div>
+                                    <h4 class="font-bold text-neutral-dark">Suivi</h4>
+                                    <p class="text-sm text-neutral-light">Ancrage des compétences sur 3 mois.</p>
+                                </li>
+                            </ol>
+                        </div>
+                         <blockquote class="border-l-4 border-clarity-blue pl-4 mt-6 italic">
+                            <p class="font-semibold text-neutral-dark">Ce que le décideur voit :</p>
+                            <p>"Cette personne n'est pas un 'gourou'. Elle a une méthodologie, un plan. C'est structuré et professionnel."</p>
+                        </blockquote>
+                    </div>
+
+                    <!-- Section 5 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">5. L'Appel à l'Action de Valeur (La Prochaine Étape Logique)</h2>
+                        <p>Le décideur est convaincu. Rendez-lui le passage à l'acte facile et désirable.</p>
+                        <ul class="list-none space-y-3 mt-6 text-base bg-soft-blue p-6 rounded-lg">
+                            <li><span class="text-destructive font-bold mr-2">L'Erreur :</span> Un bouton passif "Contactez-nous".</li>
+                            <li><span class="text-success-green font-bold mr-2">La Clé :</span> Transformez le contact en une <strong class="text-neutral-dark">offre de valeur</strong>.</li>
+                            <li><span class="text-neutral-dark font-semibold">Exemples :</span>
+                                <ul class="list-disc list-inside space-y-1 mt-2 pl-4 text-neutral-light">
+                                    <li>"Planifier votre Session de Diagnostic Gratuite"</li>
+                                    <li>"Demander un Audit Offert"</li>
+                                    <li>"Réserver mon Appel Stratégique"</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <blockquote class="border-l-4 border-clarity-blue pl-4 mt-6 italic">
+                           <p class="font-semibold text-neutral-dark">Ce que le décideur voit :</p>
+                           <p>"Je ne vais pas juste 'contacter' quelqu'un. Je vais obtenir une première session de travail qui va déjà m'apporter de la clarté. C'est un bon investissement de mon temps."</p>
+                        </blockquote>
+                    </div>
+
+                    <!-- Image 3 -->
+                     <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/page-accueil-b2b-claire-efficace-executive-summary.webp" alt="Maquette d'une page d'accueil de site web B2B claire et structurée" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Votre Site est-il "Executive-Ready" ?</h2>
+                        <p>Votre page d'accueil n'est pas faite pour être lue, elle est faite pour être <strong class="text-neutral-dark">scannée</strong>. Par des gens qui ont moins de temps et plus de pression que vous.</p>
+                        <p class="mt-4">En structurant la partie supérieure de votre site comme un "Executive Summary" percutant, vous respectez leur temps, vous parlez leur langage et vous leur donnez toutes les raisons de vous accorder 15 minutes de leur précieux agenda.</p>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">C'est cette approche, centrée sur la clarté et l'efficacité, qui est au cœur de la conception d'un <a href="../index.html#offres" class="text-clarity-blue hover:underline font-bold">Site Clarté</a> pour les professionnels B2B.</p>
+                    </div>
+
+                </div>
+            </article>
+
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Votre page d'accueil passe-t-elle<br><span class="text-clarity-blue">le test des 5 secondes ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Si vous n'êtes pas sûr que votre message soit assez percutant pour convaincre un décideur pressé, il est temps de revoir votre "Executive Summary". Je vous offre un audit gratuit de votre page d'accueil.
+                        </p>
+            
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Planifier mon Audit Gratuit
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ Lors de notre Appel Clarté
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

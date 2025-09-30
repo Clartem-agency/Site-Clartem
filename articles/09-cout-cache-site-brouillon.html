@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Le Coût Caché d'un Site "Brouillon" : Combien de Clients Perdez-vous Vraiment ?</title>
+    <meta name="description"
+        content="Votre site web vous coûte-t-il des clients ? Découvrez les 3 coûts cachés d'un message pas clair et comment un 'Site Clarté' peut transformer votre présence en ligne en un véritable atout commercial.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- META OPEN GRAPH & TWITTER (SPÉCIFIQUES À L'ARTICLE) -->
+    <meta property="og:title" content="Le Coût Caché d'un Site 'Brouillon' : Combien de Clients Perdez-vous ?">
+    <meta property="og:description"
+        content="Découvrez les 3 coûts cachés d'un message pas clair et comment un 'Site Clarté' peut transformer votre présence en ligne.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-cout-cache.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-cout-cache.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- ======================================================= -->
+        <!--      HEADER / NAVIGATION (CHEMINS CORRIGÉS)           -->
+        <!-- ======================================================= -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ======================================================= -->
+        <!--                DÉBUT DU CONTENU DE L'ARTICLE            -->
+        <!-- ======================================================= -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Le Coût Caché d'un Site "Brouillon" : Combien de Clients Perdez-vous Vraiment ?
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Votre site web vous coûte-t-il des clients ? Découvrez les 3 coûts cachés d'un message pas clair et comment un "Site Clarté" peut transformer votre présence en ligne en un véritable atout commercial.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/cout-cache-intro.webp" alt="Panneau de signalisation avec des flèches confuses, symbolisant un site web au message peu clair." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Vous avez un site web. C'est une bonne première étape. Vous l'avez peut-être fait vous-même pour limiter les coûts, ou vous l'avez confié à un ami "qui s'y connaît". Il est en ligne, il existe. Case cochée.</p>
+                    <p data-sr>Mais est-ce qu'il <em class="italic">travaille</em> pour vous ?</p>
+                    <p data-sr>Trop souvent, je vois des coachs, thérapeutes et consultants brillants avec des sites web qui, malheureusement, sont des "sites brouillons". Ce ne sont pas forcément des sites laids. Ce sont des sites dont le message est flou.</p>
+                    <p data-sr>On y trouve du jargon, des promesses vagues, un parcours de navigation confus... Bref, le visiteur arrive, ne comprend pas en 3 secondes ce qu'on lui propose, et repart.</p>
+                    <p data-sr>On pense souvent que le seul coût d'un mauvais site est le prix qu'on a payé pour le créer. C'est une erreur. Le véritable coût, le coût caché, est infiniment plus élevé. C'est le <strong class="text-neutral-dark">coût des opportunités manquées</strong>.</p>
+                    <p data-sr>Combien de clients perdez-vous chaque mois à cause de ce "brouillard digital" ? Faisons le calcul ensemble.</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Coût Caché n°1 : La Perte de Crédibilité Immédiate</h2>
+                        <p>Votre site web est votre commercial silencieux. Il travaille pour vous 24h/24. Quand un prospect arrive dessus, il ne vous juge pas seulement sur votre expertise, mais sur la clarté avec laquelle vous la présentez.</p>
+                        <p class="mt-4">Un site "brouillon" envoie des signaux négatifs inconscients :</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong class="text-neutral-dark">Un message flou ?</strong> → "Cette personne n'est peut-être pas si experte que ça si elle n'arrive pas à expliquer simplement ce qu'elle fait."</li>
+                            <li><strong class="text-neutral-dark">Du jargon technique ?</strong> → "Cette personne est dans sa bulle, elle ne cherche pas à se mettre à mon niveau pour que je la comprenne."</li>
+                            <li><strong class="text-neutral-dark">Un design amateur ou daté ?</strong> → "Si sa vitrine digitale n'est pas soignée, est-ce que son accompagnement le sera ?"</li>
+                        </ul>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg"><strong class="text-neutral-dark">Le calcul est simple :</strong> si 100 prospects visitent votre site chaque mois, et que 50% d'entre eux repartent immédiatement à cause d'un manque de clarté et de professionnalisme, c'est <strong class="text-clarity-blue">50 opportunités de créer la confiance qui s'évaporent</strong>. Chaque mois.</p>
+                    </div>
+                    
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/cout-cache-prospect-fantome.webp" alt="Silhouette d'un client potentiel s'éloignant d'un ordinateur, représentant une opportunité manquée." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Coût Caché n°2 : Le Prospect "Fantôme"</h2>
+                        <p>C'est le coût le plus frustrant. Le prospect "fantôme" est cette personne qui était <strong class="text-neutral-dark">parfaite pour vous</strong>. Elle avait le bon problème, le bon budget, et elle était prête à passer à l'action.</p>
+                        <p class="mt-4">Elle arrive sur votre site. Elle lit votre accroche vague. Elle clique sur votre page "Services" et y trouve une liste technique de "séances" sans bénéfices clairs. Elle ne se sent pas comprise. Elle ne voit pas la solution à son problème. Elle doute.</p>
+                        <p class="mt-4">Et au lieu de vous contacter, elle ferme l'onglet et va voir votre concurrent, dont le message est limpide : "Je vous aide à [Résoudre ce problème précis]".</p>
+                        <blockquote class="border-l-4 border-warm-orange pl-6 mt-6 text-neutral-dark">
+                            <p class="font-semibold italic">Imaginons qu'un client vous rapporte en moyenne 1000€. Si votre site "brouillon" laisse s'échapper ne serait-ce qu'un seul prospect "fantôme" par mois, c'est 12 000€ de chiffre d'affaires potentiel que vous perdez chaque année.</p>
+                        </blockquote>
+                        <p class="mt-6">Un message pas clair n'est pas un petit détail. C'est une fuite béante dans votre pipeline commercial.</p>
+                    </div>
+
+                    <!-- Section 3 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Coût Caché n°3 : Le Temps Perdu en "Éducation"</h2>
+                        <p>Ce coût est plus subtil, mais tout aussi réel. Quand votre site n'est pas clair, les quelques personnes qui vous contactent sont souvent... pas les bonnes. Ou alors, elles n'ont rien compris à ce que vous faites.</p>
+                        <p class="mt-4">Vous passez alors vos premiers appels (qui devraient être des appels de vente stratégiques) à :</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li>Réexpliquer les bases de votre métier.</li>
+                            <li>Clarifier ce que vous faites et ne faites pas.</li>
+                            <li>Justifier la valeur de votre approche.</li>
+                        </ul>
+                        <p class="mt-4">En bref, vous faites le travail que votre site aurait dû faire pour vous.</p>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg"><strong class="text-neutral-dark">Le calcul est une question d'efficacité :</strong> Si vous passez 2 heures par semaine à "éduquer" des prospects non qualifiés, c'est plus de <strong class="text-clarity-blue">8 heures par mois</strong>. Huit heures que vous ne passez pas à accompagner vos vrais clients, à développer votre activité ou simplement à prendre soin de vous.</p>
+                        <p class="mt-4">Un site clair agit comme un filtre. Il éduque et qualifie les prospects en amont, pour que les personnes qui vous appellent soient déjà convaincues et prêtes à discuter sérieusement.</p>
+                    </div>
+                    
+                    <!-- Image 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/cout-cache-solution-clarte.webp" alt="Site web clair et professionnel sur un ordinateur portable, montrant la solution au problème du message brouillon." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 4 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">La Solution : Investir dans la Clarté, pas seulement dans un Site</h2>
+                        <p>Vous l'aurez compris, un site web n'est pas une dépense, c'est un investissement. Et le meilleur investissement que vous puissiez faire n'est pas dans des animations complexes ou des gadgets à la mode. C'est dans la <strong class="text-neutral-dark">clarté de votre message</strong>.</p>
+                        <p class="mt-4">C'est la raison d'être de mon offre <a href="../index.html#offres" class="font-bold text-clarity-blue hover:text-deep-blue underline transition-colors">Site Clarté</a>.</p>
+                        <p class="mt-4">Mon processus ne commence pas par le design. Il commence par un <a href="01-atelier-message-central.html" class="font-bold text-clarity-blue hover:text-deep-blue underline transition-colors">Atelier de Clarté</a>, où nous travaillons ensemble pour sculpter votre message, définir vos offres de transformation et structurer votre histoire.</p>
+                        <p class="mt-4">Le site web que je construis ensuite en 7 jours n'est que la matérialisation de cette clarté. C'est un outil conçu non pas pour "être joli", mais pour <strong class="text-warm-orange">arrêter de vous coûter des clients</strong>.</p>
+                    </div>
+
+                    <!-- Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Votre Site est-il un Actif ou un Passif ?</h2>
+                        <p>Posez-vous honnêtement la question. Est-ce que votre site web actuel vous rapporte des clients qualifiés chaque mois ? Ou est-ce qu'il est une simple carte de visite numérique qui prend la poussière et vous coûte, silencieusement, des milliers d'euros en opportunités manquées ?</p>
+                        <p class="mt-4 bg-soft-blue p-6 rounded-lg font-semibold text-neutral-dark text-center">Si vous êtes prêt à transformer votre "site brouillon" en votre meilleur commercial, il est peut-être temps d'investir dans la clarté.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Appel à l'action final (STYLE MODIFIÉ) -->
+            <section id="lead-magnet-blog" class="py-20 bg-white relative overflow-hidden">
+                <div class="container mx-auto px-6 relative z-10">
+                    <div class="max-w-6xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl overflow-hidden" data-sr>
+                        <div class="grid lg:grid-cols-2 gap-8 items-center">
+                            
+                            <!-- COLONNE IMAGE -->
+                            <div class="relative flex justify-center items-center p-8 lg:p-12">
+                                <div class="relative group">
+                                    <div class="absolute top-20 left-14 bg-warm-orange text-white px-4 py-1.5 rounded-full text-sm font-bold shadow-lg transform -rotate-12 z-10 transition-transform group-hover:scale-110">
+                                        GRATUIT
+                                    </div>
+                                    <img src="../assets/checklist-mockup-transparent.png" 
+                                         alt="Checklist 7 Points Incontournables pour votre site web"
+                                         class="w-full max-w-sm mx-auto drop-shadow-2xl transform transition-transform duration-300 group-hover:scale-105" 
+                                         loading="lazy">
+                                </div>
+                            </div>
+            
+                            <!-- Colonne Contenu et Formulaire -->
+                            <div class="p-8 pt-0 lg:py-12 lg:pr-12 lg:pl-0 space-y-6">
+                                <div>
+                                    <h3 class="text-2xl md:text-3xl font-bold">Transformez vos visiteurs en clients.</h3>
+                                    <p class="text-xl text-warm-orange font-semibold mt-1">Découvrez les 7 points incontournables.</p>
+                                </div>
+                                
+                                <p class="text-lg text-white/80 leading-relaxed">
+                                    Avant d'investir, assurez-vous que les fondations sont solides. Ce guide simple vous donne un plan d'action clair pour :
+                                </p>
+            
+                                <ul class="space-y-3 text-lg">
+                                    <li class="flex items-center gap-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success-green flex-shrink-0" fill="none" viewBox="0 0 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>Éviter les erreurs coûteuses que font 90% des indépendants.</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success-green flex-shrink-0" fill="none" viewBox="0 0 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <span>Gagner en confiance avant même de commencer votre projet.</span>
+                                    </li>
+                                </ul>
+                                
+                                <div class="pt-2">
+                                    <form id="sib-form" method="POST"
+                                        action="https://2a94b6d3.sibforms.com/serve/MUIFAF-8lvqoEgQ9XmXK62oeOPse06sPpprPUX5dw_fI2QZzwjOmEIwSOv0rSw4SH-IxWwEVQXPwcu-X6DaV0ErPKdUUx50BXxZ0GegndcrHLpRW-Sm5y_QOBcn5cejcywdgKyEcbN6lGW756rgUv6DXIY9Po3ZHvAtilPEABRfuzW2qOtIoFZuObcYWsWlKkhzZgy4oisAbv2kh"
+                                        class="space-y-4">
+                                        <div class="flex flex-col gap-3">
+                                             <input type="text" id="PRENOM" name="PRENOM" placeholder="Votre prénom"
+                                                class="w-full bg-white/90 text-neutral-dark border-0 h-14 text-lg rounded-md px-4 placeholder:text-neutral-light"
+                                                required>
+                                            <input type="email" id="EMAIL" name="EMAIL" placeholder="Votre meilleur email"
+                                                class="w-full bg-white/90 text-neutral-dark border-0 h-14 text-lg rounded-md px-4 placeholder:text-neutral-light"
+                                                required>
+                                        </div>
+                                        <div>
+                                            <button type="submit" class="w-full btn btn-orange text-lg h-14 flex items-center justify-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                                </svg>
+                                                <span>Télécharger le Guide Gratuit</span>
+                                            </button>
+                                        </div>
+                                        <p class="text-xs text-center text-white/60">
+                                            Envoi immédiat • Vos données restent privées • Zéro spam
+                                        </p>
+                                        <input type="text" name="email_address_check" value="" style="display: none;">
+                                        <input type="hidden" name="locale" value="fr">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ======================================================= -->
+        <!--        FOOTER (CHEMINS CORRIGÉS)                      -->
+        <!-- ======================================================= -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

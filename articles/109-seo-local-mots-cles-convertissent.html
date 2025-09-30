@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Clients ou Curieux ? La Leçon du SEO Local sur les Mots-Clés qui Convertissent</title>
+    <meta name="description"
+        content="Tout le trafic n'est pas bon à prendre. Découvrez la différence vitale entre les mots-clés informationnels (curieux) et transactionnels locaux (clients), et où concentrer vos efforts.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Clients ou Curieux ? La Leçon du SEO Local sur les Mots-Clés qui Convertissent">
+    <meta property="og:description"
+        content="Découvrez la différence entre les mots-clés qui attirent les curieux et ceux qui attirent les clients. Concentrez vos efforts sur le trafic qui convertit.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-seo-local-clients-vs-curieux.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-seo-local-clients-vs-curieux.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                           Clients ou Curieux ? <br class="hidden sm:block"> La Leçon du SEO Local sur les <span class="text-clarity-blue">Mots-Clés qui Convertissent</span>
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Tout le trafic n'est pas bon à prendre. Découvrez la différence vitale entre les mots-clés "informationnels" (qui attirent les curieux) et les mots-clés "transactionnels locaux" (qui attirent les clients), et où concentrer vos efforts.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/aimant-attire-clients-plutot-que-curieux.webp" alt="Aimant attirant d'un côté des clients symbolisés par des icônes euro, et de l'autre des curieux avec des points d'interrogation" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>En marketing, on est souvent obsédé par une chose : le <strong class="text-neutral-dark">trafic</strong>. On veut plus de visiteurs sur notre site, plus de vues, plus de clics. On pense que si l'on attire assez de monde, une partie finira bien par devenir cliente.</p>
+                    <p data-sr>C'est un peu comme organiser une immense journée "portes ouvertes" dans son cabinet en espérant que quelques personnes prendront rendez-vous. C'est épuisant et peu efficace.</p>
+                    <p data-sr>Et si, au lieu d'attirer la foule, vous pouviez donner l'adresse de votre cabinet uniquement aux personnes qui ont <strong class="text-clarity-blue">déjà décidé</strong> de consulter un professionnel comme vous ?</p>
+                    <p data-sr>C'est toute la différence entre le SEO traditionnel (le blogging) et le SEO local (votre fiche Google). Et cette différence repose sur un concept clé : l'**intention de recherche**.</p>
+                    <p data-sr>Derrière chaque mot tapé dans Google se cache une intention. Comprendre cette intention, c'est comprendre si vous avez affaire à un simple <strong class="text-neutral-dark">curieux</strong> ou à un <strong class="text-success-green">client potentiel</strong>.</p>
+                    
+                    <!-- Section 1 : Mots-clés informationnels -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Catégorie 1 : Les Mots-Clés "Informationnels" (Qui attirent les Curieux)</h2>
+                        <p>Ce sont les mots-clés utilisés par des personnes qui sont en phase de <strong class="text-neutral-dark">recherche d'information</strong>. Elles veulent apprendre, comprendre, se renseigner. Leur intention n'est pas d'acheter, mais de s'éduquer.</p>
+                        
+                        <div class="bg-soft-blue border-l-4 border-destructive p-6 rounded-lg my-8">
+                             <h3 class="text-xl font-bold text-destructive mb-4 flex items-center gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                L'Intention du "Curieux"
+                            </h3>
+                            <ul class="list-none space-y-3 mt-4 text-neutral-dark">
+                                <li><strong>Leurs Questions :</strong> Commencent souvent par "Comment", "Pourquoi", "Qu'est-ce que"...</li>
+                                <li><strong>Exemples de Mots-Clés :</strong> "comment gérer son anxiété", "bienfaits de la méditation", "symptômes du burn-out", "qu'est-ce que le coaching de carrière".</li>
+                                <li><strong>Où les Cibler ?</strong> Le terrain de jeu du SEO traditionnel, via des articles de blog détaillés.</li>
+                                <li><strong>Profil du Visiteur :</strong> Un "étudiant", un prospect froid en haut de l'entonnoir de conversion.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                     <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/recherche-informationnelle-vs-recherche-transactionnelle-locale.webp" alt="Visuel comparatif montrant une personne lisant un livre (recherche informationnelle) et une autre serrant la main d'un professionnel (recherche transactionnelle)" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 : Mots-clés transactionnels locaux -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Catégorie 2 : Les Mots-Clés "Transactionnels Locaux" (Qui attirent les Clients)</h2>
+                        <p>Ce sont les mots-clés utilisés par des personnes qui ont dépassé le stade de la recherche. Elles ont un problème identifié et cherchent activement <strong class="text-neutral-dark">un professionnel pour le résoudre, près de chez elles</strong>. Leur intention est commerciale.</p>
+                        
+                        <div class="bg-soft-blue border-l-4 border-success-green p-6 rounded-lg my-8">
+                             <h3 class="text-xl font-bold text-success-green mb-4 flex items-center gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                L'Intention du "Client"
+                            </h3>
+                            <ul class="list-none space-y-3 mt-4 text-neutral-dark">
+                                <li><strong>Leur Structure :</strong> Combinaison de [Service/Métier] + [Ville/Localisation].</li>
+                                <li><strong>Exemples de Mots-Clés :</strong> "sophrologue anxiété Bordeaux", "coach reconversion professionnelle près de moi", "thérapeute de couple à Nantes".</li>
+                                <li><strong>Où les Cibler ?</strong> Le terrain de jeu du SEO Local, via votre Fiche d'Établissement Google.</li>
+                                <li><strong>Profil du Visiteur :</strong> Un "acheteur", un prospect chaud en bas de l'entonnoir. Il veut des coordonnées, pas un article.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Image 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/strategie-seo-local-prioriser-clients-potentiels.webp" alt="Schéma de la stratégie 80/20 montrant 80% des efforts sur le SEO local (Fiche Google) et 20% sur le SEO traditionnel (Blog)" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 3 : La Leçon Stratégique -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">La Leçon Stratégique pour un Indépendant qui se Lance</h2>
+                        <p>Maintenant, la question qui vaut de l'or : si vous avez un temps et une énergie limités, sur quel type de mots-clés devriez-vous concentrer vos efforts en premier ?</p>
+                        <p class="mt-4 bg-soft-blue p-6 rounded-lg font-semibold text-neutral-dark shadow">La réponse est sans appel : <strong class="text-clarity-blue">les mots-clés transactionnels locaux.</strong></p>
+                        <p class="mt-4">Pourquoi ? Parce qu'un seul visiteur qui arrive sur votre site via la recherche "coach burn-out [votre ville]" est <strong class="text-neutral-dark">10 fois plus susceptible de devenir un client</strong> qu'un visiteur qui arrive via la recherche "symptômes du burn-out".</p>
+                        <p class="mt-4">Le premier cherche un guide. Le second cherche un diagnostic.</p>
+                        <p class="mt-4">C'est pourquoi la stratégie 80/20 pour un débutant est claire :</p>
+                        <ul class="list-decimal list-inside space-y-2 mt-4 pl-4 font-semibold text-neutral-dark">
+                            <li>Concentrez <strong class="text-warm-orange">80% de vos efforts sur le SEO Local</strong> : Optimisez votre fiche Google à la perfection pour capter ce trafic "chaud".</li>
+                            <li>Consacrez <strong class="text-warm-orange">20% de vos efforts au SEO Traditionnel</strong> : Écrivez un article de blog de temps en temps pour commencer à bâtir votre autorité sur le long terme.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 4 : Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Parlez aux Acheteurs, pas seulement aux Étudiants</h2>
+                        <p>Le marketing de contenu est une danse subtile entre éduquer et vendre. Les articles de blog sont parfaits pour éduquer les "curieux" et les transformer, petit à petit, en prospects.</p>
+                        <p class="mt-4">Mais votre Fiche Google Business est votre ligne directe avec les "clients". Ce sont des personnes qui ont déjà fait leurs recherches et qui sont prêtes à agir.</p>
+                        <p class="mt-4">En tant qu'indépendant, votre survie et votre croissance dépendent de votre capacité à attirer ce trafic à haute intention. Assurez-vous que votre fiche est parfaitement optimisée pour capter ces mots-clés en or, et que votre <a href="../index.html#offres" class="font-bold text-clarity-blue hover:underline">Site Clarté</a> est prêt à les accueillir avec une proposition de valeur si claire qu'ils n'auront qu'une seule envie : prendre rendez-vous.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Appel à l'action final -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Votre site est-il optimisé pour les <span class="text-clarity-blue">clients</span> ou pour les <span class="text-warm-orange">curieux</span> ?
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Attirer le bon trafic est la première étape. Le convertir en est une autre. Un site conçu pour un visiteur "chaud" doit être direct, rassurant et efficace. Discutons-en.
+                        </p>
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Planifier mon Appel Clarté
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

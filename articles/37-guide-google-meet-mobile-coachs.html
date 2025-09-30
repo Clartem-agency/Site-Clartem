@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Google Meet sur Mobile : Le Guide pour Coacher en Toute Liberté (et Rester Pro)</title>
+    <meta name="description"
+        content="Coachs, consultants : besoin de faire une séance en déplacement ? Découvrez notre guide complet pour utiliser Google Meet sur mobile de manière professionnelle (cadrage, son, stabilité...) et garantir une expérience client impeccable.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- META OPEN GRAPH & TWITTER (SPÉCIFIQUES À L'ARTICLE) -->
+    <meta property="og:title" content="Google Meet sur Mobile : Le Guide pour Coacher en Toute Liberté (et Rester Pro)">
+    <meta property="og:description"
+        content="Découvrez comment utiliser Google Meet sur mobile de manière professionnelle (cadrage, son, stabilité...) pour garantir une expérience client impeccable.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-google-meet-mobile.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-google-meet-mobile.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- ======================================================= -->
+        <!--      HEADER / NAVIGATION (CHEMINS CORRIGÉS)           -->
+        <!-- ======================================================= -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ======================================================= -->
+        <!--                DÉBUT DU CONTENU DE L'ARTICLE            -->
+        <!-- ======================================================= -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Google Meet sur Mobile : Le Guide pour Coacher en Toute Liberté (et Rester Pro)
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                            Coachs, consultants : besoin de faire une séance en déplacement ? Découvrez notre guide complet pour utiliser Google Meet sur mobile de manière professionnelle et garantir une expérience client impeccable.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/google-meet-mobile-intro.webp" alt="Coach professionnel utilisant Google Meet sur son smartphone stabilisé sur un mini-trépied dans un espace de coworking." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>La vie d'un coach ou d'un consultant indépendant est faite de flexibilité. Un déplacement imprévu, un enfant malade à la maison, une journée de travail dans un café pour changer d'air... Votre bureau n'est plus toujours votre bureau.</p>
+
+                    <p data-sr>Mais voilà, un appel important avec un client est prévu dans votre agenda. L'annuler ? Pas question. Le faire "à l'arrache" depuis votre téléphone, en espérant que tout se passe bien ? C'est risquer de saboter votre image professionnelle.</p>
+
+                    <p data-sr>Beaucoup d'experts pensent qu'un appel sur mobile est forcément synonyme d'amateurisme. C'est une idée reçue. Avec la puissance des smartphones actuels et la fiabilité de Google Meet, vous pouvez tout à fait mener une séance de coaching impeccable depuis n'importe où.</p>
+
+                    <p data-sr>La clé n'est pas l'outil, mais la <strong class="text-clarity-blue">préparation</strong>.</p>
+                    
+                    <p data-sr>Utiliser Google Meet sur mobile n'est pas une solution de secours. C'est une compétence. Une compétence qui vous offre une liberté immense tout en garantissant à vos clients l'expérience professionnelle qu'ils méritent. Voici le guide complet pour devenir un pro du coaching nomade.</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">La Préparation : Les 3 Piliers de la Sérénité Nomade</h2>
+                        <p>Avant même de penser à l'appel, votre succès dépend de trois éléments en amont.</p>
+                    </div>
+
+                    <!-- Point 1 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">1. La Connexion : Votre Ligne de Vie</h3>
+                        <ul class="list-disc list-inside space-y-3 pl-2">
+                            <li><strong class="text-neutral-dark">Le test :</strong> N'attendez pas le début de l'appel pour découvrir que la connexion est mauvaise. Utilisez une application comme "Speedtest" pour vérifier que votre débit est suffisant (visez au moins 5-10 Mbps en upload).</li>
+                            <li><strong class="text-neutral-dark">La règle d'or :</strong> Une bonne connexion <strong class="text-neutral-dark">4G/5G stable est souvent préférable à un Wi-Fi public</strong> (hôtel, café, aéroport) qui peut être surchargé et instable. Si vous êtes en déplacement, privilégiez votre partage de connexion.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Point 2 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">2. Le Son : La Priorité Absolue</h3>
+                        <p>Rappelez-vous : votre client peut pardonner une image moyenne, mais pas un son inaudible.</p>
+                        <ul class="list-disc list-inside space-y-3 pl-2 mt-4">
+                            <li><strong class="text-neutral-dark">L'indispensable :</strong> Des <strong class="text-neutral-dark">écouteurs avec micro intégré</strong> (ceux de votre smartphone sont parfaits). N'utilisez JAMAIS le haut-parleur de votre téléphone. Vous créeriez un écho insupportable et capteriez tous les bruits ambiants.</li>
+                            <li><strong class="text-neutral-dark">Le test :</strong> Avant l'appel, enregistrez un court mémo vocal pour vérifier que votre micro fonctionne bien et que le son est clair.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Point 3 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">3. L'Environnement : Votre Cabinet Virtuel Éphémère</h3>
+                        <p>Vous n'êtes pas à votre bureau, mais vous devez recréer un environnement qui inspire le calme et la confidentialité.</p>
+                         <ul class="list-disc list-inside space-y-3 pl-2 mt-4">
+                            <li><strong class="text-neutral-dark">Le lieu :</strong> Trouvez l'endroit le plus calme possible. Une voiture garée (oui, ça marche très bien !), une salle de réunion vide dans un espace de coworking, un coin tranquille loin du passage...</li>
+                            <li><strong class="text-neutral-dark">L'arrière-plan :</strong> La simplicité est votre meilleure amie. Un mur neutre est idéal. Évitez à tout prix les arrière-plans chargés, en désordre ou avec du passage.</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/google-meet-mobile-preparation.webp" alt="Kit de préparation pour un appel Google Meet nomade : smartphone, mini-trépied et écouteurs." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Le Déroulé : Les 4 Astuces pour une Exécution Impeccable</h2>
+                        <p>Votre environnement est prêt. Voici comment gérer l'appel lui-même comme un pro.</p>
+                    </div>
+
+                    <!-- Point 4 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">4. La Stabilité : Le Socle de votre Crédibilité</h3>
+                        <p>C'est l'erreur la plus courante et la plus facile à éviter.</p>
+                        <ul class="list-disc list-inside space-y-3 pl-2 mt-4">
+                            <li><strong class="text-neutral-dark">L'erreur fatale :</strong> Tenir le téléphone à la main. L'image tremblera inévitablement, ce qui est extrêmement distrayant pour votre client et donne une impression d'instabilité.</li>
+                            <li><strong class="text-neutral-dark">La solution : Calez votre téléphone.</strong>
+                                <ul class="list-disc list-inside space-y-1 mt-2 pl-6 text-base">
+                                    <li><em class="text-neutral-dark">Idéal :</em> Un mini-trépied pour smartphone (un investissement de 15€ qui change tout).</li>
+                                    <li><em class="text-neutral-dark">Système D :</em> Calez-le contre une pile de livres, une bouteille d'eau, votre sac... L'important est qu'il soit parfaitement immobile.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Point 5 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">5. Le Cadrage et la Lumière : Les Fondamentaux</h3>
+                        <p>Les mêmes règles que sur ordinateur s'appliquent, mais elles sont encore plus importantes sur un petit écran.</p>
+                        <ul class="list-disc list-inside space-y-3 pl-2 mt-4">
+                            <li><strong class="text-neutral-dark">La lumière :</strong> Placez-vous <strong class="text-neutral-dark">face</strong> à la source de lumière (une fenêtre, une lampe).</li>
+                            <li><strong class="text-neutral-dark">Le cadrage :</strong> Positionnez le téléphone pour que l'objectif soit <strong class="text-neutral-dark">à la hauteur de vos yeux</strong>. On doit voir le haut de votre buste. Cela crée une conversation d'égal à égal.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Point 6 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">6. Le Mode "Ne Pas Déranger" : Votre Bouclier Anti-Distractions</h3>
+                        <p>Un appel client interrompu par une notification WhatsApp ou un appel de votre grand-mère, c'est le summum du non-professionnalisme.</p>
+                        <ul class="list-disc list-inside space-y-3 pl-2 mt-4">
+                           <li><strong class="text-neutral-dark">Le réflexe indispensable :</strong> Avant de lancer l'appel, activez le mode <strong class="text-neutral-dark">"Ne pas déranger"</strong> ou "Concentration" sur votre téléphone. Toutes les notifications et les appels seront mis en sourdine, vous garantissant une présence totale pour votre client.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Point 7 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">7. La Transparence (si nécessaire) : L'Honnêteté qui Rassure</h3>
+                        <p>Malgré toute votre préparation, un imprévu peut arriver (une sirène de pompier, une coupure de connexion...).</p>
+                        <ul class="list-disc list-inside space-y-3 pl-2 mt-4">
+                           <li><strong class="text-neutral-dark">L'erreur :</strong> Faire comme si de rien n'était, en espérant que ça passe.</li>
+                           <li><strong class="text-neutral-dark">La bonne posture :</strong> Adressez la situation avec calme et professionnalisme.
+                                <blockquote class="border-l-4 border-warm-orange pl-4 mt-3 space-y-2 text-base italic">
+                                    <p>"Je m'excuse pour ce bruit de fond, il devrait passer rapidement."</p>
+                                    <p>"Il semble que ma connexion soit un peu instable, je vais couper ma vidéo un instant pour préserver la qualité audio."</p>
+                                </blockquote>
+                           </li>
+                        </ul>
+                        <p class="mt-4">Cette transparence ne vous fait pas paraître amateur. Au contraire, elle montre que vous êtes un expert qui maîtrise son environnement et qui reste serein face aux imprévus.</p>
+                    </div>
+
+                    <!-- Image 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/google-meet-mobile-execution.webp" alt="Exemple d'un cadrage professionnel lors d'un appel vidéo Google Meet sur mobile." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : La Liberté est une Compétence</h2>
+                        <p>Être capable de mener une séance de coaching professionnelle depuis n'importe où n'est pas un "plan B". C'est une compétence clé de l'expert moderne. C'est la preuve que votre professionnalisme ne dépend pas de votre bureau, mais de votre rigueur et de votre capacité d'adaptation.</p>
+                        <p class="mt-4">En maîtrisant ces quelques règles simples, vous ne faites pas que "gérer un imprévu". Vous offrez à vos clients une expérience cohérente et impeccable, où qu'ils soient, et où que vous soyez. Et vous vous offrez à vous-même le plus grand des luxes : la liberté.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Appel à l'action final (REMPLACE LE LEAD MAGNET) -->
+            <section id="cta-blog" class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 md:p-12 text-center" data-sr>
+                        <h3 class="text-2xl md:text-3xl font-bold">Votre image professionnelle est-elle cohérente sur tous les canaux ?</h3>
+                        <p class="text-lg text-white/80 leading-relaxed mt-4 mb-8">
+                            Maîtriser vos outils nomades est une chose. S'assurer que votre site web – la porte d'entrée de votre business – reflète ce même niveau de professionnalisme en est une autre.
+                        </p>
+                        <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="btn btn-primary text-base md:text-lg">
+                            <strong>Discutons de la manière de bâtir une présence digitale professionnelle et flexible lors d'un Appel Clarté gratuit</strong>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ======================================================= -->
+        <!--        FOOTER (CHEMINS CORRIGÉS)                      -->
+        <!-- ======================================================= -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

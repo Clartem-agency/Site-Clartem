@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Les 5 Erreurs qui Rendent votre Site de Thérapeute Froid (et Comment Créer un Cocon de Confiance)</title>
+    <meta name="description"
+        content="Votre site de thérapeute ou praticien bien-être ne convertit pas ? Découvrez les 5 erreurs courantes qui brisent la confiance et apprenez à créer un 'cocon digital' qui rassure et attire vos clients idéaux.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- META OPEN GRAPH & TWITTER (SPÉCIFIQUES À L'ARTICLE) -->
+    <meta property="og:title" content="Les 5 Erreurs qui Rendent votre Site de Thérapeute Froid">
+    <meta property="og:description"
+        content="Découvrez comment créer un 'cocon digital' qui rassure et attire vos clients idéaux en évitant 5 erreurs courantes.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-therapeute-cocon.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-therapeute-cocon.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- ======================================================= -->
+        <!--      HEADER / NAVIGATION (CHEMINS CORRIGÉS)           -->
+        <!-- ======================================================= -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ======================================================= -->
+        <!--                DÉBUT DU CONTENU DE L'ARTICLE            -->
+        <!-- ======================================================= -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Les 5 Erreurs qui Rendent votre Site de Thérapeute Froid (et Comment Créer un Cocon de Confiance)
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                            Votre site de praticien bien-être ne convertit pas ? Découvrez les 5 erreurs courantes qui brisent la confiance et apprenez à créer un "cocon digital" qui rassure et attire vos clients idéaux.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/therapeute-cocon-intro.webp" alt="Main tendue avec bienveillance, symbolisant la confiance et le soin d'un thérapeute." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Vous êtes sophrologue, naturopathe, praticien en massage, hypnothérapeute... Votre métier est l'incarnation de la chaleur humaine, de l'écoute et de la bienveillance. Dans votre cabinet, vous savez créer un espace de sécurité, un véritable "cocon" où vos clients peuvent se déposer en toute confiance.</p>
+
+                    <p data-sr>Puis vient le moment de créer votre site web. Et là, sans vous en rendre compte, vous commettez des erreurs qui transforment cette belle énergie en une vitrine froide, distante et impersonnelle.</p>
+
+                    <p data-sr>Le résultat ? Un visiteur qui ressent un malaise, un décalage entre la promesse de votre métier et la réalité de votre site. Il ne se sent pas en sécurité. Il ne vous contacte pas.</p>
+
+                    <p data-sr>Ce n'est pas votre faute. On nous apprend à être de bons thérapeutes, pas de bons communicants sur le web. Mais la bonne nouvelle, c'est que créer un "cocon digital" qui prolonge l'ambiance de votre cabinet est plus simple qu'il n'y paraît.</p>
+
+                    <p class="font-semibold text-neutral-dark" data-sr>Cela commence par éviter ces 5 erreurs courantes.</p>
+
+                    <!-- Erreur 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Erreur n°1 : Parler le "Thérapeute" au lieu de parler "Humain" (Le Mur du Jargon)</h2>
+                        <p>Vous êtes fier de vos techniques. Sophrologie Caycédienne, Iridologie, Drainage Lymphatique Renata França, Hypnose Ericksonienne... Ces termes sont précis et importants pour vous. Pour votre client, ils sont souvent intimidants et incompréhensibles.</p>
+                        <div class="bg-soft-blue border-l-4 border-destructive p-6 rounded-lg my-8 space-y-4">
+                            <p><strong class="text-neutral-dark">Le symptôme :</strong> Votre page d'accueil titre "Découvrez les bienfaits de la kinésiologie appliquée".</p>
+                            <p><strong class="text-neutral-dark">Ce que ressent le client :</strong> "Je ne comprends pas ce que c'est. Est-ce que c'est pour moi ? Ça a l'air compliqué." Il se sent ignorant et part.</p>
+                            <p class="font-semibold text-success-green"><strong class="text-neutral-dark">La solution "Cocon" :</strong> Parlez du <strong class="text-success-green">résultat</strong>, pas de l'outil. Au lieu de "kinésiologie", parlez de "libérer les blocages émotionnels". Au lieu de "drainage lymphatique", parlez de "retrouver des jambes légères et une nouvelle énergie". Vendez la destination, pas le nom de l'avion.</p>
+                        </div>
+                    </div>
+
+                    <!-- Erreur 2 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Erreur n°2 : Utiliser des Photos "Stock" Vides d'Âme</h2>
+                        <p>Vous avez besoin d'une image pour illustrer la sérénité. Vous allez sur une banque d'images et vous choisissez cette photo vue 1000 fois : une femme aux yeux fermés, souriant parfaitement, avec des galets empilés à côté d'elle.</p>
+                        <div class="bg-soft-blue border-l-4 border-destructive p-6 rounded-lg my-8 space-y-4">
+                            <p><strong class="text-neutral-dark">Le symptôme :</strong> Votre site ressemble à des dizaines d'autres. Les photos sont parfaites, mais froides.</p>
+                            <p><strong class="text-neutral-dark">Ce que ressent le client :</strong> Il sent inconsciemment le manque d'authenticité. "Ce n'est pas un vrai lieu, ce n'est pas une vraie personne." La connexion ne se fait pas.</p>
+                            <p class="font-semibold text-success-green"><strong class="text-neutral-dark">La solution "Cocon" :</strong> L'authenticité imparfaite vaut mieux que la perfection impersonnelle.</p>
+                            <ul class="list-disc list-inside space-y-2 mt-2 pl-4 text-neutral-dark">
+                                <li><strong class="font-semibold">Votre lieu :</strong> Une belle photo lumineuse de votre cabinet, même s'il est simple. Un fauteuil accueillant, une plante... Cela rend l'expérience concrète et rassurante.</li>
+                                <li><strong class="font-semibold">Les détails :</strong> Un gros plan sur vos mains, vos huiles de massage, une tasse de tisane fumante. Ces détails racontent une histoire de soin.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/therapeute-cocon-authenticite.webp" alt="Photo authentique d'un cabinet de thérapeute avec un fauteuil accueillant et une lumière douce." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Erreur 3 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Erreur n°3 : Une Page "À Propos" qui est un CV</h2>
+                        <p>C'est l'erreur la plus répandue. Vous voulez prouver votre légitimité, alors vous listez vos certifications, vos écoles, vos stages...</p>
+                        <div class="bg-soft-blue border-l-4 border-destructive p-6 rounded-lg my-8 space-y-4">
+                            <p><strong class="text-neutral-dark">Le symptôme :</strong> Votre page "À Propos" est une liste à puces froide et factuelle.</p>
+                            <p><strong class="text-neutral-dark">Ce que ressent le client :</strong> Il n'apprend rien sur la personne que vous êtes, sur votre "pourquoi". Il ne peut pas s'identifier. Il ne sent pas le lien.</p>
+                            <p class="font-semibold text-success-green"><strong class="text-neutral-dark">La solution "Cocon" :</strong> Racontez votre <strong class="text-success-green">histoire</strong>. Pourquoi faites-vous ce métier ? Quelle expérience personnelle ou quel déclic vous a mené ici ? C'est votre parcours qui vous rend unique et qui crée une connexion d'âme à âme. Les gens ne choisissent pas un diplôme, ils choisissent un guide en qui ils ont confiance.</p>
+                        </div>
+                    </div>
+
+                    <!-- Image 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/therapeute-cocon-histoire.webp" alt="Tasse de tisane fumante sur une table en bois, évoquant une conversation chaleureuse et une connexion humaine." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Erreur 4 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Erreur n°4 : Des Offres Présentées comme un Menu de Restaurant</h2>
+                        <p>Vous listez vos services comme une carte de restaurant : une ligne, un prix.</p>
+                        <div class="bg-soft-blue border-l-4 border-destructive p-6 rounded-lg my-8 space-y-4">
+                            <p><strong class="text-neutral-dark">Le symptôme :</strong> Votre page "Tarifs" ressemble à : "Massage Californien - 1h - 70€", "Séance de Réflexologie - 45 min - 50€".</p>
+                            <p><strong class="text-neutral-dark">Ce que ressent le client :</strong> Il est dans une logique de consommation. Il compare les prix, pas la valeur. Il ne comprend pas quelle prestation est la plus adaptée à son besoin.</p>
+                            <p class="font-semibold text-success-green"><strong class="text-neutral-dark">La solution "Cocon" :</strong> Transformez vos prestations en <strong class="text-success-green">invitations</strong>. Donnez-leur un nom qui évoque le bénéfice ("Massage 'Lâcher-Prise'"). Décrivez pour qui c'est fait et quelle transformation cela apporte. Vous ne vendez plus du temps, vous vendez une expérience.</p>
+                        </div>
+                    </div>
+
+                    <!-- Erreur 5 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Erreur n°5 : Un Appel à l'Action Directif et sans Douceur</h2>
+                        <p>À la fin de la page, vous mettez un gros bouton "Réservez maintenant !" ou "Contactez-moi".</p>
+                        <div class="bg-soft-blue border-l-4 border-destructive p-6 rounded-lg my-8 space-y-4">
+                            <p><strong class="text-neutral-dark">Le symptôme :</strong> L'invitation finale est un ordre, pas une main tendue.</p>
+                            <p><strong class="text-neutral-dark">Ce que ressent le client :</strong> Pour une personne anxieuse ou hésitante, "contacter" ou "réserver" peut représenter une étape intimidante.</p>
+                            <p class="font-semibold text-success-green"><strong class="text-neutral-dark">La solution "Cocon" :</strong> Utilisez un langage qui encourage et rassure : "Prêt(e) à prendre du temps pour vous ?" ou "Faire le premier pas vers votre mieux-être". Votre appel à l'action doit être une invitation accueillante, simple et sans pression.</p>
+                        </div>
+                    </div>
+
+                    <!-- Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Votre Site est le Seuil de Votre Cabinet</h2>
+                        <p>Votre site web n'est pas une brochure technique. C'est la première pièce de votre cabinet. C'est le premier contact, la première main tendue. Il doit respirer la même énergie de calme, de sécurité et de bienveillance que celle que vous offrez en personne.</p>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">En corrigeant ces 5 erreurs, vous ne ferez pas que "améliorer votre site". Vous construirez un véritable cocon digital qui filtre naturellement les bonnes personnes, rassure les hésitants et leur donne envie de pousser la porte de votre cabinet pour de vrai.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Appel à l'action final (STYLE MODIFIÉ) -->
+            <section id="cta-blog" class="py-20 bg-white relative overflow-hidden">
+                <div class="container mx-auto px-6 relative z-10">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl overflow-hidden p-8 md:p-12 text-center" data-sr>
+                        <h3 class="text-2xl md:text-3xl font-bold">Et si nous construisions votre cocon digital ensemble ?</h3>
+                        <p class="text-lg text-white/80 leading-relaxed mt-4 max-w-2xl mx-auto">
+                            Si vous sentez que votre site actuel ne reflète pas la chaleur de votre approche, ou si vous partez de zéro et voulez être sûr de bien faire les choses, c'est précisément là que j'interviens. Mon processus "Site Clarté" est conçu pour traduire votre bienveillance en une stratégie digitale qui inspire confiance.
+                        </p>
+                        <div class="mt-8">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="btn btn-orange text-lg">
+                                Planifions un Appel Clarté gratuit
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- ======================================================= -->
+        <!--        FOOTER (CHEMINS CORRIGÉS)                      -->
+        <!-- ======================================================= -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

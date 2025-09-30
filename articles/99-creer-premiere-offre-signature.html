@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Le Guide pour Créer votre Première Offre "Signature" (même avec peu d'expérience)</title>
+    <meta name="description"
+        content="Coach ou thérapeute débutant ? Arrêtez de vendre des 'séances'. Découvrez notre guide en 5 étapes pour créer votre première offre signature, une solution packagée qui clarifie votre message et attire vos clients idéaux.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Le Guide pour Créer votre Première Offre 'Signature'">
+    <meta property="og:description"
+        content="Découvrez 5 étapes pour créer une offre packagée qui clarifie votre message et attire vos clients idéaux.">
+    <meta property="og:type" content="article">
+    <!-- NOUVELLE IMAGE OPEN GRAPH (à créer en 1200x630px) -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/guide-creation-premiere-offre-signature.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/guide-creation-premiere-offre-signature.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Le Guide pour Créer votre Première Offre "Signature" (même avec peu d'expérience)
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                            Coach ou thérapeute débutant ? Arrêtez de vendre des "séances". Découvrez notre guide en 5 étapes pour créer votre première offre signature, une solution packagée qui clarifie votre message et attire vos clients idéaux.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/coach-therapeute-creer-offre-signature-coherente.webp" alt="Personne assemblant des blocs de construction pour former une structure cohérente, symbolisant la création d'une offre signature." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr><strong class="text-neutral-dark">"Que proposez-vous ?"</strong></p>
+                    <p data-sr>C'est la question que tout le monde vous pose. Et pour un coach ou un thérapeute qui débute, la réponse est souvent hésitante, un peu floue :</p>
+                    
+                    <blockquote class="border-l-4 border-clarity-blue/30 pl-6 italic text-neutral-light" data-sr>
+                        "Euh... je propose des séances de coaching..."<br>
+                        "Je fais des soins énergétiques..."<br>
+                        "J'offre des accompagnements en sophrologie..."
+                    </blockquote>
+
+                    <p data-sr>Ces réponses sont factuelles. Mais elles ne vendent rien. Elles sont génériques. Elles vous placent dans un océan de professionnels qui proposent la "même chose". Elles vous obligent à vous battre sur le prix de la séance, car vous n'avez aucun autre moyen de vous différencier.</p>
+                    <p data-sr>Pour sortir de ce piège, vous devez cesser de vendre des <strong class="text-destructive">séances</strong>. Vous devez commencer à vendre une <strong class="text-success-green">solution</strong>. C'est ce qu'on appelle une <strong class="text-clarity-blue">Offre Signature</strong>.</p>
+                    <p data-sr>Une offre signature n'est pas réservée aux experts renommés. Au contraire, c'est l'outil le plus puissant pour un débutant. C'est un "package", un "programme", un "parcours" clair qui répond à un problème spécifique pour une personne spécifique. C'est ce qui vous rend unique.</p>
+                    <p data-sr>Voici la recette en 5 ingrédients pour créer votre toute première offre signature.</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Pourquoi une Offre Signature est un "Game-Changer" pour un Débutant</h2>
+                        <p>Avant de plonger dans la recette, comprenez pourquoi c'est si important :</p>
+                        <ul class="list-disc list-inside space-y-3 mt-4 pl-4">
+                            <li><strong class="text-neutral-dark">Ça vous rend unique :</strong> Vous n'êtes plus "un sophrologue de plus". Vous êtes le sophrologue qui propose le "Parcours Nuits Sereines".</li>
+                            <li><strong class="text-neutral-dark">Ça clarifie votre message :</strong> Vous savez exactement quoi dire sur votre site, sur vos réseaux, en networking.</li>
+                            <li><strong class="text-neutral-dark">Ça justifie votre prix :</strong> Vous ne vendez plus une heure de votre temps, mais un <strong class="text-warm-orange">résultat</strong>. La perception de la valeur est beaucoup plus élevée.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/assembler-elements-offre-signature-pour-coach.webp" alt="Assemblage de différents éléments sur un bureau, symbolisant les ingrédients d'une offre signature." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 : La Recette -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">La Recette de Votre Première Offre Signature</h2>
+                    </div>
+
+                    <!-- Ingrédient 1 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Ingrédient n°1 : Votre Client de Cœur (La Cible)</h3>
+                        <p>Nous en avons parlé dans notre <a href="#" class="font-semibold text-clarity-blue hover:underline">guide des 3 fondations</a> : vous ne pouvez pas aider tout le monde. Votre première offre doit s'adresser à <strong>UNE</strong> personne type, avec un problème que vous comprenez intimement.</p>
+                        <p class="font-semibold text-neutral-dark mt-4"><em>Exemple : "Les jeunes mamans qui se sentent dépassées."</em></p>
+                    </div>
+                    
+                    <!-- Ingrédient 2 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Ingrédient n°2 : La Transformation (La Promesse)</h3>
+                        <p>Quel est le <strong>résultat</strong> concret que vous offrez à ce client de cœur ? Quelle est la destination ?</p>
+                        <p class="font-semibold text-neutral-dark mt-4"><em>Exemple : "Aider les jeunes mamans à retrouver de l'énergie et à se sentir plus calmes au quotidien."</em></p>
+                    </div>
+
+                    <!-- Ingrédient 3 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Ingrédient n°3 : Le Contenant (La Structure)</h3>
+                        <p>C'est ce qui rend votre offre tangible. Comment allez-vous livrer cette transformation ?</p>
+                        <ul class="list-none space-y-2 mt-4 text-base">
+                            <li><span class="text-destructive font-bold mr-2">Le Piège à Éviter :</span> Rester vague.</li>
+                            <li><span class="text-success-green font-bold mr-2">La Clarté :</span> Soyez précis.
+                                <ul class="list-disc list-inside mt-2 pl-6 space-y-1">
+                                    <li>Combien de séances ? (ex: 4 séances)</li>
+                                    <li>Sur quelle durée ? (ex: sur 2 mois)</li>
+                                    <li>Quelle durée par séance ? (ex: 1h15)</li>
+                                    <li>Y a-t-il des bonus ? (ex: "plus un guide PDF avec des exercices de respiration à faire à la maison").</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Ingrédient 4 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Ingrédient n°4 : Le Nom Évocateur (L'Emballage)</h3>
+                        <p>Le nom de votre offre est son "titre de film". Il doit donner envie et résumer la promesse.</p>
+                        <p class="mt-4"><strong class="text-neutral-dark">La Formule :</strong> [Nom du Programme] : [Sous-titre qui clarifie]</p>
+                        <p class="font-semibold text-neutral-dark mt-4"><em>Exemples :</em></p>
+                        <ul class="list-disc list-inside text-base mt-2 pl-6 space-y-1">
+                            <li><strong>"Parcours Maman Sereine :</strong> 4 séances pour retrouver calme et énergie après bébé."</li>
+                            <li><strong>"Programme Impulsion Carrière :</strong> 3 séances pour clarifier votre prochain projet professionnel."</li>
+                        </ul>
+                    </div>
+
+                    <!-- Ingrédient 5 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Ingrédient n°5 : L'Investissement (Le Prix Fixe)</h3>
+                        <p>Parce que vous vendez un parcours avec un début et une fin, vous pouvez fixer un prix global. C'est beaucoup plus simple pour vous et pour le client.</p>
+                        <p class="font-semibold text-neutral-dark mt-4"><em>Exemple : "Parcours Maman Sereine - 320€".</em></p>
+                    </div>
+
+                     <!-- Image 3 -->
+                     <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/architecte-transformation-definir-offre-signature-claire.webp" alt="Main dessinant un plan clair sur un carnet, symbolisant l'architecte de la transformation." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 3 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">L'Arme Secrète du Débutant : Votre Propre Histoire</h2>
+                        <p class="italic">"Mais je n'ai pas assez d'expérience pour créer une offre 'signature' !"</p>
+                        <p class="mt-4">C'est là que réside votre plus grande force. Votre première offre signature ne doit pas être basée sur vos 20 ans d'expérience, mais sur <strong class="text-neutral-dark">l'expérience la plus profonde que vous ayez : la vôtre.</strong></p>
+                        <p class="mt-4">Le problème que vous êtes le plus légitime à résoudre aujourd'hui est celui que vous avez <strong class="text-warm-orange">vous-même traversé et surmonté</strong>.</p>
+                        <ul class="list-disc list-inside mt-4 pl-4 space-y-2">
+                            <li>Vous êtes un ancien manager qui a fait un burn-out ? Votre première offre signature sera naturellement destinée aux managers stressés.</li>
+                            <li>Vous avez réussi une reconversion professionnelle après 10 ans de doutes ? Votre première offre sera pour les personnes en quête de sens.</li>
+                        </ul>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">Votre histoire est la source de votre expertise la plus authentique. Utilisez-la.</p>
+                    </div>
+
+                    <!-- Bloc Avant/Après -->
+                    <div class="bg-soft-blue p-8 rounded-2xl shadow-lg my-8 border border-clarity-blue/20" data-sr>
+                        <h4 class="text-xl font-bold text-neutral-dark mb-6">L'Exemple Complet : Avant / Après</h4>
+                        
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <h5 class="font-bold text-destructive mb-2">AVANT (L'offre générique)</h5>
+                                <blockquote class="border-l-4 border-destructive pl-4">
+                                    <p class="text-neutral-light italic">"Je suis coach de vie. Je propose des séances à 80€ de l'heure pour vous aider à aller mieux."</p>
+                                </blockquote>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-success-green mb-2">APRÈS (L'offre signature)</h5>
+                                <blockquote class="border-l-4 border-success-green pl-4">
+                                    <p class="text-neutral-light">"Je propose le <strong class='text-neutral-dark'>'Parcours Renaissance'</strong> : un accompagnement de 6 semaines pour les femmes qui se sentent perdues après une rupture amoureuse.</p>
+                                    <p class="text-neutral-light mt-2">Ce parcours de 4 séances de 90 minutes est conçu pour vous aider à traverser le deuil, à reconstruire votre confiance en vous et à redéfinir avec clarté vos projets de vie.</p>
+                                    <p class="text-neutral-dark font-bold mt-2">Investissement : 490€"</p>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <p class="mt-6 font-semibold text-neutral-dark text-center">Laquelle de ces deux propositions vous donne le plus envie ?</p>
+                    </div>
+
+                    <!-- Section Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Devenez l'Architecte de Votre Offre</h2>
+                        <p>Arrêtez d'être un "vendeur de séances" à la demande. Devenez un <strong class="text-clarity-blue">architecte de transformation</strong>.</p>
+                        <p class="mt-4">En prenant le temps de créer votre première offre signature, vous ne faites pas qu'un simple exercice de marketing. Vous faites un acte de clarification immense pour vous-même. Vous définissez votre valeur, votre cible, votre promesse.</p>
+                        <p class="mt-4">Vous créez la première brique solide de votre nouvelle activité.</p>
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Prêt(e) à packager votre expertise <br><span class="text-clarity-blue">pour la rendre irrésistible ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Une offre signature claire est le cœur de votre business. Mais elle a besoin d'un écrin professionnel pour être présentée au monde. Un <a href="../index.html#offres" class="font-bold text-warm-orange hover:underline">Site Clarté</a> est précisément conçu pour mettre en valeur votre offre unique et la rendre facile à acheter.
+                        </p>
+            
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Planifier mon Appel Clarté
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                Discutons de votre offre signature • Gratuit & Sans engagement
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

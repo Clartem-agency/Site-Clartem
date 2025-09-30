@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Le "Pages Jaunes" est Mort : Pourquoi votre Fiche Google est le Nouvel Annuaire Indispensable</title>
+    <meta name="description"
+        content="Thérapeutes, coachs avec un cabinet local : êtes-vous encore visible ? Découvrez pourquoi votre fiche Google Business Profile a remplacé les Pages Jaunes et comment elle est devenue votre outil n°1 pour attirer les clients de votre quartier.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Le 'Pages Jaunes' est Mort : Pourquoi votre Fiche Google est Indispensable">
+    <meta property="og:description"
+        content="Découvrez pourquoi votre fiche Google Business Profile est votre outil n°1 pour attirer les clients de votre quartier.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-fiche-google.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-fiche-google.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Le "Pages Jaunes" est Mort : Pourquoi votre Fiche Google est le Nouvel Annuaire Indispensable
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                             Thérapeutes, coachs avec un cabinet local : êtes-vous encore visible ? Découvrez pourquoi votre fiche Google Business Profile est devenue votre outil n°1 pour attirer les clients de votre quartier.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/fiche-google-intro.webp" alt="Un vieil annuaire Pages Jaunes à côté d'un smartphone affichant une recherche locale sur Google Maps" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Souvenez-vous. Il y a 15 ou 20 ans, quand vous cherchiez un professionnel près de chez vous – un plombier, un médecin, ou même un thérapeute – quel était votre premier réflexe ? Vous attrapiez ce gros livre jaune, lourd et rassurant, et vous cherchiez la bonne rubrique à la bonne ville. Être dans les Pages Jaunes, c'était la garantie d'être trouvé. C'était la base.</p>
+                    <p data-sr>Aujourd'hui, ce gros livre jaune prend la poussière dans les caves. Et pourtant, le besoin de trouver un professionnel local n'a jamais été aussi fort.</p>
+                    <p data-sr>Alors, que se passe-t-il quand une personne à Lyon, stressée par son travail, tape sur son téléphone : <strong class="text-neutral-dark">"sophrologue à côté de chez moi"</strong> ?</p>
+                    <p data-sr>Elle n'ouvre pas un annuaire. Elle ouvre Google. Et Google lui présente le "Pages Jaunes" du 21ème siècle : une carte interactive avec une liste de 3 ou 4 fiches de professionnels.</p>
+                    <p data-sr>Cette fiche, c'est votre <strong class="text-clarity-blue">Fiche d'Établissement Google</strong> (Google Business Profile). Et si vous êtes un coach, un thérapeute ou un praticien avec une adresse physique, ignorer cet outil aujourd'hui, c'est comme refuser d'être dans les Pages Jaunes à l'époque : c'est choisir de devenir invisible.</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Qu'est-ce qu'une Fiche d'Établissement Google ?</h2>
+                        <p>C'est bien plus qu'une simple ligne dans un annuaire. C'est votre <strong class="text-neutral-dark">mini-site web directement sur Google</strong>. C'est une vitrine interactive qui apparaît lorsque quelqu'un recherche vos services dans votre zone géographique.</p>
+                        <p class="mt-4">Elle contient tout ce dont un prospect a besoin pour prendre une décision rapide :</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li>Votre nom, votre adresse, votre numéro de téléphone.</li>
+                            <li>Vos horaires d'ouverture.</li>
+                            <li>Des photos de votre cabinet.</li>
+                            <li>Les avis de vos clients.</li>
+                            <li>Et surtout, trois boutons magiques : <strong class="text-neutral-dark">"Itinéraire", "Appeler", et "Site Web"</strong>.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Image 2 : Illustration de la fiche Google -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/fiche-google-mini-site.webp" alt="Exemple d'une Fiche d'Établissement Google pour un thérapeute, montrant les avis, photos et boutons d'action." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 : Les super-pouvoirs -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Les 3 Super-pouvoirs de votre Fiche Google</h2>
+                        <p>Pourquoi cette fiche est-elle devenue si cruciale ?</p>
+                    </div>
+
+                    <!-- Super-pouvoir 1 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">1. La Visibilité Locale Maximale</h3>
+                        <p>Quand quelqu'un effectue une recherche locale (ex: "naturopathe Bordeaux"), Google affiche en priorité le fameux "Pack Local" : la carte et les 3 fiches. Cet encart capte la majorité de l'attention et des clics, bien avant les résultats de recherche classiques. <strong class="text-neutral-dark">Si vous n'êtes pas dans ce pack, vous êtes quasi-invisible</strong> pour la clientèle de votre quartier.</p>
+                    </div>
+                    
+                    <!-- Super-pouvoir 2 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">2. La Confiance Instantanée</h3>
+                        <p>Une fiche complète et bien entretenue est un gage de crédibilité immense.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4 text-neutral-light">
+                           <li><strong class="text-neutral-dark">Des photos professionnelles</strong> de votre cabinet permettent au client de se projeter et le rassurent.</li>
+                           <li><strong class="text-neutral-dark">Des avis positifs</strong> sont la nouvelle forme du bouche-à-oreille. Une note de 4.8 étoiles avec 15 avis est un argument de vente plus puissant que n'importe quelle publicité.</li>
+                           <li><strong class="text-neutral-dark">Des informations à jour</strong> (horaires, téléphone) montrent que votre activité est active et sérieuse.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Super-pouvoir 3 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">3. La Conversion sans Friction</h3>
+                        <p>Votre fiche est une machine à conversion. En un seul clic, un prospect sur son mobile peut :</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4 text-neutral-light">
+                           <li>Lancer le GPS pour venir à votre cabinet ("Itinéraire").</li>
+                           <li>Vous appeler directement pour poser une question ("Appeler").</li>
+                           <li>Visiter votre site web pour être pleinement convaincu ("Site Web").</li>
+                        </ul>
+                         <p class="mt-4">Vous supprimez toutes les barrières entre l'intention de recherche et la prise de contact.</p>
+                    </div>
+
+                    <!-- Section 3 : Le piège -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Le Piège Mortel : Laisser Google Gérer à votre Place</h2>
+                        <p class="italic">"Mais je n'ai rien créé et pourtant je crois que j'ai une fiche..."</p>
+                        <p class="mt-4">C'est possible. Google crée parfois des fiches automatiquement. Et c'est le pire des scénarios. Une fiche non "revendiquée" est une vitrine abandonnée. Les horaires peuvent être faux, l'adresse imprécise, et n'importe qui peut y suggérer des modifications.</p>
+                        <p class="mt-4">Ne pas prendre le contrôle de votre fiche, c'est comme laisser la porte de votre cabinet ouverte et laisser les passants écrire ce qu'ils veulent sur votre plaque professionnelle.</p>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">Revendiquer et optimiser votre fiche est gratuit, simple, et c'est l'action marketing la plus rentable que vous puissiez faire cette année pour votre visibilité locale.</p>
+                    </div>
+                    
+                    <!-- Image 3 : Le résultat -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/fiche-google-resultat.webp" alt="Une personne trouvant facilement un commerce local sur son téléphone grâce à une fiche Google bien optimisée." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 4 : Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Votre Fiche est la Plaque, Votre Site est le Cabinet</h2>
+                        <p>Pensez-y de cette manière :</p>
+                        <p class="mt-4">Votre Fiche d'Établissement Google est votre <strong class="text-neutral-dark">nouvelle plaque professionnelle</strong>. C'est elle qui signale votre présence dans la rue digitale de votre quartier. Elle attire l'œil du passant intéressé.</p>
+                        <p class="mt-4">Mais une fois que le passant a lu votre plaque, il veut regarder à l'intérieur. Il veut être rassuré par l'ambiance, comprendre en détail ce que vous proposez, sentir s'il peut vous faire confiance.</p>
+                        <p class="mt-4">Cette visite à l'intérieur, c'est le clic sur le bouton <strong class="text-neutral-dark">"Site Web"</strong>.</p>
+                        <p class="mt-4">Une fiche Google optimisée qui attire le trafic local, couplée à un <a href="../index.html#offres" class="text-clarity-blue hover:text-deep-blue font-semibold underline">Site Clarté</a> conçu pour accueillir, rassurer et convertir ce trafic, est le duo gagnant pour devenir l'expert incontournable de votre ville.</p>
+                        <p class="mt-4 font-semibold">Ne soyez plus invisible pour les clients qui sont à deux pas de chez vous.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <!-- Titre et sous-titre -->
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Votre cabinet est-il visible sur la <br><span class="text-clarity-blue">carte digitale de votre quartier ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Si vous n'êtes pas sûr que votre fiche Google soit optimisée, ou si vous voulez vous assurer que votre site est prêt à convertir ce trafic local, discutons-en.
+                        </p>
+            
+                        <!-- Bouton d'action final et réassurance -->
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                                Je réserve mon Audit de Visibilité Locale
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ 15 minutes suffisent &nbsp;•&nbsp; ✅ Sans engagement
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

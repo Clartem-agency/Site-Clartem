@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Le Mythe du SEO et du Site One-Page : Votre Meilleur Allié Local</title>
+    <meta name="description"
+        content="Un site one-page peut-il être bien référencé sur Google ? Oui ! Découvrez pourquoi le format 'Site Clarté' est une stratégie SEO puissante pour les coachs et thérapeutes visant un référencement local efficace.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Le Mythe du SEO et du Site One-Page : Votre Meilleur Allié Local">
+    <meta property="og:description"
+        content="Découvrez pourquoi un site one-page est une stratégie SEO puissante pour le référencement local des coachs et thérapeutes.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-mythe-seo-site-one-page-local.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-mythe-seo-site-one-page-local.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                           Le Mythe du SEO et du Site One-Page : Pourquoi un "Site Clarté" est Votre Meilleur Allié Local
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Un site one-page peut-il être bien référencé sur Google ? Oui ! Découvrez pourquoi le format "Site Clarté" est une stratégie SEO puissante pour les coachs et thérapeutes visant un référencement local efficace.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-12 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/seo-local-site-one-page-racine-solide.webp" alt="Illustration conceptuelle d'une racine d'arbre solide symbolisant un site one-page, comparée à de multiples racines fines." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <div class="space-y-6" data-sr>
+                        <p>C'est l'objection que j'entends le plus souvent. La crainte qui freine de nombreux coachs et thérapeutes à adopter l'approche simple et puissante du site sur une seule page.</p>
+                        
+                        <blockquote class="bg-white border-l-4 border-clarity-blue p-6 rounded-lg shadow-sm">
+                            <p class="italic text-neutral-dark text-xl leading-relaxed">"Mais... et le SEO ? On m'a toujours dit que pour être bien référencé sur Google, il fallait avoir plein de pages, plein de contenu, un blog avec des dizaines d'articles..."</p>
+                        </blockquote>
+
+                        <p>Cette croyance, c'est le <strong class="text-neutral-dark">mythe du SEO quantitatif</strong>. C'est une vision du référencement héritée du passé, qui repose sur l'idée que "plus il y en a, mieux c'est".</p>
+                        <p>Et si cette approche peut avoir sa pertinence pour un grand site e-commerce ou un magazine en ligne, elle est souvent <strong class="text-destructive">contre-productive</strong> pour un professionnel indépendant dont l'objectif principal est la <strong class="text-clarity-blue">visibilité locale</strong>.</p>
+                        <p>La vérité, c'est qu'un <a href="../index.html#site-clarte" class="text-clarity-blue font-semibold hover:underline">Site Clarté</a> bien conçu n'est pas un "handicap" pour le SEO. Au contraire. Pour le référencement local, c'est souvent votre meilleur allié. Voici pourquoi.</p>
+                    </div>
+
+                    <!-- Section 1 -->
+                    <div class="bg-gray-50/50 border border-gray-200/80 rounded-2xl p-6 md:p-8" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Mythe n°1 : "Il faut beaucoup de pages pour être bien classé"</h2>
+                        <blockquote class="border-l-4 border-warm-orange pl-6 my-6">
+                            <p class="font-bold text-xl text-neutral-dark italic">La Réalité : Il faut de l'autorité concentrée.</p>
+                        </blockquote>
+                        <p>Pensez à l'"autorité" de votre site web comme à un litre de jus de fruits.</p>
+                        <div class="space-y-4 mt-6">
+                            <div class="flex items-start gap-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-destructive mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" /></svg>
+                                <div><strong class="text-neutral-dark">Sur un site multi-pages :</strong> Vous versez ce litre de jus dans 10 verres différents. Chaque verre n'est rempli qu'à 10%. Aucune page n'est vraiment "pleine" d'autorité.</div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success-green mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <div><strong class="text-neutral-dark">Sur un site one-page :</strong> Vous versez l'intégralité du litre dans <strong class="text-success-green">un seul grand verre</strong>. Cette page devient extrêmement dense en autorité aux yeux de Google.</div>
+                            </div>
+                        </div>
+                        <p class="mt-6">Pour une recherche locale principale (ex: "naturopathe à [votre ville]"), Google préférera souvent classer une seule page très forte et très complète plutôt que 10 petites pages à l'autorité diluée.</p>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/structure-contenu-site-one-page-seo-local.webp" alt="Schéma montrant la structure riche et hiérarchisée d'un site one-page, optimisée pour le SEO." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 -->
+                    <div class="bg-gray-50/50 border border-gray-200/80 rounded-2xl p-6 md:p-8" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Mythe n°2 : "Un site one-page manque de contenu pour le SEO"</h2>
+                        <blockquote class="border-l-4 border-warm-orange pl-6 my-6">
+                            <p class="font-bold text-xl text-neutral-dark italic">La Réalité : Un Site Clarté est riche en contenu pertinent.</p>
+                        </blockquote>
+                        <p>La confusion vient du mot "page". Un Site Clarté n'est pas une "petite" page. C'est une <strong class="text-neutral-dark">longue page</strong>, richement remplie, qui contient l'équivalent de 5 ou 6 pages d'un site traditionnel.</p>
+                        <div class="space-y-4 mt-6">
+                            <div class="flex items-start gap-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-clarity-blue mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                                <div><strong class="text-neutral-dark">Le contenu est là :</strong> Il y a une section "Héros" avec votre promesse, une section "À Propos", des "Offres", des "Témoignages"... Tout le contenu nécessaire est présent.</div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-clarity-blue mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                                <div><strong class="text-neutral-dark">La structure est optimisée :</strong> Un Site Clarté est construit avec une hiérarchie de titres (H1, H2, H3...) très claire. Google voit un document parfaitement structuré, ce qu'il adore.</div>
+                            </div>
+                        </div>
+                        <div class="mt-6 bg-soft-blue p-6 rounded-xl flex items-start gap-4">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-clarity-blue mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <p class="text-neutral-dark">Un Site Clarté bien rédigé contient tous les mots-clés et tout le contexte sémantique dont Google a besoin pour comprendre que vous êtes un "coach carrière à Bordeaux" qui traite du "burn-out" et de la "reconversion".</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 3 -->
+                    <div class="bg-gray-50/50 border border-gray-200/80 rounded-2xl p-6 md:p-8" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Mythe n°3 : "Sans blog, je ne peux pas être référencé"</h2>
+                        <blockquote class="border-l-4 border-warm-orange pl-6 my-6">
+                            <p class="font-bold text-xl text-neutral-dark italic">La Réalité : Votre priorité n'est pas le blogging, c'est le "Pack Local".</p>
+                        </blockquote>
+                        <p>Comme nous l'avons vu dans notre <a href="#" class="text-clarity-blue font-semibold hover:underline">guide sur les deux mondes de Google</a>, votre bataille principale, au début, est de vous classer dans le <strong class="text-neutral-dark">Pack Local</strong> (la carte) pour des recherches transactionnelles.</p>
+                         <div class="space-y-4 mt-6">
+                            <div class="flex items-start gap-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-warm-orange mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                                <div><strong class="text-neutral-dark">Le vrai moteur du SEO Local :</strong> Votre classement sur la carte dépend avant tout de l'optimisation de votre <a href="#" class="text-clarity-blue font-semibold hover:underline">Fiche Google Business</a>, de vos avis clients et de la qualité du site vers lequel elle pointe.</div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success-green mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+                                <div><strong class="text-neutral-dark">Le rôle du Site Clarté :</strong> Son rôle est d'être ce site de destination de haute qualité. Sa clarté et sa vitesse envoient à Google tous les signaux de confiance dont il a besoin.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Image 3 -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/strategie-seo-hub-and-spoke-site-one-page.webp" alt="Diagramme expliquant le modèle SEO 'Hub and Spoke' avec le Site Clarté comme page centrale." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 4 -->
+                    <div class="space-y-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark">La Stratégie Évolutive : Le Blog comme Étape 2</h2>
+                        <p class="font-bold text-xl text-neutral-dark italic">"D'accord, mais si un jour je veux un blog ?"</p>
+                        <p>C'est une excellente question, et la réponse est simple : <strong class="text-success-green">rien ne vous en empêche.</strong></p>
+                        <p class="mt-4">Un Site Clarté est la fondation parfaite pour une stratégie de contenu future.</p>
+                        <div class="flex flex-col space-y-6 mt-6">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 bg-clarity-blue text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-lg shadow">1</div>
+                                <p class="pt-1"><strong class="text-neutral-dark">Votre Site Clarté reste votre page d'accueil.</strong> C'est votre pilier de conversion, votre "Hub".</p>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 bg-clarity-blue text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-lg shadow">2</div>
+                                <p class="pt-1"><strong class="text-neutral-dark">Vous ajoutez une section "Blog"</strong> à votre site.</p>
+                            </div>
+                             <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 bg-clarity-blue text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-lg shadow">3</div>
+                                <p class="pt-1"><strong class="text-neutral-dark">Chaque article de blog</strong> que vous écrivez est un "satellite" (un "Spoke") qui renforce l'autorité de votre page d'accueil.</p>
+                            </div>
+                        </div>
+                        <p class="mt-4">Cette structure "Hub and Spoke" est considérée par les experts comme l'une des stratégies SEO les plus modernes et les plus efficaces.</p>
+                    </div>
+
+                    <!-- Section 5 : Conclusion -->
+                    <div class="space-y-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark">Conclusion : La Clarté est aussi une Stratégie SEO</h2>
+                        <p>Arrêtez de laisser les mythes du SEO vous paralyser ou vous pousser vers des solutions complexes dont vous n'avez pas besoin au début.</p>
+                        <p class="mt-4">Pour un coach, un thérapeute ou un praticien visant une clientèle locale, un <strong class="text-clarity-blue">Site Clarté</strong> n'est pas un compromis. C'est une <strong class="text-neutral-dark">stratégie SEO intelligente</strong> :</p>
+                        <div class="space-y-3 mt-4">
+                            <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success-green flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg>Il <strong class="text-neutral-dark">concentre</strong> votre autorité.</div>
+                            <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success-green flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg>Il est <strong class="text-neutral-dark">riche</strong> en contenu structuré.</div>
+                            <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success-green flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg>Il est le <strong class="text-neutral-dark">partenaire parfait</strong> de votre fiche Google Business.</div>
+                            <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-success-green flex-shrink-0"><path d="M20 6 9 17l-5-5"></path></svg>Il est la <strong class="text-neutral-dark">fondation idéale</strong> pour votre croissance future.</div>
+                        </div>
+                        <div class="mt-8 bg-clarity-blue/10 border-l-4 border-clarity-blue p-6 rounded-lg flex items-center gap-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-clarity-blue flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+                            <p class="font-semibold text-neutral-dark text-xl">Il prouve qu'en matière de référencement, la clarté et la concentration sont bien plus puissantes que la dispersion.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ) -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Prêt(e) à bâtir une fondation <br><span class="text-clarity-blue">SEO solide et claire ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Si vous voulez un site web non seulement beau et convertissant, mais aussi optimisé pour la stratégie de référencement la plus rentable pour vous, discutons-en.
+                        </p>
+            
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                                Clarifions votre stratégie SEO
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Appel Clarté gratuit &nbsp;•&nbsp; ✅ Sans engagement
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

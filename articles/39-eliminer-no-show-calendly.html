@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Le "No-Show" est Votre Faute (et Comment l'Éliminer avec Calendly)</title>
+    <meta name="description"
+        content="Vos prospects ne se présentent pas à vos rendez-vous ? Découvrez pourquoi le 'no-show' est souvent le symptôme d'un processus défaillant et comment utiliser les workflows Calendly pour garantir 99% de présence.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- META OPEN GRAPH & TWITTER (SPÉCIFIQUES À L'ARTICLE) -->
+    <meta property="og:title" content="Le 'No-Show' est Votre Faute (et Comment l'Éliminer avec Calendly)">
+    <meta property="og:description"
+        content="Découvrez comment utiliser les workflows Calendly pour garantir 99% de présence à vos rendez-vous.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-no-show-calendly.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-no-show-calendly.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- ======================================================= -->
+        <!--      HEADER / NAVIGATION (CHEMINS CORRIGÉS)           -->
+        <!-- ======================================================= -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ======================================================= -->
+        <!--                DÉBUT DU CONTENU DE L'ARTICLE            -->
+        <!-- ======================================================= -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Le "No-Show" est Votre Faute (et Comment l'Éliminer avec Calendly)
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                            Vos prospects ne se présentent pas à vos rendez-vous ? Découvrez pourquoi le "no-show" est souvent le symptôme d'un processus défaillant et comment utiliser les workflows Calendly pour garantir 99% de présence.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/no-show-calendly-intro.webp" alt="Chaise vide devant un ordinateur portable allumé, symbolisant un no-show à un rendez-vous en ligne." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Mardi, 14h00. Vous êtes prêt. Vous avez préparé votre appel avec ce prospect qui semblait si prometteur. Vous lancez la visio. Vous attendez.</p>
+                    <p data-sr>14h01. Toujours personne.<br>14h05. Vous vérifiez vos emails. Rien.<br>14h10. Vous vous rendez à l'évidence : c'est un <strong class="text-neutral-dark">"no-show"</strong>. Votre prospect ne viendra pas.</p>
+                    <p data-sr>Votre première réaction est probablement l'agacement. "Quel manque de respect !", "Encore un touriste...". Vous blâmez le client.</p>
+                    <p data-sr>Et si je vous disais que dans 9 cas sur 10, ce "no-show" n'est pas la faute de votre client, mais la <strong class="text-clarity-blue">conséquence directe de votre processus</strong> de prise de rendez-vous ?</p>
+                    <p data-sr>C'est une pilule difficile à avaler, mais c'est une vérité libératrice. Car si le problème vient de votre système, cela signifie que <strong class="text-neutral-dark">vous avez le pouvoir de le corriger</strong>.</p>
+                    <p data-sr>Un "no-show" n'est que le symptôme d'un engagement trop faible ou d'un simple oubli. Et ces deux facteurs peuvent être drastiquement réduits, voire éliminés, grâce à une utilisation stratégique d'une fonctionnalité payante mais surpuissante de Calendly : les <strong class="text-neutral-dark">Workflows</strong>.</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Qu'est-ce qu'un "Workflow" Calendly ?</h2>
+                        <p>Pensez à un workflow comme à un assistant personnel invisible et infaillible. C'est une séquence de communications automatiques (emails, SMS) qui se déclenchent avant et après chaque rendez-vous que vous avez programmé.</p>
+                        <p class="mt-4">Son but ? Maintenir le lien, renforcer l'engagement et s'assurer que votre rendez-vous reste une priorité dans l'esprit de votre prospect.</p>
+                        <p class="mt-4">Utiliser les workflows, c'est passer d'une posture passive ("J'espère qu'il viendra") à une posture proactive ("Je mets en place un système pour qu'il n'ait aucune raison d'oublier").</p>
+                        <p class="mt-4">Voici le workflow en 3 étapes que je recommande à tous mes clients pour garantir un taux de présence proche de 100%.</p>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/no-show-calendly-workflow.webp" alt="Diagramme montrant une séquence d'automatisation : réservation, email, rappel, SMS." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Étape 1 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Étape 1 : L'Email de Confirmation Initial (L'Ancrage)</h3>
+                        <ul class="list-disc list-inside space-y-2 text-base text-neutral-dark">
+                            <li><strong class="font-semibold">Le Déclencheur :</strong> Immédiatement après la réservation.</li>
+                            <li><strong class="font-semibold">Le Problème qu'il résout :</strong> L'email de confirmation par défaut de Calendly est bon, mais il est générique.</li>
+                            <li><strong class="font-semibold">L'Optimisation :</strong> Personnalisez cet email pour y ajouter de la valeur et de l'humain.</li>
+                        </ul>
+                        <div class="mt-6 border-t border-clarity-blue/30 pt-6">
+                            <p class="font-semibold text-neutral-dark mb-2">Comment faire ?</p>
+                            <p class="text-base">Dans Calendly, allez dans "Workflows", créez un nouveau workflow "Email à l'invité" qui se déclenche "Quand un événement est réservé".</p>
+                            <blockquote class="border-l-4 border-warm-orange pl-4 mt-4 text-base">
+                                <p class="font-bold text-neutral-dark italic">Exemple de contenu :</p>
+                                <p class="mt-2 text-neutral-light"><strong>Objet :</strong> C'est confirmé : notre Appel Stratégique<br><br>Bonjour [Prénom de l'invité],<br>C'est noté, notre rendez-vous est bien confirmé pour le [Date de l'événement] à [Heure de début].<br><br>Je me réjouis de cet échange. Pour que notre temps soit le plus productif possible, je vous invite à réfléchir à cette question : "Si notre appel est un succès total, avec quelle clarté repartez-vous ?"<br><br>Le lien de notre salle de réunion virtuelle se trouve dans l'invitation de votre agenda.<br><br>À très bientôt,<br>[Votre Nom]</p>
+                            </blockquote>
+                        </div>
+                        <p class="font-semibold text-neutral-dark mt-6">Impact : Vous ne confirmez pas seulement un RDV, vous commencez déjà le travail de coaching. L'engagement du prospect augmente instantanément.</p>
+                    </div>
+
+                    <!-- Étape 2 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Étape 2 : Le Rappel par Email à 24h (La Réassurance)</h3>
+                        <ul class="list-disc list-inside space-y-2 text-base text-neutral-dark">
+                            <li><strong class="font-semibold">Le Déclencheur :</strong> 24 heures avant le début de l'événement.</li>
+                            <li><strong class="font-semibold">Le Problème qu'il résout :</strong> Les agendas sont surchargés. Un rendez-vous pris il y a une semaine peut facilement passer à la trappe.</li>
+                            <li><strong class="font-semibold">L'Optimisation :</strong> Créez un workflow "Email de rappel à l'invité". Le but n'est pas seulement de rappeler, mais de recréer de l'enthousiasme.</li>
+                        </ul>
+                        <div class="mt-6 border-t border-clarity-blue/30 pt-6">
+                            <blockquote class="border-l-4 border-warm-orange pl-4 mt-4 text-base">
+                                <p class="font-bold text-neutral-dark italic">Exemple de contenu :</p>
+                                <p class="mt-2 text-neutral-light"><strong>Objet :</strong> Rappel : notre Appel Stratégique demain<br><br>Bonjour [Prénom de l'invité],<br>Juste un petit mot pour vous confirmer notre rendez-vous de demain à [Heure de début].<br><br>J'ai hâte de discuter de [Sujet, si vous avez posé une question de qualification] et de la manière dont nous pouvons atteindre vos objectifs.<br><br>Si vous aviez le moindre imprévu, vous pouvez reprogrammer ou annuler directement via le lien dans l'invitation de votre agenda.<br><br>À demain !<br>[Votre Nom]</p>
+                            </blockquote>
+                        </div>
+                        <p class="font-semibold text-neutral-dark mt-6">Impact : Vous remettez le rendez-vous en haut de la pile mentale de votre prospect et vous lui donnez une porte de sortie facile et professionnelle.</p>
+                    </div>
+
+                    <!-- Étape 3 -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl font-bold text-clarity-blue mb-4">Étape 3 : Le Rappel par SMS à 1h (L'Arme Ultime)</h3>
+                        <ul class="list-disc list-inside space-y-2 text-base text-neutral-dark">
+                            <li><strong class="font-semibold">Le Déclencheur :</strong> 1 heure avant le début de l'événement.</li>
+                            <li><strong class="font-semibold">Le Problème qu'il résout :</strong> L'oubli de dernière minute, la réunion qui s'éternise, la distraction.</li>
+                            <li><strong class="font-semibold">L'Optimisation :</strong> Le taux d'ouverture d'un SMS est de plus de 98%. C'est quasi-infaillible.</li>
+                        </ul>
+                        <div class="mt-6 border-t border-clarity-blue/30 pt-6">
+                            <p class="font-semibold text-neutral-dark mb-2">Comment faire ?</p>
+                            <p class="text-base">Créez un workflow "Rappel par SMS à l'invité". Assurez-vous d'avoir rendu le champ "Numéro de téléphone" obligatoire dans votre formulaire Calendly.</p>
+                            <blockquote class="border-l-4 border-warm-orange pl-4 mt-4 text-base">
+                                <p class="font-bold text-neutral-dark italic">Exemple de contenu (court et direct) :</p>
+                                <p class="mt-2 text-neutral-light">"Bonjour [Prénom de l'invité]. Rappel pour notre appel dans 1 heure à [Heure de début]. J'ai hâte d'échanger. [Votre Nom]."</p>
+                            </blockquote>
+                        </div>
+                        <p class="font-semibold text-neutral-dark mt-6">Impact : C'est le coup de coude amical qui sauve 99% des oublis de dernière minute. Si un prospect ne vient pas après tout cela, il n'était pas sérieux.</p>
+                    </div>
+
+                    <!-- Section Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Prenez le Contrôle de Votre Processus</h2>
+                        <p>Arrêtez de subir les "no-shows" comme une fatalité. Ils sont le signal que votre processus de prise de rendez-vous est trop passif.</p>
+                        <p class="mt-4">En investissant dans un plan Calendly payant pour activer les workflows, vous ne vous offrez pas une simple fonctionnalité. Vous vous offrez un <strong class="text-neutral-dark">système</strong>. Un système qui protège votre temps, maximise votre taux de présence et projette une image d'un professionnalisme irréprochable.</p>
+                        <p class="mt-4 bg-soft-blue p-4 rounded-lg font-semibold text-neutral-dark">Le coût de l'abonnement est souvent inférieur au manque à gagner d'un seul "no-show" sur une année. Le calcul est vite fait.</p>
+                    </div>
+                    
+                    <!-- Image 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/no-show-calendly-resultat.webp" alt="Personne souriante et sereine regardant son agenda bien rempli et respecté." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- NOUVELLE SECTION CTA (Appel à l'action final) -->
+            <section id="cta-blog" class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 text-center" data-sr>
+                        <h3 class="text-2xl md:text-3xl font-bold">Prêt(e) à construire un système client qui travaille pour vous, et non l'inverse ?</h3>
+                        <p class="text-lg text-white/80 leading-relaxed mt-6">
+                            L'automatisation de vos rappels est une brique essentielle. Mais elle est encore plus puissante lorsqu'elle est intégrée à un site web et à un parcours client conçus pour attirer et engager les prospects les plus qualifiés.
+                        </p>
+                        <div class="mt-10">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="btn btn-orange text-lg">
+                                Discutons de votre machine de vente automatisée
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ======================================================= -->
+        <!--        FOOTER (CHEMINS CORRIGÉS)                      -->
+        <!-- ======================================================= -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

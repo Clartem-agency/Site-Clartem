@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Anatomie d'un Tunnel de Confiance : Comment Chaque Section de votre Site Fait Avancer votre Prospect</title>
+    <meta name="description"
+        content="Plongez dans la mécanique d'un site qui convertit. Découvrez comment chaque section (Héros, À Propos...) joue un rôle psychologique précis pour guider votre prospect vers la décision.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Anatomie d'un Tunnel de Confiance : La Psychologie d'un Site qui Convertit">
+    <meta property="og:description"
+        content="Découvrez comment chaque section de votre site (Héros, À Propos, Offre...) joue un rôle psychologique précis pour guider votre prospect vers la décision.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-anatomie-tunnel-confiance-site-web.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-anatomie-tunnel-confiance-site-web.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Anatomie d'un Tunnel de Confiance : Comment Chaque Section de votre Site Clarté Fait Avancer votre Prospect
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Plongez dans la mécanique d'un site qui convertit. Découvrez comment chaque section d'un "Site Clarté" (Héros, À Propos, Offre...) joue un rôle psychologique précis pour guider votre prospect vers la décision.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-12 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/tunnel-confiance-etapes-psychologiques-site-web.webp" alt="Schéma d'un tunnel de confiance transparent montrant les étapes psychologiques de la conversion d'un prospect." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <div class="space-y-6" data-sr>
+                        <p>Dans notre <a href="01-atelier-message-central.html" class="font-semibold text-clarity-blue hover:underline">article précédent</a>, nous avons établi une vérité simple : votre <strong class="text-neutral-dark">Site Clarté</strong> EST votre tunnel de vente. Ce n'est pas un assemblage de textes et d'images, mais un parcours de persuasion éthique.</p>
+                        <p>Maintenant, mettons notre blouse de "neuro-marketeur" et passons cet outil au scanner. Analysons son anatomie.</p>
+                        <p>Comment, concrètement, chaque section de ce récit linéaire agit-elle sur la psychologie de votre visiteur ? Comment chaque "scroll" le fait-il avancer d'un état de "scepticisme curieux" à un état de "confiance décidée" ?</p>
+                        <p>Comprendre cette mécanique, c'est comprendre pourquoi la structure d'un <a href="../index.html#offres" class="font-semibold text-clarity-blue hover:underline">Site Clarté</a> n'est pas un hasard, mais le fruit d'une ingénierie de la confiance.</p>
+                    </div>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="flex-shrink-0 w-12 h-12 bg-clarity-blue text-white rounded-full flex items-center justify-center text-2xl font-bold shadow-md">1</div>
+                            <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark">Le Haut du Tunnel - La Section "Héros"</h2>
+                        </div>
+                        <p class="font-semibold text-neutral-dark">Le Rôle Psychologique : Capter l'Attention & Créer la Pertinence</p>
+                        <p class="mt-4">C'est la porte d'entrée, le <strong class="text-neutral-dark">TOFU (Top Of Funnel)</strong>. Son seul et unique job est de répondre en 3 secondes à la question subconsciente du visiteur : "Suis-je au bon endroit ?".</p>
+                        
+                        <div class="bg-soft-blue p-8 rounded-2xl mt-8 space-y-6 border border-clarity-blue/20 shadow-sm">
+                            <div class="flex items-start gap-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-clarity-blue flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                                <div>
+                                    <h4 class="font-bold text-neutral-dark">La Mécanique :</h4>
+                                    <p class="text-neutral-light">L'accroche parle du <strong class="text-neutral-dark">résultat</strong> que le visiteur désire. Ex: <em>"Retrouvez la Clarté dans votre Carrière."</em></p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-clarity-blue flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                                <div>
+                                    <h4 class="font-bold text-neutral-dark">L'Effet sur le Cerveau :</h4>
+                                    <p class="text-neutral-light">Le cerveau reptilien est accroché par la pertinence, le système limbique ressent un écho positif. Le visiteur se sent compris.</p>
+                                </div>
+                            </div>
+                             <div class="flex items-start gap-4 pt-4 border-t border-clarity-blue/20">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-deep-blue flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                                <div>
+                                    <h4 class="font-bold text-neutral-dark">La Transition :</h4>
+                                    <p class="text-neutral-light">De "visiteur anonyme", il devient <strong class="text-neutral-dark">"prospect intéressé"</strong>. Il est entré dans le tunnel.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/connexion-emotionnelle-rationnelle-site-web-clarte.webp" alt="Illustration de la connexion émotionnelle et rationnelle créée par les sections À Propos et Offre d'un site." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 -->
+                    <div class="pt-6" data-sr>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="flex-shrink-0 w-12 h-12 bg-clarity-blue text-white rounded-full flex items-center justify-center text-2xl font-bold shadow-md">2</div>
+                            <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark">Le Milieu du Tunnel - "À Propos" & "Offre"</h2>
+                        </div>
+                        <p class="font-semibold text-neutral-dark">Le Rôle Psychologique : Nourrir l'Intérêt & Créer le Désir</p>
+                        <p class="mt-4">C'est le cœur du tunnel, le <strong class="text-neutral-dark">MOFU (Middle Of Funnel)</strong>. C'est ici que se bâtit la confiance, sur le plan émotionnel et rationnel.</p>
+                        
+                        <div class="mt-8 space-y-8">
+                            <!-- Carte Confiance Émotionnelle -->
+                            <div class="bg-soft-blue p-8 rounded-2xl border border-clarity-blue/20 shadow-sm">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-10 h-10 bg-warm-orange/10 rounded-lg flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-warm-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg></div>
+                                    <h3 class="text-xl font-bold text-neutral-dark">La Confiance Émotionnelle (À Propos)</h3>
+                                </div>
+                                <p><strong class="text-neutral-dark">Mécanique :</strong> Vous ne présentez pas un CV, vous racontez votre histoire et montrez votre visage.</p>
+                                <p><strong class="text-neutral-dark">Effet :</strong> Le prospect se connecte à l'humain. L'empathie se crée. Il se dit : "Cette personne me comprend."</p>
+                            </div>
+                             <!-- Carte Confiance Rationnelle -->
+                            <div class="bg-soft-blue p-8 rounded-2xl border border-clarity-blue/20 shadow-sm">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-10 h-10 bg-deep-blue/10 rounded-lg flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-deep-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg></div>
+                                    <h3 class="text-xl font-bold text-neutral-dark">La Confiance Rationnelle (Offre)</h3>
+                                </div>
+                                <p><strong class="text-neutral-dark">Mécanique :</strong> Vous ne listez pas des "séances". Vous présentez un parcours structuré, une solution claire.</p>
+                                <p><strong class="text-neutral-dark">Effet :</strong> Le néocortex est rassuré. Le flou se dissipe. Il comprend "comment" vous allez l'aider.</p>
+                            </div>
+                        </div>
+                        <p class="mt-8"><strong class="text-neutral-dark">La Transition :</strong> De "prospect intéressé", il devient <strong class="text-neutral-dark">"prospect convaincu"</strong>.</p>
+                    </div>
+
+                    <!-- Section 3 -->
+                    <div class="pt-6" data-sr>
+                        <div class="flex items-center gap-4 mb-6">
+                           <div class="flex-shrink-0 w-12 h-12 bg-warm-orange text-white rounded-full flex items-center justify-center text-2xl font-bold shadow-md">3</div>
+                            <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark">Le Bas du Tunnel - La Section "Témoignages"</h2>
+                        </div>
+                        <p class="font-semibold text-neutral-dark">Le Rôle Psychologique : Lever les Dernières Objections & Valider la Décision</p>
+                        <p class="mt-4">C'est la dernière étape avant la conversion, le <strong class="text-neutral-dark">BOFU (Bottom Of Funnel)</strong>. Le prospect est convaincu, mais il a encore une peur : la peur de faire le mauvais choix.</p>
+                        
+                        <div class="bg-soft-blue p-8 rounded-2xl mt-8 space-y-6 border border-warm-orange/30 shadow-sm">
+                            <div class="flex items-start gap-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-warm-orange flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                                <div>
+                                    <h4 class="font-bold text-neutral-dark">La Mécanique :</h4>
+                                    <p class="text-neutral-light">Vous présentez la <strong class="text-neutral-dark">preuve sociale</strong> : des histoires de vraies personnes qui ont obtenu des résultats.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-warm-orange flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                                <div>
+                                    <h4 class="font-bold text-neutral-dark">L'Effet sur le Cerveau :</h4>
+                                    <p class="text-neutral-light">Cela active le biais d'imitation : "Si ça a marché pour eux, ça marchera pour moi." La peur du risque diminue.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 pt-4 border-t border-warm-orange/20">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-deep-blue flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                                <div>
+                                    <h4 class="font-bold text-neutral-dark">La Transition :</h4>
+                                    <p class="text-neutral-light">De "prospect convaincu", il devient <strong class="text-neutral-dark">"prospect prêt à agir"</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/preuve-sociale-lever-objections-appel-action.webp" alt="Visuel montrant un client validant sa décision grâce à la preuve sociale avant de passer à l'action." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 4 -->
+                    <div class="pt-6" data-sr>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="flex-shrink-0 w-12 h-12 bg-success-green text-white rounded-full flex items-center justify-center text-2xl font-bold shadow-md">4</div>
+                            <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark">La Conversion - L'Appel à l'Action</h2>
+                        </div>
+                        <p class="font-semibold text-neutral-dark">Le Rôle Psychologique : Rendre l'Action Simple et Inévitable</p>
+                        <p class="mt-4">C'est la sortie du tunnel. Tout le travail de persuasion a été fait. Cette dernière étape doit être d'une simplicité absolue.</p>
+
+                        <div class="bg-soft-blue p-8 rounded-2xl mt-8 space-y-6 border border-success-green/30 shadow-sm">
+                           <div class="flex items-start gap-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-success-green flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" /></svg>
+                                <div>
+                                    <h4 class="font-bold text-neutral-dark">La Mécanique :</h4>
+                                    <p class="text-neutral-light">Un bouton clair avec un verbe d'action ("Planifier mon Appel Clarté"), connecté à un système de réservation sans friction.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-success-green flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <div>
+                                    <h4 class="font-bold text-neutral-dark">L'Effet sur le Cerveau :</h4>
+                                    <p class="text-neutral-light">Il n'y a plus de décision à prendre. Le chemin a été si logique que le clic devient la conclusion naturelle.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 pt-4 border-t border-success-green/20">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-deep-blue flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                                <div>
+                                    <h4 class="font-bold text-neutral-dark">La Transition :</h4>
+                                    <p class="text-neutral-light">De "prospect prêt à agir", il devient <strong class="text-neutral-dark">"rendez-vous dans votre agenda"</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-6">Conclusion : La Structure est la Stratégie</h2>
+                        <p>Comme vous le voyez, un <strong class="text-neutral-dark">Site Clarté</strong> n'est pas une simple page web. C'est une machine de persuasion psychologique, conçue pour accompagner votre visiteur à chaque étape de son cheminement intérieur.</p>
+                        
+                        <div class="mt-8 bg-gradient-to-br from-soft-blue to-white p-8 rounded-2xl border border-clarity-blue/20 shadow-lg">
+                            <div class="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+                                <div class="flex-shrink-0 w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-inner">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 text-clarity-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg>
+                                </div>
+                                <p class="font-semibold text-neutral-dark text-xl">Son efficacité vient de sa <strong class="text-clarity-blue">structure intentionnelle</strong> qui bâtit la confiance, scroll après scroll, jusqu'à rendre votre offre évidente.</p>
+                            </div>
+                        </div>
+                        <p class="mt-8">C'est cela, l'ingénierie d'un tunnel de confiance.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <!-- Titre et sous-titre -->
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Prêt(e) à construire un site <br>dont chaque section est une <span class="text-clarity-blue">étape de conversion ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            La conception d'un parcours utilisateur aussi stratégique est au cœur de ma méthode. Nous n'assemblons pas des sections, nous architecturons un véritable chemin de confiance.
+                        </p>
+            
+                        <!-- Bouton d'action final et réassurance -->
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Discutons de l'anatomie de votre site
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Appel Clarté gratuit &nbsp;•&nbsp; ✅ Sans engagement
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

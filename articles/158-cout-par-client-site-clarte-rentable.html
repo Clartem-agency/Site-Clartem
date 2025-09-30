@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Le "Coût par Client" : Pourquoi un Site Clarté est Moins Cher qu'un Site "Pas Cher"</title>
+    <meta name="description"
+        content="Pensez-vous qu'un site web 'pas cher' est une bonne affaire ? Découvrez comment calculer le 'coût par client' et pourquoi investir dans un Site Clarté stratégique est en réalité l'option la plus rentable à long terme.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Le 'Coût par Client' : Pourquoi un Site Clarté est Moins Cher qu'un Site 'Pas Cher'">
+    <meta property="og:description"
+        content="Découvrez pourquoi un site web stratégique est l'option la plus rentable à long terme en calculant le Coût d'Acquisition Client.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-cout-par-client-site-clarte-vs-pas-cher.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-cout-par-client-site-clarte-vs-pas-cher.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Le "Coût par Client" : Pourquoi un Site Clarté est Moins Cher qu'un Site "Pas Cher"
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                            Pensez-vous qu'un site web "pas cher" est une bonne affaire ? Découvrez comment calculer le "coût par client" et pourquoi investir dans un Site Clarté stratégique est en réalité l'option la plus rentable à long terme.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/comparaison-rentabilite-site-clarte-vs-site-pas-cher.webp" alt="Deux tirelires comparant la rentabilité d'un site web pas cher et d'un site web stratégique" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Vous êtes sur le point de faire l'un des investissements les plus importants pour votre nouvelle activité : votre site web. Vous comparez les devis.</p>
+                    
+                    <ul class="list-disc list-inside space-y-2 mt-4 pl-4" data-sr>
+                        <li><strong>Option A :</strong> Un site "fait maison" ou par un freelance "pas cher". <strong class="text-neutral-dark">Coût initial : 500€</strong>.</li>
+                        <li><strong>Option B :</strong> Une approche stratégique comme le <a href="../index.html#offres" class="text-clarity-blue font-semibold hover:underline">Site Clarté</a>. <strong class="text-neutral-dark">Coût initial : 1500€</strong>.</li>
+                    </ul>
+
+                    <p data-sr>Votre premier réflexe est de vous dire : "L'option A est trois fois moins chère. Le choix est évident."</p>
+                    <p data-sr>C'est une conclusion logique. Et c'est une erreur de calcul qui pourrait vous coûter des milliers d'euros.</p>
+                    <p data-sr>Pourquoi ? Parce que vous êtes en train de comparer la <strong class="text-neutral-dark">dépense initiale</strong>, et non l'<strong class="text-neutral-dark">efficacité de l'investissement</strong>. Pour un outil commercial comme un site web, la seule métrique qui compte n'est pas son prix d'achat. C'est son <strong class="text-clarity-blue">coût d'acquisition par client (CAC)</strong>.</p>
+                    <p data-sr>En d'autres termes : <strong class="text-neutral-dark">combien vous coûte réellement chaque client que ce site vous rapporte ?</strong></p>
+                    <p data-sr>Analysons les deux scénarios sur une année.</p>
+
+                    <!-- Image 2 : Calcul -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/calcul-cout-acquisition-client-site-web-strategique.webp" alt="Calculatrice affichant le sigle CAC pour Coût d'Acquisition Client" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Scénario A : Le Site "Pas Cher" (L'Illusion de l'Économie)</h2>
+                        <p>Vous optez pour le site à 500€. Il a été fait rapidement, sans un travail de fond sur votre message. C'est une <a href="../blog.html" title="En savoir plus sur les types de site web" class="text-clarity-blue font-semibold hover:underline">"brochure qui défile"</a>.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong>Le Message :</strong> Il est flou. Votre promesse n'est pas claire.</li>
+                            <li><strong>La Conversion :</strong> Le parcours client est confus. Il n'y a pas de tunnel de confiance.</li>
+                            <li><strong>La Performance :</strong> Parce qu'il n'est pas stratégique, il peine à convertir les quelques visiteurs que vous lui envoyez. Sur une année, avec beaucoup d'efforts de votre part, il vous rapporte péniblement <strong class="text-destructive">3 clients</strong>.</li>
+                        </ul>
+                        <p class="mt-6 font-semibold text-neutral-dark">Maintenant, calculons sa rentabilité réelle :</p>
+                        <blockquote class="bg-soft-blue border-l-4 border-destructive p-6 rounded-lg my-6 text-center">
+                            <p class="text-base text-neutral-dark">Coût d'Acquisition par Client (CAC) = Coût du Site / Nombre de Clients Acquis</p>
+                            <p class="text-2xl font-bold text-neutral-dark mt-2">500€ / 3 clients = <span class="text-destructive">167€ par client.</span></p>
+                        </blockquote>
+                        <p>Chaque client que ce site vous a rapporté vous a "coûté" 167€.</p>
+                    </div>
+
+                    <!-- Section 2 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Scénario B : Le Site "Clarté" (L'Investissement Stratégique)</h2>
+                        <p>Vous optez pour le Site Clarté à 1500€. L'investissement est plus important, car il inclut un <a href="01-atelier-message-central.html" class="text-clarity-blue font-semibold hover:underline">Atelier de Clarté</a> pour sculpter votre message et une architecture conçue pour la conversion.</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                            <li><strong>Le Message :</strong> Il est d'une clarté chirurgicale. Il parle directement à votre client idéal.</li>
+                            <li><strong>La Conversion :</strong> C'est un <a href="../blog.html" title="Découvrir comment créer un tunnel de confiance" class="text-clarity-blue font-semibold hover:underline">tunnel de confiance</a>. Chaque section est pensée pour faire avancer le prospect vers la décision.</li>
+                            <li><strong>La Performance :</strong> Grâce à sa clarté et à son efficacité, il convertit un bien plus grand pourcentage de visiteurs. Sur la même année, il vous rapporte <strong class="text-success-green">1 client par mois</strong>, soit <strong class="text-success-green">12 clients</strong>. (C'est une estimation très conservatrice pour un site performant).</li>
+                        </ul>
+                        <p class="mt-6 font-semibold text-neutral-dark">Calculons sa rentabilité :</p>
+                        <blockquote class="bg-soft-blue border-l-4 border-success-green p-6 rounded-lg my-6 text-center">
+                             <p class="text-base text-neutral-dark">Coût d'Acquisition par Client (CAC) = Coût du Site / Nombre de Clients Acquis</p>
+                            <p class="text-2xl font-bold text-neutral-dark mt-2">1500€ / 12 clients = <span class="text-success-green">125€ par client.</span></p>
+                        </blockquote>
+                    </div>
+
+                    <!-- Section 3 : Le Verdict -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Le Verdict : Quel Site est Vraiment le Moins Cher ?</h2>
+                        
+                        <!-- Tableau Comparatif -->
+                        <div class="overflow-x-auto my-8">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-soft-blue">
+                                        <th class="p-4 font-bold text-neutral-dark border-b-2 border-clarity-blue"></th>
+                                        <th class="p-4 font-bold text-neutral-dark border-b-2 border-clarity-blue text-center">Site "Pas Cher"</th>
+                                        <th class="p-4 font-bold text-white border-b-2 border-clarity-blue bg-clarity-blue text-center rounded-t-lg">Site "Clarté"</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b">
+                                        <td class="p-4 font-semibold text-neutral-dark">Coût Initial</td>
+                                        <td class="p-4 text-center">500€</td>
+                                        <td class="p-4 text-center font-semibold bg-blue-50">1500€</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-4 font-semibold text-neutral-dark">Clients / An</td>
+                                        <td class="p-4 text-center text-destructive font-bold">3</td>
+                                        <td class="p-4 text-center text-success-green font-bold text-xl bg-blue-50">12</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-4 font-semibold text-neutral-dark">Coût par Client</td>
+                                        <td class="p-4 text-center text-destructive font-bold">167€</td>
+                                        <td class="p-4 text-center text-success-green font-bold text-xl bg-blue-50">125€</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <p>Le site qui semblait trois fois plus cher au départ est en réalité <strong class="text-success-green">33% plus rentable</strong> pour chaque client qu'il vous apporte.</p>
+                        <p class="mt-4">Et ce calcul ne prend même pas en compte la <strong class="text-neutral-dark">valeur vie</strong> de ces clients supplémentaires, ni le <strong class="text-neutral-dark">temps</strong> que vous avez gagné en ayant un site qui travaille efficacement pour vous.</p>
+                    </div>
+
+                    <!-- Image 3 : Résultat -->
+                     <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/graphique-croissance-clients-grace-site-web-rentable.webp" alt="Graphique montrant une croissance exponentielle du nombre de clients grâce à un site web rentable" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 4 : Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Arrêtez d'Acheter un Prix. Investissez dans un Résultat.</h2>
+                        <p>Un site web "pas cher" est souvent l'investissement le plus coûteux que puisse faire un indépendant. C'est un actif qui sous-performe, qui nuit à votre crédibilité et qui vous coûte des opportunités chaque jour.</p>
+                        <p class="mt-4">Un site web stratégique, même s'il demande un investissement initial plus important, est un <strong class="text-neutral-dark">multiplicateur</strong>. C'est un système conçu pour générer un retour sur investissement positif et rapide.</p>
+                        <p class="mt-4 bg-soft-blue p-6 rounded-lg font-semibold text-neutral-dark">Alors, la prochaine fois que vous comparerez deux devis, ne vous demandez pas "Lequel est le moins cher ?". Demandez-vous : <br><em class="text-clarity-blue">"Lequel de ces deux investissements a le plus de chances de me rapporter des clients rentables ?"</em></p>
+                        <p class="mt-4">La réponse se trouve rarement dans le prix le plus bas, mais toujours dans l'approche la plus stratégique.</p>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <!-- Titre et sous-titre -->
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Prêt(e) à investir dans un site qui vous rapporte, <br><span class="text-clarity-blue">plutôt qu'un site qui vous coûte ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                           L'approche <a href="../index.html#offres" class="font-bold text-white hover:text-clarity-blue underline">Site Clarté</a> est entièrement conçue autour de cette idée de rentabilité. Chaque euro investi est dirigé vers un seul objectif : créer un système qui vous apporte des clients.
+                        </p>
+            
+                        <!-- Bouton d'action final et réassurance -->
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                               Discutons de la rentabilité de votre projet
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Appel Clarté gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

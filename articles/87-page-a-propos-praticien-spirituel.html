@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Comment Écrire une Page "À Propos" qui Raconte votre "Voyage de l'Âme"</title>
+    <meta name="description"
+        content="Praticiens spirituels : votre page 'À Propos' est votre outil de connexion le plus puissant. Découvrez la structure du 'Voyage du Héros' pour raconter votre histoire d'âme de manière authentique et inspirante.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Écrire une Page 'À Propos' qui Raconte votre 'Voyage de l'Âme'">
+    <meta property="og:description"
+        content="Découvrez comment utiliser la structure du 'Voyage du Héros' pour raconter votre histoire d'âme de manière authentique et inspirante sur votre page 'À Propos'.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-image-page-a-propos-voyage-du-heros.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-image-page-a-propos-voyage-du-heros.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html" class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html" class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À Propos</a>
+                    <a href="../index.html#offres" class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes Offres</a>
+                    <a href="../portfolio.html" class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html" class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html" class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Comment Écrire une Page "À Propos" qui Raconte votre "Voyage de l'Âme" (sans paraître narcissique)
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Praticiens spirituels : votre page "À Propos" est votre outil de connexion le plus puissant. Découvrez la structure du "Voyage du Héros" pour raconter votre histoire d'âme de manière authentique et inspirante.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/praticien-spirituel-page-a-propos-chemin-lanterne.webp" alt="Chemin sinueux éclairé par des lanternes, symbolisant le voyage de l'âme" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>C'est la page la plus intime de votre site web. La plus redoutée, aussi. La page "À Propos".</p>
+                    <p data-sr>Pour un praticien spirituel, c'est un exercice d'équilibriste. D'un côté, vous savez que votre parcours personnel, votre "voyage de l'âme", est la source même de votre légitimité. C'est la preuve que vous avez vous-même traversé les ombres que vous proposez aujourd'hui d'éclairer pour les autres.</p>
+                    <p data-sr>De l'autre, une peur immense vous retient : la peur de paraître narcissique. La peur de "parler de vous", de vous mettre en avant, ce qui semble à l'opposé d'une posture de service.</p>
+                    <p data-sr>Ce conflit intérieur mène souvent à deux impasses :</p>
+                    <ol class="list-decimal list-inside space-y-2 mt-4 pl-4">
+                        <li><strong class="text-neutral-dark">La page "CV Spirituel" :</strong> Une liste froide de vos formations (Reiki niveau 3, certification en astrologie...), qui ne transmet aucune âme.</li>
+                        <li><strong class="text-neutral-dark">La page "vide" :</strong> Une page quasi-inexistante, par peur de trop en dire.</li>
+                    </ol>
+                    <p data-sr class="pt-4 font-semibold text-neutral-dark bg-soft-blue p-6 rounded-lg border-l-4 border-clarity-blue">La clé pour sortir de ce dilemme est un changement de perspective fondamental : votre page "À Propos" n'est pas là pour parler de vous. Elle est là pour que votre client idéal, en lisant votre histoire, puisse voir le reflet de la sienne.</p>
+                    <p data-sr>Votre histoire n'est pas une fin en soi. C'est un pont. Un pont de résonance qui lui permet de se dire : "Cette personne comprend. Elle est passée par là. Je peux lui faire confiance."</p>
+                    <p data-sr>Pour construire ce pont, la structure narrative la plus puissante est celle du "Voyage du Héros". C'est une trame universelle qui permet de raconter votre histoire non pas comme un exploit, mais comme un cheminement humble et inspirant.</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-8" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4 border-t border-gray-200 pt-8">La Structure du "Voyage du Héros" en 3 Actes</h2>
+                        
+                        <h3 class="text-xl md:text-2xl font-bold text-clarity-blue mt-8 mb-4">Acte 1 : Le Monde Ordinaire & l'Appel à l'Aventure (Votre "Avant")</h3>
+                        <p>Toute grande histoire commence par un état de "normalité" qui ne satisfait plus. C'est votre "nuit noire de l'âme", votre moment de crise, votre sentiment de vide. C'est là que votre client se reconnaît.</p>
+                        <ul class="list-none space-y-2 mt-4 text-base">
+                            <li><span class="text-destructive font-bold mr-2">Piège à Éviter :</span> Le drame excessif ou le partage de détails trop intimes.</li>
+                            <li><span class="text-success-green font-bold mr-2">La Posture Juste :</span> Partagez la <strong>sensation</strong>, le <strong>conflit intérieur</strong> de manière universelle.</li>
+                        </ul>
+                        <div class="bg-soft-blue p-6 rounded-lg mt-6">
+                            <p class="font-semibold text-neutral-dark mb-4">Exemples :</p>
+                            <blockquote class="border-l-4 border-warm-orange pl-4 space-y-4">
+                                <p class="italic"><strong>Pour un coach spirituel :</strong> "Pendant des années, j'ai suivi le chemin que la société attendait de moi. J'avais une carrière réussie, une vie en apparence parfaite, mais au fond de moi, un sentiment de vide et de non-sens grandissait. Je me sentais comme une actrice dans ma propre vie."</p>
+                                <p class="italic"><strong>Pour un énergéticien :</strong> "J'ai longtemps vécu coupée de mon corps et de mes ressentis. J'étais une personne très mentale, jusqu'à ce que des problèmes de santé chroniques et un épuisement profond me forcent à écouter les messages que mon corps essayait désespérément de m'envoyer."</p>
+                            </blockquote>
+                        </div>
+                    </div>
+                    
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/praticien-spirituel-raconter-histoire-quete-interieure.webp" alt="Personne regardant un horizon lointain, symbolisant le début de la quête intérieure" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 -->
+                    <div class="pt-6" data-sr>
+                        <h3 class="text-xl md:text-2xl font-bold text-clarity-blue mt-8 mb-4">Acte 2 : La Traversée du Seuil & les Épreuves (Votre Quête)</h3>
+                        <p>C'est le moment où vous avez répondu à l'appel. C'est la phase de recherche, d'apprentissage, de transformation. C'est là que vous montrez votre engagement et votre expertise.</p>
+                        <ul class="list-none space-y-2 mt-4 text-base">
+                            <li><span class="text-destructive font-bold mr-2">Piège à Éviter :</span> Lister toutes vos formations comme une liste de courses.</li>
+                            <li><span class="text-success-green font-bold mr-2">La Posture Juste :</span> Racontez-le comme une <strong>quête de sens</strong>. Mentionnez vos outils non pas comme des diplômes, mais comme des <strong>alliés</strong> que vous avez rencontrés sur votre chemin.</li>
+                        </ul>
+                        <div class="bg-soft-blue p-6 rounded-lg mt-6">
+                            <p class="font-semibold text-neutral-dark mb-4">Exemples :</p>
+                            <blockquote class="border-l-4 border-warm-orange pl-4 space-y-4">
+                                <p class="italic"><strong>Pour le coach spirituel :</strong> "Cette quête de sens m'a d'abord menée vers la méditation, puis vers l'étude de l'astrologie. Ce n'était plus un apprentissage intellectuel, mais une redécouverte de mon propre langage intérieur. Chaque formation était une pièce du puzzle qui m'aidait à comprendre ma propre carte du monde."</p>
+                                <p class="italic"><strong>Pour l'énergéticien :</strong> "Ce chemin de guérison m'a fait découvrir le Reiki, puis la kinésiologie. J'ai compris que mon corps n'était pas un ennemi, mais un guide. J'ai réappris à dialoguer avec lui, à écouter ses messages et à libérer les mémoires qu'il portait."</p>
+                            </blockquote>
+                        </div>
+                    </div>
+
+                    <!-- Section 3 -->
+                    <div class="pt-6" data-sr>
+                        <h3 class="text-xl md:text-2xl font-bold text-clarity-blue mt-8 mb-4">Acte 3 : Le Retour avec l'Élixir (Votre Mission d'Aujourd'hui)</h3>
+                        <p>Le héros revient de sa quête, non pas pour lui-même, mais pour partager ce qu'il a appris avec sa communauté. C'est là que vous connectez votre histoire personnelle à votre offre de service.</p>
+                        <ul class="list-none space-y-2 mt-4 text-base">
+                            <li><span class="text-destructive font-bold mr-2">Piège à Éviter :</span> Se positionner comme un "sauveur" qui a toutes les réponses.</li>
+                            <li><span class="text-success-green font-bold mr-2">La Posture Juste :</span> Positionnez-vous comme un <strong>guide</strong> qui a déjà fait le chemin et qui maintenant, tient une lanterne pour éclairer celui des autres.</li>
+                        </ul>
+                        <div class="bg-soft-blue p-6 rounded-lg mt-6">
+                            <p class="font-semibold text-neutral-dark mb-4">Exemples :</p>
+                            <blockquote class="border-l-4 border-warm-orange pl-4 space-y-4">
+                                <p class="italic"><strong>Pour le coach spirituel :</strong> "Aujourd'hui, ma mission n'est pas de vous donner des réponses, mais de vous aider à trouver les vôtres. Mon histoire m'a appris que chaque âme a sa propre mélodie. Mon rôle est simplement de vous aider à l'entendre à nouveau, avec clarté et confiance."</p>
+                                <p class="italic"><strong>Pour l'énergéticien :</strong> "Parce que je connais intimement le chemin de la déconnexion à la réconciliation avec le corps, je vous offre aujourd'hui un espace d'écoute et de soin pour que vous puissiez, à votre tour, faire la paix avec votre propre histoire. Mon approche n'est pas magique ; elle est une invitation à activer votre propre pouvoir de guérison."</p>
+                            </blockquote>
+                        </div>
+                    </div>
+                    
+                    <!-- Image 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/praticien-spirituel-retour-heros-partager-lumiere.webp" alt="Main tendue offrant une lumière douce à une autre, symbolisant le partage et le guidage" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4 border-t border-gray-200 pt-8">Conclusion : Votre Histoire est un Acte de Service</h2>
+                        <p>Comme vous le voyez, une page "À Propos" bien construite n'est jamais narcissique.</p>
+                        <p class="mt-4">Elle est un miroir. Elle est un pont. Elle est un acte de générosité.</p>
+                        <p class="mt-4">En partageant votre propre vulnérabilité de manière structurée et intentionnelle, vous donnez la permission à vos futurs clients de se montrer vulnérables à leur tour. Vous ne leur dites pas "Regardez comme je suis incroyable". Vous leur dites :</p>
+                        <p class="mt-4 bg-deep-blue text-white p-6 rounded-lg font-bold text-xl text-center italic">"Je vous vois. Je vous comprends. Et je connais le chemin."</p>
+                        <p class="mt-4">Et c'est le message le plus puissant et le plus rassurant que vous puissiez leur offrir.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Prêt(e) à transformer votre voyage de l'âme <br><span class="text-clarity-blue">en votre plus bel outil de connexion ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Mettre en mots votre histoire personnelle de manière juste et impactante est un exercice profond. C'est le cœur de l'<a href="01-atelier-message-central.html" class="text-warm-orange font-semibold underline hover:text-orange-300">Atelier de Clarté</a>, où nous sculptons ensemble le récit qui deviendra le pilier de votre <a href="../index.html#offres" class="text-warm-orange font-semibold underline hover:text-orange-300">Site Clarté</a>.
+                        </p>
+            
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Discutons de votre histoire
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Appel Clarté gratuit &nbsp;•&nbsp; ✅ Sans engagement
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À Propos</a>
+                            <a href="../index.html#offres" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes Offres</a>
+                            <a href="../portfolio.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions Légales</a>
+                            <a href="../politique-de-confidentialite.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique de Confidentialité</a>
+                            <a href="../cgv.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions Générales de Vente</a>
+                            <a href="../contact.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

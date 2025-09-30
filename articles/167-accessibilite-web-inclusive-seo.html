@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Accessibilité Web : Comment je m'assure que votre Site Parle à Tout le Monde (y compris à Google)</title>
+    <meta name="description"
+        content="L'accessibilité web n'est pas une option. Découvrez comment je construis des sites inclusifs pour tous les utilisateurs, y compris ceux en situation de handicap, et pourquoi c'est un avantage majeur pour votre SEO.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Accessibilité Web : Comment votre Site peut Parler à Tout le Monde (et à Google)">
+    <meta property="og:description"
+        content="Découvrez comment construire un site inclusif pour tous, y compris les personnes en situation de handicap, et pourquoi c'est un avantage majeur pour votre SEO.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-accessibilite-web-strategie-seo-gagnante.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-accessibilite-web-strategie-seo-gagnante.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Accessibilité Web : Comment je m'assure que votre Site Parle à Tout le Monde (y compris à Google)
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                            L'accessibilité web n'est pas une option. Découvrez comment je construis des sites inclusifs pour tous les utilisateurs, y compris ceux en situation de handicap, et pourquoi c'est un avantage majeur pour votre SEO.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-12 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/personnes-diverses-regardant-ecran-ordinateur-ensemble.webp" alt="Illustration conceptuelle de l'accessibilité web avec des personnes diverses souriant devant un écran." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <p data-sr>Quand on pense à un "bon" site web, on pense souvent à un beau design, à un message clair, à une vitesse de chargement rapide. Ce sont des piliers essentiels.</p>
+                        <p data-sr>Mais il y a un autre pilier, plus silencieux, souvent invisible pour la majorité des utilisateurs, qui est au cœur de ma philosophie de travail : l'<strong class="text-neutral-dark">accessibilité</strong>.</p>
+                        <p data-sr>Un site web accessible est un site qui peut être consulté et utilisé par <strong class="text-neutral-dark">tout le monde</strong>, y compris les personnes en situation de handicap : les personnes malvoyantes qui utilisent des lecteurs d'écran, celles qui ne peuvent pas utiliser de souris, celles qui ont des difficultés de lecture...</p>
+                        <p data-sr>Pour un coach, un thérapeute ou un praticien du bien-être, dont les valeurs sont l'inclusion et le service à l'humain, avoir un site accessible n'est pas une "contrainte technique". C'est un <strong class="text-clarity-blue">impératif éthique</strong>. C'est le prolongement digital de votre posture d'accueil inconditionnel.</p>
+                        <p data-sr>Mais ce n'est pas tout. Et c'est là que la magie opère. En construisant un site accessible pour les humains, on le rend, par la même occasion, <strong class="text-neutral-dark">parfaitement lisible pour les robots de Google</strong>.</p>
+                        <p data-sr>Voici comment, en tant qu'artisan du web, je m'assure que votre <a href="../index.html#offres" class="text-clarity-blue font-semibold hover:underline">Site Clarté</a> ouvre ses portes à tous.</p>
+                    </div>
+
+                    <!-- ======================================================= -->
+                    <!--     SECTION 1 (HTML SÉMANTIQUE) - STYLE OPTIMISÉ        -->
+                    <!-- ======================================================= -->
+                    <div class="space-y-8 pt-6">
+                        <div data-sr>
+                            <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">1. Le Squelette qui a du Sens (Le HTML Sémantique)</h2>
+                            <p>La fondation de l'accessibilité est un code propre et bien structuré.</p>
+                        </div>
+
+                        <!-- NOUVEAU : Exemple de code HTML -->
+                        <div class="py-4" data-sr>
+                           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                               <!-- Mauvais exemple -->
+                               <div>
+                                   <h3 class="text-lg font-bold text-destructive flex items-center gap-2 mb-3">
+                                       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg>
+                                       Mauvais Exemple (Non-sémantique)
+                                   </h3>
+                                   <pre class="bg-gray-100 p-4 rounded-lg text-sm font-mono whitespace-pre-wrap border border-gray-200"><code>&lt;div class="card"&gt;
+  &lt;div class="title"&gt;Mon Service&lt;/div&gt;
+  &lt;div class="text"&gt;Description...&lt;/div&gt;
+  &lt;div class="link"&gt;En savoir plus&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                               </div>
+                               <!-- Bon exemple -->
+                               <div>
+                                   <h3 class="text-lg font-bold text-success-green flex items-center gap-2 mb-3">
+                                       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                       Bon Exemple (Sémantique)
+                                   </h3>
+                                   <pre class="bg-gray-100 p-4 rounded-lg text-sm font-mono whitespace-pre-wrap border border-gray-200"><code>&lt;article&gt;
+  &lt;h2&gt;Mon Service&lt;/h2&gt;
+  &lt;p&gt;Description...&lt;/p&gt;
+  &lt;a href="..."&gt;En savoir plus&lt;/a&gt;
+&lt;/article&gt;</code></pre>
+                               </div>
+                           </div>
+                        </div>
+
+                        <!-- Carte "Le Problème" -->
+                        <div class="bg-soft-blue p-6 rounded-2xl border border-gray-200" data-sr>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-12 h-12 bg-destructive/10 text-destructive rounded-full flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-destructive mb-2">Le Problème des "Sites Bricolés"</h3>
+                                    <p class="text-neutral-light">Beaucoup de sites construits avec des outils "glisser-déposer" utilisent des balises de code génériques (des <code class="bg-gray-200 text-sm px-1.5 py-0.5 rounded">&lt;div&gt;</code> partout). Visuellement, ça fonctionne. Mais pour un lecteur d'écran, c'est comme lire un livre où il n'y a ni titres, ni chapitres, ni paragraphes. C'est un mur de texte incompréhensible.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Carte "Mon Approche" -->
+                        <div class="bg-soft-blue p-6 rounded-2xl border border-gray-200" data-sr>
+                           <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-12 h-12 bg-clarity-blue/10 text-clarity-blue rounded-full flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.096 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-clarity-blue mb-2">Mon Approche Artisanale</h3>
+                                    <p class="text-neutral-light">Je construis le squelette de votre site (le HTML) en utilisant des <strong class="text-neutral-dark">balises sémantiques</strong>. Cela signifie que chaque élément a une signification : un titre principal est un <code class="bg-gray-200 text-sm px-1.5 py-0.5 rounded">&lt;h1&gt;</code>, une navigation est dans <code class="bg-gray-200 text-sm px-1.5 py-0.5 rounded">&lt;nav&gt;</code>, etc.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Carte "Les Bénéfices" -->
+                        <div class="bg-soft-blue p-6 rounded-2xl border border-gray-200" data-sr>
+                             <div class="flex items-start gap-4">
+                                <div class="flex-shrink-0 w-12 h-12 bg-success-green/10 text-success-green rounded-full flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-success-green mb-2">Les Bénéfices (Accessibilité & SEO)</h3>
+                                    <p class="text-neutral-light"><strong class="text-neutral-dark">Pour l'accessibilité :</strong> Un lecteur d'écran peut annoncer : "Vous entrez dans la navigation principale", "Voici le titre...". La structure devient logique et navigable.</p>
+                                    <p class="mt-3 text-neutral-light"><strong class="text-neutral-dark">Pour le SEO :</strong> Devinez qui d'autre est "aveugle" et a besoin d'une structure claire pour comprendre votre page ? <strong class="text-neutral-dark">Google !</strong> Un code sémantique est l'un des signaux les plus forts que vous puissiez lui envoyer pour qu'il comprenne parfaitement la hiérarchie et le sujet de votre contenu.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ======================================================= -->
+                    <!--     SECTION 2 (IMAGES) - STYLE OPTIMISÉ                 -->
+                    <!-- ======================================================= -->
+                    <div class="space-y-6 pt-6">
+                        <div data-sr>
+                            <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">2. Les Images qui Parlent (Les Textes Alternatifs)</h2>
+                            <p>Une image est un élément visuel puissant, mais elle est invisible pour une personne malvoyante ou pour Google.</p>
+                        </div>
+                        <ul class="space-y-4 pt-2">
+                             <li class="flex items-start gap-3" data-sr>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-destructive mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <div><strong>Le Problème :</strong> Une image sans description est un "trou noir" d'information pour un lecteur d'écran.</div>
+                            </li>
+                            <li class="flex items-start gap-3" data-sr>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success-green mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <div><strong>Mon Approche :</strong> Chaque image sur votre site a une "légende" cachée dans le code, qu'on appelle un <strong class="text-neutral-dark">texte alternatif</strong> (ou <code class="bg-gray-200 text-sm px-1.5 py-0.5 rounded">"balise alt"</code>).
+                                <blockquote class="border-l-4 border-warm-orange pl-4 mt-4 py-2 bg-warm-orange/5 rounded-r-lg">
+                                    <p class="italic text-base text-neutral-dark">Pour votre portrait, le texte sera : "Portrait de [Votre Nom], coach de carrière souriant(e) dans son bureau."</p>
+                                    <p class="mt-2 italic text-base text-neutral-dark">Pour une photo de votre cabinet : "Salle de consultation lumineuse et apaisante du cabinet de sophrologie."</p>
+                                </blockquote>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3" data-sr>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success-green mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <div><strong>Les Bénéfices :</strong> Le lecteur d'écran lit cette description, et Google l'utilise pour comprendre et classer votre image, vous apportant du trafic supplémentaire.</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- ======================================================= -->
+                    <!--     SECTION 3 (COULEURS) - STYLE OPTIMISÉ               -->
+                    <!-- ======================================================= -->
+                     <div class="space-y-8 pt-6">
+                        <div data-sr>
+                            <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">3. Les Couleurs qui se Lisent (Le Contraste Suffisant)</h2>
+                            <p>Un design élégant avec un texte gris clair sur fond blanc peut sembler très "tendance". C'est aussi illisible pour une grande partie de la population (personnes âgées, malvoyants...).</p>
+                        </div>
+                        
+                        <!-- NOUVEAU : Exemple visuel de contraste -->
+                        <div class="py-4" data-sr>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Mauvais contraste -->
+                                <div class="border border-gray-200 rounded-lg p-4">
+                                    <h3 class="text-lg font-bold text-destructive flex items-center gap-2 mb-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" /></svg>
+                                        Mauvais Contraste
+                                    </h3>
+                                    <div class="bg-white p-6 rounded-md text-center border">
+                                        <p class="text-gray-300 text-lg">Ce texte est difficile à lire.</p>
+                                    </div>
+                                    <p class="text-xs text-center mt-2 text-neutral-light">Ratio 1.5:1 (Échoue)</p>
+                                </div>
+                                <!-- Bon contraste -->
+                                <div class="border border-gray-200 rounded-lg p-4">
+                                    <h3 class="text-lg font-bold text-success-green flex items-center gap-2 mb-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                        Bon Contraste
+                                    </h3>
+                                    <div class="bg-white p-6 rounded-md text-center border">
+                                        <p class="text-neutral-dark text-lg">Ce texte est facile à lire.</p>
+                                    </div>
+                                    <p class="text-xs text-center mt-2 text-neutral-light">Ratio 12:1 (Excellent)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="space-y-4 pt-2">
+                             <li class="flex items-start gap-3" data-sr>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-destructive mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <div><strong>Le Problème :</strong> Un manque de contraste entre le texte et l'arrière-plan rend la lecture difficile, voire impossible.</div>
+                            </li>
+                            <li class="flex items-start gap-3" data-sr>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success-green mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <div><strong>Mon Approche :</strong> J'utilise des outils professionnels pour vérifier que chaque combinaison de couleurs sur votre site respecte les <strong class="text-neutral-dark">normes internationales d'accessibilité (WCAG)</strong>.</div>
+                            </li>
+                            <li class="flex items-start gap-3" data-sr>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success-green mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <div><strong>Le Bénéfice pour Tous :</strong> Un texte bien contrasté est plus agréable et moins fatigant à lire pour <strong class="text-neutral-dark">tout le monde</strong>, ce qui augmente le temps passé sur votre site et améliore l'expérience utilisateur globale.</div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- ======================================================= -->
+                    <!--     SECTION CONCLUSION - STYLE OPTIMISÉ                 -->
+                    <!-- ======================================================= -->
+                    <div class="space-y-6 pt-6">
+                        <div data-sr>
+                            <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : L'Inclusion est une Stratégie Gagnante</h2>
+                            <p>Construire un site accessible n'est pas une contrainte. C'est un <strong class="text-neutral-dark">cercle vertueux</strong>.</p>
+                            <p class="mt-4">En vous souciant de rendre votre site utilisable par tous, vous adoptez une posture éthique qui est en parfait alignement avec les valeurs des métiers de l'accompagnement.</p>
+                            <p class="mt-4">Et par la même occasion, en appliquant ces bonnes pratiques, vous créez un site techniquement impeccable, que Google comprend mieux, apprécie plus, et donc... <strong class="text-neutral-dark">classe mieux</strong>.</p>
+                        </div>
+                        <!-- Bloc Insight -->
+                        <div class="bg-soft-blue p-6 rounded-2xl border border-clarity-blue/20 flex items-start gap-4" data-sr>
+                            <div class="flex-shrink-0 text-clarity-blue mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                            </div>
+                            <p class="font-semibold text-neutral-dark text-lg">C'est la preuve que faire le bien pour l'humain est souvent la meilleure façon de faire le bien pour son business.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Appel à l'action final -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Votre site ouvre-t-il vraiment ses portes à <span class="text-clarity-blue">tout le monde ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            L'accessibilité est une norme de qualité non-négociable, intégrée par défaut dans chaque <a href="../index.html#offres" class="font-semibold text-white hover:text-clarity-blue underline">Site Clarté</a> que je construis. C'est ma garantie d'un travail bien fait, à la fois pour vous, pour vos visiteurs et pour Google.
+                        </p>
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Discutons de votre site inclusif
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Le Système d'Onboarding Sans Friction : Automatisez les 3 Premières Étapes avec votre Site</title>
+    <meta name="description"
+        content="Optimisez votre processus d'accueil client ! Découvrez comment utiliser votre site web pour automatiser l'onboarding (paiement, contrat, 1er RDV) et offrir une expérience premium.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Le Système d'Onboarding Sans Friction : Automatisez l'Accueil Client">
+    <meta property="og:description"
+        content="Découvrez comment utiliser votre site pour automatiser le contrat, le paiement et le 1er RDV, et offrir une expérience client premium dès la signature.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.clartem.com/articles/138-systeme-onboarding-client-automatise.html">
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-systeme-onboarding-automatise-site-web.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-systeme-onboarding-automatise-site-web.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Le Système d'Onboarding Sans Friction : Automatisez les 3 Premières Étapes avec votre Site
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                            Optimisez votre processus d'accueil client ! Découvrez comment utiliser votre site web pour automatiser l'onboarding (paiement, contrat, 1er RDV) et offrir une expérience premium dès la signature.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/parcours-client-fluide-automatise-dominos-signature.webp" alt="Série de dominos tombant parfaitement, symbolisant un parcours client fluide et automatisé" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Félicitations ! Après un excellent appel découverte, votre prospect vous dit "Oui, on y va !". C'est un moment de célébration.</p>
+                    <p data-sr>Un moment qui, pour beaucoup de consultants et de coachs, est immédiatement suivi par le début du <strong class="text-neutral-dark">"chaos de l'onboarding"</strong>.</p>
+                    <p data-sr>S'ensuit une avalanche d'emails et de tâches manuelles :</p>
+                    <ul class="list-disc list-inside space-y-2 mt-4 pl-4 italic" data-sr>
+                        <li>"Je vous envoie la proposition à signer."</li>
+                        <li>"Voici la facture d'acompte, merci de me faire le virement."</li>
+                        <li>"Dès que le paiement est reçu, nous pourrons fixer notre première séance. Quelles sont vos disponibilités la semaine prochaine ?"</li>
+                    </ul>
+                    <p data-sr class="mt-4">Ce processus, souvent étalé sur plusieurs jours, est rempli de frictions. Il est chronophage pour vous et peut créer une première impression de désorganisation pour votre tout nouveau client, juste au moment où sa confiance devrait être à son maximum.</p>
+                    <p data-sr>Et si vous pouviez transformer ce processus chaotique en un <strong class="text-clarity-blue">rituel d'accueil fluide, professionnel et quasi-instantané</strong> ?</p>
+                    <p data-sr>La clé n'est pas de travailler plus, mais de construire un <strong class="text-neutral-dark">système</strong>. Un système où votre site web n'est pas seulement votre outil de vente, mais aussi le point de départ de votre processus de livraison. Voici comment automatiser les 3 premières étapes cruciales de l'onboarding.</p>
+
+                    <!-- Section Principe -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Le Principe : Un Parcours Guidé, de la Décision à l'Action</h2>
+                        <p>L'objectif est de créer un parcours "sans couture" où votre nouveau client peut passer de la décision ("Je signe") à la planification de la première séance de travail en <strong class="text-neutral-dark">moins de 10 minutes</strong>, sans que vous ayez à intervenir manuellement.</p>
+                        <p class="mt-4">Ce système repose sur l'enchaînement logique de trois briques : le contrat, le paiement, et la planification.</p>
+                    </div>
+
+                    <!-- Étape 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-6">Étape 1 : Le Contrat Électronique (La Signature Instantanée)</h2>
+                        <div class="bg-soft-blue border-l-4 border-destructive p-6 rounded-lg mb-6">
+                            <h3 class="text-xl font-bold text-destructive mb-3">Le Problème Classique</h3>
+                            <p class="text-neutral-dark">Envoyer un PDF, attendre que le client l'imprime, le signe, le scanne, le renvoie... C'est un processus lent et archaïque.</p>
+                        </div>
+                        <div class="bg-soft-blue border-l-4 border-success-green p-6 rounded-lg">
+                             <h3 class="text-xl font-bold text-success-green mb-3">La Solution Moderne</h3>
+                            <p class="text-neutral-dark">La Signature Électronique. Des outils comme <strong class="font-semibold">Docusign, HelloSign</strong> ou <strong class="font-semibold">PandaDoc</strong> vous permettent de créer des modèles de contrats et de les envoyer pour signature via un simple lien.</p>
+                        </div>
+                        <h3 class="text-xl font-bold text-neutral-dark mt-8 mb-4">L'Intégration dans votre Système :</h3>
+                        <p>Le lien vers le contrat est la <strong class="text-neutral-dark">première étape</strong> que vous envoyez à votre client juste après son accord verbal.</p>
+                        <blockquote class="border-l-4 border-warm-orange pl-6 py-4 mt-6 bg-gray-50 rounded-r-lg">
+                            <p class="font-semibold text-neutral-dark italic">Exemple d'email :</p>
+                            <p class="mt-2 text-neutral-light italic">"Ravi de démarrer cette collaboration ! La première étape est de signer notre accord de mission via ce lien sécurisé : [Lien Docusign]"</p>
+                        </blockquote>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/redirection-automatique-apres-signature-contrat-paiement.webp" alt="Écran partagé montrant une signature de contrat électronique qui redirige automatiquement vers une page de paiement en ligne" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Étape 2 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-6">Étape 2 : Le Paiement en Ligne (La Validation Financière)</h2>
+                         <div class="bg-soft-blue border-l-4 border-destructive p-6 rounded-lg mb-6">
+                            <h3 class="text-xl font-bold text-destructive mb-3">Le Problème Classique</h3>
+                            <p class="text-neutral-dark">Envoyer une facture PDF et attendre un virement bancaire peut prendre des jours, voire des semaines, et retarde le début de la mission.</p>
+                        </div>
+                        <div class="bg-soft-blue border-l-4 border-success-green p-6 rounded-lg">
+                             <h3 class="text-xl font-bold text-success-green mb-3">La Solution Moderne</h3>
+                            <p class="text-neutral-dark">Le Lien de Paiement. Des outils comme <strong class="font-semibold">Stripe</strong> ou <strong class="font-semibold">Paypal</strong> vous permettent de créer des liens de paiement directs pour vos factures d'acompte ou vos offres packagées.</p>
+                        </div>
+                        <h3 class="text-xl font-bold text-neutral-dark mt-8 mb-4">L'Intégration dans votre Système (L'Astuce "Post-Signature") :</h3>
+                        <p>La plupart des outils de signature électronique permettent de <strong class="text-neutral-dark">rediriger automatiquement</strong> l'utilisateur vers une URL de votre choix <strong class="text-neutral-dark">après qu'il a signé le contrat</strong>.</p>
+                        <ol class="list-decimal list-inside space-y-2 mt-4 pl-4">
+                            <li>Le client signe le contrat sur Docusign.</li>
+                            <li>Il est immédiatement redirigé vers le lien de paiement Stripe pour régler l'acompte.</li>
+                        </ol>
+                        <p class="mt-4 font-semibold text-clarity-blue bg-soft-blue p-4 rounded-lg">Vous venez de lier les deux étapes les plus critiques sans aucune friction.</p>
+                    </div>
+
+                    <!-- Étape 3 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-6">Étape 3 : La Planification du Lancement (Le Démarrage de la Mission)</h2>
+                        <div class="bg-soft-blue border-l-4 border-destructive p-6 rounded-lg mb-6">
+                            <h3 class="text-xl font-bold text-destructive mb-3">Le Problème Classique</h3>
+                            <p class="text-neutral-dark">Une fois le paiement reçu, le jeu de "Tetris" par email commence pour trouver un créneau pour la réunion de lancement.</p>
+                        </div>
+                        <div class="bg-soft-blue border-l-4 border-success-green p-6 rounded-lg">
+                             <h3 class="text-xl font-bold text-success-green mb-3">La Solution Moderne</h3>
+                            <p class="text-neutral-dark">Le Lien Calendly "Secret". Vous avez créé un événement Calendly secret, réservé uniquement à vos nouveaux clients.</p>
+                        </div>
+                        <h3 class="text-xl font-bold text-neutral-dark mt-8 mb-4">L'Intégration dans votre Système (La Touche Finale) :</h3>
+                        <p>La <strong class="text-neutral-dark">page de remerciement</strong> de votre système de paiement (la page qui s'affiche juste après que le client a payé sur Stripe) est votre arme secrète.</p>
+                         <ol class="list-decimal list-inside space-y-2 mt-4 pl-4">
+                            <li>Le client paie l'acompte.</li>
+                            <li>Il atterrit sur une page de votre site qui dit :</li>
+                        </ol>
+                        <blockquote class="border-l-4 border-warm-orange pl-6 py-4 mt-6 bg-gray-50 rounded-r-lg">
+                            <p class="font-bold text-xl text-neutral-dark italic">"Félicitations et bienvenue à bord !</p>
+                            <p class="mt-4 text-neutral-light italic">Le paiement a bien été reçu. La dernière étape pour démarrer officiellement notre collaboration est de planifier notre séance de lancement.</p>
+                            <p class="mt-2 text-neutral-light italic">Veuillez utiliser mon agenda privé ci-dessous pour choisir le créneau qui vous convient le mieux."</p>
+                        </blockquote>
+                        <ol start="3" class="list-decimal list-inside space-y-2 mt-6 pl-4">
+                            <li>Juste en dessous, vous intégrez le module de réservation de votre événement Calendly "secret".</li>
+                        </ol>
+                    </div>
+                    
+                    <!-- Image 3 -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/page-accueil-client-integration-calendly-reservation.webp" alt="Maquette de la page de bienvenue pour un nouveau client avec un module de réservation Calendly intégré" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Résultat -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Le Résultat : Une Expérience Client "Waouh" en 10 Minutes</h2>
+                        <p>Récapitulons le parcours de votre nouveau client :</p>
+                        <ol class="list-decimal list-inside space-y-2 mt-4 pl-4">
+                            <li>Il reçoit un email avec un lien pour le contrat. <strong class="text-neutral-dark">(1 minute)</strong></li>
+                            <li>Après avoir signé, il est automatiquement redirigé pour payer l'acompte. <strong class="text-neutral-dark">(2 minutes)</strong></li>
+                            <li>Après avoir payé, il atterrit sur une page qui lui permet de réserver immédiatement la première séance. <strong class="text-neutral-dark">(2 minutes)</strong></li>
+                        </ol>
+                        <p class="mt-4">En moins de 10 minutes, sans aucun email de votre part, le client a signé, payé, et le premier rendez-vous est dans l'agenda.</p>
+                    </div>
+
+                    <!-- Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Conclusion : Votre Professionnalisme se Juge dès le Premier Jour</h2>
+                        <p>L'onboarding n'est pas une tâche administrative. C'est la <strong class="text-neutral-dark">première promesse</strong> de l'expérience que vous allez offrir.</p>
+                        <p class="mt-4">Un processus d'accueil fluide, automatisé et sans friction envoie un message incroyablement puissant : <strong class="text-clarity-blue">"Je suis un professionnel organisé, je respecte votre temps, et notre collaboration sera aussi efficace que ce processus de démarrage."</strong></p>
+                        <p class="mt-4">En utilisant votre site web comme le hub de ce système, vous ne faites pas que gagner du temps. Vous créez une première impression si impeccable qu'elle ancre la confiance de votre client pour toute la durée de votre mission.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <!-- Titre et sous-titre -->
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Prêt(e) à construire un système d'accueil <br><span class="text-clarity-blue">qui impressionne vos clients ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Un <a href="../index.html#offres" class="font-bold text-white underline hover:text-clarity-blue">Site Clarté</a> n'est pas seulement conçu pour attirer des prospects, mais aussi pour s'intégrer parfaitement à ces systèmes d'automatisation qui rendent votre business plus fluide et plus professionnel.
+                        </p>
+            
+                        <!-- Bouton d'action final et réassurance -->
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Discutons de votre système client
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>
