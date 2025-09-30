@@ -1318,26 +1318,130 @@ if (scrollContainer && window.innerWidth >= 768) {
 
 
 
-            
-
-            
-            // -- Catégorie: Outils & Productivité --
+                        // -- Catégorie: Outils & Productivité --
             {
                 title: "Arrêtez de Jouer à 'Tetris' avec votre Agenda : Le Guide Complet de Calendly",
-                description: "Fatigués des allers-retours d'emails ? Découvrez comment configurer Calendly pour professionnaliser votre prise de RDV et gagner des heures.",
+                description: "Fatigués des allers-retours d'emails ? Découvrez comment configurer Calendly pour professionnaliser votre prise de RDV et gagner des heures chaque semaine.",
                 link: "articles/26-guide-calendly-pour-coachs.html",
-                image: "assets/blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/image-placeholder-outils.webp",
                 category: "outils",
-                date: "18 Juillet 2024"
+                date: "01 Mai 2024"
             },
             {
-                title: "L'IA comme Assistant Créatif : 3 Façons Éthiques de l'Utiliser pour votre Contenu",
-                description: "Apprenez à utiliser l'IA comme un assistant pour brainstormer, synthétiser et clarifier vos idées, sans perdre votre âme.",
-                link: "articles/182-ia-assistant-creatif-ethique.html",
-                image: "assets/blog/image-placeholder-outils.webp",
+                title: "Au-delà de la Prise de RDV : 5 Fonctionnalités Méconnues de Calendly pour Automatiser",
+                description: "Découvrez 5 fonctionnalités avancées (workflows, paiements, redirection...) pour automatiser votre suivi client, réduire les no-shows et professionnaliser votre business.",
+                link: "articles/27-automatiser-business-avec-calendly.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
                 category: "outils",
-                date: "17 Juillet 2024"
+                date: "30 Avril 2024"
             },
+            {
+                title: "L'Art de la Page de Réservation Calendly Parfaite : 5 Optimisations pour Doubler votre Taux de Conversion",
+                description: "Découvrez 5 optimisations simples (photo, message, questions...) pour transformer votre page de réservation en une machine à convertir les prospects en rendez-vous.",
+                link: "articles/38-calendly-optimisations-conversions.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "29 Avril 2024"
+            },
+            {
+                title: "Le 'No-Show' est votre Faute : Comment Utiliser les Workflows Calendly pour Garantir 99% de Présence",
+                description: "Vos prospects ne se présentent pas à vos rendez-vous ? Découvrez comment utiliser les workflows Calendly pour garantir 99% de présence.",
+                link: "articles/39-eliminer-no-show-calendly.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "28 Avril 2024"
+            },
+            {
+                title: "Comment Intégrer Calendly sur votre Site Web : Le Guide Comparatif",
+                description: "Découvrez comment intégrer Calendly sur votre site. Comparatif des 3 méthodes (en ligne, widget, bouton) pour choisir la meilleure option pour l'expérience utilisateur.",
+                link: "articles/40-integrer-calendly-guide-comparatif.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "27 Avril 2024"
+            },
+            {
+                title: "Le Calendly 'Payant' est-il Rentable ? Analyse du ROI pour un Coach ou Consultant",
+                description: "L'abonnement Calendly Pro est-il un coût ou un investissement ? Découvrez notre analyse de ROI pour savoir si passer à la version payante est rentable pour vous.",
+                link: "articles/41-calendly-payant-roi-analyse.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "26 Avril 2024"
+            },
+            {
+                title: "La Stratégie des 'Événements Secrets' : Comment Utiliser Calendly pour Gérer vos Clients VIP",
+                description: "Découvrez comment utiliser les événements secrets de Calendly pour offrir une expérience premium à vos clients VIP, partenaires et gérer différents types de rendez-vous.",
+                link: "articles/42-strategie-evenements-secrets-calendly.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "25 Avril 2024"
+            },
+            {
+                title: "Connecter Calendly à votre CRM : La Première Étape pour Construire votre Machine de Vente",
+                description: "Allez au-delà de la prise de RDV. Découvrez comment connecter Calendly à un CRM pour suivre vos prospects, automatiser votre suivi et construire une véritable machine de vente.",
+                link: "articles/43-connecter-calendly-crm-machine-de-vente.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "24 Avril 2024"
+            },
+            {
+                title: "Comment Créer une Expérience de Réservation 'Cocon' avec Calendly (pour Clients Anxieux)",
+                description: "Votre processus de réservation est-il aussi bienveillant que vos séances ? Découvrez comment configurer Calendly pour créer un cocon de confiance et rassurer vos clients.",
+                link: "articles/44-creer-experience-cocon-calendly.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "23 Avril 2024"
+            },
+            {
+                title: "Gérer les Annulations et les Reports avec Bienveillance (et Fermeté) grâce à Calendly",
+                description: "Subissez-vous les annulations de dernière minute ? Découvrez comment utiliser Calendly pour poser un cadre clair et bienveillant, et protéger votre temps.",
+                link: "articles/45-gerer-annulations-calendly.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "22 Avril 2024"
+            },
+            {
+                title: "Paiement en Ligne via Calendly : La Clé pour Valoriser votre Temps et Réduire la Charge Mentale",
+                description: "La gestion des paiements est un stress ? Découvrez comment l'intégration du paiement en ligne sur Calendly peut réduire votre charge mentale et valoriser votre travail.",
+                link: "articles/46-paiement-en-ligne-calendly-therapeutes.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "21 Avril 2024"
+            },
+            {
+                title: "La Stratégie du 'Pack de Séances' sur Calendly : Comment Vendre un Parcours, pas juste un RDV",
+                description: "Sortez de la vente de séances à l'unité. Découvrez la stratégie du 'pack de séances' et comment utiliser Calendly pour vendre des parcours de transformation complets.",
+                link: "articles/47-strategie-pack-seances-calendly.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "20 Avril 2024"
+            },
+            {
+                title: "Le Questionnaire de Pré-Coaching : Comment Utiliser les Questions Calendly pour Rendre votre Première Séance 2x Plus Efficace",
+                description: "Optimisez votre première séance ! Découvrez comment utiliser les questions de votre formulaire Calendly comme un puissant questionnaire de pré-coaching.",
+                link: "articles/48-calendly-questionnaire-pre-coaching.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "19 Avril 2024"
+            },
+            {
+                title: "Du Prospect au Client Engagé : Le Workflow Calendly Parfait pour un Parcours de Coaching",
+                description: "Découvrez le workflow Calendly complet en 4 étapes pour transformer un prospect en client engagé, du premier appel au suivi des séances, sans effort.",
+                link: "articles/49-workflow-calendly-coach.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "18 Avril 2024"
+            },
+
+            
+            
+
+
+
+
+
+
+
+            
             // -- Catégorie: Niche : Bien-être & Holistique --
             {
                 title: "Votre Site de Yoga doit être un Shala Virtuel, pas un Catalogue de Cours",
