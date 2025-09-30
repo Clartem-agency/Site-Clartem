@@ -628,81 +628,81 @@ if (scrollContainer && window.innerWidth >= 768) {
                 title: "La Règle des 3 Secondes : L'Accroche qui Transforme un Visiteur en Prospect",
                 description: "Votre site a 3 secondes pour convaincre. Apprenez la méthode pour créer une accroche percutante qui transforme un simple visiteur en un prospect qualifié.",
                 link: "articles/03-regle-3-secondes-accroche-site-web.html",
-                image: "assets/blog/image-placeholder-strategie.webp",
+                image: "assets/image-blog/regle-3-secondes-intro-projet.webp",
                 category: "strategie",
-                date: "24 Juillet 2024"
+                date: "24 Juillet 2025"
             },
             {
                 title: "Votre Page 'À Propos' n'est pas un CV : Racontez l'Histoire qui Crée la Confiance",
                 description: "Arrêtez de lister vos diplômes. Découvrez comment raconter votre histoire personnelle pour créer un lien de confiance immédiat avec vos visiteurs.",
                 link: "articles/04-page-a-propos-histoire-confiance.html",
-                image: "assets/blog/image-placeholder-strategie.webp",
+                image: "assets/image-blog/histoire-confiance-intro-projet.webp",
                 category: "strategie",
-                date: "23 Juillet 2024"
+                date: "23 Juillet 2025"
             },
             {
                 title: "Ne Vendez pas des Séances, Vendez une Transformation",
                 description: "Apprenez à transformer vos 'séances' en 'parcours de transformation' désirables. La clé pour créer des offres irrésistibles.",
                 link: "articles/05-vendre-transformation-offres-irresistibles.html",
-                image: "assets/blog/image-placeholder-strategie.webp",
+                image: "assets/image-blog/offres-transformation-intro-projet.webp",
                 category: "strategie",
-                date: "22 Juillet 2024"
+                date: "22 Juillet 2025"
             },
             {
                 title: "Comment Écrire une Page 'À Propos' qui Raconte votre 'Voyage de l'Âme'",
                 description: "Pour les praticiens spirituels : découvrez la structure du 'Voyage du Héros' pour raconter votre histoire d'âme de manière authentique et inspirante.",
                 link: "articles/87-page-a-propos-praticien-spirituel.html",
-                image: "assets/blog/image-placeholder-strategie.webp",
+                image: "assets/image-blog/praticien-spirituel-page-a-propos-chemin-lanterne-projet.webp",
                 category: "strategie",
-                date: "21 Juillet 2024"
+                date: "21 Juillet 2025"
             },
             {
                 title: "Coach/Thérapeute Débutant : Comment Fixer vos Premiers Tarifs",
                 description: "Le guide en 3 étapes pour fixer un prix juste qui valorise votre travail, rassure vos clients et vous permet de vivre de votre passion.",
                 link: "articles/98-coach-therapeute-debutant-fixer-premiers-tarifs.html",
-                image: "assets/blog/image-placeholder-strategie.webp",
+                image: "assets/image-blog/coach-therapeute-equilibre-valeur-tarif-projet.webp",
                 category: "strategie",
-                date: "20 Juillet 2024"
+                date: "20 Juillet 2025"
             },
             {
                 title: "Le Guide pour Créer votre Première Offre 'Signature'",
                 description: "Arrêtez de vendre des 'séances'. Découvrez notre guide en 5 étapes pour créer votre première offre signature, une solution packagée qui clarifie votre message.",
                 link: "articles/99-creer-premiere-offre-signature.html",
-                image: "assets/blog/image-placeholder-strategie.webp",
+                image: "assets/image-blog/coach-therapeute-creer-offre-signature-coherente-projet.webp",
                 category: "strategie",
-                date: "19 Juillet 2024"
+                date: "19 Juillet 2025"
             },
             {
                 title: "Votre Bio Instagram/LinkedIn : Le Modèle en 4 Lignes pour un Coach qui se Lance",
                 description: "Vous avez 150 caractères pour convaincre. Découvrez notre modèle simple en 4 lignes pour rédiger une biographie percutante qui attire vos clients idéaux.",
                 link: "articles/100-bio-instagram-linkedin-modele-coach.html",
-                image: "assets/blog/image-placeholder-strategie.webp",
+                image: "assets/image-blog/coach-debutant-optimiser-sa-bio-instagram-projet.webp",
                 category: "strategie",
-                date: "18 Juillet 2024"
+                date: "18 Juillet 2025"
             },
             {
                 title: "Le Test du 'Et Alors ?' : La Méthode pour Rédiger une Proposition de Valeur qui Convertit",
                 description: "Découvrez une méthode simple pour transformer une description de service fade en une proposition de valeur qui parle aux vrais besoins de vos clients B2B.",
                 link: "articles/129-test-et-alors-proposition-valeur.html",
-                image: "assets/blog/image-placeholder-strategie.webp",
+                image: "assets/image-blog/test-et-alors-creuser-pour-trouver-benefice-profond-projet.webp",
                 category: "strategie",
-                date: "17 Juillet 2024"
+                date: "17 Juillet 2025"
             },
             {
                 title: "Le Syndrome du 'Bon Élève' : Pourquoi Lister vos Services est Moins Efficace que de Décrire les Problèmes",
                 description: "Sortez du 'syndrome du bon élève' et apprenez à décrire les problèmes que vous résolvez pour créer un message qui convertit vraiment vos clients B2B.",
                 link: "articles/139-syndrome-bon-eleve-vendre-solutions.html",
-                image: "assets/blog/image-placeholder-strategie.webp",
+                image: "assets/image-blog/consultant-presente-diplome-client-montre-probleme-projet.webp",
                 category: "strategie",
-                date: "16 Juillet 2024"
+                date: "16 Juillet 2025"
             },
             {
                 title: "La 'Banalité du Bien' : Pourquoi les Mots comme 'Excellence' et 'Innovation' ne Veulent Plus Rien Dire",
                 description: "Votre site est rempli de jargon corporate ? Découvrez pourquoi ces mots sont devenus invisibles et comment les remplacer par un langage de preuve.",
                 link: "articles/141-banalite-du-bien-mots-vides-marketing.html",
-                image: "assets/blog/image-placeholder-strategie.webp",
+                image: "assets/image-blog/banalite-du-bien-nuage-mots-vides-entreprise-projet.webp",
                 category: "strategie",
-                date: "15 Juillet 2024"
+                date: "15 Juillet 2025"
             },
             {
                 title: "L'Escalier de Valeur : Comment Structurer vos Offres de Conseil",
