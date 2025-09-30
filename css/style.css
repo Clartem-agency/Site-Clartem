@@ -801,3 +801,62 @@ nav.scrolled {
     /* Ombre plus prononcée pour accentuer l'effet de profondeur */
     box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
 }
+
+
+/* ======================================================= */
+/*    NOUVEAUX STYLES POUR LA PAGE BLOG                    */
+/* ======================================================= */
+
+/* --- Style des boutons de filtre de catégorie --- */
+.filter-btn {
+    padding: 8px 16px;
+    border-radius: 9999px; /* rounded-full */
+    font-weight: 600; /* font-semibold */
+    font-size: 0.875rem; /* text-sm */
+    background-color: #ffffff; /* bg-white */
+    color: #3B82F6; /* text-clarity-blue */
+    border: 1px solid #3B82F6; /* border-clarity-blue */
+    transition: all 0.2s ease-in-out;
+}
+
+.filter-btn:hover {
+    background-color: #EFF6FF; /* soft-blue */
+}
+
+.filter-btn.active {
+    background-color: #1E3A8A; /* bg-deep-blue */
+    color: #ffffff; /* text-white */
+    border-color: #1E3A8A; /* border-deep-blue */
+}
+
+/* --- Style des boutons de pagination --- */
+.pagination-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px; /* rounded-lg */
+    font-weight: 600; /* font-semibold */
+    background-color: #ffffff; /* bg-white */
+    color: #3B82F6; /* text-clarity-blue */
+    border: 1px solid #d1d5db; /* border-gray-300 */
+    transition: all 0.2s ease-in-out;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    border-color: #3B82F6; /* border-clarity-blue */
+    background-color: #EFF6FF; /* bg-soft-blue */
+}
+
+.pagination-btn.active {
+    background-color: #1E3A8A; /* bg-deep-blue */
+    color: #ffffff; /* text-white */
+    border-color: #1E3A8A; /* border-deep-blue */
+    cursor: default;
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
