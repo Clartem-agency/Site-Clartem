@@ -612,8 +612,10 @@ if (scrollContainer && window.innerWidth >= 768) {
         // Les catégories doivent correspondre aux "data-filter" des boutons en HTML.
         const allArticles = [
 
+
             
-                        // -- Catégorie: Stratégie & Positionnement --
+            
+            // -- Catégorie: Stratégie & Positionnement --
             {
                 title: "Atelier Gratuit : Définissez le Message Central de votre Site Web",
                 description: "Découvrez 4 questions stratégiques pour définir une accroche claire qui captive vos clients idéaux en moins de 3 secondes.",
@@ -751,7 +753,7 @@ if (scrollContainer && window.innerWidth >= 768) {
                 date: "09 Juillet 2024"
             },
 
-                        {
+            {
                 title: "Le Syndrome de l'Expert Généraliste : Pourquoi la Niche est Votre Meilleur Levier de Croissance",
                 description: "Découvrez pourquoi être un expert généraliste freine votre croissance et comment choisir une niche rentable pour attirer plus de clients et augmenter vos tarifs.",
                 link: "articles/19-syndrome-expert-generaliste-niche.html",
@@ -826,7 +828,7 @@ if (scrollContainer && window.innerWidth >= 768) {
             
 
 
-                        {
+             {
                 title: "L'Audit en 5 Points pour Savoir si Votre Page d'Accueil Fait Fuir vos Meilleurs Prospects",
                 description: "Réalisez notre audit simple en 5 points (clarté, preuve, CTA...) pour savoir si votre site de coach ou consultant attire ou fait fuir vos clients idéaux.",
                 link: "articles/20-audit-page-accueil-prospects.html",
@@ -948,7 +950,7 @@ if (scrollContainer && window.innerWidth >= 768) {
             },
 
             
-                        {
+            {
                 title: "Votre Site n'est pas une Brochure, c'est Votre Plateforme de 'Thought Leadership'",
                 description: "Découvrez comment transformer votre site en une puissante plateforme de 'Thought Leadership' pour asseoir votre autorité et attirer des clients premium.",
                 link: "articles/136-site-web-scene-thought-leadership.html",
@@ -1004,6 +1006,58 @@ if (scrollContainer && window.innerWidth >= 768) {
                 category: "strategie",
                 date: "08 Juin 2024"
             },
+
+
+            {
+                title: "Le Témoignage 'Gentil' vs le Témoignage qui Convertit",
+                description: "Découvrez la différence entre un avis 'gentil' et un témoignage qui convertit, et recevez notre modèle d'email pour obtenir des retours percutants.",
+                link: "articles/07-temoignage-qui-convertit.html",
+                image: "assets/image-blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "07 Juin 2024"
+            },
+            {
+                title: "Pas de Budget Photographe ? 10 Astuces pour des Photos de Site Web Authentiques",
+                description: "Créez des photos professionnelles pour votre site sans photographe. Découvrez 10 astuces simples pour un résultat authentique qui inspire confiance.",
+                link: "articles/10-astuces-photos-site-web.html",
+                image: "assets/image-blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "06 Juin 2024"
+            },
+            {
+                title: "Votre FAQ est une Arme de Conversion Secrète",
+                description: "Ne négligez pas votre page FAQ ! Découvrez comment transformer cette section en une puissante machine à conversion en répondant stratégiquement aux doutes de vos prospects.",
+                link: "articles/11-faq-arme-secrete.html",
+                image: "assets/image-blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "05 Juin 2024"
+            },
+            {
+                title: "L'Appel à l'Action qui Convertit : Passez de 'Contactez-moi' à 'Planifiez votre Session Stratégique'",
+                description: "Votre bouton 'Contactez-moi' ne convertit pas ? Découvrez comment le remplacer par un appel à l'action puissant qui attire des prospects qualifiés.",
+                link: "articles/16-appel-a-l-action-qui-convertit.html",
+                image: "assets/image-blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "04 Juin 2024"
+            },
+            {
+                title: "Votre Site Web n'est pas une Carte de Visite, c'est Votre Commercial n°1",
+                description: "Votre site web est-il un simple coût ou votre meilleur commercial ? Découvrez les 3 rôles stratégiques d'un site B2B qui travaille activement pour vous.",
+                link: "articles/18-site-web-commercial-numero-un.html",
+                image: "assets/image-blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "03 Juin 2024"
+            },
+            {
+                title: "Votre Site Web est-il un Stagiaire ou un Directeur Commercial ? Le Bilan de Santé de Votre Présence en Ligne",
+                description: "Réalisez notre bilan de santé en 7 questions pour savoir si votre site est un simple stagiaire ou un véritable directeur commercial qui vous rapporte des clients.",
+                link: "articles/77-bilan-sante-site-web.html",
+                image: "assets/image-blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "02 Juin 2024"
+            },
+
+
 
             
 
@@ -1122,8 +1176,21 @@ if (scrollContainer && window.innerWidth >= 768) {
                 date: "25 Mai 2024"
             },
             
+            
+            {
+                title: "Pourquoi 'Faire son Site Soi-même' sur Wix/SquareSpace est Souvent une Mauvaise Idée",
+                description: "Découvrez pourquoi le 'fait maison' peut coûter cher en temps et en clients perdus, et quelle est l'alternative pour un résultat professionnel et stratégique.",
+                link: "articles/52-piege-site-fait-maison.html",
+                image: "assets/image-blog/image-placeholder-debuter.webp",
+                category: "debuter",
+                date: "24 Mai 2024"
+            },
 
 
+
+
+
+            
 
             // -- Catégorie: Marketing Local & Google --
             {
@@ -1314,11 +1381,31 @@ if (scrollContainer && window.innerWidth >= 768) {
             },
             
 
+            {
+                title: "Comment Gérer les Avis Google (même les mauvais) pour Renforcer la Confiance",
+                description: "Peur des mauvais avis Google ? Découvrez notre guide pour répondre aux avis (positifs et négatifs) de manière professionnelle et renforcer votre réputation.",
+                link: "articles/56-gerer-avis-google-confiance.html",
+                image: "assets/image-blog/image-placeholder-local.webp",
+                category: "local",
+                date: "01 Mai 2024"
+            },
+            {
+                title: "Les Mots-Clés qui Attirent les Clients vs. les Mots-Clés qui Attirent les Curieux",
+                description: "Apprenez la différence vitale entre les mots-clés 'informationnels' (blog) et les mots-clés 'transactionnels locaux' (Google Maps).",
+                link: "articles/109-seo-local-mots-cles-convertissent.html",
+                image: "assets/image-blog/image-placeholder-local.webp",
+                category: "local",
+                date: "30 Avril 2024"
+            },
 
 
 
 
-                        // -- Catégorie: Outils & Productivité --
+
+            
+
+
+             // -- Catégorie: Outils & Productivité --
             {
                 title: "Arrêtez de Jouer à 'Tetris' avec votre Agenda : Le Guide Complet de Calendly",
                 description: "Fatigués des allers-retours d'emails ? Découvrez comment configurer Calendly pour professionnaliser votre prise de RDV et gagner des heures chaque semaine.",
@@ -1597,8 +1684,20 @@ if (scrollContainer && window.innerWidth >= 768) {
             },
 
 
-            
+            {
+                title: "Les 3 Outils Indispensables pour Professionnaliser votre Prise de RDV en Ligne",
+                description: "Découvrez 3 outils (Calendly, Loom, Google Meet) pour gagner du temps, rassurer vos prospects et convertir plus, sans vous ruiner.",
+                link: "articles/24-outils-prise-rdv-professionnelle.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "28 Mars 2024"
+            },
 
+
+
+
+
+            
 
 
             // -- Catégorie: Niche : Bien-être & Holistique --
@@ -1684,8 +1783,6 @@ if (scrollContainer && window.innerWidth >= 768) {
             },
             
             
-
-
              {
                 title: "Votre Site Spirituel : 3 Clés pour paraître 'Ancré' et Professionnel, pas 'Perché'",
                 description: "Découvrez 3 clés (langage, structure, posture) pour créer une présence en ligne professionnelle et ancrée qui rassure et attire vos clients idéaux.",
@@ -1785,7 +1882,7 @@ if (scrollContainer && window.innerWidth >= 768) {
 
 
 
-                        {
+             {
                 title: "Comment Créer une Expérience de Réservation 'Cocon' avec Calendly (pour Clients Anxieux)",
                 description: "Votre processus de réservation est-il aussi bienveillant que vos séances ? Découvrez comment configurer Calendly pour créer un cocon de confiance et rassurer vos clients.",
                 link: "articles/44-creer-experience-cocon-calendly.html",
@@ -1857,6 +1954,33 @@ if (scrollContainer && window.innerWidth >= 768) {
                 category: "niche-bien-etre",
                 date: "27 Février 2024"
             },
+
+
+            {
+                title: "Votre Site Web n'est pas une Brochure, C'est le Premier Chapitre de la Transformation",
+                description: "Pour les coachs en transformation. Arrêtez de voir votre site comme une simple brochure. Découvrez comment le transformer en un parcours narratif puissant.",
+                link: "articles/14-site-transformation-pas-brochure.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "26 Février 2024"
+            },
+            {
+                title: "Coachs : Pourquoi votre Histoire Personnelle est votre Meilleur Outil Marketing",
+                description: "Découvrez pourquoi votre parcours personnel est votre plus grand atout et comment le raconter sur votre page 'À Propos' pour attirer vos clients idéaux.",
+                link: "articles/15-coachs-histoire-marketing.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "25 Février 2024"
+            },
+            {
+                title: "Votre Site Web est Votre Cabinet Virtuel : Les 3 Éléments qui Créent un Espace de Confiance",
+                description: "Découvrez les 3 éléments clés (porte d'entrée, salle de consultation, plan de soin) pour créer un cabinet virtuel qui inspire confiance et accueille vos clients.",
+                link: "articles/53-cabinet-virtuel-confiance.html",
+                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "24 Février 2024"
+            },
+            
 
 
             
