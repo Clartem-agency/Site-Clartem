@@ -1433,7 +1433,86 @@ if (scrollContainer && window.innerWidth >= 768) {
             },
 
             
-            
+                        {
+                title: "Comment Créer un Effet 'Waouh' en 30 Secondes : Le Guide de Loom pour Humaniser votre Relation Client",
+                description: "Découvrez Loom, l'outil secret pour humaniser votre communication. Apprenez à utiliser la vidéo asynchrone pour créer un lien de confiance immédiat.",
+                link: "articles/28-humaniser-relation-client.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "17 Avril 2024"
+            },
+            {
+                title: "Votre Visage est Votre Meilleur Argument : 5 Astuces pour Enregistrer des Vidéos Loom Professionnelles",
+                description: "Peur de vous montrer en vidéo ? Découvrez 5 astuces simples (lumière, son, script...) pour enregistrer des vidéos Loom professionnelles et authentiques.",
+                link: "articles/29-astuces-videos-loom-pro.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "16 Avril 2024"
+            },
+            {
+                title: "Votre Fenêtre Visioconférence est une Vitrine : 7 Détails pour Projeter une Image d'Expert sur Zoom/Meet",
+                description: "Votre image en visioconférence est-elle professionnelle ? Découvrez 7 astuces simples (cadrage, lumière, son...) pour maîtriser vos appels et renforcer votre crédibilité.",
+                link: "articles/30-image-expert-visio.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "15 Avril 2024"
+            },
+            {
+                title: "Zoom vs Google Meet : Le Duel en 8 Rounds pour Choisir votre Outil de Coaching",
+                description: "Hésitez-vous entre Zoom et Google Meet ? Découvrez notre comparatif complet pour choisir le meilleur outil de visioconférence pour votre activité.",
+                link: "articles/31-zoom-vs-google-meet-coachs.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "14 Avril 2024"
+            },
+            {
+                title: "Animateur d'Atelier sur Zoom ? Les 3 Fonctionnalités Essentielles pour l'Interaction",
+                description: "Vos ateliers sur Zoom manquent d'engagement ? Découvrez comment utiliser les salles de sous-groupes, les sondages et le tableau blanc pour créer des expériences interactives.",
+                link: "articles/32-fonctions-zoom-interactives.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "13 Avril 2024"
+            },
+            {
+                title: "Le Guide Complet de l'Enregistrement sur Zoom : Comment Créer des Replays de Formation de Haute Qualité",
+                description: "Créez des replays de formation professionnels. Notre guide vous montre comment enregistrer, optimiser et stocker vos vidéos pour une expérience client parfaite.",
+                link: "articles/33-guide-replay-zoom-professionnel.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "12 Avril 2024"
+            },
+            {
+                title: "La 'Salle d'Attente' Zoom : Plus qu'une Fonction de Sécurité, un Outil d'Accueil Professionnel",
+                description: "Ne subissez plus la salle d'attente Zoom ! Découvrez comment transformer cette fonction en un puissant outil d'accueil pour créer une première impression mémorable.",
+                link: "articles/34-salle-attente-zoom-outil-professionnel.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "11 Avril 2024"
+            },
+            {
+                title: "Zéro Friction : Comment Créer une Expérience de Coaching Impeccable avec Google Meet et Calendar",
+                description: "Simplifiez votre prise de RDV ! Découvrez comment combiner Google Meet et Google Calendar pour créer une expérience de coaching fluide et professionnelle.",
+                link: "articles/35-systeme-google-meet-calendar-coaching.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "10 Avril 2024"
+            },
+            {
+                title: "Au-delà du Partage d'Écran : 3 Ateliers Visuels avec les Tableaux Blancs sur Meet",
+                description: "Rendez vos coachings sur Google Meet plus interactifs ! Découvrez 3 façons créatives d'utiliser les tableaux blancs virtuels pour des séances visuelles et engageantes.",
+                link: "articles/36-ateliers-visuels-coaching-google-meet.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "09 Avril 2024"
+            },
+            {
+                title: "Google Meet sur Mobile : Le Guide pour Coacher en Toute Liberté (et Rester Pro)",
+                description: "Besoin de faire une séance en déplacement ? Découvrez notre guide pour utiliser Google Meet sur mobile de manière professionnelle et garantir une expérience client impeccable.",
+                link: "articles/37-guide-google-meet-mobile-coachs.html",
+                image: "assets/image-blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "08 Avril 2024"
+            },
 
 
 
