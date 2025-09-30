@@ -1006,25 +1006,128 @@ if (scrollContainer && window.innerWidth >= 768) {
             },
 
             
-            
+
             
             // -- Catégorie: Débuter son Activité --
             {
                 title: "Le Syndrome de l'Imposteur du Débutant : Comment votre Site Web Devient votre Premier Acte de Légitimité",
-                description: "Découvrez comment la création de votre site est un acte psychologique puissant pour incarner votre nouvelle identité professionnelle.",
+                description: "Découvrez comment la création de votre site est un acte psychologique puissant pour incarner votre nouvelle identité professionnelle et affirmer votre légitimité.",
                 link: "articles/94-syndrome-imposteur-site-web-legitimite.html",
                 image: "assets/blog/image-placeholder-debuter.webp",
                 category: "debuter",
-                date: "22 Juillet 2024"
+                date: "07 Juin 2024"
             },
             {
                 title: "Coach/Thérapeute Débutant : Les 3 Fondations à Poser AVANT de Créer votre Logo",
-                description: "Avant de penser au design, clarifiez ces 3 points essentiels (Client, Promesse, Histoire) pour bâtir une activité solide.",
+                description: "Avant de penser au design, clarifiez ces 3 points essentiels (Client, Promesse, Histoire) pour bâtir une activité solide et un message percutant.",
                 link: "articles/95-fondations-activite-coach-therapeute.html",
                 image: "assets/blog/image-placeholder-debuter.webp",
                 category: "debuter",
-                date: "21 Juillet 2024"
+                date: "06 Juin 2024"
             },
+            {
+                title: "Comment Obtenir vos Premiers Témoignages (quand vous n'avez presque pas de clients)",
+                description: "Découvrez 3 stratégies créatives et éthiques pour recueillir vos premiers témoignages et bâtir la confiance dès le lancement de votre activité.",
+                link: "articles/102-obtenir-premiers-temoignages-sans-clients.html",
+                image: "assets/blog/image-placeholder-debuter.webp",
+                category: "debuter",
+                date: "05 Juin 2024"
+            },
+            {
+                title: "Le 'Syndrome de l'Objet Brillant' : Pourquoi Ajouter un Blog, un Podcast et une Boutique est une Erreur au Démarrage",
+                description: "Vous voulez tout faire tout de suite ? Découvrez pourquoi c'est le meilleur moyen de ne rien accomplir, et quelle est la seule chose sur laquelle vous devriez vous concentrer.",
+                link: "articles/153-syndrome-objet-brillant-erreur-debutant.html",
+                image: "assets/blog/image-placeholder-debuter.webp",
+                category: "debuter",
+                date: "04 Juin 2024"
+            },
+            {
+                title: "Coach/Thérapeute Débutant : Comment Fixer vos Premiers Tarifs (sans vous brader ni faire fuir)",
+                description: "Le guide en 3 étapes pour fixer un prix juste qui valorise votre travail, rassure vos clients et vous permet de vivre de votre passion.",
+                link: "articles/98-coach-therapeute-debutant-fixer-premiers-tarifs.html",
+                image: "assets/blog/image-placeholder-debuter.webp",
+                category: "debuter",
+                date: "03 Juin 2024"
+            },
+            {
+                title: "Le Guide pour Créer votre Première Offre 'Signature' (même avec peu d'expérience)",
+                description: "Arrêtez de vendre des 'séances'. Découvrez notre guide en 5 étapes pour créer votre première offre signature, une solution packagée qui clarifie votre message.",
+                link: "articles/99-creer-premiere-offre-signature.html",
+                image: "assets/blog/image-placeholder-debuter.webp",
+                category: "debuter",
+                date: "02 Juin 2024"
+            },
+            {
+                title: "Comment Trouver vos 3 Premiers Clients (sans Dépenser 1€ en Pub) : Le Rôle Secret de votre Site Web",
+                description: "Découvrez notre stratégie simple en 3 étapes pour activer votre réseau et le rôle crucial de votre site web pour transformer les contacts en contrats.",
+                link: "articles/96-trouver-premiers-clients-sans-budget.html",
+                image: "assets/blog/image-placeholder-debuter.webp",
+                category: "debuter",
+                date: "01 Juin 2024"
+            },
+            {
+                title: "Le Calcul du Coach Débutant : Pourquoi un Site Web est votre Meilleur Investissement de Départ",
+                description: "Découvrez l'analyse de rentabilité qui prouve qu'un site professionnel est l'investissement de départ le plus rentable pour lancer votre activité.",
+                link: "articles/97-calcul-coach-debutant-site-web-investissement.html",
+                image: "assets/blog/image-placeholder-debuter.webp",
+                category: "debuter",
+                date: "31 Mai 2024"
+            },
+            {
+                title: "Votre Bio Instagram/LinkedIn : Le Modèle en 4 Lignes pour un Coach/Thérapeute qui se Lance",
+                description: "Vous avez 150 caractères pour convaincre. Découvrez notre modèle simple en 4 lignes pour rédiger une biographie percutante qui attire vos clients idéaux.",
+                link: "articles/100-bio-instagram-linkedin-modele-coach.html",
+                image: "assets/blog/image-placeholder-debuter.webp",
+                category: "debuter",
+                date: "30 Mai 2024"
+            },
+            {
+                title: "Le Contenu Minimum Viable : Les 3 Seules Sections dont Vous Avez Vraiment Besoin sur votre Premier Site Web",
+                description: "Oubliez les sites complexes ! Découvrez les 3 sections essentielles pour un site 'minimum viable' qui convertit, sur une seule page.",
+                link: "articles/101-contenu-minimum-viable-site-web.html",
+                image: "assets/blog/image-placeholder-debuter.webp",
+                category: "debuter",
+                date: "29 Mai 2024"
+            },
+            {
+                title: "Le Kit de Survie Digital du Coach/Thérapeute Débutant : Les 4 Outils (Vraiment) Essentiels",
+                description: "Noyé(e) sous la liste des outils digitaux ? Découvrez le kit de survie essentiel en 4 outils pour démarrer votre activité de manière professionnelle et sereine.",
+                link: "articles/103-kit-survie-digital-debutant.html",
+                image: "assets/blog/image-placeholder-debuter.webp",
+                category: "debuter",
+                date: "28 Mai 2024"
+            },
+            {
+                title: "Le Raccourci vers vos Premiers Clients : Pourquoi le SEO Local est 10x plus Rapide que le SEO Traditionnel",
+                description: "Besoin de clients rapidement ? Découvrez pourquoi le SEO local (Google Maps) est une stratégie 10 fois plus rapide que le blogging pour obtenir vos premiers résultats.",
+                link: "articles/105-seo-local-raccourci-premiers-clients.html",
+                image: "assets/blog/image-placeholder-debuter.webp",
+                category: "debuter",
+                date: "27 Mai 2024"
+            },
+            {
+                title: "Le SEO est un Océan, le SEO Local est votre Piscine : Pourquoi les Débutants Devraient Apprendre à Nager Localement d'Abord",
+                description: "Le SEO vous fait peur ? Découvrez pourquoi vous devriez ignorer l'océan du SEO traditionnel au début, et vous concentrer sur votre 'piscine' locale.",
+                link: "articles/108-seo-local-piscine-vs-ocean.html",
+                image: "assets/blog/image-placeholder-debuter.webp",
+                category: "debuter",
+                date: "26 Mai 2024"
+            },
+            {
+                title: "La Stratégie 80/20 du Marketing Local : Comment Obtenir 80% de Résultats avec 20% d'Efforts (au début)",
+                description: "Submergés par le marketing ? Concentrez-vous sur 3 actions clés pour obtenir 80% de vos premiers clients locaux, sans vous épuiser.",
+                link: "articles/107-strategie-marketing-local-80-20.html",
+                image: "assets/blog/image-placeholder-debuter.webp",
+                category: "debuter",
+                date: "25 Mai 2024"
+            },
+            
+
+
+
+
+
+            
             // -- Catégorie: Marketing Local & Google --
             {
                 title: "Le 'Pages Jaunes' est Mort : Pourquoi votre Fiche Google Business est Indispensable",
