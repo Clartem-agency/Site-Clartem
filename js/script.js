@@ -1287,7 +1287,7 @@ if (scrollContainer && window.innerWidth >= 768) {
                 title: "Les 5 Optimisations pour Faire Remonter votre Cabinet en Tête des Résultats sur Google Maps",
                 description: "Votre cabinet est mal classé sur Google Maps ? Découvrez 5 optimisations essentielles (catégorie, photos, avis...) pour améliorer votre référencement local.",
                 link: "articles/55-google-maps-optimisations-locales.html",
-                image: "assets/blog/image-placeholder-local.webp",
+                image: "assets/image-blog/google-maps-intro-projet.webp",
                 category: "local",
                 date: "13 Mai 2025"
             },
@@ -1295,81 +1295,81 @@ if (scrollContainer && window.innerWidth >= 768) {
                 title: "La Guerre des Étoiles : Votre Guide Complet pour Obtenir (et Gérer) des Avis 5 Étoiles sur Google",
                 description: "Boostez votre visibilité locale ! Notre guide vous apprend à demander, obtenir et gérer des avis 5 étoiles sur Google pour attirer plus de clients.",
                 link: "articles/70-guerre-des-etoiles-avis-google.html",
-                image: "assets/blog/image-placeholder-local.webp",
+                image: "assets/image-blog/avis-google-intro-projet.webp",
                 category: "local",
-                date: "12 Mai 2024"
+                date: "12 Mai 2025"
             },
             {
                 title: "Google Posts : L'Arme Secrète (et Gratuite) pour Animer votre Fiche et Attirer l'Attention",
                 description: "Découvrez comment utiliser les Google Posts pour dynamiser votre fiche Google Business, créer des offres, des nouveautés et des événements qui captent l'attention.",
                 link: "articles/71-google-posts-arme-secrete-seo-local.html",
-                image: "assets/blog/image-placeholder-local.webp",
+                image: "assets/image-blog/google-posts-intro-projet.webp",
                 category: "local",
-                date: "11 Mai 2024"
+                date: "11 Mai 2025"
             },
             {
                 title: "L'Analyse des Statistiques Google Business : Comment Savoir si votre Fiche Attire Vraiment des Clients",
                 description: "Découvrez comment analyser les statistiques (recherches, clics, appels) pour mesurer l'impact réel de votre visibilité locale et attirer plus de clients.",
                 link: "articles/72-google-business-statistiques.html",
-                image: "assets/blog/image-placeholder-local.webp",
+                image: "assets/image-blog/google-stats-dashboard-projet.webp",
                 category: "local",
-                date: "10 Mai 2024"
+                date: "10 Mai 2025"
             },
             {
                 title: "Mon Concurrent Apparaît Avant Moi sur Google Maps : 3 Raisons Possibles (et Comment Riposter)",
                 description: "Frustré(e) de voir vos concurrents mieux classés ? Découvrez les 3 raisons principales (pertinence, autorité, site web) et notre plan d'action stratégique.",
                 link: "articles/73-concurrent-google-maps.html",
-                image: "assets/blog/image-placeholder-local.webp",
+                image: "assets/image-blog/google-maps-competition-intro-projet.webp",
                 category: "local",
-                date: "09 Mai 2024"
+                date: "09 Mai 2025"
             },
             {
                 title: "La Description Google Business Parfaite : Le Modèle à Copier-Coller",
                 description: "Découvrez notre modèle en 4 paragraphes à copier-coller, conçu pour les coachs et thérapeutes, afin d'attirer, rassurer et convertir les clients locaux.",
                 link: "articles/78-description-google-business-parfaite.html",
-                image: "assets/blog/image-placeholder-local.webp",
+                image: "assets/image-blog/google-business-intro-projet-02.webp",
                 category: "local",
-                date: "08 Mai 2024"
+                date: "08 Mai 2025"
             },
             {
                 title: "Photos Google Business : Le Guide Visuel pour Créer un Cabinet Virtuel Accueillant",
                 description: "Vos photos Google inspirent-elles confiance ? Découvrez notre 'shot list' de 7 photos indispensables pour créer une vitrine accueillante pour votre cabinet.",
                 link: "articles/79-guide-photos-google-business.html",
-                image: "assets/blog/image-placeholder-local.webp",
+                image: "assets/image-blog/google-business-photos-intro-projet-03.webp",
                 category: "local",
-                date: "07 Mai 2024"
+                date: "07 Mai 2025"
             },
             {
                 title: "La Fonction 'Services' de Google Business : L'Outil Méconnu pour Attirer des Clients sur des Problématiques Précises",
                 description: "Découvrez comment utiliser la fonction 'Services' pour détailler vos offres, améliorer votre SEO local et attirer des clients qui cherchent des solutions spécifiques.",
                 link: "articles/80-google-business-services.html",
-                image: "assets/blog/image-placeholder-local.webp",
+                image: "assets/image-blog/google-services-intro-projet.webp",
                 category: "local",
-                date: "06 Mai 2024"
+                date: "06 Mai 2025"
             },
             {
                 title: "Mon Adresse Personnelle est sur Google Maps ! Comment Avoir une Fiche Locale sans Afficher son Domicile ?",
                 description: "Protégez votre vie privée ! Découvrez comment créer une fiche Google Business de 'zone de service' pour être visible localement sans que votre adresse personnelle ne soit publique.",
                 link: "articles/81-guide-visibilite-locale-google-maps.html",
-                image: "assets/blog/image-placeholder-local.webp",
+                image: "assets/image-blog/google-maps-intro-projet-02.webp",
                 category: "local",
-                date: "05 Mai 2024"
+                date: "05 Mai 2025"
             },
             {
                 title: "Votre Cabinet est Invisible ? Le Guide Google Business pour Attirer les Clients de votre Quartier",
                 description: "Pour les thérapeutes & praticiens. Votre cabinet est-il visible pour vos voisins ? Le guide complet pour optimiser votre fiche Google et attirer les clients locaux.",
                 link: "articles/58-google-business-guide-therapeutes.html",
-                image: "assets/blog/image-placeholder-local.webp",
+                image: "assets/image-blog/google-local-intro-cabinet-invisible-projet.webp",
                 category: "local",
-                date: "04 Mai 2024"
+                date: "04 Mai 2025"
             },
             {
                 title: "Comment Devenir le Coach de Référence de votre Ville (même si vous débutez)",
                 description: "Pour les coachs de vie & carrière. Découvrez la stratégie en 3 étapes utilisant Google Business Profile pour devenir la référence incontournable dans votre ville.",
                 link: "articles/59-coach-reference-locale.html",
-                image: "assets/blog/image-placeholder-local.webp",
+                image: "assets/image-blog/coach-local-intro-projet.webp",
                 category: "local",
-                date: "03 Mai 2024"
+                date: "03 Mai 2025"
             },
             {
                 title: "Votre Studio est Plein ? Le Guide Google Business pour Remplir vos Cours et Ateliers",
