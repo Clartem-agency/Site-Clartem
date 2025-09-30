@@ -1125,26 +1125,102 @@ if (scrollContainer && window.innerWidth >= 768) {
 
 
 
-
-
-            
             // -- Catégorie: Marketing Local & Google --
             {
-                title: "Le 'Pages Jaunes' est Mort : Pourquoi votre Fiche Google Business est Indispensable",
+                title: "Le 'Pages Jaunes' est Mort : Pourquoi votre Fiche Google est le Nouvel Annuaire Indispensable",
                 description: "Découvrez pourquoi votre fiche Google Business a remplacé les Pages Jaunes et comment elle est devenue votre outil n°1 pour attirer les clients de votre quartier.",
                 link: "articles/54-fiche-google-nouvel-annuaire.html",
                 image: "assets/blog/image-placeholder-local.webp",
                 category: "local",
-                date: "20 Juillet 2024"
+                date: "24 Mai 2024"
             },
             {
-                title: "Google Maps : Les 5 Optimisations pour Faire Remonter votre Cabinet en Tête des Résultats",
-                description: "Améliorez votre référencement local grâce à 5 optimisations essentielles (catégorie, photos, avis...) pour attirer plus de clients.",
-                link: "articles/55-google-maps-optimisations-locales.html",
+                title: "Site Web + Fiche Google : Le Combo Gagnant pour Devenir LA Référence de votre Quartier",
+                description: "Découvrez pourquoi une fiche Google seule ne suffit pas. Apprenez comment la synergie entre un site web pro et une fiche optimisée peut vous rendre incontournable.",
+                link: "articles/57-site-web-fiche-google-duo-gagnant-local.html",
                 image: "assets/blog/image-placeholder-local.webp",
                 category: "local",
-                date: "19 Juillet 2024"
+                date: "23 Mai 2024"
             },
+            {
+                title: "Le Mythe du 'Consultant sans Frontières' : Pourquoi même un Consultant B2B a Besoin d'une Stratégie Locale",
+                description: "Vous pensez que le SEO local ne vous concerne pas ? Découvrez pourquoi une stratégie de visibilité sur Google Maps est une arme secrète pour attirer des clients locaux à haute valeur.",
+                link: "articles/61-mythe-consultant-seo-local.html",
+                image: "assets/blog/image-placeholder-local.webp",
+                category: "local",
+                date: "22 Mai 2024"
+            },
+            {
+                title: "Google, c'est Deux Mondes : La Différence entre 'Apparaître sur la Carte' et 'Être dans les Liens Bleus'",
+                description: "Comprenez la différence vitale entre le 'Pack Local' et le SEO traditionnel sur Google. Découvrez où concentrer vos efforts pour attirer des clients locaux.",
+                link: "articles/104-google-pack-local-vs-liens-bleus.html",
+                image: "assets/blog/image-placeholder-local.webp",
+                category: "local",
+                date: "21 Mai 2024"
+            },
+            {
+                title: "Le Raccourci vers vos Premiers Clients : Pourquoi le SEO Local est 10x plus Rapide que le SEO Traditionnel",
+                description: "Besoin de clients rapidement ? Découvrez pourquoi le SEO local (Google Maps) est une stratégie 10 fois plus rapide que le blogging pour obtenir vos premiers résultats.",
+                link: "articles/105-seo-local-raccourci-premiers-clients.html",
+                image: "assets/blog/image-placeholder-local.webp",
+                category: "local",
+                date: "20 Mai 2024"
+            },
+            {
+                title: "Qualité vs. Quantité : Pourquoi 1 Clic depuis Google Maps Vaut 10 Clics depuis un Blog",
+                description: "Tout le trafic ne se vaut pas. Découvrez pourquoi un visiteur venant du 'Pack Local' est infiniment plus qualifié qu'un visiteur venant d'un article de blog.",
+                link: "articles/106-seo-local-vs-blog-qualite-quantite.html",
+                image: "assets/blog/image-placeholder-local.webp",
+                category: "local",
+                date: "19 Mai 2024"
+            },
+            {
+                title: "La Stratégie 80/20 du Marketing Local : Obtenez 80% de Résultats avec 20% d'Efforts",
+                description: "Submergés par le marketing ? Concentrez-vous sur 3 actions clés pour obtenir 80% de vos premiers clients locaux, sans vous épuiser.",
+                link: "articles/107-strategie-marketing-local-80-20.html",
+                image: "assets/blog/image-placeholder-local.webp",
+                category: "local",
+                date: "18 Mai 2024"
+            },
+            {
+                title: "Le SEO est un Océan, le SEO Local est votre Piscine",
+                description: "Le SEO vous fait peur ? Découvrez pourquoi vous devriez ignorer l'océan du SEO traditionnel au début, et vous concentrer sur votre 'piscine' locale pour des résultats rapides.",
+                link: "articles/108-seo-local-piscine-vs-ocean.html",
+                image: "assets/blog/image-placeholder-local.webp",
+                category: "local",
+                date: "17 Mai 2024"
+            },
+            {
+                title: "Les Mots-Clés qui Attirent les Clients vs. les Mots-Clés qui Attirent les Curieux",
+                description: "Apprenez la différence vitale entre les mots-clés 'informationnels' (blog) et les mots-clés 'transactionnels locaux' (Google Maps).",
+                link: "articles/109-seo-local-mots-cles-convertissent.html",
+                image: "assets/blog/image-placeholder-local.webp",
+                category: "local",
+                date: "16 Mai 2024"
+            },
+            {
+                title: "L'Effet 'Boule de Neige' : Comment les Avis Google Bâtissent l'Autorité de votre Site",
+                description: "Découvrez la synergie cachée entre votre fiche Google et votre site web, et comment les avis locaux renforcent l'autorité de votre site (et vice-versa).",
+                link: "articles/110-effet-boule-neige-avis-google-site-web.html",
+                image: "assets/blog/image-placeholder-local.webp",
+                category: "local",
+                date: "15 Mai 2024"
+            },
+            {
+                title: "Oubliez les Ebooks : Votre Fiche Google est votre Meilleur 'Lead Magnet'",
+                description: "Pas le temps de créer un lead magnet ? Découvrez pourquoi votre fiche Google Business est déjà votre 'aimant à prospects' le plus puissant pour convertir des clients locaux.",
+                link: "articles/111-fiche-google-meilleur-lead-magnet.html",
+                image: "assets/blog/image-placeholder-local.webp",
+                category: "local",
+                date: "14 Mai 2024"
+            },
+
+            
+
+
+
+
+            
             // -- Catégorie: Outils & Productivité --
             {
                 title: "Arrêtez de Jouer à 'Tetris' avec votre Agenda : Le Guide Complet de Calendly",
