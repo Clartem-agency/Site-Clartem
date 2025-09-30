@@ -1863,23 +1863,114 @@ if (scrollContainer && window.innerWidth >= 768) {
 
 
             
-            // -- Catégorie: Niche : Coachs Business & Consultants --
-             {
-                title: "Votre Page d'Accueil est un 'Executive Summary' : Les 5 Éléments qu'un Décideur Doit Voir en 5 Secondes",
-                description: "Votre page d'accueil B2B est-elle efficace ? Découvrez les 5 éléments essentiels qu'un décideur pressé doit voir pour être convaincu.",
-                link: "articles/131-page-accueil-executive-summary.html",
-                image: "assets/blog/image-placeholder-b2b.webp",
+                        // -- Catégorie: Niche : Coachs Business & Consultants --
+            {
+                title: "Consultants & Formateurs : 3 Façons de Prouver votre Expertise sur votre Site",
+                description: "Découvrez 3 stratégies puissantes (études de cas, méthodologie, partage de valeur) pour bâtir une crédibilité inébranlable et prouver votre expertise.",
+                link: "articles/17-consultants-formateurs-prouver-expertise.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
                 category: "niche-b2b",
-                date: "14 Juillet 2024"
+                date: "26 Février 2024"
             },
             {
-                title: "La Proposition Commerciale est Morte : Comment votre Site 'Pré-Vend' vos Services",
-                description: "Fatigués des propositions sans réponse ? Transformez votre site en une 'proposition vivante' qui qualifie, convainc et pré-vend vos services.",
-                link: "articles/132-site-web-remplace-proposition-commerciale.html",
-                image: "assets/blog/image-placeholder-b2b.webp",
+                title: "'Sur Devis' : Les 3 Mots qui Tuent votre Conversion (et par quoi les remplacer)",
+                description: "La mention 'Sur Devis' sur votre site fait-elle fuir vos prospects ? Découvrez pourquoi et 3 alternatives stratégiques pour attirer plus de clients qualifiés.",
+                link: "articles/21-pourquoi-sur-devis-tue-conversion.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
                 category: "niche-b2b",
-                date: "13 Juillet 2024"
+                date: "25 Février 2024"
             },
+            {
+                title: "Votre Page 'À Propos' B2B : L'Équilibre Parfait entre Histoire et Crédibilité",
+                description: "Votre page 'À Propos' est-elle trop personnelle ou trop corporate ? Découvrez la méthode pour équilibrer votre histoire et vos preuves de crédibilité pour convaincre.",
+                link: "articles/23-page-a-propos-b2b-equilibre-histoire-credibilite.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "24 Février 2024"
+            },
+            {
+                title: "Le Test du 'Et Alors ?' : La Méthode pour Rédiger une Proposition de Valeur qui Convertit",
+                description: "Découvrez une méthode simple pour transformer une description de service fade en une proposition de valeur qui parle aux vrais besoins de vos clients B2B.",
+                link: "articles/129-test-et-alors-proposition-valeur.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "23 Février 2024"
+            },
+            {
+                title: "Au-delà de la Niche : La Puissance de la 'Micro-Niche' pour les Consultants",
+                description: "Apprenez comment la micro-niche (cible + problème spécifique) peut éliminer la concurrence, vous établir comme une autorité et justifier des tarifs premium.",
+                link: "articles/130-au-dela-niche-puissance-micro-niche-premium.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "22 Février 2024"
+            },
+            {
+                title: "Votre Page d'Accueil est Votre 'Executive Summary' : Les 5 Éléments qu'un Décideur B2B Doit Voir",
+                description: "Votre page d'accueil B2B est-elle efficace ? Découvrez les 5 éléments essentiels qu'un décideur pressé doit voir en 5 secondes pour être convaincu.",
+                link: "articles/131-page-accueil-executive-summary.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "21 Février 2024"
+            },
+            {
+                title: "Votre Site n'est pas une Brochure, c'est Votre Plateforme de 'Thought Leadership'",
+                description: "Découvrez comment transformer votre site en une puissante plateforme de 'Thought Leadership' pour asseoir votre autorité et attirer des clients premium.",
+                link: "articles/136-site-web-scene-thought-leadership.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "20 Février 2024"
+            },
+            {
+                title: "Votre Site Web est Votre Meilleure Justification pour des Tarifs Élevés",
+                description: "Découvrez pourquoi un site web professionnel n'est pas une dépense, mais un investissement stratégique qui crée la perception de valeur pour justifier des prix premium.",
+                link: "articles/137-site-web-justification-tarifs-eleves.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "19 Février 2024"
+            },
+            {
+                title: "Le Syndrome du 'Bon Élève' : Pourquoi Lister vos Services est Moins Efficace que de Décrire les Problèmes",
+                description: "Sortez du 'syndrome du bon élève' et apprenez à décrire les problèmes que vous résolvez pour créer un message qui convertit vraiment vos clients B2B.",
+                link: "articles/139-syndrome-bon-eleve-vendre-solutions.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "18 Février 2024"
+            },
+            {
+                title: "Le 'Filtre à Prospects' : Comment la Clarté de Votre Site Vous Évite de Perdre du Temps",
+                description: "Découvrez comment un site web d'une clarté absolue agit comme un 'filtre à prospects' pour repousser les mauvais clients et attirer uniquement ceux qui sont faits pour vous.",
+                link: "articles/140-filtre-a-prospects-clarte-site-web.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "17 Février 2024"
+            },
+            {
+                title: "La 'Banalité du Bien' : Pourquoi les Mots comme 'Excellence' et 'Innovation' ne Veulent Plus Rien Dire",
+                description: "Votre site est rempli de jargon corporate ? Découvrez pourquoi ces mots sont devenus invisibles et comment les remplacer par un langage de preuve.",
+                link: "articles/141-banalite-du-bien-mots-vides-marketing.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "16 Février 2024"
+            },
+            {
+                title: "Pourquoi votre 'Meilleur' Client n'est Pas Toujours le Plus Grand",
+                description: "Courir après les grands comptes vous épuise ? Découvrez pourquoi le 'plus gros' client n'est pas toujours le plus rentable et comment définir un Profil de Client Idéal.",
+                link: "articles/144-definir-client-ideal-rentable.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "15 Février 2024"
+            },
+
+
+
+            
+
+
+
+
+
+
+            
             // -- Catégorie: Approche "Site Clarté" --
             {
                 title: "Le Labyrinthe vs. la Conversation Guidée : Pourquoi un Site Multi-Pages Dilue votre Message",
