@@ -1375,9 +1375,9 @@ if (scrollContainer && window.innerWidth >= 768) {
                 title: "Votre Studio est Plein ? Le Guide Google Business pour Remplir vos Cours et Ateliers",
                 description: "Pour les profs de Yoga & Pilates. Remplissez vos cours grâce à Google ! Le guide complet pour optimiser votre fiche, promouvoir vos ateliers et attirer les élèves.",
                 link: "articles/60-guide-google-studio-yoga-pilates.html",
-                image: "assets/blog/image-placeholder-local.webp",
+                image: "assets/image-blog/google-yoga-intro-projet.webp",
                 category: "local",
-                date: "02 Mai 2024"
+                date: "02 Mai 2025"
             },
             
 
@@ -1385,17 +1385,17 @@ if (scrollContainer && window.innerWidth >= 768) {
                 title: "Comment Gérer les Avis Google (même les mauvais) pour Renforcer la Confiance",
                 description: "Peur des mauvais avis Google ? Découvrez notre guide pour répondre aux avis (positifs et négatifs) de manière professionnelle et renforcer votre réputation.",
                 link: "articles/56-gerer-avis-google-confiance.html",
-                image: "assets/image-blog/image-placeholder-local.webp",
+                image: "assets/image-blog/avis-google-intro-01-projet.webp",
                 category: "local",
-                date: "01 Mai 2024"
+                date: "01 Mai 2025"
             },
             {
                 title: "Les Mots-Clés qui Attirent les Clients vs. les Mots-Clés qui Attirent les Curieux",
                 description: "Apprenez la différence vitale entre les mots-clés 'informationnels' (blog) et les mots-clés 'transactionnels locaux' (Google Maps).",
                 link: "articles/109-seo-local-mots-cles-convertissent.html",
-                image: "assets/image-blog/image-placeholder-local.webp",
+                image: "assets/image-blog/aimant-attire-clients-plutot-que-curieux-projet.webp",
                 category: "local",
-                date: "30 Avril 2024"
+                date: "30 Avril 2025"
             },
 
 
@@ -1410,113 +1410,113 @@ if (scrollContainer && window.innerWidth >= 768) {
                 title: "Arrêtez de Jouer à 'Tetris' avec votre Agenda : Le Guide Complet de Calendly",
                 description: "Fatigués des allers-retours d'emails ? Découvrez comment configurer Calendly pour professionnaliser votre prise de RDV et gagner des heures chaque semaine.",
                 link: "articles/26-guide-calendly-pour-coachs.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/calendly-guide-intro-projet.webp",
                 category: "outils",
-                date: "01 Mai 2024"
+                date: "01 Mai 2025"
             },
             {
                 title: "Au-delà de la Prise de RDV : 5 Fonctionnalités Méconnues de Calendly pour Automatiser",
                 description: "Découvrez 5 fonctionnalités avancées (workflows, paiements, redirection...) pour automatiser votre suivi client, réduire les no-shows et professionnaliser votre business.",
                 link: "articles/27-automatiser-business-avec-calendly.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/calendly-automatisation-intro-projet.webp",
                 category: "outils",
-                date: "30 Avril 2024"
+                date: "30 Avril 2025"
             },
             {
                 title: "L'Art de la Page de Réservation Calendly Parfaite : 5 Optimisations pour Doubler votre Taux de Conversion",
                 description: "Découvrez 5 optimisations simples (photo, message, questions...) pour transformer votre page de réservation en une machine à convertir les prospects en rendez-vous.",
                 link: "articles/38-calendly-optimisations-conversions.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/calendly-optimisation-avant-apres-projet.webp",
                 category: "outils",
-                date: "29 Avril 2024"
+                date: "29 Avril 2025"
             },
             {
                 title: "Le 'No-Show' est votre Faute : Comment Utiliser les Workflows Calendly pour Garantir 99% de Présence",
                 description: "Vos prospects ne se présentent pas à vos rendez-vous ? Découvrez comment utiliser les workflows Calendly pour garantir 99% de présence.",
                 link: "articles/39-eliminer-no-show-calendly.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/no-show-calendly-intro-projet.webp",
                 category: "outils",
-                date: "28 Avril 2024"
+                date: "28 Avril 2025"
             },
             {
                 title: "Comment Intégrer Calendly sur votre Site Web : Le Guide Comparatif",
                 description: "Découvrez comment intégrer Calendly sur votre site. Comparatif des 3 méthodes (en ligne, widget, bouton) pour choisir la meilleure option pour l'expérience utilisateur.",
                 link: "articles/40-integrer-calendly-guide-comparatif.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/calendly-integration-methods-projet.webp",
                 category: "outils",
-                date: "27 Avril 2024"
+                date: "27 Avril 2025"
             },
             {
                 title: "Le Calendly 'Payant' est-il Rentable ? Analyse du ROI pour un Coach ou Consultant",
                 description: "L'abonnement Calendly Pro est-il un coût ou un investissement ? Découvrez notre analyse de ROI pour savoir si passer à la version payante est rentable pour vous.",
                 link: "articles/41-calendly-payant-roi-analyse.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/calendly-roi-intro-projet.webp",
                 category: "outils",
-                date: "26 Avril 2024"
+                date: "26 Avril 2025"
             },
             {
                 title: "La Stratégie des 'Événements Secrets' : Comment Utiliser Calendly pour Gérer vos Clients VIP",
                 description: "Découvrez comment utiliser les événements secrets de Calendly pour offrir une expérience premium à vos clients VIP, partenaires et gérer différents types de rendez-vous.",
                 link: "articles/42-strategie-evenements-secrets-calendly.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/calendly-secrets-intro-projet.webp",
                 category: "outils",
-                date: "25 Avril 2024"
+                date: "25 Avril 2025"
             },
             {
                 title: "Connecter Calendly à votre CRM : La Première Étape pour Construire votre Machine de Vente",
                 description: "Allez au-delà de la prise de RDV. Découvrez comment connecter Calendly à un CRM pour suivre vos prospects, automatiser votre suivi et construire une véritable machine de vente.",
                 link: "articles/43-connecter-calendly-crm-machine-de-vente.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/calendly-crm-workflow-intro-projet.webp",
                 category: "outils",
-                date: "24 Avril 2024"
+                date: "24 Avril 2025"
             },
             {
                 title: "Comment Créer une Expérience de Réservation 'Cocon' avec Calendly (pour Clients Anxieux)",
                 description: "Votre processus de réservation est-il aussi bienveillant que vos séances ? Découvrez comment configurer Calendly pour créer un cocon de confiance et rassurer vos clients.",
                 link: "articles/44-creer-experience-cocon-calendly.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/cocon-calendly-intro-projet.webp",
                 category: "outils",
-                date: "23 Avril 2024"
+                date: "23 Avril 2025"
             },
             {
                 title: "Gérer les Annulations et les Reports avec Bienveillance (et Fermeté) grâce à Calendly",
                 description: "Subissez-vous les annulations de dernière minute ? Découvrez comment utiliser Calendly pour poser un cadre clair et bienveillant, et protéger votre temps.",
                 link: "articles/45-gerer-annulations-calendly.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/calendly-cadre-bienveillance-projet.webp",
                 category: "outils",
-                date: "22 Avril 2024"
+                date: "22 Avril 2025"
             },
             {
                 title: "Paiement en Ligne via Calendly : La Clé pour Valoriser votre Temps et Réduire la Charge Mentale",
                 description: "La gestion des paiements est un stress ? Découvrez comment l'intégration du paiement en ligne sur Calendly peut réduire votre charge mentale et valoriser votre travail.",
                 link: "articles/46-paiement-en-ligne-calendly-therapeutes.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/calendly-paiement-intro-projet.webp",
                 category: "outils",
-                date: "21 Avril 2024"
+                date: "21 Avril 2025"
             },
             {
                 title: "La Stratégie du 'Pack de Séances' sur Calendly : Comment Vendre un Parcours, pas juste un RDV",
                 description: "Sortez de la vente de séances à l'unité. Découvrez la stratégie du 'pack de séances' et comment utiliser Calendly pour vendre des parcours de transformation complets.",
                 link: "articles/47-strategie-pack-seances-calendly.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/pack-seances-parcours-projet.webp",
                 category: "outils",
-                date: "20 Avril 2024"
+                date: "20 Avril 2025"
             },
             {
                 title: "Le Questionnaire de Pré-Coaching : Comment Utiliser les Questions Calendly pour Rendre votre Première Séance 2x Plus Efficace",
                 description: "Optimisez votre première séance ! Découvrez comment utiliser les questions de votre formulaire Calendly comme un puissant questionnaire de pré-coaching.",
                 link: "articles/48-calendly-questionnaire-pre-coaching.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/calendly-coaching-intro-projet.webp",
                 category: "outils",
-                date: "19 Avril 2024"
+                date: "19 Avril 2025"
             },
             {
                 title: "Du Prospect au Client Engagé : Le Workflow Calendly Parfait pour un Parcours de Coaching",
                 description: "Découvrez le workflow Calendly complet en 4 étapes pour transformer un prospect en client engagé, du premier appel au suivi des séances, sans effort.",
                 link: "articles/49-workflow-calendly-coach.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/calendly-workflow-intro-projet.webp",
                 category: "outils",
-                date: "18 Avril 2024"
+                date: "18 Avril 2025"
             },
 
             
@@ -1524,81 +1524,81 @@ if (scrollContainer && window.innerWidth >= 768) {
                 title: "Comment Créer un Effet 'Waouh' en 30 Secondes : Le Guide de Loom pour Humaniser votre Relation Client",
                 description: "Découvrez Loom, l'outil secret pour humaniser votre communication. Apprenez à utiliser la vidéo asynchrone pour créer un lien de confiance immédiat.",
                 link: "articles/28-humaniser-relation-client.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/loom-intro-projet.webp",
                 category: "outils",
-                date: "17 Avril 2024"
+                date: "17 Avril 2025"
             },
             {
                 title: "Votre Visage est Votre Meilleur Argument : 5 Astuces pour Enregistrer des Vidéos Loom Professionnelles",
                 description: "Peur de vous montrer en vidéo ? Découvrez 5 astuces simples (lumière, son, script...) pour enregistrer des vidéos Loom professionnelles et authentiques.",
                 link: "articles/29-astuces-videos-loom-pro.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/loom-astuces-intro-projet.webp",
                 category: "outils",
-                date: "16 Avril 2024"
+                date: "16 Avril 2025"
             },
             {
                 title: "Votre Fenêtre Visioconférence est une Vitrine : 7 Détails pour Projeter une Image d'Expert sur Zoom/Meet",
                 description: "Votre image en visioconférence est-elle professionnelle ? Découvrez 7 astuces simples (cadrage, lumière, son...) pour maîtriser vos appels et renforcer votre crédibilité.",
                 link: "articles/30-image-expert-visio.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/visio-expert-intro-avant-apres-projet.webp",
                 category: "outils",
-                date: "15 Avril 2024"
+                date: "15 Avril 2025"
             },
             {
                 title: "Zoom vs Google Meet : Le Duel en 8 Rounds pour Choisir votre Outil de Coaching",
                 description: "Hésitez-vous entre Zoom et Google Meet ? Découvrez notre comparatif complet pour choisir le meilleur outil de visioconférence pour votre activité.",
                 link: "articles/31-zoom-vs-google-meet-coachs.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/zoom-vs-meet-intro-projet.webp",
                 category: "outils",
-                date: "14 Avril 2024"
+                date: "14 Avril 2025"
             },
             {
                 title: "Animateur d'Atelier sur Zoom ? Les 3 Fonctionnalités Essentielles pour l'Interaction",
                 description: "Vos ateliers sur Zoom manquent d'engagement ? Découvrez comment utiliser les salles de sous-groupes, les sondages et le tableau blanc pour créer des expériences interactives.",
                 link: "articles/32-fonctions-zoom-interactives.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/zoom-reunion-interactive-projet.webp",
                 category: "outils",
-                date: "13 Avril 2024"
+                date: "13 Avril 2025"
             },
             {
                 title: "Le Guide Complet de l'Enregistrement sur Zoom : Comment Créer des Replays de Formation de Haute Qualité",
                 description: "Créez des replays de formation professionnels. Notre guide vous montre comment enregistrer, optimiser et stocker vos vidéos pour une expérience client parfaite.",
                 link: "articles/33-guide-replay-zoom-professionnel.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/replay-zoom-intro-projet.webp",
                 category: "outils",
-                date: "12 Avril 2024"
+                date: "12 Avril 2025"
             },
             {
                 title: "La 'Salle d'Attente' Zoom : Plus qu'une Fonction de Sécurité, un Outil d'Accueil Professionnel",
                 description: "Ne subissez plus la salle d'attente Zoom ! Découvrez comment transformer cette fonction en un puissant outil d'accueil pour créer une première impression mémorable.",
                 link: "articles/34-salle-attente-zoom-outil-professionnel.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/salle-attente-zoom-accueil-projet.webp",
                 category: "outils",
-                date: "11 Avril 2024"
+                date: "11 Avril 2025"
             },
             {
                 title: "Zéro Friction : Comment Créer une Expérience de Coaching Impeccable avec Google Meet et Calendar",
                 description: "Simplifiez votre prise de RDV ! Découvrez comment combiner Google Meet et Google Calendar pour créer une expérience de coaching fluide et professionnelle.",
                 link: "articles/35-systeme-google-meet-calendar-coaching.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/google-system-coaching-intro-projet.webp",
                 category: "outils",
-                date: "10 Avril 2024"
+                date: "10 Avril 2025"
             },
             {
                 title: "Au-delà du Partage d'Écran : 3 Ateliers Visuels avec les Tableaux Blancs sur Meet",
                 description: "Rendez vos coachings sur Google Meet plus interactifs ! Découvrez 3 façons créatives d'utiliser les tableaux blancs virtuels pour des séances visuelles et engageantes.",
                 link: "articles/36-ateliers-visuels-coaching-google-meet.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/ateliers-meet-intro-projet.webp",
                 category: "outils",
-                date: "09 Avril 2024"
+                date: "09 Avril 2025"
             },
             {
                 title: "Google Meet sur Mobile : Le Guide pour Coacher en Toute Liberté (et Rester Pro)",
                 description: "Besoin de faire une séance en déplacement ? Découvrez notre guide pour utiliser Google Meet sur mobile de manière professionnelle et garantir une expérience client impeccable.",
                 link: "articles/37-guide-google-meet-mobile-coachs.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/google-meet-mobile-intro-projet.webp",
                 category: "outils",
-                date: "08 Avril 2024"
+                date: "08 Avril 2025"
             },
 
 
@@ -1606,81 +1606,81 @@ if (scrollContainer && window.innerWidth >= 768) {
                 title: "Coach, Thérapeute : Comment l'IA va Rendre Votre Humanité 10x Plus Précieuse",
                 description: "L'IA est-elle une menace ? Au contraire. Découvrez pourquoi elle va rendre votre humanité plus précieuse que jamais, et comment votre site devient la preuve de cette valeur.",
                 link: "articles/178-ia-humanite-coach-therapeute.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/circuits-imprimes-froids-coeur-humain-chaud-emergent-projet.webp",
                 category: "outils",
-                date: "07 Avril 2024"
+                date: "07 Avril 2025"
             },
             {
                 title: "L'IA comme Assistant Créatif : 3 Façons Éthiques de l'Utiliser pour votre Contenu",
                 description: "Apprenez à utiliser l'IA comme un assistant pour brainstormer, synthétiser et clarifier vos idées, sans perdre votre âme et votre voix unique.",
                 link: "articles/182-ia-assistant-creatif-ethique.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/personne-reflechit-ia-assistant-creatif-idee-projet.webp",
                 category: "outils",
-                date: "06 Avril 2024"
+                date: "06 Avril 2025"
             },
             {
                 title: "Dans un Monde d'IA, Votre 'Pourquoi' Devient Votre Meilleur Marketing",
                 description: "Comment se démarquer à l'ère de l'IA ? Découvrez pourquoi votre histoire et votre mission personnelle sont devenus les seuls véritables différenciants marketing.",
                 link: "articles/183-pourquoi-marketing-ere-ia.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/robots-identiques-humain-lumiere-coeur-unique-projet.webp",
                 category: "outils",
-                date: "05 Avril 2024"
+                date: "05 Avril 2025"
             },
             {
                 title: "Votre Site Web est-il 'IA-Proof' ? La Checklist en 4 Points pour Prouver votre Humanité",
                 description: "Utilisez notre checklist en 4 points (photos, histoire, témoignages, voix) pour rendre votre site 'IA-proof' et créer une connexion authentique qui convertit.",
                 link: "articles/184-site-web-ia-proof-checklist-humanite.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/empreinte-digitale-humaine-sur-ecran-ordinateur-digital-projet.webp",
                 category: "outils",
-                date: "04 Avril 2024"
+                date: "04 Avril 2025"
             },
             {
                 title: "Le Kit de Survie Digital du Coach/Thérapeute Débutant : Les 4 Outils (Vraiment) Essentiels",
                 description: "Noyé(e) sous la liste des outils digitaux ? Découvrez le kit de survie essentiel en 4 outils pour démarrer votre activité de manière professionnelle et sereine.",
                 link: "articles/103-kit-survie-digital-debutant.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/kit-survie-digital-quatre-outils-essentiels-projet.webp",
                 category: "outils",
-                date: "03 Avril 2024"
+                date: "03 Avril 2025"
             },
             {
                 title: "Le 'Second Cerveau' du Consultant : Comment Utiliser Notion pour Préparer vos Appels et Suivre vos Clients",
                 description: "Découvrez comment utiliser un outil comme Notion pour créer un 'second cerveau' et transformer votre organisation en un avantage concurrentiel.",
                 link: "articles/145-second-cerveau-consultant-notion.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/consultant-organise-pensees-dans-second-cerveau-notion-projet.webp",
                 category: "outils",
-                date: "02 Avril 2024"
+                date: "02 Avril 2025"
             },
             {
                 title: "Le Kit d'Outils de l'Expert Indépendant en 2025 (au-delà de la Suite Office)",
                 description: "Quels outils digitaux utiliser pour être efficace en 2025 ? Découvrez notre 'kit d'outils' essentiel (vente, communication, gestion...) pour professionnaliser votre activité.",
                 link: "articles/146-kit-outils-expert-independant-2025.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/consultant-independant-outils-digitaux-efficacite-projet.webp",
                 category: "outils",
-                date: "01 Avril 2024"
+                date: "01 Avril 2025"
             },
             {
                 title: "La Checklist d'Onboarding Client Parfaite : Les 7 Étapes pour Démarrer une Mission sur les Rails",
                 description: "Découvrez notre checklist d'onboarding client en 7 étapes pour créer une expérience d'accueil professionnelle, rassurer votre client et poser les bases du succès.",
                 link: "articles/147-checklist-onboarding-client-parfait.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/checklist-professionnelle-demarrage-mission-reussie-projet.webp",
                 category: "outils",
-                date: "31 Mars 2024"
+                date: "31 Mars 2025"
             },
             {
                 title: "Comment Transformer une Mission Ponctuelle en un Contrat Annuel : L'Art du 'Bilan de Fin de Mission'",
                 description: "Ne laissez pas vos clients partir ! Découvrez comment utiliser la 'session de bilan' pour prouver votre ROI et transformer une mission ponctuelle en un contrat annuel.",
                 link: "articles/148-transformer-mission-en-contrat-annuel.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/transformer-mission-ponctuelle-en-partenariat-strategique-projet.webp",
                 category: "outils",
-                date: "30 Mars 2024"
+                date: "30 Mars 2025"
             },
             {
                 title: "Le Système d'Onboarding Sans Friction : Automatisez les 3 Premières Étapes avec votre Site",
                 description: "Optimisez votre processus d'accueil client ! Découvrez comment utiliser votre site pour automatiser l'onboarding (paiement, contrat, 1er RDV) et offrir une expérience premium.",
                 link: "articles/138-systeme-onboarding-client-automatise.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/parcours-client-fluide-automatise-dominos-signature-projet.webp",
                 category: "outils",
-                date: "29 Mars 2024"
+                date: "29 Mars 2025"
             },
 
 
@@ -1688,9 +1688,9 @@ if (scrollContainer && window.innerWidth >= 768) {
                 title: "Les 3 Outils Indispensables pour Professionnaliser votre Prise de RDV en Ligne",
                 description: "Découvrez 3 outils (Calendly, Loom, Google Meet) pour gagner du temps, rassurer vos prospects et convertir plus, sans vous ruiner.",
                 link: "articles/24-outils-prise-rdv-professionnelle.html",
-                image: "assets/image-blog/image-placeholder-outils.webp",
+                image: "assets/image-blog/outils-rdv-intro-projet.webp",
                 category: "outils",
-                date: "28 Mars 2024"
+                date: "28 Mars 2025"
             },
 
 
@@ -1705,81 +1705,81 @@ if (scrollContainer && window.innerWidth >= 768) {
                 title: "Pourquoi un Site One-Page est l'Outil Parfait pour un Coach ou Thérapeute",
                 description: "Découvrez pourquoi un site one-page est un choix stratégique pour les coachs et thérapeutes. Plus de clarté, une meilleure conversion et une histoire percutante.",
                 link: "articles/02-site-one-page-coach-therapeute.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/og-image-one-page-clarity-projet.webp",
                 category: "niche-bien-etre",
-                date: "28 Mars 2024"
+                date: "28 Mars 2025"
             },
             {
                 title: "Les 5 Sections Indispensables sur le Site d'un Professionnel du Bien-être",
                 description: "Découvrez les 5 sections essentielles (Héros, À Propos, Offres...) et nos conseils pour rédiger un contenu qui inspire confiance et attire des clients.",
                 link: "articles/06-5-sections-site-therapeute.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/sections-site-therapeute-intro-projet.webp",
                 category: "niche-bien-etre",
-                date: "27 Mars 2024"
+                date: "27 Mars 2025"
             },
             {
                 title: "Les 5 Erreurs qui Rendent votre Site de Thérapeute Froid et Impersonnel",
                 description: "Votre site ne convertit pas ? Découvrez les 5 erreurs courantes qui brisent la confiance et apprenez à créer un 'cocon digital' qui rassure et attire.",
                 link: "articles/12-therapeute-erreurs-site-froid.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/therapeute-cocon-intro-projet.webp",
                 category: "niche-bien-etre",
-                date: "26 Mars 2024"
+                date: "26 Mars 2025"
             },
             {
                 title: "Du Clic à la Confiance : Comment Décrire le Déroulé d'une Séance sur votre Site",
                 description: "Apprenez à décrire le déroulé d'une séance de thérapie ou de bien-être pour transformer la peur de l'inconnu de vos prospects en confiance absolue.",
                 link: "articles/13-du-clic-a-la-confiance-decrire-une-seance.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/decrire-seance-intro-projet.webp",
                 category: "niche-bien-etre",
-                date: "25 Mars 2024"
+                date: "25 Mars 2025"
             },
             {
                 title: "Votre Site de Yoga doit être un Shala Virtuel, pas un Catalogue de Cours",
                 description: "Découvrez 3 clés (intention, incarnation, ambiance) pour transformer votre site en un Shala virtuel qui inspire et accueille vos futurs élèves.",
                 link: "articles/62-site-yoga-shala-virtuel.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/shala-virtuel-intro-projet.webp",
                 category: "niche-bien-etre",
-                date: "24 Mars 2024"
+                date: "24 Mars 2025"
             },
             {
                 title: "Comment Rédiger des Descriptions de Cours qui Donnent Envie de Dérouler son Tapis",
                 description: "Découvrez notre méthode en 4 points pour rédiger des textes qui attirent les élèves, rassurent les débutants et transmettent l'énergie de votre enseignement.",
                 link: "articles/64-rediger-descriptions-cours-yoga-pilates.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/description-cours-yoga-intro-projet.webp",
                 category: "niche-bien-etre",
-                date: "23 Mars 2024"
+                date: "23 Mars 2025"
             },
             {
                 title: "La Photo Parfaite pour votre Site de Yoga : 3 Erreurs à Éviter et 3 Poses qui Inspirent",
                 description: "Quelle photo choisir pour votre site de yoga ? Découvrez les 3 erreurs qui font fuir les débutants et 3 types de poses qui inspirent la confiance et l'authenticité.",
                 link: "articles/66-photo-site-yoga-erreurs-poses.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/yoga-photo-intro-projet.webp",
                 category: "niche-bien-etre",
-                date: "22 Mars 2024"
+                date: "22 Mars 2025"
             },
             {
                 title: "Tarifs de Yoga/Pilates : Comment Présenter vos Prix de Manière Claire et Professionnelle",
                 description: "Découvrez notre guide pour structurer et présenter vos prix afin de valoriser votre enseignement et attirer des élèves engagés, sans avoir l'air d'un 'marchand de tapis'.",
                 link: "articles/67-tarifs-yoga-clarte-professionnalisme.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/tarifs-yoga-intro-projet.webp",
                 category: "niche-bien-etre",
-                date: "21 Mars 2024"
+                date: "21 Mars 2025"
             },
             {
                 title: "Le Syndrome de la 'Bonne Copine' : Comment Poser un Cadre Professionnel sur votre Site",
                 description: "Votre empathie vous épuise ? Apprenez à utiliser votre site web pour poser un cadre professionnel clair et sain, et sortir du rôle de la 'bonne copine'.",
                 link: "articles/75-syndrome-bonne-copine-cadre-professionnel.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/syndrome-bonne-copine-intro-projet.webp",
                 category: "niche-bien-etre",
-                date: "20 Mars 2024"
+                date: "20 Mars 2025"
             },
             {
                 title: "Votre Séquence de Yoga est du Contenu : 3 Façons de Recycler votre Expertise",
                 description: "Manquez-vous de temps pour votre marketing ? Découvrez 3 façons simples de recycler vos séquences de cours en contenu engageant (blog, réseaux sociaux, newsletter).",
                 link: "articles/76-recycler-contenu-yoga.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/recyclage-yoga-intro-projet.webp",
                 category: "niche-bien-etre",
-                date: "19 Mars 2024"
+                date: "19 Mars 2025"
             },
             
             
@@ -1787,97 +1787,97 @@ if (scrollContainer && window.innerWidth >= 768) {
                 title: "Votre Site Spirituel : 3 Clés pour paraître 'Ancré' et Professionnel, pas 'Perché'",
                 description: "Découvrez 3 clés (langage, structure, posture) pour créer une présence en ligne professionnelle et ancrée qui rassure et attire vos clients idéaux.",
                 link: "articles/82-site-spirituel-ancre-professionnel.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/site-spirituel-ancrage-projet.webp",
                 category: "niche-bien-etre",
-                date: "18 Mars 2024"
+                date: "18 Mars 2025"
             },
             {
                 title: "Ne Vendez pas une 'Séance de Reiki', Vendez une 'Expérience d'Alignement'",
                 description: "Comment décrire vos soins sur votre site ? Découvrez 3 techniques d'écriture (métaphores, bénéfices, témoignages) pour mettre des mots sur l'invisible.",
                 link: "articles/83-decrire-soin-energetique-site-web.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/praticien-energetique-decrire-soin-invisible-projet.webp",
                 category: "niche-bien-etre",
-                date: "17 Mars 2024"
+                date: "17 Mars 2025"
             },
             {
                 title: "L'Échange Sacré : Comment Présenter vos Tarifs de Manière Alignée",
                 description: "Mal à l'aise avec vos tarifs ? Découvrez comment présenter vos prix comme un 'échange sacré' pour valoriser votre don et apaiser le syndrome de l'imposteur.",
                 link: "articles/84-echange-sacre-presenter-tarifs-alignement.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/praticien-spirituel-echange-equilibre-soin-contribution-projet.webp",
                 category: "niche-bien-etre",
-                date: "16 Mars 2024"
+                date: "16 Mars 2025"
             },
             {
                 title: "Votre Site Web est Votre Temple Virtuel : Créez un Espace Sacré qui Attire votre 'Tribu d'Âmes'",
                 description: "Découvrez comment transformer votre site en un 'temple virtuel' grâce au design, aux visuels et à une structure alignée, pour attirer naturellement votre tribu d'âmes.",
                 link: "articles/85-site-web-temple-virtuel-praticiens-spirituels.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/praticien-spirituel-creer-temple-virtuel-sacre-projet.webp",
                 category: "niche-bien-etre",
-                date: "15 Mars 2024"
+                date: "15 Mars 2025"
             },
             {
                 title: "Le 'Syndrome du Caméléon Spirituel' : Comment Trouver VOTRE Voix Unique",
                 description: "Votre site web manque-t-il d'âme ? Sortez du 'syndrome du caméléon' et découvrez comment révéler votre voix unique pour attirer une clientèle qui vous correspond.",
                 link: "articles/86-syndrome-cameleon-spirituel-trouver-sa-voix.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/oiseau-colore-unique-parmi-oiseaux-gris-identiques-projet.webp",
                 category: "niche-bien-etre",
-                date: "14 Mars 2024"
+                date: "14 Mars 2025"
             },
             {
                 title: "Comment Écrire une Page 'À Propos' qui Raconte votre 'Voyage de l'Âme'",
                 description: "Découvrez la structure du 'Voyage du Héros' pour raconter votre histoire d'âme de manière authentique et inspirante, sans paraître narcissique.",
                 link: "articles/87-page-a-propos-praticien-spirituel.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/praticien-spirituel-page-a-propos-chemin-lanterne-projet.webp",
                 category: "niche-bien-etre",
-                date: "13 Mars 2024"
+                date: "13 Mars 2025"
             },
             {
                 title: "La FAQ Énergétique : Comment Utiliser votre Site pour Éduquer vos Clients et Poser des Limites Saines",
                 description: "Découvrez comment utiliser votre page FAQ pour poser un cadre sain, protéger votre énergie et éduquer vos clients en amont de vos séances.",
                 link: "articles/88-faq-energetique-proteger-energie-site-web.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/praticien-spirituel-protegeant-son-energie-avec-clarte-projet.webp",
                 category: "niche-bien-etre",
-                date: "12 Mars 2024"
+                date: "12 Mars 2025"
             },
             {
                 title: "Le Syndrome du 'Sauveur' : Pourquoi votre Site doit Promouvoir l'Autonomie",
                 description: "Votre marketing crée-t-il des clients autonomes ou dépendants ? Découvrez comment sortir du 'syndrome du sauveur' et construire un site qui reflète une posture éthique.",
                 link: "articles/89-syndrome-du-sauveur-site-web-autonomie-client.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/main-tendant-lanterne-allumee-a-une-autre-main-projet.webp",
                 category: "niche-bien-etre",
-                date: "11 Mars 2024"
+                date: "11 Mars 2025"
             },
             {
                 title: "Marketing 'Vibrationnel' : Comment Utiliser les Mots-Clés pour Attirer les Âmes qui Vous Cherchent",
                 description: "Le SEO vous semble compliqué ? Découvrez le 'marketing vibrationnel', une approche simple pour utiliser les mots-clés sur votre site afin d'entrer en résonance avec les âmes qui cherchent votre lumière.",
                 link: "articles/90-marketing-vibrationnel-mots-cles-spirituels.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/praticien-spirituel-emet-vibration-digitale-seo-projet.webp",
                 category: "niche-bien-etre",
-                date: "10 Mars 2024"
+                date: "10 Mars 2025"
             },
             {
                 title: "Le 'Bouche-à-Oreille Énergétique' : Comment votre Site Amplifie les Recommandations",
                 description: "Découvrez comment votre site web et votre fiche Google peuvent amplifier le 'bouche-à-oreille énergétique' et valider l'énergie de vos recommandations.",
                 link: "articles/91-bouche-a-oreille-energetique-site-web.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/praticien-spirituel-recommandation-amplifiee-par-site-web-projet.webp",
                 category: "niche-bien-etre",
-                date: "09 Mars 2024"
+                date: "09 Mars 2025"
             },
             {
                 title: "Annoncer un Cercle de Femmes ou un Atelier sur votre Site : Le Guide pour Créer une Invitation Sacrée",
                 description: "Découvrez comment créer une page sur votre site qui n'est pas une simple annonce, mais une 'invitation sacrée' qui attire les bonnes personnes.",
                 link: "articles/92-annoncer-cercle-atelier-invitation-sacree.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/cercle-de-femmes-bougies-allumees-ambiance-sacree-projet.webp",
                 category: "niche-bien-etre",
-                date: "08 Mars 2024"
+                date: "08 Mars 2025"
             },
             {
                 title: "Le Dilemme du 'Don Libre' : Comment Structurer une Offre Financièrement Viable",
                 description: "Le modèle du 'don libre' vous épuise ? Découvrez 3 stratégies pour structurer une offre financièrement viable tout en restant aligné avec vos valeurs de service.",
                 link: "articles/93-dilemme-don-libre-offre-viable-spirituelle.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/praticien-spirituel-equilibre-donner-recevoir-financier-projet.webp",
                 category: "niche-bien-etre",
-                date: "07 Mars 2024"
+                date: "07 Mars 2025"
             },
 
 
@@ -1886,73 +1886,73 @@ if (scrollContainer && window.innerWidth >= 768) {
                 title: "Comment Créer une Expérience de Réservation 'Cocon' avec Calendly (pour Clients Anxieux)",
                 description: "Votre processus de réservation est-il aussi bienveillant que vos séances ? Découvrez comment configurer Calendly pour créer un cocon de confiance et rassurer vos clients.",
                 link: "articles/44-creer-experience-cocon-calendly.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/cocon-calendly-intro-projet.webp",
                 category: "niche-bien-etre",
-                date: "06 Mars 2024"
+                date: "06 Mars 2025"
             },
             {
                 title: "Gérer les Annulations et les Reports avec Bienveillance (et Fermeté) grâce à Calendly",
                 description: "Subissez-vous les annulations de dernière minute ? Découvrez comment utiliser Calendly pour poser un cadre clair et bienveillant, et protéger votre temps.",
                 link: "articles/45-gerer-annulations-calendly.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/calendly-cadre-bienveillance-projet.webp",
                 category: "niche-bien-etre",
-                date: "05 Mars 2024"
+                date: "05 Mars 2025"
             },
             {
                 title: "Paiement en Ligne via Calendly : La Clé pour Valoriser votre Temps et Réduire la Charge Mentale",
                 description: "La gestion des paiements est un stress ? Découvrez comment l'intégration du paiement en ligne sur Calendly peut réduire votre charge mentale et valoriser votre travail.",
                 link: "articles/46-paiement-en-ligne-calendly-therapeutes.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/calendly-paiement-intro-projet.webp",
                 category: "niche-bien-etre",
-                date: "04 Mars 2024"
+                date: "04 Mars 2025"
             },
             {
                 title: "Votre Cabinet est Invisible ? Le Guide Google Business pour les Thérapeutes & Praticiens",
                 description: "Votre cabinet est-il visible pour vos voisins ? Le guide complet pour optimiser votre fiche Google et attirer les clients de votre quartier.",
                 link: "articles/58-google-business-guide-therapeutes.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/google-local-intro-cabinet-invisible-projet.webp",
                 category: "niche-bien-etre",
-                date: "03 Mars 2024"
+                date: "03 Mars 2025"
             },
             {
                 title: "Votre Studio est Plein ? Le Guide Google Business pour Remplir vos Cours et Ateliers",
                 description: "Pour les profs de Yoga & Pilates. Remplissez vos cours grâce à Google ! Le guide complet pour optimiser votre fiche, promouvoir vos ateliers et attirer les élèves.",
                 link: "articles/60-guide-google-studio-yoga-pilates.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/google-yoga-intro-projet.webp",
                 category: "niche-bien-etre",
-                date: "02 Mars 2024"
+                date: "02 Mars 2025"
             },
             {
                 title: "Le casse-tête du Planning en Ligne : 3 Solutions pour Gérer vos Réservations de Cours",
                 description: "Découvrez notre comparatif de 3 solutions (de la plus simple à la plus pro) pour automatiser votre planning de cours de yoga/Pilates et vous libérer l'esprit.",
                 link: "articles/63-solutions-planning-reservations-cours-en-ligne.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/planning-reservations-intro-projet.webp",
                 category: "niche-bien-etre",
-                date: "01 Mars 2024"
+                date: "01 Mars 2025"
             },
             {
                 title: "Au-delà des Cours : 3 Idées pour Créer une Communauté Engagée grâce à votre Site Web",
                 description: "Transformez vos élèves en une communauté fidèle. Découvrez 3 stratégies simples (blog, newsletter, événements) pour utiliser votre site web afin de nourrir le lien.",
                 link: "articles/65-communaute-engagee-yoga-pilates.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/communaute-yoga-intro-projet.webp",
                 category: "niche-bien-etre",
-                date: "29 Février 2024"
+                date: "29 Février 2025"
             },
             {
                 title: "Le Dilemme du Prof de Yoga : Faut-il un Site ou une Page sur une Plateforme comme Momoyoga ?",
                 description: "Découvrez pourquoi la bonne stratégie n'est pas l'un OU l'autre, mais l'un ET l'autre, et comment faire travailler votre site et votre plateforme de réservation ensemble.",
                 link: "articles/68-yoga-site-web-vs-momoyoga.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/yoga-site-accueil-vs-logistique-projet.webp",
                 category: "niche-bien-etre",
-                date: "28 Février 2024"
+                date: "28 Février 2025"
             },
             {
                 title: "Comment Animer une Communauté de Yoga en Ligne : 3 Idées pour Garder le Lien en Dehors du Tapis",
                 description: "Le yoga ne s'arrête pas au tapis. Découvrez 3 stratégies utilisant votre site web (blog, newsletter, événements) pour nourrir le lien avec vos élèves en dehors des cours.",
                 link: "articles/69-communaute-yoga-en-ligne.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/yoga-communaute-intro-projet.webp",
                 category: "niche-bien-etre",
-                date: "27 Février 2024"
+                date: "27 Février 2025"
             },
 
 
@@ -1960,25 +1960,25 @@ if (scrollContainer && window.innerWidth >= 768) {
                 title: "Votre Site Web n'est pas une Brochure, C'est le Premier Chapitre de la Transformation",
                 description: "Pour les coachs en transformation. Arrêtez de voir votre site comme une simple brochure. Découvrez comment le transformer en un parcours narratif puissant.",
                 link: "articles/14-site-transformation-pas-brochure.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/site-transformation-intro-projet.webp",
                 category: "niche-bien-etre",
-                date: "26 Février 2024"
+                date: "26 Février 2025"
             },
             {
                 title: "Coachs : Pourquoi votre Histoire Personnelle est votre Meilleur Outil Marketing",
                 description: "Découvrez pourquoi votre parcours personnel est votre plus grand atout et comment le raconter sur votre page 'À Propos' pour attirer vos clients idéaux.",
                 link: "articles/15-coachs-histoire-marketing.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/coach-histoire-intro-projet.webp",
                 category: "niche-bien-etre",
-                date: "25 Février 2024"
+                date: "25 Février 2025"
             },
             {
                 title: "Votre Site Web est Votre Cabinet Virtuel : Les 3 Éléments qui Créent un Espace de Confiance",
                 description: "Découvrez les 3 éléments clés (porte d'entrée, salle de consultation, plan de soin) pour créer un cabinet virtuel qui inspire confiance et accueille vos clients.",
                 link: "articles/53-cabinet-virtuel-confiance.html",
-                image: "assets/image-blog/image-placeholder-bien-etre.webp",
+                image: "assets/image-blog/cabinet-virtuel-intro-projet.webp",
                 category: "niche-bien-etre",
-                date: "24 Février 2024"
+                date: "24 Février 2025"
             },
             
 
