@@ -597,6 +597,293 @@ if (scrollContainer && window.innerWidth >= 768) {
     }
 
 
+
+     // ==================================================================
+    // NOUVEAU : LOGIQUE COMPLÈTE POUR LA PAGE BLOG
+    // ==================================================================
+    const blogPage = document.getElementById('articles-grid');
+
+    // On exécute ce code uniquement si on est sur la page de blog
+    if (blogPage) {
+
+        // --- 1. VOTRE BASE DE DONNÉES D'ARTICLES ---
+        // C'est ici que vous ajouterez tous vos articles.
+        // Respectez bien la structure : title, description, link, image, category, date.
+        // Les catégories doivent correspondre aux "data-filter" des boutons en HTML.
+        const allArticles = [
+            // -- Catégorie: Stratégie & Positionnement --
+            {
+                title: "Le Test du 'Et Alors ?' : La Méthode pour Rédiger une Proposition de Valeur qui Convertit",
+                description: "Découvrez une méthode simple pour transformer une description de service fade en une proposition de valeur qui parle aux vrais besoins de vos clients B2B.",
+                link: "articles/129-test-et-alors-proposition-valeur.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "24 Juillet 2024"
+            },
+            {
+                title: "Au-delà de la Niche : La Puissance de la 'Micro-Niche' pour Facturer en Premium",
+                description: "Apprenez comment la micro-niche (cible + problème spécifique) peut éliminer la concurrence et justifier des tarifs plus élevés.",
+                link: "articles/130-au-dela-niche-puissance-micro-niche-premium.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "23 Juillet 2024"
+            },
+            // -- Catégorie: Débuter son Activité --
+            {
+                title: "Le Syndrome de l'Imposteur du Débutant : Comment votre Site Web Devient votre Premier Acte de Légitimité",
+                description: "Découvrez comment la création de votre site est un acte psychologique puissant pour incarner votre nouvelle identité professionnelle.",
+                link: "articles/94-syndrome-imposteur-site-web-legitimite.html",
+                image: "assets/blog/image-placeholder-debuter.webp",
+                category: "debuter",
+                date: "22 Juillet 2024"
+            },
+            {
+                title: "Coach/Thérapeute Débutant : Les 3 Fondations à Poser AVANT de Créer votre Logo",
+                description: "Avant de penser au design, clarifiez ces 3 points essentiels (Client, Promesse, Histoire) pour bâtir une activité solide.",
+                link: "articles/95-fondations-activite-coach-therapeute.html",
+                image: "assets/blog/image-placeholder-debuter.webp",
+                category: "debuter",
+                date: "21 Juillet 2024"
+            },
+            // -- Catégorie: Marketing Local & Google --
+            {
+                title: "Le 'Pages Jaunes' est Mort : Pourquoi votre Fiche Google Business est Indispensable",
+                description: "Découvrez pourquoi votre fiche Google Business a remplacé les Pages Jaunes et comment elle est devenue votre outil n°1 pour attirer les clients de votre quartier.",
+                link: "articles/54-fiche-google-nouvel-annuaire.html",
+                image: "assets/blog/image-placeholder-local.webp",
+                category: "local",
+                date: "20 Juillet 2024"
+            },
+            {
+                title: "Google Maps : Les 5 Optimisations pour Faire Remonter votre Cabinet en Tête des Résultats",
+                description: "Améliorez votre référencement local grâce à 5 optimisations essentielles (catégorie, photos, avis...) pour attirer plus de clients.",
+                link: "articles/55-google-maps-optimisations-locales.html",
+                image: "assets/blog/image-placeholder-local.webp",
+                category: "local",
+                date: "19 Juillet 2024"
+            },
+            // -- Catégorie: Outils & Productivité --
+            {
+                title: "Arrêtez de Jouer à 'Tetris' avec votre Agenda : Le Guide Complet de Calendly",
+                description: "Fatigués des allers-retours d'emails ? Découvrez comment configurer Calendly pour professionnaliser votre prise de RDV et gagner des heures.",
+                link: "articles/26-guide-calendly-pour-coachs.html",
+                image: "assets/blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "18 Juillet 2024"
+            },
+            {
+                title: "L'IA comme Assistant Créatif : 3 Façons Éthiques de l'Utiliser pour votre Contenu",
+                description: "Apprenez à utiliser l'IA comme un assistant pour brainstormer, synthétiser et clarifier vos idées, sans perdre votre âme.",
+                link: "articles/182-ia-assistant-creatif-ethique.html",
+                image: "assets/blog/image-placeholder-outils.webp",
+                category: "outils",
+                date: "17 Juillet 2024"
+            },
+            // -- Catégorie: Niche : Bien-être & Holistique --
+            {
+                title: "Votre Site de Yoga doit être un Shala Virtuel, pas un Catalogue de Cours",
+                description: "Découvrez 3 clés (intention, incarnation, ambiance) pour transformer votre site en un Shala virtuel qui inspire et accueille vos futurs élèves.",
+                link: "articles/62-site-yoga-shala-virtuel.html",
+                image: "assets/blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "16 Juillet 2024"
+            },
+            {
+                title: "Le Syndrome de la 'Bonne Copine' : Comment Poser un Cadre Professionnel sur votre Site",
+                description: "Votre empathie vous épuise ? Apprenez à utiliser votre site web pour poser un cadre professionnel clair et sain, et sortir du rôle de la 'bonne copine'.",
+                link: "articles/75-syndrome-bonne-copine-cadre-professionnel.html",
+                image: "assets/blog/image-placeholder-bien-etre.webp",
+                category: "niche-bien-etre",
+                date: "15 Juillet 2024"
+            },
+            // -- Catégorie: Niche : Coachs Business & Consultants --
+             {
+                title: "Votre Page d'Accueil est un 'Executive Summary' : Les 5 Éléments qu'un Décideur Doit Voir en 5 Secondes",
+                description: "Votre page d'accueil B2B est-elle efficace ? Découvrez les 5 éléments essentiels qu'un décideur pressé doit voir pour être convaincu.",
+                link: "articles/131-page-accueil-executive-summary.html",
+                image: "assets/blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "14 Juillet 2024"
+            },
+            {
+                title: "La Proposition Commerciale est Morte : Comment votre Site 'Pré-Vend' vos Services",
+                description: "Fatigués des propositions sans réponse ? Transformez votre site en une 'proposition vivante' qui qualifie, convainc et pré-vend vos services.",
+                link: "articles/132-site-web-remplace-proposition-commerciale.html",
+                image: "assets/blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "13 Juillet 2024"
+            },
+            // -- Catégorie: Approche "Site Clarté" --
+            {
+                title: "Le Labyrinthe vs. la Conversation Guidée : Pourquoi un Site Multi-Pages Dilue votre Message",
+                description: "Votre site est-il un labyrinthe confus ? Découvrez pourquoi une structure one-page crée un parcours de confiance qui convertit.",
+                link: "articles/111-labyrinthe-vs-conversation-site-web.html",
+                image: "assets/blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "12 Juillet 2024"
+            },
+            {
+                title: "Toutes les Pages Uniques ne se Valent Pas : La Différence entre une 'Brochure qui Défile' et un 'Récit qui Convertit'",
+                description: "Un site one-page peut aussi être inefficace. Découvrez la différence entre un site 'brochure' et un 'Site Clarté' stratégique.",
+                link: "articles/112-site-one-page-brochure-vs-recit-qui-convertit.html",
+                image: "assets/blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "11 Juillet 2024"
+            },
+            // ... AJOUTEZ VOS AUTRES ARTICLES ICI ...
+        ];
+
+        // --- 2. GESTION DE L'ÉTAT ---
+        const ITEMS_PER_PAGE = 9;
+        let currentPage = 1;
+        let activeCategory = 'all';
+        let searchQuery = '';
+
+        // --- 3. SÉLECTION DES ÉLÉMENTS DU DOM ---
+        const articlesGrid = document.getElementById('articles-grid');
+        const paginationContainer = document.getElementById('pagination-container');
+        const categoryFilters = document.getElementById('category-filters');
+        const searchInput = document.getElementById('search-input');
+        const noResults = document.getElementById('no-results');
+
+        // --- 4. FONCTIONS PRINCIPALES ---
+
+        // Fonction pour afficher les articles
+        function renderArticles() {
+            // 4.1 Filtrage
+            let filteredArticles = allArticles;
+
+            if (activeCategory !== 'all') {
+                filteredArticles = filteredArticles.filter(article => article.category === activeCategory);
+            }
+
+            if (searchQuery) {
+                const lowerCaseQuery = searchQuery.toLowerCase();
+                filteredArticles = filteredArticles.filter(article =>
+                    article.title.toLowerCase().includes(lowerCaseQuery) ||
+                    article.description.toLowerCase().includes(lowerCaseQuery)
+                );
+            }
+            
+            noResults.classList.toggle('hidden', filteredArticles.length > 0);
+
+            // 4.2 Pagination
+            const totalPages = Math.ceil(filteredArticles.length / ITEMS_PER_PAGE);
+            const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+            const endIndex = startIndex + ITEMS_PER_PAGE;
+            const paginatedArticles = filteredArticles.slice(startIndex, endIndex);
+
+            // 4.3 Affichage
+            articlesGrid.innerHTML = paginatedArticles.map(article => `
+                <div class="portfolio-item" data-sr>
+                    <a href="${article.link}" class="block h-full group">
+                        <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+                            <img src="${article.image}" alt="${article.title}" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2 group-hover:text-clarity-blue transition-colors">${article.title}</h3>
+                                <p class="text-neutral-light text-sm mb-4 flex-grow">${article.description}</p>
+                                <span class="text-xs text-neutral-light mt-auto">${article.date}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            `).join('');
+
+            renderPagination(totalPages);
+            
+            // Relancer ScrollReveal sur les nouveaux éléments
+            if (typeof ScrollReveal !== 'undefined') {
+                ScrollReveal().reveal('.portfolio-item[data-sr]', {
+                    origin: 'bottom',
+                    distance: '20px',
+                    duration: 500,
+                    delay: 0,
+                    opacity: 0,
+                    scale: 1,
+                    easing: 'cubic-bezier(0.5, 0, 0, 1)',
+                    reset: false,
+                    viewFactor: 0.2
+                }, 50); // L'intervalle de 50ms crée un léger effet de cascade
+            }
+        }
+
+        // Fonction pour afficher la pagination
+        function renderPagination(totalPages) {
+            if (totalPages <= 1) {
+                paginationContainer.innerHTML = '';
+                return;
+            }
+
+            let paginationHTML = `
+                <button id="prev-page" class="pagination-btn" ${currentPage === 1 ? 'disabled' : ''}>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+            `;
+
+            for (let i = 1; i <= totalPages; i++) {
+                paginationHTML += `
+                    <button class="pagination-btn page-number ${i === currentPage ? 'active' : ''}" data-page="${i}">${i}</button>
+                `;
+            }
+
+            paginationHTML += `
+                <button id="next-page" class="pagination-btn" ${currentPage === totalPages ? 'disabled' : ''}>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            `;
+
+            paginationContainer.innerHTML = paginationHTML;
+        }
+
+        // --- 5. GESTION DES ÉVÉNEMENTS ---
+
+        // Clic sur les filtres de catégorie
+        categoryFilters.addEventListener('click', (e) => {
+            if (e.target.classList.contains('filter-btn')) {
+                categoryFilters.querySelector('.active').classList.remove('active');
+                e.target.classList.add('active');
+                activeCategory = e.target.dataset.filter;
+                currentPage = 1;
+                renderArticles();
+            }
+        });
+
+        // Recherche
+        let searchTimeout;
+        searchInput.addEventListener('input', () => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                searchQuery = searchInput.value;
+                currentPage = 1;
+                renderArticles();
+            }, 300); // Debounce pour ne pas surcharger
+        });
+
+        // Clic sur la pagination
+        paginationContainer.addEventListener('click', (e) => {
+            const target = e.target.closest('button');
+            if (!target) return;
+
+            if (target.id === 'prev-page') {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderArticles();
+                }
+            } else if (target.id === 'next-page') {
+                const totalPages = paginationContainer.querySelectorAll('.page-number').length;
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderArticles();
+                }
+            } else if (target.classList.contains('page-number')) {
+                currentPage = parseInt(target.dataset.page);
+                renderArticles();
+            }
+        });
+
+        // --- 6. INITIALISATION ---
+        renderArticles();
+    }
     
     
 });
