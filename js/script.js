@@ -1863,7 +1863,7 @@ if (scrollContainer && window.innerWidth >= 768) {
 
 
             
-                        // -- Catégorie: Niche : Coachs Business & Consultants --
+            // -- Catégorie: Niche : Coachs Business & Consultants --
             {
                 title: "Consultants & Formateurs : 3 Façons de Prouver votre Expertise sur votre Site",
                 description: "Découvrez 3 stratégies puissantes (études de cas, méthodologie, partage de valeur) pour bâtir une crédibilité inébranlable et prouver votre expertise.",
@@ -1962,6 +1962,127 @@ if (scrollContainer && window.innerWidth >= 768) {
             },
 
 
+
+                        {
+                title: "'Tuez la Proposition sur Mesure' : Comment Vendre des Offres de Conseil 'Produitisées'",
+                description: "Fatigués du 'sur-mesure' qui épuise ? Découvrez comment 'produitiser' votre expertise en offres packagées et utiliser votre site pour les vendre.",
+                link: "articles/134-produitiser-services-conseil-site-web.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "14 Février 2024"
+            },
+            {
+                title: "L'Escalier de Valeur : Comment Structurer vos Offres de Conseil",
+                description: "Ne proposez pas qu'une seule offre ! Découvrez le concept de 'l'Escalier de Valeur' pour créer un parcours client qui maximise la fidélisation.",
+                link: "articles/142-escalier-de-valeur-structure-offres.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "13 Février 2024"
+            },
+            {
+                title: "Le 'Retainer' Mensuel : Le Saint Graal du Consultant",
+                description: "Fatigués de chasser les contrats ? Découvrez comment structurer et vendre une offre de 'retainer' mensuel pour créer des revenus récurrents et fidéliser vos clients.",
+                link: "articles/143-vendre-offre-retainer-mensuel-consultant.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "12 Février 2024"
+            },
+            {
+                title: "Comment Transformer une Mission Ponctuelle en un Contrat Annuel : L'Art du 'Bilan de Fin de Mission'",
+                description: "Ne laissez pas vos clients partir ! Découvrez comment utiliser la 'session de bilan' pour prouver votre ROI et transformer une mission ponctuelle en un contrat annuel.",
+                link: "articles/148-transformer-mission-en-contrat-annuel.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "11 Février 2024"
+            },
+            {
+                title: "Comment Transformer un Témoignage Client en une Étude de Cas Percutante",
+                description: "Vos témoignages manquent d'impact ? Découvrez notre modèle en 3 actes (Défi, Approche, Impact) pour les transformer en études de cas qui prouvent votre ROI.",
+                link: "articles/22-transformer-temoignage-etude-de-cas.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "10 Février 2024"
+            },
+            {
+                title: "Le Contenu qui Attire les Clients : 3 Idées de 'Lead Magnets' pour les Consultants",
+                description: "Transformez les visiteurs de votre site en prospects qualifiés. Découvrez 3 idées de 'lead magnets' (ressources gratuites) puissants pour capturer des emails.",
+                link: "articles/25-lead-magnets-consultants.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "09 Février 2024"
+            },
+            {
+                title: "Votre 'Appel Découverte' est-il un Interrogatoire ou une Session de Coaching ?",
+                description: "Transformez votre appel découverte en une expérience de valeur qui convertit naturellement. Découvrez notre méthode en 4 étapes pour coacher, pas pour vendre.",
+                link: "articles/74-appel-decouverte-methode-conversion.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "08 Février 2024"
+            },
+            {
+                title: "La Proposition Commerciale est Morte : Comment votre Site Peut 'Pré-Vendre' vos Services",
+                description: "Fatigués des propositions sans réponse ? Transformez votre site en une 'proposition vivante' qui qualifie, convainc et pré-vend vos services avant le premier appel.",
+                link: "articles/132-site-web-remplace-proposition-commerciale.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "07 Février 2024"
+            },
+            {
+                title: "Votre Profil LinkedIn Obtient le Clic, Votre Site Obtient le Client",
+                description: "Découvrez la stratégie du 'duo gagnant' : utilisez LinkedIn pour attirer l'attention et votre site web comme machine de conversion pour signer plus de contrats.",
+                link: "articles/133-linkedin-site-web-duo-gagnant.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "06 Février 2024"
+            },
+            {
+                title: "De 'Très Pro' à '+30% de ROI' : Le Guide pour Obtenir des Témoignages B2B qui Vendent",
+                description: "Vos témoignages B2B sont-ils trop vagues ? Découvrez notre guide pour obtenir des retours chiffrés qui prouvent votre ROI et transforment vos témoignages en arguments de vente.",
+                link: "articles/135-guide-temoignages-b2b-qui-vendent.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "05 Février 2024"
+            },
+            {
+                title: "Le 'Power Move' en Appel Découverte : Comment Utiliser votre Site Clarté pour Closer avec Confiance",
+                description: "Ne laissez pas votre site dormir pendant vos appels de vente ! Découvrez comment l'utiliser en partage d'écran pour guider la conversation et asseoir votre autorité.",
+                link: "articles/173-power-move-appel-decouverte-site-clarte.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "04 Février 2024"
+            },
+            {
+                title: "Le Système d'Onboarding Sans Friction : Automatisez les 3 Premières Étapes avec votre Site",
+                description: "Optimisez votre processus d'accueil client ! Découvrez comment utiliser votre site pour automatiser l'onboarding (paiement, contrat, 1er RDV) et offrir une expérience premium.",
+                link: "articles/138-systeme-onboarding-client-automatise.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "03 Février 2024"
+            },
+            {
+                title: "Le 'Second Cerveau' du Consultant : Comment Utiliser Notion pour Préparer vos Appels et Suivre vos Clients",
+                description: "Découvrez comment utiliser un outil comme Notion pour créer un 'second cerveau' et transformer votre organisation en un avantage concurrentiel.",
+                link: "articles/145-second-cerveau-consultant-notion.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "02 Février 2024"
+            },
+            {
+                title: "Le Kit d'Outils de l'Expert Indépendant en 2025 (au-delà de la Suite Office)",
+                description: "Quels outils digitaux utiliser pour être efficace en 2025 ? Découvrez notre 'kit d'outils' essentiel (vente, communication, gestion...) pour professionnaliser votre activité.",
+                link: "articles/146-kit-outils-expert-independant-2025.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "01 Février 2024"
+            },
+            {
+                title: "La Checklist d'Onboarding Client Parfaite : Les 7 Étapes pour Démarrer une Mission sur les Rails",
+                description: "Découvrez notre checklist d'onboarding client en 7 étapes pour créer une expérience d'accueil professionnelle, rassurer votre client et poser les bases du succès.",
+                link: "articles/147-checklist-onboarding-client-parfait.html",
+                image: "assets/image-blog/image-placeholder-b2b.webp",
+                category: "niche-b2b",
+                date: "31 Janvier 2024"
+            },
 
             
 
