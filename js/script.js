@@ -620,9 +620,9 @@ if (scrollContainer && window.innerWidth >= 768) {
                 title: "Atelier Gratuit : Définissez le Message Central de votre Site Web",
                 description: "Découvrez 4 questions stratégiques pour définir une accroche claire qui captive vos clients idéaux en moins de 3 secondes.",
                 link: "articles/01-atelier-message-central.html",
-                image: "assets/blog/image-placeholder-strategie.webp",
+                image: "assets/image-blog/atelier-clarte-intro-projet.webp",
                 category: "strategie",
-                date: "25 Juillet 2024"
+                date: "25 Juillet 2025"
             },
             {
                 title: "La Règle des 3 Secondes : L'Accroche qui Transforme un Visiteur en Prospect",
