@@ -2089,26 +2089,127 @@ if (scrollContainer && window.innerWidth >= 768) {
 
 
 
+                        // -- Catégorie: Approche "Site Clarté" --
+            {
+                title: "Un Site Web en 7 Jours ? Pas avec un Plan Clair.",
+                description: "Découvrez comment nous créons votre site web professionnel en 7 jours sans sacrifier la qualité. Le secret ? Un processus collaboratif unique qui met la clarté au cœur du projet.",
+                link: "articles/08-processus-clarte-7-jours.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "30 Janvier 2024"
+            },
+            {
+                title: "Le Coût Caché d'un Site Web 'Brouillon'",
+                description: "Votre site web vous coûte-t-il des clients ? Découvrez les 3 coûts cachés d'un message pas clair et comment un 'Site Clarté' peut transformer votre présence en ligne.",
+                link: "articles/09-cout-cache-site-brouillon.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "29 Janvier 2024"
+            },
+            {
+                title: "Le Contenu Minimum Viable : Les 3 Seules Sections dont Vous Avez Vraiment Besoin",
+                description: "La création de votre site vous paralyse ? Oubliez les sites complexes ! Découvrez les 3 sections essentielles pour un site 'minimum viable' qui convertit, sur une seule page.",
+                link: "articles/101-contenu-minimum-viable-site-web.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "28 Janvier 2024"
+            },
+            {
+                title: "Le Labyrinthe vs. la Conversation Guidée : Pourquoi un Site Multi-Pages Dilue votre Message",
+                description: "Votre site web est-il un labyrinthe confus ? Découvrez pourquoi une structure one-page crée un parcours de confiance qui convertit et rassure vos visiteurs.",
+                link: "articles/111-labyrinthe-vs-conversation-site-web.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "27 Janvier 2024"
+            },
+            {
+                title: "La Psychologie du Défilement : Comment un 'Site Clarté' Bâtit la Confiance à Chaque Scroll",
+                description: "Découvrez la psychologie cachée derrière le 'scroll'. Comment un site one-page utilise chaque défilement pour guider le visiteur à travers un parcours émotionnel.",
+                link: "articles/113-psychologie-scroll-confiance-site-clarte.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "26 Janvier 2024"
+            },
+            {
+                title: "Moins de Clics, Plus de Clients : Comment l'Architecture d'un Site Clarté Optimise la Conversion",
+                description: "Découvrez comment l'architecture d'un site one-page 'Site Clarté' réduit la friction et les clics pour transformer plus de visiteurs en clients qualifiés.",
+                link: "articles/115-architecture-site-clarte-optimisation-conversion.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "25 Janvier 2024"
+            },
+            {
+                title: "Le Mythe de la 'Quantité de Contenu' : Pourquoi un Message Percutant sur une Page Vaut Mieux que 10 Pages",
+                description: "Pensez-vous qu'un site doit avoir beaucoup de pages pour être crédible ? Découvrez pourquoi la clarté et la concision d'un message sont plus puissantes que 10 pages de contenu dilué.",
+                link: "articles/116-mythe-quantite-page-web-efficace.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "24 Janvier 2024"
+            },
+            {
+                title: "Votre Site Web est-il 'Mobile First' ? Pourquoi le Format 'Site Clarté' est Supérieur sur Smartphone",
+                description: "Plus de 60% de votre trafic est mobile. Découvrez pourquoi l'approche 'Site Clarté' est nativement conçue pour une expérience mobile parfaite et une meilleure conversion.",
+                link: "articles/117-site-clarte-mobile-first-superieur-smartphone.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "23 Janvier 2024"
+            },
+            {
+                title: "Comment Faire Évoluer un 'Site Clarté' ? La Stratégie pour Grandir sans Complexifier",
+                description: "Un site one-page est-il évolutif ? Oui ! Découvrez la stratégie en 3 étapes (Blog, Pages de Vente...) pour faire grandir votre site au rythme de votre activité.",
+                link: "articles/118-comment-faire-evoluer-un-site-clarte.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "22 Janvier 2024"
+            },
+            {
+                title: "Les 'Chuchotements' de Votre Site : Le Guide Simple pour Comprendre vos Visiteurs",
+                description: "Comment savoir si votre site fonctionne ? Découvrez comment 'écouter' les statistiques simples de votre site pour comprendre d'où viennent vos visiteurs et ce qui les intéresse.",
+                link: "articles/171-comprendre-visiteurs-site-web-simplement.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "21 Janvier 2024"
+            },
+            {
+                title: "Votre Arme Secrète de Vente : Comment Mettre à Jour et Mettre en Scène vos Témoignages",
+                description: "Ne laissez pas vos meilleurs témoignages se perdre ! Découvrez comment mettre à jour et mettre en scène vos retours clients pour renforcer votre crédibilité.",
+                link: "articles/172-mettre-en-scene-temoignages-clients.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "20 Janvier 2024"
+            },
+            {
+                title: "Le 'Power Move' en Appel Découverte : Comment Utiliser votre Site Clarté pour Closer",
+                description: "Ne laissez pas votre site dormir pendant vos appels de vente ! Découvrez comment l'utiliser en partage d'écran pour guider la conversation et asseoir votre autorité.",
+                link: "articles/173-power-move-appel-decouverte-site-clarte.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "19 Janvier 2024"
+            },
+            {
+                title: "Prêt(e) à Lancer votre Premier Atelier ? Comment votre Site Clarté peut Devenir votre Page de Vente",
+                description: "Découvrez comment transformer la structure de votre Site Clarté en une page de vente à haute conversion pour vendre votre premier produit digital.",
+                link: "articles/174-site-clarte-page-de-vente-atelier.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "18 Janvier 2024"
+            },
+            {
+                title: "Le Programme de Parrainage Simplifié : Comment Transformer vos Clients en Ambassadeurs avec votre Site",
+                description: "Découvrez une méthode simple pour créer un programme de parrainage en utilisant votre site web, et transformer vos clients les plus heureux en vos meilleurs ambassadeurs.",
+                link: "articles/175-programme-parrainage-simplifie-site-web.html",
+                image: "assets/image-blog/image-placeholder-clarte.webp",
+                category: "approche-clarte",
+                date: "17 Janvier 2024"
+            },
+
+            
+            
+
+
 
 
             
-            // -- Catégorie: Approche "Site Clarté" --
-            {
-                title: "Le Labyrinthe vs. la Conversation Guidée : Pourquoi un Site Multi-Pages Dilue votre Message",
-                description: "Votre site est-il un labyrinthe confus ? Découvrez pourquoi une structure one-page crée un parcours de confiance qui convertit.",
-                link: "articles/111-labyrinthe-vs-conversation-site-web.html",
-                image: "assets/blog/image-placeholder-clarte.webp",
-                category: "approche-clarte",
-                date: "12 Juillet 2024"
-            },
-            {
-                title: "Toutes les Pages Uniques ne se Valent Pas : La Différence entre une 'Brochure qui Défile' et un 'Récit qui Convertit'",
-                description: "Un site one-page peut aussi être inefficace. Découvrez la différence entre un site 'brochure' et un 'Site Clarté' stratégique.",
-                link: "articles/112-site-one-page-brochure-vs-recit-qui-convertit.html",
-                image: "assets/blog/image-placeholder-clarte.webp",
-                category: "approche-clarte",
-                date: "11 Juillet 2024"
-            },
             // ... AJOUTEZ VOS AUTRES ARTICLES ICI ...
         ];
 
