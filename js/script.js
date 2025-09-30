@@ -611,6 +611,7 @@ if (scrollContainer && window.innerWidth >= 768) {
         // Respectez bien la structure : title, description, link, image, category, date.
         // Les catégories doivent correspondre aux "data-filter" des boutons en HTML.
         const allArticles = [
+
             
                         // -- Catégorie: Stratégie & Positionnement --
             {
@@ -750,7 +751,83 @@ if (scrollContainer && window.innerWidth >= 768) {
                 date: "09 Juillet 2024"
             },
 
+                        {
+                title: "Le Syndrome de l'Expert Généraliste : Pourquoi la Niche est Votre Meilleur Levier de Croissance",
+                description: "Découvrez pourquoi être un expert généraliste freine votre croissance et comment choisir une niche rentable pour attirer plus de clients et augmenter vos tarifs.",
+                link: "articles/19-syndrome-expert-generaliste-niche.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "08 Juillet 2024"
+            },
+            {
+                title: "Le Syndrome de la 'Bonne Copine' : Comment Poser un Cadre Professionnel sur votre Site",
+                description: "Votre empathie vous épuise ? Apprenez à utiliser votre site web pour poser un cadre professionnel clair et sain, et sortir du rôle de la 'bonne copine'.",
+                link: "articles/75-syndrome-bonne-copine-cadre-professionnel.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "07 Juillet 2024"
+            },
+            {
+                title: "Le 'Syndrome du Caméléon Spirituel' : Comment Trouver VOTRE Voix Unique",
+                description: "Votre site web manque-t-il d'âme ? Sortez du 'syndrome du caméléon' et découvrez comment révéler votre voix unique pour attirer une clientèle qui vous correspond vraiment.",
+                link: "articles/86-syndrome-cameleon-spirituel-trouver-sa-voix.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "06 Juillet 2024"
+            },
+            {
+                title: "Le Syndrome du 'Sauveur' : Pourquoi votre Site doit Promouvoir l'Autonomie",
+                description: "Votre marketing crée-t-il des clients autonomes ou dépendants ? Découvrez comment sortir du 'syndrome du sauveur' et construire un site qui reflète une posture éthique.",
+                link: "articles/89-syndrome-du-sauveur-site-web-autonomie-client.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "05 Juillet 2024"
+            },
+            {
+                title: "Le Dilemme du 'Don Libre' : Comment Structurer une Offre Financièrement Viable",
+                description: "Le modèle du 'don libre' vous épuise ? Découvrez 3 stratégies pour structurer une offre financièrement viable tout en restant aligné avec vos valeurs de service.",
+                link: "articles/93-dilemme-don-libre-offre-viable-spirituelle.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "04 Juillet 2024"
+            },
+            {
+                title: "Coach/Thérapeute Débutant : Les 3 Choses à Clarifier AVANT de Créer votre Logo",
+                description: "Avant de penser au design, clarifiez ces 3 points essentiels (Client, Promesse, Histoire) pour bâtir une activité solide et un message percutant.",
+                link: "articles/95-fondations-activite-coach-therapeute.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "03 Juillet 2024"
+            },
+            {
+                title: "Au-delà de la Niche : La Puissance de la 'Micro-Niche' pour les Consultants",
+                description: "Apprenez comment la micro-niche (cible + problème spécifique) peut éliminer la concurrence, vous établir comme une autorité et justifier des tarifs premium.",
+                link: "articles/130-au-dela-niche-puissance-micro-niche-premium.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "02 Juillet 2024"
+            },
+            {
+                title: "Pourquoi votre 'Meilleur' Client n'est Pas Toujours le Plus Grand",
+                description: "Courir après les grands comptes vous épuise ? Découvrez pourquoi le 'plus gros' client n'est pas toujours le plus rentable et comment définir un Profil de Client Idéal.",
+                link: "articles/144-definir-client-ideal-rentable.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "01 Juillet 2024"
+            },
+            {
+                title: "Coachs, Thérapeutes : Pourquoi une Agence Web 'Généraliste' ne Comprendra Jamais Votre Vrai Besoin",
+                description: "Découvrez pourquoi une agence généraliste risque de passer à côté de l'essentiel et pourquoi un spécialiste de votre métier fait toute la différence pour créer un site qui convertit.",
+                link: "articles/152-agence-web-generaliste-vs-specialiste-coach-therapeute.html",
+                image: "assets/blog/image-placeholder-strategie.webp",
+                category: "strategie",
+                date: "30 Juin 2024"
+            },
+            
 
+
+
+            
             
             // -- Catégorie: Débuter son Activité --
             {
