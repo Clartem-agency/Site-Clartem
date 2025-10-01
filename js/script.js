@@ -772,7 +772,7 @@ if (blogPage) {
                 paginationContainer.innerHTML = paginationHTML;
             }
 
-            // --- 5. GESTION DES ÉVÉNEMENTS ---
+            // --- 5. GESTION DES ÉVÉNEMENTS (MODIFIÉE) ---
             categoryFilters.addEventListener('click', (e) => {
                 if (e.target.classList.contains('filter-btn')) {
                     categoryFilters.querySelector('.active').classList.remove('active');
@@ -780,6 +780,9 @@ if (blogPage) {
                     activeCategory = e.target.dataset.filter;
                     currentPage = 1;
                     renderArticles();
+                    
+                    // Fait défiler la vue vers le titre de la grille
+                    articlesGridTitle.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
 
@@ -790,6 +793,9 @@ if (blogPage) {
                     searchQuery = searchInput.value;
                     currentPage = 1;
                     renderArticles();
+
+                    // Fait défiler la vue vers le titre de la grille
+                    articlesGridTitle.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }, 300);
             });
 
@@ -797,16 +803,35 @@ if (blogPage) {
                 const target = e.target.closest('button');
                 if (!target) return;
 
+                let needsScroll = false;
+
                 if (target.id === 'prev-page') {
-                    if (currentPage > 1) { currentPage--; renderArticles(); }
+                    if (currentPage > 1) { 
+                        currentPage--; 
+                        renderArticles(); 
+                        needsScroll = true;
+                    }
                 } else if (target.id === 'next-page') {
                     const totalPages = Math.ceil(
                         (allArticles.length - (activeCategory === 'all' && !searchQuery ? 1 : 0)) / ITEMS_PER_PAGE
                     );
-                    if (currentPage < totalPages) { currentPage++; renderArticles(); }
+                    if (currentPage < totalPages) { 
+                        currentPage++; 
+                        renderArticles(); 
+                        needsScroll = true;
+                    }
                 } else if (target.classList.contains('page-number')) {
-                    currentPage = parseInt(target.dataset.page);
-                    renderArticles();
+                    const newPage = parseInt(target.dataset.page);
+                    if (newPage !== currentPage) {
+                        currentPage = newPage;
+                        renderArticles();
+                        needsScroll = true;
+                    }
+                }
+                
+                // Fait défiler la vue si une action a eu lieu
+                if (needsScroll) {
+                    articlesGridTitle.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
 
