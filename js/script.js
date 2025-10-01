@@ -786,17 +786,29 @@ if (blogPage) {
                 }
             });
 
-            let searchTimeout;
+                       const searchForm = document.getElementById('search-form');
+
+            searchForm.addEventListener('submit', (e) => {
+                // Empêche la page de se recharger, ce qui est le comportement par défaut d'un formulaire
+                e.preventDefault(); 
+                
+                searchQuery = searchInput.value;
+                currentPage = 1;
+                renderArticles();
+                
+                // Fait défiler la vue vers le titre de la grille
+                articlesGridTitle.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+
+            // AMÉLIORATION : Gère le cas où l'utilisateur efface le champ
             searchInput.addEventListener('input', () => {
-                clearTimeout(searchTimeout);
-                searchTimeout = setTimeout(() => {
-                    searchQuery = searchInput.value;
+                // Si le champ est vide, on réinitialise la recherche sans attendre "Entrée"
+                if (searchInput.value === '') {
+                    searchQuery = '';
                     currentPage = 1;
                     renderArticles();
-
-                    // Fait défiler la vue vers le titre de la grille
-                    articlesGridTitle.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 300);
+                    // Pas de scroll ici, car c'est moins perturbant quand on efface du texte
+                }
             });
 
             paginationContainer.addEventListener('click', (e) => {
