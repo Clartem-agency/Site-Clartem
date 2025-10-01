@@ -597,6 +597,192 @@ if (scrollContainer && window.innerWidth >= 768) {
     }
 
 
+
+
+
+
+
+        // ==================================================================
+        // NOUVEAU : LOGIQUE COMPLÈTE POUR LA PAGE BLOG (VERSION JSON)
+        // ==================================================================
+        const blogPage = document.getElementById('articles-grid');
+    
+        if (blogPage) {
+            // On encapsule toute la logique du blog dans une fonction asynchrone
+            // pour pouvoir utiliser "await" pour charger les données.
+            async function initBlog() {
+                try {
+        // --- 1. CHARGEMENT DES DONNÉES DEPUIS LE FICHIER JSON ---
+        const response = await fetch('page-cartes-blog.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const allArticles = await response.json();
+     
+
+        // --- 2. GESTION DE L'ÉTAT ---
+        const ITEMS_PER_PAGE = 9;
+        let currentPage = 1;
+        let activeCategory = 'all';
+        let searchQuery = '';
+
+        // --- 3. SÉLECTION DES ÉLÉMENTS DU DOM ---
+        const articlesGrid = document.getElementById('articles-grid');
+        const paginationContainer = document.getElementById('pagination-container');
+        const categoryFilters = document.getElementById('category-filters');
+        const searchInput = document.getElementById('search-input');
+        const noResults = document.getElementById('no-results');
+
+        // --- 4. FONCTIONS PRINCIPALES ---
+
+        // Fonction pour afficher les articles
+        function renderArticles() {
+            // 4.1 Filtrage
+            let filteredArticles = allArticles;
+
+            if (activeCategory !== 'all') {
+                filteredArticles = filteredArticles.filter(article => article.category === activeCategory);
+            }
+
+            if (searchQuery) {
+                const lowerCaseQuery = searchQuery.toLowerCase();
+                filteredArticles = filteredArticles.filter(article =>
+                    article.title.toLowerCase().includes(lowerCaseQuery) ||
+                    article.description.toLowerCase().includes(lowerCaseQuery)
+                );
+            }
+            
+            noResults.classList.toggle('hidden', filteredArticles.length > 0);
+
+            // 4.2 Pagination
+            const totalPages = Math.ceil(filteredArticles.length / ITEMS_PER_PAGE);
+            const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+            const endIndex = startIndex + ITEMS_PER_PAGE;
+            const paginatedArticles = filteredArticles.slice(startIndex, endIndex);
+
+            // 4.3 Affichage
+            articlesGrid.innerHTML = paginatedArticles.map(article => `
+                <div class="portfolio-item" data-sr>
+                    <a href="${article.link}" class="block h-full group">
+                        <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+                            <img src="${article.image}" alt="${article.title}" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2 group-hover:text-clarity-blue transition-colors">${article.title}</h3>
+                                <p class="text-neutral-light text-sm mb-4 flex-grow">${article.description}</p>
+                                <span class="text-xs text-neutral-light mt-auto">${article.date}</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            `).join('');
+
+            renderPagination(totalPages);
+            
+            // Relancer ScrollReveal sur les nouveaux éléments
+            if (typeof ScrollReveal !== 'undefined') {
+                ScrollReveal().reveal('.portfolio-item[data-sr]', {
+                    origin: 'bottom',
+                    distance: '20px',
+                    duration: 500,
+                    delay: 0,
+                    opacity: 0,
+                    scale: 1,
+                    easing: 'cubic-bezier(0.5, 0, 0, 1)',
+                    reset: false,
+                    viewFactor: 0.2
+                }, 50); // L'intervalle de 50ms crée un léger effet de cascade
+            }
+        }
+
+        // Fonction pour afficher la pagination
+        function renderPagination(totalPages) {
+            if (totalPages <= 1) {
+                paginationContainer.innerHTML = '';
+                return;
+            }
+
+            let paginationHTML = `
+                <button id="prev-page" class="pagination-btn" ${currentPage === 1 ? 'disabled' : ''}>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+            `;
+
+            for (let i = 1; i <= totalPages; i++) {
+                paginationHTML += `
+                    <button class="pagination-btn page-number ${i === currentPage ? 'active' : ''}" data-page="${i}">${i}</button>
+                `;
+            }
+
+            paginationHTML += `
+                <button id="next-page" class="pagination-btn" ${currentPage === totalPages ? 'disabled' : ''}>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            `;
+
+            paginationContainer.innerHTML = paginationHTML;
+        }
+
+        // --- 5. GESTION DES ÉVÉNEMENTS ---
+
+        // Clic sur les filtres de catégorie
+        categoryFilters.addEventListener('click', (e) => {
+            if (e.target.classList.contains('filter-btn')) {
+                categoryFilters.querySelector('.active').classList.remove('active');
+                e.target.classList.add('active');
+                activeCategory = e.target.dataset.filter;
+                currentPage = 1;
+                renderArticles();
+            }
+        });
+
+        // Recherche
+        let searchTimeout;
+        searchInput.addEventListener('input', () => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                searchQuery = searchInput.value;
+                currentPage = 1;
+                renderArticles();
+            }, 300); // Debounce pour ne pas surcharger
+        });
+
+        // Clic sur la pagination
+        paginationContainer.addEventListener('click', (e) => {
+            const target = e.target.closest('button');
+            if (!target) return;
+
+            if (target.id === 'prev-page') {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderArticles();
+                }
+            } else if (target.id === 'next-page') {
+                const totalPages = paginationContainer.querySelectorAll('.page-number').length;
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderArticles();
+                }
+            } else if (target.classList.contains('page-number')) {
+                currentPage = parseInt(target.dataset.page);
+                renderArticles();
+            }
+        });
+
+
+         // --- 6. INITIALISATION ---
+                renderArticles();
+
+            } catch (error) {
+                console.error("Impossible de charger les articles du blog:", error);
+                articlesGrid.innerHTML = `<p class="text-center text-destructive col-span-full">Erreur lors du chargement des articles. Veuillez réessayer plus tard.</p>`;
+            }
+        }
+
+        // On lance l'initialisation du blog
+        initBlog();
+    }
+
+                    
     
     
 });
