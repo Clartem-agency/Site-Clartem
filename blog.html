@@ -108,16 +108,19 @@
 
                 <!-- FILTRES ET RECHERCHE -->
                 <div id="blog-filters" class="mt-12">
+                    
                     <!-- Barre de recherche -->
-                    <!-- L'attribut data-sr est conservé ici car c'est un élément séparé -->
-                    <div class="max-w-2xl mx-auto mb-12" data-sr>
-                        <div class="relative">
-                            <input type="search" id="search-input" placeholder="Rechercher un article..." class="w-full h-14 pl-12 pr-4 text-lg bg-white border-2 border-gray-200 rounded-lg focus:ring-clarity-blue focus:border-clarity-blue transition">
-                            <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-                                <svg class="w-6 h-6 text-neutral-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                            </div>
-                        </div>
-                    </div>
+<!-- L'attribut data-sr est conservé ici car c'est un élément séparé -->
+<div class="max-w-2xl mx-auto mb-12" data-sr>
+    <form id="search-form" class="relative">
+        <input type="search" id="search-input" placeholder="Rechercher un article..." class="w-full h-14 pl-12 pr-4 text-lg bg-white border-2 border-gray-200 rounded-lg focus:ring-clarity-blue focus:border-clarity-blue transition">
+        <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+            <svg class="w-6 h-6 text-neutral-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        </div>
+    </form>
+</div>
+
+                    
                     <!-- Conteneur des boutons de filtre -->
                     <div class="max-w-4xl mx-auto flex flex-wrap justify-center gap-3 md:gap-4" id="category-filters" data-sr-delay="100">
                         <button class="filter-btn active" data-filter="all">Tous</button>
