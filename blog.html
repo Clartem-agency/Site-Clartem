@@ -37,7 +37,7 @@
     <div class="min-h-screen">
 
         <!-- ======================================================= -->
-        <!--                Navigation (Mise à jour)                 -->
+        <!--                Navigation (Inchangée)                   -->
         <!-- ======================================================= -->
         <nav id="main-nav"
             class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
@@ -87,9 +87,9 @@
         </nav>
 
         <!-- ======================================================= -->
-        <!--                Header de la Page Blog                   -->
+        <!--         Header de la Page Blog (MODIFIÉ)                -->
         <!-- ======================================================= -->
-        <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+        <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-20">
             <div class="container mx-auto px-6 text-center">
                 <h1 class="text-4xl sm:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
                     Le Blog Clartem
@@ -97,28 +97,17 @@
                 <p class="text-lg md:text-xl text-neutral-light mt-4 max-w-3xl mx-auto" data-sr-delay="100">
                     Des stratégies, des guides et des conseils concrets pour transformer votre expertise en un site web qui attire, rassure et convertit.
                 </p>
-            </div>
-        </header>
 
-        <!-- ======================================================= -->
-        <!--                Contenu Principal du Blog                -->
-        <!-- ======================================================= -->
-        <main class="py-16 md:py-20">
-            <div class="container mx-auto px-6">
-
-                <!-- Section Filtres et Recherche -->
-                <section id="blog-filters" class="mb-12 md:mb-16">
-                    <!-- Barre de Recherche -->
+                <!-- FILTRES ET RECHERCHE DÉPLACÉS ICI -->
+                <div id="blog-filters" class="mt-12">
                     <div class="max-w-2xl mx-auto mb-8" data-sr>
                         <div class="relative">
-                            <input type="search" id="search-input" placeholder="Rechercher un article..." class="w-full h-14 pl-12 pr-4 text-lg border-2 border-gray-200 rounded-lg focus:ring-clarity-blue focus:border-clarity-blue transition">
+                            <input type="search" id="search-input" placeholder="Rechercher un article..." class="w-full h-14 pl-12 pr-4 text-lg bg-white border-2 border-gray-200 rounded-lg focus:ring-clarity-blue focus:border-clarity-blue transition">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
                                 <svg class="w-6 h-6 text-neutral-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Filtres par Catégorie -->
                     <div class="flex flex-wrap justify-center gap-2 md:gap-3" id="category-filters" data-sr-delay="100">
                         <button class="filter-btn active" data-filter="all">Tous</button>
                         <button class="filter-btn" data-filter="strategie">Stratégie & Positionnement</button>
@@ -129,17 +118,31 @@
                         <button class="filter-btn" data-filter="niche-b2b">Niche : Coachs Business</button>
                         <button class="filter-btn" data-filter="approche-clarte">Approche "Site Clarté"</button>
                     </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ======================================================= -->
+        <!--                Contenu Principal du Blog (MODIFIÉ)      -->
+        <!-- ======================================================= -->
+        <main class="py-16 md:py-20 bg-white">
+            <div class="container mx-auto px-6">
+
+                <!-- NOUVEAU : Section "À la Une" -->
+                <section id="featured-post" class="mb-16 md:mb-20 hidden">
+                    <!-- Le contenu sera injecté ici par JavaScript -->
                 </section>
 
-                <!-- Grille des Articles (sera remplie par JS) -->
+                <!-- Grille des Articles -->
                 <section id="all-posts">
+                    <h2 class="text-3xl font-bold text-neutral-dark mb-10 text-center" id="articles-grid-title">Tous les articles</h2>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="articles-grid">
                         <!-- Les cartes d'articles seront injectées ici par JavaScript -->
                     </div>
                     <p id="no-results" class="text-center text-xl text-neutral-light py-16 hidden">Aucun article ne correspond à votre recherche.</p>
                 </section>
 
-                <!-- Pagination (sera remplie par JS) -->
+                <!-- Pagination -->
                 <nav class="mt-16 md:mt-20 flex justify-center items-center gap-2" id="pagination-container">
                     <!-- Les boutons de pagination seront injectés ici par JavaScript -->
                 </nav>
@@ -147,7 +150,7 @@
             </div>
         </main>
 
-        <!-- Footer -->
+        <!-- Footer (Inchangé) -->
         <footer class="bg-neutral-dark text-white py-16">
             <div class="container mx-auto px-6">
                  <div class="grid md:grid-cols-3 gap-12">
