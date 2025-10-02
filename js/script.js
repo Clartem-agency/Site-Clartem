@@ -597,12 +597,8 @@ if (scrollContainer && window.innerWidth >= 768) {
     }
 
 
-
-
-
-
 // ==================================================================
-// NOUVEAU : LOGIQUE COMPLÈTE POUR LA PAGE BLOG (VERSION AMÉLIORÉE)
+// LOGIQUE COMPLÈTE POUR LA PAGE BLOG (VERSION AMÉLIORÉE)
 // ==================================================================
 const blogPage = document.getElementById('articles-grid');
 
@@ -786,7 +782,7 @@ if (blogPage) {
                 }
             });
 
-                       const searchForm = document.getElementById('search-form');
+            const searchForm = document.getElementById('search-form');
 
             searchForm.addEventListener('submit', (e) => {
                 // Empêche la page de se recharger, ce qui est le comportement par défaut d'un formulaire
@@ -855,13 +851,60 @@ if (blogPage) {
             articlesGrid.innerHTML = `<p class="text-center text-destructive col-span-full">Erreur lors du chargement des articles. Veuillez réessayer plus tard.</p>`;
         }
     }
+    // Lancement de la logique de la page blog (uniquement si on est sur la page blog)
     initBlog();
 }
 
 
+// ==================================================================
+// NOUVEAU : LOGIQUE POUR L'APERÇU DU BLOG SUR LA PAGE D'ACCUEIL
+// ==================================================================
+async function initBlogPreview() {
+    const blogPreviewGrid = document.getElementById('blog-preview-grid');
+    // Cette fonction ne s'exécute que si la grille d'aperçu existe sur la page
+    if (!blogPreviewGrid) {
+        return;
+    }
 
+    try {
+        // On récupère les mêmes données que pour la page blog
+        const response = await fetch('page-cartes-blog.json');
+        if (!response.ok) {
+            throw new Error(`Erreur HTTP: ${response.status}`);
+        }
+        const allArticles = await response.json();
+
+        // On ne garde que les 3 articles les plus récents (les 3 premiers du fichier)
+        const latestArticles = allArticles.slice(0, 3);
+
+        // On génère le HTML pour ces 3 articles
+        blogPreviewGrid.innerHTML = latestArticles.map(article => `
+            <div data-sr data-sr-delay="${latestArticles.indexOf(article) * 100}">
+                <a href="${article.link}" class="block h-full group">
+                    <div class="bg-soft-blue/60 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
+                        <img src="${article.image}" alt="${article.title}" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-neutral-dark mb-2 group-hover:text-clarity-blue transition-colors">${article.title}</h3>
+                            <p class="text-neutral-light text-sm mb-4 flex-grow">${article.description}</p>
+                            <span class="text-xs text-neutral-light mt-auto">${article.date}</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        `).join('');
+
+        // On s'assure que ScrollReveal anime les nouveaux éléments
+        if (typeof ScrollReveal !== 'undefined' && window.innerWidth >= 768) {
+            ScrollReveal().reveal('#blog-preview-grid [data-sr]');
+        }
+
+    } catch (error) {
+        console.error("Impossible de charger l'aperçu du blog:", error);
+        blogPreviewGrid.innerHTML = `<p class="text-center text-neutral-light col-span-full">Impossible de charger les derniers articles pour le moment.</p>`;
+    }
+}
+
+// APPEL DE LA NOUVELLE FONCTION POUR LA PAGE D'ACCUEIL
+initBlogPreview();
       
-                    
-    
-    
 });
