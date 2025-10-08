@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>SVG, PNG, JPG : Le Guide pour Comprendre les Fichiers de votre Logo (et lequel utiliser)</title>
+    <meta name="description"
+        content="Vous êtes perdu(e) avec les fichiers de votre logo (SVG, PNG, JPG) ? Notre guide simple vous explique à quoi sert chaque format et lequel utiliser pour votre site web, vos impressions et vos réseaux sociaux.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="SVG, PNG, JPG : Le Guide pour Comprendre les Fichiers de votre Logo">
+    <meta property="og:description"
+        content="Notre guide simple vous explique à quoi sert chaque format de logo (SVG, PNG, JPG) et lequel utiliser pour votre site web, vos impressions et vos réseaux sociaux.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-guide-formats-logo-svg-png-jpg.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-guide-formats-logo-svg-png-jpg.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            SVG, PNG, JPG : Le Guide pour Comprendre les Fichiers de votre Logo (et lequel utiliser)
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                            Vous êtes perdu(e) face aux fichiers de votre logo ? Notre guide simple clarifie à quoi sert chaque format et vous montre lequel utiliser pour votre site web, vos impressions et vos réseaux sociaux.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-12 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/trois-icones-fichiers-logo-usages-respectifs.webp" alt="Icônes des formats de fichier SVG, PNG, et JPG pointant vers leurs usages" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <div class="space-y-6" data-sr>
+                        <p>Ça y est, votre logo est prêt ! Vous êtes ravi(e). Votre graphiste ou votre agence vous envoie le dossier final et... c'est la panique.</p>
+                        <p>Le dossier est rempli de sous-dossiers et de fichiers aux noms étranges : <code class="bg-gray-200 text-neutral-dark px-2 py-1 rounded text-base">logo_final.svg</code>, <code class="bg-gray-200 text-neutral-dark px-2 py-1 rounded text-base">logo_blanc.png</code>, <code class="bg-gray-200 text-neutral-dark px-2 py-1 rounded text-base">logo_couleur_CMJN.jpg</code>... Lequel devez-vous envoyer à l'imprimeur ? Lequel mettre sur votre site web ? Lequel utiliser pour votre photo de profil Facebook ?</p>
+                        <p>C'est un moment de confusion très courant. Mais ne vous inquiétez pas. Comprendre ces formats n'est pas si compliqué. Pensez-y comme à différents types de clés pour différentes serrures. Utiliser la bonne clé au bon endroit est essentiel pour garantir une image de marque professionnelle en toutes circonstances.</p>
+                        <p>Je vous explique en termes simples les 3 formats que vous devez absolument connaître.</p>
+                    </div>
+
+                    <!-- Section 1 : JPG -->
+                    <div class="space-y-6 pt-6 border-t border-gray-200" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark">Le Fichier JPG : La "Photo"</h2>
+                        
+                        <div class="bg-soft-blue p-6 rounded-lg flex items-start gap-4">
+                            <div class="flex-shrink-0 bg-clarity-blue/10 text-clarity-blue rounded-full p-3 mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-neutral-dark">L'Analogie Simple</h3>
+                                <p>Un fichier JPG, c'est comme une <strong class="text-clarity-blue">photographie</strong> de votre logo.</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-semibold text-neutral-dark mb-4">Ses Caractéristiques :</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-start gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-destructive flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <p>Il a toujours un <strong class="text-neutral-dark">fond opaque</strong>. Il ne peut pas être transparent.</p>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-destructive flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <p>Il est composé de <strong class="text-neutral-dark">pixels</strong>. Si vous l'agrandissez trop, il devient flou et "pixellisé".</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-soft-blue p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold text-neutral-dark mb-2">Quand l'utiliser ?</h3>
+                            <p><strong class="text-destructive">Très rarement pour un logo !</strong> Sa principale utilité est pour les photographies. Pour un logo, vous ne l'utiliserez que sur des plateformes qui ne gèrent pas la transparence.</p>
+                        </div>
+                        
+                        <div class="bg-red-50 border-l-4 border-destructive p-6 rounded-r-lg">
+                            <h3 class="flex items-center gap-2 text-destructive font-bold mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                                Le Piège à Éviter
+                            </h3>
+                            <p class="text-neutral-dark font-medium">Ne jamais utiliser un JPG pour votre site web si vous voulez placer votre logo sur un fond coloré. Vous vous retrouverez avec un carré blanc disgracieux autour.</p>
+                        </div>
+                    </div>
+
+                    <!-- Image de comparaison -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/comparaison-logo-png-transparent-vs-jpg-opaque.webp" alt="Comparaison visuelle entre un logo PNG transparent et un logo JPG avec un fond blanc" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 : PNG -->
+                    <div class="space-y-6 pt-6 border-t border-gray-200" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark">Le Fichier PNG : L'"Autocollant"</h2>
+                        
+                         <div class="bg-soft-blue p-6 rounded-lg flex items-start gap-4">
+                            <div class="flex-shrink-0 bg-clarity-blue/10 text-clarity-blue rounded-full p-3 mt-1">
+                               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z" /></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-neutral-dark">L'Analogie Simple</h3>
+                                <p>Un fichier PNG, c'est comme un <strong class="text-clarity-blue">autocollant transparent</strong> de votre logo.</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-semibold text-neutral-dark mb-4">Ses Caractéristiques :</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-start gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success-green flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <p>Sa super-puissance est la <strong class="text-success-green">transparence</strong>. Le fond est invisible, seul le logo apparaît.</p>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success-green flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <p>Il est également composé de pixels, mais il gère mieux les aplats de couleur qu'un JPG.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-green-50 border-l-4 border-success-green p-6 rounded-r-lg">
+                            <h3 class="text-xl font-semibold text-neutral-dark mb-2">Quand l'utiliser ?</h3>
+                            <p class="font-semibold text-neutral-dark"><strong class="text-success-green">C'est le format roi pour le web !</strong> C'est le fichier que vous utiliserez dans 99% des cas pour :</p>
+                             <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                                <li>Votre <strong class="text-neutral-dark">site web</strong>.</li>
+                                <li>Vos <strong class="text-neutral-dark">photos de profil</strong> sur les réseaux sociaux.</li>
+                                <li>Vos <strong class="text-neutral-dark">présentations</strong> (PowerPoint, Canva).</li>
+                                <li>Toutes les situations où vous devez superposer votre logo sur une image ou un fond de couleur.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Section 3 : SVG -->
+                    <div class="space-y-6 pt-6 border-t border-gray-200" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark">Le Fichier SVG : Le "Saint Graal"</h2>
+                        
+                        <div class="bg-soft-blue p-6 rounded-lg flex items-start gap-4">
+                            <div class="flex-shrink-0 bg-clarity-blue/10 text-clarity-blue rounded-full p-3 mt-1">
+                               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-neutral-dark">L'Analogie Simple</h3>
+                                <p>Un fichier SVG, ce n'est pas une image. C'est la <strong class="text-clarity-blue">recette originale</strong> de votre logo, écrite en code.</p>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-xl font-semibold text-neutral-dark mb-4">Ses Caractéristiques :</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-start gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success-green flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <p>Il est <strong class="text-success-green">vectoriel</strong>. Il n'est pas composé de pixels, mais de formules mathématiques.</p>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success-green flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <p>Sa magie : vous pouvez l'agrandir à la taille d'un immeuble, il ne sera <strong class="text-success-green">JAMAIS flou</strong>. Sa qualité est infinie.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-orange-50 border-l-4 border-warm-orange p-6 rounded-r-lg">
+                            <h3 class="text-xl font-semibold text-neutral-dark mb-2">Quand l'utiliser ?</h3>
+                            <p class="font-semibold text-neutral-dark">C'est votre <strong class="text-warm-orange">fichier maître</strong>. Le fichier le plus précieux que vous devez conserver en lieu sûr.</p>
+                            <ul class="list-disc list-inside space-y-2 mt-4 pl-4">
+                                <li>C'est le fichier à envoyer à un <strong class="text-neutral-dark">imprimeur</strong> pour vos cartes de visite, flyers, bannières...</li>
+                                <li>C'est le fichier à donner à un <strong class="text-neutral-dark">développeur web</strong> pour un site plus léger et plus net.</li>
+                                <li>C'est le fichier à donner à quiconque a besoin de modifier ou d'utiliser votre logo de façon professionnelle.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Image SVG zoom -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/logo-vectoriel-svg-zoom-infini-sans-pixelisation.webp" alt="Démonstration d'un logo vectoriel SVG agrandi sans perte de qualité" class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 4 : Tableau Récapitulatif -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-6">Tableau Récapitulatif : La Bonne Clé pour la Bonne Serrure</h2>
+                        <div class="overflow-x-auto bg-white rounded-xl shadow-lg border">
+                            <table class="w-full text-left">
+                                <thead class="bg-neutral-dark text-white">
+                                    <tr>
+                                        <th class="p-4 font-semibold">Format</th>
+                                        <th class="p-4 font-semibold">Analogie</th>
+                                        <th class="p-4 font-semibold">Usage Principal</th>
+                                        <th class="p-4 font-semibold">Qualité à l'agrandissement</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b bg-gray-50">
+                                        <td class="p-4 font-bold text-neutral-dark">JPG</td>
+                                        <td class="p-4">La Photo</td>
+                                        <td class="p-4">Photographies</td>
+                                        <td class="p-4 text-destructive font-semibold">Mauvaise (pixellise)</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-4 font-bold text-neutral-dark">PNG</td>
+                                        <td class="p-4">L'Autocollant</td>
+                                        <td class="p-4"><strong class="text-neutral-dark">Site Web, Réseaux Sociaux</strong></td>
+                                        <td class="p-4 text-destructive font-semibold">Mauvaise (pixellise)</td>
+                                    </tr>
+                                    <tr class="bg-soft-blue">
+                                        <td class="p-4 font-bold text-deep-blue">SVG</td>
+                                        <td class="p-4"><strong class="text-deep-blue">La Recette</strong></td>
+                                        <td class="p-4"><strong class="text-deep-blue">Impression, Développement Web</strong></td>
+                                        <td class="p-4 text-success-green font-bold">Parfaite (infinie)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Section 5 : Conclusion -->
+                    <div class="pt-6 space-y-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark">Conclusion : Exigez les Bons Fichiers</h2>
+                        <p>Vous comprenez maintenant qu'avoir un beau design de logo ne suffit pas. Si votre graphiste ne vous livre pas ces différents formats de fichiers (en particulier le SVG !), votre logo n'est pas complet. Vous serez limité(e) et vous perdrez en professionnalisme.</p>
+                        
+                        <div class="bg-soft-blue p-6 rounded-lg flex items-start gap-4">
+                            <div class="flex-shrink-0 bg-clarity-blue/10 text-clarity-blue rounded-full p-3 mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                            </div>
+                            <p class="font-semibold text-neutral-dark">Avoir les bons formats est la garantie que votre marque sera impeccable, que ce soit sur l'écran d'un smartphone ou sur une grande affiche. C'est un détail technique qui fait toute la différence.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+            
+                        <!-- Titre et sous-titre -->
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Votre logo est prêt. <br><span class="text-clarity-blue">Et votre site web ?</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Un logo de qualité mérite une vitrine professionnelle. Lors de notre Appel Clarté, nous verrons comment intégrer parfaitement votre identité de marque dans un site web qui inspire confiance et convertit.
+                        </p>
+            
+                        <!-- Bouton d'action final et réassurance -->
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Planifier mon Appel Clarté
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>

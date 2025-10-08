@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Créer son Logo en 2026 : Canva, IA ou Graphiste ? Le Guide pour Faire le Bon Choix</title>
+    <meta name="description"
+        content="Comment créer votre logo ? Notre guide comparatif analyse les avantages et inconvénients de Canva, de l'IA (Midjourney) et du graphiste professionnel pour vous aider à choisir la meilleure option selon votre budget et vos besoins.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Créer son Logo en 2026 : Canva, IA ou Graphiste ? Le Guide pour Faire le Bon Choix">
+    <meta property="og:description"
+        content="Notre guide comparatif analyse les avantages et inconvénients de Canva, de l'IA et d'un graphiste pour vous aider à choisir la meilleure option.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog/og-guide-creation-logo-canva-ia-graphiste.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog/og-guide-creation-logo-canva-ia-graphiste.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION (CHEMINS CORRIGÉS) -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Créer son Logo en 2026 : Canva, IA ou Graphiste ? Le Guide pour Faire le Bon Choix
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           Comment créer votre logo ? Notre guide comparatif analyse les avantages et inconvénients de Canva, de l'IA (Midjourney) et du graphiste professionnel pour vous aider à choisir la meilleure option selon votre budget et vos besoins.
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <!-- Image d'introduction -->
+                    <div data-sr>
+                        <img src="../assets/image-blog/trois-chemins-creation-logo-canva-ia-graphiste.webp" alt="Trois chemins divergents symbolisant les choix pour créer un logo : Canva, IA, et graphiste." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Jamais il n'a été aussi facile, en apparence, de créer un logo.</p>
+                    <p data-sr>Il y a quelques années, la seule option était de faire appel à un graphiste. Aujourd'hui, entre les outils de design simplifiés comme Canva et la magie bluffante de l'intelligence artificielle, la promesse du "faites-le vous-même" est partout. L'option "fait maison" est tentante, surtout quand on démarre et que le budget est serré.</p>
+                    <p data-sr>Mais est-ce toujours le bon choix ? La facilité d'accès à l'outil garantit-elle un résultat professionnel et stratégique ?</p>
+                    <p data-sr>Pour vous aider à naviguer dans ce nouveau paysage, analysons en toute clarté les avantages et les inconvénients des trois grandes options qui s'offrent à vous.</p>
+
+                    <!-- Section 1 : Canva -->
+                    <div class="pt-8 mt-8 border-t border-gray-200" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-6">Option 1 : Les Outils DIY (Canva, LogoMaker, etc.)</h2>
+                        <p>C'est l'option la plus accessible. Ces plateformes proposent des milliers de modèles et d'icônes que vous pouvez combiner et personnaliser.</p>
+                        <div class="space-y-6 mt-8">
+                            <!-- Avantages -->
+                            <div class="bg-green-50 border-l-4 border-success-green p-6 rounded-lg">
+                                <h3 class="text-xl font-bold text-success-green mb-4 flex items-center gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    Avantages
+                                </h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success-green flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg><div><strong class="text-neutral-dark">Rapidité :</strong> En une heure, vous pouvez avoir un résultat.</div></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success-green flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg><div><strong class="text-neutral-dark">Coût :</strong> Très abordable, voire gratuit pour les options de base.</div></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success-green flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg><div><strong class="text-neutral-dark">Idéal pour :</strong> Tester une idée, créer un logo temporaire pour un projet annexe, ou pour une activité avec un budget quasi nul.</div></li>
+                                </ul>
+                            </div>
+                             <!-- Inconvénients -->
+                             <div class="bg-red-50 border-l-4 border-destructive p-6 rounded-lg">
+                                <h3 class="text-xl font-bold text-destructive mb-4 flex items-center gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    Inconvénients
+                                </h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-destructive flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg><div><strong class="text-neutral-dark">Le Risque du "Déjà-Vu" :</strong> Les meilleurs modèles sont utilisés par des milliers d'autres personnes. Votre logo risque de manquer cruellement d'originalité et de ressembler à celui de votre concurrent.</div></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-destructive flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg><div><strong class="text-neutral-dark">Le Manque de Stratégie :</strong> L'outil ne vous pose aucune question sur votre <a href="../articles/02-definir-votre-client-ideal.html" class="text-clarity-blue hover:underline font-semibold">cible</a> ou votre <a href="../articles/01-atelier-message-central.html" class="text-clarity-blue hover:underline font-semibold">message</a>. Vous choisissez un design "joli", pas un design "stratégique".</div></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-destructive flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg><div><strong class="text-neutral-dark">Les Limites Techniques :</strong> Il est souvent difficile (voire impossible) d'obtenir les fichiers sources de qualité professionnelle (comme un <a href="../articles/03-importance-logo-svg.html" class="text-clarity-blue hover:underline font-semibold">SVG</a>), ce qui peut poser de gros problèmes pour l'impression ou des usages futurs.</div></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Image 2 : IA -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/intelligence-artificielle-generative-creation-logo-unique.webp" alt="Interface futuriste d'une intelligence artificielle générant des concepts de logos uniques." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 2 : IA -->
+                    <div class="pt-8 mt-8 border-t border-gray-200" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-6">Option 2 : L'Intelligence Artificielle Générative (Midjourney, DALL-E...)</h2>
+                        <p>C'est la nouvelle option fascinante. Vous décrivez le logo de vos rêves dans une phrase ("un logo minimaliste d'un colibri en plein vol, style aquarelle"), et l'IA vous génère des dizaines de propositions visuelles.</p>
+                        <div class="space-y-6 mt-8">
+                             <!-- Avantages -->
+                             <div class="bg-green-50 border-l-4 border-success-green p-6 rounded-lg">
+                                <h3 class="text-xl font-bold text-success-green mb-4 flex items-center gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    Avantages
+                                </h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success-green flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg><div><strong class="text-neutral-dark">Potentiel Créatif Infini :</strong> L'IA peut générer des concepts visuels uniques et surprenants, bien au-delà des modèles de Canva.</div></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success-green flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg><div><strong class="text-neutral-dark">Rapidité de Conceptualisation :</strong> En quelques minutes, vous pouvez explorer des dizaines de pistes créatives.</div></li>
+                                </ul>
+                            </div>
+                             <!-- Inconvénients -->
+                             <div class="bg-red-50 border-l-4 border-destructive p-6 rounded-lg">
+                                <h3 class="text-xl font-bold text-destructive mb-4 flex items-center gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    Inconvénients
+                                </h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-destructive flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg><div><strong class="text-neutral-dark">Ne Gère pas le Texte :</strong> L'IA est très mauvaise pour générer du texte lisible et bien composé. Elle est excellente pour créer un <strong class="text-neutral-dark">pictogramme</strong>, mais pas un logo complet.</div></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-destructive flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg><div><strong class="text-neutral-dark">Le Flou Juridique :</strong> Les questions de droits d'auteur sur les créations par IA sont encore complexes. Êtes-vous vraiment propriétaire de ce logo ?</div></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-destructive flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg><div><strong class="text-neutral-dark">Nécessite une Finalisation Humaine :</strong> Le résultat de l'IA est une "image" (un PNG ou un JPG). Il doit ensuite être retravaillé par un graphiste pour être "vectorisé" (transformé en SVG) et finalisé avec le texte de votre marque. Ce n'est pas une solution "clé en main".</div></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Image 3 : Graphiste -->
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog/graphiste-professionnel-strategie-creation-logo-unique.webp" alt="Graphiste professionnel travaillant sur une tablette avec des notes de stratégie pour la création d'un logo." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <!-- Section 3 : Graphiste -->
+                    <div class="pt-8 mt-8 border-t border-gray-200" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-6">Option 3 : Le Graphiste Professionnel (ou une Agence comme Clartem)</h2>
+                        <p>C'est l'approche traditionnelle, celle de l'artisanat sur-mesure.</p>
+                        <div class="space-y-6 mt-8">
+                             <!-- Avantages -->
+                             <div class="bg-green-50 border-l-4 border-success-green p-6 rounded-lg">
+                                <h3 class="text-xl font-bold text-success-green mb-4 flex items-center gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    Avantages
+                                </h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success-green flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg><div><strong class="text-neutral-dark">L'Approche Stratégique :</strong> Le travail ne commence pas sur un logiciel de dessin, mais par une conversation. Le graphiste cherche à comprendre votre business, votre cible, vos valeurs. Le design est la <strong class="text-neutral-dark">conséquence</strong> de cette stratégie.</div></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success-green flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg><div><strong class="text-neutral-dark">Une Création 100% Unique :</strong> Le logo est créé pour vous et pour vous seul. Il est le reflet de votre singularité.</div></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success-green flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg><div><strong class="text-neutral-dark">La Garantie Technique :</strong> À la fin, vous recevez un "kit logo" complet avec tous les formats de fichiers dont vous aurez besoin pour le reste de la vie de votre entreprise (SVG, PNG, versions noir et blanc, etc.).</div></li>
+                                </ul>
+                            </div>
+                             <!-- Inconvénients -->
+                             <div class="bg-red-50 border-l-4 border-destructive p-6 rounded-lg">
+                                <h3 class="text-xl font-bold text-destructive mb-4 flex items-center gap-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    Inconvénients
+                                </h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-destructive flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg><div><strong class="text-neutral-dark">Le Coût :</strong> C'est l'option la plus chère, car vous ne payez pas pour une image, mais pour un processus de recherche, de création et d'expertise.</div></li>
+                                    <li class="flex items-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-destructive flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg><div><strong class="text-neutral-dark">Les Délais :</strong> Un bon processus de création de logo prend plusieurs semaines, pas une heure.</div></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 4 : Conclusion -->
+                    <div class="pt-8 mt-8 border-t border-gray-200" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-6">Conclusion & Mon Conseil de Stratège</h2>
+                        <p>Alors, que choisir ? Il n'y a pas de mauvaise réponse, seulement des choix plus ou moins adaptés à votre stade de développement.</p>
+                        <p class="mt-4"><strong class="text-neutral-dark">Mon conseil :</strong> Pour un coach ou un thérapeute qui démarre, l'image de marque est cruciale, mais le budget est souvent serré. Une excellente solution de compromis est de commencer avec un <a href="../articles/06-puissance-logotype-texte.html" class="text-clarity-blue hover:underline font-semibold">logo textuel (logotype)</a>.</p>
+                        <div class="mt-6 bg-soft-blue p-6 rounded-lg font-medium text-neutral-dark border-l-4 border-clarity-blue">
+                            <p>Un logo basé uniquement sur votre nom, avec une typographie magnifique et bien travaillée, est à la fois <strong class="text-neutral-dark">élégant, intemporel, et ne nécessite pas un budget immense</strong>. Il peut être créé de manière professionnelle sans forcément passer par un processus de création de pictogramme complexe.</p>
+                        </div>
+                        <p class="mt-6">L'important, au final, n'est pas tant d'où vient votre logo, mais comment il est utilisé. Un logo simple, même fait sur Canva, mais intégré dans un site web clair et professionnel, aura toujours plus d'impact qu'un logo magnifique perdu sur un site brouillon.</p>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- ======================================================= -->
+            <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
+            <!-- ======================================================= -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Quel que soit votre logo, <br><span class="text-clarity-blue">il mérite le meilleur écrin.</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Que vous ayez un logo de designer, une pépite de Canva, ou besoin d'aide pour un logo textuel, mon rôle est de l'intégrer parfaitement dans votre <a href="../index.html#offres" class="text-white hover:text-clarity-blue font-semibold underline">Site Clarté</a> pour une présence en ligne cohérente et professionnelle.
+                        </p>
+            
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Discutons de votre projet
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes suffisent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER (CHEMINS CORRIGÉS) -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Fin du conteneur principal .min-h-screen -->
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>
