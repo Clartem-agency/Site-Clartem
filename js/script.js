@@ -598,7 +598,7 @@ if (scrollContainer && window.innerWidth >= 768) {
 
 
 // ==================================================================
-// LOGIQUE COMPLÈTE POUR LA PAGE BLOG (VERSION AMÉLIORÉE)
+// LOGIQUE COMPLÈTE POUR LA PAGE BLOG (VERSION AMÉLIORÉE ET CORRIGÉE)
 // ==================================================================
 const blogPage = document.getElementById('articles-grid');
 
@@ -611,6 +611,35 @@ if (blogPage) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const allArticles = await response.json();
+
+            // ==================================================================
+            //                      *** CORRECTION APPLIQUÉE ICI ***
+            // ==================================================================
+
+            // NOUVEAU : Fonction pour convertir la date française en objet Date
+            const parseFrenchDate = (dateString) => {
+                const months = {
+                    'Janvier': 0, 'Février': 1, 'Mars': 2, 'Avril': 3, 'Mai': 4, 'Juin': 5,
+                    'Juillet': 6, 'Août': 7, 'Septembre': 8, 'Octobre': 9, 'Novembre': 10, 'Décembre': 11
+                };
+                const parts = dateString.split(' ');
+                const day = parseInt(parts[0], 10);
+                const month = months[parts[1]];
+                const year = parseInt(parts[2], 10);
+                return new Date(year, month, day);
+            };
+
+            // NOUVEAU : Tri des articles par date, du plus récent au plus ancien
+            allArticles.sort((a, b) => {
+                const dateA = parseFrenchDate(a.date);
+                const dateB = parseFrenchDate(b.date);
+                return dateB - dateA; // Tri descendant (les dates les plus grandes/récentes en premier)
+            });
+
+            // ==================================================================
+            //                  *** FIN DE LA CORRECTION ***
+            // ==================================================================
+
 
             // --- 2. GESTION DE L'ÉTAT ---
             const ITEMS_PER_PAGE = 9;
