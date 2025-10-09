@@ -598,7 +598,7 @@ if (scrollContainer && window.innerWidth >= 768) {
 
 
 // ==================================================================
-// LOGIQUE COMPLÈTE POUR LA PAGE BLOG (VERSION AMÉLIORÉE)
+// LOGIQUE COMPLÈTE POUR LA PAGE BLOG (VERSION AVEC ARTICLE "À LA UNE" MANUEL)
 // ==================================================================
 const blogPage = document.getElementById('articles-grid');
 
@@ -610,7 +610,41 @@ if (blogPage) {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            const allArticles = await response.json();
+            let allArticles = await response.json();
+
+            // ==================================================================
+            //            *** NOUVELLE LOGIQUE POUR L'ARTICLE "À LA UNE" ***
+            // ==================================================================
+
+            // 1. On cherche l'article marqué comme "featured"
+            const featuredArticle = allArticles.find(article => article.featured === true);
+
+            // 2. On crée une nouvelle liste qui exclut l'article "featured"
+            let regularArticles = allArticles.filter(article => !article.featured);
+
+            // 3. On trie UNIQUEMENT les articles réguliers par date
+            const parseFrenchDate = (dateString) => {
+                const months = {
+                    'Janvier': 0, 'Février': 1, 'Mars': 2, 'Avril': 3, 'Mai': 4, 'Juin': 5,
+                    'Juillet': 6, 'Août': 7, 'Septembre': 8, 'Octobre': 9, 'Novembre': 10, 'Décembre': 11
+                };
+                const parts = dateString.split(' ');
+                const day = parseInt(parts[0], 10);
+                const month = months[parts[1]];
+                const year = parseInt(parts[2], 10);
+                return new Date(year, month, day);
+            };
+
+            regularArticles.sort((a, b) => {
+                const dateA = parseFrenchDate(a.date);
+                const dateB = parseFrenchDate(b.date);
+                return dateB - dateA; // Tri descendant
+            });
+
+            // ==================================================================
+            //                  *** FIN DE LA NOUVELLE LOGIQUE ***
+            // ==================================================================
+
 
             // --- 2. GESTION DE L'ÉTAT ---
             const ITEMS_PER_PAGE = 9;
@@ -630,14 +664,19 @@ if (blogPage) {
             // --- 4. FONCTIONS PRINCIPALES ---
 
             function renderArticles() {
-                // 4.1 Filtrage
-                let filteredArticles = allArticles;
+                // 4.1 Filtrage (maintenant basé sur les articles réguliers)
+                let filteredArticles = regularArticles; // On part de la liste sans l'article "à la une"
                 if (activeCategory !== 'all') {
                     filteredArticles = filteredArticles.filter(article => article.category === activeCategory);
                 }
                 if (searchQuery) {
                     const lowerCaseQuery = searchQuery.toLowerCase();
-                    filteredArticles = filteredArticles.filter(article =>
+                    // La recherche s'applique aussi à la liste triée des articles réguliers
+                    let allRegularArticlesForSearch = regularArticles;
+                     if (activeCategory !== 'all') {
+                        allRegularArticlesForSearch = allRegularArticlesForSearch.filter(article => article.category === activeCategory);
+                    }
+                    filteredArticles = allRegularArticlesForSearch.filter(article =>
                         article.title.toLowerCase().includes(lowerCaseQuery) ||
                         article.description.toLowerCase().includes(lowerCaseQuery)
                     );
@@ -646,10 +685,9 @@ if (blogPage) {
                 noResults.classList.toggle('hidden', filteredArticles.length > 0);
 
                 // 4.2 Article "À la Une"
-                const hasFeaturedPost = filteredArticles.length > 0 && currentPage === 1 && !searchQuery && activeCategory === 'all';
+                const showFeaturedPost = featuredArticle && currentPage === 1 && !searchQuery && activeCategory === 'all';
                 
-                if (hasFeaturedPost) {
-                    const featuredArticle = filteredArticles[0];
+                if (showFeaturedPost) {
                     featuredPostContainer.innerHTML = `
                         <h2 class="text-3xl font-bold text-neutral-dark mb-10 text-center">À la Une</h2>
                         <a href="${featuredArticle.link}" class="block group" data-sr>
@@ -664,7 +702,7 @@ if (blogPage) {
                         </a>
                     `;
                     featuredPostContainer.classList.remove('hidden');
-                    articlesGridTitle.textContent = "Articles plus récents";
+                    articlesGridTitle.textContent = "Tous les articles";
                 } else {
                     featuredPostContainer.classList.add('hidden');
                     articlesGridTitle.textContent = "Résultats de la recherche";
@@ -673,12 +711,11 @@ if (blogPage) {
                     }
                 }
 
-                // 4.3 Pagination
-                const articlesForGrid = hasFeaturedPost ? filteredArticles.slice(1) : filteredArticles;
-                const totalPages = Math.ceil(articlesForGrid.length / ITEMS_PER_PAGE);
+                // 4.3 Pagination (basée sur les articles filtrés)
+                const totalPages = Math.ceil(filteredArticles.length / ITEMS_PER_PAGE);
                 const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
                 const endIndex = startIndex + ITEMS_PER_PAGE;
-                const paginatedArticles = articlesForGrid.slice(startIndex, endIndex);
+                const paginatedArticles = filteredArticles.slice(startIndex, endIndex);
 
                 // 4.4 Affichage
                 articlesGrid.innerHTML = paginatedArticles.map(article => `
@@ -707,7 +744,7 @@ if (blogPage) {
                 }
             }
 
-            // NOUVELLE FONCTION DE PAGINATION "INTELLIGENTE"
+            // Le reste de la fonction (pagination, événements) ne change pas...
             function renderPagination(totalPages) {
                 if (totalPages <= 1) {
                     paginationContainer.innerHTML = '';
@@ -716,7 +753,7 @@ if (blogPage) {
 
                 const getPageNumbers = () => {
                     const pageNumbers = [];
-                    const maxPagesToShow = 5; // Nombre de boutons de page à afficher (doit être impair)
+                    const maxPagesToShow = 5;
                     const half = Math.floor(maxPagesToShow / 2);
 
                     if (totalPages <= maxPagesToShow + 2) {
@@ -768,7 +805,6 @@ if (blogPage) {
                 paginationContainer.innerHTML = paginationHTML;
             }
 
-            // --- 5. GESTION DES ÉVÉNEMENTS (MODIFIÉE) ---
             categoryFilters.addEventListener('click', (e) => {
                 if (e.target.classList.contains('filter-btn')) {
                     categoryFilters.querySelector('.active').classList.remove('active');
@@ -776,34 +812,24 @@ if (blogPage) {
                     activeCategory = e.target.dataset.filter;
                     currentPage = 1;
                     renderArticles();
-                    
-                    // Fait défiler la vue vers le titre de la grille
                     articlesGridTitle.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
 
             const searchForm = document.getElementById('search-form');
-
             searchForm.addEventListener('submit', (e) => {
-                // Empêche la page de se recharger, ce qui est le comportement par défaut d'un formulaire
                 e.preventDefault(); 
-                
                 searchQuery = searchInput.value;
                 currentPage = 1;
                 renderArticles();
-                
-                // Fait défiler la vue vers le titre de la grille
                 articlesGridTitle.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
 
-            // AMÉLIORATION : Gère le cas où l'utilisateur efface le champ
             searchInput.addEventListener('input', () => {
-                // Si le champ est vide, on réinitialise la recherche sans attendre "Entrée"
                 if (searchInput.value === '') {
                     searchQuery = '';
                     currentPage = 1;
                     renderArticles();
-                    // Pas de scroll ici, car c'est moins perturbant quand on efface du texte
                 }
             });
 
@@ -812,33 +838,40 @@ if (blogPage) {
                 if (!target) return;
 
                 let needsScroll = false;
+                
+                // Calcul du nombre total de pages pour la catégorie/recherche actuelle
+                let relevantArticles = regularArticles;
+                if (activeCategory !== 'all') {
+                    relevantArticles = relevantArticles.filter(article => article.category === activeCategory);
+                }
+                if (searchQuery) {
+                     relevantArticles = relevantArticles.filter(article =>
+                        article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                        article.description.toLowerCase().includes(searchQuery.toLowerCase())
+                    );
+                }
+                const totalPages = Math.ceil(relevantArticles.length / ITEMS_PER_PAGE);
 
                 if (target.id === 'prev-page') {
                     if (currentPage > 1) { 
                         currentPage--; 
-                        renderArticles(); 
                         needsScroll = true;
                     }
                 } else if (target.id === 'next-page') {
-                    const totalPages = Math.ceil(
-                        (allArticles.length - (activeCategory === 'all' && !searchQuery ? 1 : 0)) / ITEMS_PER_PAGE
-                    );
                     if (currentPage < totalPages) { 
                         currentPage++; 
-                        renderArticles(); 
                         needsScroll = true;
                     }
                 } else if (target.classList.contains('page-number')) {
                     const newPage = parseInt(target.dataset.page);
                     if (newPage !== currentPage) {
                         currentPage = newPage;
-                        renderArticles();
                         needsScroll = true;
                     }
                 }
                 
-                // Fait défiler la vue si une action a eu lieu
                 if (needsScroll) {
+                    renderArticles();
                     articlesGridTitle.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
@@ -851,7 +884,7 @@ if (blogPage) {
             articlesGrid.innerHTML = `<p class="text-center text-destructive col-span-full">Erreur lors du chargement des articles. Veuillez réessayer plus tard.</p>`;
         }
     }
-    // Lancement de la logique de la page blog (uniquement si on est sur la page blog)
+    // Lancement de la logique de la page blog
     initBlog();
 }
 
