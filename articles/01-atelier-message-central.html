@@ -282,70 +282,95 @@
             </article>
 
 
-            <!-- ======================================================= -->
-            <!--             NOUVELLE SECTION COMMENTAIRES             -->
-            <!-- ======================================================= -->
-            <section id="commentaires" class="pt-16 md:pt-20 border-t border-gray-200">
-                <div class="max-w-3xl mx-auto px-6">
-                    <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-8" data-sr>Laissez un commentaire</h2>
 
-                    <!-- Formulaire de commentaire Netlify -->
-                    <form name="formulaire-commentaires-blog" method="POST" action="/merci-formulaire-blog" data-netlify="true" data-netlify-honeypot="bot-field" class="space-y-6 bg-soft-blue p-8 rounded-2xl border border-gray-200" data-sr>
-                       
-                        <!-- Champ caché pour identifier l'article. C'EST LA MAGIE ! -->
-                        <input type="hidden" name="article-path" id="comment-form-page-path" value="">
 
-                        <!-- Champ pour le pot de miel (anti-spam) -->
-                        <p class="hidden">
-                            <label>Ne pas remplir si vous êtes humain : <input name="bot-field"></label>
-                        </p>
+<!-- ======================================================= -->
+<!--             SECTION COMMENTAIRES (DESIGN AMÉLIORÉ)      -->
+<!-- ======================================================= -->
+<section id="commentaires" class="py-20 bg-soft-blue">
+    <div class="max-w-3xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-neutral-dark mb-10 text-center" data-sr>Partagez votre avis</h2>
 
-                        <div>
-                            <label for="name" class="block text-sm font-semibold text-neutral-dark mb-2">Votre nom</label>
-                            <input type="text" name="name" id="name" required class="w-full px-4 py-3 rounded-lg border-gray-300 focus:ring-clarity-blue focus:border-clarity-blue transition duration-150 ease-in-out" placeholder="John Doe">
-                        </div>
+        <!-- Formulaire de commentaire Netlify -->
+        <form name="formulaire-commentaires-blog" method="POST" action="/merci-formulaire-blog" data-netlify="true" data-netlify-honeypot="bot-field" class="space-y-6 bg-white p-8 rounded-2xl border border-gray-200 shadow-lg" data-sr>
+           
+            <!-- Champ caché pour identifier l'article. C'EST LA MAGIE ! -->
+            <input type="hidden" name="article-path" id="comment-form-page-path" value="">
 
-                        <div>
-                            <label for="comment" class="block text-sm font-semibold text-neutral-dark mb-2">Votre message</label>
-                            <textarea name="comment" id="comment" rows="5" required class="w-full px-4 py-3 rounded-lg border-gray-300 focus:ring-clarity-blue focus:border-clarity-blue transition duration-150 ease-in-out" placeholder="J'ai adoré votre article ! Cela me parle beaucoup..."></textarea>
-                        </div>
-                        
-                        <div class="text-right">
-                            <button type="submit" class="btn btn-primary">Envoyer le commentaire</button>
-                        </div>
-                        <p class="text-xs text-neutral-light text-center pt-2">Votre commentaire sera visible après modération.</p>
-                    </form>
+            <!-- Champ pour le pot de miel (anti-spam) -->
+            <p class="hidden">
+                <label>Ne pas remplir si vous êtes humain : <input name="bot-field"></label>
+            </p>
 
-                    <!-- Zone d'affichage des commentaires (pour l'instant vide) -->
-                    <div id="comments-list" class="mt-16">
-                        <h3 class="text-xl md:text-2xl font-bold text-neutral-dark mb-8" data-sr>Commentaires</h3>
-                        
-                        <!-- Exemple de commentaire affiché -->
-                        <!-- Vous ajouterez les commentaires approuvés ici manuellement -->
-                        <div class="p-2 text-center text-neutral-light italic" data-sr>
-                            Soyez le premier à commenter cet article !
-                        </div>
+            <div>
+                <label for="name" class="block text-sm font-semibold text-neutral-dark mb-2">Votre nom</label>
+                <input type="text" name="name" id="name" required class="w-full px-4 py-3 rounded-lg border-gray-300 focus:ring-clarity-blue focus:border-clarity-blue transition duration-150 ease-in-out" placeholder="John Doe">
+            </div>
 
-                        <!-- 
-                        EXEMPLE DE COMMENTAIRE APPROUVÉ À AJOUTER :
-                        <div class="flex items-start space-x-4 py-6 border-b border-gray-200" data-sr>
-                            <div class="flex-shrink-0 bg-clarity-blue text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">
-                                J
-                            </div>
-                            <div>
-                                <p class="font-bold text-neutral-dark">Jane Doe</p>
-                                <p class="text-sm text-neutral-light mb-2">Le 25 Mai 2024</p>
-                                <p class="text-neutral-light leading-relaxed">Merci pour ce partage très authentique ! Je me reconnais tellement dans le syndrome de l'imposteur. Savoir que je ne suis pas seule est un grand soulagement.</p>
-                            </div>
-                        </div> 
-                        -->
-                        
-                    </div>
+            <div>
+                <label for="comment" class="block text-sm font-semibold text-neutral-dark mb-2">Votre message</label>
+                <textarea name="comment" id="comment" rows="5" required class="w-full px-4 py-3 rounded-lg border-gray-300 focus:ring-clarity-blue focus:border-clarity-blue transition duration-150 ease-in-out" placeholder="J'ai adoré votre article ! Cela me parle beaucoup..."></textarea>
+            </div>
+            
+            <div class="flex flex-col items-center">
+                <button type="submit" class="btn btn-primary">Envoyer le commentaire</button>
+                <p class="text-xs text-neutral-light text-center mt-4">Votre commentaire sera visible après modération.</p>
+            </div>
+        </form>
+
+        <!-- Zone d'affichage des commentaires (design amélioré) -->
+        <div id="comments-list" class="mt-20" data-sr>
+            <h3 class="text-3xl font-bold text-neutral-dark mb-10 text-center">Commentaires</h3>
+            
+            <div class="bg-white p-8 sm:p-10 rounded-2xl shadow-lg border border-gray-200 space-y-6">
+                
+                <!-- Message par défaut si aucun commentaire -->
+                <div class="py-4 text-center text-neutral-light italic">
+                    Soyez le premier à commenter cet article !
                 </div>
-            </section>
+
+                <!-- 
+                ========================================================================
+                EXEMPLE DE COMMENTAIRE APPROUVÉ À AJOUTER ICI (Remplace le message ci-dessus)
+                ========================================================================
+                -->
+                <!-- EXEMPLE 1 -->
+                <!-- 
+                <div class="flex items-start space-x-4 py-6 border-b border-gray-200 last:border-b-0">
+                    <div class="flex-shrink-0 bg-clarity-blue text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl uppercase">
+                        J
+                    </div>
+                    <div>
+                        <p class="font-bold text-neutral-dark">Jane Doe</p>
+                        <p class="text-sm text-neutral-light mb-3">Le 25 Mai 2024</p>
+                        <p class="text-neutral-light leading-relaxed">Merci pour ce partage très authentique ! Je me reconnais tellement dans le syndrome de l'imposteur. Savoir que je ne suis pas seule est un grand soulagement.</p>
+                    </div>
+                </div> 
+                -->
+
+                <!-- EXEMPLE 2 -->
+                <!-- 
+                <div class="flex items-start space-x-4 py-6 border-b border-gray-200 last:border-b-0">
+                    <div class="flex-shrink-0 bg-warm-orange text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl uppercase">
+                        M
+                    </div>
+                    <div>
+                        <p class="font-bold text-neutral-dark">Marc</p>
+                        <p class="text-sm text-neutral-light mb-3">Le 24 Mai 2024</p>
+                        <p class="text-neutral-light leading-relaxed">Excellent article, très bien écrit. La distinction entre paresse et auto-sabotage est une vraie prise de conscience pour moi. Hâte de lire la suite !</p>
+                    </div>
+                </div> 
+                -->
+
+            </div>
+        </div>
+    </div>
+</section>
+
+            
             
 
-                      <!-- ======================================================= -->
+            <!-- ======================================================= -->
             <!--   Appel à l'action final (STYLE SOMBRE + TEXTE ADAPTÉ)  -->
             <!-- ======================================================= -->
             <section class="py-20 bg-soft-blue">
