@@ -939,5 +939,20 @@ async function initBlogPreview() {
 
 // APPEL DE LA NOUVELLE FONCTION POUR LA PAGE D'ACCUEIL
 initBlogPreview();
-      
+
+
+
+    
+// ==================================================================
+    // NOUVEAU : LOGIQUE POUR LE FORMULAIRE DE COMMENTAIRES DU BLOG
+    // ==================================================================
+    const commentFormPath = document.getElementById('comment-form-page-path');
+    if (commentFormPath) {
+        // Remplit automatiquement le champ caché avec l'URL de la page actuelle
+        commentFormPath.value = window.location.pathname;
+    }
+
+    
+    
+    
 });
