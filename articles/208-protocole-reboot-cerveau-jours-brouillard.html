@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- META SPÉCIFIQUES À L'ARTICLE -->
+    <title>Ma trousse de secours pour les jours de brouillard : le protocole pour "rebooter" mon cerveau</title>
+    <meta name="description"
+        content="[Épisode 5] Découvrez un plan d'urgence en 5 étapes pour sortir de la spirale de la procrastination et du brouillard mental. Un protocole simple pour se réinitialiser.">
+    <meta name="author" content="clartem.com">
+
+    <!-- FAVICON (CHEMIN CORRIGÉ) -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
+
+    <!-- ======================================================= -->
+    <!--     BALISES OPEN GRAPH & TWITTER POUR LE PARTAGE SOCIAL   -->
+    <!-- ======================================================= -->
+    <meta property="og:title" content="Ma trousse de secours pour les jours de brouillard : le protocole pour 'rebooter' mon cerveau">
+    <meta property="og:description"
+        content="Malgré les prises de conscience, il y a des jours où je dérive. Voici le plan d'urgence en 5 étapes que j'ai créé pour revenir à moi, sans me juger.">
+    <meta property="og:type" content="article">
+    <!-- L'image de partage (Open Graph). Créez ce fichier PNG de 1200x630px -->
+    <meta property="og:image" content="https://www.clartem.com/assets/image-blog-02/og-article-protocole-reboot-cerveau.png"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/image-blog-02/og-article-protocole-reboot-cerveau.png">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS (CHEMIN CORRIGÉ) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="bg-white">
+
+    <div class="min-h-screen">
+
+        <!-- HEADER / NAVIGATION -->
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <a href="../index.html">
+                        <img class="h-14 w-auto" src="../assets/logo-clartem.svg" alt="Logo clartem.com">
+                    </a>
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="../index.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
+                        <a href="../a-propos.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                            Propos</a>
+                        <a href="../index.html#offres"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes
+                            Offres</a>
+                        <a href="../portfolio.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Mes réalisations</a>
+                        <a href="../faq.html"
+                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="../blog.html"
+                            class="text-clarity-blue font-semibold">Blog</a>
+                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier
+                        un appel clarté</a>
+                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                    <a href="../index.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                    <a href="../a-propos.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        Propos</a>
+                    <a href="../index.html#offres"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes
+                        Offres</a>
+                    <a href="../portfolio.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Mes réalisations</a>
+                    <a href="../faq.html"
+                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                    <a href="../blog.html"
+                        class="block text-clarity-blue font-semibold py-2">Blog</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier
+                        un appel clarté</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- DÉBUT DU CONTENU DE L'ARTICLE -->
+        <main>
+
+            <!-- Section Titre de l'article -->
+            <header class="bg-soft-blue pt-32 pb-16 md:pt-40 md:pb-24">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <a href="../blog.html" class="inline-flex items-center gap-2 text-clarity-blue hover:text-deep-blue font-semibold mb-6 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Retour au Blog
+                        </a>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-dark leading-tight" data-sr>
+                            Ma trousse de secours pour les jours de brouillard : le protocole pour "rebooter" mon cerveau
+                        </h1>
+                        <p class="text-lg md:text-xl text-neutral-light mt-6 leading-relaxed" data-sr-delay="100">
+                           [Journal de bord - Entrée n°5] Malgré les prises de conscience, il y a des jours où je dérive. Voici le plan d'urgence en 5 étapes que j'ai créé pour revenir à moi, sans me juger.
+                        </p>
+                        
+                        <div class="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-neutral-light font-medium" data-sr-delay="200">
+                            <!-- Auteur -->
+                            <div class="flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                                <span>Par Frédéric Delavictoire</span>
+                            </div>
+                        
+                            <!-- Date de publication -->
+                            <div class="flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                <span>Publié le 28 Octobre 2025</span>
+                            </div>
+                        
+                            <!-- Temps de lecture -->
+                            <div class="flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span>5 minutes de lecture</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </header>
+
+            <!-- Corps de l'article -->
+            <article class="py-16 md:py-20">
+                <div class="max-w-3xl mx-auto px-6 space-y-8 text-lg text-neutral-light leading-relaxed">
+
+                    <p data-sr>Nous avons voyagé ensemble à travers les complexités de l'esprit d'un entrepreneur : de l'auto-sabotage à la peur d'être démasqué, du paradoxe de la volonté à l'importance cruciale de notre énergie physique.</p>
+                    <p data-sr>J'ai appris à mieux me comprendre, à être plus bienveillant avec moi-même. Et pourtant.</p>
+                    
+                    <div class="my-12" data-sr>
+                        <img src="../assets/image-blog-02/entrepreneur-protocole-secours-rebooter-cerveau-brouillard.webp" alt="Entrepreneur assis à son bureau, prenant une pause consciente pour se recentrer et sortir du brouillard mental." class="w-full rounded-2xl shadow-xl aspect-video object-cover">
+                    </div>
+
+                    <p data-sr>Il y a encore des jours comme ça. Des jours où, sans crier gare, je me retrouve aspiré dans la spirale. Je suis devant mon ordinateur, mais mon esprit est à des kilomètres. Je scrolle sans but, je regarde des vidéos, je me sens à la fois agité et complètement vidé. Je suis pris dans la "dérive", incapable de raccrocher les wagons.</p>
+                    <p data-sr>Avant, dans ces moments-là, je paniquais ou je culpabilisais, ce qui ne faisait qu'aggraver la situation. Aujourd'hui, j'ai une approche différente. J'ai compris que ce n'est pas le moment de se forcer, mais de s'arrêter. Ce n'est pas le moment de lutter, mais de se réinitialiser.</p>
+                    <p data-sr>J'ai donc mis au point un "protocole de secours". Une routine simple, de 10 à 15 minutes, à déclencher dès que je sens que je perds pied. Ce n'est pas une méthode de productivité. <strong class="text-neutral-dark">C'est une bouée de sauvetage émotionnelle et mentale.</strong> La voici.</p>
+
+                    <!-- Section 1 -->
+                    <div class="pt-6" data-sr>
+                        <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-4">Le Protocole "Revenir à Soi" : 5 étapes pour briser la spirale</h2>
+                        <p>Le principe est simple : quand la tête est en surchauffe, on repasse par le corps. On ne cherche pas à "résoudre" le problème, on cherche à changer d'état.</p>
+                    </div>
+
+                    <!-- Bloc de mise en avant -->
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl text-neutral-dark font-bold mb-3">Étape 1 : La Pause Consciente (2 min)</h3>
+                        <p class="text-neutral-dark">Dès que je prends conscience que je dérive, je m'arrête. Physiquement. Je ne finis pas la vidéo, je ne lis pas le dernier post. J'arrête tout.</p>
+                        <p class="mt-4"><strong class="text-neutral-dark">L'action :</strong> Je pose mes deux pieds bien à plat sur le sol. Je ferme les yeux. Je pose une main sur mon cœur et l'autre sur mon ventre. Puis je prends trois grandes respirations lentes et profondes. J'inspire par le nez, je sens mon ventre se gonfler, et j'expire longuement par la bouche, comme si je voulais faire de la buée sur une vitre.</p>
+                        <p class="mt-4"><strong class="text-neutral-dark">Pourquoi ça marche :</strong> Cet acte simple brise la boucle hypnotique de la distraction. Le contact physique et la respiration profonde envoient un signal immédiat au système nerveux : "Stop. Je suis là. Je suis en sécurité." On coupe le mode "panique/fuite".</p>
+                    </div>
+
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl text-neutral-dark font-bold mb-3">Étape 2 : La Libération Physique (3 min)</h3>
+                        <p class="text-neutral-dark">L'énergie de l'anxiété et de la frustration est stagnante. Il faut la remettre en mouvement.</p>
+                        <p class="mt-4"><strong class="text-neutral-dark">L'action :</strong> Je me lève. Je m'étire aussi instinctivement que possible : les bras vers le ciel, le dos, les jambes. Je secoue mes mains et mes pieds comme pour me débarrasser de quelque chose. Ensuite, je vais boire un grand verre d'eau fraîche. Si possible, j'ouvre la fenêtre et je respire l'air extérieur pendant 30 secondes.</p>
+                        <p class="mt-4"><strong class="text-neutral-dark">Pourquoi ça marche :</strong> Le mouvement physique libère les tensions accumulées. L'eau réhydrate le cerveau. L'air frais oxygène le sang. On fait littéralement un "reset" biochimique de notre état.</p>
+                    </div>
+
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl text-neutral-dark font-bold mb-3">Étape 3 : La Décharge Mentale (3 min)</h3>
+                        <p class="text-neutral-dark">Mon esprit est saturé de pensées parasites, de jugements et de culpabilité. Essayer de les ignorer est inutile. Il faut les sortir.</p>
+                        <p class="mt-4"><strong class="text-neutral-dark">L'action :</strong> Je prends un carnet (pas l'ordinateur !) et un stylo. Pendant 3 minutes, j'écris tout ce qui me passe par la tête, sans filtre, sans censure et sans me soucier de la grammaire. "Je me sens nul, je n'y arrive pas, je suis fatigué, j'ai peur de ça, je suis en colère contre moi-même...".</p>
+                        <p class="mt-4"><strong class="text-neutral-dark">Pourquoi ça marche :</strong> L'écriture externalise le chaos mental. Les pensées, une fois posées sur le papier, perdent leur pouvoir angoissant. On crée un espace de clarté dans notre tête en "vidant la corbeille" mentale.</p>
+                    </div>
+
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl text-neutral-dark font-bold mb-3">Étape 4 : La Réassurance Intérieure (2 min)</h3>
+                        <p class="text-neutral-dark">Maintenant que le système est calmé et l'esprit un peu plus clair, c'est le moment de remplacer l'auto-flagellation par de la bienveillance.</p>
+                        <p class="mt-4"><strong class="text-neutral-dark">L'action :</strong> Je relis ce que j'ai écrit, non pas pour me juger, mais avec compassion. Puis, je me dis à voix haute (ou dans ma tête) une ou deux de ces phrases : "Ce n'est pas grave d'avoir dérivé. Ce qui compte, c'est que j'en ai pris conscience.", "Je ne suis pas cassé. J'ai juste besoin d'une pause.", "Je choisis de revenir doucement vers moi, sans violence."</p>
+                        <p class="mt-4"><strong class="text-neutral-dark">Pourquoi ça marche :</strong> On remplace le dialogue interne du "juge critique" par celui de "l'allié bienveillant". On recrée de la sécurité émotionnelle, ce qui est indispensable pour retrouver l'envie d'agir.</p>
+                    </div>
+
+                    <div class="bg-soft-blue border-l-4 border-clarity-blue p-6 rounded-lg my-8" data-sr>
+                        <h3 class="text-xl text-neutral-dark font-bold mb-3">Étape 5 : La Micro-Reconnexion (2 min)</h3>
+                        <p class="text-neutral-dark">L'erreur serait de vouloir se replonger immédiatement dans une grosse tâche. Le but est juste de recréer un lien positif avec le travail.</p>
+                        <p class="mt-4"><strong class="text-neutral-dark">L'action :</strong> Je choisis une action symbolique et ridiculement simple liée à mon projet. Pas pour "produire", mais pour "reconnecter". Exemples : ouvrir mon fichier de travail et juste relire la dernière phrase, corriger une simple faute de frappe sur mon site, ou simplement réécrire ma priorité n°1 sur un post-it.</p>
+                        <p class="mt-4"><strong class="text-neutral-dark">Pourquoi ça marche :</strong> Cette micro-action prouve à mon cerveau que le mouvement est possible et qu'il n'est pas dangereux. Elle brise l'inertie et rouvre la porte de l'élan, sans la pression du résultat.</p>
+                    </div>
+
+                    <!-- Section Conclusion -->
+                    <div class="pt-6" data-sr>
+                        <p>Ce protocole n'est pas magique. Il n'efface pas les difficultés. Mais il est devenu ma bouée de sauvetage. Il transforme un moment de détresse qui pouvait durer des heures en une pause consciente de 15 minutes. Il m'a appris que la dérive n'est pas un échec, mais un signal. Un signal que j'ai besoin de revenir à moi.</p>
+                    </div>
+
+                    <!-- Bloc de conclusion -->
+                    <div class="bg-soft-blue border-l-4 border-warm-orange p-6 rounded-lg my-8" data-sr>
+                        <p class="text-xl text-neutral-dark font-semibold">Le chemin de l'entrepreneuriat est un marathon, pas un sprint. Apprendre à gérer notre monde intérieur est la compétence la plus précieuse que nous puissions développer.</p>
+                    </div>
+
+                    <div data-sr>
+                        <p class="mt-4 font-semibold text-neutral-dark">Et vous, quelle est votre "trousse de secours" pour les jours difficiles ? Avez-vous des rituels pour vous recentrer ? Partagez-les en commentaire, vos idées pourraient aider beaucoup de monde !</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- SECTION COMMENTAIRES -->
+            <section id="commentaires" class="py-16 md:py-20 border-t border-gray-200">
+                <div class="max-w-3xl mx-auto px-6">
+                    <h2 class="text-2xl md:text-3xl font-bold text-neutral-dark mb-8" data-sr>Laissez un commentaire</h2>
+                    
+                    <form name="formulaire-commentaires-blog" method="POST" action="/merci-formulaire-blog" data-netlify="true" data-netlify-honeypot="bot-field" class="space-y-6 bg-soft-blue p-8 rounded-2xl border border-gray-200" data-sr>
+                        <input type="hidden" name="article-path" id="comment-form-page-path" value="articles/208-protocole-reboot-cerveau-jours-brouillard.html">
+                        <p class="hidden">
+                            <label>Ne pas remplir si vous êtes humain : <input name="bot-field"></label>
+                        </p>
+                        <div>
+                            <label for="name" class="block text-sm font-semibold text-neutral-dark mb-2">Votre nom</label>
+                            <input type="text" name="name" id="name" required class="w-full px-4 py-3 rounded-lg border-gray-300 focus:ring-clarity-blue focus:border-clarity-blue transition duration-150 ease-in-out" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label for="comment" class="block text-sm font-semibold text-neutral-dark mb-2">Votre message</label>
+                            <textarea name="comment" id="comment" rows="5" required class="w-full px-4 py-3 rounded-lg border-gray-300 focus:ring-clarity-blue focus:border-clarity-blue transition duration-150 ease-in-out" placeholder="J'ai adoré votre article ! Cela me parle beaucoup..."></textarea>
+                            <p class="text-xs text-neutral-light mt-2">Astuce : Utilisez les touches <kbd class="font-sans border bg-gray-100 border-gray-300 rounded px-1 py-0.5">Win</kbd> + <kbd class="font-sans border bg-gray-100 border-gray-300 rounded px-1 py-0.5">.</kbd> (Windows) ou <kbd class="font-sans border bg-gray-100 border-gray-300 rounded px-1 py-0.5">Cmd</kbd> + <kbd class="font-sans border bg-gray-100 border-gray-300 rounded px-1 py-0.5">Ctrl</kbd> + <kbd class="font-sans border bg-gray-100 border-gray-300 rounded px-1 py-0.5">Espace</kbd> (Mac) pour ajouter des emojis. 👍</p>
+                        </div>
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary">Envoyer le commentaire</button>
+                        </div>
+                        <p class="text-xs text-neutral-light text-center pt-2">Votre commentaire sera visible après modération.</p>
+                    </form>
+
+                    <div id="comments-list" class="mt-16">
+                        <h3 class="text-xl md:text-2xl font-bold text-neutral-dark mb-8" data-sr>Commentaires</h3>
+                        <!-- Les commentaires approuvés via Netlify apparaîtront ici -->
+                         <div class="text-center text-neutral-light p-8 border-2 border-dashed border-gray-300 rounded-xl" data-sr>
+                            <p>Soyez le premier à partager votre expérience !</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- APPEL À L'ACTION FINAL -->
+            <section class="py-20 bg-soft-blue">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-neutral-dark text-white rounded-2xl shadow-xl p-8 sm:p-12 lg:p-16 text-center" data-sr>
+                        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                           Prêt à sortir du brouillard ? <br><span class="text-clarity-blue">Clarifions votre projet web.</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-12">
+                            Si vous vous sentez bloqué, c'est souvent un manque de clarté. Mon processus est conçu pour vous guider, étape par étape, vers un site web qui reflète enfin votre vraie valeur.
+                        </p>
+            
+                        <div class="flex flex-col items-center gap-4">
+                            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-orange text-lg px-10 py-4 inline-flex items-center justify-center gap-3 transition-transform hover:scale-105">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Planifier mon Appel Clarté
+                            </a>
+                            <p class="text-sm text-white/70 mt-2">
+                                ✅ Gratuit &nbsp;•&nbsp; ✅ Sans engagement &nbsp;•&nbsp; ✅ 15 minutes pour y voir plus clair
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="../index.html">
+                                <img class="h-14 w-auto" src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
+                            une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
+                            et les coûts exorbitants.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="../index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="../a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="../index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes
+                                Offres</a>
+                            <a href="../portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mes réalisations</a>
+                            <a href="../faq.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="../blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="../mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="../politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="../cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="../contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Custom JS (CHEMIN CORRIGÉ) -->
+    <script src="../js/script.js"></script>
+    
+</body>
+
+</html>
