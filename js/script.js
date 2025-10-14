@@ -54,25 +54,38 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
     // ==================================================================
-    // NOUVEAU : LOGIQUE POUR L'ACCORDÉON FAQ (CENTRALISÉE)
+    // LOGIQUE POUR L'ACCORDÉON FAQ (MODIFIÉE)
+    // --- DÉBUT DE LA LOGIQUE MODIFIÉE : Un seul tiroir ouvert à la fois ---
     // ==================================================================
     const faqToggles = document.querySelectorAll('.faq-toggle');
     if (faqToggles.length > 0) {
-        faqToggles.forEach(toggle => {
-            toggle.addEventListener('click', () => {
-                const answer = toggle.nextElementSibling;
-                const icon = toggle.querySelector('svg');
+        faqToggles.forEach(clickedToggle => {
+            clickedToggle.addEventListener('click', () => {
+                const answerToOpen = clickedToggle.nextElementSibling;
+                const iconToRotate = clickedToggle.querySelector('svg');
+                const isAlreadyOpen = answerToOpen.style.maxHeight;
 
-                if (answer.style.maxHeight) {
+                // Étape 1 : Fermer tous les tiroirs ouverts
+                faqToggles.forEach(toggle => {
+                    const answer = toggle.nextElementSibling;
+                    const icon = toggle.querySelector('svg');
                     answer.style.maxHeight = null;
                     icon.classList.remove('rotate-180');
-                } else {
-                    answer.style.maxHeight = answer.scrollHeight + "px";
-                    icon.classList.add('rotate-180');
+                });
+
+                // Étape 2 : Si le tiroir cliqué n'était pas déjà ouvert, on l'ouvre.
+                // S'il était déjà ouvert, l'étape 1 l'a déjà fermé.
+                if (!isAlreadyOpen) {
+                    answerToOpen.style.maxHeight = answerToOpen.scrollHeight + "px";
+                    iconToRotate.classList.add('rotate-180');
                 }
             });
         });
     }
+    // ==================================================================
+    // --- FIN DE LA LOGIQUE MODIFIÉE ---
+    // ==================================================================
+
 
     // ==================================================================
     // ANIMATION DES IMAGES
