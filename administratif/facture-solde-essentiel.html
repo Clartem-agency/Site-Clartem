@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Remplir ici -->
+    <title>Facture F2024-002 (Solde) - Société XYZ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        @media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } .no-print { display: none; } }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <div class="container mx-auto max-w-4xl my-8 p-10 bg-white shadow-lg no-print:rounded-lg">
+
+        <!-- EN-TÊTE -->
+        <header class="flex justify-between items-start pb-6 border-b-2 border-gray-100">
+            <div>
+                 <!-- IMPORTANT : Utilisez une URL absolue de votre logo hébergé en ligne -->
+                <img src="../assets/logo-clartem.svg" alt="Logo clartem.com" class="h-16 w-auto mb-4">
+                <h1 class="text-xl font-bold text-gray-800">Kotka Media OÜ</h1>
+                <p class="text-sm text-gray-500">Kotka tn 1, 11315 Tallinn, Estonie</p>
+                <p class="text-sm text-gray-500">Registry Code: 16150374 | VAT: EE102371925</p>
+            </div>
+            <div class="text-right">
+                <h2 class="text-4xl font-bold text-blue-600">FACTURE</h2>
+                <!-- Remplir ici (IMPORTANT: nouveau numéro) -->
+                <p class="text-gray-600 mt-2">N° <span class="font-semibold text-gray-800">F2024-002</span></p>
+                <p class="text-sm text-gray-500">Date d'émission: <span class="font-semibold text-gray-700">[Date du jour]</span></p>
+                <p class="text-sm text-gray-500">Date d'échéance: <span class="font-semibold text-gray-700">À réception</span></p>
+            </div>
+        </header>
+
+        <!-- INFORMATIONS CLIENT -->
+        <section class="mt-8 mb-10">
+            <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Facturé à</h3>
+            <!-- Remplir ici -->
+            <p class="font-bold text-lg text-gray-800">[Nom de la société du client]</p>
+            <p class="text-gray-600">À l'attention de [Nom du contact]</p>
+            <p class="text-gray-600">[Adresse complète du client]</p>
+            <p class="text-gray-600">N° TVA Intra.: [Numéro de TVA du client]</p>
+        </section>
+
+        <!-- TABLEAU DES PRESTATIONS -->
+        <section>
+            <table class="w-full text-left">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="p-3 text-sm font-semibold text-gray-600 uppercase tracking-wider">Désignation</th>
+                        <th class="p-3 text-sm font-semibold text-gray-600 uppercase tracking-wider text-right">Montant HT</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200">
+                    <tr>
+                        <td class="p-3">
+                            <p class="font-semibold text-gray-800">Prestation "Création de votre Site Clarté - Formule Essentiel"</p>
+                            <!-- Remplir ici -->
+                            <p class="text-sm text-gray-500">Conformément au devis N° D2024-001</p>
+                        </td>
+                        <td class="p-3 font-semibold text-gray-800 text-right">799,00 €</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3">
+                            <p class="font-semibold text-gray-800">Acompte de 50% déjà versé</p>
+                            <!-- Remplir ici -->
+                            <p class="text-sm text-gray-500">Facture N° F2024-001</p>
+                        </td>
+                        <td class="p-3 font-semibold text-gray-800 text-right">-399,50 €</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- TOTALS -->
+        <section class="mt-10 flex justify-end">
+            <div class="w-full md:w-1/2">
+                <div class="space-y-2 p-4 border rounded-lg">
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">Solde restant HT</span>
+                        <span class="font-semibold text-gray-800">399,50 €</span>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-xs text-gray-500">TVA due par le preneur - Autoliquidation (art. 196 de la Directive 2006/112/CE)</p>
+                    </div>
+                    <div class="flex justify-between items-center pt-2 mt-2 border-t-2">
+                        <span class="text-lg font-bold text-gray-800">NET À PAYER</span>
+                        <span class="text-2xl font-bold text-blue-600">399,50 €</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTRUCTIONS DE PAIEMENT -->
+        <section class="mt-10 pt-6 border-t-2 border-gray-100">
+             <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Instructions de paiement</h3>
+             <div class="p-4 bg-gray-50 rounded-md text-gray-700">
+                <p>Merci de régler cette facture par virement bancaire aux coordonnées ci-dessous :</p>
+                <div class="mt-4 space-y-2">
+                    <!-- Remplir ici avec vos informations bancaires -->
+                    <p><strong>Titulaire du compte :</strong> Kotka Media OÜ</p>
+                    <p><strong>IBAN :</strong> [Votre IBAN]</p>
+                    <p><strong>BIC/SWIFT :</strong> [Votre BIC/SWIFT]</p>
+                    <!-- Remplir ici le nouveau numéro de facture pour la référence -->
+                    <p><strong>Référence du virement :</strong> Facture F2024-002</p>
+                </div>
+             </div>
+        </section>
+
+        <!-- PIED DE PAGE -->
+        <footer class="mt-10 text-center text-sm text-gray-500">
+            <p>Votre site sera mis en ligne dès réception de votre règlement. Un grand merci pour cette belle collaboration !</p>
+            <p class="mt-2">Kotka Media OÜ | contact@clartem.com</p>
+        </footer>
+
+    </div>
+</body>
+</html>
