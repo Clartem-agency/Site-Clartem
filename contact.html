@@ -38,32 +38,20 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- NOUVEAU : Style pour le champ de fichier personnalisé -->
+    <!-- Style pour le champ de fichier personnalisé -->
     <style>
-        /* Cache le bouton de téléversement par défaut du navigateur */
-        #file-upload-input {
-            display: none;
-        }
-        /* Style du conteneur qui affiche les noms de fichiers */
+        #file-upload-input { display: none; }
         #file-list span {
-            display: inline-block;
-            background-color: #e0e7ff; /* indigo-100 */
-            color: #3730a3; /* indigo-800 */
-            padding: 4px 10px;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            margin: 4px;
-            font-weight: 500;
+            display: inline-block; background-color: #e0e7ff; color: #3730a3;
+            padding: 4px 10px; border-radius: 9999px; font-size: 0.875rem;
+            margin: 4px; font-weight: 500;
         }
     </style>
 </head>
 <body class="bg-white">
 
-    <!-- ======================================================= -->
-    <!--     NAVIGATION (MISE À JOUR POUR LA COHÉRENCE)          -->
-    <!-- ======================================================= -->
-    <nav id="main-nav"
-        class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+    <!-- NAVIGATION (MISE À JOUR) -->
+    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <a href="index.html">
@@ -82,11 +70,7 @@
                     rel="noopener noreferrer"
                     class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier un appel clarté</a>
                 <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
             <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
@@ -114,65 +98,51 @@
                 <!-- Option 1: Email Direct -->
                 <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 text-center flex flex-col items-center justify-center hover:shadow-xl transition-shadow duration-300">
                     <div class="w-16 h-16 bg-soft-blue rounded-full flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-clarity-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-clarity-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                     </div>
                     <h2 class="text-2xl font-bold text-neutral-dark mb-3">Par E-mail</h2>
                     <p class="text-neutral-light mb-6">La méthode la plus directe pour les questions écrites. Je réponds généralement sous 24h.</p>
-                    <a href="mailto:contact@clartem.com" class="btn btn-secondary">
-                        Envoyer un e-mail
-                    </a>
+                    <a href="mailto:contact@clartem.com" class="btn btn-secondary">Envoyer un e-mail</a>
                 </div>
 
                 <!-- Option 2: Appel Clarté -->
                 <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 text-center flex flex-col items-center justify-center hover:shadow-xl transition-shadow duration-300">
                     <div class="w-16 h-16 bg-soft-blue rounded-full flex items-center justify-center mb-6">
-                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-clarity-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-clarity-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                     </div>
                     <h2 class="text-2xl font-bold text-neutral-dark mb-3">Planifier un Appel</h2>
                     <p class="text-neutral-light mb-6">Idéal pour discuter de vive voix de votre projet. Gratuit et sans engagement.</p>
-                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                        Réserver un créneau
-                    </a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Réserver un créneau</a>
                 </div>
             </div>
 
-            <!-- ======================================================= -->
-            <!--            NOUVELLE SECTION : FORMULAIRE DE CONTACT     -->
-            <!-- ======================================================= -->
+            <!-- SECTION FORMULAIRE DE CONTACT (MODIFIÉE) -->
             <div class="max-w-4xl mx-auto mt-16">
                 <div class="text-center mb-10">
                     <h2 class="text-3xl font-bold text-neutral-dark">Ou remplissez le formulaire ci-dessous</h2>
                     <p class="text-lg text-neutral-light mt-2">Je reviendrai vers vous dans les plus brefs délais.</p>
                 </div>
                 <div class="bg-white p-8 sm:p-12 rounded-2xl shadow-xl border border-gray-200">
-                    <form name="contact-form-agence" method="POST" action="/merci-contact/" netlify netlify-honeypot="bot-field" enctype="multipart/form-data">
-                        <!-- Champ anti-spam Netlify (caché) -->
-                        <p class="hidden">
-                            <label>Ne pas remplir ce champ si vous êtes humain : <input name="bot-field" /></label>
-                        </p>
+                    <!-- NOUVEAU : Ajout d'un ID au formulaire pour le cibler en JS -->
+                    <form id="contact-form" name="contact-form-agence" method="POST" netlify netlify-honeypot="bot-field" enctype="multipart/form-data">
+                        <p class="hidden"><label>Ne pas remplir : <input name="bot-field" /></label></p>
                         <input type="hidden" name="form-name" value="contact-form-agence" />
+                        <!-- NOUVEAU : Champ caché pour stocker les URLs des images de Cloudinary -->
+                        <input type="hidden" name="image-urls" id="cloudinary-urls">
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <!-- Prénom -->
                             <div>
                                 <label for="first-name" class="block text-sm font-medium text-neutral-dark mb-1">Prénom</label>
                                 <input type="text" name="first-name" id="first-name" required class="w-full px-4 py-3 bg-soft-blue/50 border-gray-300 rounded-md focus:ring-clarity-blue focus:border-clarity-blue transition">
                             </div>
-                            <!-- Nom -->
                             <div>
                                 <label for="last-name" class="block text-sm font-medium text-neutral-dark mb-1">Nom</label>
                                 <input type="text" name="last-name" id="last-name" required class="w-full px-4 py-3 bg-soft-blue/50 border-gray-300 rounded-md focus:ring-clarity-blue focus:border-clarity-blue transition">
                             </div>
-                            <!-- Email -->
                             <div class="md:col-span-2">
                                 <label for="email" class="block text-sm font-medium text-neutral-dark mb-1">Email</label>
                                 <input type="email" name="email" id="email" required class="w-full px-4 py-3 bg-soft-blue/50 border-gray-300 rounded-md focus:ring-clarity-blue focus:border-clarity-blue transition">
                             </div>
-                            <!-- Sujet du message -->
                             <div class="md:col-span-2">
                                 <label for="subject" class="block text-sm font-medium text-neutral-dark mb-1">Sujet de votre message</label>
                                 <select id="subject" name="subject" required class="w-full px-4 py-3 bg-soft-blue/50 border-gray-300 rounded-md focus:ring-clarity-blue focus:border-clarity-blue transition">
@@ -183,52 +153,42 @@
                                     <option>Autre</option>
                                 </select>
                             </div>
-                            <!-- Message -->
                             <div class="md:col-span-2">
                                 <label for="message" class="block text-sm font-medium text-neutral-dark mb-1">Votre message</label>
                                 <textarea id="message" name="message" rows="6" required class="w-full px-4 py-3 bg-soft-blue/50 border-gray-300 rounded-md focus:ring-clarity-blue focus:border-clarity-blue transition"></textarea>
                             </div>
-                            <!-- Champ de téléversement de fichier -->
                             <div class="md:col-span-2">
-                                <label for="file-upload-input" class="block text-sm font-medium text-neutral-dark mb-1">Joindre des fichiers (optionnel)</label>
+                                <!-- MODIFIÉ : Le champ de téléversement ne s'appelle plus "attachment[]" pour éviter que Netlify ne le traite -->
+                                <label class="block text-sm font-medium text-neutral-dark mb-1">Joindre des fichiers (optionnel)</label>
                                 <label for="file-upload-input" class="flex justify-center items-center gap-3 w-full px-6 py-8 border-2 border-gray-300 border-dashed rounded-md cursor-pointer bg-soft-blue/50 hover:bg-soft-blue transition">
-                                    <svg class="w-8 h-8 text-neutral-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-4-4V7a4 4 0 014-4h.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414A1 1 0 0116.414 3H17a4 4 0 014 4v5a4 4 0 01-4 4H7z"></path></svg>
-                                    <span class="text-neutral-dark font-medium">Cliquez pour choisir ou glissez-déposez vos images</span>
+                                    <svg class="w-8 h-8 text-neutral-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-4-4V7a4 4 0 014-4h.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414A1 1 0 0116.414 3H17a4 4 0 014 4v5a4 4 0 01-4 4H7z"></path></svg>
+                                    <span class="text-neutral-dark font-medium">Cliquez pour choisir ou glissez-déposez</span>
                                 </label>
-                                <input id="file-upload-input" name="attachment[]" type="file" multiple accept="image/png, image/jpeg, image/gif, image/webp">
-                                <!-- Conteneur pour afficher les noms des fichiers sélectionnés -->
+                                <input id="file-upload-input" type="file" multiple accept="image/png, image/jpeg, image/gif, image/webp">
                                 <div id="file-list" class="mt-3"></div>
                             </div>
                         </div>
 
                         <div class="mt-8 text-center">
-                            <button type="submit" class="btn btn-primary w-full sm:w-auto text-lg">
+                            <!-- NOUVEAU : Ajout d'un ID au bouton et d'un message de statut -->
+                            <button type="submit" id="submit-button" class="btn btn-primary w-full sm:w-auto text-lg">
                                 Envoyer mon message
                             </button>
+                            <p id="form-status" class="mt-4 text-sm font-medium"></p>
                         </div>
                     </form>
                 </div>
             </div>
-
         </div>
     </main>
 
-    <!-- ======================================================= -->
-    <!--     FOOTER (MIS À JOUR POUR LA COHÉRENCE)               -->
-    <!-- ======================================================= -->
+    <!-- FOOTER (MIS À JOUR) -->
     <footer class="bg-neutral-dark text-white py-16">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-3 gap-12">
                 <div class="space-y-6">
-                    <div>
-                        <a href="index.html">
-                            <img class="h-14 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
-                        </a>
-                        <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
-                    </div>
-                    <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite
-                        une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon
-                        et les coûts exorbitants.</p>
+                    <div><a href="index.html"><img class="h-14 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com"></a><p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p></div>
+                    <p class="text-neutral-light leading-relaxed">Je crois que chaque entrepreneur passionné mérite une présence en ligne professionnelle qui travaille pour lui, sans la complexité, le jargon et les coûts exorbitants.</p>
                 </div>
                 <div class="space-y-6">
                     <h4 class="text-xl font-bold text-white">Navigation</h4>
@@ -255,54 +215,109 @@
             <div class="border-t border-neutral-light/20 mt-12 pt-8">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                     <p class="text-sm text-neutral-light">© 2024 clartem.com. Tous droits réservés.</p>
-                    <div class="text-sm text-neutral-light">
-                        <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
-                    </div>
+                    <div class="text-sm text-neutral-light"><span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span></div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- JS (Menu mobile + logique pour l'affichage des fichiers) -->
+    <!-- JS (Menu mobile + logique Cloudinary) -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Logique du menu mobile
+            // Logique du menu mobile (inchangée)
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             if (mobileMenuButton && mobileMenu) {
-                const navLinks = mobileMenu.querySelectorAll('a');
-                mobileMenuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                });
-                navLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.add('hidden');
-                    });
-                });
+                mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
             }
 
-            // NOUVEAU : Logique pour afficher les noms des fichiers sélectionnés
+            // =======================================================
+            // NOUVELLE LOGIQUE POUR L'UPLOAD CLOUDINARY
+            // =======================================================
+            const contactForm = document.getElementById('contact-form');
             const fileInput = document.getElementById('file-upload-input');
             const fileListContainer = document.getElementById('file-list');
+            const formStatus = document.getElementById('form-status');
+            const submitButton = document.getElementById('submit-button');
+            const cloudinaryUrlsInput = document.getElementById('cloudinary-urls');
 
-            if (fileInput && fileListContainer) {
-                fileInput.addEventListener('change', function() {
-                    // Vide la liste précédente
-                    fileListContainer.innerHTML = '';
-                    
-                    // Si aucun fichier n'est sélectionné, ne rien faire
-                    if (this.files.length === 0) {
-                        return;
-                    }
+            // --- VOS INFORMATIONS CLOUDINARY ---
+            // Remplacez ces valeurs par les vôtres (visibles sur votre screenshot)
+            const CLOUDINARY_CLOUD_NAME = "dbihs2rzm"; 
+            const CLOUDINARY_UPLOAD_PRESET = "clartem-contact-upload"; // ou un autre de vos presets
+            // ------------------------------------
 
-                    // Affiche le nom de chaque fichier sélectionné
+            const CLOUDINARY_URL = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`;
+
+            // Afficher les noms des fichiers sélectionnés
+            fileInput.addEventListener('change', function() {
+                fileListContainer.innerHTML = '';
+                if (this.files.length > 0) {
                     for (const file of this.files) {
                         const fileTag = document.createElement('span');
                         fileTag.textContent = file.name;
                         fileListContainer.appendChild(fileTag);
                     }
-                });
-            }
+                }
+            });
+
+            // Gérer la soumission du formulaire
+            contactForm.addEventListener('submit', async function(event) {
+                event.preventDefault();
+
+                const files = fileInput.files;
+                
+                // S'il n'y a pas de fichiers, on soumet directement à Netlify
+                if (files.length === 0) {
+                    this.submit();
+                    return;
+                }
+
+                // S'il y a des fichiers, on commence l'upload
+                submitButton.disabled = true;
+                submitButton.textContent = 'Téléversement en cours...';
+                formStatus.textContent = `Téléversement de 1/${files.length} fichier(s)...`;
+                formStatus.style.color = '#1E3A8A'; // deep-blue
+
+                const uploadedUrls = [];
+                
+                try {
+                    for (let i = 0; i < files.length; i++) {
+                        const file = files[i];
+                        formStatus.textContent = `Téléversement de ${i + 1}/${files.length} fichier(s)...`;
+
+                        const formData = new FormData();
+                        formData.append('file', file);
+                        formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+
+                        const response = await fetch(CLOUDINARY_URL, {
+                            method: 'POST',
+                            body: formData,
+                        });
+
+                        if (!response.ok) {
+                            throw new Error(`Erreur lors de l'upload du fichier ${file.name}`);
+                        }
+
+                        const data = await response.json();
+                        uploadedUrls.push(data.secure_url);
+                    }
+                    
+                    // Une fois tous les uploads terminés
+                    cloudinaryUrlsInput.value = uploadedUrls.join(', ');
+
+                    // On soumet le formulaire à Netlify
+                    formStatus.textContent = 'Finalisation...';
+                    this.submit();
+
+                } catch (error) {
+                    console.error(error);
+                    formStatus.textContent = "Une erreur est survenue lors de l'envoi des fichiers. Veuillez réessayer.";
+                    formStatus.style.color = '#DC2626'; // destructive red
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Envoyer mon message';
+                }
+            });
         });
     </script>
 </body>
