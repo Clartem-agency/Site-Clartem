@@ -1719,29 +1719,34 @@
     </div> <!-- Fin du conteneur principal .min-h-screen -->
 
 
-<!-- BANDEAU DE CONSENTEMENT AUX COOKIES -->
-    <div id="cookie-consent-banner" class="hidden fixed bottom-0 inset-x-0 pb-2 sm:pb-5 z-[100]">
-        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-            <div class="p-4 sm:p-6 rounded-lg bg-neutral-dark shadow-lg sm:flex sm:items-center sm:justify-between">
-                <div class="w-0 flex-1 text-white">
-                    <p class="font-medium">Ce site utilise des cookies</p>
-                    <p class="mt-1 text-sm text-neutral-light">
-                        Nous utilisons des cookies pour améliorer votre expérience de navigation et analyser notre trafic. En cliquant sur "Accepter", vous consentez à notre utilisation des cookies.
-                        <a href="politique-de-confidentialite.html" target="_blank" class="font-semibold hover:underline">En savoir plus</a>.
-                    </p>
-                </div>
-                <div class="mt-4 flex-shrink-0 sm:mt-0 sm:ml-6 sm:flex sm:items-center gap-3">
-                    <button id="cookie-accept-btn" type="button" class="w-full sm:w-auto btn btn-primary">
-                        Accepter
-                    </button>
-                    <button id="cookie-decline-btn" type="button" class="w-full mt-2 sm:mt-0 sm:w-auto btn btn-secondary" style="color: white; border-color: white;">
-                        Refuser
-                    </button>
-                </div>
+<!-- BANDEAU DE CONSENTEMENT AUX COOKIES (VERSION RESPONSIVE AMÉLIORÉE) -->
+<div id="cookie-consent-banner" class="hidden fixed bottom-0 inset-x-0 p-2 sm:p-4 z-[100]">
+    <div class="max-w-7xl mx-auto">
+        <div class="p-4 rounded-lg bg-neutral-dark shadow-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            
+            <!-- Section Texte -->
+            <div class="flex-1 text-white">
+                <p class="font-semibold">Ce site utilise des cookies</p>
+                <p class="mt-1 text-sm text-neutral-light">
+                    Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic. En cliquant sur "Accepter", vous consentez à notre utilisation des cookies.
+                    <a href="politique-de-confidentialite.html" target="_blank" class="font-semibold hover:underline">En savoir plus</a>.
+                </p>
             </div>
+
+            <!-- Section Boutons -->
+            <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                <button id="cookie-accept-btn" type="button" class="w-full sm:w-auto btn btn-primary px-6 py-2">
+                    Accepter
+                </button>
+                <button id="cookie-decline-btn" type="button" class="w-full sm:w-auto btn btn-secondary px-6 py-2" style="color: white; border-color: white;">
+                    Refuser
+                </button>
+            </div>
+
         </div>
     </div>
-    <!-- FIN DU BANDEAU DE CONSENTEMENT -->
+</div>
+<!-- FIN DU BANDEAU DE CONSENTEMENT -->
 
 
     <!-- Custom JS -->
