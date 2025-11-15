@@ -617,6 +617,126 @@
             box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
             /* Ombre blanche subtile */
         }
+
+
+        /* ======================================================= */
+/*    STYLES POUR LE BANDEAU DE CONSENTEMENT COOKIES (RESPONSIVE) */
+/* ======================================================= */
+#cookie-consent-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 0.5rem; /* Moins de padding sur mobile */
+    font-family: 'Poppins', sans-serif;
+}
+
+
+#cookie-consent-banner.hidden {
+    display: none;
+}
+
+
+#cookie-consent-banner > div {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+#cookie-consent-banner .banner-content {
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: var(--heading-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    gap: 1.5rem;
+    /* Mobile First : les éléments sont en colonne par défaut */
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+#cookie-consent-banner .banner-text {
+    color: var(--white);
+}
+
+
+#cookie-consent-banner .banner-text p:first-child {
+    font-weight: 600;
+}
+
+
+#cookie-consent-banner .banner-text p {
+    margin: 0;
+    margin-top: 0.25rem;
+    font-size: 0.9rem;
+    color: #d1d5db;
+}
+
+
+#cookie-consent-banner .banner-text a {
+    font-weight: 600;
+    text-decoration: underline;
+    color: var(--white);
+}
+
+
+#cookie-consent-banner .banner-buttons {
+    display: flex;
+    gap: 0.75rem;
+    /* Mobile First : les boutons sont en colonne et prennent toute la largeur */
+    flex-direction: column;
+    width: 100%;
+}
+
+
+#cookie-consent-banner .btn {
+    width: 100%; /* Les boutons sont pleine largeur sur mobile */
+}
+
+
+#cookie-consent-banner .btn-secondary {
+    color: var(--white);
+    border-color: var(--white);
+}
+#cookie-consent-banner .btn-secondary:hover {
+    color: var(--dark-blue);
+    background-color: var(--white);
+}
+#cookie-consent-banner .btn-secondary::before {
+    background-color: var(--white);
+}
+
+
+/* Styles pour les écrans plus grands (tablette et bureau) */
+@media (min-width: 768px) {
+    #cookie-consent-banner {
+        padding: 1rem; /* Plus de padding sur les grands écrans */
+    }
+
+
+    #cookie-consent-banner .banner-content {
+        /* On passe en ligne sur les grands écrans */
+        flex-direction: row;
+        align-items: center;
+    }
+
+
+    #cookie-consent-banner .banner-buttons {
+        /* Les boutons se mettent en ligne et leur largeur s'adapte */
+        flex-direction: row;
+        width: auto;
+    }
+
+
+    #cookie-consent-banner .btn {
+        width: auto;
+    }
+}
+
+
+
     </style>
 </head>
 
@@ -822,26 +942,96 @@
         </div>
     </footer>
 
+    
+
     <script>
-        // --- SCRIPT POUR L'ANIMATION D'APPARITION AU SCROLL ---
-        document.addEventListener('DOMContentLoaded', function () {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1
+    // --- SCRIPT POUR L'ANIMATION D'APPARITION AU SCROLL ---
+    document.addEventListener('DOMContentLoaded', function () {
+        // VOTRE CODE D'ANIMATION EXISTANT
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+
+        const elementsToAnimate = document.querySelectorAll('.fade-in');
+        elementsToAnimate.forEach(el => {
+            observer.observe(el);
+        });
+        // FIN DE VOTRE CODE D'ANIMATION EXISTANT
+
+
+
+
+        // ==================================================================
+        // COLLEZ LE CODE DU BANDEAU ICI
+        // ==================================================================
+        const cookieBanner = document.getElementById('cookie-consent-banner');
+        const acceptBtn = document.getElementById('cookie-accept-btn');
+        const declineBtn = document.getElementById('cookie-decline-btn');
+
+
+        if (cookieBanner && acceptBtn && declineBtn) {
+            const consent = localStorage.getItem('cookie_consent');
+
+
+            if (!consent) {
+                cookieBanner.classList.remove('hidden');
+            }
+
+
+            acceptBtn.addEventListener('click', () => {
+                localStorage.setItem('cookie_consent', 'accepted');
+                cookieBanner.classList.add('hidden');
             });
 
-            const elementsToAnimate = document.querySelectorAll('.fade-in');
-            elementsToAnimate.forEach(el => {
-                observer.observe(el);
+
+            declineBtn.addEventListener('click', () => {
+                localStorage.setItem('cookie_consent', 'declined');
+                cookieBanner.classList.add('hidden');
             });
-        });
-    </script>
+        }
+        // ==================================================================
+        // FIN DU CODE POUR LE BANDEAU
+        // ==================================================================
+    });
+</script>
+
+
+
+
+<!-- BANDEAU DE CONSENTEMENT AUX COOKIES (VERSION ADAPTÉE) -->
+<div id="cookie-consent-banner" class="hidden">
+    <div> <!-- Div pour le max-width -->
+        <div class="banner-content">
+            <div class="banner-text">
+                <p>Ce site utilise des cookies</p>
+                <p>
+                    Nous utilisons des cookies pour améliorer votre expérience de navigation et analyser notre trafic. En cliquant sur "Accepter", vous consentez à notre utilisation des cookies.
+                    <a href="../politique-de-confidentialite.html" target="_blank">En savoir plus</a>.
+                </p>
+            </div>
+            <div class="banner-buttons">
+                <button id="cookie-accept-btn" type="button" class="btn btn-primary">
+                    Accepter
+                </button>
+                <button id="cookie-decline-btn" type="button" class="btn btn-secondary">
+                    Refuser
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FIN DU BANDEAU DE CONSENTEMENT -->
+
+
+
 </body>
 
 </html>
