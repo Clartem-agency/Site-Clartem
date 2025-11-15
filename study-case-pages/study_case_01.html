@@ -429,39 +429,133 @@
 
         /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 992px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
-            section { padding: 60px 0; }
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
         }
 
         @media (max-width: 768px) {
-            body { font-size: 16px; line-height: 1.6; }
-            .container { padding: 0 15px; }
-            .content-wrapper { padding: 0 15px; }
-            .main-nav { display: none; }
-            .main-header .header-cta { padding: 8px 18px; font-size: 0.9rem; }
-            h1 { font-size: 2.1rem; line-height: 1.2; }
-            h2 { font-size: 1.75rem; line-height: 1.3; }
-            h3 { font-size: 1.4rem; }
-            h4 { font-size: 1.15rem; }
-            section { padding: 50px 0; }
-            .hero { padding-top: 40px; padding-bottom: 30px; }
-            .hero .case-study-title { font-size: 1.1rem; margin-bottom: 30px; }
-            .pillars-list li { padding-left: 45px; }
-            .pillars-list li::before { width: 30px; height: 30px; font-size: 1rem; }
-            .cta-section { padding: 40px 25px; margin: 20px auto; }
-            .cta-buttons { flex-direction: column; gap: 15px; }
-            .cta-buttons .btn { margin: 0; width: 100%; }
-            .footer-grid { text-align: center; gap: 30px; }
-            .footer-col .logo { margin: 0 auto 15px auto; }
+            body {
+                font-size: 16px;
+                line-height: 1.6;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .content-wrapper {
+                padding: 0 15px;
+            }
+
+            .main-nav {
+                display: none;
+            }
+
+            .main-header .header-cta {
+                padding: 8px 18px;
+                font-size: 0.9rem;
+            }
+
+            h1 {
+                font-size: 2.1rem;
+                line-height: 1.2;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+                line-height: 1.3;
+            }
+
+            h3 {
+                font-size: 1.4rem;
+            }
+
+            h4 {
+                font-size: 1.15rem;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+
+            .hero {
+                padding-top: 40px;
+                padding-bottom: 30px;
+            }
+
+            .hero .case-study-title {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
+            }
+
+            .pillars-list li {
+                padding-left: 45px;
+            }
+
+            .pillars-list li::before {
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+            }
+
+            .cta-section {
+                padding: 40px 25px;
+                margin: 20px auto;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .cta-buttons .btn {
+                margin: 0;
+                width: 100%;
+            }
+
+            .footer-grid {
+                text-align: center;
+                gap: 30px;
+            }
+
+            .footer-col .logo {
+                margin: 0 auto 15px auto;
+            }
         }
 
         @media (max-width: 480px) {
-            h1 { font-size: 1.8rem; }
-            h2 { font-size: 1.6rem; }
-            .logo img { height: 2.5rem; }
-            .main-header .header-cta { padding: 8px 12px; font-size: 0.8rem; }
-            .concept-tag { top: 10px; right: 10px; padding: 4px 8px; font-size: 0.75rem; }
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .logo img {
+                height: 2.5rem;
+            }
+
+            .main-header .header-cta {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+
+            .concept-tag {
+                top: 10px;
+                right: 10px;
+                padding: 4px 8px;
+                font-size: 0.75rem;
+            }
         }
 
         /* --- AJOUT POUR LE BOUTON SUR FOND SOMBRE --- */
@@ -477,6 +571,115 @@
         .cta-section .btn-secondary:hover {
             color: var(--dark-blue);
             box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+        }
+
+
+
+        /* ======================================================= */
+        /*    STYLES POUR LE BANDEAU DE CONSENTEMENT COOKIES (RESPONSIVE) */
+        /* ======================================================= */
+        #cookie-consent-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 0.5rem;
+            /* Moins de padding sur mobile */
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #cookie-consent-banner.hidden {
+            display: none;
+        }
+
+        #cookie-consent-banner>div {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        #cookie-consent-banner .banner-content {
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: var(--heading-color);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            display: flex;
+            gap: 1.5rem;
+            /* Mobile First : les éléments sont en colonne par défaut */
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        #cookie-consent-banner .banner-text {
+            color: var(--white);
+        }
+
+        #cookie-consent-banner .banner-text p:first-child {
+            font-weight: 600;
+        }
+
+        #cookie-consent-banner .banner-text p {
+            margin: 0;
+            margin-top: 0.25rem;
+            font-size: 0.9rem;
+            color: #d1d5db;
+        }
+
+        #cookie-consent-banner .banner-text a {
+            font-weight: 600;
+            text-decoration: underline;
+            color: var(--white);
+        }
+
+        #cookie-consent-banner .banner-buttons {
+            display: flex;
+            gap: 0.75rem;
+            /* Mobile First : les boutons sont en colonne et prennent toute la largeur */
+            flex-direction: column;
+            width: 100%;
+        }
+
+        #cookie-consent-banner .btn {
+            width: 100%;
+            /* Les boutons sont pleine largeur sur mobile */
+        }
+
+        #cookie-consent-banner .btn-secondary {
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        #cookie-consent-banner .btn-secondary:hover {
+            color: var(--dark-blue);
+            background-color: var(--white);
+        }
+
+        #cookie-consent-banner .btn-secondary::before {
+            background-color: var(--white);
+        }
+
+        /* Styles pour les écrans plus grands (tablette et bureau) */
+        @media (min-width: 768px) {
+            #cookie-consent-banner {
+                padding: 1rem;
+                /* Plus de padding sur les grands écrans */
+            }
+
+            #cookie-consent-banner .banner-content {
+                /* On passe en ligne sur les grands écrans */
+                flex-direction: row;
+                align-items: center;
+            }
+
+            #cookie-consent-banner .banner-buttons {
+                /* Les boutons se mettent en ligne et leur largeur s'adapte */
+                flex-direction: row;
+                width: auto;
+            }
+
+            #cookie-consent-banner .btn {
+                width: auto;
+            }
         }
     </style>
 </head>
@@ -504,7 +707,8 @@
             <div class="container">
                 <p class="subtitle fade-in">Étude de Cas</p>
                 <h1 class="fade-in">Professeur de Yoga</h1>
-                <p class="case-study-title fade-in">De la Gestion Manuelle à la Pratique Sereine : Comment un <strong>Site Clarté</strong> a Libéré une Professeure de Yoga.</p>
+                <p class="case-study-title fade-in">De la Gestion Manuelle à la Pratique Sereine : Comment un
+                    <strong>Site Clarté</strong> a Libéré une Professeure de Yoga.</p>
 
                 <div class="mockup-container fade-in">
                     <img src="../assets/image-portfolio/mockup-portfolio-01.jpg"
@@ -519,57 +723,102 @@
 
                 <div class="fade-in">
                     <h2>Le Défi : Quand la Passion se Heurte à la Gestion</h2>
-                    <p>Notre persona conceptuel, Chloé Moreau, est la fondatrice du studio "L'Instant Présent" à Lille. Ancienne avocate qui a trouvé dans le yoga une voie de reconstruction après un burn-out, sa mission est viscérale : offrir un refuge de calme aux professionnels urbains, une bulle où la performance n'a pas sa place. Son studio est une incarnation de cette promesse : l'atmosphère y est douce, les cours sont intimes, l'accompagnement est authentique.</p>
-                    <p>Pourtant, en coulisses, la réalité de Chloé était à l'opposé de la sérénité qu'elle prônait. Sa passion se heurtait à un mur invisible : la gestion administrative. Les réservations par SMS à des heures tardives, les paiements manuels à traquer, les annulations à gérer par email... chaque tâche administrative était une fissure dans la façade de calme qu'elle s'efforçait de maintenir. Le paradoxe était total : comment promettre la déconnexion à ses élèves quand elle-même était prisonnière d'une logistique stressante et chronophage ? Son site amateur, incapable de gérer la moindre réservation, était devenu le symbole de cette fracture entre sa mission et son quotidien.</p>
+                    <p>Notre persona conceptuel, Chloé Moreau, est la fondatrice du studio "L'Instant Présent" à Lille.
+                        Ancienne avocate qui a trouvé dans le yoga une voie de reconstruction après un burn-out, sa
+                        mission est viscérale : offrir un refuge de calme aux professionnels urbains, une bulle où la
+                        performance n'a pas sa place. Son studio est une incarnation de cette promesse : l'atmosphère y
+                        est douce, les cours sont intimes, l'accompagnement est authentique.</p>
+                    <p>Pourtant, en coulisses, la réalité de Chloé était à l'opposé de la sérénité qu'elle prônait. Sa
+                        passion se heurtait à un mur invisible : la gestion administrative. Les réservations par SMS à
+                        des heures tardives, les paiements manuels à traquer, les annulations à gérer par email...
+                        chaque tâche administrative était une fissure dans la façade de calme qu'elle s'efforçait de
+                        maintenir. Le paradoxe était total : comment promettre la déconnexion à ses élèves quand
+                        elle-même était prisonnière d'une logistique stressante et chronophage ? Son site amateur,
+                        incapable de gérer la moindre réservation, était devenu le symbole de cette fracture entre sa
+                        mission et son quotidien.</p>
                 </div>
 
                 <div class="fade-in" style="margin-top: 60px;">
                     <h2>La Solution : Le Site Clarté, l'ADN de notre Approche One-Page</h2>
-                    <p>Face à ce besoin vital d'alignement, nous n'avons pas conçu une simple "vitrine", mais un véritable <strong>Site Clarté</strong>. C'est notre philosophie : un site One-Page stratégique qui agit comme une extension numérique du studio. Il prend le visiteur par la main, l'immerge dans l'atmosphère apaisante de "L'Instant Présent" et lui offre un parcours d'une fluidité absolue, de la découverte à la réservation.</p>
+                    <p>Face à ce besoin vital d'alignement, nous n'avons pas conçu une simple "vitrine", mais un
+                        véritable <strong>Site Clarté</strong>. C'est notre philosophie : un site One-Page stratégique
+                        qui agit comme une extension numérique du studio. Il prend le visiteur par la main, l'immerge
+                        dans l'atmosphère apaisante de "L'Instant Présent" et lui offre un parcours d'une fluidité
+                        absolue, de la découverte à la réservation.</p>
                     <p>Cette stratégie narrative et fonctionnelle s'articule autour de trois piliers fondamentaux :</p>
                     <ol class="pillars-list">
                         <li>
                             <h4>L'Inspiration avant l'Inscription</h4>
-                            <p>L'histoire de reconversion de Chloé est son atout le plus puissant pour connecter avec sa cible. C'est pourquoi la section "Mon Histoire" est placée stratégiquement en haut de page. Le visiteur ne découvre pas une liste de cours, mais une personne qui comprend son propre vécu. Cette connexion humaine est le fondement de la confiance, essentielle dans une pratique aussi personnelle que le yoga.</p>
+                            <p>L'histoire de reconversion de Chloé est son atout le plus puissant pour connecter avec sa
+                                cible. C'est pourquoi la section "Mon Histoire" est placée stratégiquement en haut de
+                                page. Le visiteur ne découvre pas une liste de cours, mais une personne qui comprend son
+                                propre vécu. Cette connexion humaine est le fondement de la confiance, essentielle dans
+                                une pratique aussi personnelle que le yoga.</p>
                         </li>
                         <li>
                             <h4>La Clarté des Offres pour une Décision Fluide</h4>
-                            <p>Fini le flou des options. Les services sont structurés en trois "Formules" aux noms évocateurs ("La Découverte", "La Pratique", "L'Engagement"). Chaque option est présentée avec son bénéfice, sa cible et son tarif, éliminant toute friction décisionnelle et guidant naturellement le visiteur vers le choix qui lui correspond le mieux.</p>
+                            <p>Fini le flou des options. Les services sont structurés en trois "Formules" aux noms
+                                évocateurs ("La Découverte", "La Pratique", "L'Engagement"). Chaque option est présentée
+                                avec son bénéfice, sa cible et son tarif, éliminant toute friction décisionnelle et
+                                guidant naturellement le visiteur vers le choix qui lui correspond le mieux.</p>
                         </li>
                         <li>
                             <h4>L'Automatisation Intégrée comme Outil de Libération</h4>
-                            <p>Le cœur du réacteur est le module de réservation en temps réel. Intégré directement dans la page, il n'est pas un simple "plus". C'est la solution directe au problème central de Chloé. Le site cesse d'être une charge pour devenir un assistant autonome qui gère le planning, les inscriptions et les paiements, 24h/24.</p>
+                            <p>Le cœur du réacteur est le module de réservation en temps réel. Intégré directement dans
+                                la page, il n'est pas un simple "plus". C'est la solution directe au problème central de
+                                Chloé. Le site cesse d'être une charge pour devenir un assistant autonome qui gère le
+                                planning, les inscriptions et les paiements, 24h/24.</p>
                         </li>
                     </ol>
                 </div>
 
                 <div class="fade-in" style="margin-top: 60px;">
                     <h2>L'Impact Potentiel : Plus qu'un Site, un Actif Stratégique</h2>
-                    <p>Pour une professionnelle passionnée comme Chloé Moreau, un <strong>Site Clarté</strong> n'est pas une dépense, mais un investissement dans sa propre sérénité et dans la pérennité de son activité. L'impact attendu est concret et transformateur :</p>
+                    <p>Pour une professionnelle passionnée comme Chloé Moreau, un <strong>Site Clarté</strong> n'est pas
+                        une dépense, mais un investissement dans sa propre sérénité et dans la pérennité de son
+                        activité. L'impact attendu est concret et transformateur :</p>
                     <ul class="impact-list">
                         <li>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+                                <path fill-rule="evenodd"
+                                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                                    clip-rule="evenodd" />
                             </svg>
-                            <span><strong>Une Charge Mentale Allégée :</strong> L'automatisation complète du processus de réservation libère des heures précieuses chaque semaine, permettant à Chloé de se reconcentrer sur son cœur de métier : l'enseignement et le bien-être de ses élèves.</span>
+                            <span><strong>Une Charge Mentale Allégée :</strong> L'automatisation complète du processus
+                                de réservation libère des heures précieuses chaque semaine, permettant à Chloé de se
+                                reconcentrer sur son cœur de métier : l'enseignement et le bien-être de ses
+                                élèves.</span>
                         </li>
                         <li>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+                                <path fill-rule="evenodd"
+                                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                                    clip-rule="evenodd" />
                             </svg>
-                            <span><strong>Une Expérience Client Sans Couture :</strong> Le site devient la première expérience positive avec le studio. La facilité de réservation renforce l'image de marque et fidélise les élèves avant même qu'ils n'aient déroulé leur tapis.</span>
+                            <span><strong>Une Expérience Client Sans Couture :</strong> Le site devient la première
+                                expérience positive avec le studio. La facilité de réservation renforce l'image de
+                                marque et fidélise les élèves avant même qu'ils n'aient déroulé leur tapis.</span>
                         </li>
                         <li>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+                                <path fill-rule="evenodd"
+                                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                                    clip-rule="evenodd" />
                             </svg>
-                            <span><strong>Une Image de Marque Cohérente et Apaisante :</strong> La promesse de sérénité n'est plus seulement physique, elle est aussi digitale. Le professionnalisme du site établit "L'Instant Présent" comme une référence de qualité et de confiance à Lille.</span>
+                            <span><strong>Une Image de Marque Cohérente et Apaisante :</strong> La promesse de sérénité
+                                n'est plus seulement physique, elle est aussi digitale. Le professionnalisme du site
+                                établit "L'Instant Présent" comme une référence de qualité et de confiance à
+                                Lille.</span>
                         </li>
                         <li>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+                                <path fill-rule="evenodd"
+                                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                                    clip-rule="evenodd" />
                             </svg>
-                            <span><strong>Une Croissance Sereine et Alignée :</strong> Libérée de la friction administrative, Chloé peut développer son studio en accord avec ses valeurs profondes, sans sacrifier son propre équilibre.</span>
+                            <span><strong>Une Croissance Sereine et Alignée :</strong> Libérée de la friction
+                                administrative, Chloé peut développer son studio en accord avec ses valeurs profondes,
+                                sans sacrifier son propre équilibre.</span>
                         </li>
                     </ul>
 
@@ -584,7 +833,8 @@
         <section id="cta" class="container" style="padding-top: 0;">
             <div class="cta-section fade-in">
                 <h2>Prêt(e) à retrouver la sérénité dans votre activité ?</h2>
-                <p>Comme pour L'Instant Présent, nous pouvons concevoir un Site Clarté qui automatise votre gestion et vous libère du temps pour ce qui compte vraiment. Discutons de votre vision.</p>
+                <p>Comme pour L'Instant Présent, nous pouvons concevoir un Site Clarté qui automatise votre gestion et
+                    vous libère du temps pour ce qui compte vraiment. Discutons de votre vision.</p>
                 <div class="cta-buttons">
                     <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
                         rel="noopener noreferrer" class="btn btn-orange">Concevoir mon Site Clarté</a>
@@ -633,9 +883,13 @@
         </div>
     </footer>
 
+
+
+
     <script>
         // --- SCRIPT POUR L'ANIMATION D'APPARITION AU SCROLL ---
         document.addEventListener('DOMContentLoaded', function () {
+            // VOTRE CODE D'ANIMATION EXISTANT
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -651,8 +905,65 @@
             elementsToAnimate.forEach(el => {
                 observer.observe(el);
             });
+            // FIN DE VOTRE CODE D'ANIMATION EXISTANT
+
+
+            // ==================================================================
+            // COLLEZ LE CODE DU BANDEAU ICI
+            // ==================================================================
+            const cookieBanner = document.getElementById('cookie-consent-banner');
+            const acceptBtn = document.getElementById('cookie-accept-btn');
+            const declineBtn = document.getElementById('cookie-decline-btn');
+
+            if (cookieBanner && acceptBtn && declineBtn) {
+                const consent = localStorage.getItem('cookie_consent');
+
+                if (!consent) {
+                    cookieBanner.classList.remove('hidden');
+                }
+
+                acceptBtn.addEventListener('click', () => {
+                    localStorage.setItem('cookie_consent', 'accepted');
+                    cookieBanner.classList.add('hidden');
+                });
+
+                declineBtn.addEventListener('click', () => {
+                    localStorage.setItem('cookie_consent', 'declined');
+                    cookieBanner.classList.add('hidden');
+                });
+            }
+            // ==================================================================
+            // FIN DU CODE POUR LE BANDEAU
+            // ==================================================================
         });
     </script>
+
+
+    <!-- BANDEAU DE CONSENTEMENT AUX COOKIES (VERSION ADAPTÉE) -->
+    <div id="cookie-consent-banner" class="hidden">
+        <div> <!-- Div pour le max-width -->
+            <div class="banner-content">
+                <div class="banner-text">
+                    <p>Ce site utilise des cookies</p>
+                    <p>
+                        Nous utilisons des cookies pour améliorer votre expérience de navigation et analyser notre
+                        trafic. En cliquant sur "Accepter", vous consentez à notre utilisation des cookies.
+                        <a href="../politique-de-confidentialite.html" target="_blank">En savoir plus</a>.
+                    </p>
+                </div>
+                <div class="banner-buttons">
+                    <button id="cookie-accept-btn" type="button" class="btn btn-primary">
+                        Accepter
+                    </button>
+                    <button id="cookie-decline-btn" type="button" class="btn btn-secondary">
+                        Refuser
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN DU BANDEAU DE CONSENTEMENT -->
+
 </body>
 
 </html>
