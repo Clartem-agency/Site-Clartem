@@ -375,6 +375,37 @@
                     submitButton.textContent = 'Envoyer mon message';
                 }
             });
+
+
+            // ==================================================================
+            // NOUVEAU : LOGIQUE POUR LE BANDEAU DE CONSENTEMENT COOKIES
+            // ==================================================================
+            const cookieBanner = document.getElementById('cookie-consent-banner');
+            const acceptBtn = document.getElementById('cookie-accept-btn');
+            const declineBtn = document.getElementById('cookie-decline-btn');
+
+            if (cookieBanner && acceptBtn && declineBtn) {
+                // Vérifier si le consentement a déjà été donné
+                const consent = localStorage.getItem('cookie_consent');
+
+                if (!consent) {
+                    cookieBanner.classList.remove('hidden');
+                }
+
+                acceptBtn.addEventListener('click', () => {
+                    localStorage.setItem('cookie_consent', 'accepted');
+                    cookieBanner.classList.add('hidden');
+                });
+
+                declineBtn.addEventListener('click', () => {
+                    localStorage.setItem('cookie_consent', 'declined');
+                    cookieBanner.classList.add('hidden');
+                });
+            }
+            // ==================================================================
+            // FIN DU CODE POUR LE BANDEAU
+            // ==================================================================
+            
         });
     </script>
 </body>
