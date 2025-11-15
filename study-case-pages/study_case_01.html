@@ -14,9 +14,6 @@
     <!-- Favicon de votre site -->
     <link rel="icon" type="image/x-icon" href="../assets/favicon-clartem.ico">
 
-    <link rel="stylesheet" href="../css/style.css">
-
-    
     <style>
         /* --- VARIABLES & STYLES GLOBAUX --- */
         :root {
@@ -481,6 +478,89 @@
             color: var(--dark-blue);
             box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
         }
+
+        /* ======================================================= */
+/*    STYLES POUR LE BANDEAU DE CONSENTEMENT COOKIES       */
+/* ======================================================= */
+#cookie-consent-banner {
+    /* Styles pour le conteneur principal du bandeau */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+#cookie-consent-banner.hidden {
+    display: none;
+}
+
+#cookie-consent-banner > div {
+    /* Conteneur intérieur avec marges */
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#cookie-consent-banner .banner-content {
+    /* Le panneau sombre */
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: var(--heading-color); /* Utilise votre variable --heading-color */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+#cookie-consent-banner .banner-text {
+    /* La partie texte */
+    flex: 1 1 300px; /* Permet au texte de prendre de la place */
+    color: var(--white);
+}
+
+#cookie-consent-banner .banner-text p:first-child {
+    font-weight: 600; /* font-medium */
+}
+
+#cookie-consent-banner .banner-text p {
+    margin: 0;
+    margin-top: 0.25rem;
+    font-size: 0.9rem;
+    color: #d1d5db; /* Gris clair pour le texte secondaire */
+}
+
+#cookie-consent-banner .banner-text a {
+    font-weight: 600;
+    text-decoration: underline;
+    color: var(--white);
+}
+
+#cookie-consent-banner .banner-buttons {
+    /* Le conteneur des boutons */
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* On s'assure que les boutons utilisent bien les styles de la page */
+#cookie-consent-banner .btn-secondary {
+    color: var(--white);
+    border-color: var(--white);
+}
+#cookie-consent-banner .btn-secondary:hover {
+    color: var(--dark-blue);
+    background-color: var(--white);
+}
+#cookie-consent-banner .btn-secondary::before {
+    background-color: var(--white);
+}
+
+
     </style>
 </head>
 
@@ -637,52 +717,84 @@
     </footer>
 
 
-    <!-- BANDEAU DE CONSENTEMENT AUX COOKIES -->
-    <div id="cookie-consent-banner" class="hidden fixed bottom-0 inset-x-0 pb-2 sm:pb-5 z-[100]">
-        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-            <div class="p-4 sm:p-6 rounded-lg bg-neutral-dark shadow-lg sm:flex sm:items-center sm:justify-between">
-                <div class="w-0 flex-1 text-white">
-                    <p class="font-medium">Ce site utilise des cookies</p>
-                    <p class="mt-1 text-sm text-neutral-light">
-                        Nous utilisons des cookies pour améliorer votre expérience de navigation et analyser notre trafic. En cliquant sur "Accepter", vous consentez à notre utilisation des cookies.
-                        <a href="politique-de-confidentialite.html" target="_blank" class="font-semibold hover:underline">En savoir plus</a>.
-                    </p>
-                </div>
-                <div class="mt-4 flex-shrink-0 sm:mt-0 sm:ml-6 sm:flex sm:items-center gap-3">
-                    <button id="cookie-accept-btn" type="button" class="w-full sm:w-auto btn btn-primary">
-                        Accepter
-                    </button>
-                    <button id="cookie-decline-btn" type="button" class="w-full mt-2 sm:mt-0 sm:w-auto btn btn-secondary" style="color: white; border-color: white;">
-                        Refuser
-                    </button>
-                </div>
+    
+    
+    <script>
+    // --- SCRIPT POUR L'ANIMATION D'APPARITION AU SCROLL ---
+    document.addEventListener('DOMContentLoaded', function () {
+        // VOTRE CODE D'ANIMATION EXISTANT
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        const elementsToAnimate = document.querySelectorAll('.fade-in');
+        elementsToAnimate.forEach(el => {
+            observer.observe(el);
+        });
+        // FIN DE VOTRE CODE D'ANIMATION EXISTANT
+
+
+        // ==================================================================
+        // COLLEZ LE CODE DU BANDEAU ICI
+        // ==================================================================
+        const cookieBanner = document.getElementById('cookie-consent-banner');
+        const acceptBtn = document.getElementById('cookie-accept-btn');
+        const declineBtn = document.getElementById('cookie-decline-btn');
+
+        if (cookieBanner && acceptBtn && declineBtn) {
+            const consent = localStorage.getItem('cookie_consent');
+
+            if (!consent) {
+                cookieBanner.classList.remove('hidden');
+            }
+
+            acceptBtn.addEventListener('click', () => {
+                localStorage.setItem('cookie_consent', 'accepted');
+                cookieBanner.classList.add('hidden');
+            });
+
+            declineBtn.addEventListener('click', () => {
+                localStorage.setItem('cookie_consent', 'declined');
+                cookieBanner.classList.add('hidden');
+            });
+        }
+        // ==================================================================
+        // FIN DU CODE POUR LE BANDEAU
+        // ==================================================================
+    });
+</script>
+
+
+<!-- BANDEAU DE CONSENTEMENT AUX COOKIES (VERSION ADAPTÉE) -->
+<div id="cookie-consent-banner" class="hidden">
+    <div> <!-- Div pour le max-width -->
+        <div class="banner-content">
+            <div class="banner-text">
+                <p>Ce site utilise des cookies</p>
+                <p>
+                    Nous utilisons des cookies pour améliorer votre expérience de navigation et analyser notre trafic. En cliquant sur "Accepter", vous consentez à notre utilisation des cookies.
+                    <a href="../politique-de-confidentialite.html" target="_blank">En savoir plus</a>.
+                </p>
+            </div>
+            <div class="banner-buttons">
+                <button id="cookie-accept-btn" type="button" class="btn btn-primary">
+                    Accepter
+                </button>
+                <button id="cookie-decline-btn" type="button" class="btn btn-secondary">
+                    Refuser
+                </button>
             </div>
         </div>
     </div>
-    <!-- FIN DU BANDEAU DE CONSENTEMENT -->
-    
-    <script>
-        // --- SCRIPT POUR L'ANIMATION D'APPARITION AU SCROLL ---
-        document.addEventListener('DOMContentLoaded', function () {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-
-            const elementsToAnimate = document.querySelectorAll('.fade-in');
-            elementsToAnimate.forEach(el => {
-                observer.observe(el);
-            });
-        });
-    </script>
-
-    <script src="../js/script.js"></script>
+</div>
+<!-- FIN DU BANDEAU DE CONSENTEMENT -->
 
 </body>
 
