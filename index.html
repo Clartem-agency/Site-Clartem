@@ -188,29 +188,39 @@
 
 
 
+        
         <!-- ======================================================= -->
-        <!--                Section Hero                             -->
+        <!--                Section Hero (PREMIUM ANIMATION)         -->
         <!-- ======================================================= -->
         <section id="hero"
             class="hero-bg min-h-screen flex items-center justify-center text-white relative pt-28 pb-16 md:pt-32 md:pb-20">
-            <!-- Superposition de couleur pour la lisibilité -->
-            <div class="hero-overlay"></div>
+            
+            <!-- 1. L'image de fond animée (Ken Burns) -->
+            <div class="hero-ken-burns"></div>
 
-            <!-- Contenu centré -->
-            <div class="container mx-auto px-6 relative z-10 text-center">
+            <!-- 2. Superposition de couleur (Overlay) -->
+            <!-- z-index-10 pour être au dessus de l'image -->
+            <div class="hero-overlay z-10"></div>
+
+            <!-- 3. Contenu centré -->
+            <div class="container mx-auto px-6 relative z-20 text-center">
                 <div class="max-w-3xl mx-auto">
-                    <!-- MODIFIÉ : La taille du titre est légèrement ajustée pour les très petits écrans -->
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight" data-sr>
+                    
+                    <!-- TITRE : Animation immédiate -->
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight animate-blur-rise delay-0">
                         Votre site web pour coachs & thérapeutes<br>
                         <span class="text-warm-orange">Convertissez vos visiteurs en clients.</span>
                     </h1>
-                    <!-- MODIFIÉ : La taille du paragraphe est ajustée pour être plus petite sur mobile -->
-                    <p class="text-lg md:text-xl text-white/90 mt-6 leading-relaxed" data-sr-delay="100">
+                    
+                    <!-- PARAGRAPHE : Animation différée -->
+                    <p class="text-lg md:text-xl text-white/90 mt-6 leading-relaxed animate-blur-rise delay-1">
                         Je crée des sites web professionnels pour les métiers du <strong>coaching et du
                             bien-être</strong>. Transformons votre approche unique en un message clair qui inspire
                         confiance et incite vos futurs clients à prendre rendez-vous.
                     </p>
-                    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4" data-sr-delay="200">
+                    
+                    <!-- BOUTONS : Animation finale -->
+                    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-blur-rise delay-2">
                         <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
                             rel="noopener noreferrer" class="btn btn-orange w-full sm:w-auto text-lg">
                             Développer mon activité
@@ -219,6 +229,7 @@
                             Découvrir le processus
                         </a>
                     </div>
+
                 </div>
             </div>
         </section>
