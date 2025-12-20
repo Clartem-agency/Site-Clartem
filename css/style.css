@@ -966,3 +966,77 @@ html {
 /* Menu Mobile Hamburger */
 #mobile-menu-button { color: #ffffff; }
 #main-nav.scrolled #mobile-menu-button { color: #1F2937; }
+
+
+
+
+
+/* ======================================================= */
+/*    CORRECTIF DÉFINITIF HERO (LAYERS & ANIMATION)        */
+/* ======================================================= */
+
+/* 1. L'image de fond (Tout au fond) */
+.hero-bg {
+    background-image: none !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-ken-burns {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/background-hero.webp');
+    background-size: cover;
+    background-position: center;
+    
+    z-index: 0; /* ÉTAGE 0 : LE SOL */
+    
+    animation: kenBurnsEffect 15s ease-in-out infinite alternate;
+}
+
+/* 2. L'Overlay (Au milieu) */
+.hero-overlay {
+    position: absolute; /* Force la position absolue */
+    top: 0; left: 0; right: 0; bottom: 0; /* Prend tout l'espace */
+    background: linear-gradient(0deg, rgba(30, 58, 138, 0.6), rgba(30, 58, 138, 0.4)); /* Un peu plus sombre pour le contraste */
+    
+    z-index: 10 !important; /* ÉTAGE 1 : LE TAPIS */
+    pointer-events: none !important; /* <--- LA SOLUTION MAGIQUE : Les clics traversent cet élément */
+}
+
+/* 3. Le Contenu Texte (Tout au dessus) */
+#hero .container {
+    position: relative;
+    z-index: 20 !important; /* ÉTAGE 2 : LES MEUBLES */
+}
+
+/* Animations (inchangées) */
+@keyframes kenBurnsEffect {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.15); }
+}
+
+.animate-blur-rise {
+    opacity: 0;
+    animation: blurRise 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes blurRise {
+    0% {
+        opacity: 0;
+        transform: translateY(60px);
+        filter: blur(12px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+.delay-0 { animation-delay: 0.2s; } 
+.delay-1 { animation-delay: 0.8s; } 
+.delay-2 { animation-delay: 1.4s; }
