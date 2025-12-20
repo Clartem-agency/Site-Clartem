@@ -556,8 +556,12 @@ nav.scrolled {
     #frustration-knot-container {
         display: none !important; /* Cache l'icône qui n'a plus d'animation */
     }
+    
+        /* --- CORRECTION ICI --- */
     #problem-cards-grid {
-        margin-top: -10rem; /* Compense la disparition de l'icône */
+        /* AVANT (ce qui causait le bug) : margin-top: -10rem; */
+        /* APRÈS (la correction) : On remet la marge à 0 pour laisser le texte respirer */
+        margin-top: 0 !important; 
     }
 
     /* --- Section Value Proposition --- */
