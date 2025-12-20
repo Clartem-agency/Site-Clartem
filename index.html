@@ -122,34 +122,47 @@
         <!--                Section Navigation                       -->
         <!-- ======================================================= -->
 
-        <nav id="main-nav"
-            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
-            <div class="container mx-auto px-6 py-4">
+
+
+        <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+            <!-- MODIFIÉ : J'ai retiré la classe 'py-4' ici pour que le CSS contrôle totalement la hauteur -->
+            <div class="container mx-auto px-6">
                 <div class="flex items-center justify-between">
-                    <a href="index.html">
-                        <img class="h-14 w-auto" src="assets/logo-clartem.svg" alt="Logo clartem.com">
-                    </a>
-                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
-                       
-                        <a href="a-propos.html"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À Propos</a>
-                        <a href="index.html#plan"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Processus</a>
-                        <a href="portfolio.html"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Portfolio</a>
-                        <a href="index.html#offres"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Offres</a>
-                        <a href="blog.html"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Blog</a>
-                        <a href="faq.html"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
-                    </div>
-                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
-                        rel="noopener noreferrer"
-                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier un Appel Clarté
+
+                    <!-- LOGO : Taille réduite de h-14 à h-10 (40px) pour affiner la barre -->
+                    <a href="index.html" class="relative block group py-2"> <!-- Ajout d'un petit py-2 de sécurité -->
+                        <img id="logo-white" class="h-10 w-auto transition-opacity duration-300"
+                            src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com blanc">
+
+                        <img id="logo-color"
+                            class="h-10 w-auto absolute top-2 left-0 transition-opacity duration-300 opacity-0"
+                            src="assets/logo-clartem.svg" alt="Logo clartem.com couleur">
                     </a>
 
-                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                    <!-- LIENS DU MENU -->
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <!-- J'ai ajouté text-sm pour que le texte soit un peu plus fin et élégant -->
+                        <a href="a-propos.html" class="nav-link text-sm font-medium transition-colors duration-300">À
+                            Propos</a>
+                        <a href="index.html#plan"
+                            class="nav-link text-sm font-medium transition-colors duration-300">Processus</a>
+                        <a href="portfolio.html"
+                            class="nav-link text-sm font-medium transition-colors duration-300">Portfolio</a>
+                        <a href="index.html#offres"
+                            class="nav-link text-sm font-medium transition-colors duration-300">Offres</a>
+                        <a href="blog.html" class="nav-link text-sm font-medium transition-colors duration-300">Blog</a>
+                        <a href="faq.html" class="nav-link text-sm font-medium transition-colors duration-300">FAQ</a>
+                    </div>
+
+                    <!-- BOUTON D'APPEL : Taille réduite de h-12 à h-10 et texte un peu plus petit -->
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-6 h-10 text-sm">Planifier
+                        un Appel Clarté
+                    </a>
+
+                    <!-- BOUTON MENU MOBILE -->
+                    <button id="mobile-menu-button" class="md:hidden nav-link focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -158,33 +171,20 @@
                     </button>
                 </div>
 
-
-                <!-- ======================================================= -->
-                <!--                        Mobile Menu                      -->
-                <!-- ======================================================= -->
-                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
-                    
-                   
-                    <a href="a-propos.html"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À Propos</a>
-                    <a href="index.html#plan"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Processus</a>
-                    <a href="portfolio.html"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Portfolio</a>
-                    <a href="index.html#offres"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Offres</a>
-                    <a href="blog.html"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Blog</a>
-                    <a href="faq.html"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                <!-- MENU MOBILE (Inchangé) -->
+                <div id="mobile-menu"
+                    class="hidden md:hidden mt-2 space-y-2 bg-white p-4 rounded-xl shadow-xl text-neutral-dark">
+                    <a href="a-propos.html" class="block hover:text-clarity-blue py-2 text-sm">À Propos</a>
+                    <a href="index.html#plan" class="block hover:text-clarity-blue py-2 text-sm">Processus</a>
+                    <a href="portfolio.html" class="block hover:text-clarity-blue py-2 text-sm">Portfolio</a>
+                    <a href="index.html#offres" class="block hover:text-clarity-blue py-2 text-sm">Offres</a>
+                    <a href="blog.html" class="block hover:text-clarity-blue py-2 text-sm">Blog</a>
+                    <a href="faq.html" class="block hover:text-clarity-blue py-2 text-sm">FAQ</a>
                     <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
-                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier un
-                        Appel Clarté</a>
+                        class="block mt-2 w-full text-center btn btn-primary text-sm py-2">Planifier un Appel Clarté</a>
                 </div>
             </div>
         </nav>
-
-
 
 
 
@@ -272,54 +272,71 @@
                                 </div>
 
                                 <div id="problem-cards-grid" class="grid md:grid-cols-3 gap-8">
-    
-    <!-- Carte 1: Problème Externe (Perdu / Confusion) -->
-    <div class="problem-card bg-neutral-dark/50 border border-white/15 rounded-2xl p-8 backdrop-blur-md transition-all duration-300 hover:bg-neutral-dark/60 hover:border-white/25 hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center">
-        <!-- Remplacement de l'image par l'icône SVG -->
-        <div class="problem-icon-wrapper text-clarity-blue">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-            </svg>
-        </div>
-        
-        <div class="flex flex-col flex-grow text-center">
-            <p class="text-lg text-white mb-4 font-medium italic">"Vous savez qu'un site est essentiel, mais vous ne savez pas par où commencer."</p>
-            <p class="text-white/70">Entre les plateformes, les designs, le RGPD... le choix semble infini et vous éloigne de votre cœur de métier.</p>
-        </div>
-    </div>
 
-    <!-- Carte 2: Problème Interne (Technique / Frustration) -->
-    <div class="problem-card bg-neutral-dark/50 border border-white/15 rounded-2xl p-8 backdrop-blur-md transition-all duration-300 hover:bg-neutral-dark/60 hover:border-white/25 hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center">
-        <!-- Remplacement de l'image par l'icône SVG -->
-        <div class="problem-icon-wrapper text-warm-orange"> <!-- J'ai mis orange ici pour varier, ou remettez text-clarity-blue -->
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-            </svg>
-        </div>
+                                    <!-- Carte 1: Problème Externe (Perdu / Confusion) -->
+                                    <div
+                                        class="problem-card bg-neutral-dark/50 border border-white/15 rounded-2xl p-8 backdrop-blur-md transition-all duration-300 hover:bg-neutral-dark/60 hover:border-white/25 hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center">
+                                        <!-- Remplacement de l'image par l'icône SVG -->
+                                        <div class="problem-icon-wrapper text-clarity-blue">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke="currentColor" stroke-width="1.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                                            </svg>
+                                        </div>
 
-        <div class="flex flex-col flex-grow text-center">
-            <p class="text-lg text-white mb-4 font-medium italic">"Vous vous sentez frustré(e) par la technique et craignez de ne pas savoir faire."</p>
-            <p class="text-white/70">La peur de perdre du temps et de l'argent sur un site qui ne fonctionne pas vous paralyse et vous empêche d'avancer.</p>
-        </div>
-    </div>
+                                        <div class="flex flex-col flex-grow text-center">
+                                            <p class="text-lg text-white mb-4 font-medium italic">"Vous savez qu'un site
+                                                est essentiel, mais vous ne savez pas par où commencer."</p>
+                                            <p class="text-white/70">Entre les plateformes, les designs, le RGPD... le
+                                                choix semble infini et vous éloigne de votre cœur de métier.</p>
+                                        </div>
+                                    </div>
 
-    <!-- Carte 3: Problème Philosophique (Identité / Valeur) -->
-    <div class="problem-card bg-neutral-dark/50 border border-white/15 rounded-2xl p-8 backdrop-blur-md transition-all duration-300 hover:bg-neutral-dark/60 hover:border-white/25 hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center">
-        <!-- Remplacement de l'image par l'icône SVG -->
-        <div class="problem-icon-wrapper text-success-green"> <!-- Vert ici pour l'espoir/valeur -->
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
-            </svg>
-        </div>
+                                    <!-- Carte 2: Problème Interne (Technique / Frustration) -->
+                                    <div
+                                        class="problem-card bg-neutral-dark/50 border border-white/15 rounded-2xl p-8 backdrop-blur-md transition-all duration-300 hover:bg-neutral-dark/60 hover:border-white/25 hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center">
+                                        <!-- Remplacement de l'image par l'icône SVG -->
+                                        <div class="problem-icon-wrapper text-warm-orange">
+                                            <!-- J'ai mis orange ici pour varier, ou remettez text-clarity-blue -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke="currentColor" stroke-width="1.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                            </svg>
+                                        </div>
 
-        <div class="flex flex-col flex-grow text-center">
-            <p class="text-lg text-white mb-4 font-medium italic">"Vous transformez des vies. Votre site devrait le refléter avec simplicité."</p>
-            <p class="text-white/70">Votre expertise mérite d'être présentée avec clarté, pour attirer les personnes qui ont vraiment besoin de vous.</p>
-        </div>
-    </div>
-</div>
+                                        <div class="flex flex-col flex-grow text-center">
+                                            <p class="text-lg text-white mb-4 font-medium italic">"Vous vous sentez
+                                                frustré(e) par la technique et craignez de ne pas savoir faire."</p>
+                                            <p class="text-white/70">La peur de perdre du temps et de l'argent sur un
+                                                site qui ne fonctionne pas vous paralyse et vous empêche d'avancer.</p>
+                                        </div>
+                                    </div>
 
-                                
+                                    <!-- Carte 3: Problème Philosophique (Identité / Valeur) -->
+                                    <div
+                                        class="problem-card bg-neutral-dark/50 border border-white/15 rounded-2xl p-8 backdrop-blur-md transition-all duration-300 hover:bg-neutral-dark/60 hover:border-white/25 hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center">
+                                        <!-- Remplacement de l'image par l'icône SVG -->
+                                        <div class="problem-icon-wrapper text-success-green">
+                                            <!-- Vert ici pour l'espoir/valeur -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke="currentColor" stroke-width="1.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+                                            </svg>
+                                        </div>
+
+                                        <div class="flex flex-col flex-grow text-center">
+                                            <p class="text-lg text-white mb-4 font-medium italic">"Vous transformez des
+                                                vies. Votre site devrait le refléter avec simplicité."</p>
+                                            <p class="text-white/70">Votre expertise mérite d'être présentée avec
+                                                clarté, pour attirer les personnes qui ont vraiment besoin de vous.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                             </div>
                         </div>
 
@@ -330,90 +347,112 @@
 
 
 
-<!-- ======================================================= -->
-<!--                Section Value Proposition               -->
-<!-- ======================================================= -->
+        <!-- ======================================================= -->
+        <!--                Section Value Proposition               -->
+        <!-- ======================================================= -->
 
-<section id="value-proposition-section" class="relative py-20">
-    <!-- MODIFIÉ : L'overlay passe de 'bg-deep-blue' à 'bg-white' ou 'bg-soft-blue' pour aller avec le texte sombre -->
-    <div id="value-prop-overlay" class="absolute inset-0 bg-white/90 backdrop-blur-sm z-0"></div>
+        <section id="value-proposition-section" class="relative py-20">
+            <!-- MODIFIÉ : L'overlay passe de 'bg-deep-blue' à 'bg-white' ou 'bg-soft-blue' pour aller avec le texte sombre -->
+            <div id="value-prop-overlay" class="absolute inset-0 bg-white/90 backdrop-blur-sm z-0"></div>
 
-    <!-- Le conteneur qui aura une grande hauteur pour permettre le scroll de l'animation -->
-    <div id="value-prop-scroll-container" class="relative z-10">
-        <!-- Le contenu qui deviendra "sticky" (collant) en haut de l'écran -->
-        <div id="value-prop-sticky-content" class="h-screen w-full">
-            <!-- Conteneur pour centrer le contenu verticalement et horizontalement -->
-            <div class="container mx-auto px-6 h-full flex flex-col justify-center">
+            <!-- Le conteneur qui aura une grande hauteur pour permettre le scroll de l'animation -->
+            <div id="value-prop-scroll-container" class="relative z-10">
+                <!-- Le contenu qui deviendra "sticky" (collant) en haut de l'écran -->
+                <div id="value-prop-sticky-content" class="h-screen w-full">
+                    <!-- Conteneur pour centrer le contenu verticalement et horizontalement -->
+                    <div class="container mx-auto px-6 h-full flex flex-col justify-center">
 
-                <div>
-                    <!-- MODIFIÉ : Ajout de id="value-prop-title-block" pour le déclenchement JS -->
-                    <div id="value-prop-title-block" class="text-center max-w-4xl mx-auto mb-16" data-sr>
-                        
-                        <!-- TITRE MODIFIÉ : text-neutral-dark + span text-clarity-blue -->
-                        <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">
-                            Un Site Web pour Coachs & Thérapeutes,<br>
-                            <span class="text-clarity-blue">Conçu pour Votre Croissance</span>
-                        </h2>
+                        <div>
+                            <!-- MODIFIÉ : Ajout de id="value-prop-title-block" pour le déclenchement JS -->
+                            <div id="value-prop-title-block" class="text-center max-w-4xl mx-auto mb-16" data-sr>
 
-                        <!-- PARAGRAPHE MODIFIÉ : text-neutral-light au lieu de text-white -->
-                        <p class="text-xl leading-relaxed text-neutral-light">
-                            Chez clartem.com, j'ai un seul objectif : vous fournir un site web professionnel et
-                            efficace grâce à un processus simple, rapide et transparent.
-                            <span class="font-semibold text-warm-orange">Fini la confusion, place à la clarté.</span>
-                        </p>
-                    </div>
+                                <!-- TITRE MODIFIÉ : text-neutral-dark + span text-clarity-blue -->
+                                <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">
+                                    Un Site Web pour Coachs & Thérapeutes,<br>
+                                    <span class="text-clarity-blue">Conçu pour Votre Croissance</span>
+                                </h2>
 
-                    <div class="grid lg:grid-cols-3 gap-8">
-                        <!-- Le reste des cartes (grid) reste inchangé... -->
-        
-                                
+                                <!-- PARAGRAPHE MODIFIÉ : text-neutral-light au lieu de text-white -->
+                                <p class="text-xl leading-relaxed text-neutral-light">
+                                    Chez clartem.com, j'ai un seul objectif : vous fournir un site web professionnel et
+                                    efficace grâce à un processus simple, rapide et transparent.
+                                    <span class="font-semibold text-warm-orange">Fini la confusion, place à la
+                                        clarté.</span>
+                                </p>
+                            </div>
+
+                            <div class="grid lg:grid-cols-3 gap-8">
+                                <!-- Le reste des cartes (grid) reste inchangé... -->
+
+
 
                                 <!-- Carte 1: Rapidité (Orange) -->
-<div class="value-prop-card bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col items-center text-center group" style="--objectif-color: #F97316;">
-    <!-- Wrapper de l'icône style "Objectif" -->
-    <div class="objectif-icon-wrapper mb-6 group-hover:scale-110 transition-transform duration-300">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-    </div>
-    
-    <h3 class="text-2xl font-bold text-neutral-dark mb-4">Votre Site en Ligne en 7 Jours</h3>
-    <p class="text-neutral-light leading-relaxed">
-        Votre temps est précieux. Mon processus optimisé garantit la mise en ligne de votre site professionnel en une semaine, pour que vous puissiez vous concentrer sur vos clients, pas sur la technique.
-    </p>
-</div>
+                                <div class="value-prop-card bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col items-center text-center group"
+                                    style="--objectif-color: #F97316;">
+                                    <!-- Wrapper de l'icône style "Objectif" -->
+                                    <div
+                                        class="objectif-icon-wrapper mb-6 group-hover:scale-110 transition-transform duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                        </svg>
+                                    </div>
 
-<!-- Carte 2: Personnalisation (Bleu) -->
-<div class="value-prop-card bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col items-center text-center group" style="--objectif-color: #3B82F6;">
-    <!-- Wrapper de l'icône style "Objectif" -->
-    <div class="objectif-icon-wrapper mb-6 group-hover:scale-110 transition-transform duration-300">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-        </svg>
-    </div>
+                                    <h3 class="text-2xl font-bold text-neutral-dark mb-4">Votre Site en Ligne en 7 Jours
+                                    </h3>
+                                    <p class="text-neutral-light leading-relaxed">
+                                        Votre temps est précieux. Mon processus optimisé garantit la mise en ligne de
+                                        votre site professionnel en une semaine, pour que vous puissiez vous concentrer
+                                        sur vos clients, pas sur la technique.
+                                    </p>
+                                </div>
 
-    <h3 class="text-2xl font-bold text-neutral-dark mb-4">Un Design qui Raconte Votre Approche</h3>
-    <p class="text-neutral-light leading-relaxed">
-        Pas de templates génériques. Je crée un design unique qui reflète votre identité, raconte votre histoire et parle directement aux clients que vous souhaitez accompagner.
-    </p>
-</div>
+                                <!-- Carte 2: Personnalisation (Bleu) -->
+                                <div class="value-prop-card bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col items-center text-center group"
+                                    style="--objectif-color: #3B82F6;">
+                                    <!-- Wrapper de l'icône style "Objectif" -->
+                                    <div
+                                        class="objectif-icon-wrapper mb-6 group-hover:scale-110 transition-transform duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                                        </svg>
+                                    </div>
 
-<!-- Carte 3: Transparence (Vert) -->
-<div class="value-prop-card bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col items-center text-center group" style="--objectif-color: #16A34A;">
-    <!-- Wrapper de l'icône style "Objectif" -->
-    <div class="objectif-icon-wrapper mb-6 group-hover:scale-110 transition-transform duration-300">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-    </div>
+                                    <h3 class="text-2xl font-bold text-neutral-dark mb-4">Un Design qui Raconte Votre
+                                        Approche</h3>
+                                    <p class="text-neutral-light leading-relaxed">
+                                        Pas de templates génériques. Je crée un design unique qui reflète votre
+                                        identité, raconte votre histoire et parle directement aux clients que vous
+                                        souhaitez accompagner.
+                                    </p>
+                                </div>
 
-    <h3 class="text-2xl font-bold text-neutral-dark mb-4">Un Budget Clair, Sans Surprise</h3>
-    <p class="text-neutral-light leading-relaxed">
-        Vous savez exactement ce que vous obtenez et combien ça coûte. Un processus simple et des tarifs clairs, pour vous permettre d'investir en toute confiance dans votre activité.
-    </p>
-</div>
-                                
-                                
+                                <!-- Carte 3: Transparence (Vert) -->
+                                <div class="value-prop-card bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col items-center text-center group"
+                                    style="--objectif-color: #16A34A;">
+                                    <!-- Wrapper de l'icône style "Objectif" -->
+                                    <div
+                                        class="objectif-icon-wrapper mb-6 group-hover:scale-110 transition-transform duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </div>
+
+                                    <h3 class="text-2xl font-bold text-neutral-dark mb-4">Un Budget Clair, Sans Surprise
+                                    </h3>
+                                    <p class="text-neutral-light leading-relaxed">
+                                        Vous savez exactement ce que vous obtenez et combien ça coûte. Un processus
+                                        simple et des tarifs clairs, pour vous permettre d'investir en toute confiance
+                                        dans votre activité.
+                                    </p>
+                                </div>
+
+
                             </div>
                         </div>
 
@@ -2279,9 +2318,10 @@
                     <div class="space-y-6">
                         <h4 class="text-xl font-bold text-white">Navigation</h4>
                         <div class="space-y-3">
-                            
+
                             <a href="a-propos.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À Propos</a>
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
                             <a href="index.html#plan"
                                 class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Processus</a>
                             <a href="portfolio.html"

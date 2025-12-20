@@ -119,11 +119,7 @@ html {
     scroll-behavior: smooth;
 }
 
-nav.scrolled {
-    /* Vous pouvez ajouter des styles ici si vous voulez que la nav change au scroll */
-    /* Par exemple, une ombre plus prononcée */
-    /* box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); */
-}
+
 
 .portfolio-item {
     transition: transform 0.3s ease, opacity 0.3s ease;
@@ -916,3 +912,57 @@ nav.scrolled {
     width: 2.5rem;
     height: 2.5rem;
 }
+
+
+/* ======================================================= */
+/*    STYLES DE NAVIGATION (VERSION FINE & ÉLÉGANTE)       */
+/* ======================================================= */
+
+/* --- 1. ÉTAT PAR DÉFAUT (Transparent) --- */
+#main-nav {
+    background-color: transparent;
+    box-shadow: none;
+    /* On réduit l'espace vertical : 15px au lieu de 20px */
+    padding-top: 15px; 
+    padding-bottom: 15px;
+}
+
+/* Les liens sont BLANCS */
+.nav-link {
+    color: #ffffff; 
+}
+.nav-link:hover {
+    color: #F97316; /* warm-orange */
+}
+
+/* Gestion des logos */
+#logo-white { opacity: 1; }
+#logo-color { opacity: 0; }
+
+
+/* --- 2. ÉTAT SCROLLÉ (Sticky & Compact) --- */
+#main-nav.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Ombre plus douce */
+    
+    /* On rend la barre très compacte au scroll : 8px seulement */
+    padding-top: 8px;    
+    padding-bottom: 8px;
+}
+
+/* Les liens deviennent GRIS FONCÉ */
+#main-nav.scrolled .nav-link {
+    color: #1F2937; /* neutral-dark */
+}
+#main-nav.scrolled .nav-link:hover {
+    color: #3B82F6; /* clarity-blue */
+}
+
+/* Inversion des logos */
+#main-nav.scrolled #logo-white { opacity: 0; }
+#main-nav.scrolled #logo-color { opacity: 1; }
+
+/* Menu Mobile Hamburger */
+#mobile-menu-button { color: #ffffff; }
+#main-nav.scrolled #mobile-menu-button { color: #1F2937; }
