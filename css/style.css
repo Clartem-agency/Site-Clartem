@@ -119,11 +119,7 @@ html {
     scroll-behavior: smooth;
 }
 
-nav.scrolled {
-    /* Vous pouvez ajouter des styles ici si vous voulez que la nav change au scroll */
-    /* Par exemple, une ombre plus prononcée */
-    /* box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); */
-}
+
 
 .portfolio-item {
     transition: transform 0.3s ease, opacity 0.3s ease;
@@ -915,4 +911,63 @@ nav.scrolled {
 .problem-icon-wrapper svg {
     width: 2.5rem;
     height: 2.5rem;
+}
+
+
+/* ======================================================= */
+/*    STYLES DE NAVIGATION (TRANSPARENT -> STICKY)         */
+/* ======================================================= */
+
+/* --- 1. ÉTAT PAR DÉFAUT (En haut de page, sur l'image) --- */
+#main-nav {
+    background-color: transparent; /* Fond invisible */
+    box-shadow: none;             /* Pas d'ombre */
+    padding-top: 20px;            /* Un peu plus aéré en haut */
+    padding-bottom: 20px;
+}
+
+/* Les liens sont BLANCS pour être lisibles sur le fond bleu foncé */
+.nav-link {
+    color: #ffffff; 
+}
+
+/* Au survol, on met du orange pour que ça ressorte bien */
+.nav-link:hover {
+    color: #F97316; /* warm-orange */
+}
+
+/* Gestion des logos : Par défaut le blanc est visible, le couleur est caché */
+#logo-white { opacity: 1; }
+#logo-color { opacity: 0; }
+
+
+/* --- 2. ÉTAT SCROLLÉ (Quand on descend dans la page) --- */
+#main-nav.scrolled {
+    background-color: rgba(255, 255, 255, 0.95); /* Fond blanc */
+    backdrop-filter: blur(10px);                 /* Effet de flou */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); /* Petite ombre */
+    padding-top: 10px;    /* On réduit la taille pour que ce soit compact */
+    padding-bottom: 10px;
+}
+
+/* Les liens deviennent GRIS FONCÉ pour être lisibles sur le fond blanc */
+#main-nav.scrolled .nav-link {
+    color: #1F2937; /* neutral-dark */
+}
+
+/* Au survol sur fond blanc, on met le bleu de votre marque */
+#main-nav.scrolled .nav-link:hover {
+    color: #3B82F6; /* clarity-blue */
+}
+
+/* Inversion des logos : le blanc disparaît, le couleur apparaît */
+#main-nav.scrolled #logo-white { opacity: 0; }
+#main-nav.scrolled #logo-color { opacity: 1; }
+
+/* Cas particulier : Le bouton hamburger (menu mobile) */
+#mobile-menu-button {
+    color: #ffffff; /* Blanc par défaut */
+}
+#main-nav.scrolled #mobile-menu-button {
+    color: #1F2937; /* Noir au scroll */
 }
