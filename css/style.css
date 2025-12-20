@@ -969,19 +969,19 @@ html {
 
 
 
+
+
 /* ======================================================= */
-/*    NOUVEAU : ANIMATIONS HERO (KEN BURNS & BLUR RISE)    */
+/*    CORRECTIF DÉFINITIF HERO (LAYERS & ANIMATION)        */
 /* ======================================================= */
 
-/* 1. Structure du fond pour l'effet Ken Burns */
-/* On retire l'image du conteneur principal pour l'appliquer à un div dédié */
+/* 1. L'image de fond (Tout au fond) */
 .hero-bg {
-    background-image: none !important; /* On surcharge l'ancien style */
+    background-image: none !important;
     position: relative;
-    overflow: hidden; /* Important pour ne pas que l'image dépasse lors du zoom */
+    overflow: hidden;
 }
 
-/* Le conteneur de l'image qui va zoomer */
 .hero-ken-burns {
     position: absolute;
     top: 0;
@@ -991,48 +991,52 @@ html {
     background-image: url('../assets/background-hero.webp');
     background-size: cover;
     background-position: center;
-    z-index: 0; /* Tout au fond */
     
-    /* L'animation : Zoom lent sur 15s */
+    z-index: 0; /* ÉTAGE 0 : LE SOL */
+    
     animation: kenBurnsEffect 15s ease-in-out infinite alternate;
-    /* "alternate" permet de zoomer puis dézoomer pour éviter une coupure brutale */
 }
 
+/* 2. L'Overlay (Au milieu) */
+.hero-overlay {
+    position: absolute; /* Force la position absolue */
+    top: 0; left: 0; right: 0; bottom: 0; /* Prend tout l'espace */
+    background: linear-gradient(0deg, rgba(30, 58, 138, 0.6), rgba(30, 58, 138, 0.4)); /* Un peu plus sombre pour le contraste */
+    
+    z-index: 10 !important; /* ÉTAGE 1 : LE TAPIS */
+    pointer-events: none !important; /* <--- LA SOLUTION MAGIQUE : Les clics traversent cet élément */
+}
+
+/* 3. Le Contenu Texte (Tout au dessus) */
+#hero .container {
+    position: relative;
+    z-index: 20 !important; /* ÉTAGE 2 : LES MEUBLES */
+}
+
+/* Animations (inchangées) */
 @keyframes kenBurnsEffect {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(1.15); /* Zoom léger à 115% */
-    }
+    0% { transform: scale(1); }
+    100% { transform: scale(1.15); }
 }
 
-/* 2. Effet Blur & Rise pour le texte */
 .animate-blur-rise {
-    opacity: 0; /* Invisible au départ */
-    /* L'animation dure 2s comme demandé, avec une courbe "premium" */
+    opacity: 0;
     animation: blurRise 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 @keyframes blurRise {
     0% {
         opacity: 0;
-        transform: translateY(60px); /* Arrive de plus bas */
-        filter: blur(12px); /* Très flou au début */
+        transform: translateY(60px);
+        filter: blur(12px);
     }
     100% {
         opacity: 1;
         transform: translateY(0);
-        filter: blur(0); /* Parfaitement net */
+        filter: blur(0);
     }
 }
 
-/* Délais pour l'effet de cascade (Staggering) */
-/* Le titre arrive tout de suite */
 .delay-0 { animation-delay: 0.2s; } 
-
-/* Le paragraphe arrive un peu après */
 .delay-1 { animation-delay: 0.8s; } 
-
-/* Les boutons arrivent à la fin */
 .delay-2 { animation-delay: 1.4s; }
