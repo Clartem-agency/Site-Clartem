@@ -1,32 +1,48 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    // ==================================================================
-    // LOGIQUE DU MENU MOBILE ET DE LA NAVIGATION
-    // ==================================================================
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (mobileMenuButton && mobileMenu) {
-        const navLinks = mobileMenu.querySelectorAll('a');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-    }
+    
+// ==================================================================
+// LOGIQUE DU MENU NAVIGATION (Transparent au Scroll)
+// ==================================================================
+const nav = document.getElementById('main-nav');
 
-    const nav = document.getElementById('main-nav');
-    if (nav) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 10) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
+function handleScroll() {
+    if (window.scrollY > 50) { // Seuil augmenté à 50px pour ne pas changer trop vite
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
     }
+}
+
+if (nav) {
+    // Écouteur d'événement au scroll
+    window.addEventListener('scroll', handleScroll);
+    
+    // Appel immédiat au chargement (au cas où on rafraîchit la page au milieu)
+    handleScroll();
+}
+
+// Logique du menu mobile (inchangée)
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+if (mobileMenuButton && mobileMenu) {
+    const navLinks = mobileMenu.querySelectorAll('a');
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        // Astuce : Si on ouvre le menu mobile tout en haut, on met le fond blanc pour la lisibilité
+        if (!nav.classList.contains('scrolled')) {
+            nav.classList.add('scrolled');
+        } else if (window.scrollY <= 50) {
+            nav.classList.remove('scrolled');
+        }
+    });
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    });
+}
+
 
     // ==================================================================
     // ANIMATIONS AVEC SCROLLREVEAL
