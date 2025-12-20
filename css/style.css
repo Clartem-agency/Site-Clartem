@@ -966,3 +966,73 @@ html {
 /* Menu Mobile Hamburger */
 #mobile-menu-button { color: #ffffff; }
 #main-nav.scrolled #mobile-menu-button { color: #1F2937; }
+
+
+
+/* ======================================================= */
+/*    NOUVEAU : ANIMATIONS HERO (KEN BURNS & BLUR RISE)    */
+/* ======================================================= */
+
+/* 1. Structure du fond pour l'effet Ken Burns */
+/* On retire l'image du conteneur principal pour l'appliquer à un div dédié */
+.hero-bg {
+    background-image: none !important; /* On surcharge l'ancien style */
+    position: relative;
+    overflow: hidden; /* Important pour ne pas que l'image dépasse lors du zoom */
+}
+
+/* Le conteneur de l'image qui va zoomer */
+.hero-ken-burns {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/background-hero.webp');
+    background-size: cover;
+    background-position: center;
+    z-index: 0; /* Tout au fond */
+    
+    /* L'animation : Zoom lent sur 15s */
+    animation: kenBurnsEffect 15s ease-in-out infinite alternate;
+    /* "alternate" permet de zoomer puis dézoomer pour éviter une coupure brutale */
+}
+
+@keyframes kenBurnsEffect {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.15); /* Zoom léger à 115% */
+    }
+}
+
+/* 2. Effet Blur & Rise pour le texte */
+.animate-blur-rise {
+    opacity: 0; /* Invisible au départ */
+    /* L'animation dure 2s comme demandé, avec une courbe "premium" */
+    animation: blurRise 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes blurRise {
+    0% {
+        opacity: 0;
+        transform: translateY(60px); /* Arrive de plus bas */
+        filter: blur(12px); /* Très flou au début */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0); /* Parfaitement net */
+    }
+}
+
+/* Délais pour l'effet de cascade (Staggering) */
+/* Le titre arrive tout de suite */
+.delay-0 { animation-delay: 0.2s; } 
+
+/* Le paragraphe arrive un peu après */
+.delay-1 { animation-delay: 0.8s; } 
+
+/* Les boutons arrivent à la fin */
+.delay-2 { animation-delay: 1.4s; }
