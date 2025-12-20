@@ -271,56 +271,76 @@
                                     </svg>
                                 </div>
 
+                                
+
                                 <div id="problem-cards-grid" class="grid md:grid-cols-3 gap-8">
 
-                                    
-                                    <!-- Carte 1: Problème Externe -->
-<div class="problem-card bg-neutral-dark border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:border-clarity-blue/50 hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center">
-    <!-- Remplacement de l'image par l'icône SVG -->
-    <div class="problem-icon-wrapper text-clarity-blue">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-        </svg>
-    </div>
+                                    <!-- Carte 1: Problème Externe (BLEU) -->
+                                    <div class="problem-card bg-neutral-dark border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:border-clarity-blue/50 hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center group">
+                                        <!-- Icône SVG -->
+                                        <div class="problem-icon-wrapper text-clarity-blue group-hover:scale-110 transition-transform duration-300">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                                            </svg>
+                                        </div>
 
-    <div class="flex flex-col flex-grow text-center">
-        <p class="text-lg text-white mb-4 font-medium italic">"Vous savez qu'un site est essentiel, mais vous ne savez pas par où commencer."</p>
-        <p class="text-white/70">Entre les plateformes, les designs, le RGPD... le choix semble infini et vous éloigne de votre cœur de métier.</p>
-    </div>
-</div>
+                                        <div class="flex flex-col flex-grow text-center">
+                                            <!-- Titre avec accent BLEU -->
+                                            <h3 class="text-xl text-white mb-4 font-bold leading-tight">
+                                                "Vous savez qu'un site est essentiel, mais <span class="text-clarity-blue">vous ne savez pas par où commencer</span>."
+                                            </h3>
+                                            <!-- Texte explicatif -->
+                                            <p class="text-neutral-400 text-base leading-relaxed">
+                                                Entre les plateformes, les designs, le RGPD... le choix semble infini et vous éloigne de votre cœur de métier.
+                                            </p>
+                                        </div>
+                                    </div>
 
-<!-- Carte 2: Problème Interne -->
-<div class="problem-card bg-neutral-dark border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:border-warm-orange/50 hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center">
-    <!-- Remplacement de l'image par l'icône SVG -->
-    <div class="problem-icon-wrapper text-warm-orange">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-        </svg>
-    </div>
+                                    <!-- Carte 2: Problème Interne (ORANGE) -->
+                                    <div class="problem-card bg-neutral-dark border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:border-warm-orange/50 hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center group">
+                                        <!-- Icône SVG -->
+                                        <div class="problem-icon-wrapper text-warm-orange group-hover:scale-110 transition-transform duration-300">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                            </svg>
+                                        </div>
 
-    <div class="flex flex-col flex-grow text-center">
-        <p class="text-lg text-white mb-4 font-medium italic">"Vous vous sentez frustré(e) par la technique et craignez de ne pas savoir faire."</p>
-        <p class="text-white/70">La peur de perdre du temps et de l'argent sur un site qui ne fonctionne pas vous paralyse et vous empêche d'avancer.</p>
-    </div>
-</div>
+                                        <div class="flex flex-col flex-grow text-center">
+                                            <!-- Titre avec accent ORANGE -->
+                                            <h3 class="text-xl text-white mb-4 font-bold leading-tight">
+                                                "Vous vous sentez <span class="text-warm-orange">frustré(e) par la technique</span> et craignez de ne pas savoir faire."
+                                            </h3>
+                                            <!-- Texte explicatif -->
+                                            <p class="text-neutral-400 text-base leading-relaxed">
+                                                La peur de perdre du temps et de l'argent sur un site qui ne fonctionne pas vous paralyse et vous empêche d'avancer.
+                                            </p>
+                                        </div>
+                                    </div>
 
-<!-- Carte 3: Problème Philosophique -->
-<div class="problem-card bg-neutral-dark border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:border-success-green/50 hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center">
-    <!-- Remplacement de l'image par l'icône SVG -->
-    <div class="problem-icon-wrapper text-success-green">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
-        </svg>
-    </div>
+                                    <!-- Carte 3: Problème Philosophique (VERT) -->
+                                    <div class="problem-card bg-neutral-dark border border-white/10 rounded-2xl p-8 transition-all duration-300 hover:border-success-green/50 hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center group">
+                                        <!-- Icône SVG -->
+                                        <div class="problem-icon-wrapper text-success-green group-hover:scale-110 transition-transform duration-300">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+                                            </svg>
+                                        </div>
 
-    <div class="flex flex-col flex-grow text-center">
-        <p class="text-lg text-white mb-4 font-medium italic">"Vous transformez des vies. Votre site devrait le refléter avec simplicité."</p>
-        <p class="text-white/70">Votre expertise mérite d'être présentée avec clarté, pour attirer les personnes qui ont vraiment besoin de vous.</p>
-    </div>
-</div>
-
+                                        <div class="flex flex-col flex-grow text-center">
+                                            <!-- Titre avec accent VERT -->
+                                            <h3 class="text-xl text-white mb-4 font-bold leading-tight">
+                                                "Vous transformez des vies. Votre site devrait le refléter <span class="text-success-green">avec simplicité</span>."
+                                            </h3>
+                                            <!-- Texte explicatif -->
+                                            <p class="text-neutral-400 text-base leading-relaxed">
+                                                Votre expertise mérite d'être présentée avec clarté, pour attirer les personnes qui ont vraiment besoin de vous.
+                                            </p>
+                                        </div>
+                                    </div>
 
                                 </div>
+
+
 
 
                             </div>
