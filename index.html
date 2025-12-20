@@ -330,37 +330,42 @@
 
 
 
+<!-- ======================================================= -->
+<!--                Section Value Proposition               -->
+<!-- ======================================================= -->
 
-        <!-- ======================================================= -->
-        <!--                Section Value Proposition               -->
-        <!-- ======================================================= -->
+<section id="value-proposition-section" class="relative py-20">
+    <!-- MODIFIÉ : L'overlay passe de 'bg-deep-blue' à 'bg-white' ou 'bg-soft-blue' pour aller avec le texte sombre -->
+    <div id="value-prop-overlay" class="absolute inset-0 bg-white/90 backdrop-blur-sm z-0"></div>
 
-        <section id="value-proposition-section" class="relative py-20">
-            <!-- NOUVEAU : Superposition pour la lisibilité du titre -->
-            <div id="value-prop-overlay" class="absolute inset-0 bg-deep-blue/80 backdrop-blur-sm z-0"></div>
+    <!-- Le conteneur qui aura une grande hauteur pour permettre le scroll de l'animation -->
+    <div id="value-prop-scroll-container" class="relative z-10">
+        <!-- Le contenu qui deviendra "sticky" (collant) en haut de l'écran -->
+        <div id="value-prop-sticky-content" class="h-screen w-full">
+            <!-- Conteneur pour centrer le contenu verticalement et horizontalement -->
+            <div class="container mx-auto px-6 h-full flex flex-col justify-center">
 
-            <!-- Le conteneur qui aura une grande hauteur pour permettre le scroll de l'animation -->
-            <div id="value-prop-scroll-container" class="relative z-10">
-                <!-- Le contenu qui deviendra "sticky" (collant) en haut de l'écran -->
-                <div id="value-prop-sticky-content" class="h-screen w-full">
-                    <!-- Conteneur pour centrer le contenu verticalement et horizontalement -->
-                    <div class="container mx-auto px-6 h-full flex flex-col justify-center">
+                <div>
+                    <!-- MODIFIÉ : Ajout de id="value-prop-title-block" pour le déclenchement JS -->
+                    <div id="value-prop-title-block" class="text-center max-w-4xl mx-auto mb-16" data-sr>
+                        
+                        <!-- TITRE MODIFIÉ : text-neutral-dark + span text-clarity-blue -->
+                        <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">
+                            Un Site Web pour Coachs & Thérapeutes,<br>
+                            <span class="text-clarity-blue">Conçu pour Votre Croissance</span>
+                        </h2>
 
-                        <div>
-                            <!-- MODIFIÉ : Ajout de id="value-prop-title-block" pour le déclenchement JS -->
-                            <div id="value-prop-title-block" class="text-center max-w-4xl mx-auto mb-16" data-sr>
-                                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Un Site Web pour Coachs &
-                                    Thérapeutes,<br>Conçu pour Votre Croissance</h2>
-                                <p class="text-xl leading-relaxed text-white/80">
-                                    Chez clartem.com, j'ai un seul objectif : vous fournir un site web professionnel et
-                                    efficace
-                                    grâce à un processus simple, rapide et transparent.
-                                    <span class="font-semibold text-warm-orange">Fini la confusion, place à la
-                                        clarté.</span>
-                                </p>
-                            </div>
+                        <!-- PARAGRAPHE MODIFIÉ : text-neutral-light au lieu de text-white -->
+                        <p class="text-xl leading-relaxed text-neutral-light">
+                            Chez clartem.com, j'ai un seul objectif : vous fournir un site web professionnel et
+                            efficace grâce à un processus simple, rapide et transparent.
+                            <span class="font-semibold text-warm-orange">Fini la confusion, place à la clarté.</span>
+                        </p>
+                    </div>
 
-                            <div class="grid lg:grid-cols-3 gap-8">
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <!-- Le reste des cartes (grid) reste inchangé... -->
+        
                                 
 
                                 <!-- Carte 1: Rapidité (Orange) -->
