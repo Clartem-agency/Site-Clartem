@@ -254,108 +254,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    // ==================================================================
-    // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION SITE CLARTÉ
-    // ==================================================================
-    const clarityContainer = document.getElementById('clarity-section-container');
-    if (clarityContainer && window.innerWidth >= 768) {
-        const animatedElements = clarityContainer.querySelectorAll('.clarity-text-reveal, .clarity-list-item');
-        const rightCard = document.getElementById('clarity-right-card');
-
-        // ANCIENNE VALEUR : const CLARITY_ANIMATION_SCROLL_HEIGHT_VH = 150;
-        // NOUVELLE VALEUR : Augmentée pour donner plus d'espace à l'animation
-        const CLARITY_ANIMATION_SCROLL_HEIGHT_VH = 250;
-
-        // --- DÉBUT DE LA CORRECTION CLÉ ---
-        // 1. On calcule la hauteur nécessaire pour que l'animation se déroule.
-        const animationScrollHeight = (CLARITY_ANIMATION_SCROLL_HEIGHT_VH / 100) * window.innerHeight;
-
-        // 2. La hauteur totale du conteneur doit être la hauteur de l'animation + la hauteur de l'écran
-        //    (pour permettre à l'élément "sticky" de se détacher à la fin).
-        const totalContainerHeight = animationScrollHeight + window.innerHeight;
-
-        // 3. On applique dynamiquement cette hauteur au conteneur.
-        clarityContainer.style.height = `${totalContainerHeight}px`;
-        // --- FIN DE LA CORRECTION CLÉ ---
-
-        const thresholds = [
-            // Gauche
-            0.05, // Étape 0: Titre "Pourquoi..."
-            0.10, // Étape 1: Paragraphe "Dans un monde..."
-            0.18, // Étape 2: "Impact Immédiat"
-            0.26, // Étape 3: "Optimisé pour la Conversion"
-            0.34, // Étape 4: "Rapidité et Performance"
-            // Droite
-            0.45, // Étape 5: Titre "Ce que votre site inclut" (seuil pour le cadre)
-            0.52, // Étape 6: Item 1
-            0.59, // Étape 7: Item 2
-            0.66, // Étape 8: Item 3
-            0.73, // Étape 9: Item 4
-            0.80, // Étape 10: Item 5
-            0.87, // Étape 11: Item 6
-            0.94, // Étape 12: Item 7
-            0.98  // Étape 13: Bouton
-        ];
-
-        const handleClarityScroll = () => {
-            const rect = clarityContainer.getBoundingClientRect();
-
-            if (rect.bottom < 0 || rect.top > window.innerHeight) return;
-
-            const scrollAmount = -rect.top;
-
-            // Le calcul de la progression utilise maintenant la variable `animationScrollHeight` que nous avons définie.
-            let progress = scrollAmount / animationScrollHeight;
-            progress = Math.max(0, Math.min(1, progress));
-
-            if (progress >= thresholds[5]) {
-                rightCard.classList.add('is-visible');
-            } else {
-                rightCard.classList.remove('is-visible');
-            }
-
-            animatedElements.forEach(el => {
-                const step = parseInt(el.dataset.step, 10);
-                if (progress >= thresholds[step]) {
-                    el.classList.add('is-visible');
-                } else {
-                    el.classList.remove('is-visible');
-                }
-            });
-        };
-
-        window.addEventListener('scroll', handleClarityScroll, { passive: true });
-        handleClarityScroll();
-    }
+    
 
 
 
 
-    // ==================================================================
-    // LOGIQUE POUR LA TRANSITION DE L'OVERLAY DE LA SECTION CLARTÉ
-    // ==================================================================
-    const clarityOverlay = document.getElementById('clarity-overlay');
-    const clarityTitleBlock = document.getElementById('clarity-title-block');
-
-    if (clarityOverlay && clarityTitleBlock) {
-        const observerCallback = (entries) => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting && entry.boundingClientRect.bottom < 120) {
-                    clarityOverlay.classList.add('is-faded');
-                } else {
-                    clarityOverlay.classList.remove('is-faded');
-                }
-            });
-        };
-
-        const observerOptions = {
-            rootMargin: "-120px 0px 0px 0px",
-            threshold: 0
-        };
-
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
-        observer.observe(clarityTitleBlock);
-    }
+   
 
 
 

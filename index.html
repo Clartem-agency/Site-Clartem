@@ -188,398 +188,338 @@
 
 
 
-        
-<!-- ======================================================= -->
-<!--                Section Hero (CORRIGÉE)                  -->
-<!-- ======================================================= -->
 
-<section id="hero" class="hero-bg min-h-screen flex items-center justify-center text-white relative pt-28 pb-16 md:pt-32 md:pb-20">
-    
-    <!-- 1. L'image (Frère 1) -->
-    <div class="hero-ken-burns"></div>
+        <!-- ======================================================= -->
+        <!--                Section Hero (CORRIGÉE)                  -->
+        <!-- ======================================================= -->
 
-    <!-- 2. L'Overlay (Frère 2) -->
-    <!-- J'ai retiré les classes z-index d'ici car elles sont gérées dans le CSS maintenant -->
-    <div class="hero-overlay"></div>
+        <section id="hero"
+            class="hero-bg min-h-screen flex items-center justify-center text-white relative pt-28 pb-16 md:pt-32 md:pb-20">
 
-    <!-- 3. Le Contenu (Frère 3) -->
-    <div class="container mx-auto px-6 text-center">
-        <div class="max-w-3xl mx-auto">
-            
-            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight animate-blur-rise delay-0">
-                Votre site web pour coachs & thérapeutes<br>
-                <span class="text-warm-orange">Convertissez vos visiteurs en clients.</span>
-            </h1>
-            
-            <p class="text-lg md:text-xl text-white/90 mt-6 leading-relaxed animate-blur-rise delay-1">
-                Je crée des sites web professionnels pour les métiers du <strong>coaching et du
-                    bien-être</strong>. Transformons votre approche unique en un message clair qui inspire
-                confiance et incite vos futurs clients à prendre rendez-vous.
-            </p>
-            
-            <!-- Les boutons -->
-            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-blur-rise delay-2">
-                <!-- J'ai ajouté relative et z-50 juste au cas où, pour forcer le clic -->
-                <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
-                    rel="noopener noreferrer" class="btn btn-orange w-full sm:w-auto text-lg relative z-50">
-                    Développer mon activité
-                </a>
-                <a href="#plan" class="btn btn-secondary w-full sm:w-auto text-lg relative z-50">
-                    Découvrir le processus
-                </a>
+            <!-- 1. L'image (Frère 1) -->
+            <div class="hero-ken-burns"></div>
+
+            <!-- 2. L'Overlay (Frère 2) -->
+            <!-- J'ai retiré les classes z-index d'ici car elles sont gérées dans le CSS maintenant -->
+            <div class="hero-overlay"></div>
+
+            <!-- 3. Le Contenu (Frère 3) -->
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-3xl mx-auto">
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight animate-blur-rise delay-0">
+                        Votre site web pour coachs & thérapeutes<br>
+                        <span class="text-warm-orange">Convertissez vos visiteurs en clients.</span>
+                    </h1>
+
+                    <p class="text-lg md:text-xl text-white/90 mt-6 leading-relaxed animate-blur-rise delay-1">
+                        Je crée des sites web professionnels pour les métiers du <strong>coaching et du
+                            bien-être</strong>. Transformons votre approche unique en un message clair qui inspire
+                        confiance et incite vos futurs clients à prendre rendez-vous.
+                    </p>
+
+                    <!-- Les boutons -->
+                    <div
+                        class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-blur-rise delay-2">
+                        <!-- J'ai ajouté relative et z-50 juste au cas où, pour forcer le clic -->
+                        <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                            rel="noopener noreferrer" class="btn btn-orange w-full sm:w-auto text-lg relative z-50">
+                            Développer mon activité
+                        </a>
+                        <a href="#plan" class="btn btn-secondary w-full sm:w-auto text-lg relative z-50">
+                            Découvrir le processus
+                        </a>
+                    </div>
+
+                </div>
             </div>
+        </section>
 
-        </div>
-    </div>
-</section>
 
+
+
+
+        <!-- ======================================================= -->
+        <!--       Section Probleme (VERSION PREMIUM & SIMPLE)       -->
+        <!-- ======================================================= -->
+        <section id="problem-section" class="relative text-white py-24 overflow-hidden">
+            <!-- Fond sombre -->
+            <div class="absolute inset-0 bg-neutral-dark/90 z-0"></div>
+
+            <div class="container mx-auto px-6 relative z-10">
+
+                <!-- Titre Centré -->
+                <div class="text-center mb-16" data-sr>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                        Votre site web de coach ou thérapeute vous semble<br>
+                        <span class="text-clarity-blue"> compliqué, coûteux et chronophage</span> ?
+                    </h2>
+                    <p class="text-xl text-white/80 max-w-3xl mx-auto">
+                        Vous n'êtes pas seul(e). En tant que praticien, votre temps est
+                        mieux investi à aider vos clients, pas à vous battre avec la technique.
+                    </p>
+                </div>
+
+                <!-- NOTE : J'ai supprimé le bloc <div id="frustration-knot-container"> ici -->
+
+                <!-- Grille de cartes -->
+                <!-- Suppression de margin-top négative. Apparition douce avec data-sr -->
+                <div class="grid md:grid-cols-3 gap-8">
+
+                    <!-- Carte 1 -->
+                    <div class="problem-card bg-neutral-dark border border-white/10 rounded-2xl p-10 transition-all duration-300 hover:border-clarity-blue/50 hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center group h-full"
+                        data-sr data-sr-interval="100">
+
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-clarity-blue/10 text-clarity-blue flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                            </svg>
+                        </div>
+
+                        <div class="flex flex-col flex-grow text-center">
+                            <h3 class="text-xl text-white mb-4 font-bold leading-tight">"Vous ne savez pas par où
+                                commencer."</h3>
+                            <p class="text-neutral-400 text-base leading-relaxed">Entre les plateformes, les designs, le
+                                RGPD... le choix semble infini et vous éloigne de votre cœur de métier.</p>
+                        </div>
+                    </div>
+
+                    <!-- Carte 2 -->
+                    <div class="problem-card bg-neutral-dark border border-white/10 rounded-2xl p-10 transition-all duration-300 hover:border-warm-orange/50 hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center group h-full"
+                        data-sr data-sr-interval="100">
+
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-warm-orange/10 text-warm-orange flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                            </svg>
+                        </div>
+
+                        <div class="flex flex-col flex-grow text-center">
+                            <h3 class="text-xl text-white mb-4 font-bold leading-tight">"La technique vous frustre."
+                            </h3>
+                            <p class="text-neutral-400 text-base leading-relaxed">La peur de perdre du temps et de
+                                l'argent sur un site qui ne fonctionne pas vous paralyse et vous empêche d'avancer.</p>
+                        </div>
+                    </div>
+
+                    <!-- Carte 3 -->
+                    <div class="problem-card bg-neutral-dark border border-white/10 rounded-2xl p-10 transition-all duration-300 hover:border-success-green/50 hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center group h-full"
+                        data-sr data-sr-interval="100">
+
+                        <div
+                            class="w-16 h-16 rounded-2xl bg-success-green/10 text-success-green flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+                            </svg>
+                        </div>
+
+                        <div class="flex flex-col flex-grow text-center">
+                            <h3 class="text-xl text-white mb-4 font-bold leading-tight">"Votre site ne reflète pas votre
+                                expertise."</h3>
+                            <p class="text-neutral-400 text-base leading-relaxed">Votre expertise mérite d'être
+                                présentée avec clarté, pour attirer les personnes qui ont vraiment besoin de vous.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+        <!-- ======================================================= -->
+        <!--                Section Value Proposition (NETTOYÉE)     -->
+        <!-- ======================================================= -->
+        <section id="value-proposition-section" class="relative py-20 overflow-hidden">
+
+            <div class="container mx-auto px-6 relative z-10">
+
+                <div class="text-center max-w-4xl mx-auto mb-16" data-sr>
+                    <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">
+                        Un Site Web pour Coachs & Thérapeutes,<br>
+                        <span class="text-clarity-blue">Conçu pour Votre Croissance</span>
+                    </h2>
+                    <p class="text-xl leading-relaxed text-neutral-light">
+                        Chez clartem.com, j'ai un seul objectif : vous fournir un site web professionnel et
+                        efficace grâce à un processus simple.
+                        <span class="font-semibold text-warm-orange">Fini la confusion, place à la clarté.</span>
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-8">
+
+                    <!-- Carte 1 -->
+                    <div class="value-prop-card bg-white p-8 rounded-2xl shadow-xl border border-gray-200 hover:border-warm-orange flex flex-col items-center text-center group"
+                        style="--objectif-color: #F97316;" data-sr data-sr-interval="150">
+                        <div class="objectif-icon-wrapper mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-neutral-dark mb-4">Site en ligne en 7 Jours</h3>
+                        <p class="text-neutral-light leading-relaxed">
+                            Mon processus optimisé garantit la mise en ligne de votre site professionnel en une semaine.
+                            Concentrez-vous sur vos clients.
+                        </p>
+                    </div>
+
+                    <!-- Carte 2 -->
+                    <div class="value-prop-card bg-white p-8 rounded-2xl shadow-xl border border-gray-200 hover:border-clarity-blue flex flex-col items-center text-center group"
+                        style="--objectif-color: #3B82F6;" data-sr data-sr-interval="150">
+                        <div class="objectif-icon-wrapper mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-neutral-dark mb-4">Design sur-mesure</h3>
+                        <p class="text-neutral-light leading-relaxed">
+                            Pas de templates génériques. Je crée un design unique qui reflète votre identité et parle
+                            directement à vos futurs clients.
+                        </p>
+                    </div>
+
+                    <!-- Carte 3 -->
+                    <div class="value-prop-card bg-white p-8 rounded-2xl shadow-xl border border-gray-200 hover:border-success-green flex flex-col items-center text-center group"
+                        style="--objectif-color: #16A34A;" data-sr data-sr-interval="150">
+                        <div class="objectif-icon-wrapper mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-neutral-dark mb-4">Budget Clair</h3>
+                        <p class="text-neutral-light leading-relaxed">
+                            Vous savez exactement ce que vous obtenez et combien ça coûte. Un investissement en toute
+                            confiance.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
 
 
 
 
 <!-- ======================================================= -->
-<!--       Section Probleme (VERSION PREMIUM & SIMPLE)       -->
+<!--       NOUVELLE SECTION : CONCEPT & ANATOMIE (PREMIUM)   -->
 <!-- ======================================================= -->
-<section id="problem-section" class="relative text-white py-24 overflow-hidden">
-    <!-- Fond sombre -->
-    <div class="absolute inset-0 bg-neutral-dark/90 z-0"></div>
+<section id="site-concept" class="py-24 bg-white relative overflow-hidden">
+    <!-- Élément décoratif d'arrière-plan très subtil -->
+    <div class="absolute top-0 right-0 w-1/3 h-1/3 bg-soft-blue/30 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
 
     <div class="container mx-auto px-6 relative z-10">
         
-        <!-- Titre Centré -->
-        <div class="text-center mb-16" data-sr>
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
-                Votre site web de coach ou thérapeute vous semble<br>
-                <span class="text-clarity-blue"> compliqué, coûteux et chronophage</span> ?
-            </h2>
-            <p class="text-xl text-white/80 max-w-3xl mx-auto">
-                Vous n'êtes pas seul(e). En tant que praticien, votre temps est
-                mieux investi à aider vos clients, pas à vous battre avec la technique.
-            </p>
-        </div>
-
-        <!-- NOTE : J'ai supprimé le bloc <div id="frustration-knot-container"> ici -->
-
-        <!-- Grille de cartes -->
-        <!-- Suppression de margin-top négative. Apparition douce avec data-sr -->
-        <div class="grid md:grid-cols-3 gap-8">
-
-            <!-- Carte 1 -->
-            <div class="problem-card bg-neutral-dark border border-white/10 rounded-2xl p-10 transition-all duration-300 hover:border-clarity-blue/50 hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center group h-full" 
-                 data-sr data-sr-interval="100">
-                
-                <div class="w-16 h-16 rounded-2xl bg-clarity-blue/10 text-clarity-blue flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                    </svg>
-                </div>
-                
-                <div class="flex flex-col flex-grow text-center">
-                    <h3 class="text-xl text-white mb-4 font-bold leading-tight">"Vous ne savez pas par où commencer."</h3>
-                    <p class="text-neutral-400 text-base leading-relaxed">Entre les plateformes, les designs, le RGPD... le choix semble infini et vous éloigne de votre cœur de métier.</p>
-                </div>
-            </div>
-
-            <!-- Carte 2 -->
-            <div class="problem-card bg-neutral-dark border border-white/10 rounded-2xl p-10 transition-all duration-300 hover:border-warm-orange/50 hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center group h-full" 
-                 data-sr data-sr-interval="100">
-                
-                <div class="w-16 h-16 rounded-2xl bg-warm-orange/10 text-warm-orange flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                    </svg>
-                </div>
-                
-                <div class="flex flex-col flex-grow text-center">
-                    <h3 class="text-xl text-white mb-4 font-bold leading-tight">"La technique vous frustre."</h3>
-                    <p class="text-neutral-400 text-base leading-relaxed">La peur de perdre du temps et de l'argent sur un site qui ne fonctionne pas vous paralyse et vous empêche d'avancer.</p>
-                </div>
-            </div>
-
-            <!-- Carte 3 -->
-            <div class="problem-card bg-neutral-dark border border-white/10 rounded-2xl p-10 transition-all duration-300 hover:border-success-green/50 hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center group h-full" 
-                 data-sr data-sr-interval="100">
-                
-                <div class="w-16 h-16 rounded-2xl bg-success-green/10 text-success-green flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
-                    </svg>
-                </div>
-                
-                <div class="flex flex-col flex-grow text-center">
-                    <h3 class="text-xl text-white mb-4 font-bold leading-tight">"Votre site ne reflète pas votre expertise."</h3>
-                    <p class="text-neutral-400 text-base leading-relaxed">Votre expertise mérite d'être présentée avec clarté, pour attirer les personnes qui ont vraiment besoin de vous.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-        
-
-
-
-
-<!-- ======================================================= -->
-<!--                Section Value Proposition (NETTOYÉE)     -->
-<!-- ======================================================= -->
-<section id="value-proposition-section" class="relative py-20 overflow-hidden">
-    
-    <div class="container mx-auto px-6 relative z-10">
-        
-        <div class="text-center max-w-4xl mx-auto mb-16" data-sr>
-            <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">
-                Un Site Web pour Coachs & Thérapeutes,<br>
-                <span class="text-clarity-blue">Conçu pour Votre Croissance</span>
-            </h2>
-            <p class="text-xl leading-relaxed text-neutral-light">
-                Chez clartem.com, j'ai un seul objectif : vous fournir un site web professionnel et
-                efficace grâce à un processus simple.
-                <span class="font-semibold text-warm-orange">Fini la confusion, place à la clarté.</span>
-            </p>
-        </div>
-
-        <div class="grid lg:grid-cols-3 gap-8">
+        <div class="grid lg:grid-cols-12 gap-12 items-start">
             
-            <!-- Carte 1 -->
-            <div class="value-prop-card bg-white p-8 rounded-2xl shadow-xl border border-gray-200 hover:border-warm-orange flex flex-col items-center text-center group" 
-                 style="--objectif-color: #F97316;" 
-                 data-sr data-sr-interval="150">
-                <div class="objectif-icon-wrapper mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
+            <!-- COLONNE GAUCHE : LE MANIFESTE (Philosophie) -->
+            <div class="lg:col-span-4 lg:sticky lg:top-32" data-sr>
+                <div class="inline-block px-4 py-1.5 rounded-full bg-soft-blue text-deep-blue text-sm font-bold mb-6">
+                    L'Approche Essentialiste
                 </div>
-                <h3 class="text-2xl font-bold text-neutral-dark mb-4">Site en ligne en 7 Jours</h3>
-                <p class="text-neutral-light leading-relaxed">
-                    Mon processus optimisé garantit la mise en ligne de votre site professionnel en une semaine. Concentrez-vous sur vos clients.
+                <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6 leading-tight">
+                    Éliminer le superflu pour <span class="text-clarity-blue">amplifier l'essentiel.</span>
+                </h2>
+                <p class="text-lg text-neutral-light leading-relaxed mb-8">
+                    La confusion est l'ennemi de la conversion. La plupart des sites échouent car ils en disent trop.
                 </p>
+                <p class="text-lg text-neutral-light leading-relaxed mb-8">
+                    Mon approche n'est pas de "remplir des pages", mais de construire une structure psychologique qui guide votre visiteur, étape par étape, vers la seule chose qui compte : <strong>passer à l'action avec vous.</strong>
+                </p>
+                <a href="#portfolio" class="hidden lg:inline-flex items-center text-deep-blue font-semibold hover:text-warm-orange transition-colors group">
+                    Voir des exemples concrets
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </a>
             </div>
 
-            <!-- Carte 2 -->
-            <div class="value-prop-card bg-white p-8 rounded-2xl shadow-xl border border-gray-200 hover:border-clarity-blue flex flex-col items-center text-center group" 
-                 style="--objectif-color: #3B82F6;" 
-                 data-sr data-sr-interval="150">
-                <div class="objectif-icon-wrapper mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                    </svg>
-                </div>
-                <h3 class="text-2xl font-bold text-neutral-dark mb-4">Design sur-mesure</h3>
-                <p class="text-neutral-light leading-relaxed">
-                    Pas de templates génériques. Je crée un design unique qui reflète votre identité et parle directement à vos futurs clients.
-                </p>
-            </div>
+            <!-- COLONNE DROITE : LA BENTO GRID (Anatomie) -->
+            <div class="lg:col-span-8">
+                <div class="grid md:grid-cols-2 gap-6">
 
-            <!-- Carte 3 -->
-            <div class="value-prop-card bg-white p-8 rounded-2xl shadow-xl border border-gray-200 hover:border-success-green flex flex-col items-center text-center group" 
-                 style="--objectif-color: #16A34A;" 
-                 data-sr data-sr-interval="150">
-                <div class="objectif-icon-wrapper mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+                    <!-- Carte 1 : Message (Prend 2 colonnes sur mobile, 1 sur desktop) -->
+                    <div class="bento-card p-8 bg-neutral-dark text-white rounded-3xl" data-sr>
+                        <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mb-6 text-warm-orange">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Impact Immédiat</h3>
+                        <p class="text-white/70 text-sm leading-relaxed">
+                            Les 3 premières secondes sont décisives. Nous créons une accroche (Hook) qui résonne instantanément avec la douleur ou le désir de votre client idéal.
+                        </p>
+                    </div>
+
+                    <!-- Carte 2 : Structure -->
+                    <div class="bento-card p-8 bg-soft-blue rounded-3xl border border-white" data-sr data-sr-delay="100">
+                        <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 text-clarity-blue shadow-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-neutral-dark mb-3">Navigation Fluide</h3>
+                        <p class="text-neutral-light text-sm leading-relaxed">
+                            Tout est sur une page (ou structuré simplement). Pas de menus complexes où l'on se perd. Le visiteur n'a qu'un seul chemin : vers le bas, vers vous.
+                        </p>
+                    </div>
+
+                    <!-- Carte 3 : Call to Action (Flexible) - Prend toute la largeur -->
+                    <div class="bento-card md:col-span-2 p-8 bg-gradient-to-br from-white to-gray-50 rounded-3xl border border-gray-200 shadow-sm relative overflow-hidden group" data-sr data-sr-delay="200">
+                        <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" /></svg>
+                        </div>
+                        <div class="relative z-10 flex flex-col md:flex-row gap-6 items-start md:items-center">
+                            <div class="w-14 h-14 flex-shrink-0 bg-success-green/10 text-success-green rounded-2xl flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Un Appel à l'Action (CTA) Unique & Adapté</h3>
+                                <p class="text-neutral-light text-sm leading-relaxed max-w-lg">
+                                    Que vous souhaitiez un appel découverte, une vente directe, ou une inscription newsletter : le design s'adapte à <strong>votre</strong> objectif commercial, défini ensemble.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carte 4 : Technique -->
+                    <div class="bento-card p-8 bg-white rounded-3xl border border-gray-200" data-sr data-sr-delay="300">
+                        <div class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center mb-6 text-neutral-dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-neutral-dark mb-3">100% Technique Invisible</h3>
+                        <p class="text-neutral-light text-sm leading-relaxed">
+                            Hébergement, sécurité, responsive mobile, rapidité... Tout est inclus. Vous ne gérez rien, tout fonctionne.
+                        </p>
+                    </div>
+
+                    <!-- Carte 5 : Lien Humain -->
+                    <div class="bento-card p-8 bg-white rounded-3xl border border-gray-200" data-sr data-sr-delay="400">
+                        <div class="w-12 h-12 bg-deep-blue/10 rounded-2xl flex items-center justify-center mb-6 text-deep-blue">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-neutral-dark mb-3">Connexion Humaine</h3>
+                        <p class="text-neutral-light text-sm leading-relaxed">
+                            Une section "À Propos" et des témoignages intégrés stratégiquement pour créer la confiance avant même le premier contact.
+                        </p>
+                    </div>
+
                 </div>
-                <h3 class="text-2xl font-bold text-neutral-dark mb-4">Budget Clair</h3>
-                <p class="text-neutral-light leading-relaxed">
-                    Vous savez exactement ce que vous obtenez et combien ça coûte. Un investissement en toute confiance.
-                </p>
             </div>
 
         </div>
     </div>
 </section>
        
-
-
-
-
-        <!-- ======================================================= -->
-        <!--                Section Site Clarté (MODIFIÉE)           -->
-        <!-- ======================================================= -->
-        <section id="site-clarte" class="py-20 relative">
-            <div id="clarity-overlay" class="absolute inset-0 bg-soft-blue/80 backdrop-blur-sm z-0"></div>
-
-            <div class="container mx-auto px-6 relative z-10">
-                <div id="clarity-title-block" class="text-center mb-16" data-sr>
-                    <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">Le Site Clarté : L'outil parfait
-                        pour un coach ou thérapeute<br><span class="text-clarity-blue">qui veut convertir ses visiteurs
-                            en clients</span></h2>
-                    <p class="text-xl text-neutral-light max-w-3xl mx-auto">
-                        J'ai conçu le Site Clarté pour être la solution idéale pour les <strong>coachs, thérapeutes et
-                            professionnels du bien-être</strong>. Il concentre votre approche unique sur une seule page,
-                        pour guider en douceur vos visiteurs vers une seule action : <strong>prendre
-                            rendez-vous</strong>.
-                    </p>
-                </div>
-
-                <div id="clarity-section-container" class="relative">
-                    <div id="clarity-sticky-content" class="h-screen w-full">
-                        <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center max-w-6xl mx-auto h-full">
-
-                            <!-- ======================================================= -->
-                            <!--    COLONNE GAUCHE (MODIFIÉE POUR UN LOOK PLUS PRO)      -->
-                            <!-- ======================================================= -->
-                            <div class="space-y-6">
-                                <!-- MODIFIÉ : Espacement principal réduit de space-y-8 à space-y-6 -->
-
-                                <!-- Titre et Paragraphe restent inchangés -->
-                                <div class="clarity-text-reveal" data-step="0">
-                                    <h3 class="text-2xl font-bold text-neutral-dark mb-4">Pourquoi un Site Clarté est si
-                                        efficace ?</h3>
-                                </div>
-                                <div class="clarity-text-reveal" data-step="1">
-                                    <p class="text-lg text-neutral-light leading-relaxed">Dans un monde où l'attention
-                                        est limitée, la simplicité gagne. Le Site Clarté élimine le superflu pour aller
-                                        droit au but.</p>
-                                </div>
-
-                                <!-- MODIFIÉ : Le conteneur des bénéfices a une structure plus simple et un espacement plus grand -->
-                                <div class="space-y-8 pt-4">
-
-                                    <!-- Bénéfice 1 : Impact Immédiat -->
-                                    <div class="clarity-text-reveal flex items-start gap-4" data-step="2">
-                                        <!-- MODIFIÉ : Classes "p-4 rounded-lg" supprimées -->
-                                        <div
-                                            class="flex-shrink-0 w-10 h-10 bg-clarity-blue text-white rounded-full flex items-center justify-center mt-1 shadow-md">
-                                            <!-- Icône simplifiée pour correspondre à l'image -->
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                            </svg>
-                                        </div>
-                                        <div>
-                                            <h4 class="text-lg font-semibold text-neutral-dark">Impact Immédiat</h4>
-                                            <p class="text-neutral-light mt-1">Votre message est clair et direct. Le
-                                                visiteur
-                                                comprend immédiatement ce que vous faites et pourquoi il devrait vous
-                                                choisir.
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <!-- Bénéfice 2 : Optimisé pour la Conversion -->
-                                    <div class="clarity-text-reveal flex items-start gap-4" data-step="3">
-                                        <!-- MODIFIÉ : Classes "p-4 rounded-lg" supprimées -->
-                                        <div
-                                            class="flex-shrink-0 w-10 h-10 bg-warm-orange text-white rounded-full flex items-center justify-center mt-1 shadow-md">
-                                            <!-- Icône simplifiée pour correspondre à l'image -->
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                                                <path
-                                                    d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                            </svg>
-                                        </div>
-                                        <div>
-                                            <h4 class="text-lg font-semibold text-neutral-dark">Optimisé pour la
-                                                Conversion</h4>
-                                            <p class="text-neutral-light mt-1">Chaque section est conçue pour amener le
-                                                visiteur à l'action (vous contacter, réserver une séance), sans le
-                                                perdre dans des pages inutiles.</p>
-                                        </div>
-                                    </div>
-
-                                    <!-- Bénéfice 3 : Rapidité et Performance -->
-                                    <div class="clarity-text-reveal flex items-start gap-4" data-step="4">
-                                        <!-- MODIFIÉ : Classes "p-4 rounded-lg" supprimées -->
-                                        <div
-                                            class="flex-shrink-0 w-10 h-10 bg-success-green text-white rounded-full flex items-center justify-center mt-1 shadow-md">
-                                            <!-- Icône simplifiée pour correspondre à l'image -->
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                            </svg>
-                                        </div>
-                                        <div>
-                                            <h4 class="text-lg font-semibold text-neutral-dark">Rapidité et Performance
-                                            </h4>
-                                            <p class="text-neutral-light mt-1">Moins de pages à charger signifie un site
-                                                plus rapide,
-                                                ce qui est crucial pour l'expérience utilisateur et le SEO.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- COLONNE DROITE (INCHANGÉE) -->
-                            <div id="clarity-right-card"
-                                class="p-8 bg-gradient-to-br from-soft-blue to-white rounded-2xl shadow-lg border border-gray-200">
-                                <h3 class="clarity-list-item text-2xl font-bold text-neutral-dark mb-6" data-step="5">Ce
-                                    que votre Site Clarté inclut :</h3>
-                                <ul class="space-y-4">
-                                    <li class="clarity-list-item flex items-center gap-3 text-lg" data-step="6"><svg
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            class="w-6 h-6 text-success-green flex-shrink-0">
-                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                                        </svg>Une accroche percutante qui capte l'attention.</li>
-                                    <li class="clarity-list-item flex items-center gap-3 text-lg" data-step="7"><svg
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            class="w-6 h-6 text-success-green flex-shrink-0">
-                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                                        </svg>Présentation claire de vos services ou produits.</li>
-                                    <li class="clarity-list-item flex items-center gap-3 text-lg" data-step="8"><svg
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            class="w-6 h-6 text-success-green flex-shrink-0">
-                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                                        </svg>Une section "À Propos" pour créer du lien.</li>
-                                    <li class="clarity-list-item flex items-center gap-3 text-lg" data-step="9"><svg
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            class="w-6 h-6 text-success-green flex-shrink-0">
-                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                                        </svg>Des témoignages clients pour la preuve sociale.</li>
-                                    <li class="clarity-list-item flex items-center gap-3 text-lg" data-step="10"><svg
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            class="w-6 h-6 text-success-green flex-shrink-0">
-                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                                        </svg>Un formulaire de contact simple et efficace.</li>
-                                    <li class="clarity-list-item flex items-center gap-3 text-lg" data-step="11"><svg
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            class="w-6 h-6 text-success-green flex-shrink-0">
-                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                                        </svg>Un design 100% personnalisé et responsive.</li>
-                                    <li class="clarity-list-item flex items-center gap-3 text-lg" data-step="12"><svg
-                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round"
-                                            class="w-6 h-6 text-success-green flex-shrink-0">
-                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                                        </svg>Optimisation technique de base pour Google.</li>
-                                </ul>
-                                <a href="#offres"
-                                    class="clarity-list-item mt-8 inline-block w-full text-center btn btn-orange"
-                                    data-step="13">Voir les formules</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
 
 
@@ -1995,29 +1935,28 @@
                                         d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </button>
-                            
-                            <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>La transparence est au cœur de mon approche "Clarté". Le tarif que vous
-                                                voyez affiché pour chaque formule est un paiement unique qui couvre non
-                                                seulement la <strong>création complète de votre site, mais aussi votre
-                                                    première année de tranquillité totale.</strong></p>
-                                            <p>Cette première année inclut mon <strong>"Pack Sérénité Annuel"</strong>
-                                                qui comprend l'hébergement premium, la gestion de votre nom de domaine,
-                                                la maintenance technique et la sécurité.</p>
-                                            <p>Il n'y a donc absolument <strong>aucun frais caché ou coût additionnel à
-                                                    prévoir la première année</strong>. C'est une véritable offre clé en
-                                                main.</p>
-                                            <p>À partir de la deuxième année, pour que votre site continue de
-                                                fonctionner de manière optimale, ce "Pack Sérénité" vous sera proposé au
-                                                renouvellement pour <strong>[Votre Prix, ex: 249€ HT] par an</strong>.
-                                            </p>
-                                            <p>Cette approche vous garantit un budget clair et sans surprise, tout en
-                                                vous assurant un service professionnel qui prend tout en charge pour
-                                                vous.</p>
-                                        </div>
-                                    </div>
+
+                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                                <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
+                                    <p>La transparence est au cœur de mon approche "Clarté". Le tarif que vous
+                                        voyez affiché pour chaque formule est un paiement unique qui couvre non
+                                        seulement la <strong>création complète de votre site, mais aussi votre
+                                            première année de tranquillité totale.</strong></p>
+                                    <p>Cette première année inclut mon <strong>"Pack Sérénité Annuel"</strong>
+                                        qui comprend l'hébergement premium, la gestion de votre nom de domaine,
+                                        la maintenance technique et la sécurité.</p>
+                                    <p>Il n'y a donc absolument <strong>aucun frais caché ou coût additionnel à
+                                            prévoir la première année</strong>. C'est une véritable offre clé en
+                                        main.</p>
+                                    <p>À partir de la deuxième année, pour que votre site continue de
+                                        fonctionner de manière optimale, ce "Pack Sérénité" vous sera proposé au
+                                        renouvellement pour <strong>[Votre Prix, ex: 249€ HT] par an</strong>.
+                                    </p>
+                                    <p>Cette approche vous garantit un budget clair et sans surprise, tout en
+                                        vous assurant un service professionnel qui prend tout en charge pour
+                                        vous.</p>
+                                </div>
+                            </div>
 
                         </div>
                         <!-- Q2 -->
@@ -2033,40 +1972,39 @@
                                         d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </button>
-                            
-                            <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>Oui, absolument ! C'est un des piliers de mon offre "Clarté". Je suis
-                                                convaincu que vous devez avoir le contrôle sur votre propre contenu,
-                                                sans avoir à me contacter pour chaque petite modification.</p>
-                                            <p>À la livraison de votre site, je vous fournis un accès à un
-                                                <strong>espace d'administration personnel et sécurisé</strong>. Cet
-                                                outil, appelé CMS (Système de Gestion de Contenu), est conçu pour
-                                                être
-                                                aussi simple à utiliser qu'un formulaire en ligne.
-                                            </p>
-                                            <p><strong>Concrètement, vous pourrez :</strong></p>
-                                            <ul class="list-disc list-inside space-y-2">
-                                                <li><strong>Modifier des textes :</strong> Changer un titre,
-                                                    corriger
-                                                    une faute, mettre à jour une description.</li>
-                                                <li><strong>Changer des images :</strong> Remplacer une photo de la
-                                                    galerie ou un portrait.</li>
-                                                <li><strong>Mettre à jour vos offres :</strong> Ajuster un prix,
-                                                    modifier les détails d'un service.</li>
-                                                <li><strong>Ajouter des actualités ou des témoignages :</strong>
-                                                    Garder
-                                                    votre site vivant et à jour.</li>
-                                            </ul>
-                                            <p>Le tout se fait via une interface claire, sans jamais avoir à toucher
-                                                une
-                                                seule ligne de code. Je vous fournirai une courte vidéo de prise en
-                                                main
-                                                pour vous montrer à quel point c'est simple et rapide. Vous êtes
-                                                autonome pour faire vivre votre site au quotidien.</p>
-                                        </div>
-                                    </div>
+
+                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                                <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
+                                    <p>Oui, absolument ! C'est un des piliers de mon offre "Clarté". Je suis
+                                        convaincu que vous devez avoir le contrôle sur votre propre contenu,
+                                        sans avoir à me contacter pour chaque petite modification.</p>
+                                    <p>À la livraison de votre site, je vous fournis un accès à un
+                                        <strong>espace d'administration personnel et sécurisé</strong>. Cet
+                                        outil, appelé CMS (Système de Gestion de Contenu), est conçu pour
+                                        être
+                                        aussi simple à utiliser qu'un formulaire en ligne.
+                                    </p>
+                                    <p><strong>Concrètement, vous pourrez :</strong></p>
+                                    <ul class="list-disc list-inside space-y-2">
+                                        <li><strong>Modifier des textes :</strong> Changer un titre,
+                                            corriger
+                                            une faute, mettre à jour une description.</li>
+                                        <li><strong>Changer des images :</strong> Remplacer une photo de la
+                                            galerie ou un portrait.</li>
+                                        <li><strong>Mettre à jour vos offres :</strong> Ajuster un prix,
+                                            modifier les détails d'un service.</li>
+                                        <li><strong>Ajouter des actualités ou des témoignages :</strong>
+                                            Garder
+                                            votre site vivant et à jour.</li>
+                                    </ul>
+                                    <p>Le tout se fait via une interface claire, sans jamais avoir à toucher
+                                        une
+                                        seule ligne de code. Je vous fournirai une courte vidéo de prise en
+                                        main
+                                        pour vous montrer à quel point c'est simple et rapide. Vous êtes
+                                        autonome pour faire vivre votre site au quotidien.</p>
+                                </div>
+                            </div>
 
                         </div>
                         <!-- Q3 -->
@@ -2082,28 +2020,27 @@
                                         d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </button>
-                            
-                            <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>Oui, à 100%. C'est un point non négociable pour moi.</p>
-                                            <ul class="list-disc list-inside space-y-2">
-                                                <li><strong>Votre Site Web :</strong> Le code, le design, les textes
-                                                    et
-                                                    les images créés pour vous sont votre propriété exclusive.</li>
-                                                <li><strong>Votre Nom de Domaine :</strong> Je l'enregistre en votre
-                                                    nom, ce qui signifie que vous en êtes le propriétaire légal. Je
-                                                    ne
-                                                    suis que le "contact technique" qui s'occupe de la gestion pour
-                                                    vous.</li>
-                                            </ul>
-                                            <p>Si un jour vous décidez de transférer la gestion de votre site à
-                                                quelqu'un d'autre, le transfert de propriété du nom de domaine est
-                                                une
-                                                procédure simple que je faciliterai pour assurer une transition en
-                                                douceur. Votre patrimoine numérique vous appartient.</p>
-                                        </div>
-                                    </div>
+
+                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                                <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
+                                    <p>Oui, à 100%. C'est un point non négociable pour moi.</p>
+                                    <ul class="list-disc list-inside space-y-2">
+                                        <li><strong>Votre Site Web :</strong> Le code, le design, les textes
+                                            et
+                                            les images créés pour vous sont votre propriété exclusive.</li>
+                                        <li><strong>Votre Nom de Domaine :</strong> Je l'enregistre en votre
+                                            nom, ce qui signifie que vous en êtes le propriétaire légal. Je
+                                            ne
+                                            suis que le "contact technique" qui s'occupe de la gestion pour
+                                            vous.</li>
+                                    </ul>
+                                    <p>Si un jour vous décidez de transférer la gestion de votre site à
+                                        quelqu'un d'autre, le transfert de propriété du nom de domaine est
+                                        une
+                                        procédure simple que je faciliterai pour assurer une transition en
+                                        douceur. Votre patrimoine numérique vous appartient.</p>
+                                </div>
+                            </div>
 
 
                         </div>
@@ -2120,62 +2057,61 @@
                                         d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </button>
-                            
 
-                            <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>
-                                                C'est la question que tout le monde se pose, et elle est
-                                                parfaitement légitime. Comment la vitesse peut-elle rimer avec
-                                                qualité et sur-mesure ?
-                                            </p>
-                                            <p>
-                                                La réponse est simple : le secret n'est pas de travailler plus vite,
-                                                mais de travailler plus intelligemment <strong>en inversant le
-                                                    processus de création traditionnel.</strong>
-                                            </p>
-                                            <p>
-                                                Un projet web classique, c'est souvent 20% de briefing flou et 80%
-                                                de temps passé en allers-retours, corrections, modifications et
-                                                devinettes. C'est long, frustrant et coûteux en énergie pour tout le
-                                                monde.
-                                            </p>
-                                            <p class="font-semibold text-neutral-dark">
-                                                Ma méthode, c'est l'inverse : 80% de notre effort commun est
-                                                consacré à la clarté en amont.
-                                            </p>
-                                            <p>
-                                                Pensez-y comme la construction d'une maison :
-                                            </p>
-                                            <div class="pl-4 border-l-2 border-soft-blue">
-                                                <p>
-                                                    L'<strong>Atelier de Clarté</strong> n'est pas un simple
-                                                    questionnaire. C'est notre phase de <strong>"plans
-                                                        d'architecte"</strong>. Nous ne posons pas une seule brique
-                                                    avant que le plan de votre maison ne soit absolument parfait et
-                                                    validé par vous. Ensemble, nous transformons votre brouillard
-                                                    d'idées en une feuille de route limpide qui définit chaque
-                                                    pièce, chaque couleur, chaque fonction.
-                                                </p>
-                                            </div>
-                                            <p>
-                                                Une fois ce plan validé, ma phase de production devient une
-                                                exécution <strong>fluide, rapide et sans surprise</strong>. Je n'ai
-                                                plus à deviner vos attentes, je n'ai qu'à construire le site que
-                                                nous avons déjà conçu ensemble sur le papier. Les 24h à 48h de
-                                                production intensive ne sont que la dernière étape d'un travail de
-                                                fond que nous avons mené en amont.
-                                            </p>
-                                            <p class="pt-2">
-                                                <strong>En résumé : je ne code pas plus vite. Je prépare
-                                                    mieux.</strong> La vitesse de livraison n'est pas l'objectif,
-                                                c'est la <strong>conséquence</strong> d'une clarté parfaite obtenue
-                                                en amont. C'est ce qui garantit un site sur-mesure, qui vous
-                                                ressemble, livré sans le stress et les délais habituels.
-                                            </p>
-                                        </div>
+
+                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                                <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
+                                    <p>
+                                        C'est la question que tout le monde se pose, et elle est
+                                        parfaitement légitime. Comment la vitesse peut-elle rimer avec
+                                        qualité et sur-mesure ?
+                                    </p>
+                                    <p>
+                                        La réponse est simple : le secret n'est pas de travailler plus vite,
+                                        mais de travailler plus intelligemment <strong>en inversant le
+                                            processus de création traditionnel.</strong>
+                                    </p>
+                                    <p>
+                                        Un projet web classique, c'est souvent 20% de briefing flou et 80%
+                                        de temps passé en allers-retours, corrections, modifications et
+                                        devinettes. C'est long, frustrant et coûteux en énergie pour tout le
+                                        monde.
+                                    </p>
+                                    <p class="font-semibold text-neutral-dark">
+                                        Ma méthode, c'est l'inverse : 80% de notre effort commun est
+                                        consacré à la clarté en amont.
+                                    </p>
+                                    <p>
+                                        Pensez-y comme la construction d'une maison :
+                                    </p>
+                                    <div class="pl-4 border-l-2 border-soft-blue">
+                                        <p>
+                                            L'<strong>Atelier de Clarté</strong> n'est pas un simple
+                                            questionnaire. C'est notre phase de <strong>"plans
+                                                d'architecte"</strong>. Nous ne posons pas une seule brique
+                                            avant que le plan de votre maison ne soit absolument parfait et
+                                            validé par vous. Ensemble, nous transformons votre brouillard
+                                            d'idées en une feuille de route limpide qui définit chaque
+                                            pièce, chaque couleur, chaque fonction.
+                                        </p>
                                     </div>
+                                    <p>
+                                        Une fois ce plan validé, ma phase de production devient une
+                                        exécution <strong>fluide, rapide et sans surprise</strong>. Je n'ai
+                                        plus à deviner vos attentes, je n'ai qu'à construire le site que
+                                        nous avons déjà conçu ensemble sur le papier. Les 24h à 48h de
+                                        production intensive ne sont que la dernière étape d'un travail de
+                                        fond que nous avons mené en amont.
+                                    </p>
+                                    <p class="pt-2">
+                                        <strong>En résumé : je ne code pas plus vite. Je prépare
+                                            mieux.</strong> La vitesse de livraison n'est pas l'objectif,
+                                        c'est la <strong>conséquence</strong> d'une clarté parfaite obtenue
+                                        en amont. C'est ce qui garantit un site sur-mesure, qui vous
+                                        ressemble, livré sans le stress et les délais habituels.
+                                    </p>
+                                </div>
+                            </div>
 
                         </div>
                         <!-- Q5 -->
