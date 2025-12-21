@@ -696,3 +696,89 @@ html {
     transform: translateY(-5px);
     box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
 }
+
+
+
+
+/* ======================================================= */
+/*    NOUVEAU STYLE PREMIUM POUR LA SECTION PLAN           */
+/* ======================================================= */
+
+.premium-card {
+    background: rgba(30, 41, 59, 0.7); /* Fond sombre semi-transparent */
+    backdrop-filter: blur(20px); /* Effet de flou arrière-plan */
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Bordure subtile */
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); /* Ombre profonde */
+    overflow: hidden;
+    
+    /* Layout Desktop par défaut */
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Texte un peu plus large que l'image */
+    height: 500px; /* Hauteur fixe pour uniformité */
+}
+
+.premium-content {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.premium-image-wrapper {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.premium-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.premium-card:hover .premium-image {
+    transform: scale(1.05); /* Zoom lent au survol */
+}
+
+/* Le gros numéro en arrière-plan */
+.step-number {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 8rem;
+    font-weight: 800;
+    line-height: 1;
+    opacity: 0.5;
+    user-select: none;
+    font-family: sans-serif; /* Ou une police serif si tu as */
+}
+
+/* --- RESPONSIVE MOBILE (< 768px) --- */
+@media (max-width: 1024px) {
+    .premium-card {
+        grid-template-columns: 1fr; /* Une seule colonne */
+        grid-template-rows: auto 200px; /* Texte auto, Image en bas */
+        height: auto;
+        min-height: 500px;
+    }
+    
+    .step-number {
+        font-size: 5rem;
+        top: 0;
+        right: 20px;
+        left: auto;
+    }
+    
+    .premium-content {
+        padding: 2rem;
+    }
+    
+    /* Sur mobile, on désactive le sticky js et on affiche en colonne simple via le CSS existant 
+       dans ton fichier style.css (la partie @media max-width: 767px existante devrait gérer ça, 
+       sinon assure-toi que .panel a width: 100% et position: relative) */
+}
