@@ -164,26 +164,29 @@ html {
 
 
 
-/* ======================================================= */
-/*    STYLES POUR LA SECTION PROBLÈME AVEC FOND D'ÉCRAN     */
-/* ======================================================= */
-#problem-section {
-    background-image: url('../assets/image-background/background-chaos.webp');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Crée un bel effet de parallaxe au défilement */
-}
-
 
 /* ======================================================= */
-/* STYLES POUR LA SECTION VALUE PROPOSITION AVEC FOND D'ÉCRAN */
+/*        STYLES POUR LA SECTION VALUE PROPOSITION         */
 /* ======================================================= */
+
 #value-proposition-section {
-    background-image: url('../assets/image-background/background-value-proposition.webp');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-color: #ffffff; /* Fond blanc simple */
 }
+
+
+
+.value-prop-card {
+    /* On garde juste la transition pour le survol */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Assurez-vous que le fond est blanc et qu'il y a une bordure si nécessaire */
+    background-color: white; 
+}
+
+.value-prop-card:hover {
+    transform: translateY(-5px); /* La carte monte légèrement */
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); /* L'ombre s'accentue */
+}
+
 
 
 /* ======================================================= */
@@ -214,14 +217,7 @@ html {
 }
 
 
-/* ======================================================= */
-/* NOUVEAU : STYLES POUR L'EFFET DE TRANSITION DE L'OVERLAY POUR LA SECTION "VALUE PROPOSITION" */
-/* ======================================================= */
 
-#value-prop-overlay {
- /* La transition est retirée car l'animation est gérée par JS */
-    will-change: opacity, backdrop-filter;
-}
 
 
 
@@ -328,64 +324,27 @@ html {
 /* ======================================================= */
 
 #problem-section {
-    background-image: url('../assets/image-background/background-chaos.webp');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-color: #1F2937; /* Couleur unie sombre (neutral-dark) */
     /* On assure que la section a une hauteur normale */
     height: auto !important; 
     min-height: auto !important;
 }
 
-/* On force la suppression des anciens conteneurs s'ils traînent encore */
-#problem-scroll-container, 
-#problem-sticky-content {
-    height: auto !important;
-    position: static !important;
-    display: block !important;
-}
+
 
 .problem-card {
-    /* CORRECTION CRUCIALE : On remet l'opacité à 1 et on enlève le décalage */
-    opacity: 1; 
-    transform: none; 
-    
-    /* On garde uniquement les transitions pour le survol (hover) */
+    /* Gestion de l'animation au survol */
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* Suppression visuelle de l'icône au cas où elle resterait dans le HTML */
-#frustration-knot-container {
-    display: none !important;
-}
 
 
 
 
-/* ======================================================= */
-/* MODIFICATION PREMIUM : VALUE PROPOSITION (STANDARD)     */
-/* ======================================================= */
-#value-prop-scroll-container {
-    height: auto !important;
-}
 
-#value-prop-sticky-content {
-    position: relative !important;
-    top: auto !important;
-    height: auto !important;
-}
 
-.value-prop-card {
-    opacity: 1;
-    transform: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-/* On garde l'overlay joli et fixe pour la texture */
-#value-prop-overlay {
-    opacity: 1 !important;
-    backdrop-filter: blur(4px);
-}
+
 
 
 
@@ -545,46 +504,9 @@ html {
 /* ======================================================= */
 @media (max-width: 767px) {
 
-    /* --- Section Problème --- */
-    #problem-scroll-container {
-        height: auto !important; /* Annule la hauteur immense */
-    }
-    #problem-sticky-content {
-        position: static !important; /* Annule le sticky */
-        height: auto !important;
-    }
-    .problem-card {
-        opacity: 1 !important; /* Rend les cartes visibles par défaut */
-        transform: none !important; /* Annule la position initiale animée */
-    }
-    #frustration-knot-container {
-        display: none !important; /* Cache l'icône qui n'a plus d'animation */
-    }
     
-        /* --- CORRECTION ICI --- */
-    #problem-cards-grid {
-        /* AVANT (ce qui causait le bug) : margin-top: -10rem; */
-        /* APRÈS (la correction) : On remet la marge à 0 pour laisser le texte respirer */
-        margin-top: 0 !important; 
-    }
 
-    /* --- Section Value Proposition --- */
-    #value-prop-scroll-container {
-        height: auto !important;
-    }
-    #value-prop-sticky-content {
-        position: static !important;
-        height: auto !important;
-    }
-    .value-prop-card {
-        opacity: 1 !important;
-        transform: none !important;
-    }
-   /* MODIFIÉ : Assure que l'overlay reste visible sur mobile */
-    #value-prop-overlay {
-        opacity: 1 !important;
-        backdrop-filter: blur(4px) !important; /* Correspond à backdrop-blur-sm */
-    }
+    
 
     /* --- Section Site Clarté --- */
     #clarity-section-container {
