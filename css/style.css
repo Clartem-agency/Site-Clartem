@@ -295,32 +295,7 @@ html {
 
 
 
-/* ======================================================= */
-/*             STYLES POUR LA SECTION PROBLÈME             */
-/* ======================================================= */
 
-#problem-section {
-    background-color: #1F2937; /* Couleur unie sombre (neutral-dark) */
-    /* On assure que la section a une hauteur normale */
-    height: auto !important; 
-    min-height: auto !important;
-}
-
-
-
-.problem-card {
-    /* Gestion de l'animation au survol */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-
-.problem-card:hover {
-    /* On force le mouvement vers le haut */
-    transform: translateY(-8px) !important; 
-    
-    /* On force aussi l'ombre pour qu'elle soit bien visible */
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
-}
 
 
 
@@ -572,38 +547,7 @@ html {
 }
 
 
-/* ======================================================= */
-/*    STYLES POUR LES ICÔNES DE LA SECTION PROBLÈME        */
-/* ======================================================= */
 
-.problem-icon-wrapper {
-    width: 5rem; /* 80px */
-    height: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    /* Fond blanc très transparent (effet verre sur fond sombre) */
-    background-color: rgba(255, 255, 255, 0.08); 
-    color: #3B82F6; /* clarity-blue par défaut */
-    margin-bottom: 1.5rem;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.problem-card:hover .problem-icon-wrapper {
-    /* Au survol de la carte, l'icône s'illumine légèrement */
-    background-color: rgba(59, 130, 246, 0.2); 
-    border-color: rgba(59, 130, 246, 0.3);
-    transform: scale(1.1);
-    color: #60A5FA; /* Un bleu un peu plus clair pour le contraste */
-}
-
-/* Taille des SVGs */
-.problem-icon-wrapper svg {
-    width: 2.5rem;
-    height: 2.5rem;
-}
 
 
 /* ======================================================= */
