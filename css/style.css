@@ -404,99 +404,6 @@ html {
 
 
 
-/* ======================================================= */
-/*     NOUVEAU : STYLES POUR L'ANIMATION SECTION EMPATHIE    */
-/* ======================================================= */
-
-/* NOUVEAU : Ces styles ne s'appliquent que sur les grands écrans */
-@media (min-width: 768px) {
-    #empathy-title-block {
-        position: relative;
-        z-index: 10; /* Assure que le titre est AU-DESSUS de l'animation */
-        background-color: white; /* Cache l'image qui passe derrière */
-    }
-    #empathy-scroll-container {
-        /* La clé est ici : on remonte le conteneur d'animation */
-        margin-top: -20rem; 
-    }
-}
-
-#empathy-scroll-container {
-    height: 300vh; 
-}
-
-#empathy-sticky-content {
-    position: sticky;
-    top: 120px;
-    height: calc(100vh - 120px);
-    overflow: hidden; 
-}
-
-#empathy-image-container {
-    opacity: 1; /* MODIFIÉ : L'image est opaque par défaut */
-    transform: translateX(100vw);
-    will-change: transform; /* MODIFIÉ : On n'anime plus l'opacité */
-}
-
-.empathy-reveal-item {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-    will-change: opacity, transform;
-}
-
-.empathy-reveal-item.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-/* ======================================================= */
-/*     NOUVEAU : STYLES POUR L'ANIMATION SECTION AUTORITÉ    */
-/* ======================================================= */
-
-/* NOUVEAU : Ces styles ne s'appliquent que sur les grands écrans */
-@media (min-width: 768px) {
-    #authority-title-block {
-        position: relative;
-        z-index: 10; /* Assure que le titre est AU-DESSUS de l'animation */
-        background-color: #EFF6FF; /* soft-blue, pour correspondre au fond de la section */
-    }
-    #authority-scroll-container {
-        /* On remonte également ce conteneur */
-        margin-top: -20rem;
-    }
-}
-
-#authority-scroll-container {
-    height: 300vh; 
-}
-
-#authority-sticky-content {
-    position: sticky;
-    top: 120px;
-    height: calc(100vh - 120px);
-    overflow: hidden; 
-}
-
-#authority-image-container {
-    opacity: 1; /* MODIFIÉ : L'image est opaque par défaut */
-    transform: translateX(-100vw);
-    will-change: transform; /* MODIFIÉ : On n'anime plus l'opacité */
-}
-
-.authority-reveal-item {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-    will-change: opacity, transform;
-}
-
-.authority-reveal-item.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 
 
 
@@ -539,43 +446,10 @@ html {
         backdrop-filter: blur(4px); /* Rétablit le flou (valeur de 'backdrop-blur-sm') */
     }
 
-    /* --- Section Empathie --- */
-    #empathy-scroll-container {
-        height: auto !important;
-    }
-    #empathy-sticky-content {
-        position: static !important;
-        height: auto !important;
-        overflow: visible !important;
-    }
-    .empathy-reveal-item {
-        opacity: 1 !important;
-        transform: none !important;
-    }
-    /* CORRECTION : Rend l'image de la section Empathie visible sur mobile */
-    #empathy-image-container {
-        opacity: 1 !important;
-        transform: none !important;
-    }
+    
+    
 
-    /* --- Section Autorité --- */
-    #authority-scroll-container {
-        height: auto !important;
-    }
-    #authority-sticky-content {
-        position: static !important;
-        height: auto !important;
-        overflow: visible !important;
-    }
-    .authority-reveal-item {
-        opacity: 1 !important;
-        transform: none !important;
-    }
-    /* CORRECTION : Rend l'image de la section Autorité visible sur mobile */
-    #authority-image-container {
-        opacity: 1 !important;
-        transform: none !important;
-    }
+    
     
     /* --- Section Plan (Stacking Cards) --- */
     .relative.h-\[800vh\] {
