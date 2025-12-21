@@ -321,27 +321,14 @@ html {
     min-height: auto !important;
 }
 
-/* On force la suppression des anciens conteneurs s'ils traînent encore */
-#problem-scroll-container, 
-#problem-sticky-content {
-    height: auto !important;
-    position: static !important;
-    display: block !important;
-}
+
 
 .problem-card {
-    /* CORRECTION CRUCIALE : On remet l'opacité à 1 et on enlève le décalage */
-    opacity: 1; 
-    transform: none; 
-    
-    /* On garde uniquement les transitions pour le survol (hover) */
+    /* Gestion de l'animation au survol */
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* Suppression visuelle de l'icône au cas où elle resterait dans le HTML */
-#frustration-knot-container {
-    display: none !important;
-}
+
 
 
 
