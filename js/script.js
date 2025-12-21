@@ -190,49 +190,48 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    // ==================================================================
-    // LOGIQUE POUR L'EFFET STACKING CARDS (SECTION PLAN) - CORRIGÉE
+ 
+
+// ==================================================================
+    // LOGIQUE POUR L'EFFET STACKING CARDS (SECTION PLAN) - V2 FINALE
     // ==================================================================
     const planSection = document.getElementById('plan');
-    
-    // On cible le conteneur par son ID unique pour éviter les erreurs si on change la hauteur CSS
     const stackingContainer = document.getElementById('stacking-container');
+    const scrollIndicator = document.getElementById('scroll-indicator'); // Sélectionne l'indicateur
 
     if (planSection && stackingContainer && window.innerWidth >= 768) {
         const panels = Array.from(planSection.querySelectorAll('.panel'));
         const numPanels = panels.length;
 
-        // Réglages de l'animation
-        const STACK_SCALE_FACTOR = 0.05; // Réduit la taille des cartes du dessous
-        const STACK_Y_OFFSET = 20;       // Décalage vertical des cartes du dessous
-        const START_DELAY = 0.05;        // Commence l'anim un peu après le début
-        const END_DELAY = 0.05;          // Finit l'anim un peu avant la fin
-
-        
+        // AJUSTEMENT : On augmente le délai de démarrage pour que la 1ère carte reste figée plus longtemps
+        const START_DELAY = 0.15; 
+        const END_DELAY = 0.05;
 
         const handleScroll = () => {
             const rect = stackingContainer.getBoundingClientRect();
-            
-            // Calculer la progression : 
-            // Quand rect.top est à 0, on est au début.
-            // Quand rect.top est négatif, on scroll vers le bas.
             const viewportHeight = window.innerHeight;
             
-            // On commence l'animation quand le haut du conteneur touche le haut de l'écran
-            // et on la finit quand le bas du conteneur touche le bas de l'écran
+            // Calculer la progression
             const start = 0;
             const end = stackingContainer.offsetHeight - viewportHeight;
-            
-            // On inverse rect.top car on scroll vers le bas (les valeurs deviennent négatives)
             const currentScroll = -rect.top;
             
-            // Sécurité : on borne entre 0 et 1
             let progress = currentScroll / end;
             progress = Math.max(0, Math.min(1, progress));
 
-            // Réglages fins de l'animation
-            // On joue l'animation sur 90% du scroll pour laisser une marge
-            const animationProgress = Math.min(1, Math.max(0, progress / 0.9));
+            // --- GESTION DE L'INDICATEUR DE SCROLL ---
+            if (scrollIndicator) {
+                if (progress > 0.02) { // Dès qu'on scroll un tout petit peu
+                    scrollIndicator.style.opacity = '0';
+                } else {
+                    scrollIndicator.style.opacity = '1';
+                }
+            }
+            // -----------------------------------------
+
+            // Calcul de l'animation des cartes
+            const animationDuration = 1.0 - START_DELAY - END_DELAY;
+            const animationProgress = Math.min(1, Math.max(0, (progress - START_DELAY) / animationDuration));
             const panelProgress = animationProgress * (numPanels - 1);
 
             panels.forEach((panel, panelIndex) => {
@@ -240,27 +239,24 @@ document.addEventListener('DOMContentLoaded', function () {
                 panel.style.zIndex = numPanels - panelIndex;
 
                 if (distance >= 0) {
-                    // La carte est visible (dans la pile)
+                    // Carte visible
                     const scale = 1 - (distance * 0.05);
-                    const translateY = distance * 20; // Décalage pour voir les cartes du dessous
+                    const translateY = distance * 20; 
                     
                     panel.style.transform = `translateY(${translateY}px) scale(${Math.max(0, scale)})`;
                     panel.style.opacity = '1';
                 } else {
-                    // La carte part vers le haut (disparaît)
-                    // On accélère la sortie pour qu'elle ne gêne pas
-                    panel.style.transform = `translateY(${distance * 100}px) scale(0.9)`;
+                    // Carte qui part
+                    // On accélère un peu la sortie
+                    panel.style.transform = `translateY(${distance * 150}px) scale(0.9)`;
                     panel.style.opacity = '0'; 
                 }
             });
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
-        // Appel initial pour placer les cartes correctement au chargement
         handleScroll();
     }
-
-
 
     
 
