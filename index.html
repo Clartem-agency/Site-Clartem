@@ -673,9 +673,14 @@
         </p>
     </div>
 
-    <!-- Conteneur Sticky - HAUTEUR RÉDUITE (400vh au lieu de 800vh pour moins de vide) -->
-    <div class="relative h-[400vh]" id="stacking-container">
-        <div class="sticky top-0 flex h-screen items-center justify-center overflow-hidden py-10">
+    
+    <!-- Le conteneur très haut (le "rail" de scroll) -->
+<div class="relative h-[400vh]" id="stacking-container">
+    
+    <!-- L'élément qui colle (la "caméra") -->
+    <!-- AJOUT IMPORTANT : top-0 et h-screen -->
+    <div class="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+
 
             <!-- Carte 0 : Le Brouillard (Intro) -->
             <div class="panel absolute w-[90%] max-w-5xl" style="--index: 0;">
