@@ -193,34 +193,6 @@ html {
 
 
 
-/* ======================================================= */
-/*    STYLES POUR LA SECTION "SITE CLARTÉ" AVEC FOND       */
-/* ======================================================= */
-#site-clarte {
-    background-image: url('../assets/image-background/background-clarity-section.webp');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
-
-
-/* ======================================================= */
-/*       STYLES POUR L'EFFET DE TRANSITION DE L'OVERLAY POUR LA SECTION "SITE CLARTÉ"   */
-/* ======================================================= */
-
-#clarity-overlay {
-    /* Ajout d'une transition douce sur l'opacité et le flou */
-    transition: opacity 0.6s ease-in-out, backdrop-filter 0.6s ease-in-out;
-    will-change: opacity, backdrop-filter;
-}
-
-#clarity-overlay.is-faded {
-    /* État final : la superposition devient transparente et le flou disparaît */
-    opacity: 0;
-    backdrop-filter: blur(0px);
-}
-
-
 
 
 
@@ -355,101 +327,13 @@ html {
 
 
 
-
-
-
-/* ======================================================= */
-/*       STYLES POUR L'ANIMATION DE LA SECTION CLARTÉ      */
-/* ======================================================= */
-
-#clarity-section-container {
-    /* CORRECTION : La hauteur est maintenant gérée dynamiquement par JavaScript. */
-    /* La ligne "height: 550vh;" a été supprimée. */
-}
-
-#clarity-sticky-content {
-    position: sticky;
-    top: 120px;
-    height: calc(100vh - 120px);
-    overflow: hidden; 
-}
-
-/* État initial pour le texte (gauche et droite) */
-.clarity-text-reveal,
-.clarity-list-item {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-    will-change: opacity, transform;
-}
-
-/* NOUVEAU : État initial pour le conteneur de droite (le cadre bleu) */
-#clarity-right-card {
-    opacity: 0;
-    transition: opacity 0.6s ease-out; /* Transition légèrement plus longue pour un effet doux */
-    will-change: opacity;
-}
-
-/* État final pour le texte */
-.clarity-text-reveal.is-visible,
-.clarity-list-item.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* NOUVEAU : État final pour le conteneur de droite */
-#clarity-right-card.is-visible {
-    opacity: 1;
-}
-
-
-
-
-
-
-
-
 /* ======================================================= */
 /* NOUVEAU : STYLES RESPONSIVES POUR DÉSACTIVER LES ANIMATIONS STICKY SUR MOBILE */
 /* (S'applique aux écrans de moins de 768px de large) */
 /* ======================================================= */
 @media (max-width: 767px) {
 
-    
-
-    
-
-    /* --- Section Site Clarté --- */
-    #clarity-section-container {
-        height: auto !important;
-    }
-    #clarity-sticky-content {
-        position: static !important;
-        height: auto !important;
-        overflow: visible !important;
-    }
-    .clarity-text-reveal,
-    .clarity-list-item,
-    #clarity-right-card {
-        opacity: 1 !important;
-        transform: none !important;
-    }
-    /* Rétablit le flux normal pour la grille sur mobile */
-    #clarity-sticky-content .grid {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-    }
-    /* Maintient le flou de l'overlay sur mobile pour la lisibilité */
-    #clarity-overlay.is-faded {
-        opacity: 1; /* Annule la disparition de l'overlay */
-        backdrop-filter: blur(4px); /* Rétablit le flou (valeur de 'backdrop-blur-sm') */
-    }
-
-    
-    
-
-    
+     
     
     /* --- Section Plan (Stacking Cards) --- */
     .relative.h-\[800vh\] {
