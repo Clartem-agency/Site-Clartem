@@ -240,178 +240,73 @@
 
 
         <!-- ======================================================= -->
-        <!--       Section Probleme (VERSION PREMIUM & SIMPLE)       -->
-        <!-- ======================================================= -->
-        <section id="problem-section" class="relative text-white py-24 overflow-hidden">
-            <!-- Fond sombre -->
-            <div class="absolute inset-0 bg-neutral-dark/90 z-0"></div>
+<!--       NOUVELLE SECTION : MANIFESTE (FLUIDE & PREMIUM)   -->
+<!-- ======================================================= -->
+<section id="manifesto" class="py-24 md:py-32 bg-neutral-dark text-white relative overflow-hidden">
+    
+    <!-- Fond décoratif subtil (Lueur) -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl bg-deep-blue/20 blur-[120px] rounded-full pointer-events-none"></div>
 
-            <div class="container mx-auto px-6 relative z-10">
+    <div class="container mx-auto px-6 relative z-10">
+        
+        <!-- PARTIE 1 : LE CONSTAT (Typography Driven) -->
+        <div class="max-w-4xl mx-auto text-center mb-20 md:mb-32" data-sr>
+            <p class="text-warm-orange font-bold tracking-widest uppercase text-sm mb-6">Le Constat</p>
+            <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
+                L'expertise ne suffit plus<br>
+                <span class="text-neutral-500">si personne ne la voit.</span>
+            </h2>
+            <p class="text-xl md:text-2xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto">
+                La plupart des coachs et thérapeutes perdent des clients non pas par manque de compétence, mais par manque de <span class="text-white font-medium">clarté digitale</span>.
+            </p>
+        </div>
 
-                <!-- Titre Centré -->
-                <div class="text-center mb-16" data-sr>
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Votre site web de coach ou thérapeute vous semble<br>
-                        <span class="text-clarity-blue"> compliqué, coûteux et chronophage</span> ?
-                    </h2>
-                    <p class="text-xl text-white/80 max-w-3xl mx-auto">
-                        Vous n'êtes pas seul(e). En tant que praticien, votre temps est
-                        mieux investi à aider vos clients, pas à vous battre avec la technique.
-                    </p>
+        <!-- LIGNE DE SÉPARATION ÉLÉGANTE -->
+        <div class="w-px h-24 bg-gradient-to-b from-transparent via-gray-700 to-transparent mx-auto mb-20 md:mb-32"></div>
+
+        <!-- PARTIE 2 : LA SOLUTION (Layout Ouvert 3 Colonnes) -->
+        <div class="grid md:grid-cols-3 gap-12 md:gap-8 text-center md:text-left">
+            
+            <!-- Pilier 1 -->
+            <div class="space-y-4" data-sr>
+                <!-- Icône flottante (Pas de boite) -->
+                <div class="inline-flex items-center justify-center w-12 h-12 text-clarity-blue mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 </div>
-
-                <!-- NOTE : J'ai supprimé le bloc <div id="frustration-knot-container"> ici -->
-
-                <!-- Grille de cartes -->
-                <!-- Suppression de margin-top négative. Apparition douce avec data-sr -->
-                <div class="grid md:grid-cols-3 gap-8">
-
-                    <!-- Carte 1 -->
-                    <div class="problem-card bg-neutral-dark border border-white/10 rounded-2xl p-10 transition-all duration-300 hover:border-clarity-blue/50 hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center group h-full"
-                        data-sr data-sr-interval="100">
-
-                        <div
-                            class="w-16 h-16 rounded-2xl bg-clarity-blue/10 text-clarity-blue flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="1.5">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-                            </svg>
-                        </div>
-
-                        <div class="flex flex-col flex-grow text-center">
-                            <h3 class="text-xl text-white mb-4 font-bold leading-tight">"Vous ne savez pas par où
-                                commencer."</h3>
-                            <p class="text-neutral-400 text-base leading-relaxed">Entre les plateformes, les designs, le
-                                RGPD... le choix semble infini et vous éloigne de votre cœur de métier.</p>
-                        </div>
-                    </div>
-
-                    <!-- Carte 2 -->
-                    <div class="problem-card bg-neutral-dark border border-white/10 rounded-2xl p-10 transition-all duration-300 hover:border-warm-orange/50 hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center group h-full"
-                        data-sr data-sr-interval="100">
-
-                        <div
-                            class="w-16 h-16 rounded-2xl bg-warm-orange/10 text-warm-orange flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="1.5">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                            </svg>
-                        </div>
-
-                        <div class="flex flex-col flex-grow text-center">
-                            <h3 class="text-xl text-white mb-4 font-bold leading-tight">"La technique vous frustre."
-                            </h3>
-                            <p class="text-neutral-400 text-base leading-relaxed">La peur de perdre du temps et de
-                                l'argent sur un site qui ne fonctionne pas vous paralyse et vous empêche d'avancer.</p>
-                        </div>
-                    </div>
-
-                    <!-- Carte 3 -->
-                    <div class="problem-card bg-neutral-dark border border-white/10 rounded-2xl p-10 transition-all duration-300 hover:border-success-green/50 hover:shadow-2xl hover:-translate-y-2 flex flex-col items-center group h-full"
-                        data-sr data-sr-interval="100">
-
-                        <div
-                            class="w-16 h-16 rounded-2xl bg-success-green/10 text-success-green flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="1.5">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
-                            </svg>
-                        </div>
-
-                        <div class="flex flex-col flex-grow text-center">
-                            <h3 class="text-xl text-white mb-4 font-bold leading-tight">"Votre site ne reflète pas votre
-                                expertise."</h3>
-                            <p class="text-neutral-400 text-base leading-relaxed">Votre expertise mérite d'être
-                                présentée avec clarté, pour attirer les personnes qui ont vraiment besoin de vous.</p>
-                        </div>
-                    </div>
-
-                </div>
+                <h3 class="text-2xl font-bold text-white">Rapidité d'exécution</h3>
+                <p class="text-gray-400 leading-relaxed">
+                    Fini les projets qui traînent sur 6 mois. Grâce à mon processus structuré, votre site est en ligne et prêt à convertir en <strong class="text-white">7 jours chrono</strong>.
+                </p>
             </div>
-        </section>
 
-
-
-
-
-
-        <!-- ======================================================= -->
-        <!--                Section Value Proposition (NETTOYÉE)     -->
-        <!-- ======================================================= -->
-        <section id="value-proposition-section" class="relative py-20 overflow-hidden">
-
-            <div class="container mx-auto px-6 relative z-10">
-
-                <div class="text-center max-w-4xl mx-auto mb-16" data-sr>
-                    <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">
-                        Un Site Web pour Coachs & Thérapeutes,<br>
-                        <span class="text-clarity-blue">Conçu pour Votre Croissance</span>
-                    </h2>
-                    <p class="text-xl leading-relaxed text-neutral-light">
-                        Chez clartem.com, j'ai un seul objectif : vous fournir un site web professionnel et
-                        efficace grâce à un processus simple.
-                        <span class="font-semibold text-warm-orange">Fini la confusion, place à la clarté.</span>
-                    </p>
+            <!-- Pilier 2 -->
+            <div class="space-y-4" data-sr data-sr-delay="100">
+                <div class="inline-flex items-center justify-center w-12 h-12 text-warm-orange mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
                 </div>
-
-                <div class="grid lg:grid-cols-3 gap-8">
-
-                    <!-- Carte 1 -->
-                    <div class="value-prop-card bg-white p-8 rounded-2xl shadow-xl border border-gray-200 hover:border-warm-orange flex flex-col items-center text-center group"
-                        style="--objectif-color: #F97316;" data-sr data-sr-interval="150">
-                        <div class="objectif-icon-wrapper mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-neutral-dark mb-4">Site en ligne en 7 Jours</h3>
-                        <p class="text-neutral-light leading-relaxed">
-                            Mon processus optimisé garantit la mise en ligne de votre site professionnel en une semaine.
-                            Concentrez-vous sur vos clients.
-                        </p>
-                    </div>
-
-                    <!-- Carte 2 -->
-                    <div class="value-prop-card bg-white p-8 rounded-2xl shadow-xl border border-gray-200 hover:border-clarity-blue flex flex-col items-center text-center group"
-                        style="--objectif-color: #3B82F6;" data-sr data-sr-interval="150">
-                        <div class="objectif-icon-wrapper mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-neutral-dark mb-4">Design sur-mesure</h3>
-                        <p class="text-neutral-light leading-relaxed">
-                            Pas de templates génériques. Je crée un design unique qui reflète votre identité et parle
-                            directement à vos futurs clients.
-                        </p>
-                    </div>
-
-                    <!-- Carte 3 -->
-                    <div class="value-prop-card bg-white p-8 rounded-2xl shadow-xl border border-gray-200 hover:border-success-green flex flex-col items-center text-center group"
-                        style="--objectif-color: #16A34A;" data-sr data-sr-interval="150">
-                        <div class="objectif-icon-wrapper mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-2xl font-bold text-neutral-dark mb-4">Budget Clair</h3>
-                        <p class="text-neutral-light leading-relaxed">
-                            Vous savez exactement ce que vous obtenez et combien ça coûte. Un investissement en toute
-                            confiance.
-                        </p>
-                    </div>
-
-                </div>
+                <h3 class="text-2xl font-bold text-white">Clarté du message</h3>
+                <p class="text-gray-400 leading-relaxed">
+                    Un beau site ne sert à rien si on ne comprend pas ce que vous faites. Je traduis votre jargon métier en <strong class="text-white">bénéfices clients</strong> clairs.
+                </p>
             </div>
-        </section>
+
+            <!-- Pilier 3 -->
+            <div class="space-y-4" data-sr data-sr-delay="200">
+                <div class="inline-flex items-center justify-center w-12 h-12 text-success-green mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-white">Technique invisible</h3>
+                <p class="text-gray-400 leading-relaxed">
+                    Hébergement, sécurité, responsive... Vous n'avez rien à gérer. Je vous livre une solution clé en main, dont vous êtes <strong class="text-white">100% propriétaire</strong>.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
 
 
 
