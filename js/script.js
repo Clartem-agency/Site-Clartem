@@ -208,43 +208,49 @@ document.addEventListener('DOMContentLoaded', function () {
         const START_DELAY = 0.05;        // Commence l'anim un peu après le début
         const END_DELAY = 0.05;          // Finit l'anim un peu avant la fin
 
+        
+
         const handleScroll = () => {
             const rect = stackingContainer.getBoundingClientRect();
             
-            // Calcul de combien on a scrollé DANS le conteneur
-            const scrollTop = -rect.top;
+            // Calculer la progression : 
+            // Quand rect.top est à 0, on est au début.
+            // Quand rect.top est négatif, on scroll vers le bas.
+            const viewportHeight = window.innerHeight;
             
-            // Hauteur "utile" de scroll (hauteur totale - hauteur écran)
-            const scrollHeight = stackingContainer.offsetHeight - window.innerHeight;
+            // On commence l'animation quand le haut du conteneur touche le haut de l'écran
+            // et on la finit quand le bas du conteneur touche le bas de l'écran
+            const start = 0;
+            const end = stackingContainer.offsetHeight - viewportHeight;
+            
+            // On inverse rect.top car on scroll vers le bas (les valeurs deviennent négatives)
+            const currentScroll = -rect.top;
+            
+            // Sécurité : on borne entre 0 et 1
+            let progress = currentScroll / end;
+            progress = Math.max(0, Math.min(1, progress));
 
-            // Progression de 0 à 1
-            const totalProgress = Math.min(1, Math.max(0, scrollTop / scrollHeight));
-
-            // Ajustement de la progression pour l'animation
-            const animationDuration = 1.0 - START_DELAY - END_DELAY;
-            const animationProgress = Math.min(1, Math.max(0, (totalProgress - START_DELAY) / animationDuration));
-
-            // Quel panel devrait être en train de bouger ?
+            // Réglages fins de l'animation
+            // On joue l'animation sur 90% du scroll pour laisser une marge
+            const animationProgress = Math.min(1, Math.max(0, progress / 0.9));
             const panelProgress = animationProgress * (numPanels - 1);
 
             panels.forEach((panel, panelIndex) => {
                 const distance = panelIndex - panelProgress;
-
-                // Gestion de l'ordre d'affichage (Z-Index)
                 panel.style.zIndex = numPanels - panelIndex;
 
                 if (distance >= 0) {
-                    // La carte est encore dans la pile (visible)
-                    const scale = 1 - (distance * STACK_SCALE_FACTOR);
-                    const translateY = distance * STACK_Y_OFFSET;
-
+                    // La carte est visible (dans la pile)
+                    const scale = 1 - (distance * 0.05);
+                    const translateY = distance * 20; // Décalage pour voir les cartes du dessous
+                    
                     panel.style.transform = `translateY(${translateY}px) scale(${Math.max(0, scale)})`;
                     panel.style.opacity = '1';
                 } else {
                     // La carte part vers le haut (disparaît)
-                    // On la fait monter et disparaître (fade out)
-                    panel.style.transform = `translateY(${distance * 100}px) scale(1)`; 
-                    panel.style.opacity = '0'; // Disparaît complètement quand elle sort
+                    // On accélère la sortie pour qu'elle ne gêne pas
+                    panel.style.transform = `translateY(${distance * 100}px) scale(0.9)`;
+                    panel.style.opacity = '0'; 
                 }
             });
         };
