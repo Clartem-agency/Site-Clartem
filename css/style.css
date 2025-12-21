@@ -319,48 +319,80 @@ html {
     font-weight: 600;
 }
 
+
+
+
+
 /* ======================================================= */
-/*             STYLES POUR L'EFFET STICKY (SECTION PROBLÈME)        */
+/*             STYLES POUR LA SECTION PROBLÈME             */
 /* ======================================================= */
 
-#problem-scroll-container {
-    height: 350vh; 
+#problem-section {
+    background-image: url('../assets/image-background/background-chaos.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* On assure que la section a une hauteur normale */
+    height: auto !important; 
+    min-height: auto !important;
 }
 
+/* On force la suppression des anciens conteneurs s'ils traînent encore */
+#problem-scroll-container, 
 #problem-sticky-content {
-    position: sticky;
-    top: 0;
-    overflow: hidden;
+    height: auto !important;
+    position: static !important;
+    display: block !important;
 }
 
 .problem-card {
-    opacity: 0;
-    transform: translateY(-100vh); 
-    transition: none; 
-    will-change: transform, opacity;
+    /* CORRECTION CRUCIALE : On remet l'opacité à 1 et on enlève le décalage */
+    opacity: 1; 
+    transform: none; 
+    
+    /* On garde uniquement les transitions pour le survol (hover) */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* ======================================================= */
-/*    STYLES POUR L'EFFET STICKY (SECTION VALUE PROPOSITION) - MODIFIÉ */
-/* ======================================================= */
+/* Suppression visuelle de l'icône au cas où elle resterait dans le HTML */
+#frustration-knot-container {
+    display: none !important;
+}
 
+
+
+
+/* ======================================================= */
+/* MODIFICATION PREMIUM : VALUE PROPOSITION (STANDARD)     */
+/* ======================================================= */
 #value-prop-scroll-container {
-    height: 300vh; /* Hauteur suffisante pour l'animation, peut être ajustée */
+    height: auto !important;
 }
 
 #value-prop-sticky-content {
-    position: sticky;
-    top: 0;
-    overflow: hidden;
+    position: relative !important;
+    top: auto !important;
+    height: auto !important;
 }
 
 .value-prop-card {
-    opacity: 0;
-    /* MODIFICATION CLÉ : L'état initial est maintenant 100% de la largeur de l'écran vers la droite */
-    transform: translateX(100vw); 
-    transition: none; /* L'animation est gérée par JS, pas par CSS */
-    will-change: transform, opacity; /* Optimisation des performances */
+    opacity: 1;
+    transform: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+/* On garde l'overlay joli et fixe pour la texture */
+#value-prop-overlay {
+    opacity: 1 !important;
+    backdrop-filter: blur(4px);
+}
+
+
+
+
+
+
+
 
 
 /* ======================================================= */
@@ -504,31 +536,7 @@ html {
 
 
 
-/* ======================================================= */
-/*             STYLES POUR L'EFFET STICKY (SECTION PROBLÈME)        */
-/* ======================================================= */
 
-#problem-scroll-container {
-    height: 350vh; 
-}
-
-#problem-sticky-content {
-    position: sticky;
-    top: 0;
-}
-
-.problem-card {
-    opacity: 0;
-    transform: translateY(-100vh); 
-    transition: none; 
-    will-change: transform, opacity;
-}
-
-/* NOUVEAU : Style pour l'icône de frustration */
-#frustration-knot-container {
-    will-change: transform, opacity;
-    transition: opacity 0.3s ease-in-out; /* Pour le fade-in initial */
-}
 
 
 /* ======================================================= */

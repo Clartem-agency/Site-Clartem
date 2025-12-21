@@ -1,65 +1,67 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    
-// ==================================================================
-// LOGIQUE DU MENU NAVIGATION (Transparent au Scroll)
-// ==================================================================
-const nav = document.getElementById('main-nav');
 
-function handleScroll() {
-    if (window.scrollY > 50) { // Seuil augmenté à 50px pour ne pas changer trop vite
-        nav.classList.add('scrolled');
-    } else {
-        nav.classList.remove('scrolled');
-    }
-}
+    // ==================================================================
+    // LOGIQUE DU MENU NAVIGATION (Transparent au Scroll)
+    // ==================================================================
+    const nav = document.getElementById('main-nav');
 
-if (nav) {
-    // Écouteur d'événement au scroll
-    window.addEventListener('scroll', handleScroll);
-    
-    // Appel immédiat au chargement (au cas où on rafraîchit la page au milieu)
-    handleScroll();
-}
-
-// Logique du menu mobile (inchangée)
-const mobileMenuButton = document.getElementById('mobile-menu-button');
-const mobileMenu = document.getElementById('mobile-menu');
-if (mobileMenuButton && mobileMenu) {
-    const navLinks = mobileMenu.querySelectorAll('a');
-    mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        // Astuce : Si on ouvre le menu mobile tout en haut, on met le fond blanc pour la lisibilité
-        if (!nav.classList.contains('scrolled')) {
+    function handleScroll() {
+        if (window.scrollY > 50) { // Seuil augmenté à 50px pour ne pas changer trop vite
             nav.classList.add('scrolled');
-        } else if (window.scrollY <= 50) {
+        } else {
             nav.classList.remove('scrolled');
         }
-    });
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
+    }
+
+    if (nav) {
+        // Écouteur d'événement au scroll
+        window.addEventListener('scroll', handleScroll);
+
+        // Appel immédiat au chargement (au cas où on rafraîchit la page au milieu)
+        handleScroll();
+    }
+
+    // Logique du menu mobile (inchangée)
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenuButton && mobileMenu) {
+        const navLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            // Astuce : Si on ouvre le menu mobile tout en haut, on met le fond blanc pour la lisibilité
+            if (!nav.classList.contains('scrolled')) {
+                nav.classList.add('scrolled');
+            } else if (window.scrollY <= 50) {
+                nav.classList.remove('scrolled');
+            }
         });
-    });
-}
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    }
 
 
     // ==================================================================
-    // ANIMATIONS AVEC SCROLLREVEAL
-    // MODIFIÉ : N'active ScrollReveal que sur les écrans > 768px
+    // ANIMATIONS AVEC SCROLLREVEAL (VERSION PREMIUM)
     // ==================================================================
-    if (typeof ScrollReveal !== 'undefined' && window.innerWidth >= 768) {
+    if (typeof ScrollReveal !== 'undefined') { // On active aussi sur mobile maintenant, c'est léger
         const srConfig = {
             origin: 'bottom',
-            distance: '20px',
-            duration: 500,
+            distance: '30px', // Distance un peu plus grande pour l'élégance
+            duration: 800,    // Durée plus longue (0.8s) pour la douceur
             delay: 0,
             opacity: 0,
             scale: 1,
-            easing: 'cubic-bezier(0.5, 0, 0, 1)',
-            reset: false
+            easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)', // Courbe d'animation fluide
+            reset: false,     // Une fois apparu, ça reste (plus stable)
+            viewFactor: 0.2   // Déclenche quand 20% de l'élément est visible
         };
         const sr = ScrollReveal(srConfig);
+
+
 
         sr.reveal('[data-sr]', { delay: 200 });
         sr.reveal('[data-sr-delay="100"]', { delay: 300 });
@@ -68,7 +70,7 @@ if (mobileMenuButton && mobileMenu) {
         sr.reveal('[data-sr-origin="right"]', { origin: 'right', distance: '40px', delay: 200 });
         sr.reveal('[data-sr-origin="left"]', { origin: 'left', distance: '40px', delay: 200 });
     }
-    
+
     // ==================================================================
     // LOGIQUE POUR L'ACCORDÉON FAQ (MODIFIÉE)
     // --- DÉBUT DE LA LOGIQUE MODIFIÉE : Un seul tiroir ouvert à la fois ---
@@ -118,7 +120,7 @@ if (mobileMenuButton && mobileMenu) {
     };
     lazyImages.forEach(handleImageLoad);
 
-    
+
 
     // ==================================================================
     // LOGIQUE FILTRE ET "VOIR PLUS" DU PORTFOLIO (SI EXISTANT)
@@ -179,162 +181,15 @@ if (mobileMenuButton && mobileMenu) {
 
 
 
-// ==================================================================
-// NOUVEAU : LOGIQUE POUR L'EFFET DE CHUTE "STICKY" (SECTION PROBLÈME)
-// ==================================================================
-const scrollContainer = document.getElementById('problem-scroll-container');
-// MODIFIÉ : Ajout de la condition de largeur d'écran
-if (scrollContainer && window.innerWidth >= 768) {
-    const problemCards = scrollContainer.querySelectorAll('.problem-card');
-    const knotContainer = document.getElementById('frustration-knot-container'); 
-    
-    const ANIMATION_START_PROGRESS = 0.20; 
-    const ANIMATION_END_PROGRESS = 0.80;   
-    const ANIMATION_DURATION = ANIMATION_END_PROGRESS - ANIMATION_START_PROGRESS;
-
-    const handleProblemScroll = () => {
-        const rect = scrollContainer.getBoundingClientRect();
-        
-        if (rect.bottom < 0 || rect.top > window.innerHeight) return;
-
-        const scrollAmount = -rect.top;
-        const scrollDistance = scrollContainer.offsetHeight - window.innerHeight;
-        
-        let totalProgress = scrollAmount / scrollDistance;
-        totalProgress = Math.max(0, Math.min(1, totalProgress));
-
-        if (knotContainer) {
-            const knotProgress = Math.min(1, totalProgress / ANIMATION_START_PROGRESS);
-            const opacity = 1 - knotProgress;
-            const scale = 1 - (knotProgress * 0.5);
-            const rotate = knotProgress * -180; 
-
-            knotContainer.style.opacity = opacity;
-            knotContainer.style.transform = `scale(${scale}) rotate(${rotate}deg)`;
-            knotContainer.style.pointerEvents = opacity > 0 ? 'auto' : 'none';
-        }
-
-        let animationProgress = (totalProgress - ANIMATION_START_PROGRESS) / ANIMATION_DURATION;
-        animationProgress = Math.max(0, Math.min(1, animationProgress));
-
-        problemCards.forEach((card, index) => {
-            
-            // ======================================================================
-            // MODIFICATION CLÉ : On définit un ordre précis : Milieu -> Gauche -> Droite
-            // ======================================================================
-            let animationOrder;
-            // Nous avons maintenant 3 étapes distinctes, donc 3 animationSteps.
-            const animationSteps = 3; 
-
-            if (index === 1) {      // Si c'est la carte du milieu (index 1)
-                animationOrder = 0; // Elle est la première à tomber (étape 0)
-            } else if (index === 0) { // Si c'est la carte de gauche (index 0)
-                animationOrder = 1; // Elle est la deuxième à tomber (étape 1)
-            } else {                // Sinon, c'est la carte de droite (index 2)
-                animationOrder = 2; // Elle est la troisième à tomber (étape 2)
-            }
-            // ======================================================================
-            
-            // Le reste du calcul s'adapte automatiquement à ce nouvel ordre.
-            const startProgress = animationOrder / animationSteps;
-            const endProgress = (animationOrder + 0.9) / animationSteps; 
-            
-            let cardProgress = (animationProgress - startProgress) / (endProgress - startProgress);
-            cardProgress = Math.max(0, Math.min(1, cardProgress));
-
-            const initialTranslateY = -window.innerHeight; 
-            const translateY = initialTranslateY * (1 - cardProgress);
-            const cardOpacity = cardProgress;
-
-            card.style.opacity = cardOpacity;
-            card.style.transform = `translateY(${translateY}px)`;
-        });
-    };
-
-    window.addEventListener('scroll', handleProblemScroll, { passive: true });
-    
-    if (knotContainer) {
-        knotContainer.style.opacity = 1; 
-    }
-    
-    handleProblemScroll();
-}
-
-    
-
-    // ==================================================================
-    // LOGIQUE POUR L'EFFET STICKY (SECTION VALUE PROPOSITION) - VERSION MODIFIÉE
-    // ==================================================================
-    const valuePropScrollContainer = document.getElementById('value-prop-scroll-container');
-    
-    if (valuePropScrollContainer && window.innerWidth >= 768) {
-        const valuePropCards = valuePropScrollContainer.querySelectorAll('.value-prop-card');
-        // NOUVEAU : On récupère l'overlay
-        const valuePropOverlay = document.getElementById('value-prop-overlay');
-        
-        const ANIMATION_START_PROGRESS = 0.20; 
-        const ANIMATION_END_PROGRESS = 0.80;   
-        const ANIMATION_DURATION = ANIMATION_END_PROGRESS - ANIMATION_START_PROGRESS;
-
-        // NOUVEAU : Constantes pour le fondu de l'overlay
-        const FADE_START_PROGRESS = 0.05; // Début du fondu (très tôt)
-        const FADE_END_PROGRESS = 0.20;   // Fin du fondu (quand les cartes commencent à apparaître)
-
-        const handleValuePropScroll = () => {
-            const rect = valuePropScrollContainer.getBoundingClientRect();
-            
-            if (rect.bottom < 0 || rect.top > window.innerHeight) return;
-
-            const scrollAmount = -rect.top;
-            const scrollDistance = valuePropScrollContainer.offsetHeight - window.innerHeight;
-            
-            let totalProgress = scrollAmount / scrollDistance;
-            totalProgress = Math.max(0, Math.min(1, totalProgress));
-
-            // --- DÉBUT DU BLOC MODIFIÉ ---
-            // Logique pour le fondu progressif de l'overlay
-            if (valuePropOverlay) {
-                // Calcule la progression du fondu uniquement dans sa plage définie
-                let fadeProgress = (totalProgress - FADE_START_PROGRESS) / (FADE_END_PROGRESS - FADE_START_PROGRESS);
-                fadeProgress = Math.max(0, Math.min(1, fadeProgress)); // Bloque la valeur entre 0 et 1
-
-                const opacity = 1 - fadeProgress; // L'opacité diminue à mesure que le fondu progresse
-                const blurAmount = 4 * (1 - fadeProgress); // Le flou diminue (de 4px à 0px)
-
-                valuePropOverlay.style.opacity = opacity;
-                valuePropOverlay.style.backdropFilter = `blur(${blurAmount}px)`;
-            }
-            // --- FIN DU BLOC MODIFIÉ ---
-
-            // Logique existante pour l'animation des cartes
-            let animationProgress = (totalProgress - ANIMATION_START_PROGRESS) / ANIMATION_DURATION;
-            animationProgress = Math.max(0, Math.min(1, animationProgress));
-
-            valuePropCards.forEach((card, index) => {
-                const cardCount = valuePropCards.length;
-                
-                const startProgress = index / cardCount;
-                const endProgress = (index + 0.9) / cardCount;
-                
-                let cardProgress = (animationProgress - startProgress) / (endProgress - startProgress);
-                cardProgress = Math.max(0, Math.min(1, cardProgress));
-
-                const initialTranslateX = window.innerWidth;
-                const translateX = initialTranslateX * (1 - cardProgress);
-                const opacity = cardProgress;
-
-                card.style.opacity = opacity;
-                card.style.transform = `translateX(${translateX}px)`;
-            });
-        };
-
-        window.addEventListener('scroll', handleValuePropScroll, { passive: true });
-        handleValuePropScroll();
-    }
 
 
 
-    
+
+ 
+
+
+
+
     // ==================================================================
     // LOGIQUE POUR L'EFFET STACKING CARDS (SECTION PLAN)
     // ==================================================================
@@ -346,8 +201,8 @@ if (scrollContainer && window.innerWidth >= 768) {
 
         const STACK_SCALE_FACTOR = 0.05;
         const STACK_Y_OFFSET = 20;
-        const START_DELAY = 0.10; 
-        const END_DELAY = 0.20; 
+        const START_DELAY = 0.10;
+        const END_DELAY = 0.20;
 
         const handleScroll = () => {
             const stickyContainer = planSection.querySelector('.h-\\[800vh\\]');
@@ -361,9 +216,9 @@ if (scrollContainer && window.innerWidth >= 768) {
 
             const animationDuration = 1.0 - START_DELAY - END_DELAY;
             const animationProgress = Math.min(1, Math.max(0, (totalProgress - START_DELAY) / animationDuration));
-            
+
             const panelProgress = animationProgress * (numPanels - 1);
-            
+
             panels.forEach((panel, panelIndex) => {
                 // --- DÉBUT DE LA CORRECTION ---
                 // On utilise l'index du panel dans la boucle (panelIndex) qui correspond à son ordre dans le DOM.
@@ -378,7 +233,7 @@ if (scrollContainer && window.innerWidth >= 768) {
                     // Ce panel est encore visible dans la pile.
                     const scale = 1 - (distance * STACK_SCALE_FACTOR);
                     const translateY = distance * STACK_Y_OFFSET;
-                    
+
                     panel.style.transform = `translateY(${translateY}px) scale(${Math.max(0, scale)})`;
                     panel.style.opacity = '1';
                     panel.style.pointerEvents = 'auto';
@@ -399,7 +254,7 @@ if (scrollContainer && window.innerWidth >= 768) {
 
 
 
-         // ==================================================================
+    // ==================================================================
     // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION SITE CLARTÉ
     // ==================================================================
     const clarityContainer = document.getElementById('clarity-section-container');
@@ -414,7 +269,7 @@ if (scrollContainer && window.innerWidth >= 768) {
         // --- DÉBUT DE LA CORRECTION CLÉ ---
         // 1. On calcule la hauteur nécessaire pour que l'animation se déroule.
         const animationScrollHeight = (CLARITY_ANIMATION_SCROLL_HEIGHT_VH / 100) * window.innerHeight;
-        
+
         // 2. La hauteur totale du conteneur doit être la hauteur de l'animation + la hauteur de l'écran
         //    (pour permettre à l'élément "sticky" de se détacher à la fin).
         const totalContainerHeight = animationScrollHeight + window.innerHeight;
@@ -444,11 +299,11 @@ if (scrollContainer && window.innerWidth >= 768) {
 
         const handleClarityScroll = () => {
             const rect = clarityContainer.getBoundingClientRect();
-            
+
             if (rect.bottom < 0 || rect.top > window.innerHeight) return;
 
             const scrollAmount = -rect.top;
-            
+
             // Le calcul de la progression utilise maintenant la variable `animationScrollHeight` que nous avons définie.
             let progress = scrollAmount / animationScrollHeight;
             progress = Math.max(0, Math.min(1, progress));
@@ -472,15 +327,15 @@ if (scrollContainer && window.innerWidth >= 768) {
         window.addEventListener('scroll', handleClarityScroll, { passive: true });
         handleClarityScroll();
     }
-    
 
-    
-    
+
+
+
     // ==================================================================
     // LOGIQUE POUR LA TRANSITION DE L'OVERLAY DE LA SECTION CLARTÉ
     // ==================================================================
     const clarityOverlay = document.getElementById('clarity-overlay');
-    const clarityTitleBlock = document.getElementById('clarity-title-block'); 
+    const clarityTitleBlock = document.getElementById('clarity-title-block');
 
     if (clarityOverlay && clarityTitleBlock) {
         const observerCallback = (entries) => {
@@ -501,8 +356,8 @@ if (scrollContainer && window.innerWidth >= 768) {
         const observer = new IntersectionObserver(observerCallback, observerOptions);
         observer.observe(clarityTitleBlock);
     }
-    
-    
+
+
 
     // ==================================================================
     // NOUVEAU : LOGIQUE POUR L'ANIMATION DE LA SECTION "EMPATHIE" (VERSION 2)
@@ -531,7 +386,7 @@ if (scrollContainer && window.innerWidth >= 768) {
 
             const scrollAmount = -rect.top;
             const scrollHeight = empathyContainer.offsetHeight - window.innerHeight;
-            
+
             let progress = scrollAmount / scrollHeight;
             progress = Math.max(0, Math.min(1, progress));
 
@@ -543,7 +398,7 @@ if (scrollContainer && window.innerWidth >= 768) {
 
                 // Calcule la position X. Commence à 100% de la largeur de la vue et va vers 0.
                 const translateX = window.innerWidth * (1 - imageProgress);
-                
+
                 // MODIFIÉ : La ligne qui contrôlait l'opacité a été supprimée.
                 empathyImage.style.transform = `translateX(${translateX}px)`;
             }
@@ -594,7 +449,7 @@ if (scrollContainer && window.innerWidth >= 768) {
 
             const scrollAmount = -rect.top;
             const scrollHeight = authorityContainer.offsetHeight - window.innerHeight;
-            
+
             let progress = scrollAmount / scrollHeight;
             progress = Math.max(0, Math.min(1, progress));
 
@@ -605,7 +460,7 @@ if (scrollContainer && window.innerWidth >= 768) {
 
                 // Calcule la position X. Commence à -100% (gauche) et va vers 0.
                 const translateX = -window.innerWidth * (1 - imageProgress);
-                
+
                 // MODIFIÉ : La ligne qui contrôlait l'opacité a été supprimée.
                 authorityImage.style.transform = `translateX(${translateX}px)`;
             }
@@ -626,98 +481,98 @@ if (scrollContainer && window.innerWidth >= 768) {
     }
 
 
-// ==================================================================
-// LOGIQUE COMPLÈTE POUR LA PAGE BLOG (VERSION AVEC ARTICLE "À LA UNE" MANUEL)
-// ==================================================================
-const blogPage = document.getElementById('articles-grid');
+    // ==================================================================
+    // LOGIQUE COMPLÈTE POUR LA PAGE BLOG (VERSION AVEC ARTICLE "À LA UNE" MANUEL)
+    // ==================================================================
+    const blogPage = document.getElementById('articles-grid');
 
-if (blogPage) {
-    async function initBlog() {
-        try {
-            // --- 1. CHARGEMENT DES DONNÉES ---
-            const response = await fetch('page-cartes-blog.json');
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            let allArticles = await response.json();
+    if (blogPage) {
+        async function initBlog() {
+            try {
+                // --- 1. CHARGEMENT DES DONNÉES ---
+                const response = await fetch('page-cartes-blog.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                let allArticles = await response.json();
 
-            // ==================================================================
-            //            *** NOUVELLE LOGIQUE POUR L'ARTICLE "À LA UNE" ***
-            // ==================================================================
+                // ==================================================================
+                //            *** NOUVELLE LOGIQUE POUR L'ARTICLE "À LA UNE" ***
+                // ==================================================================
 
-            // 1. On cherche l'article marqué comme "featured"
-            const featuredArticle = allArticles.find(article => article.featured === true);
+                // 1. On cherche l'article marqué comme "featured"
+                const featuredArticle = allArticles.find(article => article.featured === true);
 
-            // 2. On crée une nouvelle liste qui exclut l'article "featured"
-            let regularArticles = allArticles.filter(article => !article.featured);
+                // 2. On crée une nouvelle liste qui exclut l'article "featured"
+                let regularArticles = allArticles.filter(article => !article.featured);
 
-            // 3. On trie UNIQUEMENT les articles réguliers par date
-            const parseFrenchDate = (dateString) => {
-                const months = {
-                    'Janvier': 0, 'Février': 1, 'Mars': 2, 'Avril': 3, 'Mai': 4, 'Juin': 5,
-                    'Juillet': 6, 'Août': 7, 'Septembre': 8, 'Octobre': 9, 'Novembre': 10, 'Décembre': 11
+                // 3. On trie UNIQUEMENT les articles réguliers par date
+                const parseFrenchDate = (dateString) => {
+                    const months = {
+                        'Janvier': 0, 'Février': 1, 'Mars': 2, 'Avril': 3, 'Mai': 4, 'Juin': 5,
+                        'Juillet': 6, 'Août': 7, 'Septembre': 8, 'Octobre': 9, 'Novembre': 10, 'Décembre': 11
+                    };
+                    const parts = dateString.split(' ');
+                    const day = parseInt(parts[0], 10);
+                    const month = months[parts[1]];
+                    const year = parseInt(parts[2], 10);
+                    return new Date(year, month, day);
                 };
-                const parts = dateString.split(' ');
-                const day = parseInt(parts[0], 10);
-                const month = months[parts[1]];
-                const year = parseInt(parts[2], 10);
-                return new Date(year, month, day);
-            };
 
-            regularArticles.sort((a, b) => {
-                const dateA = parseFrenchDate(a.date);
-                const dateB = parseFrenchDate(b.date);
-                return dateB - dateA; // Tri descendant
-            });
+                regularArticles.sort((a, b) => {
+                    const dateA = parseFrenchDate(a.date);
+                    const dateB = parseFrenchDate(b.date);
+                    return dateB - dateA; // Tri descendant
+                });
 
-            // ==================================================================
-            //                  *** FIN DE LA NOUVELLE LOGIQUE ***
-            // ==================================================================
+                // ==================================================================
+                //                  *** FIN DE LA NOUVELLE LOGIQUE ***
+                // ==================================================================
 
 
-            // --- 2. GESTION DE L'ÉTAT ---
-            const ITEMS_PER_PAGE = 9;
-            let currentPage = 1;
-            let activeCategory = 'all';
-            let searchQuery = '';
+                // --- 2. GESTION DE L'ÉTAT ---
+                const ITEMS_PER_PAGE = 9;
+                let currentPage = 1;
+                let activeCategory = 'all';
+                let searchQuery = '';
 
-            // --- 3. SÉLECTION DES ÉLÉMENTS DU DOM ---
-            const articlesGrid = document.getElementById('articles-grid');
-            const articlesGridTitle = document.getElementById('articles-grid-title');
-            const featuredPostContainer = document.getElementById('featured-post');
-            const paginationContainer = document.getElementById('pagination-container');
-            const categoryFilters = document.getElementById('category-filters');
-            const searchInput = document.getElementById('search-input');
-            const noResults = document.getElementById('no-results');
+                // --- 3. SÉLECTION DES ÉLÉMENTS DU DOM ---
+                const articlesGrid = document.getElementById('articles-grid');
+                const articlesGridTitle = document.getElementById('articles-grid-title');
+                const featuredPostContainer = document.getElementById('featured-post');
+                const paginationContainer = document.getElementById('pagination-container');
+                const categoryFilters = document.getElementById('category-filters');
+                const searchInput = document.getElementById('search-input');
+                const noResults = document.getElementById('no-results');
 
-            // --- 4. FONCTIONS PRINCIPALES ---
+                // --- 4. FONCTIONS PRINCIPALES ---
 
-            function renderArticles() {
-                // 4.1 Filtrage (maintenant basé sur les articles réguliers)
-                let filteredArticles = regularArticles; // On part de la liste sans l'article "à la une"
-                if (activeCategory !== 'all') {
-                    filteredArticles = filteredArticles.filter(article => article.category === activeCategory);
-                }
-                if (searchQuery) {
-                    const lowerCaseQuery = searchQuery.toLowerCase();
-                    // La recherche s'applique aussi à la liste triée des articles réguliers
-                    let allRegularArticlesForSearch = regularArticles;
-                     if (activeCategory !== 'all') {
-                        allRegularArticlesForSearch = allRegularArticlesForSearch.filter(article => article.category === activeCategory);
+                function renderArticles() {
+                    // 4.1 Filtrage (maintenant basé sur les articles réguliers)
+                    let filteredArticles = regularArticles; // On part de la liste sans l'article "à la une"
+                    if (activeCategory !== 'all') {
+                        filteredArticles = filteredArticles.filter(article => article.category === activeCategory);
                     }
-                    filteredArticles = allRegularArticlesForSearch.filter(article =>
-                        article.title.toLowerCase().includes(lowerCaseQuery) ||
-                        article.description.toLowerCase().includes(lowerCaseQuery)
-                    );
-                }
-                
-                noResults.classList.toggle('hidden', filteredArticles.length > 0);
+                    if (searchQuery) {
+                        const lowerCaseQuery = searchQuery.toLowerCase();
+                        // La recherche s'applique aussi à la liste triée des articles réguliers
+                        let allRegularArticlesForSearch = regularArticles;
+                        if (activeCategory !== 'all') {
+                            allRegularArticlesForSearch = allRegularArticlesForSearch.filter(article => article.category === activeCategory);
+                        }
+                        filteredArticles = allRegularArticlesForSearch.filter(article =>
+                            article.title.toLowerCase().includes(lowerCaseQuery) ||
+                            article.description.toLowerCase().includes(lowerCaseQuery)
+                        );
+                    }
 
-                // 4.2 Article "À la Une"
-                const showFeaturedPost = featuredArticle && currentPage === 1 && !searchQuery && activeCategory === 'all';
-                
-                if (showFeaturedPost) {
-                    featuredPostContainer.innerHTML = `
+                    noResults.classList.toggle('hidden', filteredArticles.length > 0);
+
+                    // 4.2 Article "À la Une"
+                    const showFeaturedPost = featuredArticle && currentPage === 1 && !searchQuery && activeCategory === 'all';
+
+                    if (showFeaturedPost) {
+                        featuredPostContainer.innerHTML = `
                         <h2 class="text-3xl font-bold text-neutral-dark mb-10 text-center">À la Une</h2>
                         <a href="${featuredArticle.link}" class="block group" data-sr>
                             <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-soft-blue p-8 rounded-2xl border-2 border-gray-200">
@@ -730,24 +585,24 @@ if (blogPage) {
                             </div>
                         </a>
                     `;
-                    featuredPostContainer.classList.remove('hidden');
-                    articlesGridTitle.textContent = "Tous les articles";
-                } else {
-                    featuredPostContainer.classList.add('hidden');
-                    articlesGridTitle.textContent = "Résultats de la recherche";
-                    if (!searchQuery && activeCategory === 'all') {
-                         articlesGridTitle.textContent = "Tous les articles";
+                        featuredPostContainer.classList.remove('hidden');
+                        articlesGridTitle.textContent = "Tous les articles";
+                    } else {
+                        featuredPostContainer.classList.add('hidden');
+                        articlesGridTitle.textContent = "Résultats de la recherche";
+                        if (!searchQuery && activeCategory === 'all') {
+                            articlesGridTitle.textContent = "Tous les articles";
+                        }
                     }
-                }
 
-                // 4.3 Pagination (basée sur les articles filtrés)
-                const totalPages = Math.ceil(filteredArticles.length / ITEMS_PER_PAGE);
-                const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-                const endIndex = startIndex + ITEMS_PER_PAGE;
-                const paginatedArticles = filteredArticles.slice(startIndex, endIndex);
+                    // 4.3 Pagination (basée sur les articles filtrés)
+                    const totalPages = Math.ceil(filteredArticles.length / ITEMS_PER_PAGE);
+                    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+                    const endIndex = startIndex + ITEMS_PER_PAGE;
+                    const paginatedArticles = filteredArticles.slice(startIndex, endIndex);
 
-                // 4.4 Affichage
-                articlesGrid.innerHTML = paginatedArticles.map(article => `
+                    // 4.4 Affichage
+                    articlesGrid.innerHTML = paginatedArticles.map(article => `
                     <div class="portfolio-item" data-sr>
                         <a href="${article.link}" class="block h-full group">
                             <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
@@ -762,185 +617,185 @@ if (blogPage) {
                     </div>
                 `).join('');
 
-                renderPagination(totalPages);
-                
-                if (typeof ScrollReveal !== 'undefined') {
-                    ScrollReveal().reveal('[data-sr]', {
-                        origin: 'bottom', distance: '20px', duration: 500, delay: 0,
-                        opacity: 0, scale: 1, easing: 'cubic-bezier(0.5, 0, 0, 1)',
-                        reset: false, viewFactor: 0.2
-                    }, 50);
-                }
-            }
+                    renderPagination(totalPages);
 
-            // Le reste de la fonction (pagination, événements) ne change pas...
-            function renderPagination(totalPages) {
-                if (totalPages <= 1) {
-                    paginationContainer.innerHTML = '';
-                    return;
-                }
-
-                const getPageNumbers = () => {
-                    const pageNumbers = [];
-                    const maxPagesToShow = 5;
-                    const half = Math.floor(maxPagesToShow / 2);
-
-                    if (totalPages <= maxPagesToShow + 2) {
-                        for (let i = 1; i <= totalPages; i++) {
-                            pageNumbers.push(i);
-                        }
-                    } else if (currentPage <= half + 1) {
-                        for (let i = 1; i <= maxPagesToShow; i++) {
-                            pageNumbers.push(i);
-                        }
-                        pageNumbers.push('...');
-                        pageNumbers.push(totalPages);
-                    } else if (currentPage >= totalPages - half) {
-                        pageNumbers.push(1);
-                        pageNumbers.push('...');
-                        for (let i = totalPages - maxPagesToShow + 1; i <= totalPages; i++) {
-                            pageNumbers.push(i);
-                        }
-                    } else {
-                        pageNumbers.push(1);
-                        pageNumbers.push('...');
-                        for (let i = currentPage - half; i <= currentPage + half; i++) {
-                            pageNumbers.push(i);
-                        }
-                        pageNumbers.push('...');
-                        pageNumbers.push(totalPages);
+                    if (typeof ScrollReveal !== 'undefined') {
+                        ScrollReveal().reveal('[data-sr]', {
+                            origin: 'bottom', distance: '20px', duration: 500, delay: 0,
+                            opacity: 0, scale: 1, easing: 'cubic-bezier(0.5, 0, 0, 1)',
+                            reset: false, viewFactor: 0.2
+                        }, 50);
                     }
-                    return pageNumbers;
-                };
+                }
 
-                const pageNumbers = getPageNumbers();
-                let paginationHTML = `
+                // Le reste de la fonction (pagination, événements) ne change pas...
+                function renderPagination(totalPages) {
+                    if (totalPages <= 1) {
+                        paginationContainer.innerHTML = '';
+                        return;
+                    }
+
+                    const getPageNumbers = () => {
+                        const pageNumbers = [];
+                        const maxPagesToShow = 5;
+                        const half = Math.floor(maxPagesToShow / 2);
+
+                        if (totalPages <= maxPagesToShow + 2) {
+                            for (let i = 1; i <= totalPages; i++) {
+                                pageNumbers.push(i);
+                            }
+                        } else if (currentPage <= half + 1) {
+                            for (let i = 1; i <= maxPagesToShow; i++) {
+                                pageNumbers.push(i);
+                            }
+                            pageNumbers.push('...');
+                            pageNumbers.push(totalPages);
+                        } else if (currentPage >= totalPages - half) {
+                            pageNumbers.push(1);
+                            pageNumbers.push('...');
+                            for (let i = totalPages - maxPagesToShow + 1; i <= totalPages; i++) {
+                                pageNumbers.push(i);
+                            }
+                        } else {
+                            pageNumbers.push(1);
+                            pageNumbers.push('...');
+                            for (let i = currentPage - half; i <= currentPage + half; i++) {
+                                pageNumbers.push(i);
+                            }
+                            pageNumbers.push('...');
+                            pageNumbers.push(totalPages);
+                        }
+                        return pageNumbers;
+                    };
+
+                    const pageNumbers = getPageNumbers();
+                    let paginationHTML = `
                     <button id="prev-page" class="pagination-btn" ${currentPage === 1 ? 'disabled' : ''}>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                     </button>
                 `;
-                pageNumbers.forEach(num => {
-                    if (num === '...') {
-                        paginationHTML += `<span class="pagination-ellipsis">...</span>`;
-                    } else {
-                        paginationHTML += `<button class="pagination-btn page-number ${num === currentPage ? 'active' : ''}" data-page="${num}">${num}</button>`;
-                    }
-                });
-                paginationHTML += `
+                    pageNumbers.forEach(num => {
+                        if (num === '...') {
+                            paginationHTML += `<span class="pagination-ellipsis">...</span>`;
+                        } else {
+                            paginationHTML += `<button class="pagination-btn page-number ${num === currentPage ? 'active' : ''}" data-page="${num}">${num}</button>`;
+                        }
+                    });
+                    paginationHTML += `
                     <button id="next-page" class="pagination-btn" ${currentPage === totalPages ? 'disabled' : ''}>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                     </button>
                 `;
-                paginationContainer.innerHTML = paginationHTML;
-            }
+                    paginationContainer.innerHTML = paginationHTML;
+                }
 
-            categoryFilters.addEventListener('click', (e) => {
-                if (e.target.classList.contains('filter-btn')) {
-                    categoryFilters.querySelector('.active').classList.remove('active');
-                    e.target.classList.add('active');
-                    activeCategory = e.target.dataset.filter;
+                categoryFilters.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('filter-btn')) {
+                        categoryFilters.querySelector('.active').classList.remove('active');
+                        e.target.classList.add('active');
+                        activeCategory = e.target.dataset.filter;
+                        currentPage = 1;
+                        renderArticles();
+                        articlesGridTitle.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+
+                const searchForm = document.getElementById('search-form');
+                searchForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    searchQuery = searchInput.value;
                     currentPage = 1;
                     renderArticles();
                     articlesGridTitle.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
+                });
 
-            const searchForm = document.getElementById('search-form');
-            searchForm.addEventListener('submit', (e) => {
-                e.preventDefault(); 
-                searchQuery = searchInput.value;
-                currentPage = 1;
+                searchInput.addEventListener('input', () => {
+                    if (searchInput.value === '') {
+                        searchQuery = '';
+                        currentPage = 1;
+                        renderArticles();
+                    }
+                });
+
+                paginationContainer.addEventListener('click', (e) => {
+                    const target = e.target.closest('button');
+                    if (!target) return;
+
+                    let needsScroll = false;
+
+                    // Calcul du nombre total de pages pour la catégorie/recherche actuelle
+                    let relevantArticles = regularArticles;
+                    if (activeCategory !== 'all') {
+                        relevantArticles = relevantArticles.filter(article => article.category === activeCategory);
+                    }
+                    if (searchQuery) {
+                        relevantArticles = relevantArticles.filter(article =>
+                            article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                            article.description.toLowerCase().includes(searchQuery.toLowerCase())
+                        );
+                    }
+                    const totalPages = Math.ceil(relevantArticles.length / ITEMS_PER_PAGE);
+
+                    if (target.id === 'prev-page') {
+                        if (currentPage > 1) {
+                            currentPage--;
+                            needsScroll = true;
+                        }
+                    } else if (target.id === 'next-page') {
+                        if (currentPage < totalPages) {
+                            currentPage++;
+                            needsScroll = true;
+                        }
+                    } else if (target.classList.contains('page-number')) {
+                        const newPage = parseInt(target.dataset.page);
+                        if (newPage !== currentPage) {
+                            currentPage = newPage;
+                            needsScroll = true;
+                        }
+                    }
+
+                    if (needsScroll) {
+                        renderArticles();
+                        articlesGridTitle.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+
+                // --- 6. INITIALISATION ---
                 renderArticles();
-                articlesGridTitle.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
 
-            searchInput.addEventListener('input', () => {
-                if (searchInput.value === '') {
-                    searchQuery = '';
-                    currentPage = 1;
-                    renderArticles();
-                }
-            });
-
-            paginationContainer.addEventListener('click', (e) => {
-                const target = e.target.closest('button');
-                if (!target) return;
-
-                let needsScroll = false;
-                
-                // Calcul du nombre total de pages pour la catégorie/recherche actuelle
-                let relevantArticles = regularArticles;
-                if (activeCategory !== 'all') {
-                    relevantArticles = relevantArticles.filter(article => article.category === activeCategory);
-                }
-                if (searchQuery) {
-                     relevantArticles = relevantArticles.filter(article =>
-                        article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                        article.description.toLowerCase().includes(searchQuery.toLowerCase())
-                    );
-                }
-                const totalPages = Math.ceil(relevantArticles.length / ITEMS_PER_PAGE);
-
-                if (target.id === 'prev-page') {
-                    if (currentPage > 1) { 
-                        currentPage--; 
-                        needsScroll = true;
-                    }
-                } else if (target.id === 'next-page') {
-                    if (currentPage < totalPages) { 
-                        currentPage++; 
-                        needsScroll = true;
-                    }
-                } else if (target.classList.contains('page-number')) {
-                    const newPage = parseInt(target.dataset.page);
-                    if (newPage !== currentPage) {
-                        currentPage = newPage;
-                        needsScroll = true;
-                    }
-                }
-                
-                if (needsScroll) {
-                    renderArticles();
-                    articlesGridTitle.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-
-            // --- 6. INITIALISATION ---
-            renderArticles();
-
-        } catch (error) {
-            console.error("Impossible de charger les articles du blog:", error);
-            articlesGrid.innerHTML = `<p class="text-center text-destructive col-span-full">Erreur lors du chargement des articles. Veuillez réessayer plus tard.</p>`;
+            } catch (error) {
+                console.error("Impossible de charger les articles du blog:", error);
+                articlesGrid.innerHTML = `<p class="text-center text-destructive col-span-full">Erreur lors du chargement des articles. Veuillez réessayer plus tard.</p>`;
+            }
         }
-    }
-    // Lancement de la logique de la page blog
-    initBlog();
-}
-
-
-// ==================================================================
-// NOUVEAU : LOGIQUE POUR L'APERÇU DU BLOG SUR LA PAGE D'ACCUEIL
-// ==================================================================
-async function initBlogPreview() {
-    const blogPreviewGrid = document.getElementById('blog-preview-grid');
-    // Cette fonction ne s'exécute que si la grille d'aperçu existe sur la page
-    if (!blogPreviewGrid) {
-        return;
+        // Lancement de la logique de la page blog
+        initBlog();
     }
 
-    try {
-        // On récupère les mêmes données que pour la page blog
-        const response = await fetch('page-cartes-blog.json');
-        if (!response.ok) {
-            throw new Error(`Erreur HTTP: ${response.status}`);
+
+    // ==================================================================
+    // NOUVEAU : LOGIQUE POUR L'APERÇU DU BLOG SUR LA PAGE D'ACCUEIL
+    // ==================================================================
+    async function initBlogPreview() {
+        const blogPreviewGrid = document.getElementById('blog-preview-grid');
+        // Cette fonction ne s'exécute que si la grille d'aperçu existe sur la page
+        if (!blogPreviewGrid) {
+            return;
         }
-        const allArticles = await response.json();
 
-        // On ne garde que les 3 articles les plus récents (les 3 premiers du fichier)
-        const latestArticles = allArticles.slice(0, 3);
+        try {
+            // On récupère les mêmes données que pour la page blog
+            const response = await fetch('page-cartes-blog.json');
+            if (!response.ok) {
+                throw new Error(`Erreur HTTP: ${response.status}`);
+            }
+            const allArticles = await response.json();
 
-        // On génère le HTML pour ces 3 articles
-        blogPreviewGrid.innerHTML = latestArticles.map(article => `
+            // On ne garde que les 3 articles les plus récents (les 3 premiers du fichier)
+            const latestArticles = allArticles.slice(0, 3);
+
+            // On génère le HTML pour ces 3 articles
+            blogPreviewGrid.innerHTML = latestArticles.map(article => `
             <div data-sr data-sr-delay="${latestArticles.indexOf(article) * 100}">
                 <a href="${article.link}" class="block h-full group">
                     <div class="bg-soft-blue/60 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
@@ -955,23 +810,23 @@ async function initBlogPreview() {
             </div>
         `).join('');
 
-        // On s'assure que ScrollReveal anime les nouveaux éléments
-        if (typeof ScrollReveal !== 'undefined' && window.innerWidth >= 768) {
-            ScrollReveal().reveal('#blog-preview-grid [data-sr]');
+            // On s'assure que ScrollReveal anime les nouveaux éléments
+            if (typeof ScrollReveal !== 'undefined' && window.innerWidth >= 768) {
+                ScrollReveal().reveal('#blog-preview-grid [data-sr]');
+            }
+
+        } catch (error) {
+            console.error("Impossible de charger l'aperçu du blog:", error);
+            blogPreviewGrid.innerHTML = `<p class="text-center text-neutral-light col-span-full">Impossible de charger les derniers articles pour le moment.</p>`;
         }
-
-    } catch (error) {
-        console.error("Impossible de charger l'aperçu du blog:", error);
-        blogPreviewGrid.innerHTML = `<p class="text-center text-neutral-light col-span-full">Impossible de charger les derniers articles pour le moment.</p>`;
     }
-}
 
-// APPEL DE LA NOUVELLE FONCTION POUR LA PAGE D'ACCUEIL
-initBlogPreview();
-
+    // APPEL DE LA NOUVELLE FONCTION POUR LA PAGE D'ACCUEIL
+    initBlogPreview();
 
 
-    
+
+
     // ==================================================================
     // NOUVEAU : LOGIQUE POUR LE FORMULAIRE DE COMMENTAIRES DU BLOG
     // ==================================================================
@@ -981,7 +836,7 @@ initBlogPreview();
         commentFormPath.value = window.location.pathname;
     }
 
-    
+
 
     // ==================================================================
     // NOUVEAU : LOGIQUE POUR LE BANDEAU DE CONSENTEMENT COOKIES
@@ -1008,11 +863,11 @@ initBlogPreview();
         declineBtn.addEventListener('click', () => {
             localStorage.setItem('cookie_consent', 'declined');
             cookieBanner.classList.add('hidden');
-             // Ici, vous vous assurez que le suivi est désactivé
+            // Ici, vous vous assurez que le suivi est désactivé
             // ex: if (typeof gtag === 'function') { gtag('consent', 'update', { 'analytics_storage': 'denied' }); }
         });
     }
 
-    
-    
+
+
 });
