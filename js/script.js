@@ -191,64 +191,66 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // ==================================================================
-    // LOGIQUE POUR L'EFFET STACKING CARDS (SECTION PLAN)
+    // LOGIQUE POUR L'EFFET STACKING CARDS (SECTION PLAN) - CORRIGÉE
     // ==================================================================
     const planSection = document.getElementById('plan');
-    // MODIFIÉ : Ajout de la condition de largeur d'écran
-    if (planSection && window.innerWidth >= 768) {
+    
+    // On cible le conteneur par son ID unique pour éviter les erreurs si on change la hauteur CSS
+    const stackingContainer = document.getElementById('stacking-container');
+
+    if (planSection && stackingContainer && window.innerWidth >= 768) {
         const panels = Array.from(planSection.querySelectorAll('.panel'));
         const numPanels = panels.length;
 
-        const STACK_SCALE_FACTOR = 0.05;
-        const STACK_Y_OFFSET = 20;
-        const START_DELAY = 0.10;
-        const END_DELAY = 0.20;
+        // Réglages de l'animation
+        const STACK_SCALE_FACTOR = 0.05; // Réduit la taille des cartes du dessous
+        const STACK_Y_OFFSET = 20;       // Décalage vertical des cartes du dessous
+        const START_DELAY = 0.05;        // Commence l'anim un peu après le début
+        const END_DELAY = 0.05;          // Finit l'anim un peu avant la fin
 
         const handleScroll = () => {
-            const stickyContainer = planSection.querySelector('.h-\\[800vh\\]');
-            if (!stickyContainer) return;
-
-            const rect = stickyContainer.getBoundingClientRect();
+            const rect = stackingContainer.getBoundingClientRect();
+            
+            // Calcul de combien on a scrollé DANS le conteneur
             const scrollTop = -rect.top;
-            const scrollHeight = stickyContainer.offsetHeight - window.innerHeight;
+            
+            // Hauteur "utile" de scroll (hauteur totale - hauteur écran)
+            const scrollHeight = stackingContainer.offsetHeight - window.innerHeight;
 
+            // Progression de 0 à 1
             const totalProgress = Math.min(1, Math.max(0, scrollTop / scrollHeight));
 
+            // Ajustement de la progression pour l'animation
             const animationDuration = 1.0 - START_DELAY - END_DELAY;
             const animationProgress = Math.min(1, Math.max(0, (totalProgress - START_DELAY) / animationDuration));
 
+            // Quel panel devrait être en train de bouger ?
             const panelProgress = animationProgress * (numPanels - 1);
 
             panels.forEach((panel, panelIndex) => {
-                // --- DÉBUT DE LA CORRECTION ---
-                // On utilise l'index du panel dans la boucle (panelIndex) qui correspond à son ordre dans le DOM.
                 const distance = panelIndex - panelProgress;
 
-                // On définit un z-index fixe et décroissant.
-                // Le premier panel (index 0) a le z-index le plus élevé (numPanels),
-                // garantissant qu'il est toujours au-dessus des autres.
+                // Gestion de l'ordre d'affichage (Z-Index)
                 panel.style.zIndex = numPanels - panelIndex;
 
                 if (distance >= 0) {
-                    // Ce panel est encore visible dans la pile.
+                    // La carte est encore dans la pile (visible)
                     const scale = 1 - (distance * STACK_SCALE_FACTOR);
                     const translateY = distance * STACK_Y_OFFSET;
 
                     panel.style.transform = `translateY(${translateY}px) scale(${Math.max(0, scale)})`;
                     panel.style.opacity = '1';
-                    panel.style.pointerEvents = 'auto';
                 } else {
-                    // Ce panel a été "décollé" et doit disparaître vers le haut.
-                    // Son z-index élevé garantit qu'il passe au-dessus du reste.
-                    panel.style.transform = 'translateY(-100%) scale(0.9)';
-                    panel.style.opacity = '0';
-                    panel.style.pointerEvents = 'none';
+                    // La carte part vers le haut (disparaît)
+                    // On la fait monter et disparaître (fade out)
+                    panel.style.transform = `translateY(${distance * 100}px) scale(1)`; 
+                    panel.style.opacity = '0'; // Disparaît complètement quand elle sort
                 }
-                // --- FIN DE LA CORRECTION ---
             });
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
+        // Appel initial pour placer les cartes correctement au chargement
         handleScroll();
     }
 
