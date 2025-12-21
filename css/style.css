@@ -324,33 +324,43 @@ html {
 
 
 /* ======================================================= */
-/*    MODIFICATION PREMIUM : SECTION PROBLÈME (STANDARD)    */
+/*             STYLES POUR LA SECTION PROBLÈME             */
 /* ======================================================= */
-#problem-scroll-container {
-    height: auto !important; /* On retire la hauteur immense */
+
+#problem-section {
+    background-image: url('../assets/image-background/background-chaos.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* On assure que la section a une hauteur normale */
+    height: auto !important; 
+    min-height: auto !important;
 }
 
+/* On force la suppression des anciens conteneurs s'ils traînent encore */
+#problem-scroll-container, 
 #problem-sticky-content {
-    position: relative !important; /* On retire le sticky */
-    top: auto !important;
     height: auto !important;
+    position: static !important;
+    display: block !important;
 }
 
 .problem-card {
-    /* On remet l'opacité et la position par défaut pour que ScrollReveal prenne le relais */
+    /* CORRECTION CRUCIALE : On remet l'opacité à 1 et on enlève le décalage */
     opacity: 1; 
     transform: none; 
+    
+    /* On garde uniquement les transitions pour le survol (hover) */
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* Le nœud (l'icône centrale) reste visible mais sans animation complexe */
+/* Suppression visuelle de l'icône au cas où elle resterait dans le HTML */
 #frustration-knot-container {
-    position: relative !important;
-    top: auto !important;
-    margin: 4rem auto; /* Un peu d'espace */
-    opacity: 1 !important;
-    transform: none !important;
+    display: none !important;
 }
+
+
+
 
 /* ======================================================= */
 /* MODIFICATION PREMIUM : VALUE PROPOSITION (STANDARD)     */
