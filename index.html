@@ -650,10 +650,9 @@
 
 
 <!-- ======================================================= -->
-<!--       Section Plan (PREMIUM DARK - V2 CORRIGÉE)         -->
+<!--       Section Plan (VERSION FINALE CORRIGÉE)            -->
 <!-- ======================================================= -->
 
-<!-- AJUSTEMENT : On passe à overflow: clip pour sécuriser le sticky -->
 <section id="plan" class="bg-neutral-dark py-24 relative" style="overflow: clip;">
     
     <!-- Déco Fond -->
@@ -662,26 +661,20 @@
 
     <div class="container mx-auto px-6 text-center mb-12 relative z-10">
         <span class="text-warm-orange font-bold tracking-widest uppercase text-xs mb-2 block">La Méthode Clartem</span>
-        <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
+        <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">
             De l'idée au lancement <br>
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-white">en 4 étapes fluides.</span>
         </h2>
+        <!-- NOUVEL INDICATEUR DE SCROLL (Visible et clair) -->
+        <p class="text-white/40 text-sm animate-pulse mt-4">
+            ↓ Faites défiler pour découvrir les étapes
+        </p>
     </div>
 
-    <!-- AJUSTEMENT : Hauteur augmentée à 500vh pour ralentir le scroll -->
+    <!-- Hauteur 500vh pour un scroll confortable -->
     <div class="relative h-[500vh]" id="stacking-container">
         
-        <!-- Le rail sticky -->
         <div class="sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden py-10">
-
-            <!-- --- NOUVEAU : INDICATEUR DE SCROLL --- -->
-            <div id="scroll-indicator" class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50 transition-opacity duration-500">
-                <span class="text-xs font-bold tracking-widest uppercase">Faites défiler</span>
-                <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center p-1">
-                    <div class="w-1 h-2 bg-white rounded-full animate-bounce"></div>
-                </div>
-            </div>
-            <!-- -------------------------------------- -->
 
             <!-- Carte 0 : Le Brouillard -->
             <div class="panel absolute w-[90%] max-w-5xl" style="--index: 0;">
@@ -779,21 +772,23 @@
                 </div>
             </div>
 
-            <!-- Carte Final CTA (CORRIGÉE AVEC IMAGE) -->
+            <!-- Carte Final CTA (STYLE CORRIGÉ : SOMBRE & GRANDE IMAGE) -->
             <div class="panel absolute w-[90%] max-w-5xl" style="--index: 5;">
-                <div class="premium-card bg-gradient-to-br from-clarity-blue to-deep-blue border-none">
-                    <div class="premium-content">
-                        <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">Votre agenda mérite d'être rempli.</h3>
-                        <p class="text-white/90 text-lg leading-relaxed mb-8">
+                <!-- On remet la classe premium-card pour avoir le fond sombre glassmorphism -->
+                <div class="premium-card border-t-4 border-white/50">
+                    <div class="premium-content relative z-20">
+                        <h3 class="text-2xl md:text-3xl font-bold text-white mb-6">Votre agenda mérite d'être rempli.</h3>
+                        <p class="text-white/80 text-lg leading-relaxed mb-8">
                             Le plan est clair. Transformons ensemble votre vision en un site web qui convertit, en seulement 7 jours.
                         </p>
-                        <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" class="btn btn-orange text-lg w-full sm:w-auto text-center shadow-xl shadow-orange-900/20 hover:shadow-orange-900/40 hover:scale-105 transition-all">
+                        <!-- AJOUT de relative z-50 et pointer-events-auto pour rendre le bouton cliquable -->
+                        <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="btn btn-orange text-lg w-full sm:w-auto text-center shadow-xl shadow-orange-900/20 hover:shadow-orange-900/40 hover:scale-105 transition-all relative z-50 pointer-events-auto">
                             Démarrer l'Étape 1
                         </a>
                     </div>
-                    <!-- Retour de l'image ici -->
-                    <div class="premium-image-wrapper flex items-center justify-center bg-white/5">
-                        <img src="assets/plan-cta.webp" alt="Lancement projet" class="premium-image object-contain p-8 hover:scale-110 transition-transform duration-500">
+                    <div class="premium-image-wrapper">
+                        <!-- Suppression du padding p-8 et ajout de object-cover pour remplir tout l'espace -->
+                        <img src="assets/plan-cta.webp" alt="Lancement projet" class="premium-image object-cover h-full w-full">
                     </div>
                 </div>
             </div>
@@ -801,6 +796,8 @@
         </div>
     </div>
 </section>
+
+
  
 
 
