@@ -1139,25 +1139,26 @@
 
 
 
-    <!-- ======================================================= -->
+<!-- ======================================================= -->
 <!--       SECTION LEAD MAGNET : PREMIUM DARK IMMERSION      -->
+<!--       (Version Corrigée : Transition fluide & Badge stable) -->
 <!-- ======================================================= -->
 <section id="lead-magnet" class="py-24 bg-neutral-dark relative overflow-hidden">
     
-    <!-- DÉCORATION D'ARRIÈRE-PLAN (Lumières d'ambiance) -->
-    <!-- Un glow bleu derrière le texte pour la profondeur -->
-    <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-clarity-blue/10 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
-    <!-- Un glow orange derrière le livre pour le faire ressortir -->
+    <!-- DÉCORATION D'ARRIÈRE-PLAN -->
+    <!-- SUPPRIMÉ : Le halo bleu en haut à gauche pour une transition fluide avec le portfolio -->
+    
+    <!-- CONSERVÉ : Un glow orange en bas à droite pour éclairer le livre -->
     <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-warm-orange/10 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3 pointer-events-none"></div>
 
     <div class="container mx-auto px-6 relative z-10">
         
         <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
 
-            <!-- COLONNE GAUCHE : LA PROMESSE & LE FORMULAIRE -->
+            <!-- COLONNE GAUCHE : CONTENU & FORMULAIRE -->
             <div class="lg:col-span-7 space-y-8" data-sr>
                 
-                <!-- En-tête accrocheur -->
+                <!-- En-tête -->
                 <div>
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-warm-orange/10 border border-warm-orange/20 text-warm-orange text-xs font-bold uppercase tracking-widest mb-4">
                         <span class="relative flex h-2 w-2">
@@ -1175,7 +1176,7 @@
                     </p>
                 </div>
 
-                <!-- Bénéfices (Checklist stylisée) -->
+                <!-- Bénéfices -->
                 <ul class="space-y-4">
                     <li class="flex items-start gap-4">
                         <div class="w-6 h-6 rounded-full bg-success-green/20 text-success-green flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -1191,7 +1192,22 @@
                     </li>
                 </ul>
 
-                <!-- FORMULAIRE INTÉGRÉ (Design Minimaliste) -->
+                <!-- NOUVEL EMPLACEMENT DU BADGE (PREUVE SOCIALE) -->
+                <!-- Il est maintenant intégré au flux, juste avant le formulaire -->
+                <div class="flex items-center gap-4 py-2">
+                    <div class="flex -space-x-3">
+                        <!-- Cercles décoratifs (avatars abstraits) -->
+                        <div class="w-9 h-9 rounded-full bg-gradient-to-br from-gray-700 to-gray-600 border-2 border-neutral-dark"></div>
+                        <div class="w-9 h-9 rounded-full bg-gradient-to-br from-gray-600 to-gray-500 border-2 border-neutral-dark"></div>
+                        <div class="w-9 h-9 rounded-full bg-gradient-to-br from-gray-500 to-gray-400 border-2 border-neutral-dark flex items-center justify-center text-[10px] text-white font-bold">+50</div>
+                    </div>
+                    <div class="text-sm">
+                        <span class="block text-white font-bold">Rejoignez les inscrits</span>
+                        <span class="text-success-green text-xs font-semibold">100% Gratuit & Valeur pure</span>
+                    </div>
+                </div>
+
+                <!-- FORMULAIRE -->
                 <div class="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
                     <form id="sib-form" method="POST" action="https://2a94b6d3.sibforms.com/serve/MUIFAF-8lvqoEgQ9XmXK62oeOPse06sPpprPUX5dw_fI2QZzwjOmEIwSOv0rSw4SH-IxWwEVQXPwcu-X6DaV0ErPKdUUx50BXxZ0GegndcrHLpRW-Sm5y_QOBcn5cejcywdgKyEcbN6lGW756rgUv6DXIY9Po3ZHvAtilPEABRfuzW2qOtIoFZuObcYWsWlKkhzZgy4oisAbv2kh">
                         
@@ -1215,12 +1231,12 @@
                             </div>
                         </div>
 
-                        <!-- Bouton Large -->
+                        <!-- Bouton -->
                         <button type="submit" class="w-full btn btn-orange text-lg font-bold py-3.5 shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 transition-all">
                             Recevoir mon Plan d'Action Gratuit
                         </button>
 
-                        <!-- RGPD (Discret mais lisible) -->
+                        <!-- RGPD -->
                         <div class="mt-4 flex items-start gap-3">
                             <div class="flex items-center h-5">
                                 <input id="consent-newsletter" name="consent-newsletter" type="checkbox" required class="w-4 h-4 rounded border-gray-600 bg-neutral-dark text-warm-orange focus:ring-warm-orange focus:ring-offset-neutral-dark">
@@ -1230,14 +1246,13 @@
                             </label>
                         </div>
 
-                        <!-- Champs cachés requis par Brevo -->
                         <input type="text" name="email_address_check" value="" style="display: none;">
                         <input type="hidden" name="locale" value="fr">
                     </form>
                 </div>
             </div>
 
-            <!-- COLONNE DROITE : LE VISUEL (Flottant) -->
+            <!-- COLONNE DROITE : LE VISUEL (Épuré) -->
             <div class="lg:col-span-5 relative flex justify-center lg:justify-end" data-sr data-sr-delay="200">
                 <!-- Cercle décoratif derrière le livre -->
                 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-warm-orange to-red-600 rounded-full blur-3xl opacity-20 animate-pulse"></div>
@@ -1248,27 +1263,13 @@
                          alt="Checklist Guide Gratuit" 
                          class="relative z-10 w-full max-w-md mx-auto drop-shadow-2xl transform transition-transform duration-500 group-hover:scale-105 group-hover:-rotate-2">
                          
-                    <!-- Badge Flottant -->
-                    <div class="absolute -bottom-6 -left-6 z-20 bg-white text-neutral-dark px-6 py-4 rounded-xl shadow-xl border border-gray-100 transform rotate-3 transition-transform group-hover:rotate-0 group-hover:scale-110">
-                        <div class="flex items-center gap-3">
-                            <div class="flex -space-x-2">
-                                <!-- Fake avatars pour la preuve sociale (optionnel, supprimez si vous n'aimez pas) -->
-                                <div class="w-8 h-8 rounded-full bg-gray-300 border-2 border-white"></div>
-                                <div class="w-8 h-8 rounded-full bg-gray-400 border-2 border-white"></div>
-                                <div class="w-8 h-8 rounded-full bg-gray-500 border-2 border-white"></div>
-                            </div>
-                            <div class="text-xs font-bold">
-                                <span class="block text-success-green">100% Gratuit</span>
-                                <span class="text-neutral-light font-normal">Rejoignez les inscrits</span>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Le badge flottant a été supprimé d'ici pour être mis à gauche -->
                 </div>
             </div>
 
         </div>
     </div>
-</section>    
+</section>  
 
 
 
