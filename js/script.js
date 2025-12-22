@@ -206,53 +206,60 @@ document.addEventListener('DOMContentLoaded', function () {
         const START_DELAY = 0.15; 
         const END_DELAY = 0.05;
 
+        
         const handleScroll = () => {
             const rect = stackingContainer.getBoundingClientRect();
             const viewportHeight = window.innerHeight;
             
             // Calculer la progression
-            const start = 0;
             const end = stackingContainer.offsetHeight - viewportHeight;
             const currentScroll = -rect.top;
             
             let progress = currentScroll / end;
             progress = Math.max(0, Math.min(1, progress));
 
-            
-            // -----------------------------------------
-
             // Calcul de l'animation des cartes
             const animationDuration = 1.0 - START_DELAY - END_DELAY;
             const animationProgress = Math.min(1, Math.max(0, (progress - START_DELAY) / animationDuration));
             const panelProgress = animationProgress * (numPanels - 1);
 
-            
             panels.forEach((panel, panelIndex) => {
                 const distance = panelIndex - panelProgress;
-                panel.style.zIndex = numPanels - panelIndex;
-
+                
                 if (distance >= 0) {
-                    // CAS 1 : La carte est VISIBLE (ou en attente)
+                    // CAS 1 : La carte est VISIBLE (active ou en attente)
+                    // On garde l'ordre normal : les premières cartes sont au-dessus
+                    panel.style.zIndex = numPanels - panelIndex;
+                    
                     const scale = 1 - (distance * 0.05);
                     const translateY = distance * 20; 
                     
                     panel.style.transform = `translateY(${translateY}px) scale(${Math.max(0, scale)})`;
                     panel.style.opacity = '1';
+                    panel.style.pointerEvents = 'auto'; // Cliquable
                     
-                    // IMPORTANT : On rend la carte cliquable
-                    panel.style.pointerEvents = 'auto'; 
+                    // ASTUCE : Si c'est la dernière carte (CTA), on lui donne un super boost de Z-Index
+                    // dès qu'elle devient la carte principale (distance proche de 0)
+                    if (panelIndex === numPanels - 1 && distance < 0.5) {
+                         panel.style.zIndex = 100;
+                    }
+
                 } else {
-                    // CAS 2 : La carte est INVISIBLE (elle part vers le haut)
+                    // CAS 2 : La carte PART VERS LE HAUT (elle est finie)
+                    
+                    // CORRECTIF CRITIQUE ICI :
+                    // On force la carte qui part à passer DERRIÈRE tout le monde (z-index 0)
+                    // Cela libère immédiatement la carte suivante (qui a z-index 100 ou plus)
+                    panel.style.zIndex = 0; 
+
+                    // On accélère la sortie
                     panel.style.transform = `translateY(${distance * 150}px) scale(0.9)`;
                     panel.style.opacity = '0'; 
-                    
-                    // IMPORTANT : On la rend "fantôme" (les clics passent au travers)
-                    // C'est ça qui va débloquer votre bouton instantanément !
-                    panel.style.pointerEvents = 'none'; 
+                    panel.style.pointerEvents = 'none'; // Non cliquable
                 }
             });
-
         };
+
 
         window.addEventListener('scroll', handleScroll, { passive: true });
         handleScroll();
