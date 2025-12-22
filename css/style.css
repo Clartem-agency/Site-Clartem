@@ -197,109 +197,6 @@ html {
 
 
 
-/* ======================================================= */
-/*    STYLES POUR L'EFFET STACKING CARDS (Version Storytelling)  */
-/* ======================================================= */
-
-.panel {
-    /* La transition est la clé pour un effet fluide */
-    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
-    /* Assure que la carte du dessus est bien cliquable */
-    pointer-events: none; 
-}
-
-.panel-card {
-    display: grid;
-    grid-template-columns: 1fr; /* Colonne unique sur mobile */
-    align-items: center;
-    gap: 2rem;
-    background-color: white;
-    border-radius: 1.5rem; /* Coins plus arrondis */
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    overflow: hidden;
-    border: 1px solid rgba(0,0,0,0.05);
-    padding: 1.5rem;
-    pointer-events: auto; /* Le contenu de la carte est cliquable */
-}
-
-@media (min-width: 768px) { /* md: */
-    .panel-card {
-        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur écrans moyens et plus */
-        padding: 0; /* Pas de padding global, on le gère par colonne */
-    }
-}
-
-.panel-image {
-    width: 100%;
-    height: 250px; /* Hauteur fixe sur mobile */
-    object-fit: cover;
-    border-radius: 1rem;
-}
-
-@media (min-width: 768px) { /* md: */
-    .panel-image {
-        height: 100%; /* Prend toute la hauteur de la carte sur grand écran */
-        border-radius: 0;
-    }
-}
-
-.panel-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-    height: 100%;
-}
-
-@media (min-width: 768px) { /* md: */
-    .panel-content {
-        padding: 2.5rem;
-    }
-}
-
-.panel-step-badge {
-    width: 3rem;
-    height: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    border-radius: 9999px;
-    font-weight: 700;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    border: 4px solid white;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.panel-title {
-    font-size: 1.75rem; /* text-2xl */
-    font-weight: 700;
-    color: #1F2937; /* neutral-dark */
-    margin-bottom: 0.75rem;
-}
-
-.panel-text {
-    font-size: 1.125rem; /* text-lg */
-    color: #6B7280; /* neutral-light */
-    line-height: 1.6;
-}
-
-.panel-days {
-    margin-top: 1rem;
-    font-size: 1.125rem; /* text-lg */
-    font-weight: 600;
-}
-
-
-
-
-
-
-
-
-
-
 
 
 /* ======================================================= */
@@ -695,4 +592,99 @@ html {
 .bento-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+}
+
+
+
+
+/* ======================================================= */
+/*    NOUVEAU STYLE PREMIUM POUR LA SECTION PLAN (FINAL)   */
+/* ======================================================= */
+
+.premium-card {
+    background: rgba(30, 41, 59, 0.7); /* Fond sombre semi-transparent */
+    backdrop-filter: blur(20px);       /* Effet de flou */
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    
+    /* Layout Desktop : Texte à gauche, Image à droite */
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    height: 500px;
+}
+
+/* CORRECTIF VISUEL : La dernière carte devient opaque pour cacher celle d'avant */
+.panel:last-child .premium-card {
+    background-color: #1F2937; /* Gris foncé solide (plus de transparence) */
+    backdrop-filter: none;     /* On enlève le flou */
+}
+
+.premium-content {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    /* CORRECTIF IMPORTANT : Rend le contenu (et le bouton) cliquable */
+    pointer-events: auto !important;
+    z-index: 20;
+}
+
+.premium-image-wrapper {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.premium-image {
+    width: 100%;
+    height: 100%;
+    /* CORRECTIF IMPORTANT : Force l'image à remplir tout le cadre (même la dernière) */
+    object-fit: cover; 
+    transition: transform 0.7s ease;
+}
+
+/* Zoom lent au survol */
+.premium-card:hover .premium-image {
+    transform: scale(1.05);
+}
+
+/* Le gros numéro en arrière-plan */
+.step-number {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 8rem;
+    font-weight: 800;
+    line-height: 1;
+    opacity: 0.5;
+    user-select: none;
+    font-family: sans-serif;
+    color: #374151; /* Gris foncé pour se fondre dans le sombre */
+}
+
+/* --- RESPONSIVE MOBILE & TABLETTE (< 1024px) --- */
+@media (max-width: 1024px) {
+    .premium-card {
+        grid-template-columns: 1fr; /* Une seule colonne */
+        grid-template-rows: auto 250px; /* Texte en haut, Image en bas */
+        height: auto;
+        min-height: 500px;
+    }
+    
+    .step-number {
+        font-size: 5rem;
+        top: 10px;
+        right: 20px;
+        left: auto; /* On le met à droite sur mobile pour éviter de gêner le titre */
+    }
+    
+    .premium-content {
+        padding: 2rem;
+    }
 }

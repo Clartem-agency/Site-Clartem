@@ -190,69 +190,84 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    // ==================================================================
-    // LOGIQUE POUR L'EFFET STACKING CARDS (SECTION PLAN)
+ 
+
+// ==================================================================
+    // LOGIQUE POUR L'EFFET STACKING CARDS (SECTION PLAN) - CORRIGÉE
     // ==================================================================
     const planSection = document.getElementById('plan');
-    // MODIFIÉ : Ajout de la condition de largeur d'écran
-    if (planSection && window.innerWidth >= 768) {
+    const stackingContainer = document.getElementById('stacking-container');
+
+    if (planSection && stackingContainer && window.innerWidth >= 768) {
         const panels = Array.from(planSection.querySelectorAll('.panel'));
         const numPanels = panels.length;
 
-        const STACK_SCALE_FACTOR = 0.05;
-        const STACK_Y_OFFSET = 20;
-        const START_DELAY = 0.10;
-        const END_DELAY = 0.20;
+        // On réduit le délai de démarrage pour que l'animation réagisse tout de suite
+        const START_DELAY = 0.05; 
+        const END_DELAY = 0.05;
 
         const handleScroll = () => {
-            const stickyContainer = planSection.querySelector('.h-\\[800vh\\]');
-            if (!stickyContainer) return;
+            const rect = stackingContainer.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            
+            // Calcul de la progression du scroll dans la section (de 0 à 1)
+            const start = rect.top * -1;
+            const end = stackingContainer.offsetHeight - viewportHeight;
+            let progress = start / end;
+            progress = Math.max(0, Math.min(1, progress));
 
-            const rect = stickyContainer.getBoundingClientRect();
-            const scrollTop = -rect.top;
-            const scrollHeight = stickyContainer.offsetHeight - window.innerHeight;
-
-            const totalProgress = Math.min(1, Math.max(0, scrollTop / scrollHeight));
-
+            // Calcul de la progression de l'animation
             const animationDuration = 1.0 - START_DELAY - END_DELAY;
-            const animationProgress = Math.min(1, Math.max(0, (totalProgress - START_DELAY) / animationDuration));
+            let animProgress = (progress - START_DELAY) / animationDuration;
+            animProgress = Math.max(0, Math.min(1, animProgress));
 
-            const panelProgress = animationProgress * (numPanels - 1);
+            // On étale la progression sur le nombre de cartes
+            // Si on a 6 cartes, on veut 5 transitions (0->1, 1->2, etc.)
+            const panelProgress = animProgress * (numPanels - 1);
 
-            panels.forEach((panel, panelIndex) => {
-                // --- DÉBUT DE LA CORRECTION ---
-                // On utilise l'index du panel dans la boucle (panelIndex) qui correspond à son ordre dans le DOM.
-                const distance = panelIndex - panelProgress;
+            panels.forEach((panel, i) => {
+                // 1. Z-INDEX : On inverse la logique précédente.
+                // La carte 0 est tout au fond (z=0), la suivante par-dessus (z=1), etc.
+                panel.style.zIndex = i;
+                
+                // 2. OPACITÉ & CLIC : Toujours visibles et cliquables
+                panel.style.opacity = '1';
+                panel.style.pointerEvents = 'auto';
 
-                // On définit un z-index fixe et décroissant.
-                // Le premier panel (index 0) a le z-index le plus élevé (numPanels),
-                // garantissant qu'il est toujours au-dessus des autres.
-                panel.style.zIndex = numPanels - panelIndex;
+                // 3. CALCUL DE LA POSITION
+                // 'offset' détermine où en est CETTE carte par rapport au scroll global.
+                // offset < -1  : La carte est en attente en bas (invisible)
+                // -1 < offset < 0 : La carte est en train de monter (animation d'entrée)
+                // offset > 0   : La carte est en place et se fait recouvrir (animation de recul)
+                const offset = panelProgress - i;
 
-                if (distance >= 0) {
-                    // Ce panel est encore visible dans la pile.
-                    const scale = 1 - (distance * STACK_SCALE_FACTOR);
-                    const translateY = distance * STACK_Y_OFFSET;
-
-                    panel.style.transform = `translateY(${translateY}px) scale(${Math.max(0, scale)})`;
-                    panel.style.opacity = '1';
-                    panel.style.pointerEvents = 'auto';
-                } else {
-                    // Ce panel a été "décollé" et doit disparaître vers le haut.
-                    // Son z-index élevé garantit qu'il passe au-dessus du reste.
-                    panel.style.transform = 'translateY(-100%) scale(0.9)';
-                    panel.style.opacity = '0';
-                    panel.style.pointerEvents = 'none';
+                if (offset < -1) {
+                    // CAS 1 : Carte future (cachée en bas de l'écran)
+                    panel.style.transform = `translateY(120vh) scale(1)`;
+                } 
+                else if (offset < 0) {
+                    // CAS 2 : Carte qui arrive (slide du bas vers le centre)
+                    // On convertit l'offset (-1 à 0) en pourcentage de hauteur (100vh à 0vh)
+                    const yPos = Math.abs(offset) * 100; 
+                    panel.style.transform = `translateY(${yPos}vh) scale(1)`;
+                } 
+                else {
+                    // CAS 3 : Carte installée (Active ou Passée)
+                    // Elle reste fixe au centre (0px) mais réduit légèrement sa taille
+                    // pour créer un effet de profondeur "pile de cartes"
+                    
+                    // On limite l'effet de profondeur aux 3 dernières cartes pour économiser les ressources
+                    const depth = Math.min(offset, 3); 
+                    const scale = Math.max(0.9, 1 - (depth * 0.05)); // Réduit de 5% par carte par-dessus
+                    
+                    panel.style.transform = `translateY(0px) scale(${scale})`;
                 }
-                // --- FIN DE LA CORRECTION ---
             });
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
-        handleScroll();
+        handleScroll(); // Appel initial
     }
-
-
 
     
 
