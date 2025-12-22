@@ -803,131 +803,155 @@
 
 
 
+<!-- ======================================================= -->
+<!--       SECTION STRATÉGIE (CORRIGÉE : MOBILE & TAGS)      -->
+<!-- ======================================================= -->
 
-        <!-- ======================================================= -->
-        <!--                Section Objectifs (AMÉLIORÉE)             -->
-        <!-- ======================================================= -->
+<section id="objectifs" class="py-24 bg-white relative overflow-hidden">
+    
+    <!-- Fond subtil -->
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-slate-50/50 -skew-x-12 pointer-events-none"></div>
 
-        <section id="objectifs" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16" data-sr>
-                    <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-6">Un Site Web Adapté à Votre
-                        Objectif<br><span class="text-clarity-blue">en tant que Praticien</span></h2>
-                    <p class="text-xl text-neutral-light max-w-3xl mx-auto">Chaque métier a son propre but. Je conçois
-                        votre site pour atteindre l'objectif qui compte le plus pour vous.</p>
+    <div class="container mx-auto px-6 relative z-10">
+        
+        <!-- 1. HEADER ASYMÉTRIQUE -->
+        <div class="grid lg:grid-cols-12 gap-12 items-end mb-16 md:mb-20" data-sr>
+            
+            <!-- Colonne Gauche -->
+            <div class="lg:col-span-7">
+                <div class="inline-block px-3 py-1 mb-6 border border-neutral-200 rounded-full bg-white text-xs font-bold tracking-widest text-neutral-500 uppercase">
+                    Votre Stratégie
                 </div>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-dark leading-[1.1]">
+                    Un site conçu pour<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-deep-blue">votre stade de croissance.</span>
+                </h2>
+            </div>
 
-                <!-- NOUVELLE GRILLE D'OBJECTIFS AVEC WRAPPER POUR SCROLLREVEAL -->
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Colonne Droite -->
+            <div class="lg:col-span-5 pb-2">
+                <div class="h-px w-full bg-neutral-200 mb-6"></div>
+                <p class="text-lg text-neutral-light leading-relaxed">
+                    Peu importe votre métier (coach, consultant, thérapeute...), votre site doit répondre à votre priorité du moment. Quelle est votre prochaine étape ?
+                </p>
+            </div>
+        </div>
 
-                    <!-- Carte 1 : Être Contacté -->
-                    <div data-sr>
-                        <div class="objectif-card group h-full" style="--objectif-color: #3B82F6;">
-                            <!-- clarity-blue -->
-                            <div class="objectif-card-bg"
-                                style="background-image: url('assets/objectifs-bg-contact.webp');"></div>
-                            <div class="objectif-card-content">
-                                <div class="objectif-icon-wrapper">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                    </svg>
-                                </div>
-                                <h3 class="text-xl font-bold text-neutral-dark mb-4">Présenter Votre Approche & Être
-                                    Contacté</h3>
-                                <p class="text-neutral-light flex-grow">Votre site inspire confiance et facilite la
-                                    prise de contact via un formulaire ou un appel direct.</p>
-                                <p class="mt-4 text-sm font-semibold text-clarity-blue">→ Formule Essentiel</p>
-                                <a href="#offres" class="objectif-card-button btn">Choisir</a>
-                            </div>
+        <!-- 2. GRILLE CARTES (Coins arrondis rétablis sur mobile) -->
+        <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+
+            <!-- Carte 1 : VISIBILITÉ -->
+            <div class="group relative bg-neutral-dark rounded-3xl p-[1px] overflow-hidden transition-all duration-500 hover:-translate-y-2 shadow-xl" data-sr>
+                <div class="absolute inset-0 bg-gradient-to-br from-gray-800 to-black group-hover:from-clarity-blue group-hover:to-deep-blue transition-colors duration-500"></div>
+                
+                <div class="relative h-full bg-neutral-dark rounded-[23px] p-8 md:p-12 flex flex-col items-start border border-gray-800/50 group-hover:border-transparent">
+                    
+                    <!-- Numéro en arrière-plan -->
+                    <div class="absolute top-4 right-6 text-7xl md:text-8xl font-serif text-white/5 font-bold group-hover:text-clarity-blue/10 transition-colors select-none z-0">
+                        01
+                    </div>
+
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold text-white mb-4">Visibilité & Autorité</h3>
+                        <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                            Vous lancez une nouvelle offre ou vous ciblez des clients haut de gamme (entreprises, VIP). Votre priorité est de prouver votre légitimité instantanément.
+                        </p>
+
+                        <!-- TAGS DE BESOINS (Universels) -->
+                        <div class="flex flex-wrap gap-3">
+                            <span class="text-xs font-medium text-gray-400 border border-gray-700 px-3 py-1 rounded-full group-hover:text-white group-hover:border-clarity-blue/50 transition-colors">Besoin de Crédibilité</span>
+                            <span class="text-xs font-medium text-gray-400 border border-gray-700 px-3 py-1 rounded-full group-hover:text-white group-hover:border-clarity-blue/50 transition-colors">Image Premium</span>
                         </div>
                     </div>
 
-                    <!-- Carte 2 : Gérer les RDV -->
-                    <div data-sr data-sr-delay="100">
-                        <div class="objectif-card group h-full" style="--objectif-color: #F97316;"> <!-- warm-orange -->
-                            <div class="objectif-card-bg"
-                                style="background-image: url('assets/objectifs-bg-rdv.webp');"></div>
-                            <div class="objectif-card-content">
-                                <div class="objectif-icon-wrapper">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                    </svg>
-                                </div>
-                                <h3 class="text-xl font-bold text-neutral-dark mb-4">Remplir Votre Agenda en Automatique
-                                </h3>
-                                <p class="text-neutral-light flex-grow">Vos clients réservent et paient leurs séances en
-                                    toute autonomie grâce à l'intégration de votre outil favori (Calendly, Doctolib,
-                                    etc.).</p>
-                                <p class="mt-4 text-sm font-semibold text-clarity-blue">→ Formule Interaction</p>
-                                <a href="#offres" class="objectif-card-button btn">Choisir</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Carte 3 : Capturer des Prospects -->
-                    <div data-sr data-sr-delay="200">
-                        <div class="objectif-card group h-full" style="--objectif-color: #16A34A;">
-                            <!-- success-green -->
-                            <div class="objectif-card-bg"
-                                style="background-image: url('assets/objectifs-bg-prospects.webp');"></div>
-                            <div class="objectif-card-content">
-                                <div class="objectif-icon-wrapper">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                    </svg>
-                                </div>
-                                <h3 class="text-xl font-bold text-neutral-dark mb-4">Vendre vos Programmes & Formations
-                                </h3>
-                                <p class="text-neutral-light flex-grow">Transformez vos visiteurs en une audience fidèle
-                                    grâce à une newsletter et un blog pour développer votre marque et vendre vos
-                                    accompagnements en ligne.</p>
-                                <p class="mt-4 text-sm font-semibold text-clarity-blue">→ Formule Croissance</p>
-                                <a href="#offres" class="objectif-card-button btn">Choisir</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Carte 4 : Devenir la Référence Locale -->
-                    <div data-sr data-sr-delay="300">
-                        <div class="objectif-card group h-full" style="--objectif-color: #1E3A8A;"> <!-- deep-blue -->
-                            <div class="objectif-card-bg"
-                                style="background-image: url('assets/objectifs-bg-local.webp');"></div>
-                            <div class="objectif-card-content">
-                                <div class="objectif-icon-wrapper">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    </svg>
-                                </div>
-                                <h3 class="text-xl font-bold text-neutral-dark mb-4">Devenir la Référence dans Votre
-                                    Ville</h3>
-                                <p class="text-neutral-light flex-grow">J'optimise votre site et votre fiche Google pour
-                                    que les clients de votre zone géographique vous trouvent en premier lorsqu'ils
-                                    cherchent un praticien comme vous.</p>
-                                <p class="mt-4 text-sm font-semibold text-clarity-blue">→ Formule SEO Local</p>
-                                <a href="#offres" class="objectif-card-button btn">Choisir</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="text-center mt-16" data-sr style="display: none;">
-                    <a href="solutions-par-metier.html" class="btn btn-secondary">
-                        Découvrir mes solutions par métier
-                    </a>
+                    <a href="#offres" class="absolute inset-0 z-20 focus:outline-none" aria-label="Voir l'offre Essentiel"></a>
                 </div>
             </div>
-        </section>
+
+            <!-- Carte 2 : AUTOMATISATION -->
+            <div class="group relative bg-neutral-dark rounded-3xl p-[1px] overflow-hidden transition-all duration-500 hover:-translate-y-2 shadow-xl" data-sr data-sr-delay="100">
+                <div class="absolute inset-0 bg-gradient-to-br from-gray-800 to-black group-hover:from-warm-orange group-hover:to-red-600 transition-colors duration-500"></div>
+                
+                <div class="relative h-full bg-neutral-dark rounded-[23px] p-8 md:p-12 flex flex-col items-start border border-gray-800/50 group-hover:border-transparent">
+                    
+                    <div class="absolute top-4 right-6 text-7xl md:text-8xl font-serif text-white/5 font-bold group-hover:text-warm-orange/10 transition-colors select-none z-0">
+                        02
+                    </div>
+
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold text-white mb-4">Flux & Automatisation</h3>
+                        <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                            Votre agenda se remplit et la gestion administrative devient lourde. Votre priorité est de libérer votre temps : réservations et paiements automatiques.
+                        </p>
+
+                        <div class="flex flex-wrap gap-3">
+                            <span class="text-xs font-medium text-gray-400 border border-gray-700 px-3 py-1 rounded-full group-hover:text-white group-hover:border-warm-orange/50 transition-colors">Agenda Surchargé</span>
+                            <span class="text-xs font-medium text-gray-400 border border-gray-700 px-3 py-1 rounded-full group-hover:text-white group-hover:border-warm-orange/50 transition-colors">Zéro Admin</span>
+                        </div>
+                    </div>
+
+                    <a href="#offres" class="absolute inset-0 z-20 focus:outline-none" aria-label="Voir l'offre Interaction"></a>
+                </div>
+            </div>
+
+            <!-- Carte 3 : SCALING -->
+            <div class="group relative bg-neutral-dark rounded-3xl p-[1px] overflow-hidden transition-all duration-500 hover:-translate-y-2 shadow-xl" data-sr data-sr-delay="200">
+                <div class="absolute inset-0 bg-gradient-to-br from-gray-800 to-black group-hover:from-success-green group-hover:to-emerald-700 transition-colors duration-500"></div>
+                
+                <div class="relative h-full bg-neutral-dark rounded-[23px] p-8 md:p-12 flex flex-col items-start border border-gray-800/50 group-hover:border-transparent">
+                    
+                    <div class="absolute top-4 right-6 text-7xl md:text-8xl font-serif text-white/5 font-bold group-hover:text-success-green/10 transition-colors select-none z-0">
+                        03
+                    </div>
+
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold text-white mb-4">Scaling & Offres Digitales</h3>
+                        <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                            Vous ne voulez plus échanger votre temps contre de l'argent. Votre priorité est de vendre vos savoirs (formations, ebooks) et capturer des emails.
+                        </p>
+
+                        <div class="flex flex-wrap gap-3">
+                            <span class="text-xs font-medium text-gray-400 border border-gray-700 px-3 py-1 rounded-full group-hover:text-white group-hover:border-success-green/50 transition-colors">Vente en ligne</span>
+                            <span class="text-xs font-medium text-gray-400 border border-gray-700 px-3 py-1 rounded-full group-hover:text-white group-hover:border-success-green/50 transition-colors">Revenus Passifs</span>
+                        </div>
+                    </div>
+
+                    <a href="#offres" class="absolute inset-0 z-20 focus:outline-none" aria-label="Voir l'offre Croissance"></a>
+                </div>
+            </div>
+
+            <!-- Carte 4 : LOCAL -->
+            <div class="group relative bg-neutral-dark rounded-3xl p-[1px] overflow-hidden transition-all duration-500 hover:-translate-y-2 shadow-xl" data-sr data-sr-delay="300">
+                <div class="absolute inset-0 bg-gradient-to-br from-gray-800 to-black group-hover:from-blue-500 group-hover:to-indigo-600 transition-colors duration-500"></div>
+                
+                <div class="relative h-full bg-neutral-dark rounded-[23px] p-8 md:p-12 flex flex-col items-start border border-gray-800/50 group-hover:border-transparent">
+                    
+                    <div class="absolute top-4 right-6 text-7xl md:text-8xl font-serif text-white/5 font-bold group-hover:text-blue-500/10 transition-colors select-none z-0">
+                        04
+                    </div>
+
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold text-white mb-4">Ancrage Local & SEO</h3>
+                        <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                            Vous recevez du public dans un lieu physique. Votre priorité est d'apparaître en premier sur Google et Maps quand on cherche une solution dans votre ville.
+                        </p>
+
+                        <div class="flex flex-wrap gap-3">
+                            <span class="text-xs font-medium text-gray-400 border border-gray-700 px-3 py-1 rounded-full group-hover:text-white group-hover:border-blue-500/50 transition-colors">Clientèle de Proximité</span>
+                            <span class="text-xs font-medium text-gray-400 border border-gray-700 px-3 py-1 rounded-full group-hover:text-white group-hover:border-blue-500/50 transition-colors">Top Recherche</span>
+                        </div>
+                    </div>
+
+                    <a href="#offres" class="absolute inset-0 z-20 focus:outline-none" aria-label="Voir l'offre SEO Local"></a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
 
 
 
