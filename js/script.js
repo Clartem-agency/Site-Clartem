@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
  
 
 // ==================================================================
-    // LOGIQUE POUR L'EFFET STACKING CARDS (SECTION PLAN) - V2 FINALE
+    // LOGIQUE POUR L'EFFET STACKING CARDS (SECTION PLAN) - CORRIGÉE
     // ==================================================================
     const planSection = document.getElementById('plan');
     const stackingContainer = document.getElementById('stacking-container');
@@ -202,67 +202,71 @@ document.addEventListener('DOMContentLoaded', function () {
         const panels = Array.from(planSection.querySelectorAll('.panel'));
         const numPanels = panels.length;
 
-        // AJUSTEMENT : On augmente le délai de démarrage pour que la 1ère carte reste figée plus longtemps
-        const START_DELAY = 0.15; 
+        // On réduit le délai de démarrage pour que l'animation réagisse tout de suite
+        const START_DELAY = 0.05; 
         const END_DELAY = 0.05;
 
-        
         const handleScroll = () => {
             const rect = stackingContainer.getBoundingClientRect();
             const viewportHeight = window.innerHeight;
             
-            // Calculer la progression
+            // Calcul de la progression du scroll dans la section (de 0 à 1)
+            const start = rect.top * -1;
             const end = stackingContainer.offsetHeight - viewportHeight;
-            const currentScroll = -rect.top;
-            
-            let progress = currentScroll / end;
+            let progress = start / end;
             progress = Math.max(0, Math.min(1, progress));
 
-            // Calcul de l'animation des cartes
+            // Calcul de la progression de l'animation
             const animationDuration = 1.0 - START_DELAY - END_DELAY;
-            const animationProgress = Math.min(1, Math.max(0, (progress - START_DELAY) / animationDuration));
-            const panelProgress = animationProgress * (numPanels - 1);
+            let animProgress = (progress - START_DELAY) / animationDuration;
+            animProgress = Math.max(0, Math.min(1, animProgress));
 
-            panels.forEach((panel, panelIndex) => {
-                const distance = panelIndex - panelProgress;
+            // On étale la progression sur le nombre de cartes
+            // Si on a 6 cartes, on veut 5 transitions (0->1, 1->2, etc.)
+            const panelProgress = animProgress * (numPanels - 1);
+
+            panels.forEach((panel, i) => {
+                // 1. Z-INDEX : On inverse la logique précédente.
+                // La carte 0 est tout au fond (z=0), la suivante par-dessus (z=1), etc.
+                panel.style.zIndex = i;
                 
-                if (distance >= 0) {
-                    // CAS 1 : La carte est VISIBLE (active ou en attente)
-                    // On garde l'ordre normal : les premières cartes sont au-dessus
-                    panel.style.zIndex = numPanels - panelIndex;
-                    
-                    const scale = 1 - (distance * 0.05);
-                    const translateY = distance * 20; 
-                    
-                    panel.style.transform = `translateY(${translateY}px) scale(${Math.max(0, scale)})`;
-                    panel.style.opacity = '1';
-                    panel.style.pointerEvents = 'auto'; // Cliquable
-                    
-                    // ASTUCE : Si c'est la dernière carte (CTA), on lui donne un super boost de Z-Index
-                    // dès qu'elle devient la carte principale (distance proche de 0)
-                    if (panelIndex === numPanels - 1 && distance < 0.8) {
-                         panel.style.zIndex = 100;
-                    }
+                // 2. OPACITÉ & CLIC : Toujours visibles et cliquables
+                panel.style.opacity = '1';
+                panel.style.pointerEvents = 'auto';
 
-                } else {
-                    // CAS 2 : La carte PART VERS LE HAUT (elle est finie)
-                    
-                    // CORRECTIF CRITIQUE ICI :
-                    // On force la carte qui part à passer DERRIÈRE tout le monde (z-index 0)
-                    // Cela libère immédiatement la carte suivante (qui a z-index 100 ou plus)
-                    panel.style.zIndex = 0; 
+                // 3. CALCUL DE LA POSITION
+                // 'offset' détermine où en est CETTE carte par rapport au scroll global.
+                // offset < -1  : La carte est en attente en bas (invisible)
+                // -1 < offset < 0 : La carte est en train de monter (animation d'entrée)
+                // offset > 0   : La carte est en place et se fait recouvrir (animation de recul)
+                const offset = panelProgress - i;
 
-                    // On accélère la sortie
-                    panel.style.transform = `translateY(${distance * 150}px) scale(0.9)`;
-                    panel.style.opacity = '0'; 
-                    panel.style.pointerEvents = 'none'; // Non cliquable
+                if (offset < -1) {
+                    // CAS 1 : Carte future (cachée en bas de l'écran)
+                    panel.style.transform = `translateY(120vh) scale(1)`;
+                } 
+                else if (offset < 0) {
+                    // CAS 2 : Carte qui arrive (slide du bas vers le centre)
+                    // On convertit l'offset (-1 à 0) en pourcentage de hauteur (100vh à 0vh)
+                    const yPos = Math.abs(offset) * 100; 
+                    panel.style.transform = `translateY(${yPos}vh) scale(1)`;
+                } 
+                else {
+                    // CAS 3 : Carte installée (Active ou Passée)
+                    // Elle reste fixe au centre (0px) mais réduit légèrement sa taille
+                    // pour créer un effet de profondeur "pile de cartes"
+                    
+                    // On limite l'effet de profondeur aux 3 dernières cartes pour économiser les ressources
+                    const depth = Math.min(offset, 3); 
+                    const scale = Math.max(0.9, 1 - (depth * 0.05)); // Réduit de 5% par carte par-dessus
+                    
+                    panel.style.transform = `translateY(0px) scale(${scale})`;
                 }
             });
         };
 
-
         window.addEventListener('scroll', handleScroll, { passive: true });
-        handleScroll();
+        handleScroll(); // Appel initial
     }
 
     
