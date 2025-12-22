@@ -240,7 +240,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     
                     // ASTUCE : Si c'est la dernière carte (CTA), on lui donne un super boost de Z-Index
                     // dès qu'elle devient la carte principale (distance proche de 0)
-                    if (panelIndex === numPanels - 1 && distance < 1.5) {
+                    if (panelIndex === numPanels - 1 && distance < 0.8) {
                          panel.style.zIndex = 100;
                     }
 
