@@ -592,3 +592,26 @@ html {
     transform: rotate(180deg);
 }
 
+
+
+
+/* ======================================================= */
+/*    ANIMATION TEXTE GRADIENT (SECTION CTA PREMIUM)       */
+/* ======================================================= */
+
+/* Permet d'agrandir le background pour faire bouger le dégradé */
+.bg-300\% {
+    background-size: 300% auto;
+}
+
+/* L'animation elle-même */
+.animate-gradient {
+    animation: animatedTextGradient 6s ease infinite alternate;
+}
+
+/* Les étapes de l'animation (gauche -> droite -> gauche) */
+@keyframes animatedTextGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
