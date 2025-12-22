@@ -692,57 +692,112 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
+    
+
+
     // ==================================================================
-    // NOUVEAU : LOGIQUE POUR L'APERÇU DU BLOG SUR LA PAGE D'ACCUEIL
-    // ==================================================================
-    async function initBlogPreview() {
-        const blogPreviewGrid = document.getElementById('blog-preview-grid');
-        // Cette fonction ne s'exécute que si la grille d'aperçu existe sur la page
-        if (!blogPreviewGrid) {
-            return;
-        }
+// LOGIQUE POUR L'APERÇU DU BLOG (STYLE ÉDITORIAL PREMIUM)
+// ==================================================================
+async function initBlogPreview() {
+    // On cible les deux nouveaux conteneurs
+    const featuredContainer = document.getElementById('featured-article-container');
+    const sidebarContainer = document.getElementById('sidebar-articles-container');
+    
+    // Sécurité si la section n'existe pas
+    if (!featuredContainer || !sidebarContainer) return;
 
-        try {
-            // On récupère les mêmes données que pour la page blog
-            const response = await fetch('page-cartes-blog.json');
-            if (!response.ok) {
-                throw new Error(`Erreur HTTP: ${response.status}`);
-            }
-            const allArticles = await response.json();
+    try {
+        const response = await fetch('page-cartes-blog.json');
+        if (!response.ok) throw new Error(`Erreur HTTP: ${response.status}`);
+        
+        const allArticles = await response.json();
 
-            // On ne garde que les 3 articles les plus récents (les 3 premiers du fichier)
-            const latestArticles = allArticles.slice(0, 3);
+        // On prend les 3 articles les plus récents
+        // (Assure-toi que ton JSON est trié par date, ou ajoute une logique de tri ici)
+        const latestArticles = allArticles.slice(0, 3);
 
-            // On génère le HTML pour ces 3 articles
-            blogPreviewGrid.innerHTML = latestArticles.map(article => `
-            <div data-sr data-sr-delay="${latestArticles.indexOf(article) * 100}">
-                <a href="${article.link}" class="block h-full group">
-                    <div class="bg-soft-blue/60 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
-                        <img src="${article.image}" alt="${article.title}" class="w-full h-48 object-cover">
-                        <div class="p-6 flex flex-col flex-grow">
-                            <h3 class="text-xl font-bold text-neutral-dark mb-2 group-hover:text-clarity-blue transition-colors">${article.title}</h3>
-                            <p class="text-neutral-light text-sm mb-4 flex-grow">${article.description}</p>
-                            <span class="text-xs text-neutral-light mt-auto">${article.date}</span>
+        if (latestArticles.length === 0) return;
+
+        // 1. GÉNÉRATION DE L'ARTICLE À LA UNE (Le premier)
+        const mainArticle = latestArticles[0];
+        
+        featuredContainer.innerHTML = `
+            <a href="${mainArticle.link}" class="group block h-full relative overflow-hidden rounded-3xl" data-sr>
+                <!-- Image de fond -->
+                <div class="absolute inset-0">
+                    <img src="${mainArticle.image}" alt="${mainArticle.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <!-- Overlay dégradé sombre pour lisibilité texte -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-80 group-hover:opacity-70 transition-opacity"></div>
+                </div>
+                
+                <!-- Contenu -->
+                <div class="relative h-full flex flex-col justify-end p-8 md:p-12 z-10">
+                    <div class="mb-4">
+                        <span class="bg-warm-orange text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">À la Une</span>
+                    </div>
+                    <h3 class="text-2xl md:text-4xl font-bold text-white mb-4 leading-tight group-hover:text-warm-orange transition-colors">
+                        ${mainArticle.title}
+                    </h3>
+                    <p class="text-gray-300 line-clamp-2 md:line-clamp-3 mb-6 text-lg max-w-2xl">
+                        ${mainArticle.description}
+                    </p>
+                    <div class="flex items-center text-sm text-gray-400 font-medium">
+                        <span>${mainArticle.date}</span>
+                        <span class="mx-2">•</span>
+                        <span class="flex items-center gap-1 group-hover:translate-x-2 transition-transform duration-300 text-white">
+                            Lire l'article <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                        </span>
+                    </div>
+                </div>
+            </a>
+        `;
+
+        // 2. GÉNÉRATION DES ARTICLES SECONDAIRES (Les suivants)
+        const sideArticles = latestArticles.slice(1, 3);
+        
+        let sidebarHTML = `<div class="flex flex-col gap-6 h-full">`;
+        
+        sideArticles.forEach((article, index) => {
+            sidebarHTML += `
+                <a href="${article.link}" class="group flex flex-col sm:flex-row gap-6 bg-white/5 border border-white/10 p-5 rounded-2xl hover:bg-white/10 transition-colors h-full" data-sr data-sr-delay="${(index + 1) * 150}">
+                    <!-- Image miniature -->
+                    <div class="w-full sm:w-1/3 aspect-video sm:aspect-square rounded-xl overflow-hidden flex-shrink-0">
+                        <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    
+                    <!-- Contenu -->
+                    <div class="flex flex-col justify-center">
+                        <span class="text-warm-orange text-xs font-bold uppercase tracking-wider mb-2">${article.category || 'Conseil'}</span>
+                        <h4 class="text-xl font-bold text-white mb-3 leading-snug group-hover:text-clarity-blue transition-colors">
+                            ${article.title}
+                        </h4>
+                        <p class="text-gray-400 text-sm line-clamp-2 mb-4">
+                            ${article.description}
+                        </p>
+                         <div class="text-xs text-gray-500 mt-auto">
+                            ${article.date}
                         </div>
                     </div>
                 </a>
-            </div>
-        `).join('');
+            `;
+        });
+        
+        sidebarHTML += `</div>`;
+        sidebarContainer.innerHTML = sidebarHTML;
 
-            // On s'assure que ScrollReveal anime les nouveaux éléments
-            if (typeof ScrollReveal !== 'undefined' && window.innerWidth >= 768) {
-                ScrollReveal().reveal('#blog-preview-grid [data-sr]');
-            }
-
-        } catch (error) {
-            console.error("Impossible de charger l'aperçu du blog:", error);
-            blogPreviewGrid.innerHTML = `<p class="text-center text-neutral-light col-span-full">Impossible de charger les derniers articles pour le moment.</p>`;
+        // Réinitialisation de ScrollReveal pour les nouveaux éléments
+        if (typeof ScrollReveal !== 'undefined') {
+            ScrollReveal().reveal('#featured-article-container [data-sr]', { distance: '40px', origin: 'bottom' });
+            ScrollReveal().reveal('#sidebar-articles-container [data-sr]', { interval: 100 });
         }
+
+    } catch (error) {
+        console.error("Impossible de charger l'aperçu du blog:", error);
     }
+}
 
-    // APPEL DE LA NOUVELLE FONCTION POUR LA PAGE D'ACCUEIL
-    initBlogPreview();
-
+// Appel de la fonction
+initBlogPreview();
 
 
 
