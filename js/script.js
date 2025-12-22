@@ -226,24 +226,32 @@ document.addEventListener('DOMContentLoaded', function () {
             const animationProgress = Math.min(1, Math.max(0, (progress - START_DELAY) / animationDuration));
             const panelProgress = animationProgress * (numPanels - 1);
 
+            
             panels.forEach((panel, panelIndex) => {
                 const distance = panelIndex - panelProgress;
                 panel.style.zIndex = numPanels - panelIndex;
 
                 if (distance >= 0) {
-                    // Carte visible
+                    // CAS 1 : La carte est VISIBLE (ou en attente)
                     const scale = 1 - (distance * 0.05);
                     const translateY = distance * 20; 
                     
                     panel.style.transform = `translateY(${translateY}px) scale(${Math.max(0, scale)})`;
                     panel.style.opacity = '1';
+                    
+                    // IMPORTANT : On rend la carte cliquable
+                    panel.style.pointerEvents = 'auto'; 
                 } else {
-                    // Carte qui part
-                    // On accélère un peu la sortie
+                    // CAS 2 : La carte est INVISIBLE (elle part vers le haut)
                     panel.style.transform = `translateY(${distance * 150}px) scale(0.9)`;
                     panel.style.opacity = '0'; 
+                    
+                    // IMPORTANT : On la rend "fantôme" (les clics passent au travers)
+                    // C'est ça qui va débloquer votre bouton instantanément !
+                    panel.style.pointerEvents = 'none'; 
                 }
             });
+
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
