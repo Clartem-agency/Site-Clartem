@@ -197,7 +197,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // ==================================================================
     const planSection = document.getElementById('plan');
     const stackingContainer = document.getElementById('stacking-container');
-    const scrollIndicator = document.getElementById('scroll-indicator'); // Sélectionne l'indicateur
 
     if (planSection && stackingContainer && window.innerWidth >= 768) {
         const panels = Array.from(planSection.querySelectorAll('.panel'));
@@ -219,14 +218,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let progress = currentScroll / end;
             progress = Math.max(0, Math.min(1, progress));
 
-            // --- GESTION DE L'INDICATEUR DE SCROLL ---
-            if (scrollIndicator) {
-                if (progress > 0.02) { // Dès qu'on scroll un tout petit peu
-                    scrollIndicator.style.opacity = '0';
-                } else {
-                    scrollIndicator.style.opacity = '1';
-                }
-            }
+            
             // -----------------------------------------
 
             // Calcul de l'animation des cartes
