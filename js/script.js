@@ -67,8 +67,8 @@ document.addEventListener('DOMContentLoaded', function () {
         sr.reveal('[data-sr-delay="100"]', { delay: 300 });
         sr.reveal('[data-sr-delay="200"]', { delay: 400 });
         sr.reveal('[data-sr-delay="300"]', { delay: 500 });
-        sr.reveal('[data-sr-origin="right"]', { origin: 'right', distance: '40px', delay: 200 });
-        sr.reveal('[data-sr-origin="left"]', { origin: 'left', distance: '40px', delay: 200 });
+        sr.reveal('[data-sr-origin="right"]', { origin: 'right', distance: '60px', duration: 1000, delay: 200 });
+        sr.reveal('[data-sr-origin="left"]', { origin: 'left', distance: '60px', duration: 1000, delay: 200 });
     }
 
     // ==================================================================
