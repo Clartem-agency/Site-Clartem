@@ -844,4 +844,72 @@ initBlogPreview();
 
 
 
+// ==================================================================
+    // ANIMATION DU TERMINAL (TYPEWRITER EFFECT)
+    // ==================================================================
+    const terminalContainer = document.getElementById('typewriter-container');
+    
+    if (terminalContainer) {
+        // Les lignes à écrire. <br> fait un saut de ligne, les classes colorent le texte.
+        const lines = [
+            { text: "> SYSTEM CHECK: ANALYSE DU WEB...", class: "text-gray-400" },
+            { text: "> LOADING: 99%...", class: "text-gray-400" },
+            { text: "> SEARCHING FOR EMPATHY...", class: "text-blue-400" },
+            { text: "> CRITICAL ERROR: HUMAN_CONNECTION_NOT_FOUND", class: "text-red-500 font-bold" },
+            { text: "> SEARCHING FOR THERAPISTS & COACHES...", class: "text-yellow-400" },
+            { text: "> SOLUTION DETECTED: VOUS.", class: "text-green-400 font-bold text-lg mt-2" }
+        ];
+
+        let lineIndex = 0;
+        let charIndex = 0;
+        let isTyping = false;
+
+        function typeLine() {
+            if (lineIndex < lines.length) {
+                const currentLineData = lines[lineIndex];
+                
+                // Si c'est le début d'une nouvelle ligne, on crée l'élément HTML
+                if (charIndex === 0) {
+                    const p = document.createElement('div');
+                    p.className = currentLineData.class; // Applique la couleur Tailwind
+                    p.id = `line-${lineIndex}`;
+                    terminalContainer.appendChild(p);
+                }
+
+                const currentLineElement = document.getElementById(`line-${lineIndex}`);
+                
+                // Ajoute un caractère
+                currentLineElement.textContent += currentLineData.text.charAt(charIndex);
+                charIndex++;
+
+                // Vitesse de frappe aléatoire pour faire "humain/robot"
+                const typingSpeed = Math.random() * (50 - 20) + 20;
+
+                if (charIndex < currentLineData.text.length) {
+                    setTimeout(typeLine, typingSpeed);
+                } else {
+                    // Fin de la ligne, on passe à la suivante après une petite pause
+                    lineIndex++;
+                    charIndex = 0;
+                    setTimeout(typeLine, 300); // Pause de 300ms entre les lignes
+                }
+            }
+        }
+
+        // On utilise IntersectionObserver pour lancer l'anim seulement quand on voit le terminal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !isTyping) {
+                    isTyping = true;
+                    terminalContainer.innerHTML = ''; // Vide le conteneur au cas où
+                    typeLine(); // Lance l'animation
+                }
+            });
+        }, { threshold: 0.5 }); // Déclenche quand 50% du terminal est visible
+
+        observer.observe(terminalContainer);
+    }
+
+
+
 });
