@@ -38,9 +38,12 @@
                         'soft-blue': '#EFF6FF',
                         'warm-orange': '#F97316',
                         'success-green': '#16A34A',
-                        'neutral-dark': '#111827',
+                        'neutral-dark': '#0F172A', /* Darker premium blue */
                         'neutral-light': '#9CA3AF',
-                        'card-dark': '#1F2937',
+                        'card-dark': '#1E293B',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
                     }
                 }
             }
@@ -49,51 +52,63 @@
     <link rel="stylesheet" href="css/style.css">
     
     <style>
-        /* Style spécifique pour la timeline */
+        /* Timeline Design style Page 11 */
         .timeline-line {
             position: absolute;
-            left: 20px;
-            top: 0;
-            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 2px;
-            background: linear-gradient(180deg, #3B82F6 0%, #F97316 100%);
+            height: 100%;
+            background: linear-gradient(to bottom, 
+                rgba(59, 130, 246, 0.0), 
+                #3B82F6, 
+                #F97316, 
+                #16A34A, 
+                rgba(59, 130, 246, 0.0));
+            opacity: 0.4;
             z-index: 0;
         }
-        @media (min-width: 768px) {
-            .timeline-line { left: 50%; transform: translateX(-50%); }
+        
+        @media (max-width: 768px) {
+            .timeline-line { left: 20px; }
+        }
+
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
         }
     </style>
 </head>
 
-<body class="bg-neutral-dark text-white font-sans antialiased">
+<body class="bg-neutral-dark text-white font-sans antialiased selection:bg-warm-orange selection:text-white">
 
     <!-- NAVIGATION -->
-    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-neutral-dark/90 backdrop-blur-md border-b border-white/5">
-        <div class="container mx-auto px-6">
-            <div class="flex items-center justify-between py-4">
-                <a href="index.html" class="relative block group">
-                    <img class="h-10 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo Clartem">
-                </a>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Accueil</a>
-                    <a href="portfolio.html" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Portfolio</a>
-                    <a href="blog.html" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Blog</a>
-                </div>
-                <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
-                    class="hidden md:inline-flex items-center justify-center btn btn-primary px-6 h-10 text-sm">
-                    Appel Clarté
-                </a>
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden focus:outline-none text-white">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
+    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 glass-nav border-b border-white/5">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="relative block group">
+                <img class="h-10 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo Clartem">
+            </a>
+            
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Accueil</a>
+                <a href="portfolio.html" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Portfolio</a>
+                <a href="blog.html" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Blog</a>
             </div>
-             <!-- Menu Mobile -->
-             <div id="mobile-menu" class="hidden md:hidden mt-2 bg-card-dark p-4 rounded-xl shadow-xl border border-white/10">
-                <a href="index.html" class="block py-2 text-sm text-gray-300">Accueil</a>
-                <a href="portfolio.html" class="block py-2 text-sm text-gray-300">Portfolio</a>
-                <a href="blog.html" class="block py-2 text-sm text-gray-300">Blog</a>
-            </div>
+
+            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                class="hidden md:inline-flex items-center justify-center px-6 py-2 rounded-full bg-warm-orange text-white text-sm font-bold hover:bg-orange-600 transition-all shadow-[0_0_15px_rgba(249,115,22,0.3)]">
+                Appel Clarté
+            </a>
+             <!-- Mobile Menu Button -->
+             <button id="mobile-menu-button" class="md:hidden focus:outline-none text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+         <!-- Menu Mobile -->
+         <div id="mobile-menu" class="hidden md:hidden mt-2 bg-card-dark p-4 rounded-xl mx-4 border border-white/10 shadow-2xl absolute w-[calc(100%-2rem)]">
+            <a href="index.html" class="block py-3 text-sm text-gray-300 border-b border-white/5">Accueil</a>
+            <a href="portfolio.html" class="block py-3 text-sm text-gray-300 border-b border-white/5">Portfolio</a>
+            <a href="blog.html" class="block py-3 text-sm text-gray-300 border-b border-white/5">Blog</a>
         </div>
     </nav>
 
@@ -102,23 +117,23 @@
     <!-- ======================================================= -->
     <header class="relative pt-40 pb-20 overflow-hidden">
         <!-- Background Glows -->
-        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-clarity-blue/10 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-warm-orange/5 rounded-full blur-[120px] -translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-clarity-blue/10 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-warm-orange/5 rounded-full blur-[100px] -translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
 
         <div class="container mx-auto px-6 relative z-10 text-center">
             
             <!-- PHOTO DE PROFIL -->
             <div class="mb-10 relative inline-block group" data-sr>
-                <div class="absolute inset-0 bg-gradient-to-br from-clarity-blue to-warm-orange rounded-full blur opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div class="relative w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-neutral-dark shadow-2xl">
-                    <img src="assets/frederic-portrait.jpg" alt="Frédéric Delavictoire" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0">
+                <div class="absolute inset-0 bg-gradient-to-br from-clarity-blue to-warm-orange rounded-full blur opacity-40 group-hover:opacity-80 transition-opacity duration-500"></div>
+                <div class="relative w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-neutral-dark shadow-2xl mx-auto">
+                    <img src="assets/frederic-portrait.jpg" alt="Frédéric Delavictoire" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 transform hover:scale-105">
                 </div>
                 <div class="absolute bottom-2 right-2 bg-neutral-dark px-3 py-1 rounded-full border border-white/10 text-xs font-bold text-warm-orange shadow-lg">
                     41 ans
                 </div>
             </div>
 
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight" data-sr data-sr-delay="100">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight max-w-4xl mx-auto" data-sr data-sr-delay="100">
                 Je n'ai pas appris le business dans une école.<br>
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-white">Je l'ai appris en tombant.</span>
             </h1>
@@ -131,312 +146,421 @@
         </div>
     </header>
 
-    
-    
     <!-- ======================================================= -->
-    <!--                  LA TIMELINE "CHAOS & CLARTÉ"           -->
+    <!--                  LA TIMELINE (Design Page 11)           -->
     <!-- ======================================================= -->
-    <section class="py-20 relative">
-        <div class="container mx-auto px-6 max-w-5xl relative">
+    <section class="py-20 relative overflow-hidden">
+        <div class="container mx-auto px-6 max-w-6xl relative">
             
-            <div class="text-center mb-20">
-                <span class="text-warm-orange font-bold tracking-widest uppercase text-xs mb-2 block">L'Origine Story</span>
-                <h2 class="text-3xl md:text-5xl font-bold">L'Art de se planter (pour mieux fleurir)<br><span class="text-gray-500 text-lg md:text-xl font-normal mt-2 block">Chroniques d'une résilience obstinée.</span></h2>
+            <div class="text-center mb-24" data-sr>
+                <span class="text-warm-orange font-bold tracking-[0.2em] uppercase text-xs mb-3 block">L'Origine Story</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white">L'Art de se planter (pour mieux fleurir)<br><span class="text-gray-500 text-lg md:text-xl font-normal mt-2 block">Chroniques d'une résilience obstinée.</span></h2>
             </div>
 
             <!-- Ligne Centrale Verticale -->
-            <div class="timeline-line hidden md:block"></div>
-            <!-- Ligne Mobile -->
-            <div class="absolute left-6 top-40 bottom-20 w-1 bg-gradient-to-b from-clarity-blue via-warm-orange to-purple-500 md:hidden"></div>
+            <div class="timeline-line"></div>
 
-            <div class="space-y-20">
+            <div class="space-y-32"> 
 
-                <!-- Chapitre 1 -->
-                <div class="relative flex flex-col md:flex-row items-center justify-between group" data-sr>
-                    <div class="hidden md:block w-5/12 text-right pr-12">
-                        <span class="text-clarity-blue font-bold text-xl block mb-1">2006 - 2013</span>
+                <!-- Chapitre 01 -->
+                <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
+                    <div class="md:text-right md:pr-12 order-2 md:order-1 relative pl-12 md:pl-0">
+                        <span class="text-white font-black text-8xl opacity-[0.03] absolute -top-16 right-0 md:right-10 select-none">01</span>
+                        
+                        <div class="text-clarity-blue font-bold text-xl mb-1">2006 - 2013</div>
                         <h3 class="text-white font-bold text-2xl mb-1">La Cage Dorée (SNCF)</h3>
-                        <p class="text-sm text-gray-500 italic">"À 30 ans, je serai riche." (Spoiler : Non.)</p>
-                    </div>
-                    <!-- Point Central -->
-                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-neutral-dark border-4 border-clarity-blue rounded-full z-10 shadow-[0_0_15px_rgba(59,130,246,0.5)] group-hover:scale-125 transition-all"></div>
-                    
-                    <div class="w-full md:w-5/12 pl-16 md:pl-12 text-left">
-                        <span class="md:hidden text-clarity-blue font-bold text-sm block mb-1">2006 - 2013 • La Cage Dorée</span>
-                        <p class="text-gray-400 text-base leading-relaxed">
+                        <p class="text-sm text-gray-500 italic mb-4">"À 30 ans, je serai riche." (Spoiler : Non.)</p>
+                        
+                        <p class="text-gray-400 leading-relaxed">
                             J'avais un emploi "stable" à la SNCF. J'y suis entré "provisoirement" en me disant que je partirais dès que j'aurais trouvé ma voie. Résultat ? J'y suis resté 13 ans.
                             <br><br>
                             À l'approche de la trentaine, c'était la panique. Dans ma tête d'enfant, à 30 ans, on est censé être riche, avoir une maison, un labrador et une famille modèle. La réalité ? J'étais cheminot, je m'ennuyais à mourir, et j'avais l'impression d'avoir raté ma vie.
                         </p>
                     </div>
+                    <!-- Point Central -->
+                    <div class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-clarity-blue rounded-full transform -translate-x-1/2 z-10 shadow-[0_0_15px_#3B82F6]"></div>
+                    
+                    <!-- Insight Box -->
+                    <div class="md:pl-12 order-1 md:order-2 pl-12">
+                        <div class="bg-card-dark p-6 rounded-xl border border-white/5 relative hover:border-clarity-blue/30 transition-colors">
+                            <p class="text-sm text-gray-300 italic">
+                                "Je connais ce sentiment d'attendre que la 'vraie vie' commence, alors qu'elle défile sous nos yeux."
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Chapitre 2 -->
-                <div class="relative flex flex-col md:flex-row items-center justify-between group" data-sr>
-                    <div class="w-full md:w-5/12 pr-0 md:pr-12 text-left md:text-right order-2 md:order-1 pl-16 md:pl-0">
-                         <span class="md:hidden text-warm-orange font-bold text-sm block mb-1">2013 • Matrix se fissure</span>
-                        <p class="text-gray-400 text-base leading-relaxed">
+                <!-- Chapitre 02 -->
+                <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
+                    <div class="md:pr-12 order-2 md:order-1 pl-12 md:pl-0">
+                        <div class="bg-card-dark p-6 rounded-xl border border-white/5 relative hover:border-warm-orange/30 transition-colors">
+                            <p class="text-sm text-gray-300 italic">
+                                "Le développement personnel n'est pas qu'une lecture, c'est un réveil brutal face à ses propres responsabilités."
+                            </p>
+                        </div>
+                    </div>
+                    <div class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-warm-orange rounded-full transform -translate-x-1/2 z-10"></div>
+                    <div class="md:text-left md:pl-12 order-1 md:order-2 relative pl-12">
+                        <span class="text-white font-black text-8xl opacity-[0.03] absolute -top-16 left-10 md:left-12 select-none">02</span>
+                        
+                        <div class="text-warm-orange font-bold text-xl mb-1">2013</div>
+                        <h3 class="text-white font-bold text-2xl mb-1">Matrix se fissure</h3>
+                        <p class="text-sm text-gray-500 italic mb-4">Le virus du Dev Perso.</p>
+                        
+                        <p class="text-gray-400 leading-relaxed">
                             Je tombe par hasard sur le blog d'Olivier Roland. Je découvre qu'il existe des modes d'emploi pour le cerveau humain. Je dévore <em>"Réfléchissez et devenez riche"</em>, je découvre Tony Robbins.
                             <br><br>
                             C'est le choc. Je réalise que je suis le seul responsable de ma vie. Je découvre aussi Roger Lannoy et son "Monthly Booster". La petite flamme se rallume. Je suis prêt à conquérir le monde... ou au moins à essayer de ne plus le subir.
                         </p>
                     </div>
-                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-neutral-dark border-4 border-warm-orange rounded-full z-10 shadow-[0_0_15px_rgba(249,115,22,0.5)] group-hover:scale-125 transition-all"></div>
-                    <div class="hidden md:block w-5/12 text-left pl-12 order-1 md:order-2">
-                        <span class="text-warm-orange font-bold text-xl block mb-1">2013</span>
-                        <h3 class="text-white font-bold text-2xl mb-1">Matrix se fissure</h3>
-                        <p class="text-sm text-gray-500 italic">Le virus du Dev Perso.</p>
-                    </div>
                 </div>
 
-                <!-- Chapitre 3 -->
-                <div class="relative flex flex-col md:flex-row items-center justify-between group" data-sr>
-                    <div class="hidden md:block w-5/12 text-right pr-12">
-                        <span class="text-green-500 font-bold text-xl block mb-1">2014</span>
+                <!-- Chapitre 03 -->
+                <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
+                    <div class="md:text-right md:pr-12 order-2 md:order-1 relative pl-12 md:pl-0">
+                        <span class="text-white font-black text-8xl opacity-[0.03] absolute -top-16 right-0 md:right-10 select-none">03</span>
+                        
+                        <div class="text-green-500 font-bold text-xl mb-1">2014</div>
                         <h3 class="text-white font-bold text-2xl mb-1">Monopoly Grandeur Nature</h3>
-                        <p class="text-sm text-gray-500 italic">La fausse bonne idée de "la confiance".</p>
-                    </div>
-                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-neutral-dark border-4 border-green-500 rounded-full z-10 group-hover:scale-125 transition-all"></div>
-                    <div class="w-full md:w-5/12 pl-16 md:pl-12 text-left">
-                        <span class="md:hidden text-green-500 font-bold text-sm block mb-1">2014 • Monopoly</span>
-                        <p class="text-gray-400 text-base leading-relaxed">
+                        <p class="text-sm text-gray-500 italic mb-4">La fausse bonne idée de "la confiance".</p>
+                        
+                        <p class="text-gray-400 leading-relaxed">
                             Je me forme à l'immobilier. Je cherche la perle rare pendant 6 mois et BAM ! J'achète mon premier appartement. Une super affaire qui me rapportera gros 6 ans plus tard.
                             <br><br>
                             Je me dis : "C'est bon Frédéric, t'es un génie de l'investissement". Spoiler Alert : Si, beaucoup de choses peuvent t'arrêter. Surtout quand tu prends la confiance et que tu commences à faire n'importe quoi.
                         </p>
                     </div>
+                    <div class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-green-500 rounded-full transform -translate-x-1/2 z-10"></div>
+                    <div class="md:pl-12 order-1 md:order-2 pl-12">
+                         <div class="bg-card-dark p-6 rounded-xl border border-white/5 relative">
+                            <p class="text-sm text-gray-300 italic">
+                                "La chance du débutant est dangereuse. Elle te fait croire que tu sais voler alors que tu viens juste de sauter d'une chaise."
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Chapitre 4 -->
-                <div class="relative flex flex-col md:flex-row items-center justify-between group" data-sr>
-                    <div class="w-full md:w-5/12 pr-0 md:pr-12 text-left md:text-right order-2 md:order-1 pl-16 md:pl-0">
-                        <span class="md:hidden text-red-600 font-bold text-sm block mb-1">2014 - 2017 • La Descente aux Enfers</span>
-                        <p class="text-gray-400 text-base leading-relaxed">
+                <!-- Chapitre 04 -->
+                <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
+                    <div class="md:pr-12 order-2 md:order-1 pl-12 md:pl-0">
+                         <div class="bg-card-dark p-6 rounded-xl border border-red-500/20 relative shadow-[0_0_15px_rgba(239,68,68,0.1)]">
+                            <p class="text-sm text-gray-300 italic">
+                                "Être assigné en justice 3 fois en 3 mois... C'est là qu'on découvre vraiment qui on est et qui reste à nos côtés."
+                            </p>
+                        </div>
+                    </div>
+                    <div class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-red-600 rounded-full transform -translate-x-1/2 z-10"></div>
+                    <div class="md:text-left md:pl-12 order-1 md:order-2 relative pl-12">
+                        <span class="text-red-600 font-black text-8xl opacity-[0.1] absolute -top-16 left-10 md:left-12 select-none">04</span>
+                        
+                        <div class="text-red-600 font-bold text-xl mb-1">2014 - 2017</div>
+                        <h3 class="text-white font-bold text-2xl mb-1">La Descente aux Enfers</h3>
+                        <p class="text-sm text-gray-500 italic mb-4">Assigné en justice x3 (Record battu).</p>
+                        
+                        <p class="text-gray-400 leading-relaxed">
                             C'est la période "Grand N'importe Quoi". J'achète une voiture à crédit. Je m'associe avec des gens douteux. Je sous-loue mon appartement à quelqu'un qui arrête de me payer.
                             <br><br>
                             Le bilan ? En 3 mois, je suis <strong>assigné en justice par 3 entités différentes</strong>. Je touche le fond. Mon corps lâche : toux chronique, brûlures d'estomac constantes. Je m'isole, je rase les murs, j'ai honte. Je suis en mode survie mentale absolue.
                         </p>
                     </div>
-                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-neutral-dark border-4 border-red-600 rounded-full z-10 group-hover:scale-125 transition-all"></div>
-                    <div class="hidden md:block w-5/12 text-left pl-12 order-1 md:order-2">
-                        <span class="text-red-600 font-bold text-xl block mb-1">2014 - 2017</span>
-                        <h3 class="text-white font-bold text-2xl mb-1">La Descente aux Enfers</h3>
-                        <p class="text-sm text-gray-500 italic">Assigné en justice x3 (Record battu).</p>
-                    </div>
                 </div>
 
-                <!-- Chapitre 5 : LE REFORMATAGE SYSTEME -->
-                <div class="relative flex flex-col md:flex-row items-center justify-between group" data-sr>
-                    <div class="hidden md:block w-5/12 text-right pr-12">
-                        <span class="text-yellow-500 font-bold text-xl block mb-1">2017 - 2018</span>
+                <!-- Chapitre 05 -->
+                <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
+                    <div class="md:text-right md:pr-12 order-2 md:order-1 relative pl-12 md:pl-0">
+                        <span class="text-white font-black text-8xl opacity-[0.03] absolute -top-16 right-0 md:right-10 select-none">05</span>
+                        
+                        <div class="text-yellow-500 font-bold text-xl mb-1">2017 - 2018</div>
                         <h3 class="text-white font-bold text-2xl mb-1">Reformatage Système</h3>
-                        <p class="text-sm text-gray-500 italic">Laver son cerveau pour survivre.</p>
-                    </div>
-                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-neutral-dark border-4 border-yellow-500 rounded-full z-10 group-hover:scale-125 transition-all"></div>
-                    <div class="w-full md:w-5/12 pl-16 md:pl-12 text-left">
-                        <span class="md:hidden text-yellow-500 font-bold text-sm block mb-1">2017 - 2018 • Reformatage</span>
-                        <p class="text-gray-400 text-base leading-relaxed">
+                        <p class="text-sm text-gray-500 italic mb-4">Laver son cerveau pour survivre.</p>
+                        
+                        <p class="text-gray-400 leading-relaxed">
                             Je n'avais plus le choix : soit je sombrais, soit je me reprogrammais. J'ai repris le développement personnel comme une chimio pour l'esprit.
                             <br><br>
                             J'écoutais Roger Lannoy en boucle pour étouffer mes pensées noires. J'ai ravalé ma fierté pour aller voir une assistante sociale et établir un plan d'apurement de mes dettes. Je me suis remis en action, petit à petit. J'ai nettoyé la machine avant de vouloir la refaire tourner.
                         </p>
                     </div>
+                    <div class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-yellow-500 rounded-full transform -translate-x-1/2 z-10"></div>
+                    <div class="md:pl-12 order-1 md:order-2 pl-12">
+                        <div class="bg-card-dark p-6 rounded-xl border border-white/5 relative">
+                            <p class="text-sm text-gray-300 italic">
+                                "C'est dans l'humilité que se trouve la reconstruction. Il faut parfois tout raser pour reconstruire solide."
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Chapitre 6 : L'AGENCE FANTOME -->
-                <div class="relative flex flex-col md:flex-row items-center justify-between group" data-sr>
-                    <div class="w-full md:w-5/12 pr-0 md:pr-12 text-left md:text-right order-2 md:order-1 pl-16 md:pl-0">
-                        <span class="md:hidden text-neutral-light font-bold text-sm block mb-1">2018 • L'Agence Fantôme</span>
-                        <p class="text-gray-400 text-base leading-relaxed">
+                <!-- Chapitre 06 -->
+                <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
+                    <div class="md:pr-12 order-2 md:order-1 pl-12 md:pl-0">
+                        <div class="bg-card-dark p-6 rounded-xl border border-white/5 relative">
+                            <p class="text-sm text-gray-300 italic">
+                                "L'écart entre la théorie (YouTube) et la pratique (la vraie vie) est l'endroit où meurent les rêves des amateurs."
+                            </p>
+                        </div>
+                    </div>
+                    <div class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-white rounded-full transform -translate-x-1/2 z-10"></div>
+                    <div class="md:text-left md:pl-12 order-1 md:order-2 relative pl-12">
+                        <span class="text-white font-black text-8xl opacity-[0.03] absolute -top-16 left-10 md:left-12 select-none">06</span>
+                        
+                        <div class="text-neutral-light font-bold text-xl mb-1">2018</div>
+                        <h3 class="text-white font-bold text-2xl mb-1">L'Agence Fantôme</h3>
+                        <p class="text-sm text-gray-500 italic mb-4">Théorie vs Réalité : KO technique.</p>
+                        
+                        <p class="text-gray-400 leading-relaxed">
                             Je sors la tête de l'eau. Je me forme au marketing digital américain avec Tai Lopez. Je décide de lancer une agence marketing !
                             <br><br>
                             Je trouve un client ! Champagne ? Non. Je réalise que je suis incapable de lui livrer quoi que ce soit. Je n'arrive même pas à lui faire un logo correct. Il abandonne. Douche froide d'humilité : regarder des vidéos YouTube ne fait pas de toi un expert.
                         </p>
                     </div>
-                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-neutral-dark border-4 border-white rounded-full z-10 group-hover:scale-125 transition-all"></div>
-                    <div class="hidden md:block w-5/12 text-left pl-12 order-1 md:order-2">
-                        <span class="text-neutral-light font-bold text-xl block mb-1">2018</span>
-                        <h3 class="text-white font-bold text-2xl mb-1">L'Agence Fantôme</h3>
-                        <p class="text-sm text-gray-500 italic">Théorie vs Réalité : KO technique.</p>
-                    </div>
                 </div>
 
-                <!-- Chapitre 7 : LE MIRAGE DU DROPSHIPPING -->
-                <div class="relative flex flex-col md:flex-row items-center justify-between group" data-sr>
-                    <div class="hidden md:block w-5/12 text-right pr-12">
-                        <span class="text-purple-400 font-bold text-xl block mb-1">2017 - 2019</span>
+                <!-- Chapitre 07 -->
+                <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
+                    <div class="md:text-right md:pr-12 order-2 md:order-1 relative pl-12 md:pl-0">
+                        <span class="text-white font-black text-8xl opacity-[0.03] absolute -top-16 right-0 md:right-10 select-none">07</span>
+                        
+                        <div class="text-purple-400 font-bold text-xl mb-1">2017 - 2019</div>
                         <h3 class="text-white font-bold text-2xl mb-1">Le Mirage du Dropshipping</h3>
-                        <p class="text-sm text-gray-500 italic">3 ans de procrastination active.</p>
-                    </div>
-                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-neutral-dark border-4 border-purple-400 rounded-full z-10 group-hover:scale-125 transition-all"></div>
-                    <div class="w-full md:w-5/12 pl-16 md:pl-12 text-left">
-                        <span class="md:hidden text-purple-400 font-bold text-sm block mb-1">2017 - 2019 • Dropshipping</span>
-                        <p class="text-gray-400 text-base leading-relaxed">
+                        <p class="text-sm text-gray-500 italic mb-4">3 ans de procrastination active.</p>
+                        
+                        <p class="text-gray-400 leading-relaxed">
                             C'était la mode. L'argent facile. Je m'y intéresse, je me forme, mais... je ne lance rien.
                             <br><br>
                             Mon problème ? Je suis incapable de vendre des gadgets chinois bas de gamme. Mon éthique me bloque, mon perfectionnisme me paralyse, et mon syndrome de l'imposteur m'achève. Résultat : 3 ans à "vouloir faire" sans jamais encaisser un euro.
                         </p>
                     </div>
+                    <div class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-purple-400 rounded-full transform -translate-x-1/2 z-10"></div>
+                    <div class="md:pl-12 order-1 md:order-2 pl-12">
+                         <div class="bg-card-dark p-6 rounded-xl border border-white/5 relative">
+                            <p class="text-sm text-gray-300 italic">
+                                "La procrastination active, c'est se former sans jamais agir. C'est le piège le plus confortable et le plus dangereux."
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
-                 <!-- Chapitre 8 : ADIEU LA SECURITE -->
-                 <div class="relative flex flex-col md:flex-row items-center justify-between group" data-sr>
-                    <div class="w-full md:w-5/12 pr-0 md:pr-12 text-left md:text-right order-2 md:order-1 pl-16 md:pl-0">
-                        <span class="md:hidden text-orange-500 font-bold text-sm block mb-1">2019 • Le Saut dans le Vide</span>
-                        <p class="text-gray-400 text-base leading-relaxed">
+                <!-- Chapitre 08 -->
+                <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
+                    <div class="md:pr-12 order-2 md:order-1 pl-12 md:pl-0">
+                         <div class="bg-card-dark p-6 rounded-xl border border-white/5 relative">
+                            <p class="text-sm text-gray-300 italic">
+                                "Parfois, il faut couper le filet de sécurité pour forcer ses ailes à s'ouvrir."
+                            </p>
+                        </div>
+                    </div>
+                    <div class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-orange-500 rounded-full transform -translate-x-1/2 z-10"></div>
+                    <div class="md:text-left md:pl-12 order-1 md:order-2 relative pl-12">
+                        <span class="text-orange-500 font-black text-8xl opacity-[0.1] absolute -top-16 left-10 md:left-12 select-none">08</span>
+                        
+                        <div class="text-orange-500 font-bold text-xl mb-1">2019</div>
+                        <h3 class="text-white font-bold text-2xl mb-1">Adieu la Sécurité</h3>
+                        <p class="text-sm text-gray-500 italic mb-4">Quitter la SNCF sans filet.</p>
+                        
+                        <p class="text-gray-400 leading-relaxed">
                             Malgré l'absence de revenus, je ne peux plus rester à la SNCF. Je demande une rupture conventionnelle. Je quitte le navire sans plan B solide, juste avec mes allocations chômage et l'espoir fou que "ça va marcher".
                             <br><br>
                             C'était terrifiant, mais c'était la première fois que je choisissais la liberté plutôt que la sécurité.
                         </p>
                     </div>
-                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-neutral-dark border-4 border-orange-500 rounded-full z-10 group-hover:scale-125 transition-all"></div>
-                    <div class="hidden md:block w-5/12 text-left pl-12 order-1 md:order-2">
-                        <span class="text-orange-500 font-bold text-xl block mb-1">2019</span>
-                        <h3 class="text-white font-bold text-2xl mb-1">Adieu la Sécurité</h3>
-                        <p class="text-sm text-gray-500 italic">Quitter la SNCF sans filet.</p>
-                    </div>
                 </div>
 
-                 <!-- Chapitre 9 : TICKET POUR TALLINN -->
-                 <div class="relative flex flex-col md:flex-row items-center justify-between group" data-sr>
-                    <div class="hidden md:block w-5/12 text-right pr-12">
-                        <span class="text-indigo-400 font-bold text-xl block mb-1">Fin 2020 - 2021</span>
+                <!-- Chapitre 09 -->
+                <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
+                    <div class="md:text-right md:pr-12 order-2 md:order-1 relative pl-12 md:pl-0">
+                        <span class="text-white font-black text-8xl opacity-[0.03] absolute -top-16 right-0 md:right-10 select-none">09</span>
+                        
+                        <div class="text-indigo-400 font-bold text-xl mb-1">Fin 2020 - 2021</div>
                         <h3 class="text-white font-bold text-2xl mb-1">All-In en Estonie</h3>
-                        <p class="text-sm text-gray-500 italic">Vendre les meubles et partir.</p>
-                    </div>
-                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-neutral-dark border-4 border-indigo-400 rounded-full z-10 group-hover:scale-125 transition-all"></div>
-                    <div class="w-full md:w-5/12 pl-16 md:pl-12 text-left">
-                        <span class="md:hidden text-indigo-400 font-bold text-sm block mb-1">2020 - 2021 • All-In Estonie</span>
-                        <p class="text-gray-400 text-base leading-relaxed">
+                        <p class="text-sm text-gray-500 italic mb-4">Vendre les meubles et partir.</p>
+                        
+                        <p class="text-gray-400 leading-relaxed">
                             Fin 2020, je vends enfin mon appartement. Je solde mes dettes. Je me sens léger pour la première fois depuis des années.
                             <br><br>
                             Avec le capital restant, je ne m'achète pas une voiture. Je paie un accompagnement e-commerce coûteux et je prends un aller simple pour l'Estonie. Je voulais me mettre en "terre inconnue" pour m'obliger à réussir.
                         </p>
                     </div>
+                    <div class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-indigo-400 rounded-full transform -translate-x-1/2 z-10"></div>
+                    <div class="md:pl-12 order-1 md:order-2 pl-12">
+                         <div class="bg-card-dark p-6 rounded-xl border border-white/5 relative">
+                            <p class="text-sm text-gray-300 italic">
+                                "Se mettre en danger (zone d'inconfort) est le meilleur moyen de tester sa détermination."
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Chapitre 10 : CELLULITE -->
-                <div class="relative flex flex-col md:flex-row items-center justify-between group" data-sr>
-                    <div class="w-full md:w-5/12 pr-0 md:pr-12 text-left md:text-right order-2 md:order-1 pl-16 md:pl-0">
-                        <span class="md:hidden text-blue-400 font-bold text-sm block mb-1">2021 • Cellulite</span>
-                        <p class="text-gray-400 text-base leading-relaxed">
+                <!-- Chapitre 10 -->
+                <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
+                    <div class="md:pr-12 order-2 md:order-1 pl-12 md:pl-0">
+                         <div class="bg-card-dark p-6 rounded-xl border border-blue-400/20 relative">
+                            <p class="text-sm text-gray-300 italic">
+                                "Leçon à 10 000€ : Si tu ne crois pas en ton produit, aucun marketing ne sauvera ton business."
+                            </p>
+                        </div>
+                    </div>
+                    <div class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-blue-400 rounded-full transform -translate-x-1/2 z-10"></div>
+                    <div class="md:text-left md:pl-12 order-1 md:order-2 relative pl-12">
+                        <span class="text-white font-black text-8xl opacity-[0.03] absolute -top-16 left-10 md:left-12 select-none">10</span>
+                        
+                        <div class="text-blue-400 font-bold text-xl mb-1">2021</div>
+                        <h3 class="text-white font-bold text-2xl mb-1">Cellulite & Influvoleurs</h3>
+                        <p class="text-sm text-gray-500 italic mb-4">Tout miser sur le mauvais cheval.</p>
+                        
+                        <p class="text-gray-400 leading-relaxed">
                             Je mise tout sur UN produit : un appareil de massage anti-cellulite. J'y mets mes tripes, mon temps, mon argent.
                             <br><br>
                             Le hic ? Je m'en fiche complètement du produit. Et le timing est catastrophique : c'est l'année des scandales des "influvoleurs". Les agences me baladent. Je brûle tout mon cash. Je rentre en France fauché, hébergé par maman.
                         </p>
                     </div>
-                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-neutral-dark border-4 border-blue-400 rounded-full z-10 group-hover:scale-125 transition-all"></div>
-                    <div class="hidden md:block w-5/12 text-left pl-12 order-1 md:order-2">
-                        <span class="text-blue-400 font-bold text-xl block mb-1">2021</span>
-                        <h3 class="text-white font-bold text-2xl mb-1">Cellulite & Influvoleurs</h3>
-                        <p class="text-sm text-gray-500 italic">Tout miser sur le mauvais cheval.</p>
-                    </div>
                 </div>
 
-                <!-- Chapitre 11 : HIVER DE TALLINN -->
-                <div class="relative flex flex-col md:flex-row items-center justify-between group" data-sr>
-                    <div class="hidden md:block w-5/12 text-right pr-12">
-                        <span class="text-gray-500 font-bold text-xl block mb-1">Début 2022</span>
+                <!-- Chapitre 11 -->
+                <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
+                    <div class="md:text-right md:pr-12 order-2 md:order-1 relative pl-12 md:pl-0">
+                        <span class="text-white font-black text-8xl opacity-[0.03] absolute -top-16 right-0 md:right-10 select-none">11</span>
+                        
+                        <div class="text-gray-500 font-bold text-xl mb-1">Début 2022</div>
                         <h3 class="text-white font-bold text-2xl mb-1">L'Hiver de Tallinn</h3>
-                        <p class="text-sm text-gray-500 italic">Le placard à balais et la faim.</p>
-                    </div>
-                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-neutral-dark border-4 border-gray-500 rounded-full z-10 group-hover:scale-125 transition-all"></div>
-                    <div class="w-full md:w-5/12 pl-16 md:pl-12 text-left">
-                        <span class="md:hidden text-gray-500 font-bold text-sm block mb-1">Début 2022 • Hiver de Tallinn</span>
-                        <p class="text-gray-400 text-base leading-relaxed">
+                        <p class="text-sm text-gray-500 italic mb-4">Le placard à balais et la faim.</p>
+                        
+                        <p class="text-gray-400 leading-relaxed">
                             Je retourne en Estonie, je ne sais même pas pourquoi, peut-être par orgueil. Je loue probablement l'appartement le moins cher de la ville (un "placard"). 
                             <br><br>
                             Je perds énormément de poids, pas par régime, mais par manque de moyens. Je suis isolé, je galère physiquement et moralement. À ce moment-là, on ne pense plus stratégie business, on pense juste à tenir un jour de plus. C'est ma mère qui m'aide financièrement pour ne pas sombrer. Humilité niveau max.
                         </p>
                     </div>
+                    <div class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-gray-500 rounded-full transform -translate-x-1/2 z-10"></div>
+                    <div class="md:pl-12 order-1 md:order-2 pl-12">
+                         <div class="bg-card-dark p-6 rounded-xl border border-white/5 relative">
+                            <p class="text-sm text-gray-300 italic">
+                                "La résilience n'est pas un mot glamour sur Instagram. C'est manger des pâtes froides dans un 15m² et continuer à y croire."
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Chapitre 12 : EXORCISME PAR L'ÉCRIT -->
-                <div class="relative flex flex-col md:flex-row items-center justify-between group" data-sr>
-                    <div class="w-full md:w-5/12 pr-0 md:pr-12 text-left md:text-right order-2 md:order-1 pl-16 md:pl-0">
-                        <span class="md:hidden text-pink-500 font-bold text-sm block mb-1">Août 2022 • L'Exorcisme</span>
-                        <p class="text-gray-400 text-base leading-relaxed">
+                <!-- Chapitre 12 -->
+                <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
+                    <div class="md:pr-12 order-2 md:order-1 pl-12 md:pl-0">
+                         <div class="bg-card-dark p-6 rounded-xl border border-pink-500/20 relative shadow-[0_0_15px_rgba(236,72,153,0.1)]">
+                            <p class="text-sm text-gray-300 italic">
+                                "Écrire, c'est guérir. L'échec de la levée de fonds a été le début de ma vraie liberté."
+                            </p>
+                        </div>
+                    </div>
+                    <div class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-pink-500 rounded-full transform -translate-x-1/2 z-10"></div>
+                    <div class="md:text-left md:pl-12 order-1 md:order-2 relative pl-12">
+                        <span class="text-pink-500 font-black text-8xl opacity-[0.1] absolute -top-16 left-10 md:left-12 select-none">12</span>
+                        
+                        <div class="text-pink-500 font-bold text-xl mb-1">Août 2022</div>
+                        <h3 class="text-white font-bold text-2xl mb-1">L'Exorcisme par l'Écrit</h3>
+                        <p class="text-sm text-gray-500 italic mb-4">La levée de fonds (thérapeutique).</p>
+                        
+                        <p class="text-gray-400 leading-relaxed">
                             Je tente le tout pour le tout : une levée de fonds auprès de mes proches pour relancer ce maudit gant. J'écris pendant 3 semaines, une lettre de 20 pages, un véritable manifeste à cœur ouvert.
                             <br><br>
                             Résultat financier ? <strong>Zéro.</strong> Échec total. Mais résultat humain ? J'ai déballé tout ce qui pesait sur mon cœur depuis des années. C'était une thérapie. En ne récoltant rien, j'ai tout gagné : j'ai accepté de lâcher prise et d'abandonner définitivement ce projet qui n'était pas moi.
                         </p>
                     </div>
-                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-neutral-dark border-4 border-pink-500 rounded-full z-10 group-hover:scale-125 transition-all"></div>
-                    <div class="hidden md:block w-5/12 text-left pl-12 order-1 md:order-2">
-                        <span class="text-pink-500 font-bold text-xl block mb-1">Août 2022</span>
-                        <h3 class="text-white font-bold text-2xl mb-1">L'Exorcisme par l'Écrit</h3>
-                        <p class="text-sm text-gray-500 italic">La levée de fonds (thérapeutique).</p>
-                    </div>
                 </div>
 
-                <!-- Chapitre 13 (MODIFIÉ) : LA BOUÉE IA & LE FREELANCE -->
-                <div class="relative flex flex-col md:flex-row items-center justify-between group" data-sr>
-                    <div class="hidden md:block w-5/12 text-right pr-12">
-                        <span class="text-teal-400 font-bold text-xl block mb-1">Fin 2022 - Auj.</span>
+                <!-- Chapitre 13 -->
+                <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
+                    <div class="md:text-right md:pr-12 order-2 md:order-1 relative pl-12 md:pl-0">
+                        <span class="text-white font-black text-8xl opacity-[0.03] absolute -top-16 right-0 md:right-10 select-none">13</span>
+                        
+                        <div class="text-teal-400 font-bold text-xl mb-1">Fin 2022 - Auj.</div>
                         <h3 class="text-white font-bold text-2xl mb-1">La Bouée de Sauvetage (IA)</h3>
-                        <p class="text-sm text-gray-500 italic">Survivre au freelancing grâce au code.</p>
-                    </div>
-                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-neutral-dark border-4 border-teal-400 rounded-full z-10 group-hover:scale-125 transition-all"></div>
-                    <div class="w-full md:w-5/12 pl-16 md:pl-12 text-left">
-                        <span class="md:hidden text-teal-400 font-bold text-sm block mb-1">2022 - Auj. • Bouée IA</span>
-                        <p class="text-gray-400 text-base leading-relaxed">
+                        <p class="text-sm text-gray-500 italic mb-4">Survivre au freelancing grâce au code.</p>
+                        
+                        <p class="text-gray-400 leading-relaxed">
                             Fin 2022, ChatGPT arrive. C'est une révolution pour moi. Non, je ne deviens pas riche. Je continue encore aujourd'hui les missions freelances mal payées, les clients difficiles, la précarité. 
                             <br><br>
                             Mais l'IA me donne des super-pouvoirs. Elle me permet de coder, de livrer plus vite, de *respirer* un peu. C'est toujours la galère, mais c'est une galère assistée par ordinateur. Je reprends goût à la tech, et ça me permet de garder la tête hors de l'eau.
                         </p>
                     </div>
+                    <div class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-teal-400 rounded-full transform -translate-x-1/2 z-10"></div>
+                    <div class="md:pl-12 order-1 md:order-2 pl-12">
+                         <div class="bg-card-dark p-6 rounded-xl border border-white/5 relative">
+                            <p class="text-sm text-gray-300 italic">
+                                "J'ai trouvé dans l'IA le partenaire technique qui manquait à ma créativité."
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Chapitre 14 : PHILOSOPHIE -->
-                <div class="relative flex flex-col md:flex-row items-center justify-between group" data-sr>
-                    <div class="w-full md:w-5/12 pr-0 md:pr-12 text-left md:text-right order-2 md:order-1 pl-16 md:pl-0">
-                        <span class="md:hidden text-yellow-500 font-bold text-sm block mb-1">2023 • Voyage Intérieur</span>
-                        <p class="text-gray-400 text-base leading-relaxed">
+                <!-- Chapitre 14 -->
+                <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
+                    <div class="md:pr-12 order-2 md:order-1 pl-12 md:pl-0">
+                        <div class="bg-card-dark p-6 rounded-xl border border-white/5 relative">
+                            <p class="text-sm text-gray-300 italic">
+                                "La philosophie m'a appris à poser les questions. La tech m'a appris à construire les réponses."
+                            </p>
+                        </div>
+                    </div>
+                    <div class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-yellow-500 rounded-full transform -translate-x-1/2 z-10"></div>
+                    <div class="md:text-left md:pl-12 order-1 md:order-2 relative pl-12">
+                        <span class="text-white font-black text-8xl opacity-[0.03] absolute -top-16 left-10 md:left-12 select-none">14</span>
+                        
+                        <div class="text-yellow-500 font-bold text-xl mb-1">2023</div>
+                        <h3 class="text-white font-bold text-2xl mb-1">Voyage Intérieur</h3>
+                        <p class="text-sm text-gray-500 italic mb-4">Nietzsche, Spinoza et Moi.</p>
+                        
+                        <p class="text-gray-400 leading-relaxed">
                             Dans cette solitude estonienne, je plonge dans les abysses de la pensée. Je passe du "Dev Perso" de surface (comment devenir riche) à la Philosophie profonde (comment vivre une vie qui a du sens).
                             <br><br>
                             Je découvre Jung, Spinoza, Kierkegaard. Je confronte mes pensées avec l'IA. Je comprends que ma sensibilité n'est pas une faiblesse, mais ma boussole.
                         </p>
                     </div>
-                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-neutral-dark border-4 border-yellow-500 rounded-full z-10 group-hover:scale-125 transition-all"></div>
-                    <div class="hidden md:block w-5/12 text-left pl-12 order-1 md:order-2">
-                        <span class="text-yellow-500 font-bold text-xl block mb-1">2023</span>
-                        <h3 class="text-white font-bold text-2xl mb-1">Voyage Intérieur</h3>
-                        <p class="text-sm text-gray-500 italic">Nietzsche, Spinoza et Moi.</p>
-                    </div>
                 </div>
 
-                <!-- Chapitre 15 (MODIFIÉ) : LE PARI DE CLARTEM -->
-                <div class="relative flex flex-col md:flex-row items-center justify-between group" data-sr>
-                    <div class="hidden md:block w-5/12 text-right pr-12">
-                        <span class="text-success-green font-bold text-xl block mb-1">Maintenant</span>
+                <!-- Chapitre 15 -->
+                <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
+                    <div class="md:text-right md:pr-12 order-2 md:order-1 relative pl-12 md:pl-0">
+                        <span class="text-success-green font-black text-8xl opacity-[0.1] absolute -top-16 right-0 md:right-10 select-none">15</span>
+                        
+                        <div class="text-success-green font-bold text-xl mb-1">Maintenant</div>
                         <h3 class="text-white font-bold text-2xl mb-1">Le Pari de Clartem</h3>
-                        <p class="text-sm text-gray-500 italic">Construire l'avenir en serrant les dents.</p>
-                    </div>
-                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-success-green border-4 border-white/20 rounded-full z-10 shadow-[0_0_20px_rgba(22,163,74,0.5)] md:scale-125"></div>
-                    <div class="w-full md:w-5/12 pl-16 md:pl-12 text-left">
-                        <span class="md:hidden text-success-green font-bold text-sm block mb-1">Maintenant • Clartem</span>
-                        <p class="text-gray-400 text-base leading-relaxed">
+                        <p class="text-sm text-gray-500 italic mb-4">Construire l'avenir en serrant les dents.</p>
+                        
+                        <p class="text-gray-400 leading-relaxed">
                             Je jongle encore aujourd'hui entre les missions alimentaires pour payer le loyer et la construction de Clartem. Ce n'est pas facile tous les jours.
                             <br><br>
                             Mais j'ai arrêté de courir après des chimères. J'ai compris que mon rôle n'était pas de vendre des gadgets, mais d'aider les humains. Clartem n'est pas né d'un succès facile, c'est né d'une nécessité absolue de donner du sens à toute cette technologie.
                         </p>
                     </div>
+                    <div class="absolute left-5 md:left-1/2 w-4 h-4 bg-success-green border-4 border-white/20 rounded-full transform -translate-x-1/2 z-10 shadow-[0_0_20px_rgba(22,163,74,0.5)] md:scale-125"></div>
+                    <div class="md:pl-12 order-1 md:order-2 pl-12">
+                         <div class="bg-card-dark p-6 rounded-xl border border-success-green/30 relative">
+                            <p class="text-sm text-gray-300 italic">
+                                "Clartem n'est pas qu'une agence. C'est la synthèse de 10 ans d'errance et de résilience."
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Chapitre 16 : Futur -->
-                <div class="relative flex flex-col md:flex-row items-center justify-between group" data-sr>
-                    <div class="w-full md:w-5/12 pr-0 md:pr-12 text-left md:text-right order-2 md:order-1 pl-16 md:pl-0">
-                        <span class="md:hidden text-white font-bold text-sm block mb-1">Demain • Ambition 2030</span>
-                        <p class="text-gray-400 text-base leading-relaxed">
+                <!-- Chapitre 16 -->
+                <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
+                    <div class="md:pr-12 order-2 md:order-1 pl-12 md:pl-0">
+                         <div class="bg-card-dark p-6 rounded-xl border border-white/5 relative">
+                            <p class="text-sm text-gray-300 italic">
+                                "Le monde de demain sera technologique, mais la valeur sera humaine. Je veux être le pont entre les deux."
+                            </p>
+                        </div>
+                    </div>
+                    <div class="absolute left-5 md:left-1/2 w-4 h-4 bg-white border-4 border-white rounded-full transform -translate-x-1/2 z-10 animate-pulse"></div>
+                    <div class="md:text-left md:pl-12 order-1 md:order-2 relative pl-12">
+                        <span class="text-white font-black text-8xl opacity-[0.03] absolute -top-16 left-10 md:left-12 select-none">16</span>
+                        
+                        <div class="text-white font-bold text-xl mb-1">Demain</div>
+                        <h3 class="text-white font-bold text-2xl mb-1">Ambition 2030</h3>
+                        <p class="text-sm text-gray-500 italic mb-4">Agence N°1 Mondiale (Rien que ça).</p>
+                        
+                        <p class="text-gray-400 leading-relaxed">
                             Je ne compte pas m'arrêter à la création de sites web. Le monde change vite. Mon ambition est de faire de Clartem le partenaire marketing N°1 mondial pour les métiers de l'accompagnement d'ici 5 ans. 
                             <br>Pourquoi ? Parce que quand les robots feront tout le reste, le monde aura désespérément besoin de <strong>vous</strong>.
                         </p>
-                    </div>
-                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-neutral-dark border-4 border-white rounded-full z-10 animate-pulse"></div>
-                    <div class="hidden md:block w-5/12 text-left pl-12 order-1 md:order-2">
-                        <span class="text-white font-bold text-xl block mb-1">Demain</span>
-                        <h3 class="text-white font-bold text-2xl mb-1">Ambition 2030</h3>
-                        <p class="text-sm text-gray-500 italic">Agence N°1 Mondiale (Rien que ça).</p>
                     </div>
                 </div>
 
@@ -544,10 +668,10 @@
                     Vous connaissez mon histoire. J'aimerais découvrir la vôtre et voir comment nous pouvons la faire résonner dans le monde.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="index.html#offres" class="btn btn-secondary border-gray-500 text-gray-300 hover:text-white hover:border-white">
-                        Voir les Offres
+                    <a href="portfolio.html" class="inline-flex justify-center items-center px-6 py-3 border border-gray-500 rounded-full text-gray-300 hover:text-white hover:border-white transition-all">
+                        Voir le Portfolio
                     </a>
-                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" class="btn btn-primary">
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" class="inline-flex justify-center items-center px-6 py-3 bg-warm-orange rounded-full text-white font-bold hover:bg-orange-600 transition-all shadow-lg">
                         Réserver un Appel Clarté
                     </a>
                 </div>
