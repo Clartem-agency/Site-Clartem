@@ -2464,10 +2464,16 @@
                 
                 
 
-<!-- Bouton avec effet Respiration -->
+                <!-- Bouton avec effet Respiration + GLOW INTENSE au survol -->
 <div class="relative group mt-8">
-    <!-- Le cercle qui respire (Animation CSS) -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[180%] bg-warm-orange/20 rounded-full animate-breathe pointer-events-none filter blur-xl"></div>
+    
+    <!-- L'Aura : 
+         1. 'bg-gradient-to-r' : On remet le dégradé puissant
+         2. 'animate-breathe' : Il respire doucement au repos
+         3. 'group-hover:opacity-100' : Il devient totalement opaque au survol
+         4. 'group-hover:animate-none' : On arrête la respiration au survol pour qu'il reste brillant
+    -->
+    <div class="absolute -inset-1 bg-gradient-to-r from-warm-orange to-red-600 rounded-lg blur opacity-30 animate-breathe group-hover:opacity-100 group-hover:blur-md group-hover:animate-none transition-all duration-300"></div>
     
     <!-- Le bouton original -->
     <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
@@ -2479,6 +2485,8 @@
         Réserver mon Appel Clarté (Offert)
     </a>
 </div>
+
+
 
 
                 <!-- Réassurance Minimaliste -->
