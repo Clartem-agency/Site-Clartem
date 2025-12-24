@@ -912,4 +912,19 @@ initBlogPreview();
 
 
 
+// ==================================================================
+    // DÉCLENCHEUR EFFET FLOU (Concept 1)
+    // ==================================================================
+    const heroImage = document.querySelector('.hero-ken-burns');
+    if(heroImage) {
+        // Ajoute la classe de base immédiatement
+        heroImage.classList.add('blur-reveal');
+        
+        // Attend 500ms puis enlève le flou
+        setTimeout(() => {
+            heroImage.classList.add('active');
+        }, 500);
+    }
+
+
 });
