@@ -635,3 +635,30 @@ html {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
+
+
+/* ======================================================= */
+/*    NOUVEAUX CONCEPTS (FLOU, 3D, RESPIRATION)            */
+/* ======================================================= */
+
+/* --- 1. Concept Flou (Hero) --- */
+.blur-reveal {
+    filter: blur(20px);
+    transform: scale(1.1);
+    transition: filter 2s ease-out, transform 2s ease-out;
+    will-change: filter, transform;
+}
+.blur-reveal.active {
+    filter: blur(0);
+    transform: scale(1);
+}
+
+/* --- 2. Concept Carte 3D (Traducteur) --- */
+.perspective { perspective: 1000px; }
+.style-preserve-3d { transform-style: preserve-3d; }
+.backface-hidden { backface-visibility: hidden; }
+/* Rotation de 180deg au survol du groupe parent */
+.group:hover .rotate-y-180 { transform: rotateY(180deg); } 
+/* État initial de la face arrière déjà tournée */
+.my-rotate-y-180 { transform: rotateY(180deg); }
+
