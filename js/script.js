@@ -44,32 +44,58 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
+    
+
     // ==================================================================
-    // ANIMATIONS AVEC SCROLLREVEAL (VERSION PREMIUM)
+    // ANIMATIONS AVEC SCROLLREVEAL (VERSION SÉCURISÉE POUR TOUT LE SITE)
     // ==================================================================
-    if (typeof ScrollReveal !== 'undefined') { // On active aussi sur mobile maintenant, c'est léger
-        const srConfig = {
-            origin: 'bottom',
-            distance: '30px', // Distance un peu plus grande pour l'élégance
-            duration: 800,    // Durée plus longue (0.8s) pour la douceur
-            delay: 0,
-            opacity: 0,
-            scale: 1,
-            easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)', // Courbe d'animation fluide
-            reset: false,     // Une fois apparu, ça reste (plus stable)
-            viewFactor: 0.2   // Déclenche quand 20% de l'élément est visible
+    if (typeof ScrollReveal !== 'undefined') {
+        
+        // Fonction d'initialisation
+        const initScrollReveal = () => {
+            const srConfig = {
+                origin: 'bottom',
+                distance: '30px',
+                duration: 800,
+                delay: 0,
+                opacity: 0,
+                scale: 1,
+                easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+                reset: false,
+                viewFactor: 0.2,
+                mobile: true // Active sur mobile
+            };
+
+            const sr = ScrollReveal(srConfig);
+
+            // Vos sélecteurs globaux (marchent sur toutes les pages)
+            sr.reveal('[data-sr]', { interval: 100 }); 
+            sr.reveal('[data-sr-delay="100"]', { delay: 300 });
+            sr.reveal('[data-sr-delay="200"]', { delay: 400 });
+            sr.reveal('[data-sr-delay="300"]', { delay: 500 });
+            sr.reveal('[data-sr-origin="right"]', { origin: 'right', distance: '60px', duration: 1000, delay: 200 });
+            sr.reveal('[data-sr-origin="left"]', { origin: 'left', distance: '60px', duration: 1000, delay: 200 });
+            
+            // Force un recalcul après un court instant (sécurité anti-bug)
+            setTimeout(() => {
+                try { sr.delegate(); } catch(e) {}
+            }, 500);
         };
-        const sr = ScrollReveal(srConfig);
 
-
-
-        sr.reveal('[data-sr]', { delay: 200 });
-        sr.reveal('[data-sr-delay="100"]', { delay: 300 });
-        sr.reveal('[data-sr-delay="200"]', { delay: 400 });
-        sr.reveal('[data-sr-delay="300"]', { delay: 500 });
-        sr.reveal('[data-sr-origin="right"]', { origin: 'right', distance: '60px', duration: 1000, delay: 200 });
-        sr.reveal('[data-sr-origin="left"]', { origin: 'left', distance: '60px', duration: 1000, delay: 200 });
+        // Logique de chargement intelligente :
+        // Si la page est déjà chargée (cache), on lance tout de suite.
+        // Sinon, on attend l'événement 'load'.
+        if (document.readyState === 'complete') {
+            initScrollReveal();
+        } else {
+            window.addEventListener('load', initScrollReveal);
+        }
     }
+
+
+
+
+
 
     // ==================================================================
     // LOGIQUE POUR L'ACCORDÉON FAQ (MODIFIÉE)
