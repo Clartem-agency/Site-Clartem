@@ -662,3 +662,30 @@ html {
 /* État initial de la face arrière déjà tournée */
 .my-rotate-y-180 { transform: rotateY(180deg); }
 
+
+
+/* --- AJOUT CORRECTIF BLOG --- */
+/* Animation d'apparition fluide pour les éléments chargés dynamiquement */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-entry {
+    opacity: 0; /* Invisible au départ */
+    animation: fadeInUp 0.6s ease-out forwards; /* L'animation se lance dès que l'élément est créé */
+}
+
+/* Délais pour créer un effet de cascade */
+.fade-in-entry:nth-child(1) { animation-delay: 0.1s; }
+.fade-in-entry:nth-child(2) { animation-delay: 0.2s; }
+.fade-in-entry:nth-child(3) { animation-delay: 0.3s; }
+.fade-in-entry:nth-child(4) { animation-delay: 0.1s; }
+.fade-in-entry:nth-child(5) { animation-delay: 0.2s; }
+.fade-in-entry:nth-child(6) { animation-delay: 0.3s; }
