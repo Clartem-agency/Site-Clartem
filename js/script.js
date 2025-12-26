@@ -69,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const sr = ScrollReveal(srConfig);
 
             // Vos sélecteurs globaux (marchent sur toutes les pages)
+            // NOTE : On ne cible plus les éléments chargés dynamiquement ici
             sr.reveal('[data-sr]', { interval: 100 }); 
             sr.reveal('[data-sr-delay="100"]', { delay: 300 });
             sr.reveal('[data-sr-delay="200"]', { delay: 400 });
@@ -427,7 +428,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // ==================================================================
-    // LOGIQUE COMPLÈTE POUR LA PAGE BLOG (VERSION AVEC ARTICLE "À LA UNE" MANUEL)
+    // LOGIQUE COMPLÈTE POUR LA PAGE BLOG (VERSION CORRIGÉE - CSS ANIMATION)
     // ==================================================================
     const blogPage = document.getElementById('articles-grid');
 
@@ -517,9 +518,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     const showFeaturedPost = featuredArticle && currentPage === 1 && !searchQuery && activeCategory === 'all';
 
                     if (showFeaturedPost) {
+                        // CORRECTION : Utilisation de fade-in-entry au lieu de data-sr
                         featuredPostContainer.innerHTML = `
-                        <h2 class="text-3xl font-bold text-neutral-dark mb-10 text-center">À la Une</h2>
-                        <a href="${featuredArticle.link}" class="block group" data-sr>
+                        <h2 class="text-3xl font-bold text-neutral-dark mb-10 text-center fade-in-entry">À la Une</h2>
+                        <a href="${featuredArticle.link}" class="block group fade-in-entry" style="animation-delay: 0.1s;">
                             <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-soft-blue p-8 rounded-2xl border-2 border-gray-200">
                                 <img src="${featuredArticle.image}" alt="${featuredArticle.title}" class="w-full h-64 md:h-full object-cover rounded-xl shadow-lg">
                                 <div class="flex flex-col">
@@ -546,9 +548,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     const endIndex = startIndex + ITEMS_PER_PAGE;
                     const paginatedArticles = filteredArticles.slice(startIndex, endIndex);
 
-                    // 4.4 Affichage
+                    // 4.4 Affichage (CORRIGÉ : Utilisation de fade-in-entry)
                     articlesGrid.innerHTML = paginatedArticles.map(article => `
-                    <div class="portfolio-item" data-sr>
+                    <div class="portfolio-item fade-in-entry">
                         <a href="${article.link}" class="block h-full group">
                             <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col overflow-hidden border border-gray-200 h-full">
                                 <img src="${article.image}" alt="${article.title}" class="w-full h-48 object-cover">
@@ -564,13 +566,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     renderPagination(totalPages);
 
-                    if (typeof ScrollReveal !== 'undefined') {
-                        ScrollReveal().reveal('[data-sr]', {
-                            origin: 'bottom', distance: '20px', duration: 500, delay: 0,
-                            opacity: 0, scale: 1, easing: 'cubic-bezier(0.5, 0, 0, 1)',
-                            reset: false, viewFactor: 0.2
-                        }, 50);
-                    }
+                    // NOTE : On ne relance plus ScrollReveal() ici pour éviter les conflits.
+                    // L'animation est gérée par le CSS .fade-in-entry
                 }
 
                 // Le reste de la fonction (pagination, événements) ne change pas...
@@ -722,7 +719,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // ==================================================================
-// LOGIQUE POUR L'APERÇU DU BLOG (STYLE ÉDITORIAL PREMIUM)
+// LOGIQUE POUR L'APERÇU DU BLOG (STYLE ÉDITORIAL PREMIUM) - CORRIGÉE
 // ==================================================================
 async function initBlogPreview() {
     // On cible les deux nouveaux conteneurs
@@ -739,7 +736,6 @@ async function initBlogPreview() {
         const allArticles = await response.json();
 
         // On prend les 3 articles les plus récents
-        // (Assure-toi que ton JSON est trié par date, ou ajoute une logique de tri ici)
         const latestArticles = allArticles.slice(0, 3);
 
         if (latestArticles.length === 0) return;
@@ -747,8 +743,9 @@ async function initBlogPreview() {
         // 1. GÉNÉRATION DE L'ARTICLE À LA UNE (Le premier)
         const mainArticle = latestArticles[0];
         
+        // CORRECTION : Utilisation de fade-in-entry et style inline pour le délai
         featuredContainer.innerHTML = `
-            <a href="${mainArticle.link}" class="group block h-full relative overflow-hidden rounded-3xl" data-sr>
+            <a href="${mainArticle.link}" class="group block h-full relative overflow-hidden rounded-3xl fade-in-entry" style="animation-delay: 0.1s;">
                 <!-- Image de fond -->
                 <div class="absolute inset-0">
                     <img src="${mainArticle.image}" alt="${mainArticle.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
@@ -784,8 +781,9 @@ async function initBlogPreview() {
         let sidebarHTML = `<div class="flex flex-col gap-6 h-full">`;
         
         sideArticles.forEach((article, index) => {
+            // CORRECTION : Utilisation de fade-in-entry et calcul du délai
             sidebarHTML += `
-                <a href="${article.link}" class="group flex flex-col sm:flex-row gap-6 bg-white/5 border border-white/10 p-5 rounded-2xl hover:bg-white/10 transition-colors h-full" data-sr data-sr-delay="${(index + 1) * 150}">
+                <a href="${article.link}" class="group flex flex-col sm:flex-row gap-6 bg-white/5 border border-white/10 p-5 rounded-2xl hover:bg-white/10 transition-colors h-full fade-in-entry" style="animation-delay: ${(index + 2) * 0.15}s;">
                     <!-- Image miniature -->
                     <div class="w-full sm:w-1/3 aspect-video sm:aspect-square rounded-xl overflow-hidden flex-shrink-0">
                         <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
@@ -811,11 +809,7 @@ async function initBlogPreview() {
         sidebarHTML += `</div>`;
         sidebarContainer.innerHTML = sidebarHTML;
 
-        // Réinitialisation de ScrollReveal pour les nouveaux éléments
-        if (typeof ScrollReveal !== 'undefined') {
-            ScrollReveal().reveal('#featured-article-container [data-sr]', { distance: '40px', origin: 'bottom' });
-            ScrollReveal().reveal('#sidebar-articles-container [data-sr]', { interval: 100 });
-        }
+        // NOTE : On ne relance plus ScrollReveal() ici.
 
     } catch (error) {
         console.error("Impossible de charger l'aperçu du blog:", error);
