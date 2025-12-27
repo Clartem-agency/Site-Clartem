@@ -38,7 +38,7 @@
                         'soft-blue': '#EFF6FF',
                         'warm-orange': '#F97316',
                         'success-green': '#16A34A',
-                        'neutral-dark': '#0F172A', /* Darker premium blue */
+                        'neutral-dark': '#0F172A',
                         'neutral-light': '#9CA3AF',
                         'card-dark': '#1E293B',
                     },
@@ -52,7 +52,6 @@
     <link rel="stylesheet" href="css/style.css">
 
     <style>
-        /* Timeline Design style Page 11 */
         .timeline-line {
             position: absolute;
             left: 50%;
@@ -122,146 +121,199 @@
         </div>
     </nav>
 
-    <!-- ======================================================= -->
-    <!--                  HEADER : L'INTRO                       -->
-    <!-- ======================================================= -->
-    <header class="relative pt-40 pb-20 overflow-hidden">
-        <!-- Background Glows -->
-        <div
-            class="absolute top-0 right-0 w-[600px] h-[600px] bg-clarity-blue/10 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2 pointer-events-none">
-        </div>
-        <div
-            class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-warm-orange/5 rounded-full blur-[100px] -translate-x-1/2 translate-y-1/2 pointer-events-none">
-        </div>
+    
 
-        <div class="container mx-auto px-6 relative z-10 text-center">
+    <!-- ======================================================= -->
+    <!--          HERO SECTION : LA CITATION (Style Index)       -->
+    <!-- ======================================================= -->
+    <header id="hero" class="hero-bg relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
 
-            <!-- PHOTO DE PROFIL -->
-            <div class="mb-10 relative inline-block group" data-sr>
-                <div
-                    class="absolute inset-0 bg-gradient-to-br from-clarity-blue to-warm-orange rounded-full blur opacity-40 group-hover:opacity-80 transition-opacity duration-500">
-                </div>
-                <div
-                    class="relative w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-neutral-dark shadow-2xl mx-auto">
-                    <img src="assets/frederic-portrait.jpg" alt="Frédéric Delavictoire"
-                        class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 transform hover:scale-105">
-                </div>
-                <div
-                    class="absolute bottom-2 right-2 bg-neutral-dark px-3 py-1 rounded-full border border-white/10 text-xs font-bold text-warm-orange shadow-lg">
-                    41 ans
-                </div>
+        <!-- 1. L'IMAGE DE FOND (Ken Burns + Blur Reveal) -->
+        <!-- NOTE : Changez l'URL ci-dessous pour mettre votre image spécifique "A Propos" -->
+        <div class="hero-ken-burns" style="background-image: url('assets/background-hero.webp');"></div>
+
+        <!-- 2. L'OVERLAY (Filtre sombre pour la lisibilité) -->
+        <div class="hero-overlay"></div>
+
+        <!-- 3. LE CONTENU (Z-index élevé pour passer au dessus de l'image) -->
+        <div class="container mx-auto px-6 max-w-5xl relative z-20 text-center">
+            
+            <!-- Guillemets décoratifs (Animation délai 0) -->
+            <div class="text-warm-orange text-6xl md:text-8xl font-serif opacity-80 leading-none mb-4 animate-blur-rise delay-0">
+                “
             </div>
-
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight max-w-4xl mx-auto" data-sr data-sr-delay="100">
-                Du Chaos à la Clarté :<br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-white">L'Odyssée d'un
-                    homme qui cherchait son âme.</span>
+            
+            <!-- Titre Principal (Animation délai 1) -->
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-light leading-tight text-white mb-10 animate-blur-rise delay-1">
+                Vous ne pouvez pas relier les points en regardant vers l'avenir ;<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-white font-semibold">
+                    vous ne pouvez les relier qu'en regardant vers le passé.
+                </span>
             </h1>
 
-            <p class="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed" data-sr data-sr-delay="200">
-                Je ne suis pas né entrepreneur. Je ne suis pas né codeur.
-                Je suis un survivant de mes propres contradictions, un ancien cheminot perdu qui a dû toucher le fond
-                pour comprendre comment on remonte à la surface.
-                Voici l'histoire sans filtre de celui qui va construire votre empire digital.
+            <!-- Paragraphe / Citation suite (Animation délai 2) -->
+            <p class="text-xl md:text-2xl text-gray-200 font-light italic max-w-3xl mx-auto mb-12 animate-blur-rise delay-2">
+                "Alors, vous devez croire que les points vont, d'une manière ou d'une autre, se relier dans votre futur."
             </p>
+
+            <!-- Signature (Animation délai 3) -->
+            <div class="flex items-center justify-center gap-4 animate-blur-rise delay-3">
+                <div class="h-[1px] w-12 bg-warm-orange"></div>
+                <cite class="text-sm text-warm-orange font-bold tracking-[0.2em] uppercase not-italic">
+                    Steve Jobs, Stanford 2005
+                </cite>
+                <div class="h-[1px] w-12 bg-warm-orange"></div>
+            </div>
+
+            <!-- Scroll Down Indicator -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-20 text-white/50">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </div>
         </div>
     </header>
 
 
+    
 
 
-
+  
     <!-- ======================================================= -->
-    <!--       CITATION STEVE JOBS (STYLE ÉDITORIAL PREMIUM)     -->
+    <!--          SECTION 2 : LE CONTEXTE (NEON & LINES)         -->
     <!-- ======================================================= -->
-    <section class="relative z-20 py-24">
-        <!-- Fond lumineux très subtil derrière la citation pour l'effet premium -->
-        <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-clarity-blue/5 rounded-full blur-[100px] pointer-events-none">
+    <section class="py-24 bg-neutral-dark relative flex items-center justify-center overflow-hidden">
+        
+        <!-- 1. LIGNE DE SÉPARATION (Haut) -->
+        <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+        <div class="container mx-auto px-6 max-w-4xl relative z-10" data-sr>
+            
+            <!-- CONTENEUR DU CADRE NÉON -->
+            <div class="relative group">
+                
+                <!-- EFFET NÉON (Arrière-plan flou) -->
+                <div class="absolute -inset-1 bg-gradient-to-r from-warm-orange via-purple-500 to-clarity-blue rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                
+                <!-- LA CARTE (Contenu) -->
+                <div class="relative bg-card-dark border border-white/10 rounded-2xl p-10 md:p-12 shadow-2xl">
+                    
+                    <!-- Label -->
+                    <div class="text-center mb-8">
+                        <span class="text-xs font-bold text-gray-500 uppercase tracking-[0.3em]">Le Contexte</span>
+                    </div>
+
+                    <!-- Texte -->
+                    <div class="text-center space-y-8">
+                        <p class="text-xl text-gray-300 font-light leading-relaxed">
+                            Steve Jobs évoquait ici un <strong class="text-white font-medium">cours de calligraphie</strong> suivi par simple curiosité. Dix ans plus tard, ce savoir "inutile" est devenu la base du design révolutionnaire du premier Macintosh.
+                        </p>
+
+                        <!-- Séparateur interne subtil -->
+                        <div class="w-16 h-[1px] bg-gradient-to-r from-transparent via-gray-500 to-transparent mx-auto opacity-30"></div>
+
+                        <p class="text-xl text-white font-normal leading-relaxed">
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-warm-orange to-white font-bold">Sa leçon est universelle :</span> 
+                            ce qui ressemble à une errance sur le moment est souvent, avec le recul, une étape indispensable de notre construction.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
 
-        <div class="container mx-auto px-6 max-w-4xl relative" data-sr>
+        <!-- 2. LIGNE DE SÉPARATION (Bas) -->
+        <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
-            <!-- 1. LA CITATION -->
-            <div class="text-center mb-16">
-                <!-- Guillemets décoratifs très grands et discrets en arrière-plan -->
-                <div class="relative inline-block">
-                    <span class="absolute -top-12 -left-8 text-8xl font-serif text-white opacity-10">“</span>
-                    <blockquote class="text-2xl md:text-4xl font-light text-white leading-normal relative z-10">
-                        Vous ne pouvez pas relier les points en regardant vers l'avenir ; vous ne pouvez les relier
-                        qu'en regardant vers le passé.<br>
-                        <span class="text-gray-400">Alors, vous devez croire que les points vont, d'une manière ou d'une
-                            autre, se relier dans votre futur.</span>
-                    </blockquote>
+    </section>
+
+
+
+    
+
+    <!-- ======================================================= -->
+    <!--            SECTION 3 : PRÉSENTATION & PHOTO (PREMIUM)   -->
+    <!-- ======================================================= -->
+    <section class="py-24 relative overflow-hidden bg-neutral-dark">
+        <!-- Fond décoratif subtil pour l'élégance -->
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/5 to-transparent opacity-50 pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+                
+                <!-- COLONNE GAUCHE : PHOTO (Style Éditorial) -->
+                <div class="lg:col-span-5 relative" data-sr>
+                    <!-- Cadre décoratif arrière -->
+                    <div class="absolute inset-0 translate-x-4 translate-y-4 border border-warm-orange/30 rounded-2xl z-0"></div>
+                    
+                    <!-- Conteneur Image -->
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl z-10 aspect-[4/5] group cursor-pointer">
+                        <div class="absolute inset-0 bg-neutral-900/10 group-hover:bg-transparent transition-all duration-500 z-20"></div>
+                        <img src="assets/frederic-portrait.jpg" alt="Frédéric Delavictoire"
+                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105">
+                    </div>
                 </div>
 
-                <div class="mt-8 flex items-center justify-center gap-4">
-                    <div class="h-[1px] w-12 bg-warm-orange"></div> <!-- Ligne élégante -->
-                    <cite class="text-sm text-warm-orange font-bold tracking-[0.2em] uppercase not-italic">
-                        Steve Jobs, Stanford 2005
-                    </cite>
-                    <div class="h-[1px] w-12 bg-warm-orange"></div>
+                <!-- COLONNE DROITE : LE TEXTE (Typographie soignée) -->
+                <div class="lg:col-span-7" data-sr data-sr-delay="200">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-8 text-white leading-tight">
+                        L'Humain derrière <span class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-white">le Code</span>.
+                    </h2>
+                    
+                    <div class="space-y-6 text-lg text-gray-400 font-light leading-relaxed">
+                        <!-- Phrase d'accroche mise en valeur -->
+                        <p class="text-xl text-white font-medium border-l-2 border-warm-orange pl-6">
+                            Je m'appelle <span class="text-warm-orange">Frédéric Delavictoire</span> et j'ai 41 ans.
+                        </p>
+
+                        <p>
+                            Je ne suis pas né entrepreneur. Je ne suis pas né codeur.
+                        </p>
+                        <p>
+                            Je suis un survivant de mes propres contradictions, un ancien cheminot perdu qui a dû toucher le fond pour comprendre comment on remonte à la surface.
+                        </p>
+                        <p>
+                            Pendant 15 ans, j'ai cru errer au hasard. Aujourd'hui, en regardant en arrière, je vois enfin le dessin.
+                            Voici l'histoire sans filtre de celui qui va construire votre empire digital.
+                        </p>
+
+                        <!-- Signature visuelle -->
+                        <div class="pt-6 opacity-80">
+                            <img src="assets/signature-frederic.svg" alt="Frédéric" class="h-12 w-auto filter invert opacity-50" onerror="this.style.display='none'">
+                            <!-- Note: Si vous n'avez pas d'image signature, supprimez la div ci-dessus ou remplacez par du texte manuscrit ci-dessous -->
+                            <!-- <p class="font-serif text-2xl text-warm-orange italic">Frédéric.</p> -->
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <!-- 2. LE CONTEXTE (Minimaliste, sans boîte lourde) -->
-            <div class="max-w-2xl mx-auto text-center space-y-6">
-                <h4 class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Le Contexte</h4>
-
-                <p class="text-gray-300 text-lg font-light leading-relaxed">
-                    Steve Jobs évoquait ici un <strong>cours de calligraphie</strong> suivi par curiosité, qui semblait
-                    inutile à l'époque. Dix ans plus tard, ce savoir est devenu la base du design révolutionnaire du
-                    Macintosh.
-                </p>
-
-                <p
-                    class="text-gray-400 text-sm italic border-l-2 border-white/10 pl-4 ml-4 md:ml-0 md:pl-0 md:border-l-0">
-                    Sa leçon est universelle : ce qui ressemble à une errance ou un échec sur le moment est souvent,
-                    avec le recul, une étape indispensable de notre construction.
-                </p>
-            </div>
-
-            <!-- 3. LA TRANSITION (Sobre et Puissante) -->
-            <div class="text-center mt-20 relative">
-                <p class="text-white text-lg md:text-xl font-medium">
-                    Pendant 15 ans, j'ai cru errer au hasard.<br>
-                    <span class="text-clarity-blue">Aujourd'hui, en regardant en arrière, je vois enfin le
-                        dessin.</span>
-                </p>
-
-                <!-- Flèche minimaliste -->
-                <div class="mt-8 flex justify-center">
-                    <div class="w-[1px] h-16 bg-gradient-to-b from-clarity-blue to-transparent opacity-50"></div>
-                </div>
             </div>
 
         </div>
     </section>
 
 
-
-
-
     <!-- ======================================================= -->
-    <!--                  LA TIMELINE (Design Page 11)           -->
+    <!--                  LA TIMELINE (En-tête modifié)          -->
     <!-- ======================================================= -->
     <section class="py-20 relative overflow-hidden">
         <div class="container mx-auto px-6 max-w-6xl relative">
 
             <div class="text-center mb-24" data-sr>
-                <span class="text-warm-orange font-bold tracking-[0.2em] uppercase text-xs mb-3 block">L'Origine
-                    Story</span>
-                <h2 class="text-3xl md:text-5xl font-bold text-white">L'Art de se planter (pour mieux fleurir)<br><span
-                        class="text-gray-500 text-lg md:text-xl font-normal mt-2 block">16 chapitres d'une résilience
-                        obstinée.</span></h2>
+                <span class="text-warm-orange font-bold tracking-[0.2em] uppercase text-xs mb-3 block">L'Origine Story</span>
+                <h2 class="text-4xl md:text-6xl font-bold mb-6 leading-tight max-w-4xl mx-auto">
+                    Du Chaos à la Clarté :<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-white">L'Odyssée d'un homme qui cherchait son âme.</span>
+                </h2>
+                <!-- Sous-titre supprimé ici comme demandé -->
             </div>
 
             <!-- Ligne Centrale Verticale -->
             <div class="timeline-line"></div>
 
             <div class="space-y-32">
+                <!-- LE RESTE DE LA TIMELINE RESTE INCHANGÉ -->
 
-                <!-- Chapitre 01 - Mis à jour (Ellen Goodman) -->
+                <!-- Chapitre 01 -->
                 <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
                     <div class="md:text-right md:pr-12 order-2 md:order-1 relative pl-12 md:pl-0">
                         <span class="text-white font-black text-8xl opacity-[0.03] absolute -top-16 right-0 md:right-10 select-none">01</span>
@@ -291,9 +343,7 @@
                 </div>
 
 
-
-
-                <!-- Chapitre 02 - Mis à jour (Carl Jung) -->
+                <!-- Chapitre 02 -->
                 <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
                     <div class="md:pr-12 order-2 md:order-1 pl-12 md:pl-0">
                         <div class="bg-card-dark p-6 rounded-xl border border-white/5 relative hover:border-warm-orange/30 transition-colors">
@@ -319,10 +369,7 @@
                     </div>
                 </div>
 
-                
-
-
-                <!-- Chapitre 03 - Mis à jour (Napoléon) -->
+                <!-- Chapitre 03 -->
                 <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
                     <div class="md:text-right md:pr-12 order-2 md:order-1 relative pl-12 md:pl-0">
                         <span class="text-white font-black text-8xl opacity-[0.03] absolute -top-16 right-0 md:right-10 select-none">03</span>
@@ -348,10 +395,7 @@
                     </div>
                 </div>
 
-
-
-
-                <!-- Chapitre 04 - Mis à jour (Vernon Law + Texte réécrit) -->
+                <!-- Chapitre 04 -->
                 <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
                     <div class="md:pr-12 order-2 md:order-1 pl-12 md:pl-0">
                          <div class="bg-card-dark p-6 rounded-xl border border-red-500/20 relative shadow-[0_0_15px_rgba(239,68,68,0.1)]">
@@ -377,10 +421,7 @@
                     </div>
                 </div>
 
-                
-
-
-                <!-- Chapitre 05 - Texte réécrit au Présent -->
+                <!-- Chapitre 05 -->
                 <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
                     <div class="md:text-right md:pr-12 order-2 md:order-1 relative pl-12 md:pl-0">
                         <span class="text-white font-black text-8xl opacity-[0.03] absolute -top-16 right-0 md:right-10 select-none">05</span>
@@ -406,10 +447,7 @@
                     </div>
                 </div>
 
-
-                
-
-                <!-- Chapitre 06 - Mis à jour (Alvin Toffler) -->
+                <!-- Chapitre 06 -->
                 <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
                     <div class="md:pr-12 order-2 md:order-1 pl-12 md:pl-0">
                         <div class="bg-card-dark p-6 rounded-xl border border-white/5 relative">
@@ -435,9 +473,7 @@
                     </div>
                 </div>
 
-                
-
-                <!-- Chapitre 07 - Mis à jour (Épictète) -->
+                <!-- Chapitre 07 -->
                 <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
                     <div class="md:text-right md:pr-12 order-2 md:order-1 relative pl-12 md:pl-0">
                         <span class="text-white font-black text-8xl opacity-[0.03] absolute -top-16 right-0 md:right-10 select-none">07</span>
@@ -463,10 +499,7 @@
                     </div>
                 </div>
 
-
-                
-
-                <!-- Chapitre 08 - Mis à jour (Maya Angelou) -->
+                <!-- Chapitre 08 -->
                 <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
                     <div class="md:pr-12 order-2 md:order-1 pl-12 md:pl-0">
                          <div class="bg-card-dark p-6 rounded-xl border border-white/5 relative">
@@ -492,10 +525,7 @@
                     </div>
                 </div>
 
-
-                
-
-                <!-- Chapitre 09 - Mis à jour (Cortés) -->
+                <!-- Chapitre 09 -->
                 <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
                     <div class="md:text-right md:pr-12 order-2 md:order-1 relative pl-12 md:pl-0">
                         <span class="text-white font-black text-8xl opacity-[0.03] absolute -top-16 right-0 md:right-10 select-none">09</span>
@@ -521,9 +551,7 @@
                     </div>
                 </div>
 
-                
-
-                <!-- Chapitre 10 - Mis à jour (André Gide) -->
+                <!-- Chapitre 10 -->
                 <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
                     <div class="md:pr-12 order-2 md:order-1 pl-12 md:pl-0">
                          <div class="bg-card-dark p-6 rounded-xl border border-blue-400/20 relative">
@@ -550,9 +578,7 @@
                 </div>
 
 
-                
-
-                <!-- Chapitre 11 - Mis à jour (Mike Tyson) -->
+                <!-- Chapitre 11 -->
                 <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
                     <div class="md:text-right md:pr-12 order-2 md:order-1 relative pl-12 md:pl-0">
                         <span class="text-white font-black text-8xl opacity-[0.03] absolute -top-16 right-0 md:right-10 select-none">11</span>
@@ -579,9 +605,7 @@
                 </div>
 
 
-                
-
-                <!-- Chapitre 12 - Mis à jour (Churchill) -->
+                <!-- Chapitre 12 -->
                 <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
                     <div class="md:pr-12 order-2 md:order-1 pl-12 md:pl-0">
                          <div class="bg-card-dark p-6 rounded-xl border border-white/5 relative shadow-[0_0_15px_rgba(107,114,128,0.1)]">
@@ -600,16 +624,14 @@
                         <p class="text-sm text-gray-500 italic mb-4">Le fond du trou (le vrai, cette fois).</p>
                         
                         <p class="text-gray-400 leading-relaxed">
-                            Obstiné, je retourne en Estonie avec... rien. Je loue probablement l'appartement le moins cher de Tallinn. Je perds du poids. Je suis isolé. Je galère physiquement et moralement. 
+                            Obstiné, je retourne en Estonie avec... rien. Je loue probablement l'appartement le moins cher de Tallinn. Je maigris à vue d’œil. Je suis isolé. Je galère physiquement et moralement. 
                             <br><br>
                             Je survis grâce à l'aide financière de ma mère (Merci Maman). À ce moment-là, je ne pense plus business, je suis juste un homme qui essaie de tenir un jour de plus sans sombrer dans la folie. Humilité niveau max.
                         </p>
                     </div>
                 </div>
 
-                
-
-                <!-- Chapitre 13 - Mis à jour (Hemingway) -->
+                <!-- Chapitre 13 -->
                 <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
                     <div class="md:text-right md:pr-12 order-2 md:order-1 relative pl-12 md:pl-0">
                         <span class="text-white font-black text-8xl opacity-[0.03] absolute -top-16 right-0 md:right-10 select-none">13</span>
@@ -637,9 +659,7 @@
                 </div>
 
 
-                
-
-                <!-- Chapitre 14 - Mis à jour (Texte + Archimède) -->
+                <!-- Chapitre 14 -->
                 <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
                     <div class="md:pr-12 order-2 md:order-1 pl-12 md:pl-0">
                         <div class="bg-card-dark p-6 rounded-xl border border-white/5 relative">
@@ -666,8 +686,7 @@
                 </div>
 
 
-                
-                <!-- Chapitre 15 - Mis à jour -->
+                <!-- Chapitre 15 -->
                 <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
                     <div class="md:text-right md:pr-12 order-2 md:order-1 relative pl-12 md:pl-0">
                         <span class="text-white font-black text-8xl opacity-[0.03] absolute -top-16 right-0 md:right-10 select-none">15</span>
@@ -693,7 +712,7 @@
                     </div>
                 </div>
 
-                <!-- Chapitre 16 - Mis à jour -->
+                <!-- Chapitre 16 -->
                 <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
                     <div class="md:pr-12 order-2 md:order-1 pl-12 md:pl-0">
                          <div class="bg-card-dark p-6 rounded-xl border border-success-green/30 relative">
@@ -719,9 +738,7 @@
                     </div>
                 </div>
 
-
-
-                <!-- Chapitre 17 - VERSION FINALE (Votre texte) -->
+                <!-- Chapitre 17 -->
                 <div class="grid md:grid-cols-2 gap-12 relative items-center group" data-sr>
                     <div class="md:text-right md:pr-12 order-2 md:order-1 relative pl-12 md:pl-0">
                         <span
@@ -759,7 +776,6 @@
                     </div>
 
                 </div>
-
 
             </div>
         </div>
@@ -905,8 +921,5 @@
     <!-- Script JS -->
     <script src="js/script.js"></script>
 
-
-
 </body>
-
 </html>
