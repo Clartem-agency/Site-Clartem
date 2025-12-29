@@ -2167,10 +2167,16 @@
 <!-- ======================================================= -->
 <!--       SECTION TEASER A PROPOS : L'HUMAIN                -->
 <!-- ======================================================= -->
-<section id="about-teaser" class="py-24 bg-neutral-dark relative overflow-hidden border-t border-white/5">
+<section id="about-teaser" class="py-24 bg-neutral-dark relative overflow-hidden">
 
-    <!-- Décoration de fond (Cercle subtil derrière la photo) -->
+    <!-- 1. NOUVEAU : Halo Bleu Haut-Gauche (Lien avec la section Blog) -->
+    <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-clarity-blue/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+
+    <!-- 2. Halo Orange Central (Existant - conservé pour la profondeur) -->
     <div class="absolute top-1/2 left-0 w-[600px] h-[600px] bg-warm-orange/5 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+
+    <!-- 3. NOUVEAU : Halo Bleu Bas-Gauche -->
+    <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-clarity-blue/10 rounded-full blur-[120px] -translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
 
     <div class="container mx-auto px-6 relative z-10">
         <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
@@ -2213,7 +2219,6 @@
                 </div>
 
                 <div class="flex items-center gap-8">
-                    <!-- CORRECTION : Utilisation stricte de btn-secondary pour activer l'animation de remplissage CSS -->
                     <a href="a-propos.html" class="btn btn-secondary inline-flex items-center group">
                         Découvrir mon histoire
                         <span class="inline-block ml-2 transition-transform group-hover:translate-x-1">&rarr;</span>
