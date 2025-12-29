@@ -82,85 +82,92 @@
         .cursor-blink {
             animation: blink 1s step-end infinite;
         }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
 
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 
 <body class="bg-neutral-dark text-white font-sans antialiased selection:bg-warm-orange selection:text-white">
 
-    
+
 
     <!-- ======================================================= -->
-        <!--                Section Navigation                       -->
-        <!-- ======================================================= -->
+    <!--                Section Navigation                       -->
+    <!-- ======================================================= -->
 
 
 
-        <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
-            <!-- MODIFIÉ : J'ai retiré la classe 'py-4' ici pour que le CSS contrôle totalement la hauteur -->
-            <div class="container mx-auto px-6">
-                <div class="flex items-center justify-between">
+    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+        <!-- MODIFIÉ : J'ai retiré la classe 'py-4' ici pour que le CSS contrôle totalement la hauteur -->
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between">
 
-                    <!-- LOGO : Taille réduite de h-14 à h-10 (40px) pour affiner la barre -->
-                    <a href="index.html" class="relative block group py-2"> <!-- Ajout d'un petit py-2 de sécurité -->
-                        <img id="logo-white" class="h-10 w-auto transition-opacity duration-300"
-                            src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com blanc">
+                <!-- LOGO : Taille réduite de h-14 à h-10 (40px) pour affiner la barre -->
+                <a href="index.html" class="relative block group py-2"> <!-- Ajout d'un petit py-2 de sécurité -->
+                    <img id="logo-white" class="h-10 w-auto transition-opacity duration-300"
+                        src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com blanc">
 
-                        <img id="logo-color"
-                            class="h-10 w-auto absolute top-2 left-0 transition-opacity duration-300 opacity-0"
-                            src="assets/logo-clartem.svg" alt="Logo clartem.com couleur">
+                    <img id="logo-color"
+                        class="h-10 w-auto absolute top-2 left-0 transition-opacity duration-300 opacity-0"
+                        src="assets/logo-clartem.svg" alt="Logo clartem.com couleur">
+                </a>
+
+                <!-- LIENS DU MENU -->
+                <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                    <!-- J'ai ajouté text-sm pour que le texte soit un peu plus fin et élégant -->
+                    <a href="index.html" class="nav-link text-sm font-medium transition-colors duration-300">Accueil
                     </a>
-
-                    <!-- LIENS DU MENU -->
-                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
-                        <!-- J'ai ajouté text-sm pour que le texte soit un peu plus fin et élégant -->
-                        <a href="index.html" class="nav-link text-sm font-medium transition-colors duration-300">Accueil
-                        </a>
-                        <a href="index.html#plan"
-                            class="nav-link text-sm font-medium transition-colors duration-300">Processus</a>
-                        <a href="portfolio.html"
-                            class="nav-link text-sm font-medium transition-colors duration-300">Portfolio</a>
-                        <a href="index.html#offres"
-                            class="nav-link text-sm font-medium transition-colors duration-300">Offres</a>
-                        <a href="blog.html" class="nav-link text-sm font-medium transition-colors duration-300">Blog</a>
-                        <a href="faq.html" class="nav-link text-sm font-medium transition-colors duration-300">FAQ</a>
-                    </div>
-
-                    <!-- BOUTON D'APPEL : Taille réduite de h-12 à h-10 et texte un peu plus petit -->
-                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
-                        rel="noopener noreferrer"
-                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-6 h-10 text-sm">Planifier
-                        un Appel Clarté
-                    </a>
-
-                    <!-- BOUTON MENU MOBILE -->
-                    <button id="mobile-menu-button" class="md:hidden nav-link focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16m-7 6h7"></path>
-                        </svg>
-                    </button>
+                    <a href="index.html#plan"
+                        class="nav-link text-sm font-medium transition-colors duration-300">Processus</a>
+                    <a href="portfolio.html"
+                        class="nav-link text-sm font-medium transition-colors duration-300">Portfolio</a>
+                    <a href="index.html#offres"
+                        class="nav-link text-sm font-medium transition-colors duration-300">Offres</a>
+                    <a href="blog.html" class="nav-link text-sm font-medium transition-colors duration-300">Blog</a>
+                    <a href="faq.html" class="nav-link text-sm font-medium transition-colors duration-300">FAQ</a>
                 </div>
 
-                <!-- MENU MOBILE (Inchangé) -->
-                <div id="mobile-menu"
-                    class="hidden md:hidden mt-2 space-y-2 bg-white p-4 rounded-xl shadow-xl text-neutral-dark">
-                    <a href="index.html" class="block hover:text-clarity-blue py-2 text-sm">Accueil</a>
-                    <a href="index.html#plan" class="block hover:text-clarity-blue py-2 text-sm">Processus</a>
-                    <a href="portfolio.html" class="block hover:text-clarity-blue py-2 text-sm">Portfolio</a>
-                    <a href="index.html#offres" class="block hover:text-clarity-blue py-2 text-sm">Offres</a>
-                    <a href="blog.html" class="block hover:text-clarity-blue py-2 text-sm">Blog</a>
-                    <a href="faq.html" class="block hover:text-clarity-blue py-2 text-sm">FAQ</a>
-                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
-                        class="block mt-2 w-full text-center btn btn-primary text-sm py-2">Planifier un Appel Clarté</a>
-                </div>
+                <!-- BOUTON D'APPEL : Taille réduite de h-12 à h-10 et texte un peu plus petit -->
+                <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                    rel="noopener noreferrer"
+                    class="hidden md:inline-flex items-center justify-center btn btn-primary px-6 h-10 text-sm">Planifier
+                    un Appel Clarté
+                </a>
+
+                <!-- BOUTON MENU MOBILE -->
+                <button id="mobile-menu-button" class="md:hidden nav-link focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
             </div>
-        </nav>
+
+            <!-- MENU MOBILE (Inchangé) -->
+            <div id="mobile-menu"
+                class="hidden md:hidden mt-2 space-y-2 bg-white p-4 rounded-xl shadow-xl text-neutral-dark">
+                <a href="index.html" class="block hover:text-clarity-blue py-2 text-sm">Accueil</a>
+                <a href="index.html#plan" class="block hover:text-clarity-blue py-2 text-sm">Processus</a>
+                <a href="portfolio.html" class="block hover:text-clarity-blue py-2 text-sm">Portfolio</a>
+                <a href="index.html#offres" class="block hover:text-clarity-blue py-2 text-sm">Offres</a>
+                <a href="blog.html" class="block hover:text-clarity-blue py-2 text-sm">Blog</a>
+                <a href="faq.html" class="block hover:text-clarity-blue py-2 text-sm">FAQ</a>
+                <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                    class="block mt-2 w-full text-center btn btn-primary text-sm py-2">Planifier un Appel Clarté</a>
+            </div>
+        </div>
+    </nav>
 
 
 
@@ -312,15 +319,16 @@
                         <div
                             class="absolute inset-0 bg-neutral-900/10 group-hover:bg-transparent transition-all duration-500 z-20">
                         </div>
-                        <img src="assets/photo-frederic.jpg" alt="Frédéric Delavictoire, fondateur de l'agence Clartem pour coachs et thérapeutes"
+                        <img src="assets/photo-frederic.jpg"
+                            alt="Frédéric Delavictoire, fondateur de l'agence Clartem pour coachs et thérapeutes"
                             class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105">
                     </div>
                 </div>
 
-                
+
                 <!-- COLONNE DROITE : LE TEXTE (Typographie soignée) -->
                 <div class="lg:col-span-7" data-sr data-sr-delay="200">
-                    
+
                     <!-- TITRE MODIFIÉ -->
                     <h2 class="text-4xl md:text-5xl font-bold mb-8 text-white leading-tight">
                         L'Architecte de <br>
@@ -328,7 +336,7 @@
                             votre Clarté.
                         </span>
                     </h2>
-                    
+
                     <div class="space-y-6 text-lg text-gray-400 font-light leading-relaxed">
                         <!-- Phrase d'accroche -->
                         <p class="text-xl text-white font-medium border-l-2 border-warm-orange pl-6">
@@ -336,7 +344,7 @@
                         </p>
 
                         <p>
-                           Rien ne me prédestinait à devenir cet architecte digital.
+                            Rien ne me prédestinait à devenir cet architecte digital.
                         </p>
                         <p>
                             Je suis un survivant de mes propres contradictions, un ancien cheminot perdu qui a dû
@@ -348,12 +356,16 @@
                             Voici l'histoire sans filtre de celui qui va construire votre empire digital.
                         </p>
 
-                       <!-- Signature visuelle -->
-<div class="pt-10 flex justify-end md:pr-12"> <!-- Alignement à droite + marge -->
+                        <!-- Signature visuelle -->
+<div class="pt-8 pb-4"> <!-- Alignement naturel à gauche -->
+    <!-- J'ai gardé la grande taille (h-24/h-32) et la rotation, mais sans le 'flex justify-end' -->
     <img src="assets/signature-frederic.png" 
-         alt="Frédéric Delavictoire, Clartem, agence marketing pour coach, thérapeute, consultant"
-         class="h-24 md:h-32 w-auto filter invert opacity-90 -rotate-3 origin-center" 
+         alt="Frédéric Delavictoire"
+         class="h-24 md:h-32 w-auto filter invert opacity-90 -rotate-3 origin-left ml-2" 
          onerror="this.style.display='none'">
+         
+    <!-- Optionnel : Un petit titre sous la signature si vous voulez combler encore plus -->
+    <!-- <p class="text-xs text-warm-orange font-bold tracking-widest mt-2 uppercase ml-4">Fondateur, Clartem</p> -->
 </div>
                     </div>
                 </div>
@@ -1151,9 +1163,11 @@
     <!--            MANIFESTE & FINAL (Mantra)                   -->
     <!-- ======================================================= -->
     <section class="py-32 text-center relative overflow-hidden">
-        
+
         <!-- Petit halo de fond pour donner de la profondeur -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-warm-orange/10 rounded-full blur-[100px] pointer-events-none"></div>
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-warm-orange/10 rounded-full blur-[100px] pointer-events-none">
+        </div>
 
         <div class="container mx-auto px-6 max-w-4xl relative z-10">
 
@@ -1191,79 +1205,79 @@
     </section>
 
     <!-- ======================================================= -->
-        <!--                        Footer                           -->
-        <!-- ======================================================= -->
+    <!--                        Footer                           -->
+    <!-- ======================================================= -->
 
 
-        <footer class="bg-neutral-dark text-white py-16">
-            <div class="container mx-auto px-6">
-                <div class="grid md:grid-cols-3 gap-12">
-                    <div class="space-y-6">
-                        <div>
-                            <a href="index.html">
-                                <img class="h-14 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
-                            </a>
-                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
-                        </div>
-                        <p class="text-neutral-light leading-relaxed">Vous transformez des vies, votre site devrait le
-                            refléter. J'aide les professionnels de l'accompagnement à traduire leur expertise en une
-                            présence digitale claire, qui inspire confiance et attire les bonnes personnes.</p>
+    <footer class="bg-neutral-dark text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="space-y-6">
+                    <div>
+                        <a href="index.html">
+                            <img class="h-14 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                        </a>
+                        <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
                     </div>
-                    <div class="space-y-6">
-                        <h4 class="text-xl font-bold text-white">Navigation</h4>
-                        <div class="space-y-3">
-                            <a href="index.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
-                            
-                            <a href="index.html#plan"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Processus</a>
-                            <a href="portfolio.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Portfolio</a>
-                            <a href="index.html#offres"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Offres</a>
-                            <a href="blog.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
-                            <a href="faq.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
-                        </div>
-                    </div>
-                    <div class="space-y-6">
-                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
-                        <div class="space-y-3">
-                            <a href="mentions-legales.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
-                                Légales</a>
-                            <a href="politique-de-confidentialite.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
-                                de Confidentialité</a>
-                            <a href="cgv.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
-                                Générales de Vente</a>
-                            <a href="contact.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
-                        </div>
+                    <p class="text-neutral-light leading-relaxed">Vous transformez des vies, votre site devrait le
+                        refléter. J'aide les professionnels de l'accompagnement à traduire leur expertise en une
+                        présence digitale claire, qui inspire confiance et attire les bonnes personnes.</p>
+                </div>
+                <div class="space-y-6">
+                    <h4 class="text-xl font-bold text-white">Navigation</h4>
+                    <div class="space-y-3">
+                        <a href="index.html"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+
+                        <a href="index.html#plan"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Processus</a>
+                        <a href="portfolio.html"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Portfolio</a>
+                        <a href="index.html#offres"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Offres</a>
+                        <a href="blog.html"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        <a href="faq.html"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
                     </div>
                 </div>
-                <div class="border-t border-neutral-light/20 mt-12 pt-8">
-                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                        <p class="text-sm text-neutral-light">© 2025 clartem.com. Tous droits réservés.</p>
-                        <div class="text-sm text-neutral-light">
-                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
-                        </div>
+                <div class="space-y-6">
+                    <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                    <div class="space-y-3">
+                        <a href="mentions-legales.html"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                            Légales</a>
+                        <a href="politique-de-confidentialite.html"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                            de Confidentialité</a>
+                        <a href="cgv.html"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                            Générales de Vente</a>
+                        <a href="contact.html"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
                     </div>
                 </div>
             </div>
-        </footer>
+            <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-sm text-neutral-light">© 2025 clartem.com. Tous droits réservés.</p>
+                    <div class="text-sm text-neutral-light">
+                        <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- Script JS -->
     <script src="js/script.js"></script>
 
 
-<script>
-        document.addEventListener('DOMContentLoaded', function() {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
             const terminalContainer = document.getElementById('terminal-container');
             const output = document.getElementById('terminal-output');
-            
+
             // Les données à écrire (Texte + Classes CSS + HTML spécial pour les badges)
             const lines = [
                 { text: "> SYSTEM CHECK: HUMANITY STATUS...", class: "text-green-400 block" },
@@ -1281,13 +1295,13 @@
             function typeWriter() {
                 if (lineIndex < lines.length) {
                     const currentLine = lines[lineIndex];
-                    
+
                     // Si c'est le début d'une nouvelle ligne, on prépare le span
                     if (charIndex === 0) {
                         const lineSpan = document.createElement('span');
                         lineSpan.className = currentLine.class;
                         // Si c'est la dernière ligne (FOUND YOU), on gère le style bloc différemment
-                        if(lineIndex === lines.length - 1) {
+                        if (lineIndex === lines.length - 1) {
                             const separator = document.createElement('div');
                             separator.className = "border-t border-white/10 mt-2 pt-2";
                             output.appendChild(separator);
@@ -1298,8 +1312,8 @@
                     // On récupère le span actuel (le dernier ajouté)
                     // Note: pour la dernière ligne qui a un wrapper div, on cible le dernier élément enfant
                     let currentSpan = output.lastElementChild;
-                    if(currentSpan.tagName === 'DIV') currentSpan = output.appendChild(document.createElement('span')); 
-                    if(lineIndex === lines.length - 1) currentSpan.className = currentLine.class; // Réapplique la classe
+                    if (currentSpan.tagName === 'DIV') currentSpan = output.appendChild(document.createElement('span'));
+                    if (lineIndex === lines.length - 1) currentSpan.className = currentLine.class; // Réapplique la classe
 
                     // Effet machine à écrire
                     if (charIndex < currentLine.text.length) {
