@@ -689,3 +689,32 @@ html {
 .fade-in-entry:nth-child(4) { animation-delay: 0.1s; }
 .fade-in-entry:nth-child(5) { animation-delay: 0.2s; }
 .fade-in-entry:nth-child(6) { animation-delay: 0.3s; }
+
+
+
+/* ======================================================= */
+/*    AJOUTS POUR LES NOUVELLES OFFRES (2025)              */
+/* ======================================================= */
+
+/* Permet d'aligner proprement les icônes dans les listes des offres */
+.offer-list-item svg {
+    flex-shrink: 0;
+    margin-top: 2px; /* Ajustement fin pour alignement optique avec le texte */
+}
+
+/* Style spécifique pour le bloc "Garantie d'Évolutivité" */
+.evolution-card {
+    background: #1F2937;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Petit effet de pulse sur le badge "Recommandé" */
+@keyframes pulse-soft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+.recommended-badge {
+    animation: pulse-soft 2s infinite;
+}
