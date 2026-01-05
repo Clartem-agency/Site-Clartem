@@ -132,6 +132,34 @@ document.addEventListener('DOMContentLoaded', function () {
     // ==================================================================
 
 
+
+    // ==================================================================
+    // LOGIQUE POUR L'ACCORDÉON DANS LA CARTE PRIX (IMPACT)
+    // ==================================================================
+    const pricingToggles = document.querySelectorAll('.pricing-toggle');
+    
+    if (pricingToggles.length > 0) {
+        pricingToggles.forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                // 1. Basculer la classe active sur le bouton (pour la flèche)
+                this.classList.toggle('active');
+                
+                // 2. Gérer l'ouverture/fermeture du contenu
+                const content = this.nextElementSibling;
+                
+                if (content.style.maxHeight) {
+                    // Si ouvert, on ferme
+                    content.style.maxHeight = null;
+                } else {
+                    // Si fermé, on ouvre (scrollHeight calcule la hauteur exacte)
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
+    }
+
+
+
     // ==================================================================
     // ANIMATION DES IMAGES
     // ==================================================================
