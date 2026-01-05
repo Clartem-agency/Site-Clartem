@@ -1706,14 +1706,48 @@
                                 <span class="bg-gray-100 p-1 rounded text-gray-500 text-xs font-bold">INCLUS</span>
                                 <span>Tout le contenu "Impact"</span>
                             </li>
-                            <li class="flex items-start gap-3 text-sm text-neutral-dark">
-                                <svg class="w-4 h-4 text-success-green flex-shrink-0 mt-1" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
-                                <span>Page Accueil 9 sections</span>
+
+                            <!-- DÉBUT MODIFICATION : Accordéon Détail 5 Pages -->
+                            <li class="flex flex-col items-start gap-2 text-sm text-neutral-dark w-full">
+
+                                <!-- Le bouton cliquable -->
+                                <button
+                                    class="pricing-toggle w-full flex items-center justify-between group focus:outline-none text-left gap-3">
+                                    <div class="flex items-center gap-3">
+                                        <svg class="w-4 h-4 text-success-green flex-shrink-0" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <!-- Note: j'ai mis le hover en deep-blue pour correspondre à la couleur de l'offre Ancrage -->
+                                        <span
+                                            class="font-semibold border-b border-dashed border-neutral-400 group-hover:border-deep-blue group-hover:text-deep-blue transition-colors">
+                                            Détail des 5 Pages incluses
+                                        </span>
+                                    </div>
+                                    <!-- Petite flèche -->
+                                    <svg class="w-4 h-4 text-gray-400 transform transition-transform duration-300"
+                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </button>
+
+                                <!-- Le contenu caché -->
+                                <div
+                                    class="pricing-content w-full overflow-hidden max-h-0 transition-all duration-300 ease-in-out pl-7">
+                                    <ul
+                                        class="space-y-2 text-xs text-neutral-light border-l-2 border-gray-100 pl-3 mt-2 mb-2">
+                                        <li><strong>1. Accueil :</strong> Structure persuasive (comme Impact)</li>
+                                        <li><strong>2. À Propos :</strong> Histoire, diplômes, vision (Confiance)</li>
+                                        <li><strong>3. Services :</strong> Prestations, déroulé, tarifs</li>
+                                        <li><strong>4. Approche :</strong> Méthodologie détaillée</li>
+                                        <li><strong>5. Contact :</strong> Carte Maps + Formulaire complet</li>
+                                    </ul>
+                                </div>
                             </li>
+                            <!-- FIN MODIFICATION -->
+
                             <li class="flex items-start gap-3 text-sm text-neutral-dark">
                                 <svg class="w-4 h-4 text-success-green flex-shrink-0 mt-1" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
