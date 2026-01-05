@@ -1586,10 +1586,40 @@
                         
                         <div class="text-xs font-bold text-clarity-blue mb-2 uppercase tracking-wide">Site Clarté One-Page</div>
                         <ul class="space-y-3 mb-8 flex-1">
-                            <li class="flex items-start gap-3 text-sm text-neutral-dark">
-                                <svg class="w-4 h-4 text-success-green flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                <span>Comprend 9 sections</span>
-                            </li>
+                            
+                            <!-- DÉBUT MODIFICATION : Accordéon Sections -->
+<li class="flex flex-col items-start gap-2 text-sm text-neutral-dark w-full">
+    
+    <!-- La ligne cliquable -->
+    <button class="pricing-toggle w-full flex items-center justify-between group focus:outline-none text-left gap-3">
+        <div class="flex items-center gap-3">
+            <!-- Coche verte conservée -->
+            <svg class="w-4 h-4 text-success-green flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <span class="font-semibold border-b border-dashed border-neutral-400 group-hover:border-clarity-blue group-hover:text-clarity-blue transition-colors">Comprend 9 sections</span>
+        </div>
+        <!-- Petite flèche -->
+        <svg class="w-4 h-4 text-gray-400 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+    </button>
+
+    <!-- Le contenu caché -->
+    <div class="pricing-content w-full overflow-hidden max-h-0 transition-all duration-300 ease-in-out pl-7">
+        <ul class="space-y-1.5 text-xs text-neutral-light border-l-2 border-gray-100 pl-3 mt-1 mb-2">
+            <li>1. Héros (Accroche)</li>
+            <li>2. Problème / Empathie</li>
+            <li>3. À Propos (Qui suis-je ?)</li>
+            <li>4. Services</li>
+            <li>5. Approche (Méthodologie)</li>
+            <li>6. Galerie (Photos cabinet)</li>
+            <li>7. Preuve Sociale (Avis)</li>
+            <li>8. FAQ (Questions fréquentes)</li>
+            <li>9. Contact + Coordonnées</li>
+        </ul>
+    </div>
+</li>
+<!-- FIN MODIFICATION -->
+ 
                             <li class="flex items-start gap-3 text-sm text-neutral-dark">
                                 <svg class="w-4 h-4 text-success-green flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                                 <span>Design 100% personnalisé à votre marque</span>
