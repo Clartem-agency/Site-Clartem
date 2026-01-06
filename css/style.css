@@ -470,6 +470,38 @@ html {
 
 
 /* ======================================================= */
+/*    NOUVEAU : STYLE DU BOUTON SECONDAIRE SUR FOND SOMBRE */
+/* ======================================================= */
+
+/* 1. État normal */
+.hero-bg .btn-secondary {
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    background-color: rgba(255, 255, 255, 0.05); /* Très légère teinte */
+    position: relative;
+    z-index: 50;
+}
+
+/* 2. IMPORTANT : On tue l'animation de remplissage solide (le coupable du fond blanc) */
+.hero-bg .btn-secondary::before {
+    display: none !important;
+    content: none !important;
+    width: 0 !important;
+}
+
+/* 3. État au survol (Effet verre dépoli) */
+.hero-bg .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.15) !important; /* Fond semi-transparent */
+    border-color: #ffffff !important;
+    color: #ffffff !important; /* Texte blanc */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* Lueur */
+    transform: translateY(-3px);
+}
+
+
+
+
+/* ======================================================= */
 /*             STYLES POUR LA BENTO GRID                   */
 /* ======================================================= */
 
