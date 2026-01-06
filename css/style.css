@@ -805,3 +805,57 @@ html {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
 }
+
+
+
+
+
+/* ======================================================= */
+/*    SECTION : PARCOURS DE CONFIANCE (TIMELINE)           */
+/*    Gère la ligne de connexion et les effets de cartes   */
+/* ======================================================= */
+
+/* 1. La ligne de connexion en pointillés (Desktop uniquement) */
+@media (min-width: 1024px) {
+    #parcours-confiance .lg\:block.absolute.top-1\/2 {
+        background-image: linear-gradient(to right, #e5e7eb 50%, transparent 50%);
+        background-size: 20px 2px; /* Espacement des pointillés */
+        background-repeat: repeat-x;
+        background-color: transparent;
+        height: 2px;
+        z-index: 0;
+    }
+}
+
+/* 2. Animation au survol des cartes de la timeline */
+#parcours-confiance .group:hover .bg-white, 
+#parcours-confiance .group:hover .bg-neutral-dark {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* 3. Style spécifique pour la carte JOUR 30 (Version Sombre) */
+#parcours-confiance .bg-neutral-dark {
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+#parcours-confiance .group:hover .bg-neutral-dark {
+    border-color: #F97316; /* warm-orange au survol */
+}
+
+/* 4. Effet de pulsation sur l'icône de l'étape active */
+@keyframes icon-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(249, 115, 22, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
+}
+
+#parcours-confiance .group:last-child:hover .w-16 {
+    animation: icon-pulse 2s infinite;
+}
+
+/* ======================================================= */
+/*             FIN DE LA SECTION TIMELINE                  */
+/* ======================================================= */
+
+
