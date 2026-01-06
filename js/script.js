@@ -905,7 +905,7 @@ initBlogPreview();
             { text: "> RECHERCHE D'EMPATHIE...", class: "text-blue-400" },
             { text: "> ERREUR CRITIQUE : CONNEXION_HUMAINE_INTROUVABLE", class: "text-red-500 font-bold" },
             { text: "> RECHERCHE D'EXPERTS BIENVEILLANTS...", class: "text-yellow-400" },
-            { text: "> SOLUTION DÉTECTÉE : C'EST VOUS.", class: "text-green-400 font-bold text-lg mt-2" }
+            { text: "> SOLUTION DÉTECTÉE : VOUS.", class: "text-green-400 font-bold text-lg mt-2" }
         ];
 
 
