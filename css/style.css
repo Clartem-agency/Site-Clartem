@@ -689,3 +689,119 @@ html {
 .fade-in-entry:nth-child(4) { animation-delay: 0.1s; }
 .fade-in-entry:nth-child(5) { animation-delay: 0.2s; }
 .fade-in-entry:nth-child(6) { animation-delay: 0.3s; }
+
+
+
+/* ======================================================= */
+/*    AJOUTS POUR LES NOUVELLES OFFRES (2025)              */
+/* ======================================================= */
+
+/* Permet d'aligner proprement les icônes dans les listes des offres */
+.offer-list-item svg {
+    flex-shrink: 0;
+    margin-top: 2px; /* Ajustement fin pour alignement optique avec le texte */
+}
+
+/* Style spécifique pour le bloc "Garantie d'Évolutivité" */
+.evolution-card {
+    background: #1F2937;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Petit effet de pulse sur le badge "Recommandé" */
+@keyframes pulse-soft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+.recommended-badge {
+    animation: pulse-soft 2s infinite;
+}
+
+
+/* ======================================================= */
+/*    ACCORDÉON PRIX (Impact)                              */
+/* ======================================================= */
+
+/* Rotation de la flèche quand ouvert */
+.pricing-toggle.active svg:last-child {
+    transform: rotate(180deg);
+    color: #3B82F6; /* clarity-blue */
+}
+
+/* Style au survol du texte */
+.pricing-toggle:hover span {
+    color: #3B82F6;
+    border-color: #3B82F6;
+}
+
+
+
+/* ======================================================= */
+/*    NOUVEAU : SYSTÈME D'INFOBULLES (TOOLTIPS)            */
+/* ======================================================= */
+
+/* Le conteneur (le mot ou l'icône à survoler) */
+.tooltip-trigger {
+    position: relative;
+    cursor: help;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border-bottom: 1px dashed #9CA3AF; /* Soulignement pointillé discret */
+    transition: border-color 0.3s ease;
+}
+
+.tooltip-trigger:hover {
+    border-color: #F97316; /* Orange au survol */
+}
+
+/* L'infobulle elle-même (cachée par défaut) */
+.tooltip-bubble {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: 140%; /* Positionné au-dessus */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px); /* Décalage pour l'animation */
+    
+    /* Style de la bulle */
+    width: max-content;
+    max-width: 220px;
+    background-color: #1F2937; /* neutral-dark */
+    color: #ffffff;
+    text-align: center;
+    font-size: 0.75rem; /* text-xs */
+    font-weight: normal;
+    line-height: 1.4;
+    padding: 8px 12px;
+    border-radius: 8px;
+    
+    /* Ombres et superposition */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    pointer-events: none; /* Empêche de cliquer sur la bulle par erreur */
+    
+    /* Animation */
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+/* La petite flèche en bas de la bulle */
+.tooltip-bubble::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* Juste en bas de la bulle */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #1F2937 transparent transparent transparent;
+}
+
+/* Affichage au survol */
+.tooltip-trigger:hover .tooltip-bubble {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
