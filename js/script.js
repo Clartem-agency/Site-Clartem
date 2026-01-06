@@ -976,4 +976,48 @@ initBlogPreview();
     }
 
 
+
+    // ==================================================================
+    // EFFET MATRIX "HACKER SCRAMBLE" POUR LES TITRES
+    // ==================================================================
+    const hackerTitles = document.querySelectorAll(".hacker-title");
+    
+    // Lettres utilisées pour l'effet de brouillage
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*";
+
+    hackerTitles.forEach(title => {
+        // Au survol de la carte parente
+        title.closest('.group').addEventListener("mouseenter", event => {  
+            let iteration = 0;
+            
+            // On récupère le texte original
+            const originalText = title.dataset.value;
+            
+            clearInterval(title.interval);
+            
+            title.interval = setInterval(() => {
+                title.innerText = originalText
+                    .split("")
+                    .map((letter, index) => {
+                        // Si on a déjà "trouvé" la bonne lettre, on la garde
+                        if(index < iteration) {
+                            return originalText[index];
+                        }
+                        // Sinon on affiche un caractère aléatoire Matrix
+                        return letters[Math.floor(Math.random() * 26)];
+                    })
+                    .join("");
+                
+                // On arrête quand tout le mot est décodé
+                if(iteration >= originalText.length){ 
+                    clearInterval(title.interval);
+                }
+                
+                // Vitesse de décodage
+                iteration += 1 / 3; 
+            }, 30); // Vitesse de changement des lettres (30ms)
+        });
+    });
+    
+
 });
