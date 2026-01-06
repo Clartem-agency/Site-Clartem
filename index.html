@@ -196,42 +196,61 @@
         <section id="hero"
             class="hero-bg min-h-screen flex items-center justify-center text-white relative pt-28 pb-16 md:pt-32 md:pb-20">
 
-            <!-- 1. L'image (Frère 1) -->
+
+            <!-- 1. L'image (Inchangé) -->
             <div class="hero-ken-burns"></div>
 
-            <!-- 2. L'Overlay (Frère 2) -->
-            <!-- J'ai retiré les classes z-index d'ici car elles sont gérées dans le CSS maintenant -->
+            <!-- 2. L'Overlay (Inchangé) -->
             <div class="hero-overlay"></div>
 
-            <!-- 3. Le Contenu (Frère 3) -->
-            <div class="container mx-auto px-6 text-center">
-                <div class="max-w-3xl mx-auto">
+            <!-- 3. Le Contenu (Mise à jour Premium) -->
+            <div class="container mx-auto px-6 text-center relative z-20">
+                <div class="max-w-4xl mx-auto">
 
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight animate-blur-rise delay-0">
-                        Votre Site Web pour Coachs & Thérapeutes<br>
-                        
+                    <!-- NOUVEAU BADGE (Avec animation delay-0) -->
+                    <div class="animate-blur-rise delay-0 flex justify-center mb-6">
+                        <span
+                            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-blue-100 text-xs font-bold uppercase tracking-widest shadow-lg">
+                            <span class="w-2 h-2 rounded-full bg-warm-orange animate-pulse"></span>
+                            Agence Spécialisée
+                        </span>
+                    </div>
+
+                    <!-- TITRE (Avec animation delay-0 conservée) -->
+                    <h1
+                        class="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-tight animate-blur-rise delay-0 mb-6 drop-shadow-2xl">
+                        Votre Site Web pour <br class="hidden lg:block" />
+                        <!-- Effet Gradient Premium -->
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-gray-400">
+                            Coachs & Thérapeutes
+                        </span>
                     </h1>
 
-                    <p class="text-lg md:text-xl text-white/90 mt-6 leading-relaxed animate-blur-rise delay-1">
-                        Transformons votre approche unique en un message clair qui inspire
-                        confiance.
+                    <!-- SOUS-TITRE (Avec animation delay-1 conservée) -->
+                    <p
+                        class="text-lg md:text-2xl text-blue-50/80 font-light mt-6 leading-relaxed max-w-2xl mx-auto animate-blur-rise delay-1">
+                        Transformons votre approche unique en un <span class="text-white font-medium">message
+                            clair</span> qui inspire confiance dès la première seconde.
                     </p>
 
-                    <!-- Les boutons -->
+                    <!-- BOUTONS (Avec animation delay-2 conservée) -->
                     <div
                         class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-blur-rise delay-2">
-                        <!-- J'ai ajouté relative et z-50 juste au cas où, pour forcer le clic -->
                         <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
-                            rel="noopener noreferrer" class="btn btn-orange w-full sm:w-auto text-lg relative z-50">
+                            rel="noopener noreferrer"
+                            class="btn btn-orange w-full sm:w-auto text-lg px-8 py-4 shadow-orange-500/20 shadow-lg hover:shadow-orange-500/40 relative z-50">
                             Développer mon activité
                         </a>
-                        <a href="#plan" class="btn btn-secondary w-full sm:w-auto text-lg relative z-50">
+                        <a href="#plan"
+                            class="btn btn-secondary w-full sm:w-auto text-lg px-8 py-4 backdrop-blur-sm bg-white/5 border-white/30 hover:bg-white/10 relative z-50">
                             Découvrir le processus
                         </a>
                     </div>
 
                 </div>
             </div>
+
         </section>
 
 
