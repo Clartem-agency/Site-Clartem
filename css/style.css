@@ -960,3 +960,27 @@ html {
         left: 200%; /* Reste invisible (pause) pendant les 3 secondes restantes */
     }
 }
+
+
+/* ======================================================= */
+/*    ANIMATION POINT BRILLANT (BADGE HERO)                */
+/* ======================================================= */
+
+@keyframes brightPulse {
+    0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 0 transparent;
+        filter: brightness(1);
+    }
+    50% {
+        opacity: 1;
+        /* Créé une lueur orange autour */
+        box-shadow: 0 0 10px 1px #f97316; 
+        /* Rend la couleur orange du point plus vive/blanche */
+        filter: brightness(1.5); 
+    }
+}
+
+.animate-bright-pulse {
+    animation: brightPulse 2s infinite ease-in-out;
+}
