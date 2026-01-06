@@ -892,21 +892,22 @@ initBlogPreview();
 
 
 
-// ==================================================================
+    // ==================================================================
     // ANIMATION DU TERMINAL (TYPEWRITER EFFECT)
     // ==================================================================
     const terminalContainer = document.getElementById('typewriter-container');
     
     if (terminalContainer) {
-        // Les lignes à écrire. <br> fait un saut de ligne, les classes colorent le texte.
+        // TRADUCTION FRANÇAISE APPLIQUÉE ICI
         const lines = [
-            { text: "> SYSTEM CHECK: ANALYSE DU WEB...", class: "text-gray-400" },
-            { text: "> LOADING: 99%...", class: "text-gray-400" },
-            { text: "> SEARCHING FOR EMPATHY...", class: "text-blue-400" },
-            { text: "> CRITICAL ERROR: HUMAN_CONNECTION_NOT_FOUND", class: "text-red-500 font-bold" },
-            { text: "> SEARCHING FOR THERAPISTS & COACHES...", class: "text-yellow-400" },
-            { text: "> SOLUTION DETECTED: VOUS.", class: "text-green-400 font-bold text-lg mt-2" }
+            { text: "> INITIALISATION : ANALYSE DU WEB...", class: "text-gray-400" },
+            { text: "> CHARGEMENT DES DONNÉES : 99%...", class: "text-gray-400" },
+            { text: "> RECHERCHE D'EMPATHIE...", class: "text-blue-400" },
+            { text: "> ERREUR CRITIQUE : CONNEXION_HUMAINE_INTROUVABLE", class: "text-red-500 font-bold" },
+            { text: "> RECHERCHE D'EXPERTS BIENVEILLANTS...", class: "text-yellow-400" },
+            { text: "> SOLUTION DÉTECTÉE : VOUS.", class: "text-green-400 font-bold text-lg mt-2" }
         ];
+
 
         let lineIndex = 0;
         let charIndex = 0;
