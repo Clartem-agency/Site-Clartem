@@ -693,8 +693,12 @@ html {
 .perspective { perspective: 1000px; }
 .style-preserve-3d { transform-style: preserve-3d; }
 .backface-hidden { backface-visibility: hidden; }
+
 /* Rotation de 180deg au survol du groupe parent */
-.group:hover .rotate-y-180 { transform: rotateY(180deg); } 
+.group:hover .flip-content { 
+    transform: rotateY(180deg); 
+}
+
 /* État initial de la face arrière déjà tournée */
 .my-rotate-y-180 { transform: rotateY(180deg); }
 
