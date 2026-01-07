@@ -860,12 +860,15 @@ initBlogPreview();
 
 
 
+    
+
     // ==================================================================
     // NOUVEAU : LOGIQUE POUR LE BANDEAU DE CONSENTEMENT COOKIES
     // ==================================================================
     const cookieBanner = document.getElementById('cookie-consent-banner');
     const acceptBtn = document.getElementById('cookie-accept-btn');
     const declineBtn = document.getElementById('cookie-decline-btn');
+    const openSettingsBtn = document.getElementById('open-cookie-settings'); // Nouveau bouton footer
 
     if (cookieBanner && acceptBtn && declineBtn) {
         // Vérifier si le consentement a déjà été donné
@@ -878,17 +881,26 @@ initBlogPreview();
         acceptBtn.addEventListener('click', () => {
             localStorage.setItem('cookie_consent', 'accepted');
             cookieBanner.classList.add('hidden');
-            // Ici, vous pourriez déclencher l'initialisation de Google Analytics si vous l'utilisez
-            // ex: if (typeof gtag === 'function') { gtag('consent', 'update', { 'analytics_storage': 'granted' }); }
+            // Init GA ici si besoin
         });
 
         declineBtn.addEventListener('click', () => {
             localStorage.setItem('cookie_consent', 'declined');
             cookieBanner.classList.add('hidden');
-            // Ici, vous vous assurez que le suivi est désactivé
-            // ex: if (typeof gtag === 'function') { gtag('consent', 'update', { 'analytics_storage': 'denied' }); }
+            // Désactiver le suivi ici si besoin
         });
+
+        // NOUVEAU : Logique pour rouvrir le bandeau via le footer
+        if (openSettingsBtn) {
+            openSettingsBtn.addEventListener('click', (e) => {
+                e.preventDefault(); // Empêche de remonter en haut de page
+                cookieBanner.classList.remove('hidden'); // Affiche le bandeau
+            });
+        }
     }
+
+
+
 
 
 
