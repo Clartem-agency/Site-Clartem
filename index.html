@@ -786,28 +786,31 @@
                 </div>
             </div>
 
-            <!-- COLONNE DROITE : LA RÉPONSE (Carte Dark Premium) -->
-            <div class="relative" data-sr data-sr-delay="200">
+            
+            
+            <!-- COLONNE DROITE : LA RÉPONSE (Carte Dark Premium - NETTOYÉE) -->
+            <div class="relative group" data-sr data-sr-delay="200">
                 
-                <!-- Effet d'ombre colorée arrière -->
-                <div class="absolute -inset-4 bg-gradient-to-r from-clarity-blue via-deep-blue to-purple-600 rounded-[2rem] blur-2xl opacity-20"></div>
+                <!-- Lueur d'arrière-plan (Style Terminal) -->
+                <!-- C'est ce bloc qui crée la lumière derrière le cadre -->
+                <div class="absolute -inset-1 bg-gradient-to-r from-clarity-blue via-success-green to-deep-blue rounded-[2rem] blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
 
                 <!-- La Carte Principale -->
-                <div class="relative bg-[#0F172A] rounded-[2rem] p-10 md:p-12 shadow-2xl overflow-hidden border border-white/10">
+                <!-- Suppression du overflow-hidden pour que la lueur arrière respire, mais background opaque -->
+                <div class="relative bg-[#0F172A] rounded-[2rem] p-10 md:p-12 shadow-2xl border border-white/10 h-full flex flex-col justify-center">
                     
-                    <!-- Texture bruit de fond -->
-                    <div class="absolute inset-0 opacity-20 pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIi8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMwMDAiLz4KPC9zdmc+')] [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
-
-                    <!-- Cercle lumineux décoratif -->
-                    <div class="absolute -top-24 -right-24 w-64 h-64 bg-clarity-blue/20 rounded-full blur-3xl"></div>
+                    <!-- (J'ai supprimé la div de texture "bruit" et le cercle lumineux interne ici) -->
 
                     <div class="relative z-10">
-                        <div class="flex items-center gap-3 mb-8">
-                            <span class="flex h-3 w-3 relative">
+                        
+                        <!-- NOUVEAU BADGE (Style Hero) -->
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-success-green text-xs font-bold uppercase tracking-widest shadow-lg mb-8">
+                            <!-- Point vert clignotant -->
+                            <span class="relative flex h-2 w-2">
                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-success-green opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-3 w-3 bg-success-green"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-success-green"></span>
                             </span>
-                            <span class="text-success-green font-bold text-xs tracking-widest uppercase">La Mission Clartem</span>
+                            La Mission Clartem
                         </div>
 
                         <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
@@ -831,7 +834,8 @@
                         <!-- Signature / Profil -->
                         <div class="flex items-center gap-5 pt-8 border-t border-white/10">
                             <div class="relative w-16 h-16">
-                                <div class="absolute inset-0 bg-gradient-to-br from-clarity-blue to-purple-500 rounded-full animate-pulse opacity-50 blur-sm"></div>
+                                <!-- Petit halo subtil uniquement autour de la photo -->
+                                <div class="absolute inset-0 bg-gradient-to-br from-clarity-blue to-success-green rounded-full opacity-40 blur-sm"></div>
                                 <img src="assets/photo-frederic.jpg" alt="Frédéric Delavictoire" class="relative w-full h-full object-cover rounded-full border-2 border-white/20 p-0.5 bg-neutral-dark">
                             </div>
                             <div>
@@ -843,6 +847,8 @@
                 </div>
 
             </div>
+            
+            
 
         </div>
     </div>
