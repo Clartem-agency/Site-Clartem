@@ -207,10 +207,14 @@ html {
 
      
     
-    /* --- Section Plan (Stacking Cards) --- */
-    .relative.h-\[800vh\] {
-        height: auto !important; /* Annule la hauteur immense du conteneur principal */
+     /* --- Section Plan (Stacking Cards) --- */
+    
+    /* MODIFICATION ICI : On cible l'ID plutôt que la classe spécifique pour être sûr que ça marche */
+    #stacking-container { 
+        height: auto !important; /* Annule la hauteur immense (500vh) du conteneur principal */
     }
+
+
     .sticky.top-0.flex.h-screen {
         position: relative !important; /* Annule le sticky et le flexbox centré */
         height: auto !important;
