@@ -2959,38 +2959,45 @@
 
 
         <!-- ======================================================= -->
-        <!--       NOUVELLE SECTION CTA : CADRE PREMIUM              -->
+        <!--       NOUVELLE SECTION CTA : CADRE PREMIUM & GLOW       -->
         <!-- ======================================================= -->
         <section id="cta" class="py-24 bg-neutral-dark relative overflow-hidden">
 
-            <!-- DÉCORATION D'ARRIÈRE-PLAN (Lumières d'ambiance derrière le cadre) -->
-            <!-- 1. Glow Bleu Haut-Gauche -->
+            <!-- DÉCORATION D'ARRIÈRE-PLAN (CORRIGÉE) -->
+            
+            <!-- 1. Glow Bleu Haut-Gauche (Remis à top-0 pour être visible) -->
             <div
-                class="absolute top-1/2 left-0 w-[600px] h-[600px] bg-clarity-blue/20 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                class="absolute top-0 left-0 w-[600px] h-[600px] bg-clarity-blue/20 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none">
             </div>
 
-            <!-- 2. Glow Orange Bas-Droit -->
+            <!-- 2. Glow Orange Haut-Droite (Remis à top-0 pour équilibrer) -->
             <div
-                class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-warm-orange/10 rounded-full blur-[120px] translate-x-1/2 translate-y-1/2 pointer-events-none">
+                class="absolute top-0 right-0 w-[600px] h-[600px] bg-warm-orange/10 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2 pointer-events-none">
+            </div>
+
+            <!-- 3. Glow Bas (Transition vers le footer) -->
+            <div
+                class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-warm-orange/5 rounded-full blur-[100px] translate-x-1/2 translate-y-1/2 pointer-events-none">
             </div>
 
             <div class="container mx-auto px-6 relative z-10">
                 
-                <!-- LE CADRE (NOUVEAU CONTENEUR) -->
+                <!-- LE CADRE -->
+                <!-- J'ai ajouté 'shadow-clarity-blue/5' pour un effet de profondeur subtil -->
                 <div class="relative bg-white/5 border border-white/10 rounded-3xl p-8 md:p-16 overflow-hidden shadow-2xl backdrop-blur-sm" data-sr>
                     
-                    <!-- Effet de reflet interne subtil en haut du cadre -->
+                    <!-- Reflet interne haut -->
                     <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
 
                     <div class="max-w-4xl mx-auto text-center relative z-10">
 
-                        <!-- Badge subtil -->
+                        <!-- Badge -->
                         <div
                             class="inline-block px-4 py-1.5 border border-white/10 rounded-full bg-black/20 text-gray-300 text-xs font-bold tracking-widest uppercase mb-8 shadow-sm">
                             🚀 Prochaine étape
                         </div>
 
-                        <!-- Titre avec effet de dégradé -->
+                        <!-- Titre -->
                         <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-8 leading-tight">
                             Votre expertise mérite<br>
                             <span
@@ -3023,7 +3030,7 @@
                                 </a>
                             </div>
 
-                            <!-- Réassurance Minimaliste -->
+                            <!-- Réassurance -->
                             <div class="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-gray-500 mt-4">
                                 <span class="flex items-center gap-2">
                                     <svg class="w-4 h-4 text-success-green" fill="none" viewBox="0 0 24 24"
@@ -3045,7 +3052,7 @@
                         </div>
 
                     </div>
-                </div> <!-- Fin du Cadre -->
+                </div> 
             </div>
         </section>
 
