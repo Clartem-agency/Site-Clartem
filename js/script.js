@@ -135,28 +135,51 @@ document.addEventListener('DOMContentLoaded', function () {
     
 
     // ==================================================================
-    // LOGIQUE POUR L'ACCORDÉON DANS LA CARTE PRIX (IMPACT & ANCRAGE)
+    // LOGIQUE POUR L'ACCORDÉON DANS LA CARTE PRIX (IMPACT, ANCRAGE & EXPANSION)
+    // Mise à jour : Un seul menu ouvert à la fois par carte
     // ==================================================================
     const pricingToggles = document.querySelectorAll('.pricing-toggle');
     
     if (pricingToggles.length > 0) {
         pricingToggles.forEach(toggle => {
             toggle.addEventListener('click', function() {
+                // 1. Identifier la carte parente (pour ne pas fermer les menus des autres offres)
+                // Dans votre HTML, chaque carte a la classe "group"
+                const parentCard = this.closest('.group');
+
+                // 2. Si on a trouvé la carte parente, on ferme les autres menus de CETTE carte
+                if (parentCard) {
+                    // On cherche tous les boutons déjà actifs DANS cette carte
+                    const activeTogglesInCard = parentCard.querySelectorAll('.pricing-toggle.active');
+                    
+                    activeTogglesInCard.forEach(otherToggle => {
+                        // Si ce n'est pas le bouton sur lequel on vient de cliquer, on le ferme
+                        if (otherToggle !== this) {
+                            otherToggle.classList.remove('active');
+                            const otherContent = otherToggle.nextElementSibling;
+                            otherContent.style.maxHeight = null;
+                            otherContent.classList.remove('anim-active');
+                        }
+                    });
+                }
+
+                // 3. Basculer l'état du menu cliqué (Ouvrir/Fermer)
                 this.classList.toggle('active');
                 const content = this.nextElementSibling;
                 
                 if (content.style.maxHeight) {
+                    // Si ouvert -> on ferme
                     content.style.maxHeight = null;
-                    // On retire la classe pour pouvoir rejouer l'anim la prochaine fois
                     content.classList.remove('anim-active'); 
                 } else {
+                    // Si fermé -> on ouvre
                     content.style.maxHeight = content.scrollHeight + "px";
-                    // On ajoute la classe qui déclenche le CSS
                     content.classList.add('anim-active');
                 }
             });
         });
     }
+    
     
 
 
