@@ -2213,26 +2213,32 @@
                             </li>
 
 
-                            <!-- Ligne 1 : les 4 pages incluses -->
+                            <!-- Ligne 1 : Architecture Multi-Pages (Timeline) -->
                             <li class="flex flex-col items-start gap-2 text-sm text-neutral-dark w-full">
 
                                 <button
-                                    class="pricing-toggle w-full flex items-center justify-between group focus:outline-none text-left gap-3">
+                                    class="pricing-toggle w-full flex items-center justify-between group focus:outline-none text-left gap-3 py-1">
                                     <div class="flex items-center gap-3">
-                                        <svg class="w-4 h-4 text-success-green flex-shrink-0" fill="none"
+                                        <!-- Icône "Sitemap/Structure" Deep Blue -->
+                                        <svg class="w-5 h-5 text-deep-blue flex-shrink-0" fill="none"
                                             viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7" />
+                                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                                         </svg>
-                                        <!-- ON CHANGE LE TEXTE ICI -->
-                                        <!-- Avant : + 4 Pages incluses -->
-                                        <!-- Après : + 4 Pages au design harmonisé -->
-                                        <span
-                                            class="font-semibold border-b border-dashed border-neutral-400 group-hover:border-deep-blue group-hover:text-deep-blue transition-colors">
-                                            + 4 Pages au design harmonisé
-                                        </span>
+
+                                        <!-- TITRE CORRIGÉ : On vend le total (5 pages) -->
+                                        <div>
+                                            <span
+                                                class="font-bold border-b border-dashed border-neutral-400 group-hover:border-deep-blue group-hover:text-deep-blue transition-colors">
+                                                Site Complet (5 Pages)
+                                            </span>
+                                            <span
+                                                class="block text-[10px] text-gray-500 font-normal mt-0.5">Architecture
+                                                SEO idéale pour Google</span>
+                                        </div>
                                     </div>
-                                    <!-- Petite flèche -->
+
+                                    <!-- Flèche animée -->
                                     <svg class="w-4 h-4 text-gray-400 transform transition-transform duration-300"
                                         fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -2240,23 +2246,70 @@
                                     </svg>
                                 </button>
 
-                                <!-- Le contenu caché (Tu peux ajouter une petite note en haut de la liste) -->
+                                <!-- CONTENU DÉTAILLÉ -->
                                 <div
-                                    class="pricing-content w-full overflow-hidden max-h-0 transition-all duration-300 ease-in-out pl-7">
-                                    <!-- Petite phrase de réassurance ajoutée ici -->
-                                    <p class="text-xs text-gray-500 italic mb-2 mt-2">
-                                        Le style choisi pour l'accueil est décliné ici pour une cohérence parfaite.
+                                    class="pricing-content w-full overflow-hidden max-h-0 transition-all duration-300 ease-in-out pl-2">
+
+                                    <p class="text-xs text-gray-400 italic mb-4 mt-2 pl-6">
+                                        Chaque sujet a sa propre page dédiée pour maximiser votre visibilité :
                                     </p>
 
-                                    <ul
-                                        class="space-y-2 text-xs text-neutral-light border-l-2 border-gray-100 pl-3 mb-2">
-                                        <li><strong>1. Accueil :</strong> Structure persuasive (votre choix parmi 3)
-                                        </li>
-                                        <li><strong>2. À Propos :</strong> Histoire, diplômes, vision (Confiance)</li>
-                                        <li><strong>3. Services :</strong> Prestations, déroulé séance, tarifs</li>
-                                        <li><strong>4. Approche :</strong> Méthodologie détaillée</li>
-                                        <li><strong>5. Contact :</strong> Carte Google Maps + Formulaire complet</li>
-                                    </ul>
+                                    <!-- Timeline Verticale -->
+                                    <div class="relative pl-6 border-l border-gray-200 ml-2 space-y-5 pb-2">
+
+                                        <!-- PAGE 1 : ACCUEIL -->
+                                        <div class="relative">
+                                            <!-- Point Bleu Foncé pour marquer la page principale -->
+                                            <div
+                                                class="absolute -left-[29px] top-1.5 w-2.5 h-2.5 rounded-full bg-deep-blue border-2 border-white ring-1 ring-blue-100">
+                                            </div>
+                                            <p class="text-xs font-bold text-neutral-dark">1. Page d'Accueil</p>
+                                            <p class="text-[10px] text-gray-500 leading-tight">La vitrine globale.
+                                                Redirige le visiteur vers la bonne information.</p>
+                                        </div>
+
+                                        <!-- PAGE 2 : À PROPOS -->
+                                        <div class="relative">
+                                            <div
+                                                class="absolute -left-[29px] top-1.5 w-2.5 h-2.5 rounded-full bg-gray-300 border-2 border-white">
+                                            </div>
+                                            <p class="text-xs font-bold text-neutral-dark">2. Page "À Propos"</p>
+                                            <p class="text-[10px] text-gray-500 leading-tight">Vendre votre histoire,
+                                                vos diplômes et votre vision en détail.</p>
+                                        </div>
+
+                                        <!-- PAGE 3 : SERVICES -->
+                                        <div class="relative">
+                                            <div
+                                                class="absolute -left-[29px] top-1.5 w-2.5 h-2.5 rounded-full bg-gray-300 border-2 border-white">
+                                            </div>
+                                            <p class="text-xs font-bold text-neutral-dark">3. Page "Mes Services"</p>
+                                            <p class="text-[10px] text-gray-500 leading-tight">Détail complet de vos
+                                                prestations et grille tarifaire claire.</p>
+                                        </div>
+
+                                        <!-- PAGE 4 : APPROCHE -->
+                                        <div class="relative">
+                                            <div
+                                                class="absolute -left-[29px] top-1.5 w-2.5 h-2.5 rounded-full bg-gray-300 border-2 border-white">
+                                            </div>
+                                            <p class="text-xs font-bold text-neutral-dark">4. Page "Mon Approche"</p>
+                                            <p class="text-[10px] text-gray-500 leading-tight">Expliquer votre
+                                                méthodologie (Hypnose, TCC, Gestalt...) pour rassurer.</p>
+                                        </div>
+
+                                        <!-- PAGE 5 : CONTACT -->
+                                        <div class="relative">
+                                            <!-- Point Vert pour la conversion -->
+                                            <div
+                                                class="absolute -left-[29px] top-1.5 w-2.5 h-2.5 rounded-full bg-success-green border-2 border-white ring-2 ring-green-100">
+                                            </div>
+                                            <p class="text-xs font-bold text-success-green">5. Page "Contact"</p>
+                                            <p class="text-[10px] text-gray-500 leading-tight">Formulaire complet +
+                                                Carte Google Maps intégrée en pleine largeur.</p>
+                                        </div>
+
+                                    </div>
                                 </div>
                             </li>
 
