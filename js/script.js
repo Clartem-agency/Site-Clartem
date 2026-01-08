@@ -127,14 +127,13 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
-    // ==================================================================
-    // --- FIN DE LA LOGIQUE MODIFIÉE ---
-    // ==================================================================
+    
+    
 
 
 
     // ==================================================================
-    // LOGIQUE POUR L'ACCORDÉON DANS LA CARTE PRIX (IMPACT)
+    // LOGIQUE POUR L'ACCORDÉON DANS LA CARTE PRIX (IMPACT & ANCRAGE)
     // ==================================================================
     const pricingToggles = document.querySelectorAll('.pricing-toggle');
     
@@ -148,11 +147,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 const content = this.nextElementSibling;
                 
                 if (content.style.maxHeight) {
-                    // Si ouvert, on ferme
+                    // Si on ferme
                     content.style.maxHeight = null;
+                    // On retire la classe d'animation pour pouvoir la relancer plus tard
+                    content.classList.remove('anim-active');
                 } else {
-                    // Si fermé, on ouvre (scrollHeight calcule la hauteur exacte)
+                    // Si on ouvre
                     content.style.maxHeight = content.scrollHeight + "px";
+                    // AJOUT : On déclenche l'animation en cascade
+                    content.classList.add('anim-active');
                 }
             });
         });
