@@ -1926,24 +1926,32 @@
 
 
 
-                            <!-- Ligne 1 : les 9 sections -->
+                            <!-- Ligne 1 : Architecture Complète (Accordéon Timeline) -->
                             <li class="flex flex-col items-start gap-2 text-sm text-neutral-dark w-full">
 
-                                <!-- La ligne cliquable -->
+                                <!-- LE BOUTON DÉCLENCHEUR -->
                                 <button
-                                    class="pricing-toggle w-full flex items-center justify-between group focus:outline-none text-left gap-3">
+                                    class="pricing-toggle w-full flex items-center justify-between group focus:outline-none text-left gap-3 py-1">
                                     <div class="flex items-center gap-3">
-                                        <!-- Coche verte conservée -->
-                                        <svg class="w-4 h-4 text-success-green flex-shrink-0" fill="none"
+                                        <!-- Icône Squelette/Plan -->
+                                        <svg class="w-5 h-5 text-clarity-blue flex-shrink-0" fill="none"
                                             viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7" />
+                                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                                         </svg>
-                                        <span
-                                            class="font-semibold border-b border-dashed border-neutral-400 group-hover:border-clarity-blue group-hover:text-clarity-blue transition-colors">Comprend
-                                            9 sections</span>
+
+                                        <!-- Titre et Sous-titre -->
+                                        <div>
+                                            <span
+                                                class="font-bold border-b border-dashed border-neutral-400 group-hover:border-clarity-blue group-hover:text-clarity-blue transition-colors">
+                                                Architecture "Conversion"
+                                            </span>
+                                            <span class="block text-[10px] text-gray-500 font-normal mt-0.5">Le parcours
+                                                psychologique complet (9 étapes)</span>
+                                        </div>
                                     </div>
-                                    <!-- Petite flèche -->
+
+                                    <!-- Flèche animée -->
                                     <svg class="w-4 h-4 text-gray-400 transform transition-transform duration-300"
                                         fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -1951,21 +1959,114 @@
                                     </svg>
                                 </button>
 
-                                <!-- Le contenu caché -->
+                                <!-- LE CONTENU DÉTAILLÉ (Timeline Verticale) -->
                                 <div
-                                    class="pricing-content w-full overflow-hidden max-h-0 transition-all duration-300 ease-in-out pl-7">
-                                    <ul
-                                        class="space-y-1.5 text-xs text-neutral-light border-l-2 border-gray-100 pl-3 mt-1 mb-2">
-                                        <li>1. Héros (Accroche)</li>
-                                        <li>2. Problème / Empathie</li>
-                                        <li>3. À Propos (Qui suis-je ?)</li>
-                                        <li>4. Services</li>
-                                        <li>5. Approche (Méthodologie)</li>
-                                        <li>6. Galerie (Photos cabinet)</li>
-                                        <li>7. Preuve Sociale (Avis)</li>
-                                        <li>8. FAQ (Questions fréquentes)</li>
-                                        <li>9. Contact + Coordonnées</li>
-                                    </ul>
+                                    class="pricing-content w-full overflow-hidden max-h-0 transition-all duration-300 ease-in-out pl-2">
+
+                                    <p class="text-xs text-gray-400 italic mb-4 mt-2 pl-6">
+                                        Chaque section a un rôle précis pour transformer le visiteur en patient :
+                                    </p>
+
+                                    <!-- La Timeline -->
+                                    <div class="relative pl-6 border-l border-gray-200 ml-2 space-y-5 pb-2">
+
+                                        <!-- 1. HERO -->
+                                        <div class="relative">
+                                            <div
+                                                class="absolute -left-[29px] top-1.5 w-2.5 h-2.5 rounded-full bg-clarity-blue border-2 border-white ring-1 ring-gray-100">
+                                            </div>
+                                            <p class="text-xs font-bold text-neutral-dark">1. L'Accroche (Hero)</p>
+                                            <p class="text-[10px] text-gray-500 leading-tight">La promesse unique.
+                                                Capter l'attention en moins de 3 secondes.</p>
+                                        </div>
+
+                                        <!-- 2. EMPATHIE -->
+                                        <div class="relative">
+                                            <div
+                                                class="absolute -left-[29px] top-1.5 w-2.5 h-2.5 rounded-full bg-gray-300 border-2 border-white">
+                                            </div>
+                                            <p class="text-xs font-bold text-neutral-dark">2. L'Empathie (Le Problème)
+                                            </p>
+                                            <p class="text-[10px] text-gray-500 leading-tight">Poser des mots sur leurs
+                                                maux. "Enfin quelqu'un qui me comprend."</p>
+                                        </div>
+
+                                        <!-- 3. À PROPOS -->
+                                        <div class="relative">
+                                            <div
+                                                class="absolute -left-[29px] top-1.5 w-2.5 h-2.5 rounded-full bg-gray-300 border-2 border-white">
+                                            </div>
+                                            <p class="text-xs font-bold text-neutral-dark">3. La Connexion (Qui suis-je)
+                                            </p>
+                                            <p class="text-[10px] text-gray-500 leading-tight">Légitimité et approche
+                                                humaine. Créer le lien avant la rencontre.</p>
+                                        </div>
+
+                                        <!-- 4. SERVICES -->
+                                        <div class="relative">
+                                            <div
+                                                class="absolute -left-[29px] top-1.5 w-2.5 h-2.5 rounded-full bg-gray-300 border-2 border-white">
+                                            </div>
+                                            <p class="text-xs font-bold text-neutral-dark">4. La Clarté (Mes Services)
+                                            </p>
+                                            <p class="text-[10px] text-gray-500 leading-tight">Des offres lisibles :
+                                                pour qui, pour quoi, et à quel tarif.</p>
+                                        </div>
+
+                                        <!-- 5. MÉTHODOLOGIE -->
+                                        <div class="relative">
+                                            <div
+                                                class="absolute -left-[29px] top-1.5 w-2.5 h-2.5 rounded-full bg-gray-300 border-2 border-white">
+                                            </div>
+                                            <p class="text-xs font-bold text-neutral-dark">5. La Méthode (Comment ?)</p>
+                                            <p class="text-[10px] text-gray-500 leading-tight">Démystifier le déroulé
+                                                d'une séance pour rassurer.</p>
+                                        </div>
+
+                                        <!-- 6. GALERIE -->
+                                        <div class="relative">
+                                            <div
+                                                class="absolute -left-[29px] top-1.5 w-2.5 h-2.5 rounded-full bg-gray-300 border-2 border-white">
+                                            </div>
+                                            <p class="text-xs font-bold text-neutral-dark">6. L'Immersion (Le Lieu)</p>
+                                            <p class="text-[10px] text-gray-500 leading-tight">Photos du cabinet pour
+                                                projeter le patient dans un lieu sûr.</p>
+                                        </div>
+
+                                        <!-- 7. PREUVE SOCIALE -->
+                                        <div class="relative">
+                                            <div
+                                                class="absolute -left-[29px] top-1.5 w-2.5 h-2.5 rounded-full bg-gray-300 border-2 border-white">
+                                            </div>
+                                            <p class="text-xs font-bold text-neutral-dark">7. La Preuve (Témoignages)
+                                            </p>
+                                            <p class="text-[10px] text-gray-500 leading-tight">Rassurer par l'expérience
+                                                des autres (Avis éthiques).</p>
+                                        </div>
+
+                                        <!-- 8. FAQ -->
+                                        <div class="relative">
+                                            <div
+                                                class="absolute -left-[29px] top-1.5 w-2.5 h-2.5 rounded-full bg-gray-300 border-2 border-white">
+                                            </div>
+                                            <p class="text-xs font-bold text-neutral-dark">8. Anti-Doutes (FAQ)</p>
+                                            <p class="text-[10px] text-gray-500 leading-tight">Lever les derniers freins
+                                                (remboursement, parking, durée...).</p>
+                                        </div>
+
+                                        <!-- 9. CONTACT / RDV -->
+                                        <div class="relative">
+                                            <!-- Point Vert Final -->
+                                            <div
+                                                class="absolute -left-[29px] top-1.5 w-2.5 h-2.5 rounded-full bg-success-green border-2 border-white ring-2 ring-green-100">
+                                            </div>
+                                            <p class="text-xs font-bold text-success-green">9. L'Action (Contact & RDV)
+                                            </p>
+                                            <p class="text-[10px] text-gray-500 leading-tight">Le passage à l'acte final
+                                                : coordonnées et bouton de réservation.</p>
+                                        </div>
+
+                                    </div>
                                 </div>
                             </li>
 
