@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
 
     // ==================================================================
-    // LOGIQUE POUR L'ACCORDÉON PRIX (AVEC DÉLAI POUR EFFET WOW)
+    // LOGIQUE POUR L'ACCORDÉON DANS LA CARTE PRIX (IMPACT & ANCRAGE)
     // ==================================================================
     const pricingToggles = document.querySelectorAll('.pricing-toggle');
     
@@ -146,18 +146,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 const content = this.nextElementSibling;
                 
                 if (content.style.maxHeight) {
-                    // FERMETURE
                     content.style.maxHeight = null;
-                    content.classList.remove('anim-active'); // On coupe tout de suite
+                    // On retire la classe pour pouvoir rejouer l'anim la prochaine fois
+                    content.classList.remove('anim-active'); 
                 } else {
-                    // OUVERTURE
                     content.style.maxHeight = content.scrollHeight + "px";
-                    
-                    // LE SECRET EST ICI : On attend 150ms que la boîte commence à s'ouvrir
-                    // avant de lancer l'arrivée des textes.
-                    setTimeout(() => {
-                        content.classList.add('anim-active');
-                    }, 150);
+                    // On ajoute la classe qui déclenche le CSS
+                    content.classList.add('anim-active');
                 }
             });
         });
