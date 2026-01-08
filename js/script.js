@@ -127,36 +127,37 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
-    // ==================================================================
-    // --- FIN DE LA LOGIQUE MODIFIÉE ---
-    // ==================================================================
+    
 
 
 
+
+    
+
     // ==================================================================
-    // LOGIQUE POUR L'ACCORDÉON DANS LA CARTE PRIX (IMPACT)
+    // LOGIQUE POUR L'ACCORDÉON DANS LA CARTE PRIX (IMPACT & ANCRAGE)
     // ==================================================================
     const pricingToggles = document.querySelectorAll('.pricing-toggle');
     
     if (pricingToggles.length > 0) {
         pricingToggles.forEach(toggle => {
             toggle.addEventListener('click', function() {
-                // 1. Basculer la classe active sur le bouton (pour la flèche)
                 this.classList.toggle('active');
-                
-                // 2. Gérer l'ouverture/fermeture du contenu
                 const content = this.nextElementSibling;
                 
                 if (content.style.maxHeight) {
-                    // Si ouvert, on ferme
                     content.style.maxHeight = null;
+                    // On retire la classe pour pouvoir rejouer l'anim la prochaine fois
+                    content.classList.remove('anim-active'); 
                 } else {
-                    // Si fermé, on ouvre (scrollHeight calcule la hauteur exacte)
                     content.style.maxHeight = content.scrollHeight + "px";
+                    // On ajoute la classe qui déclenche le CSS
+                    content.classList.add('anim-active');
                 }
             });
         });
     }
+    
 
 
 

@@ -992,3 +992,46 @@ html {
 .animate-bright-pulse {
     animation: brightPulse 2s infinite ease-in-out;
 }
+
+
+
+
+/* ======================================================= */
+/*    ANIMATION "HEAVY IMPACT" (OFFRES) - V3               */
+/* ======================================================= */
+
+/* 1. État initial : Complètement invisible et décalé */
+.timeline-step {
+    opacity: 0;
+    /* On décale beaucoup plus vers la droite (50px) pour un effet de "glissade" */
+    transform: translateX(50px); 
+}
+
+/* 2. L'animation active */
+.anim-active .timeline-step {
+    /* "cubic-bezier" très élastique : ça dépasse un peu et ça revient */
+    animation: snapIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes snapIn {
+    0% {
+        opacity: 0;
+        transform: translateX(50px); /* Part de la droite */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* Arrive à sa place */
+    }
+}
+
+/* 3. Délais en cascade très marqués (Staggering) */
+/* On laisse 0.1s entre chaque élément, c'est long mais c'est ça qui fait l'effet "un par un" */
+.anim-active .timeline-step:nth-child(1) { animation-delay: 0.0s; }
+.anim-active .timeline-step:nth-child(2) { animation-delay: 0.1s; }
+.anim-active .timeline-step:nth-child(3) { animation-delay: 0.2s; }
+.anim-active .timeline-step:nth-child(4) { animation-delay: 0.3s; }
+.anim-active .timeline-step:nth-child(5) { animation-delay: 0.4s; }
+.anim-active .timeline-step:nth-child(6) { animation-delay: 0.5s; }
+.anim-active .timeline-step:nth-child(7) { animation-delay: 0.6s; }
+.anim-active .timeline-step:nth-child(8) { animation-delay: 0.7s; }
+.anim-active .timeline-step:nth-child(9) { animation-delay: 0.8s; }
