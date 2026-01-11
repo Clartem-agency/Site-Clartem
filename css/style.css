@@ -1381,39 +1381,44 @@ html {
 }
 
 
+
+
 /* ======================================================= */
-/*    EFFET DE LUMIÈRE (RALENTI & SOYEUX)                  */
+/*    EFFET DE LUMIÈRE (CORRIGÉ : PASSE DEVANT LE TEXTE)   */
 /* ======================================================= */
 
 .pricing-toggle::after {
     content: '';
     position: absolute;
     top: 0;
-    left: -150%; /* Départ plus loin */
-    width: 80%;  /* Faisceau plus large pour être plus doux */
+    left: -150%; 
+    width: 60%;  /* Un peu plus étroit pour être plus dynamique */
     height: 100%;
     
-    /* Dégradé plus subtil (Blanc à 30% max au lieu de 40%) */
+    /* Dégradé blanc plus marqué pour être visible */
     background: linear-gradient(
         to right,
         rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.3) 50%, 
+        rgba(255, 255, 255, 0.6) 50%, /* Opacité augmentée de 0.3 à 0.6 */
         rgba(255, 255, 255, 0) 100%
     );
     
     transform: skewX(-20deg);
-    z-index: 1; 
-    pointer-events: none;
+    
+    /* MODIFICATION MAJEURE ICI : z-index passe de 1 à 10 */
+    /* Cela force la lumière à passer PAR DESSUS le texte */
+    z-index: 10; 
+    
+    pointer-events: none; /* Important : permet de cliquer au travers */
 }
 
 @keyframes lightPassSlow {
-    0% { left: -150%; }
+    0% { left: -100%; }
     100% { left: 200%; }
 }
 
 .pricing-toggle:hover::after {
-    /* Durée passée de 0.5s à 0.75s pour plus de classe */
-    animation: lightPassSlow 0.75s ease-in-out;
+    animation: lightPassSlow 0.6s ease-in-out; /* Animation un peu plus rapide */
 }
 
 
