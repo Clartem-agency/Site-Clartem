@@ -815,73 +815,140 @@ html {
 
 
 
+
+
+
+
 /* ======================================================= */
-/*    NOUVEAU : SYSTÈME D'INFOBULLES (TOOLTIPS)            */
+/*    SYSTÈME D'INFOBULLES (TOOLTIPS) - EFFET WOW PREMIUM  */
 /* ======================================================= */
 
-/* Le conteneur (le mot ou l'icône à survoler) */
+/* 1. Le déclencheur (L'icône "i" ou le texte) */
 .tooltip-trigger {
     position: relative;
     cursor: help;
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    border-bottom: 1px dashed #9CA3AF; /* Soulignement pointillé discret */
-    transition: border-color 0.3s ease;
+    /* On enlève le souligné pointillé classique pour un look plus clean */
+    /* border-bottom: 1px dashed #9CA3AF; */ 
+    transition: all 0.3s ease;
 }
 
-.tooltip-trigger:hover {
-    border-color: #F97316; /* Orange au survol */
+/* L'icône SVG à l'intérieur du trigger */
+.tooltip-trigger svg {
+    color: #9CA3AF; /* Gris clair par défaut */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Effet élastique */
+    transform-origin: center;
 }
 
-/* L'infobulle elle-même (cachée par défaut) */
+/* --- ANIMATION AU SURVOL DU TRIGGER --- */
+.tooltip-trigger:hover svg {
+    color: #3B82F6; /* Bleu Clarity */
+    transform: scale(1.3) rotate(15deg); /* Grossit et penche un peu */
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.6)); /* Lueur néon bleue */
+}
+
+/* Petit cercle pulsant derrière l'icône pour attirer l'œil (Optionnel mais classe) */
+.tooltip-trigger::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%; /* Centre sur le texte/icone */
+    width: 30px;
+    height: 30px;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.3s ease;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.tooltip-trigger:hover::before {
+    transform: translate(-50%, -50%) scale(1.5);
+}
+
+
+/* 2. La Bulle (L'infobulle elle-même) */
 .tooltip-bubble {
     visibility: hidden;
     opacity: 0;
     position: absolute;
-    bottom: 140%; /* Positionné au-dessus */
+    bottom: 150%; /* Un peu plus haut pour laisser la place au rebond */
     left: 50%;
-    transform: translateX(-50%) translateY(10px); /* Décalage pour l'animation */
     
-    /* Style de la bulle */
+    /* État initial de l'animation : petit, décalé vers le bas */
+    transform: translateX(-50%) translateY(20px) scale(0.8);
+    
+    /* Style Visuel Premium */
     width: max-content;
-    max-width: 220px;
-    background-color: #1F2937; /* neutral-dark */
+    max-width: 240px;
+    background-color: rgba(31, 41, 55, 0.95); /* Noir presque opaque */
+    backdrop-filter: blur(10px); /* Effet verre flouté (Glassmorphism) */
+    -webkit-backdrop-filter: blur(10px);
     color: #ffffff;
     text-align: center;
-    font-size: 0.75rem; /* text-xs */
-    font-weight: normal;
-    line-height: 1.4;
-    padding: 8px 12px;
-    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.5;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Bordure subtile */
     
-    /* Ombres et superposition */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    /* Ombres */
+    box-shadow: 
+        0 10px 25px -5px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.05); /* Lueur interne */
+    
     z-index: 100;
-    pointer-events: none; /* Empêche de cliquer sur la bulle par erreur */
+    pointer-events: none;
     
-    /* Animation */
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    /* Animation de transition */
+    transition: 
+        opacity 0.3s ease,
+        transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), /* LE SECRET : Courbe de rebond */
+        visibility 0.3s;
 }
 
 /* La petite flèche en bas de la bulle */
 .tooltip-bubble::after {
     content: "";
     position: absolute;
-    top: 100%; /* Juste en bas de la bulle */
+    top: 100%;
     left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
+    margin-left: -6px;
+    border-width: 6px;
     border-style: solid;
-    border-color: #1F2937 transparent transparent transparent;
+    border-color: rgba(31, 41, 55, 0.95) transparent transparent transparent;
 }
 
-/* Affichage au survol */
+/* --- ANIMATION D'APPARITION DE LA BULLE --- */
 .tooltip-trigger:hover .tooltip-bubble {
     visibility: visible;
     opacity: 1;
-    transform: translateX(-50%) translateY(0);
+    /* État final : taille normale, position normale */
+    transform: translateX(-50%) translateY(0) scale(1);
 }
+
+/* --- RESPONSIVE MOBILE (Inchangé mais ajusté pour le nouveau style) --- */
+@media (max-width: 640px) {
+    .tooltip-bubble {
+        width: 180px !important;
+        max-width: 180px !important;
+        white-space: normal !important;
+        left: 50% !important;
+        /* Sur mobile, on réduit l'effet de rebond pour éviter que ça sorte de l'écran */
+        transform: translateX(-50%) translateY(10px) scale(0.9) !important; 
+    }
+    
+    .tooltip-trigger:hover .tooltip-bubble {
+        transform: translateX(-50%) translateY(0) scale(1) !important;
+    }
+}
+
+
+
 
 
 
