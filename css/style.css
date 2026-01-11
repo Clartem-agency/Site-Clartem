@@ -1115,3 +1115,34 @@ html {
 .anim-active .premium-item:nth-child(3) { animation-delay: 0.3s; }
 .anim-active .premium-item:nth-child(4) { animation-delay: 0.4s; }
 .anim-active .premium-item:nth-child(5) { animation-delay: 0.5s; }
+
+
+
+
+
+/* ======================================================= */
+/*    CORRECTIF INFOBULLES MOBILE (Format Vertical)        */
+/* ======================================================= */
+
+@media (max-width: 640px) {
+    .tooltip-bubble {
+        /* 1. On force un format vertical (étroit) */
+        width: 160px !important;  /* Largeur fixe et étroite */
+        max-width: 160px !important;
+        white-space: normal !important; /* Force le texte à aller à la ligne */
+        text-align: center;
+        
+        /* 2. Ajustement du positionnement */
+        /* On déplace la bulle vers la gauche (-75%) pour éviter qu'elle ne sorte à droite */
+        /* C'est un compromis idéal : la bulle reste attachée à l'icône mais se déploie vers l'intérieur */
+        left: 50% !important;
+        transform: translateX(-75%) translateY(10px) !important;
+    }
+
+    /* 3. On ajuste la petite flèche pour qu'elle pointe toujours sur l'icône */
+    .tooltip-bubble::after {
+        /* Puisque la bulle est décalée à -75%, l'ancre est à 75% de la largeur de la bulle */
+        left: 75% !important; 
+        margin-left: -5px !important; /* Centrage précis de la flèche */
+    }
+}
