@@ -1481,6 +1481,7 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 
+
 /* --- LA CARTE LIBERTÉ (SOMBRE) --- */
 .premium-offer-card-dark {
     position: relative;
@@ -1490,16 +1491,30 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     padding: 3px; /* Épaisseur de la bordure */
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
     
-    /* CORRECTIF FLOU : translateZ(0) et backface-visibility */
-    transform: translateY(-16px) scale(1.02) translateZ(0); 
+    /* CORRECTIF MOBILE : On garde uniquement l'échelle (scale) sur mobile, sans le décalage vertical */
+    transform: scale(1.02) translateZ(0); 
+    
     -webkit-font-smoothing: antialiased;
     backface-visibility: hidden;
     
-    transition: box-shadow 0.3s ease, opacity 0.3s ease;
+    transition: box-shadow 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
     z-index: 5;
     height: auto;
     display: flex;
     flex-direction: column;
+    
+    /* Optionnel : Ajout d'une petite marge sur mobile pour bien aérer du fait du grossissement */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* CORRECTIF DESKTOP : On réactive le décalage vers le haut (-16px) et on retire les marges uniquement sur les grands écrans (XL) */
+@media (min-width: 1280px) {
+    .premium-offer-card-dark {
+        transform: translateY(-16px) scale(1.02) translateZ(0); 
+        margin-top: 0;
+        margin-bottom: 0;
+    }
 }
 
 /* Bordure colorée animée au survol */
@@ -1521,8 +1536,8 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 }
 
 .premium-offer-card-dark:hover {
-    /* On garde la position fixe avec le translateZ */
-    transform: translateY(-16px) scale(1.02) translateZ(0) !important;
+    /* Sur mobile, on reste stable au survol */
+    transform: scale(1.02) translateZ(0) !important;
     
     box-shadow: 
         0 30px 60px -15px rgba(249, 115, 22, 0.3),
@@ -1530,27 +1545,17 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     z-index: 20;
 }
 
+/* Sur Desktop, on maintient le décalage au survol */
+@media (min-width: 1280px) {
+    .premium-offer-card-dark:hover {
+        transform: translateY(-16px) scale(1.02) translateZ(0) !important;
+    }
+}
+
 .premium-offer-card-dark:hover::before {
     opacity: 1; 
 }
 
-/* --- C'EST ICI QUE LA MAGIE BLANCHE OPÈRE --- */
-.premium-offer-card-dark .inner-card {
-    /* IMPORTANT : On force le fond BLANC ici */
-    background-color: #ffffff; 
-    border-radius: 21px; /* Légèrement moins que le parent (24px) */
-    height: auto;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    z-index: 2; /* S'assure d'être au-dessus du fond sombre */
-
-
- /* AJOUT : Empêche le flou de se propager aux enfants */
-    transform: translateZ(0);
-
-}
 
 
 
