@@ -1411,3 +1411,126 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     padding-left: 12px;
     padding-right: 12px;
 }
+
+
+
+
+/* ======================================================= */
+/*    NOUVEAU STYLE DES CARTES OFFRES (PREMIUM & TECH)     */
+/* ======================================================= */
+
+/* Base de la carte (valable pour les cartes blanches) */
+.premium-offer-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.85); /* Blanc légèrement translucide */
+    backdrop-filter: blur(12px);          /* Effet de flou d'arrière-plan (Tech) */
+    -webkit-backdrop-filter: blur(12px);
+    
+    border-radius: 24px;
+    
+    /* Bordure subtile et lumineuse (Raffiné) */
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 
+        inset 0 1px 0 0 rgba(255, 255, 255, 1), /* Reflet lumière en haut */
+        0 4px 20px -2px rgba(0, 0, 0, 0.05);    /* Ombre de base très douce */
+        
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Animation fluide "physique" */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+/* --- Variantes de couleur au survol (Glow) --- */
+
+/* Offre 1 : IMPACT (Bleu Clair) */
+.premium-offer-card.variant-blue:hover {
+    transform: translateY(-8px) scale(1.01);
+    background: #ffffff;
+    border-color: rgba(59, 130, 246, 0.3); /* clarity-blue subtil */
+    box-shadow: 
+        0 20px 40px -10px rgba(59, 130, 246, 0.15), /* Glow bleu */
+        0 0 0 1px rgba(59, 130, 246, 0.05); /* Micro bordure tech */
+    z-index: 10;
+}
+
+/* Offre 2 : ANCRAGE (Bleu Profond) */
+.premium-offer-card.variant-deep:hover {
+    transform: translateY(-8px) scale(1.01);
+    background: #ffffff;
+    border-color: rgba(30, 58, 138, 0.3); /* deep-blue subtil */
+    box-shadow: 
+        0 20px 40px -10px rgba(30, 58, 138, 0.15), /* Glow sombre */
+        0 0 0 1px rgba(30, 58, 138, 0.05);
+    z-index: 10;
+}
+
+/* Offre 4 : EXPANSION (Violet) */
+.premium-offer-card.variant-purple:hover {
+    transform: translateY(-8px) scale(1.01);
+    background: #ffffff;
+    border-color: rgba(147, 51, 234, 0.3); /* purple subtil */
+    box-shadow: 
+        0 20px 40px -10px rgba(147, 51, 234, 0.15), /* Glow violet */
+        0 0 0 1px rgba(147, 51, 234, 0.05);
+    z-index: 10;
+}
+
+/* --- Cas Spécial : Offre 3 LIBERTÉ (Carte Sombre) --- */
+/* On améliore la carte sombre pour qu'elle s'intègre au style "Tech" */
+.premium-offer-card-dark {
+    position: relative;
+    /* On garde le fond sombre mais on ajoute un grain ou un dégradé subtil */
+    background: linear-gradient(145deg, #1F2937 0%, #111827 100%);
+    border-radius: 24px;
+    padding: 4px; /* Espace pour la bordure gradient */
+    
+    /* Ombre portée plus intense pour la mettre en avant */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform: translateY(-16px) scale(1.02); /* Déjà surélevée par défaut */
+    z-index: 5;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Bordure animée tech pour la carte sombre */
+.premium-offer-card-dark::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 24px; 
+    padding: 2px; 
+    background: linear-gradient(45deg, #F97316, #DC2626, #9333EA); 
+    -webkit-mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; 
+    mask-composite: exclude; 
+    opacity: 0.5;
+    transition: opacity 0.4s ease;
+}
+
+.premium-offer-card-dark:hover {
+    transform: translateY(-24px) scale(1.04);
+    box-shadow: 
+        0 30px 60px -15px rgba(249, 115, 22, 0.25), /* Glow Orange */
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    z-index: 20;
+}
+
+.premium-offer-card-dark:hover::before {
+    opacity: 1; /* La bordure s'allume au survol */
+}
+
+/* Ajustement intérieur pour la carte sombre */
+.premium-offer-card-dark .inner-card {
+    background: #fff;
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
