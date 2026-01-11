@@ -1370,3 +1370,51 @@ html {
     color: currentColor;
     /* Note : La rotation est déjà gérée par votre autre classe CSS existante */
 }
+
+
+
+
+/* ======================================================= */
+/*    EFFET DE LUMIÈRE PASSANTE (SHEEN EFFECT)             */
+/*    Ajoute un reflet brillant au survol                  */
+/* ======================================================= */
+
+/* 1. Configuration du faisceau de lumière */
+.pricing-toggle::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Départ hors du cadre à gauche */
+    width: 50%;  /* Largeur du faisceau */
+    height: 100%;
+    
+    /* Le dégradé : Transparent -> Blanc brillant -> Transparent */
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.4) 50%, 
+        rgba(255, 255, 255, 0) 100%
+    );
+    
+    /* On penche le faisceau pour l'effet vitesse/dynamique */
+    transform: skewX(-25deg);
+    
+    z-index: 1; /* Juste au-dessus du fond, mais sous le texte */
+    pointer-events: none; /* Pour ne pas bloquer le clic */
+}
+
+/* 2. Définition de l'animation */
+@keyframes lightPass {
+    0% {
+        left: -100%; /* Départ */
+    }
+    100% {
+        left: 200%; /* Arrivée (loin à droite pour être sûr qu'il soit sorti) */
+    }
+}
+
+/* 3. Déclenchement au survol */
+.pricing-toggle:hover::after {
+    /* L'animation se joue une seule fois (forwards) très vite (0.5s) */
+    animation: lightPass 0.5s ease-in-out;
+}
