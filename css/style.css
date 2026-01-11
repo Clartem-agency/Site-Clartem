@@ -1252,3 +1252,220 @@ html {
         margin-left: -5px !important; /* Centrage exact */
     }
 }
+
+
+
+
+
+
+/* ======================================================= */
+/*    STYLE "PREMIUM DEPTH" (RELIEF & LUMIÈRE DOUCE)       */
+/* ======================================================= */
+
+/* 1. Le Conteneur : On ajoute du volume et on coupe ce qui dépasse */
+.pricing-toggle {
+    position: relative;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transition plus naturelle */
+    padding: 10px 14px; /* Un peu plus d'espace pour le relief */
+    margin: 2px -14px;  /* Compensation ajustée */
+    background: transparent;
+    overflow: hidden; /* INDISPENSABLE pour la lumière */
+    
+    /* Bordure invisible par défaut pour éviter le saut de pixel au survol */
+    border: 1px solid transparent; 
+}
+
+/* 2. Feedback au survol : DÉGRADÉ + RELIEF (La texture) */
+.pricing-toggle:hover {
+    /* Fond : Dégradé subtil du blanc vers un gris bleuté très pâle */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(241, 245, 249, 0.6));
+    
+    /* Bordure très fine pour détourer */
+    border-color: rgba(0, 0, 0, 0.03);
+    
+    /* LE SECRET DU RELIEF : 
+       - Ombre portée douce vers le bas (0 2px 4px)
+       - Ombre interne blanche en haut (inset 0 1px 0) pour l'effet "Biseauté/Lumière"
+    */
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.02), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* 3. La Barre Latérale : inchangée mais optimisée */
+.pricing-toggle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 0%;
+    width: 3px;
+    background-color: currentColor;
+    border-radius: 0 4px 4px 0;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.pricing-toggle:hover::before {
+    height: 60%; /* Un peu plus discret pour l'élégance */
+    opacity: 1;
+}
+
+/* 4. Le Texte : Glissement */
+.pricing-toggle span.font-bold {
+    border-bottom: none !important;
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s ease;
+    z-index: 2; /* Au-dessus de la lumière */
+}
+
+.pricing-toggle:hover span.font-bold {
+    transform: translateX(6px);
+}
+
+/* 5. L'Icône : Zoom net */
+.pricing-toggle .flex-shrink-0 {
+    position: relative;
+    z-index: 2; /* Au-dessus de la lumière */
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.pricing-toggle:hover .flex-shrink-0 {
+    transform: scale(1.15) rotate(5deg);
+}
+
+/* 6. La Flèche */
+.pricing-toggle svg:last-child {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.5;
+}
+
+.pricing-toggle:hover svg:last-child {
+    transform: translateX(4px);
+    opacity: 1;
+    color: currentColor;
+}
+
+
+/* ======================================================= */
+/*    ÉTAT "ACTIF" (MENU OUVERT) - RELIEF MARQUÉ           */
+/* ======================================================= */
+
+.pricing-toggle.active {
+    /* Fond un peu plus sombre pour montrer l'enfoncement */
+    background: linear-gradient(to bottom, rgba(241, 245, 249, 0.5), rgba(241, 245, 249, 0.8));
+    border-color: rgba(0, 0, 0, 0.04);
+    /* Ombre interne pour l'effet "bouton enfoncé" */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02); 
+    font-weight: 700;
+}
+
+.pricing-toggle.active::before {
+    height: 60%;
+    opacity: 1;
+}
+
+.pricing-toggle.active span.font-bold {
+    transform: translateX(6px);
+    color: currentColor;
+}
+
+.pricing-toggle.active svg:last-child {
+    opacity: 1;
+    color: currentColor;
+}
+
+
+/* ======================================================= */
+/*    EFFET DE LUMIÈRE (RALENTI & SOYEUX)                  */
+/* ======================================================= */
+
+.pricing-toggle::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%; /* Départ plus loin */
+    width: 80%;  /* Faisceau plus large pour être plus doux */
+    height: 100%;
+    
+    /* Dégradé plus subtil (Blanc à 30% max au lieu de 40%) */
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%, 
+        rgba(255, 255, 255, 0) 100%
+    );
+    
+    transform: skewX(-20deg);
+    z-index: 1; 
+    pointer-events: none;
+}
+
+@keyframes lightPassSlow {
+    0% { left: -150%; }
+    100% { left: 200%; }
+}
+
+.pricing-toggle:hover::after {
+    /* Durée passée de 0.5s à 0.75s pour plus de classe */
+    animation: lightPassSlow 0.75s ease-in-out;
+}
+
+
+
+
+
+
+
+/* ======================================================= */
+/*    STRUCTURE FINE : SÉPARATEURS & DENSITÉ (CORRIGÉ V5)  */
+/* ======================================================= */
+
+/* 1. On resserre la liste globale */
+ul.space-y-3 {
+    display: flex;
+    flex-direction: column;
+    gap: 0px; 
+}
+
+/* 2. On annule les marges par défaut */
+ul.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 0 !important;
+}
+
+/* 3. Style de chaque ligne (LI) */
+ul.space-y-3 li {
+    position: relative;
+    padding: 12px 0; /* Espace aéré */
+}
+
+/* 4. LA LIGNE DE SÉPARATION */
+/* On applique la même ligne grise pour TOUTES les cartes (car elles ont toutes un fond blanc) */
+ul.space-y-3 li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0; 
+    right: 0;
+    height: 1px;
+    
+    /* Dégradé gris subtil : Invisible bords -> Visible centre -> Invisible bords */
+    background: linear-gradient(
+        to right, 
+        transparent 0%, 
+        rgba(0, 0, 0, 0.08) 20%, /* Gris pâle (8% opacité) */
+        rgba(0, 0, 0, 0.08) 80%, 
+        transparent 100%
+    );
+}
+
+/* 5. Ajustement alignement texte */
+ul.space-y-3 li:not(:has(.pricing-toggle)) {
+    padding-left: 12px;
+    padding-right: 12px;
+}
