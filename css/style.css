@@ -1269,8 +1269,13 @@ html {
     /* On garde un padding pour que le mouvement respire */
     padding: 8px 12px; 
     margin: 0 -12px; /* Compensation latérale */
-    background: transparent; /* Important : pas de couleur de fond par défaut */
+    background: transparent; 
+    
+    /* --- LA CORRECTION EST ICI --- */
+    overflow: hidden; /* Coupe tout ce qui dépasse (la lumière) */
+    /* ----------------------------- */
 }
+
 
 /* 2. Feedback visuel au survol : Un fond très léger mais NEUTRE */
 .pricing-toggle:hover {
@@ -1310,16 +1315,22 @@ html {
     transform: translateX(8px); /* Mouvement vers la droite */
 }
 
+
 /* 5. L'Icône : Zoom net SANS ombre floue */
 .pricing-toggle .flex-shrink-0 {
     transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     transform-origin: center center;
+    
+    /* --- AJOUT DE SÉCURITÉ --- */
+    position: relative; 
+    z-index: 2; /* S'assure que l'icône reste au-dessus de la lumière */
 }
 
 .pricing-toggle:hover .flex-shrink-0 {
     /* Juste un zoom et une rotation, sans filtre de flou */
     transform: scale(1.2) rotate(10deg); 
 }
+
 
 /* 6. La Flèche à droite : Appel clair */
 .pricing-toggle svg:last-child {
