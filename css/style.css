@@ -1252,3 +1252,70 @@ html {
         margin-left: -5px !important; /* Centrage exact */
     }
 }
+
+
+
+
+/* ======================================================= */
+/*    NOUVEAU STYLE "WOW" POUR LES ACCORDÉONS OFFRES       */
+/* ======================================================= */
+
+/* 1. On nettoie le style actuel (enlève le soulignement pointillé existant) */
+.pricing-toggle span.font-bold {
+    border-bottom: none !important; /* On retire le soulignement */
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.3s ease;
+    transform-origin: left center;
+}
+
+/* 2. L'effet de barre verticale (Le "Curseur Premium") */
+.pricing-toggle span.font-bold::before {
+    content: '';
+    position: absolute;
+    left: -12px; /* Positionné à gauche du texte */
+    top: 10%;
+    bottom: 10%;
+    width: 3px; /* Épaisseur de la barre */
+    background-color: currentColor; /* Prend automatiquement la couleur du texte (Bleu, Orange, Violet...) */
+    
+    /* État initial : invisible et écrasé */
+    transform: scaleY(0); 
+    opacity: 0;
+    
+    /* Animation fluide */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease;
+}
+
+/* 3. L'Interaction au survol (HOVER) */
+
+/* Le texte glisse vers la droite */
+.pricing-toggle:hover span.font-bold {
+    transform: translateX(10px); /* Décalage élégant */
+}
+
+/* La barre verticale apparaît et grandit */
+.pricing-toggle:hover span.font-bold::before {
+    transform: scaleY(1); /* Grandit verticalement */
+    opacity: 1;
+}
+
+/* 4. Animation de la flèche à droite (L'appel) */
+.pricing-toggle svg:last-child {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.pricing-toggle:hover svg:last-child {
+    /* La flèche se déplace vers la droite et prend la couleur */
+    transform: translateX(5px); 
+    color: inherit; /* Force la flèche à prendre la couleur du survol définie dans le HTML */
+}
+
+/* 5. Animation de l'icône à gauche (Le petit détail en plus) */
+.pricing-toggle .flex-shrink-0 {
+    transition: transform 0.3s ease;
+}
+
+.pricing-toggle:hover .flex-shrink-0 {
+    transform: scale(1.1) rotate(5deg); /* Légère rotation ludique mais discrète */
+}
