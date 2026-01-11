@@ -1256,66 +1256,94 @@ html {
 
 
 
+
 /* ======================================================= */
-/*    NOUVEAU STYLE "WOW" POUR LES ACCORDÉONS OFFRES       */
+/*    STYLE "LUMINOUS TECH" POUR LES ACCORDÉONS (V2)       */
 /* ======================================================= */
 
-/* 1. On nettoie le style actuel (enlève le soulignement pointillé existant) */
-.pricing-toggle span.font-bold {
-    border-bottom: none !important; /* On retire le soulignement */
-    position: relative;
-    display: inline-block;
-    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.3s ease;
-    transform-origin: left center;
+/* 1. Le Conteneur (Le Bouton) : Préparation de la scène */
+.pricing-toggle {
+    position: relative; /* Pour positionner les effets */
+    border-radius: 8px; /* Coins arrondis pour la ligne entière */
+    transition: all 0.3s ease;
+    overflow: hidden; /* Garde les effets à l'intérieur */
+    /* Petite marge interne pour que l'effet respire */
+    padding-left: 12px; 
+    padding-right: 12px;
+    margin-left: -12px; /* Compensation pour ne pas décaler la mise en page */
+    margin-right: -12px;
 }
 
-/* 2. L'effet de barre verticale (Le "Curseur Premium") */
-.pricing-toggle span.font-bold::before {
+/* 2. L'effet "Lueur de Fond" (Background Wash) */
+/* C'est une nappe de couleur très légère qui apparaît derrière */
+.pricing-toggle::after {
     content: '';
     position: absolute;
-    left: -12px; /* Positionné à gauche du texte */
-    top: 10%;
-    bottom: 10%;
-    width: 3px; /* Épaisseur de la barre */
-    background-color: currentColor; /* Prend automatiquement la couleur du texte (Bleu, Orange, Violet...) */
-    
-    /* État initial : invisible et écrasé */
-    transform: scaleY(0); 
-    opacity: 0;
-    
-    /* Animation fluide */
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease;
+    inset: 0; /* Prend toute la place */
+    background-color: currentColor; /* Prend la couleur du texte (Bleu/Orange/Violet) */
+    opacity: 0; /* Invisible au départ */
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 0; /* Tout au fond */
+    pointer-events: none;
 }
 
-/* 3. L'Interaction au survol (HOVER) */
+.pricing-toggle:hover::after {
+    opacity: 0.08; /* Apparition très subtile (8%) */
+}
 
-/* Le texte glisse vers la droite */
+/* 3. La Barre Latérale (L'Accent) */
+/* Une barre qui glisse depuis la gauche */
+.pricing-toggle::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    width: 3px;
+    background-color: currentColor;
+    transform: scaleY(0); /* Écrasée au départ */
+    transform-origin: bottom; /* Grandit depuis le bas */
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1;
+}
+
+.pricing-toggle:hover::before {
+    transform: scaleY(1); /* Grandit */
+    transform-origin: top; /* Effet de fluidité */
+}
+
+/* 4. Le Texte (Le mouvement) */
+.pricing-toggle span.font-bold {
+    border-bottom: none !important; /* On nettoie le vieux style */
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease, letter-spacing 0.3s ease;
+    display: inline-block;
+}
+
 .pricing-toggle:hover span.font-bold {
-    transform: translateX(10px); /* Décalage élégant */
+    transform: translateX(6px); /* Glisse vers la droite */
+    /* letter-spacing: 0.01em; Optionnel : aère légèrement le texte */
 }
 
-/* La barre verticale apparaît et grandit */
-.pricing-toggle:hover span.font-bold::before {
-    transform: scaleY(1); /* Grandit verticalement */
-    opacity: 1;
-}
-
-/* 4. Animation de la flèche à droite (L'appel) */
-.pricing-toggle svg:last-child {
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.pricing-toggle:hover svg:last-child {
-    /* La flèche se déplace vers la droite et prend la couleur */
-    transform: translateX(5px); 
-    color: inherit; /* Force la flèche à prendre la couleur du survol définie dans le HTML */
-}
-
-/* 5. Animation de l'icône à gauche (Le petit détail en plus) */
+/* 5. L'Icône à gauche (L'Effet Néon) - C'est LA touche "Wow" */
 .pricing-toggle .flex-shrink-0 {
-    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
 }
 
 .pricing-toggle:hover .flex-shrink-0 {
-    transform: scale(1.1) rotate(5deg); /* Légère rotation ludique mais discrète */
+    transform: scale(1.15) rotate(5deg); /* Grossit et pivote légèrement */
+    /* Crée une ombre lumineuse de la même couleur que l'icône */
+    filter: drop-shadow(0 0 8px currentColor); 
+}
+
+/* 6. La Flèche à droite */
+.pricing-toggle svg:last-child {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.pricing-toggle:hover svg:last-child {
+    transform: translateX(4px);
 }
