@@ -815,73 +815,177 @@ html {
 
 
 
+
+
+
+
+
 /* ======================================================= */
-/*    NOUVEAU : SYSTÈME D'INFOBULLES (TOOLTIPS)            */
+/*    SYSTÈME D'INFOBULLES (TOOLTIPS) - EFFET HOLOGRAPHIQUE */
 /* ======================================================= */
 
-/* Le conteneur (le mot ou l'icône à survoler) */
+/* 1. Le déclencheur (L'icône "i" ou le texte) */
 .tooltip-trigger {
     position: relative;
     cursor: help;
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    border-bottom: 1px dashed #9CA3AF; /* Soulignement pointillé discret */
-    transition: border-color 0.3s ease;
+    z-index: 10; /* S'assure que le trigger est au-dessus */
 }
 
-.tooltip-trigger:hover {
-    border-color: #F97316; /* Orange au survol */
+/* L'icône SVG à l'intérieur */
+.tooltip-trigger svg {
+    color: #9CA3AF; 
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); /* Rebond très marqué */
+    position: relative;
+    z-index: 2;
 }
 
-/* L'infobulle elle-même (cachée par défaut) */
+/* --- INTERACTION ICÔNE (L'ALLUMAGE) --- */
+.tooltip-trigger:hover svg {
+    color: #fff; /* Devient blanc pur */
+    transform: scale(1.2); /* Grossit */
+    filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.8)); /* Petit néon interne */
+}
+
+/* Le cercle d'énergie derrière l'icône */
+.tooltip-trigger::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 32px; height: 32px;
+    background: radial-gradient(circle, rgba(59,130,246,1) 0%, rgba(30,58,138,0) 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: all 0.4s ease-out;
+    z-index: 1; /* Derrière le SVG */
+}
+
+.tooltip-trigger:hover::before {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0.2; /* Lueur subtile bleue derrière */
+}
+
+
+/* 2. La Bulle (Le Corps) */
 .tooltip-bubble {
     visibility: hidden;
     opacity: 0;
     position: absolute;
-    bottom: 140%; /* Positionné au-dessus */
+    bottom: 160%; /* Haut pour laisser la place à l'animation */
     left: 50%;
-    transform: translateX(-50%) translateY(10px); /* Décalage pour l'animation */
     
-    /* Style de la bulle */
+    /* État de départ : Tout petit, plié, et plus bas */
+    transform: translateX(-50%) translateY(15px) scale(0.5) rotateX(-20deg);
+    transform-origin: bottom center; /* L'animation part du bas (de l'icône) */
+
+    /* DESIGN DE LA BULLE */
     width: max-content;
-    max-width: 220px;
-    background-color: #1F2937; /* neutral-dark */
-    color: #ffffff;
+    max-width: 260px;
+    
+    /* Fond dégradé sombre très classe */
+    background: linear-gradient(160deg, #1e293b, #0f172a); 
+    color: #e2e8f0;
+    
     text-align: center;
-    font-size: 0.75rem; /* text-xs */
-    font-weight: normal;
-    line-height: 1.4;
-    padding: 8px 12px;
-    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.5;
+    padding: 14px 18px;
+    border-radius: 16px;
     
-    /* Ombres et superposition */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    /* Bordure lumineuse fine en haut (effet lumière zénithale) */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.3); 
+
+    /* Ombre colorée (Glow externe) */
+    box-shadow: 
+        0 15px 35px -5px rgba(0, 0, 0, 0.5), /* Ombre noire profonde */
+        0 0 20px -5px rgba(59, 130, 246, 0.3); /* Halo bleu diffus */
+
     z-index: 100;
-    pointer-events: none; /* Empêche de cliquer sur la bulle par erreur */
-    
-    /* Animation */
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    pointer-events: none;
+    overflow: hidden; /* Important pour l'effet de reflet qui passe */
+
+    /* Transition complexe pour l'ouverture */
+    transition: 
+        opacity 0.2s ease,
+        transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), /* Effet ressort */
+        visibility 0.2s;
 }
 
-/* La petite flèche en bas de la bulle */
+/* La flèche du bas */
 .tooltip-bubble::after {
     content: "";
     position: absolute;
-    top: 100%; /* Juste en bas de la bulle */
+    top: 100%;
     left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
+    margin-left: -6px;
+    border-width: 6px;
     border-style: solid;
-    border-color: #1F2937 transparent transparent transparent;
+    border-color: #0f172a transparent transparent transparent;
 }
 
-/* Affichage au survol */
+/* --- 3. L'EFFET SHIMMER (LE REFLET DE LUMIÈRE) --- */
+/* C'est ça l'effet "Wow" : une barre de lumière qui traverse */
+.tooltip-bubble::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -150%; /* Hors champ à gauche */
+    width: 100%; height: 100%;
+    
+    /* Une bande blanche inclinée et transparente */
+    background: linear-gradient(
+        to right, 
+        rgba(255,255,255,0) 0%, 
+        rgba(255,255,255,0.1) 50%, 
+        rgba(255,255,255,0) 100%
+    );
+    transform: skewX(-25deg);
+    pointer-events: none;
+}
+
+/* Animation du reflet */
+@keyframes shimmerTooltip {
+    0% { left: -150%; }
+    100% { left: 150%; }
+}
+
+/* --- ÉTAT SURVOLÉ (OUVERTURE) --- */
 .tooltip-trigger:hover .tooltip-bubble {
     visibility: visible;
     opacity: 1;
-    transform: translateX(-50%) translateY(0);
+    transform: translateX(-50%) translateY(0) scale(1) rotateX(0deg);
 }
+
+/* On lance l'animation de lumière UNIQUEMENT quand on survole */
+.tooltip-trigger:hover .tooltip-bubble::before {
+    animation: shimmerTooltip 0.8s ease-out forwards;
+    animation-delay: 0.1s; /* Attend juste que la bulle soit ouverte */
+}
+
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 640px) {
+    .tooltip-bubble {
+        width: 200px !important;
+        max-width: 200px !important;
+        white-space: normal !important;
+        left: 50% !important;
+        /* Simplification de l'animation sur mobile pour la performance */
+        transform: translateX(-50%) translateY(10px) scale(0.9) !important; 
+    }
+    
+    .tooltip-trigger:hover .tooltip-bubble {
+        transform: translateX(-50%) translateY(0) scale(1) !important;
+    }
+}
+
+
+
+
 
 
 
