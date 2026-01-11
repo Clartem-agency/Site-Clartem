@@ -1385,47 +1385,6 @@ html {
 
 
 
-/* ======================================================= */
-/*    EFFET DE LUMIÈRE (TIMING IDÉAL : 0.8s)               */
-/* ======================================================= */
-
-.pricing-toggle::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -150%; 
-    
-    /* Largeur équilibrée */
-    width: 70%;  
-    height: 100%;
-    
-    /* Dégradé blanc visible mais doux */
-    background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.5) 50%, 
-        rgba(255, 255, 255, 0) 100%
-    );
-    
-    transform: skewX(-25deg);
-    
-    /* TOUJOURS PAR DESSUS LE TEXTE */
-    z-index: 10; 
-    pointer-events: none;
-}
-
-@keyframes lightPassSlow {
-    0% { left: -100%; }
-    100% { left: 200%; }
-}
-
-.pricing-toggle:hover::after {
-    /* 0.8s : Le compromis parfait entre "Luxe" et "Réactif" */
-    animation: lightPassSlow 0.8s ease-in-out;
-}
-
-
-
 
 
 /* ======================================================= */
