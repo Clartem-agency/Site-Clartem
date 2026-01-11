@@ -1169,7 +1169,6 @@ html {
     opacity: 0;
     transform: translateY(-15px) scale(0.95); /* Vient du haut */
     filter: blur(8px); /* Le flou crée l'effet premium */
-    will-change: transform, opacity, filter;
 }
 
 /* 2. L'animation active (déclenchée par le JS existant via .anim-active) */
@@ -1478,17 +1477,23 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 }
 
 
+
+
+
+
 /* --- LA CARTE LIBERTÉ (SOMBRE) --- */
 .premium-offer-card-dark {
     position: relative;
+    /* Ce fond sombre sert uniquement à créer le contraste pour la bordure/ombre */
     background: linear-gradient(145deg, #1F2937 0%, #111827 100%);
     border-radius: 24px;
-    padding: 3px;
+    padding: 3px; /* Épaisseur de la bordure */
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
     
-    /* On garde le transform INITIAL pour qu'elle soit mise en avant (plus grande) */
-    /* Mais on ne changera pas cette valeur au survol */
-    transform: translateY(-16px) scale(1.02); 
+    /* CORRECTIF FLOU : translateZ(0) et backface-visibility */
+    transform: translateY(-16px) scale(1.02) translateZ(0); 
+    -webkit-font-smoothing: antialiased;
+    backface-visibility: hidden;
     
     transition: box-shadow 0.3s ease, opacity 0.3s ease;
     z-index: 5;
@@ -1497,6 +1502,7 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     flex-direction: column;
 }
 
+/* Bordure colorée animée au survol */
 .premium-offer-card-dark::before {
     content: "";
     position: absolute;
@@ -1511,11 +1517,12 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     mask-composite: exclude; 
     opacity: 0.6;
     transition: opacity 0.4s ease;
+    pointer-events: none; /* Important pour ne pas bloquer les clics */
 }
 
 .premium-offer-card-dark:hover {
-    /* ON FORCE LA POSITION INITIALE pour empêcher tout mouvement parasite */
-    transform: translateY(-16px) scale(1.02) !important;
+    /* On garde la position fixe avec le translateZ */
+    transform: translateY(-16px) scale(1.02) translateZ(0) !important;
     
     box-shadow: 
         0 30px 60px -15px rgba(249, 115, 22, 0.3),
@@ -1524,14 +1531,23 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 }
 
 .premium-offer-card-dark:hover::before {
-    opacity: 1; /* Seule la bordure s'illumine */
+    opacity: 1; 
 }
 
+/* --- C'EST ICI QUE LA MAGIE BLANCHE OPÈRE --- */
 .premium-offer-card-dark .inner-card {
-    background: #fff;
-    border-radius: 21px;
+    /* IMPORTANT : On force le fond BLANC ici */
+    background-color: #ffffff; 
+    border-radius: 21px; /* Légèrement moins que le parent (24px) */
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 2; /* S'assure d'être au-dessus du fond sombre */
+
+
+ /* AJOUT : Empêche le flou de se propager aux enfants */
+    transform: translateZ(0);
+
 }
