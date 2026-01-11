@@ -1332,3 +1332,41 @@ html {
     opacity: 1; /* Devient bien visible au survol */
     color: currentColor;
 }
+
+
+
+/* ======================================================= */
+/*    ÉTAT "ACTIF" (QUAND LE MENU EST OUVERT)              */
+/*    Objectif : Distinguer visuellement la section lue    */
+/* ======================================================= */
+
+/* 1. Le Conteneur reste légèrement grisé */
+.pricing-toggle.active {
+    background-color: rgba(0, 0, 0, 0.04); /* Un fond subtil permanent */
+    font-weight: 700; /* Renforce le poids visuel global */
+}
+
+/* 2. La Barre Latérale reste visible (Le repère visuel principal) */
+.pricing-toggle.active::before {
+    height: 70%; /* Elle reste déployée */
+    opacity: 1;
+}
+
+/* 3. Le Texte reste décalé et prend la couleur */
+.pricing-toggle.active span.font-bold {
+    transform: translateX(8px); /* Reste décalé vers la droite */
+    color: currentColor; /* Le texte prend la couleur (Orange/Bleu) au lieu de rester noir */
+}
+
+/* 4. L'Icône reste mise en valeur */
+.pricing-toggle.active .flex-shrink-0 {
+    transform: scale(1.1); /* Reste légèrement grossie */
+    /* On garde l'icône propre, sans rotation excessive pour la lecture */
+}
+
+/* 5. La Flèche reste visible et colorée */
+.pricing-toggle.active svg:last-child {
+    opacity: 1;
+    color: currentColor;
+    /* Note : La rotation est déjà gérée par votre autre classe CSS existante */
+}
