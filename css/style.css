@@ -1416,3 +1416,54 @@ html {
     animation: lightPassSlow 0.75s ease-in-out;
 }
 
+
+
+
+/* ======================================================= */
+/*    STRUCTURE PREMIUM : SÉPARATEURS & ESPACEMENT         */
+/*    Gère les lignes entre les éléments des listes        */
+/* ======================================================= */
+
+/* 1. On cible les éléments de liste (li) dans vos cartes */
+/* Note : .space-y-3 est la classe Tailwind utilisée dans votre HTML */
+ul.space-y-3 li {
+    position: relative;
+    /* On définit notre propre espacement */
+    padding-bottom: 10px; 
+    margin-bottom: 10px; 
+}
+
+/* 2. IMPORTANT : On annule l'espacement par défaut de Tailwind */
+/* Cela nous permet de resserrer l'écart qui était trop grand */
+.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 0 !important; 
+}
+
+/* 3. La Ligne de Séparation (Le détail Premium) */
+ul.space-y-3 li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    
+    /* La ligne ne touche pas les bords (effet centré élégant) */
+    left: 15%; 
+    right: 15%; 
+    
+    height: 1px; /* Très fin */
+
+    /* LE SECRET : Un dégradé qui part de transparent, devient visible au centre, et redevient transparent */
+    background: linear-gradient(
+        to right,
+        transparent 0%,      /* Invisible à gauche */
+        currentColor 50%,    /* Couleur du texte au centre (s'adapte au mode sombre/clair) */
+        transparent 100%     /* Invisible à droite */
+    );
+    
+    opacity: 0.15; /* Très subtil (15% de visibilité seulement) */
+}
+
+/* 4. Ajustement spécifique pour les éléments "Accordion" */
+/* Pour que la ligne ne colle pas trop au bouton quand il est fermé */
+ul.space-y-3 li:has(.pricing-toggle) {
+    padding-bottom: 12px;
+}
