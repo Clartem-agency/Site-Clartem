@@ -1415,66 +1415,76 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 
+
+
 /* ======================================================= */
-/*    NOUVEAU STYLE DES CARTES OFFRES (PREMIUM & TECH)     */
+/*    STYLE OFFRES CORRIGÉ (BORDURES & OMBRES VISIBLES)    */
 /* ======================================================= */
 
-/* Base de la carte (valable pour les cartes blanches) */
+/* Base de la carte (Structure commune) */
 .premium-offer-card {
     position: relative;
-    background: rgba(255, 255, 255, 0.85); /* Blanc légèrement translucide */
-    backdrop-filter: blur(12px);          /* Effet de flou d'arrière-plan (Tech) */
-    -webkit-backdrop-filter: blur(12px);
-    
+    background: #ffffff; /* Blanc pur pour bien détacher du fond bleu */
     border-radius: 24px;
-    
-    /* Bordure subtile et lumineuse (Raffiné) */
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    box-shadow: 
-        inset 0 1px 0 0 rgba(255, 255, 255, 1), /* Reflet lumière en haut */
-        0 4px 20px -2px rgba(0, 0, 0, 0.05);    /* Ombre de base très douce */
-        
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Animation fluide "physique" */
     height: 100%;
     display: flex;
     flex-direction: column;
     z-index: 1;
+    
+    /* Transition fluide pour le mouvement et la lumière */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    
+    /* Ombre interne pour donner un effet de "Matière" (Tech) */
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 1); 
 }
 
-/* --- Variantes de couleur au survol (Glow) --- */
+/* --- VARIANTE 1 : IMPACT (Bleu Clair) --- */
+.premium-offer-card.variant-blue {
+    /* Bordure visible mais fine (Bleu clair à 20%) */
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    /* Ombre portée légère et TEINTÉE de bleu */
+    box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.15);
+}
 
-/* Offre 1 : IMPACT (Bleu Clair) */
 .premium-offer-card.variant-blue:hover {
-    transform: translateY(-8px) scale(1.01);
-    background: #ffffff;
-    border-color: rgba(59, 130, 246, 0.3); /* clarity-blue subtil */
-    box-shadow: 
-        0 20px 40px -10px rgba(59, 130, 246, 0.15), /* Glow bleu */
-        0 0 0 1px rgba(59, 130, 246, 0.05); /* Micro bordure tech */
+    transform: translateY(-8px);
+    border-color: rgba(59, 130, 246, 0.6); /* La bordure s'intensifie */
+    box-shadow: 0 20px 40px -5px rgba(59, 130, 246, 0.25); /* Le glow s'intensifie */
     z-index: 10;
 }
 
-/* Offre 2 : ANCRAGE (Bleu Profond) */
+/* --- VARIANTE 2 : ANCRAGE (Bleu Foncé) --- */
+.premium-offer-card.variant-deep {
+    /* Bordure visible (Indigo à 15%) */
+    border: 1px solid rgba(30, 58, 138, 0.15);
+    /* Ombre portée TEINTÉE d'indigo */
+    box-shadow: 0 10px 30px -10px rgba(30, 58, 138, 0.15);
+}
+
 .premium-offer-card.variant-deep:hover {
-    transform: translateY(-8px) scale(1.01);
-    background: #ffffff;
-    border-color: rgba(30, 58, 138, 0.3); /* deep-blue subtil */
-    box-shadow: 
-        0 20px 40px -10px rgba(30, 58, 138, 0.15), /* Glow sombre */
-        0 0 0 1px rgba(30, 58, 138, 0.05);
+    transform: translateY(-8px);
+    border-color: rgba(30, 58, 138, 0.5);
+    box-shadow: 0 20px 40px -5px rgba(30, 58, 138, 0.25);
     z-index: 10;
 }
 
-/* Offre 4 : EXPANSION (Violet) */
+/* --- VARIANTE 3 : EXPANSION (Violet) --- */
+.premium-offer-card.variant-purple {
+    /* Bordure visible (Violet à 20%) */
+    border: 1px solid rgba(147, 51, 234, 0.2);
+    /* Ombre portée TEINTÉE de violet */
+    box-shadow: 0 10px 30px -10px rgba(147, 51, 234, 0.15);
+}
+
 .premium-offer-card.variant-purple:hover {
-    transform: translateY(-8px) scale(1.01);
-    background: #ffffff;
-    border-color: rgba(147, 51, 234, 0.3); /* purple subtil */
-    box-shadow: 
-        0 20px 40px -10px rgba(147, 51, 234, 0.15), /* Glow violet */
-        0 0 0 1px rgba(147, 51, 234, 0.05);
+    transform: translateY(-8px);
+    border-color: rgba(147, 51, 234, 0.6);
+    box-shadow: 0 20px 40px -5px rgba(147, 51, 234, 0.25);
     z-index: 10;
 }
+
+
+
 
 /* --- Cas Spécial : Offre 3 LIBERTÉ (Carte Sombre) --- */
 /* On améliore la carte sombre pour qu'elle s'intègre au style "Tech" */
