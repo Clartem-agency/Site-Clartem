@@ -1381,42 +1381,48 @@ html {
 }
 
 
+
+
+
+
 /* ======================================================= */
-/*    EFFET DE LUMIÈRE (RALENTI & SOYEUX)                  */
+/*    EFFET DE LUMIÈRE (TIMING IDÉAL : 0.8s)               */
 /* ======================================================= */
 
 .pricing-toggle::after {
     content: '';
     position: absolute;
     top: 0;
-    left: -150%; /* Départ plus loin */
-    width: 80%;  /* Faisceau plus large pour être plus doux */
+    left: -150%; 
+    
+    /* Largeur équilibrée */
+    width: 70%;  
     height: 100%;
     
-    /* Dégradé plus subtil (Blanc à 30% max au lieu de 40%) */
+    /* Dégradé blanc visible mais doux */
     background: linear-gradient(
         to right,
         rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.3) 50%, 
+        rgba(255, 255, 255, 0.5) 50%, 
         rgba(255, 255, 255, 0) 100%
     );
     
-    transform: skewX(-20deg);
-    z-index: 1; 
+    transform: skewX(-25deg);
+    
+    /* TOUJOURS PAR DESSUS LE TEXTE */
+    z-index: 10; 
     pointer-events: none;
 }
 
 @keyframes lightPassSlow {
-    0% { left: -150%; }
+    0% { left: -100%; }
     100% { left: 200%; }
 }
 
 .pricing-toggle:hover::after {
-    /* Durée passée de 0.5s à 0.75s pour plus de classe */
-    animation: lightPassSlow 0.75s ease-in-out;
+    /* 0.8s : Le compromis parfait entre "Luxe" et "Réactif" */
+    animation: lightPassSlow 0.8s ease-in-out;
 }
-
-
 
 
 
