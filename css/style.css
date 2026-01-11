@@ -404,6 +404,7 @@ html {
 /*    CORRECTIF DÉFINITIF HERO (LAYERS & ANIMATION)        */
 /* ======================================================= */
 
+
 /* 1. L'image de fond (Tout au fond) */
 .hero-bg {
     background-image: none !important;
@@ -419,12 +420,24 @@ html {
     height: 100%;
     background-image: url('../assets/background-hero.webp');
     background-size: cover;
-    background-position: center;
     
-    z-index: 0; /* ÉTAGE 0 : LE SOL */
+    /* PAR DÉFAUT (Desktop) : On centre l'image */
+    background-position: center center;
+    
+    z-index: 0; 
     
     animation: kenBurnsEffect 15s ease-in-out infinite alternate;
 }
+
+/* --- AJOUT DU CORRECTIF MOBILE ICI --- */
+@media (max-width: 768px) {
+    .hero-ken-burns {
+        /* Sur mobile, on force l'alignement à DROITE pour voir les motifs */
+        background-position: 80% center !important;
+    }
+}
+
+
 
 /* 2. L'Overlay (Au milieu) */
 .hero-overlay {
