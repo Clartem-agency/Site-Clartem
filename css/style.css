@@ -1169,7 +1169,6 @@ html {
     opacity: 0;
     transform: translateY(-15px) scale(0.95); /* Vient du haut */
     filter: blur(8px); /* Le flou crée l'effet premium */
-    will-change: transform, opacity, filter;
 }
 
 /* 2. L'animation active (déclenchée par le JS existant via .anim-active) */
@@ -1478,6 +1477,8 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 }
 
 
+
+
 /* --- LA CARTE LIBERTÉ (SOMBRE) --- */
 .premium-offer-card-dark {
     position: relative;
@@ -1486,10 +1487,14 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     padding: 3px;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
     
-    /* On garde le transform INITIAL pour qu'elle soit mise en avant (plus grande) */
-    /* Mais on ne changera pas cette valeur au survol */
-    transform: translateY(-16px) scale(1.02); 
+    /* MODIFICATION : Ajout de translateZ(0) pour forcer la netteté GPU */
+    transform: translateY(-16px) scale(1.02) translateZ(0); 
     
+    /* MODIFICATION : Ajout de ces propriétés pour le lissage des polices */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+
     transition: box-shadow 0.3s ease, opacity 0.3s ease;
     z-index: 5;
     height: 100%;
@@ -1497,41 +1502,13 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     flex-direction: column;
 }
 
-.premium-offer-card-dark::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 24px; 
-    padding: 2px; 
-    background: linear-gradient(45deg, #F97316, #DC2626, #9333EA); 
-    -webkit-mask: 
-       linear-gradient(#fff 0 0) content-box, 
-       linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor; 
-    mask-composite: exclude; 
-    opacity: 0.6;
-    transition: opacity 0.4s ease;
-}
-
+/* Modifiez aussi le HOVER pour correspondre au translateZ */
 .premium-offer-card-dark:hover {
-    /* ON FORCE LA POSITION INITIALE pour empêcher tout mouvement parasite */
-    transform: translateY(-16px) scale(1.02) !important;
+    /* ON FORCE LA POSITION INITIALE (avec le translateZ) */
+    transform: translateY(-16px) scale(1.02) translateZ(0) !important;
     
     box-shadow: 
         0 30px 60px -15px rgba(249, 115, 22, 0.3),
         0 0 0 1px rgba(255, 255, 255, 0.1) inset;
     z-index: 20;
-}
-
-.premium-offer-card-dark:hover::before {
-    opacity: 1; /* Seule la bordure s'illumine */
-}
-
-.premium-offer-card-dark .inner-card {
-    background: #fff;
-    border-radius: 21px;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
 }
