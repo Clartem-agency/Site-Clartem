@@ -1908,8 +1908,8 @@
                     <!--                      Offre 1 : IMPACT                   -->
                     <!-- ======================================================= -->
 
-                    <div class="group relative bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:border-clarity-blue/30 transition-all duration-300 hover:-translate-y-2 hover:z-30 flex flex-col h-full"
-                        data-sr>
+                    <div class="group premium-offer-card variant-blue p-8" data-sr>
+
 
                         <div class="mb-6">
                             <h3
@@ -2175,8 +2175,9 @@
                     <!--                      Offre 2 : ANCRAGE                  -->
                     <!-- ======================================================= -->
 
-                    <div class="group relative bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:border-clarity-blue/30 transition-all duration-300 hover:-translate-y-2 hover:z-30 flex flex-col h-full"
-                        data-sr data-sr-delay="100">
+
+                    <div class="group premium-offer-card variant-deep p-8" data-sr data-sr-delay="100">
+
 
                         <div class="mb-6">
                             <h3
@@ -2389,15 +2390,20 @@
                     <!--                      Offre 3 : LIBERTÉ                  -->
                     <!-- ======================================================= -->
 
-                    <div class="group relative bg-neutral-dark rounded-3xl p-1 shadow-2xl transform md:-translate-y-4 md:scale-105 z-10 hover:z-30 flex flex-col h-full"
-                        data-sr data-sr-delay="200">
 
-                        <!-- Bordure Gradient -->
-                        <div
-                            class="absolute inset-0 bg-gradient-to-b from-warm-orange via-red-500 to-purple-600 rounded-3xl opacity-20 group-hover:opacity-100 transition-opacity duration-500">
-                        </div>
+                    <div class="group premium-offer-card-dark" data-sr data-sr-delay="200">
+                        <!-- On supprime la div "absolute inset-0 bg-gradient..." car c'est géré par le CSS ::before maintenant -->
 
-                        <div class="relative bg-white rounded-[22px] p-8 h-full flex flex-col">
+                        <!-- On garde la div intérieure blanche, mais on ajoute la classe "inner-card" et "p-8" -->
+                        <div class="inner-card p-8 relative">
+                            <!-- ... TOUT LE RESTE DU CONTENU (Badge, Titre, Prix, Liste...) RESTE EXACTEMENT PAREIL ICI ... -->
+
+                            <!-- Juste pour être sûr, le badge "Recommandé" doit être ici, dans la div inner-card -->
+                            <div
+                                class="absolute top-0 right-0 bg-gradient-to-r from-warm-orange to-red-500 text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl rounded-tr-[20px] uppercase tracking-wide animate-pulse-badge shadow-lg">
+                                Recommandé
+                            </div>
+
 
                             <!-- Badge Recommandé -->
                             <div
@@ -2716,8 +2722,9 @@
                     <!--                      Offre 4 : EXPANSION                -->
                     <!-- ======================================================= -->
 
-                    <div class="group relative bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:border-clarity-blue/30 transition-all duration-300 hover:-translate-y-2 hover:z-30 flex flex-col h-full"
-                        data-sr data-sr-delay="300">
+
+                    <div class="group premium-offer-card variant-purple p-8" data-sr data-sr-delay="300">
+
 
                         <div class="mb-6">
                             <h3
