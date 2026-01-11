@@ -1257,175 +1257,162 @@ html {
 
 
 
+
 /* ======================================================= */
-/*    STYLE "CLEAN MOTION" (CORRIGÉ & NETTOYÉ)             */
+/*    STYLE "PREMIUM DEPTH" (RELIEF & LUMIÈRE DOUCE)       */
 /* ======================================================= */
 
-/* 1. Le Conteneur : On enlève le fond gris "sale" */
+/* 1. Le Conteneur : On ajoute du volume et on coupe ce qui dépasse */
 .pricing-toggle {
     position: relative;
     border-radius: 8px;
-    transition: all 0.3s ease;
-    /* On garde un padding pour que le mouvement respire */
-    padding: 8px 12px; 
-    margin: 0 -12px; /* Compensation latérale */
-    background: transparent; 
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transition plus naturelle */
+    padding: 10px 14px; /* Un peu plus d'espace pour le relief */
+    margin: 2px -14px;  /* Compensation ajustée */
+    background: transparent;
+    overflow: hidden; /* INDISPENSABLE pour la lumière */
     
-    /* --- LA CORRECTION EST ICI --- */
-    overflow: hidden; /* Coupe tout ce qui dépasse (la lumière) */
-    /* ----------------------------- */
+    /* Bordure invisible par défaut pour éviter le saut de pixel au survol */
+    border: 1px solid transparent; 
 }
 
-
-/* 2. Feedback visuel au survol : Un fond très léger mais NEUTRE */
+/* 2. Feedback au survol : DÉGRADÉ + RELIEF (La texture) */
 .pricing-toggle:hover {
-    background-color: rgba(0, 0, 0, 0.02); /* Gris très pâle, presque invisible, juste pour marquer la zone */
+    /* Fond : Dégradé subtil du blanc vers un gris bleuté très pâle */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(241, 245, 249, 0.6));
+    
+    /* Bordure très fine pour détourer */
+    border-color: rgba(0, 0, 0, 0.03);
+    
+    /* LE SECRET DU RELIEF : 
+       - Ombre portée douce vers le bas (0 2px 4px)
+       - Ombre interne blanche en haut (inset 0 1px 0) pour l'effet "Biseauté/Lumière"
+    */
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.02), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
-/* 3. La Barre Latérale : Plus fine, arrondie et détachée */
+/* 3. La Barre Latérale : inchangée mais optimisée */
 .pricing-toggle::before {
     content: '';
     position: absolute;
-    top: 50%; /* Centrée verticalement */
+    top: 50%;
     left: 0;
-    height: 0%; /* Invisible au départ */
+    height: 0%;
     width: 3px;
-    background-color: currentColor; /* Prend la couleur (Bleu/Orange) */
-    border-radius: 0 4px 4px 0; /* Arrondi sur le côté droit */
-    transform: translateY(-50%); /* Centrage parfait */
+    background-color: currentColor;
+    border-radius: 0 4px 4px 0;
+    transform: translateY(-50%);
     opacity: 0;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); /* Effet "Rebond" */
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .pricing-toggle:hover::before {
-    height: 70%; /* Ne prend pas toute la hauteur pour faire plus élégant */
+    height: 60%; /* Un peu plus discret pour l'élégance */
     opacity: 1;
 }
 
-/* 4. Le Texte : Glissement net sans flou */
+/* 4. Le Texte : Glissement */
 .pricing-toggle span.font-bold {
     border-bottom: none !important;
     position: relative;
     display: inline-block;
     transition: transform 0.3s ease;
-    /* On force la couleur à changer légèrement pour augmenter le contraste */
+    z-index: 2; /* Au-dessus de la lumière */
 }
 
 .pricing-toggle:hover span.font-bold {
-    transform: translateX(8px); /* Mouvement vers la droite */
+    transform: translateX(6px);
 }
 
-
-/* 5. L'Icône : Zoom net SANS ombre floue */
+/* 5. L'Icône : Zoom net */
 .pricing-toggle .flex-shrink-0 {
+    position: relative;
+    z-index: 2; /* Au-dessus de la lumière */
     transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    transform-origin: center center;
-    
-    /* --- AJOUT DE SÉCURITÉ --- */
-    position: relative; 
-    z-index: 2; /* S'assure que l'icône reste au-dessus de la lumière */
 }
 
 .pricing-toggle:hover .flex-shrink-0 {
-    /* Juste un zoom et une rotation, sans filtre de flou */
-    transform: scale(1.2) rotate(10deg); 
+    transform: scale(1.15) rotate(5deg);
 }
 
-
-/* 6. La Flèche à droite : Appel clair */
+/* 6. La Flèche */
 .pricing-toggle svg:last-child {
+    position: relative;
+    z-index: 2;
     transition: transform 0.3s ease, opacity 0.3s ease;
-    opacity: 0.5; /* Plus discrète au repos */
+    opacity: 0.5;
 }
 
 .pricing-toggle:hover svg:last-child {
-    transform: translateX(5px);
-    opacity: 1; /* Devient bien visible au survol */
+    transform: translateX(4px);
+    opacity: 1;
     color: currentColor;
 }
 
 
-
 /* ======================================================= */
-/*    ÉTAT "ACTIF" (QUAND LE MENU EST OUVERT)              */
-/*    Objectif : Distinguer visuellement la section lue    */
+/*    ÉTAT "ACTIF" (MENU OUVERT) - RELIEF MARQUÉ           */
 /* ======================================================= */
 
-/* 1. Le Conteneur reste légèrement grisé */
 .pricing-toggle.active {
-    background-color: rgba(0, 0, 0, 0.04); /* Un fond subtil permanent */
-    font-weight: 700; /* Renforce le poids visuel global */
+    /* Fond un peu plus sombre pour montrer l'enfoncement */
+    background: linear-gradient(to bottom, rgba(241, 245, 249, 0.5), rgba(241, 245, 249, 0.8));
+    border-color: rgba(0, 0, 0, 0.04);
+    /* Ombre interne pour l'effet "bouton enfoncé" */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02); 
+    font-weight: 700;
 }
 
-/* 2. La Barre Latérale reste visible (Le repère visuel principal) */
 .pricing-toggle.active::before {
-    height: 70%; /* Elle reste déployée */
+    height: 60%;
     opacity: 1;
 }
 
-/* 3. Le Texte reste décalé et prend la couleur */
 .pricing-toggle.active span.font-bold {
-    transform: translateX(8px); /* Reste décalé vers la droite */
-    color: currentColor; /* Le texte prend la couleur (Orange/Bleu) au lieu de rester noir */
+    transform: translateX(6px);
+    color: currentColor;
 }
 
-/* 4. L'Icône reste mise en valeur */
-.pricing-toggle.active .flex-shrink-0 {
-    transform: scale(1.1); /* Reste légèrement grossie */
-    /* On garde l'icône propre, sans rotation excessive pour la lecture */
-}
-
-/* 5. La Flèche reste visible et colorée */
 .pricing-toggle.active svg:last-child {
     opacity: 1;
     color: currentColor;
-    /* Note : La rotation est déjà gérée par votre autre classe CSS existante */
 }
 
 
-
-
 /* ======================================================= */
-/*    EFFET DE LUMIÈRE PASSANTE (SHEEN EFFECT)             */
-/*    Ajoute un reflet brillant au survol                  */
+/*    EFFET DE LUMIÈRE (RALENTI & SOYEUX)                  */
 /* ======================================================= */
 
-/* 1. Configuration du faisceau de lumière */
 .pricing-toggle::after {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%; /* Départ hors du cadre à gauche */
-    width: 50%;  /* Largeur du faisceau */
+    left: -150%; /* Départ plus loin */
+    width: 80%;  /* Faisceau plus large pour être plus doux */
     height: 100%;
     
-    /* Le dégradé : Transparent -> Blanc brillant -> Transparent */
+    /* Dégradé plus subtil (Blanc à 30% max au lieu de 40%) */
     background: linear-gradient(
         to right,
         rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.4) 50%, 
+        rgba(255, 255, 255, 0.3) 50%, 
         rgba(255, 255, 255, 0) 100%
     );
     
-    /* On penche le faisceau pour l'effet vitesse/dynamique */
-    transform: skewX(-25deg);
-    
-    z-index: 1; /* Juste au-dessus du fond, mais sous le texte */
-    pointer-events: none; /* Pour ne pas bloquer le clic */
+    transform: skewX(-20deg);
+    z-index: 1; 
+    pointer-events: none;
 }
 
-/* 2. Définition de l'animation */
-@keyframes lightPass {
-    0% {
-        left: -100%; /* Départ */
-    }
-    100% {
-        left: 200%; /* Arrivée (loin à droite pour être sûr qu'il soit sorti) */
-    }
+@keyframes lightPassSlow {
+    0% { left: -150%; }
+    100% { left: 200%; }
 }
 
-/* 3. Déclenchement au survol */
 .pricing-toggle:hover::after {
-    /* L'animation se joue une seule fois (forwards) très vite (0.5s) */
-    animation: lightPass 0.5s ease-in-out;
+    /* Durée passée de 0.5s à 0.75s pour plus de classe */
+    animation: lightPassSlow 0.75s ease-in-out;
 }
+
