@@ -1545,4 +1545,9 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     flex-direction: column;
     position: relative;
     z-index: 2; /* S'assure d'être au-dessus du fond sombre */
+
+
+ /* AJOUT : Empêche le flou de se propager aux enfants */
+    transform: translateZ(0);
+
 }
