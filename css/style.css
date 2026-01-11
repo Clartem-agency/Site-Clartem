@@ -819,8 +819,9 @@ html {
 
 
 
+
 /* ======================================================= */
-/*    SYSTÈME D'INFOBULLES (TOOLTIPS) - EFFET WOW PREMIUM  */
+/*    SYSTÈME D'INFOBULLES (TOOLTIPS) - EFFET HOLOGRAPHIQUE */
 /* ======================================================= */
 
 /* 1. Le déclencheur (L'icône "i" ou le texte) */
@@ -830,88 +831,92 @@ html {
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    /* On enlève le souligné pointillé classique pour un look plus clean */
-    /* border-bottom: 1px dashed #9CA3AF; */ 
-    transition: all 0.3s ease;
+    z-index: 10; /* S'assure que le trigger est au-dessus */
 }
 
-/* L'icône SVG à l'intérieur du trigger */
+/* L'icône SVG à l'intérieur */
 .tooltip-trigger svg {
-    color: #9CA3AF; /* Gris clair par défaut */
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Effet élastique */
-    transform-origin: center;
+    color: #9CA3AF; 
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); /* Rebond très marqué */
+    position: relative;
+    z-index: 2;
 }
 
-/* --- ANIMATION AU SURVOL DU TRIGGER --- */
+/* --- INTERACTION ICÔNE (L'ALLUMAGE) --- */
 .tooltip-trigger:hover svg {
-    color: #3B82F6; /* Bleu Clarity */
-    transform: scale(1.3) rotate(15deg); /* Grossit et penche un peu */
-    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.6)); /* Lueur néon bleue */
+    color: #fff; /* Devient blanc pur */
+    transform: scale(1.2); /* Grossit */
+    filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.8)); /* Petit néon interne */
 }
 
-/* Petit cercle pulsant derrière l'icône pour attirer l'œil (Optionnel mais classe) */
+/* Le cercle d'énergie derrière l'icône */
 .tooltip-trigger::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%; /* Centre sur le texte/icone */
-    width: 30px;
-    height: 30px;
-    background: rgba(59, 130, 246, 0.1);
+    top: 50%; left: 50%;
+    width: 32px; height: 32px;
+    background: radial-gradient(circle, rgba(59,130,246,1) 0%, rgba(30,58,138,0) 70%);
     border-radius: 50%;
     transform: translate(-50%, -50%) scale(0);
-    transition: transform 0.3s ease;
-    z-index: 0;
-    pointer-events: none;
+    opacity: 0;
+    transition: all 0.4s ease-out;
+    z-index: 1; /* Derrière le SVG */
 }
 
 .tooltip-trigger:hover::before {
     transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0.2; /* Lueur subtile bleue derrière */
 }
 
 
-/* 2. La Bulle (L'infobulle elle-même) */
+/* 2. La Bulle (Le Corps) */
 .tooltip-bubble {
     visibility: hidden;
     opacity: 0;
     position: absolute;
-    bottom: 150%; /* Un peu plus haut pour laisser la place au rebond */
+    bottom: 160%; /* Haut pour laisser la place à l'animation */
     left: 50%;
     
-    /* État initial de l'animation : petit, décalé vers le bas */
-    transform: translateX(-50%) translateY(20px) scale(0.8);
-    
-    /* Style Visuel Premium */
+    /* État de départ : Tout petit, plié, et plus bas */
+    transform: translateX(-50%) translateY(15px) scale(0.5) rotateX(-20deg);
+    transform-origin: bottom center; /* L'animation part du bas (de l'icône) */
+
+    /* DESIGN DE LA BULLE */
     width: max-content;
-    max-width: 240px;
-    background-color: rgba(31, 41, 55, 0.95); /* Noir presque opaque */
-    backdrop-filter: blur(10px); /* Effet verre flouté (Glassmorphism) */
-    -webkit-backdrop-filter: blur(10px);
-    color: #ffffff;
+    max-width: 260px;
+    
+    /* Fond dégradé sombre très classe */
+    background: linear-gradient(160deg, #1e293b, #0f172a); 
+    color: #e2e8f0;
+    
     text-align: center;
     font-size: 0.75rem;
     font-weight: 500;
     line-height: 1.5;
-    padding: 12px 16px;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Bordure subtile */
+    padding: 14px 18px;
+    border-radius: 16px;
     
-    /* Ombres */
+    /* Bordure lumineuse fine en haut (effet lumière zénithale) */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.3); 
+
+    /* Ombre colorée (Glow externe) */
     box-shadow: 
-        0 10px 25px -5px rgba(0, 0, 0, 0.4),
-        0 0 0 1px rgba(255, 255, 255, 0.05); /* Lueur interne */
-    
+        0 15px 35px -5px rgba(0, 0, 0, 0.5), /* Ombre noire profonde */
+        0 0 20px -5px rgba(59, 130, 246, 0.3); /* Halo bleu diffus */
+
     z-index: 100;
     pointer-events: none;
-    
-    /* Animation de transition */
+    overflow: hidden; /* Important pour l'effet de reflet qui passe */
+
+    /* Transition complexe pour l'ouverture */
     transition: 
-        opacity 0.3s ease,
-        transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55), /* LE SECRET : Courbe de rebond */
-        visibility 0.3s;
+        opacity 0.2s ease,
+        transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), /* Effet ressort */
+        visibility 0.2s;
 }
 
-/* La petite flèche en bas de la bulle */
+/* La flèche du bas */
 .tooltip-bubble::after {
     content: "";
     position: absolute;
@@ -920,25 +925,56 @@ html {
     margin-left: -6px;
     border-width: 6px;
     border-style: solid;
-    border-color: rgba(31, 41, 55, 0.95) transparent transparent transparent;
+    border-color: #0f172a transparent transparent transparent;
 }
 
-/* --- ANIMATION D'APPARITION DE LA BULLE --- */
+/* --- 3. L'EFFET SHIMMER (LE REFLET DE LUMIÈRE) --- */
+/* C'est ça l'effet "Wow" : une barre de lumière qui traverse */
+.tooltip-bubble::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -150%; /* Hors champ à gauche */
+    width: 100%; height: 100%;
+    
+    /* Une bande blanche inclinée et transparente */
+    background: linear-gradient(
+        to right, 
+        rgba(255,255,255,0) 0%, 
+        rgba(255,255,255,0.1) 50%, 
+        rgba(255,255,255,0) 100%
+    );
+    transform: skewX(-25deg);
+    pointer-events: none;
+}
+
+/* Animation du reflet */
+@keyframes shimmerTooltip {
+    0% { left: -150%; }
+    100% { left: 150%; }
+}
+
+/* --- ÉTAT SURVOLÉ (OUVERTURE) --- */
 .tooltip-trigger:hover .tooltip-bubble {
     visibility: visible;
     opacity: 1;
-    /* État final : taille normale, position normale */
-    transform: translateX(-50%) translateY(0) scale(1);
+    transform: translateX(-50%) translateY(0) scale(1) rotateX(0deg);
 }
 
-/* --- RESPONSIVE MOBILE (Inchangé mais ajusté pour le nouveau style) --- */
+/* On lance l'animation de lumière UNIQUEMENT quand on survole */
+.tooltip-trigger:hover .tooltip-bubble::before {
+    animation: shimmerTooltip 0.8s ease-out forwards;
+    animation-delay: 0.1s; /* Attend juste que la bulle soit ouverte */
+}
+
+
+/* --- RESPONSIVE MOBILE --- */
 @media (max-width: 640px) {
     .tooltip-bubble {
-        width: 180px !important;
-        max-width: 180px !important;
+        width: 200px !important;
+        max-width: 200px !important;
         white-space: normal !important;
         left: 50% !important;
-        /* Sur mobile, on réduit l'effet de rebond pour éviter que ça sorte de l'écran */
+        /* Simplification de l'animation sur mobile pour la performance */
         transform: translateX(-50%) translateY(10px) scale(0.9) !important; 
     }
     
@@ -946,6 +982,7 @@ html {
         transform: translateX(-50%) translateY(0) scale(1) !important;
     }
 }
+
 
 
 
