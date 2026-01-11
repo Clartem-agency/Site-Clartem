@@ -1120,29 +1120,31 @@ html {
 
 
 
+
 /* ======================================================= */
-/*    CORRECTIF INFOBULLES MOBILE (Format Vertical)        */
+/*    CORRECTIF INFOBULLES MOBILE (Centré & Vertical)      */
 /* ======================================================= */
 
 @media (max-width: 640px) {
     .tooltip-bubble {
-        /* 1. On force un format vertical (étroit) */
-        width: 160px !important;  /* Largeur fixe et étroite */
-        max-width: 160px !important;
-        white-space: normal !important; /* Force le texte à aller à la ligne */
+        /* 1. Format "Colonne" très étroit pour éviter les bords d'écran */
+        width: 130px !important;      /* Encore plus étroit (était 160px) */
+        max-width: 130px !important;
+        white-space: normal !important; /* Force le texte à la ligne */
         text-align: center;
         
-        /* 2. Ajustement du positionnement */
-        /* On déplace la bulle vers la gauche (-75%) pour éviter qu'elle ne sorte à droite */
-        /* C'est un compromis idéal : la bulle reste attachée à l'icône mais se déploie vers l'intérieur */
+        /* 2. Centrage parfait par rapport à l'icône */
         left: 50% !important;
-        transform: translateX(-75%) translateY(10px) !important;
+        /* translateX(-50%) aligne le milieu de la bulle avec le milieu de l'icône */
+        transform: translateX(-50%) translateY(10px) !important;
+        
+        /* Optionnel : ajustez le z-index si elle passe sous d'autres éléments */
+        z-index: 1000 !important;
     }
 
-    /* 3. On ajuste la petite flèche pour qu'elle pointe toujours sur l'icône */
+    /* 3. La flèche revient au centre */
     .tooltip-bubble::after {
-        /* Puisque la bulle est décalée à -75%, l'ancre est à 75% de la largeur de la bulle */
-        left: 75% !important; 
-        margin-left: -5px !important; /* Centrage précis de la flèche */
+        left: 50% !important;
+        margin-left: -5px !important; /* Centrage exact */
     }
 }
