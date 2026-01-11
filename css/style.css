@@ -429,11 +429,35 @@ html {
     animation: kenBurnsEffect 15s ease-in-out infinite alternate;
 }
 
-/* --- AJOUT DU CORRECTIF MOBILE ICI --- */
+
+/* --- SECTION HERO : ROTATION MOBILE --- */
 @media (max-width: 768px) {
     .hero-ken-burns {
-        /* Sur mobile, on force l'alignement à DROITE pour voir les motifs */
-        background-position: 80% center !important;
+        /* 1. On inverse les dimensions pour que le bloc couvre bien l'écran une fois tourné */
+        width: 100vh;  /* La largeur devient la hauteur de l'écran */
+        height: 100vw; /* La hauteur devient la largeur de l'écran */
+        
+        /* 2. On centre le bloc parfaitement avant de le tourner */
+        top: 50%;
+        left: 50%;
+        margin-left: -50vh; /* Moitié de la nouvelle largeur */
+        margin-top: -50vw;  /* Moitié de la nouvelle hauteur */
+
+        /* 3. On applique une nouvelle animation qui inclut la rotation */
+        animation-name: kenBurnsMobileRotate;
+        animation-duration: 15s;
+    }
+}
+
+/* Nouvelle animation qui combine le Zoom ET la Rotation de 90 degrés */
+@keyframes kenBurnsMobileRotate {
+    0% {
+        /* Rotation de 90deg + Taille normale */
+        transform: rotate(90deg) scale(1);
+    }
+    100% {
+        /* Rotation de 90deg + Zoom léger (1.15) */
+        transform: rotate(90deg) scale(1.15);
     }
 }
 
