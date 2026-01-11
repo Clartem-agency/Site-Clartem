@@ -1419,51 +1419,100 @@ html {
 
 
 
+
+
 /* ======================================================= */
-/*    STRUCTURE PREMIUM : SÉPARATEURS & ESPACEMENT         */
-/*    Gère les lignes entre les éléments des listes        */
+/*    NOUVEL AGENCEMENT : "COMPACT STACK" (V3)             */
+/*    Transforme la liste en blocs structurés              */
 /* ======================================================= */
 
-/* 1. On cible les éléments de liste (li) dans vos cartes */
-/* Note : .space-y-3 est la classe Tailwind utilisée dans votre HTML */
-ul.space-y-3 li {
-    position: relative;
-    /* On définit notre propre espacement */
-    padding-bottom: 10px; 
-    margin-bottom: 10px; 
+/* 1. RESET GLOBAL DE LA LISTE */
+/* On annule l'espacement par défaut de Tailwind pour prendre le contrôle */
+ul.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 0 !important; /* On colle tout pour gérer nous-mêmes */
 }
 
-/* 2. IMPORTANT : On annule l'espacement par défaut de Tailwind */
-/* Cela nous permet de resserrer l'écart qui était trop grand */
-.space-y-3 > :not([hidden]) ~ :not([hidden]) {
-    margin-top: 0 !important; 
+ul.space-y-3 {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Un petit écart propre entre chaque bloc */
 }
 
-/* 3. La Ligne de Séparation (Le détail Premium) */
-ul.space-y-3 li:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    
-    /* La ligne ne touche pas les bords (effet centré élégant) */
-    left: 15%; 
-    right: 15%; 
-    
-    height: 1px; /* Très fin */
-
-    /* LE SECRET : Un dégradé qui part de transparent, devient visible au centre, et redevient transparent */
-    background: linear-gradient(
-        to right,
-        transparent 0%,      /* Invisible à gauche */
-        currentColor 50%,    /* Couleur du texte au centre (s'adapte au mode sombre/clair) */
-        transparent 100%     /* Invisible à droite */
-    );
-    
-    opacity: 0.15; /* Très subtil (15% de visibilité seulement) */
-}
-
-/* 4. Ajustement spécifique pour les éléments "Accordion" */
-/* Pour que la ligne ne colle pas trop au bouton quand il est fermé */
+/* 2. STYLE DES BLOCS "ACCORDÉON" (Les menus déroulants) */
+/* On leur donne une forme de "Tuile" pour remplir l'espace visuel */
 ul.space-y-3 li:has(.pricing-toggle) {
-    padding-bottom: 12px;
+    background-color: rgba(255, 255, 255, 0.5); /* Fond très léger */
+    border: 1px solid rgba(0, 0, 0, 0.06); /* Bordure ultra fine */
+    border-radius: 8px; /* Coins arrondis */
+    overflow: hidden; /* Pour contenir le contenu déroulé */
+    transition: all 0.3s ease;
+}
+
+/* Au survol du bloc entier */
+ul.space-y-3 li:has(.pricing-toggle):hover {
+    border-color: rgba(0, 0, 0, 0.15); /* La bordure fonce un peu */
+    background-color: #fff; /* Devient blanc pur */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03); /* Petite ombre de soulèvement */
+    transform: translateY(-1px);
+}
+
+/* Ajustement du bouton toggle pour qu'il remplisse bien la tuile */
+.pricing-toggle {
+    margin: 0 !important;
+    padding: 12px 16px !important;
+    width: 100%;
+    border-radius: 0 !important; /* On laisse le LI gérer l'arrondi */
+}
+
+/* Le contenu déroulé (réponse) */
+.pricing-content {
+    background-color: rgba(255, 255, 255, 0.4);
+    font-size: 0.9em;
+}
+
+/* 3. STYLE DES ÉLÉMENTS STATIQUES (Les lignes simples avec icône) */
+/* On les compacte pour éviter qu'ils ne flottent trop */
+ul.space-y-3 li:not(:has(.pricing-toggle)) {
+    display: flex;
+    align-items: flex-start; /* Aligner en haut si le texte est long */
+    padding: 6px 8px; /* Beaucoup plus compact */
+    margin-left: 4px; /* Petit décalage pour aligner avec le texte des boîtes */
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+/* Petit effet au survol des lignes statiques */
+ul.space-y-3 li:not(:has(.pricing-toggle)):hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* On réduit un peu la taille de l'icône et du texte pour la densité */
+ul.space-y-3 li:not(:has(.pricing-toggle)) span {
+    font-size: 0.85rem; /* Texte un peu plus fin */
+    line-height: 1.4;
+    color: #4B5563; /* Gris neutre (text-gray-600) pour hiérarchiser */
+}
+ul.space-y-3 li:not(:has(.pricing-toggle)) svg {
+    width: 18px; /* Icône un peu plus petite */
+    height: 18px;
+    margin-top: 2px;
+}
+
+/* 4. ADAPTATION POUR LA CARTE "LIBERTÉ" (Fond noir) */
+/* Il faut adapter les couleurs car le fond est sombre */
+.bg-neutral-dark ul.space-y-3 li:has(.pricing-toggle) {
+    background-color: rgba(255, 255, 255, 0.05); /* Fond blanc transparent */
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.bg-neutral-dark ul.space-y-3 li:has(.pricing-toggle):hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.bg-neutral-dark ul.space-y-3 li:not(:has(.pricing-toggle)) span {
+    color: #9CA3AF; /* Gris clair pour le texte */
+}
+.bg-neutral-dark ul.space-y-3 li:not(:has(.pricing-toggle)):hover {
+    background-color: rgba(255, 255, 255, 0.05);
 }
