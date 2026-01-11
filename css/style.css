@@ -1423,19 +1423,17 @@ html {
 
 
 /* ======================================================= */
-/*    STRUCTURE FINE : SÉPARATEURS & DENSITÉ (V4)          */
-/*    Structure l'espace sans toucher au design des boutons*/
+/*    STRUCTURE FINE : SÉPARATEURS & DENSITÉ (CORRIGÉ V5)  */
 /* ======================================================= */
 
 /* 1. On resserre la liste globale */
 ul.space-y-3 {
     display: flex;
     flex-direction: column;
-    /* On réduit l'écart entre les éléments (était ~12px via Tailwind) */
     gap: 0px; 
 }
 
-/* 2. On annule les marges par défaut de Tailwind pour contrôler au pixel près */
+/* 2. On annule les marges par défaut */
 ul.space-y-3 > :not([hidden]) ~ :not([hidden]) {
     margin-top: 0 !important;
 }
@@ -1443,11 +1441,11 @@ ul.space-y-3 > :not([hidden]) ~ :not([hidden]) {
 /* 3. Style de chaque ligne (LI) */
 ul.space-y-3 li {
     position: relative;
-    padding: 12px 0; /* Espace vertical interne pour aérer sans écarter */
+    padding: 12px 0; /* Espace aéré */
 }
 
-/* 4. LA LIGNE DE SÉPARATION (Le secret de la propreté) */
-/* On ajoute une ligne très fine en bas de chaque élément, sauf le dernier */
+/* 4. LA LIGNE DE SÉPARATION */
+/* On applique la même ligne grise pour TOUTES les cartes (car elles ont toutes un fond blanc) */
 ul.space-y-3 li:not(:last-child)::after {
     content: '';
     position: absolute;
@@ -1456,30 +1454,18 @@ ul.space-y-3 li:not(:last-child)::after {
     right: 0;
     height: 1px;
     
-    /* Dégradé subtil : Invisible sur les bords, visible au centre */
+    /* Dégradé gris subtil : Invisible bords -> Visible centre -> Invisible bords */
     background: linear-gradient(
         to right, 
         transparent 0%, 
-        rgba(0, 0, 0, 0.06) 20%, /* Gris très pâle */
-        rgba(0, 0, 0, 0.06) 80%, 
+        rgba(0, 0, 0, 0.08) 20%, /* Gris pâle (8% opacité) */
+        rgba(0, 0, 0, 0.08) 80%, 
         transparent 100%
     );
 }
 
-/* 5. Adaptation pour le mode SOMBRE (Carte Liberté) */
-.bg-neutral-dark ul.space-y-3 li:not(:last-child)::after {
-    background: linear-gradient(
-        to right, 
-        transparent 0%, 
-        rgba(255, 255, 255, 0.08) 20%, /* Blanc très pâle */
-        rgba(255, 255, 255, 0.08) 80%, 
-        transparent 100%
-    );
-}
-
-/* 6. Petit ajustement pour les textes statiques (ceux qui ne sont pas des menus) */
-/* On les aligne parfaitement avec le texte des menus déroulants */
+/* 5. Ajustement alignement texte */
 ul.space-y-3 li:not(:has(.pricing-toggle)) {
-    padding-left: 12px; /* Même padding que vos boutons */
+    padding-left: 12px;
     padding-right: 12px;
 }
