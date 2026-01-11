@@ -1383,8 +1383,10 @@ html {
 
 
 
+
+
 /* ======================================================= */
-/*    EFFET DE LUMIÈRE (CORRIGÉ : PASSE DEVANT LE TEXTE)   */
+/*    EFFET DE LUMIÈRE (VERSION SOPHISTIQUÉE & LENTE)      */
 /* ======================================================= */
 
 .pricing-toggle::after {
@@ -1392,24 +1394,24 @@ html {
     position: absolute;
     top: 0;
     left: -150%; 
-    width: 60%;  /* Un peu plus étroit pour être plus dynamique */
+    
+    /* 1. On élargit le faisceau pour un effet plus "nappé" */
+    width: 80%;  
     height: 100%;
     
-    /* Dégradé blanc plus marqué pour être visible */
+    /* 2. Dégradé plus subtil (0.4 au lieu de 0.6) pour ne pas gêner la lecture */
     background: linear-gradient(
         to right,
         rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.6) 50%, /* Opacité augmentée de 0.3 à 0.6 */
+        rgba(255, 255, 255, 0.45) 50%, 
         rgba(255, 255, 255, 0) 100%
     );
     
-    transform: skewX(-20deg);
+    transform: skewX(-25deg); /* Inclinaison un peu plus forte */
     
-    /* MODIFICATION MAJEURE ICI : z-index passe de 1 à 10 */
-    /* Cela force la lumière à passer PAR DESSUS le texte */
+    /* RESTE PAR DESSUS LE TEXTE */
     z-index: 10; 
-    
-    pointer-events: none; /* Important : permet de cliquer au travers */
+    pointer-events: none;
 }
 
 @keyframes lightPassSlow {
@@ -1418,9 +1420,9 @@ html {
 }
 
 .pricing-toggle:hover::after {
-    animation: lightPassSlow 0.6s ease-in-out; /* Animation un peu plus rapide */
+    /* 3. RALENTISSEMENT : 1.2s pour un effet très fluide */
+    animation: lightPassSlow 1.2s ease-in-out;
 }
-
 
 
 
