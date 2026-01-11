@@ -1386,7 +1386,7 @@ html {
 
 
 /* ======================================================= */
-/*    EFFET DE LUMIÈRE (VERSION SOPHISTIQUÉE & LENTE)      */
+/*    EFFET DE LUMIÈRE (TIMING IDÉAL : 0.8s)               */
 /* ======================================================= */
 
 .pricing-toggle::after {
@@ -1395,21 +1395,21 @@ html {
     top: 0;
     left: -150%; 
     
-    /* 1. On élargit le faisceau pour un effet plus "nappé" */
-    width: 80%;  
+    /* Largeur équilibrée */
+    width: 70%;  
     height: 100%;
     
-    /* 2. Dégradé plus subtil (0.4 au lieu de 0.6) pour ne pas gêner la lecture */
+    /* Dégradé blanc visible mais doux */
     background: linear-gradient(
         to right,
         rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.45) 50%, 
+        rgba(255, 255, 255, 0.5) 50%, 
         rgba(255, 255, 255, 0) 100%
     );
     
-    transform: skewX(-25deg); /* Inclinaison un peu plus forte */
+    transform: skewX(-25deg);
     
-    /* RESTE PAR DESSUS LE TEXTE */
+    /* TOUJOURS PAR DESSUS LE TEXTE */
     z-index: 10; 
     pointer-events: none;
 }
@@ -1420,10 +1420,9 @@ html {
 }
 
 .pricing-toggle:hover::after {
-    /* 3. RALENTISSEMENT : 1.2s pour un effet très fluide */
-    animation: lightPassSlow 1.2s ease-in-out;
+    /* 0.8s : Le compromis parfait entre "Luxe" et "Réactif" */
+    animation: lightPassSlow 0.8s ease-in-out;
 }
-
 
 
 
