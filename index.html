@@ -1959,31 +1959,41 @@
         <!-- ======================================================= -->
         <section id="offres" class="py-24 bg-soft-blue relative overflow-hidden">
 
-            <!-- DÉBUT : ARRIÈRE-PLAN ANIMÉ DYNAMIQUE -->
-            <!-- Ce conteneur s'étire automatiquement avec la hauteur de la section -->
+
+
+            <!-- DÉBUT : ARRIÈRE-PLAN ANIMÉ "AQUARIUM DYNAMIQUE" -->
             <div class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
 
-                <!-- Orbe 1 : Bleu (Haut Gauche) -->
+                <!-- 1. ORBE BLEU (Haut Gauche -> Vers le Centre) -->
                 <div
-                    class="absolute top-0 left-[-10%] w-[500px] h-[500px] bg-clarity-blue/20 rounded-full mix-blend-multiply filter blur-[80px] opacity-70 animate-float-slow">
+                    class="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-blue-400 rounded-full mix-blend-multiply filter blur-[90px] opacity-30 animate-roam-1">
                 </div>
 
-                <!-- Orbe 2 : Orange (Milieu Droit - bouge quand on ouvre les menus) -->
+                <!-- 2. ORBE BLEU (Haut Droite -> Vers le Bas) -->
                 <div
-                    class="absolute top-[40%] right-[-5%] w-[400px] h-[400px] bg-warm-orange/15 rounded-full mix-blend-multiply filter blur-[80px] opacity-60 animate-float-medium animation-delay-2000">
+                    class="absolute top-[20%] right-[-10%] w-[500px] h-[500px] bg-blue-500 rounded-full mix-blend-multiply filter blur-[80px] opacity-25 animate-roam-2">
                 </div>
 
-                <!-- Orbe 3 : Violet/Bleu Profond (Bas Gauche - remplit le vide en bas) -->
+                <!-- 3. ORBE ORANGE (Le Solitaire - Circule au milieu des offres) -->
+                <!-- C'est celui qui attire l'œil au centre -->
                 <div
-                    class="absolute bottom-[-10%] left-[20%] w-[600px] h-[600px] bg-deep-blue/10 rounded-full mix-blend-multiply filter blur-[100px] opacity-50 animate-float-slow animation-delay-4000">
+                    class="absolute top-[50%] left-[20%] w-[550px] h-[550px] bg-orange-500 rounded-full mix-blend-multiply filter blur-[100px] opacity-30 animate-roam-orange">
                 </div>
 
-                <!-- Orbe 4 : Extra Large (Bas Droit - pour les grands écrans/menus ouverts) -->
+                <!-- 4. ORBE BLEU (Bas Gauche -> Remonte) -->
                 <div
-                    class="absolute bottom-[10%] right-[10%] w-[500px] h-[500px] bg-clarity-blue/10 rounded-full mix-blend-multiply filter blur-[90px] opacity-40 animate-pulse-slow">
+                    class="absolute bottom-[30%] left-[-5%] w-[450px] h-[450px] bg-indigo-400 rounded-full mix-blend-multiply filter blur-[80px] opacity-30 animate-roam-3">
                 </div>
+
+                <!-- 5. ORBE BLEU (Tout en bas Droite -> Vers le centre) -->
+                <div
+                    class="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] bg-blue-600 rounded-full mix-blend-multiply filter blur-[100px] opacity-20 animate-roam-4">
+                </div>
+
             </div>
             <!-- FIN : ARRIÈRE-PLAN ANIMÉ -->
+
+
 
             <div class="container mx-auto px-6 relative z-10">
 
