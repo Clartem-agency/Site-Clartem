@@ -1599,25 +1599,12 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 /* ======================================================= */
-/*    CORRECTIF HIERARCHIE VISUELLE ICONES (OFFRES)        */
+/*    CORRECTIF TAILLE ICONES SECONDAIRES (OFFRES)         */
 /* ======================================================= */
 
-/* On cible uniquement les icônes des lignes simples (pas les accordéons) */
+/* On cible les icônes des lignes simples (pas les menus déroulants) */
 #offres ul.space-y-3 li:not(.flex-col) > svg {
-    /* 1. On réduit la taille (passer de 20px/24px à 18px) */
-    width: 18px !important;
-    height: 18px !important;
-    
-    /* 2. On réduit légèrement l'opacité pour qu'elles "vibrent" moins fort que les titres */
-    opacity: 0.8;
-    
-    /* 3. Petit ajustement de marge pour compenser la réduction de taille */
-    margin-right: 2px;
-}
-
-/* OPTIONNEL : Si tu veux accentuer la différence, on peut aussi rendre 
-   les icônes des accordéons (les titres) légèrement plus imposantes */
-.pricing-toggle .flex-shrink-0 {
-    width: 22px !important;
-    height: 22px !important;
+    /* On réduit à 16px (au lieu de 20px standard) pour faire la différence */
+    width: 16px !important;
+    height: 16px !important;
 }
