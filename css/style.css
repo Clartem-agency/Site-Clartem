@@ -1740,51 +1740,42 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 
+
 /* ======================================================= */
-/*    ANIMATIONS DE CIRCULATION (CONCEPT <-> RÉALITÉ)      */
+/*    ANIMATIONS BOOSTÉES (CONCEPT <-> RÉALITÉ)            */
 /* ======================================================= */
 
-/* Mouvement descendant lent (Du haut vers le bas) */
-@keyframes flowDown {
+@keyframes flowDownBoosted {
     0% { 
-        transform: translateY(0%) translateX(0%); 
-        opacity: 0.6;
+        transform: translateY(0) translateX(0) scale(1); 
     }
     50% { 
-        /* Se déplace vers le milieu et la droite */
-        transform: translateY(50vh) translateX(20%); 
-        opacity: 0.4;
+        /* Descend très bas (120% de la hauteur) et va vers la droite */
+        transform: translateY(100vh) translateX(50vw) scale(1.2); 
     }
     100% { 
-        /* Revient vers le début (boucle fluide) */
-        transform: translateY(0%) translateX(0%); 
-        opacity: 0.6;
+        transform: translateY(0) translateX(0) scale(1); 
     }
 }
 
-/* Mouvement montant lent (Du bas vers le haut) */
-@keyframes flowUp {
+@keyframes flowUpBoosted {
     0% { 
-        transform: translateY(0%) translateX(0%); 
-        opacity: 0.5;
+        transform: translateY(0) translateX(0) scale(1); 
     }
     50% { 
-        /* Monte vers le milieu et la gauche */
-        transform: translateY(-50vh) translateX(-20%); 
-        opacity: 0.7;
+        /* Monte très haut (-100vh) et va vers la gauche */
+        transform: translateY(-100vh) translateX(-50vw) scale(1.2); 
     }
     100% { 
-        transform: translateY(0%) translateX(0%); 
-        opacity: 0.5;
+        transform: translateY(0) translateX(0) scale(1); 
     }
 }
 
-.animate-flow-down {
-    /* Très lent (25 secondes) pour ne pas distraire la lecture */
-    animation: flowDown 25s ease-in-out infinite;
+.animate-flow-down-boosted {
+    /* 20 secondes, c'est assez rapide pour être vu, assez lent pour être calme */
+    animation: flowDownBoosted 20s ease-in-out infinite;
 }
 
-.animate-flow-up {
-    /* Désynchronisé (30 secondes) pour éviter la répétition visuelle */
-    animation: flowUp 30s ease-in-out infinite;
+.animate-flow-up-boosted {
+    animation: flowUpBoosted 25s ease-in-out infinite; 
 }
