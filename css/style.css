@@ -1692,53 +1692,38 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 
+
 /* ======================================================= */
-/*    ANIMATIONS "ROAMING" (DYNAMISME OFFRES)              */
+/*    ANIMATIONS "ROAMING" (DYNAMISME OFFRES - GRANDES DISTANCES) */
 /* ======================================================= */
 
-/* Orbe 1 : Diagonale large Haut-Gauche vers Bas-Droite */
+/* Orbe 1 : Grande traversée diagonale (Haut-Gauche vers Bas-Droite) */
 @keyframes roam1 {
     0% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(30vw, 20vh) scale(1.2); }
-    66% { transform: translate(10vw, 40vh) scale(0.9); }
+    50% { transform: translate(80vw, 60vh) scale(1.5); } /* Va très loin vers la droite et le bas */
     100% { transform: translate(0, 0) scale(1); }
 }
 
-/* Orbe 2 : Cercle large sur la droite */
+/* Orbe 2 : Grande traversée inverse (Haut-Droite vers Bas-Gauche) */
 @keyframes roam2 {
-    0% { transform: translate(0, 0); }
-    50% { transform: translate(-20vw, 30vh); }
-    100% { transform: translate(0, 0); }
-}
-
-/* Orbe 3 : Remonte du bas vers le milieu */
-@keyframes roam3 {
     0% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(40vw, -30vh) scale(1.3); }
+    50% { transform: translate(-80vw, 50vh) scale(0.8); } /* Va très loin vers la gauche et le bas */
     100% { transform: translate(0, 0) scale(1); }
 }
 
-/* Orbe 4 : Oscille en bas */
+/* Orbe 4 (Bleu foncé) : Remonte du fond (Bas-Droite vers Haut-Gauche) */
 @keyframes roam4 {
-    0% { transform: translate(0, 0); }
-    50% { transform: translate(-30vw, -10vh); }
-    100% { transform: translate(0, 0); }
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-70vw, -70vh) scale(1.3); } /* Remonte très haut vers la gauche */
+    100% { transform: translate(0, 0) scale(1); }
 }
 
-/* ORBE ORANGE (Le plus actif) : Traverse l'écran */
-@keyframes roamOrange {
-    0% { transform: translate(0, 0) rotate(0deg) scale(1); }
-    33% { transform: translate(40vw, -20vh) rotate(45deg) scale(1.1); }
-    66% { transform: translate(20vw, 20vh) rotate(90deg) scale(0.9); }
-    100% { transform: translate(0, 0) rotate(0deg) scale(1); }
-}
+/* Application des animations avec des durées augmentées (45s+) pour garder de la douceur */
+.animate-roam-1 { animation: roam1 45s ease-in-out infinite; }
+.animate-roam-2 { animation: roam2 50s ease-in-out infinite; }
+/* Note : animate-roam-3 et animate-roam-orange ont été supprimés */
+.animate-roam-4 { animation: roam4 55s ease-in-out infinite; }
 
-/* Application des animations avec des durées différentes pour éviter la répétition */
-.animate-roam-1 { animation: roam1 25s ease-in-out infinite; }
-.animate-roam-2 { animation: roam2 28s ease-in-out infinite; }
-.animate-roam-3 { animation: roam3 30s ease-in-out infinite; }
-.animate-roam-4 { animation: roam4 35s ease-in-out infinite; }
-.animate-roam-orange { animation: roamOrange 32s ease-in-out infinite; }
 
 
 
