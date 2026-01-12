@@ -1485,89 +1485,90 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 /* --- LA CARTE LIBERTÉ (SOMBRE) --- */
 .premium-offer-card-dark {
     position: relative;
-    /* Ce fond sombre sert uniquement à créer le contraste pour la bordure/ombre */
+    /* On utilise ce fond sombre comme couleur de bordure par défaut */
     background: linear-gradient(145deg, #1F2937 0%, #111827 100%);
     border-radius: 24px;
     padding: 3px; /* Épaisseur de la bordure */
+    
+    /* Ombre portée */
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
     
-    /* CORRECTIF MOBILE : On garde uniquement l'échelle (scale) sur mobile, sans le décalage vertical */
-    transform: scale(1.02) translateZ(0); 
-    
-    -webkit-font-smoothing: antialiased;
-    backface-visibility: hidden;
-    
-    transition: box-shadow 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    /* Configuration pour l'empilement (Z-Index) */
     z-index: 5;
-    height: auto;
     display: flex;
     flex-direction: column;
+    height: auto;
     
-    /* Optionnel : Ajout d'une petite marge sur mobile pour bien aérer du fait du grossissement */
+    /* Transitions douces */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* Marges pour l'alignement responsive */
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-/* CORRECTIF DESKTOP : On réactive le décalage vers le haut (-16px) et on retire les marges uniquement sur les grands écrans (XL) */
+/* CORRECTIF DESKTOP : Décalage vers le haut */
 @media (min-width: 1280px) {
     .premium-offer-card-dark {
-        transform: translateY(-16px) scale(1.02) translateZ(0); 
+        transform: translateY(-16px);
         margin-top: 0;
         margin-bottom: 0;
     }
 }
 
-/* Bordure colorée animée au survol */
+/* L'élément ::before sert maintenant de "Couche de bordure colorée" */
 .premium-offer-card-dark::before {
     content: "";
     position: absolute;
-    inset: 0;
+    inset: 0; /* Remplit tout l'espace du parent */
     border-radius: 24px; 
-    padding: 2px; 
+    
+    /* Le dégradé coloré */
     background: linear-gradient(45deg, #F97316, #DC2626, #9333EA); 
-    -webkit-mask: 
-       linear-gradient(#fff 0 0) content-box, 
-       linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor; 
-    mask-composite: exclude; 
-    opacity: 0.6;
+    
+    /* Invisible par défaut */
+    opacity: 0;
     transition: opacity 0.4s ease;
-    pointer-events: none; /* Important pour ne pas bloquer les clics */
+    
+    /* IMPORTANT : On le place juste derrière le contenu, mais devant le fond gris */
+    z-index: 0; 
 }
 
+/* AU SURVOL DE LA CARTE */
 .premium-offer-card-dark:hover {
-    /* Sur mobile, on reste stable au survol */
-    transform: scale(1.02) translateZ(0) !important;
-    
     box-shadow: 
         0 30px 60px -15px rgba(249, 115, 22, 0.3),
         0 0 0 1px rgba(255, 255, 255, 0.1) inset;
     z-index: 20;
 }
 
-/* Sur Desktop, on maintient le décalage au survol */
+/* Sur Desktop, on maintient le décalage */
 @media (min-width: 1280px) {
     .premium-offer-card-dark:hover {
-        transform: translateY(-16px) scale(1.02) translateZ(0) !important;
+        transform: translateY(-16px) scale(1.02);
     }
 }
 
+/* On fait apparaître le dégradé qui va recouvrir le fond gris */
 .premium-offer-card-dark:hover::before {
     opacity: 1; 
 }
 
-
+/* LE CONTENU BLANC (Inner Card) */
 .premium-offer-card-dark .inner-card {
     background-color: #ffffff; 
-    border-radius: 21px;
-    height: auto;
+    border-radius: 21px; /* Légèrement plus petit que le parent pour laisser voir la bordure */
+    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     position: relative;
-    z-index: 2;
-    transform: translateZ(0);
+    
+    /* IMPORTANT : On force le contenu à passer DEVANT le dégradé */
+    z-index: 1; 
 }
+
+
 
 
 
