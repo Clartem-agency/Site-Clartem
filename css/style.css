@@ -1735,3 +1735,56 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 .animation-delay-4000 {
     animation-delay: 4s;
 }
+
+
+
+
+
+/* ======================================================= */
+/*    ANIMATIONS DE CIRCULATION (CONCEPT <-> RÉALITÉ)      */
+/* ======================================================= */
+
+/* Mouvement descendant lent (Du haut vers le bas) */
+@keyframes flowDown {
+    0% { 
+        transform: translateY(0%) translateX(0%); 
+        opacity: 0.6;
+    }
+    50% { 
+        /* Se déplace vers le milieu et la droite */
+        transform: translateY(50vh) translateX(20%); 
+        opacity: 0.4;
+    }
+    100% { 
+        /* Revient vers le début (boucle fluide) */
+        transform: translateY(0%) translateX(0%); 
+        opacity: 0.6;
+    }
+}
+
+/* Mouvement montant lent (Du bas vers le haut) */
+@keyframes flowUp {
+    0% { 
+        transform: translateY(0%) translateX(0%); 
+        opacity: 0.5;
+    }
+    50% { 
+        /* Monte vers le milieu et la gauche */
+        transform: translateY(-50vh) translateX(-20%); 
+        opacity: 0.7;
+    }
+    100% { 
+        transform: translateY(0%) translateX(0%); 
+        opacity: 0.5;
+    }
+}
+
+.animate-flow-down {
+    /* Très lent (25 secondes) pour ne pas distraire la lecture */
+    animation: flowDown 25s ease-in-out infinite;
+}
+
+.animate-flow-up {
+    /* Désynchronisé (30 secondes) pour éviter la répétition visuelle */
+    animation: flowUp 30s ease-in-out infinite;
+}
