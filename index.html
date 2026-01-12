@@ -430,31 +430,34 @@
 
 
         <!-- ======================================================= -->
-        <!--    CONTENEUR UNIFIÉ : CONCEPT + RÉALITÉ                 -->
-        <!--    Permet aux orbes de circuler entre les deux blocs    -->
+        <!--    CONTENEUR UNIFIÉ : CONCEPT + RÉALITÉ (VERSION BOOST) -->
         <!-- ======================================================= -->
         <div class="relative bg-gray-50 overflow-hidden">
 
-            <!-- ARRIÈRE-PLAN ANIMÉ COMMUN (CIRCULATION) -->
+            <!-- ARRIÈRE-PLAN ANIMÉ COMMUN -->
             <div class="absolute inset-0 w-full h-full pointer-events-none">
 
-                <!-- Orbe 1 : L'ascenseur Bleu (Descend lentement du Concept vers la Réalité) -->
-                <!-- Il part du haut gauche et descend doucement -->
+                <!-- 1. LA LIGNE DE VIE CENTRALE (Nouveau) -->
+                <!-- Connecte physiquement le haut et le bas avec un dégradé subtil -->
                 <div
-                    class="absolute top-[-10%] left-[-5%] w-[600px] h-[600px] bg-clarity-blue/10 rounded-full mix-blend-multiply filter blur-[100px] opacity-60 animate-flow-down">
+                    class="absolute left-1/2 top-0 bottom-0 w-[1px] -translate-x-1/2 bg-gradient-to-b from-transparent via-clarity-blue/30 to-transparent h-full z-0">
                 </div>
 
-                <!-- Orbe 2 : L'ascenseur Orange (Monte de la Réalité vers le Concept) -->
-                <!-- Il part du bas droit et remonte, créant un croisement -->
+                <!-- 2. ORBE BLEU (Plus visible) -->
+                <!-- Opacité montée à 0.4 (40%) et couleur plus vive (blue-500) -->
                 <div
-                    class="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] bg-warm-orange/10 rounded-full mix-blend-multiply filter blur-[90px] opacity-50 animate-flow-up">
+                    class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-500 rounded-full mix-blend-multiply filter blur-[80px] opacity-20 animate-flow-down-boosted">
                 </div>
 
-                <!-- Orbe 3 : Le Cœur (Pulse au milieu, à la jonction des deux sections) -->
+                <!-- 3. ORBE ORANGE (Plus visible) -->
+                <!-- Opacité montée à 0.4 (40%) et couleur plus vive (orange-500) -->
                 <div
-                    class="absolute top-[45%] left-[30%] w-[700px] h-[700px] bg-deep-blue/5 rounded-full mix-blend-multiply filter blur-[120px] animate-pulse-slow">
+                    class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-orange-500 rounded-full mix-blend-multiply filter blur-[80px] opacity-20 animate-flow-up-boosted">
                 </div>
+
             </div>
+
+
 
 
             <!-- ======================================================= -->
@@ -464,267 +467,275 @@
 
             <section id="site-concept" class="py-24 bg-transparent relative z-10">
 
-
-                <!-- Éléments de fond pour la profondeur -->
-                <div
-                    class="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-100/50 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none">
-                </div>
-                <div
-                    class="absolute top-0 left-0 w-[600px] h-[600px] bg-blue-100/50 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none">
-                </div>
-
-
-                <div
-                    class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-100/40 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none">
-                </div>
-
-
-
-
-
-
                 <div class="container mx-auto px-6 relative z-10">
 
-                    <div class="grid lg:grid-cols-12 gap-12 items-start">
+
+                    <!-- Éléments de fond pour la profondeur -->
+                    <div
+                        class="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-100/50 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none">
+                    </div>
+                    <div
+                        class="absolute top-0 left-0 w-[600px] h-[600px] bg-blue-100/50 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none">
+                    </div>
+
+
+                    <div
+                        class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-100/40 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none">
+                    </div>
 
 
 
 
-                        <!-- COLONNE GAUCHE : MODIFICATION ICI -->
-                        <!-- J'ai remplacé 'pt-4' par 'lg:-mt-12' pour remonter visuellement le bloc -->
-                        <div class="lg:col-span-5 lg:sticky lg:top-24 lg:-mt-12" data-sr>
+                    <div class="container mx-auto px-6 relative z-10">
 
-                            <!-- Ligne décorative -->
-                            <div class="w-16 h-1 bg-gradient-to-r from-clarity-blue to-deep-blue mb-8 rounded-full">
-                            </div>
-
-                            <div
-                                class="inline-block px-4 py-1.5 rounded-full bg-white border border-gray-200 text-deep-blue text-xs font-bold tracking-widest uppercase mb-6 shadow-sm">
-                                L'Approche Essentialiste
-                            </div>
-
-                            <h2
-                                class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-neutral-dark mb-8 leading-[1.1]">
-                                Éliminer le superflu pour <span
-                                    class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-deep-blue">amplifier
-                                    l'essentiel.</span>
-                            </h2>
-
-                            <p class="text-lg text-neutral-light leading-relaxed mb-6">
-                                La confusion est l'ennemi de la conversion. La plupart des sites échouent car ils en
-                                disent
-                                trop, trop vite.
-                            </p>
-                            <p
-                                class="text-lg text-neutral-dark font-medium leading-relaxed mb-10 border-l-4 border-warm-orange pl-6">
-                                Mon approche : construire une structure psychologique qui guide votre visiteur vers la
-                                seule
-                                chose qui compte : <strong>passer à l'action avec vous.</strong>
-                            </p>
-
-                            <a href="#portfolio"
-                                class="inline-flex items-center text-base font-bold text-deep-blue hover:text-warm-orange transition-colors group">
-                                <span class="border-b-2 border-deep-blue/20 group-hover:border-warm-orange pb-1">Voir
-                                    des
-                                    exemples concrets</span>
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform"
-                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                </svg>
-                            </a>
-                        </div>
+                        <div class="grid lg:grid-cols-12 gap-12 items-start">
 
 
 
 
-                        <!-- COLONNE DROITE : LA BENTO GRID (Cartes avec plus de "Pop") -->
-                        <div class="lg:col-span-7">
-                            <div class="grid md:grid-cols-2 gap-6">
+                            <!-- COLONNE GAUCHE : MODIFICATION ICI -->
+                            <!-- J'ai remplacé 'pt-4' par 'lg:-mt-12' pour remonter visuellement le bloc -->
+                            <div class="lg:col-span-5 lg:sticky lg:top-24 lg:-mt-12" data-sr>
 
-                                <!-- Carte 1 : Message (Dark Gradient) -->
-                                <div class="bento-card group p-8 bg-gradient-to-br from-neutral-dark to-gray-900 text-white rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
-                                    data-sr>
-                                    <!-- Glow effect au survol -->
-                                    <div
-                                        class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl group-hover:bg-white/10 transition-colors">
-                                    </div>
-
-                                    <div
-                                        class="w-12 h-12 bg-white/10 border border-white/20 rounded-2xl flex items-center justify-center mb-6 text-warm-orange group-hover:scale-110 transition-transform duration-300">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                        </svg>
-                                    </div>
-                                    <h3 class="text-xl font-bold mb-3">Impact Immédiat</h3>
-                                    <p class="text-gray-300 text-sm leading-relaxed">
-                                        Les 3 premières secondes sont décisives. Nous créons un "Hook" visuel et textuel
-                                        qui
-                                        résonne instantanément avec la douleur de votre client.
-                                    </p>
+                                <!-- Ligne décorative -->
+                                <div class="w-16 h-1 bg-gradient-to-r from-clarity-blue to-deep-blue mb-8 rounded-full">
                                 </div>
 
-                                <!-- Carte 2 : Structure (Light but with depth) -->
-                                <div class="bento-card group p-8 bg-white rounded-3xl border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 hover:border-clarity-blue/30 transition-all duration-300"
-                                    data-sr data-sr-delay="100">
-                                    <div
-                                        class="w-12 h-12 bg-blue-50 text-clarity-blue rounded-2xl flex items-center justify-center mb-6 group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                        </svg>
-                                    </div>
-                                    <h3 class="text-xl font-bold text-neutral-dark mb-3">Navigation Fluide</h3>
-                                    <p class="text-neutral-light text-sm leading-relaxed">
-                                        Pas de menus complexes où l'on se perd. Le visiteur n'a qu'un seul chemin
-                                        logique :
-                                        du problème vers la solution (vous).
-                                    </p>
+                                <div
+                                    class="inline-block px-4 py-1.5 rounded-full bg-white border border-gray-200 text-deep-blue text-xs font-bold tracking-widest uppercase mb-6 shadow-sm">
+                                    L'Approche Essentialiste
                                 </div>
 
-                                <!-- Carte 3 : Call to Action (Large) -->
-                                <div class="bento-card md:col-span-2 p-8 bg-gradient-to-r from-white to-blue-50/50 rounded-3xl border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 hover:border-clarity-blue/20 transition-all duration-300 relative overflow-hidden group"
-                                    data-sr data-sr-delay="200">
-                                    <!-- Décoration de fond -->
-                                    <div
-                                        class="absolute -right-10 -bottom-10 opacity-5 group-hover:opacity-10 transition-opacity">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-48 w-48 text-deep-blue"
-                                            fill="currentColor" viewBox="0 0 24 24">
-                                            <path
-                                                d="M12 2L2 7l10 5 10-5-10-5zm0 9l2-10 2 10h-4zm10-5v9l-10 5-10-5V6l10 5 10-5z" />
-                                        </svg>
-                                    </div>
+                                <h2
+                                    class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-neutral-dark mb-8 leading-[1.1]">
+                                    Éliminer le superflu pour <span
+                                        class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-deep-blue">amplifier
+                                        l'essentiel.</span>
+                                </h2>
 
-                                    <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+                                <p class="text-lg text-neutral-light leading-relaxed mb-6">
+                                    La confusion est l'ennemi de la conversion. La plupart des sites échouent car ils en
+                                    disent
+                                    trop, trop vite.
+                                </p>
+                                <p
+                                    class="text-lg text-neutral-dark font-medium leading-relaxed mb-10 border-l-4 border-warm-orange pl-6">
+                                    Mon approche : construire une structure psychologique qui guide votre visiteur vers
+                                    la
+                                    seule
+                                    chose qui compte : <strong>passer à l'action avec vous.</strong>
+                                </p>
+
+                                <a href="#portfolio"
+                                    class="inline-flex items-center text-base font-bold text-deep-blue hover:text-warm-orange transition-colors group">
+                                    <span
+                                        class="border-b-2 border-deep-blue/20 group-hover:border-warm-orange pb-1">Voir
+                                        des
+                                        exemples concrets</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform"
+                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </a>
+                            </div>
+
+
+
+
+                            <!-- COLONNE DROITE : LA BENTO GRID (Cartes avec plus de "Pop") -->
+                            <div class="lg:col-span-7">
+                                <div class="grid md:grid-cols-2 gap-6">
+
+                                    <!-- Carte 1 : Message (Dark Gradient) -->
+                                    <div class="bento-card group p-8 bg-gradient-to-br from-neutral-dark to-gray-900 text-white rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+                                        data-sr>
+                                        <!-- Glow effect au survol -->
                                         <div
-                                            class="w-16 h-16 flex-shrink-0 bg-success-green/10 text-success-green rounded-2xl flex items-center justify-center group-hover:bg-success-green group-hover:text-white transition-colors duration-300">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none"
+                                            class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl group-hover:bg-white/10 transition-colors">
+                                        </div>
+
+                                        <div
+                                            class="w-12 h-12 bg-white/10 border border-white/20 rounded-2xl flex items-center justify-center mb-6 text-warm-orange group-hover:scale-110 transition-transform duration-300">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                                 viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
                                             </svg>
                                         </div>
-                                        <div>
-                                            <h3 class="text-xl font-bold text-neutral-dark mb-2">Un Appel à l'Action
-                                                (CTA)
-                                                Unique</h3>
-                                            <p class="text-neutral-light text-sm leading-relaxed max-w-lg">
-                                                Que vous souhaitiez un appel découverte ou une vente directe : le design
-                                                s'adapte à <strong>votre</strong> objectif commercial. On ne laisse pas
-                                                le
-                                                visiteur deviner la suite.
-                                            </p>
-                                        </div>
+                                        <h3 class="text-xl font-bold mb-3">Impact Immédiat</h3>
+                                        <p class="text-gray-300 text-sm leading-relaxed">
+                                            Les 3 premières secondes sont décisives. Nous créons un "Hook" visuel et
+                                            textuel
+                                            qui
+                                            résonne instantanément avec la douleur de votre client.
+                                        </p>
                                     </div>
-                                </div>
 
-
-
-                                <!-- Carte 4 : Le Traducteur (FLIP CARD - NOUVEAU CONCEPT : JARGON vs BÉNÉFICE) -->
-                                <div class="h-[280px] group perspective cursor-pointer" data-sr data-sr-delay="300">
-
-                                    <div
-                                        class="relative w-full h-full transition-all duration-700 style-preserve-3d flip-content shadow-xl rounded-3xl">
-
-                                        <!-- FACE 1 : LE PIÈGE DU JARGON -->
+                                    <!-- Carte 2 : Structure (Light but with depth) -->
+                                    <div class="bento-card group p-8 bg-white rounded-3xl border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 hover:border-clarity-blue/30 transition-all duration-300"
+                                        data-sr data-sr-delay="100">
                                         <div
-                                            class="absolute inset-0 backface-hidden bg-white p-8 rounded-3xl border-2 border-dashed border-gray-300 flex flex-col justify-between hover:border-warm-orange/50 transition-colors">
-                                            <div class="absolute top-4 right-4 animate-bounce text-gray-400">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                            class="w-12 h-12 bg-blue-50 text-clarity-blue rounded-2xl flex items-center justify-center mb-6 group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                            </svg>
+                                        </div>
+                                        <h3 class="text-xl font-bold text-neutral-dark mb-3">Navigation Fluide</h3>
+                                        <p class="text-neutral-light text-sm leading-relaxed">
+                                            Pas de menus complexes où l'on se perd. Le visiteur n'a qu'un seul chemin
+                                            logique :
+                                            du problème vers la solution (vous).
+                                        </p>
+                                    </div>
+
+                                    <!-- Carte 3 : Call to Action (Large) -->
+                                    <div class="bento-card md:col-span-2 p-8 bg-gradient-to-r from-white to-blue-50/50 rounded-3xl border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 hover:border-clarity-blue/20 transition-all duration-300 relative overflow-hidden group"
+                                        data-sr data-sr-delay="200">
+                                        <!-- Décoration de fond -->
+                                        <div
+                                            class="absolute -right-10 -bottom-10 opacity-5 group-hover:opacity-10 transition-opacity">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-48 w-48 text-deep-blue"
+                                                fill="currentColor" viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 2L2 7l10 5 10-5-10-5zm0 9l2-10 2 10h-4zm10-5v9l-10 5-10-5V6l10 5 10-5z" />
+                                            </svg>
+                                        </div>
+
+                                        <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+                                            <div
+                                                class="w-16 h-16 flex-shrink-0 bg-success-green/10 text-success-green rounded-2xl flex items-center justify-center group-hover:bg-success-green group-hover:text-white transition-colors duration-300">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2"
-                                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                                        d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
                                                 </svg>
                                             </div>
-
                                             <div>
-                                                <div
-                                                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center mb-6 text-gray-600">
-                                                    <!-- Icone "Livre/Texte complexe" -->
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                                                    </svg>
-                                                </div>
-                                                <h3 class="text-xl font-bold text-neutral-dark mb-3">Le piège du
-                                                    "Jargon" ?
-                                                </h3>
-                                            </div>
-
-                                            <p class="text-neutral-light text-sm font-medium">
-                                                PNL, Systémie, EMDR... Vos clients ne comprennent pas vos outils. Ils
-                                                cherchent juste à aller mieux.
-                                                <span
-                                                    class="text-warm-orange block mt-2 font-bold uppercase text-xs tracking-wider">La
-                                                    solution ↻</span>
-                                            </p>
-                                        </div>
-
-                                        <!-- FACE 2 : VENDRE LA DESTINATION (Dark & Blue/Purple) -->
-                                        <div
-                                            class="absolute inset-0 my-rotate-y-180 backface-hidden bg-neutral-dark p-8 rounded-3xl border border-gray-700 flex flex-col justify-center items-center text-center overflow-hidden">
-                                            <!-- Fond décoratif -->
-                                            <div
-                                                class="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-transparent opacity-50">
-                                            </div>
-
-                                            <div class="relative z-10">
-                                                <div
-                                                    class="w-14 h-14 mx-auto bg-purple-600 rounded-full flex items-center justify-center mb-4 shadow-lg shadow-purple-600/30">
-                                                    <!-- Icone "Étoile/Résultat" -->
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white"
-                                                        fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                                        stroke-width="2">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                                                    </svg>
-                                                </div>
-                                                <h3 class="text-xl font-bold text-white mb-2">On vend la destination.
-                                                </h3>
-                                                <p class="text-gray-300 text-sm leading-relaxed">
-                                                    On ne vend pas l'avion (la technique), on vend les vacances (le
-                                                    résultat).<br>
-                                                    <strong class="text-purple-400">Votre site parle de LEUR
-                                                        futur.</strong>
+                                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Un Appel à l'Action
+                                                    (CTA)
+                                                    Unique</h3>
+                                                <p class="text-neutral-light text-sm leading-relaxed max-w-lg">
+                                                    Que vous souhaitiez un appel découverte ou une vente directe : le
+                                                    design
+                                                    s'adapte à <strong>votre</strong> objectif commercial. On ne laisse
+                                                    pas
+                                                    le
+                                                    visiteur deviner la suite.
                                                 </p>
                                             </div>
                                         </div>
-
                                     </div>
-                                </div>
 
 
 
-                                <!-- Carte 5 : Lien Humain -->
-                                <div class="bento-card group p-8 bg-white rounded-3xl border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 hover:border-warm-orange/30 transition-all duration-300"
-                                    data-sr data-sr-delay="400">
-                                    <div
-                                        class="w-12 h-12 bg-orange-50 text-warm-orange rounded-2xl flex items-center justify-center mb-6 group-hover:bg-warm-orange group-hover:text-white transition-colors duration-300">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                        </svg>
+                                    <!-- Carte 4 : Le Traducteur (FLIP CARD - NOUVEAU CONCEPT : JARGON vs BÉNÉFICE) -->
+                                    <div class="h-[280px] group perspective cursor-pointer" data-sr data-sr-delay="300">
+
+                                        <div
+                                            class="relative w-full h-full transition-all duration-700 style-preserve-3d flip-content shadow-xl rounded-3xl">
+
+                                            <!-- FACE 1 : LE PIÈGE DU JARGON -->
+                                            <div
+                                                class="absolute inset-0 backface-hidden bg-white p-8 rounded-3xl border-2 border-dashed border-gray-300 flex flex-col justify-between hover:border-warm-orange/50 transition-colors">
+                                                <div class="absolute top-4 right-4 animate-bounce text-gray-400">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                                    </svg>
+                                                </div>
+
+                                                <div>
+                                                    <div
+                                                        class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center mb-6 text-gray-600">
+                                                        <!-- Icone "Livre/Texte complexe" -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6"
+                                                            fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                            stroke-width="2">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                                        </svg>
+                                                    </div>
+                                                    <h3 class="text-xl font-bold text-neutral-dark mb-3">Le piège du
+                                                        "Jargon" ?
+                                                    </h3>
+                                                </div>
+
+                                                <p class="text-neutral-light text-sm font-medium">
+                                                    PNL, Systémie, EMDR... Vos clients ne comprennent pas vos outils.
+                                                    Ils
+                                                    cherchent juste à aller mieux.
+                                                    <span
+                                                        class="text-warm-orange block mt-2 font-bold uppercase text-xs tracking-wider">La
+                                                        solution ↻</span>
+                                                </p>
+                                            </div>
+
+                                            <!-- FACE 2 : VENDRE LA DESTINATION (Dark & Blue/Purple) -->
+                                            <div
+                                                class="absolute inset-0 my-rotate-y-180 backface-hidden bg-neutral-dark p-8 rounded-3xl border border-gray-700 flex flex-col justify-center items-center text-center overflow-hidden">
+                                                <!-- Fond décoratif -->
+                                                <div
+                                                    class="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-transparent opacity-50">
+                                                </div>
+
+                                                <div class="relative z-10">
+                                                    <div
+                                                        class="w-14 h-14 mx-auto bg-purple-600 rounded-full flex items-center justify-center mb-4 shadow-lg shadow-purple-600/30">
+                                                        <!-- Icone "Étoile/Résultat" -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                                            class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24"
+                                                            stroke="currentColor" stroke-width="2">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                                                        </svg>
+                                                    </div>
+                                                    <h3 class="text-xl font-bold text-white mb-2">On vend la
+                                                        destination.
+                                                    </h3>
+                                                    <p class="text-gray-300 text-sm leading-relaxed">
+                                                        On ne vend pas l'avion (la technique), on vend les vacances (le
+                                                        résultat).<br>
+                                                        <strong class="text-purple-400">Votre site parle de LEUR
+                                                            futur.</strong>
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </div>
-                                    <h3 class="text-xl font-bold text-neutral-dark mb-3">Connexion Humaine</h3>
-                                    <p class="text-neutral-light text-sm leading-relaxed">
-                                        On ne cache pas le thérapeute derrière un logo. Une section "À Propos"
-                                        authentique
-                                        pour créer la confiance avant même le premier contact.
-                                    </p>
-                                </div>
 
+
+
+                                    <!-- Carte 5 : Lien Humain -->
+                                    <div class="bento-card group p-8 bg-white rounded-3xl border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 hover:border-warm-orange/30 transition-all duration-300"
+                                        data-sr data-sr-delay="400">
+                                        <div
+                                            class="w-12 h-12 bg-orange-50 text-warm-orange rounded-2xl flex items-center justify-center mb-6 group-hover:bg-warm-orange group-hover:text-white transition-colors duration-300">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                        </div>
+                                        <h3 class="text-xl font-bold text-neutral-dark mb-3">Connexion Humaine</h3>
+                                        <p class="text-neutral-light text-sm leading-relaxed">
+                                            On ne cache pas le thérapeute derrière un logo. Une section "À Propos"
+                                            authentique
+                                            pour créer la confiance avant même le premier contact.
+                                        </p>
+                                    </div>
+
+                                </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
-                </div>
             </section>
 
 
@@ -741,225 +752,231 @@
             <!-- ======================================================= -->
             <section id="reality-check" class="py-24 bg-transparent relative z-10">
 
-
-                <!-- DÉCORATION D'ARRIÈRE-PLAN (Ajustée pour le fond gris) -->
-                <!-- On met une lueur BLANCHE à gauche pour créer du relief sur le fond gris -->
-                <div
-                    class="absolute top-1/4 left-0 w-[800px] h-[800px] bg-white rounded-full blur-[100px] opacity-60 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-                </div>
-
-                <!-- Lueur bleutée à droite maintenue -->
-                <div
-                    class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-clarity-blue/5 rounded-full blur-[100px] translate-x-1/3 translate-y-1/3 pointer-events-none">
-                </div>
-
-
-                <!-- 1. La lueur de transition (Haut-Gauche) -->
-                <!-- -translate-y-1/2 permet de la mettre à cheval sur la section du dessus -->
-                <div
-                    class="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-100/40 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-                </div>
-
-
-
                 <div class="container mx-auto px-6 relative z-10">
 
-                    <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+                    <!-- DÉCORATION D'ARRIÈRE-PLAN (Ajustée pour le fond gris) -->
+                    <!-- On met une lueur BLANCHE à gauche pour créer du relief sur le fond gris -->
+                    <div
+                        class="absolute top-1/4 left-0 w-[800px] h-[800px] bg-white rounded-full blur-[100px] opacity-60 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                    </div>
+
+                    <!-- Lueur bleutée à droite maintenue -->
+                    <div
+                        class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-clarity-blue/5 rounded-full blur-[100px] translate-x-1/3 translate-y-1/3 pointer-events-none">
+                    </div>
+
+
+                    <!-- 1. La lueur de transition (Haut-Gauche) -->
+                    <!-- -translate-y-1/2 permet de la mettre à cheval sur la section du dessus -->
+                    <div
+                        class="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-100/40 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+                    </div>
 
 
 
-                        <!-- COLONNE GAUCHE : LES DOULEURS (Version Dark Diagnostic) -->
-                        <div data-sr>
-                            <!-- Badge "Contexte" -->
-                            <div
-                                class="inline-block px-3 py-1 mb-6 border border-gray-300 rounded-full bg-transparent text-neutral-500 text-xs font-bold tracking-widest uppercase">
-                                Le Constat
-                            </div>
+                    <div class="container mx-auto px-6 relative z-10">
 
-                            <h2 class="text-3xl md:text-5xl font-bold text-neutral-dark mb-8 leading-tight">
-                                Expert dans votre cabinet.<br>
-                                <span class="text-neutral-light/60">Perdu dans le digital ?</span>
-                            </h2>
+                        <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
-                            <div class="space-y-5">
 
-                                <!-- Douleur 1 : Doctolib (ALERT RED) -->
+
+                            <!-- COLONNE GAUCHE : LES DOULEURS (Version Dark Diagnostic) -->
+                            <div data-sr>
+                                <!-- Badge "Contexte" -->
                                 <div
-                                    class="group relative bg-[#0F172A] rounded-2xl p-6 border border-white/5 shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-red-500/30">
-
-                                    <!-- Lueur d'ambiance au survol (Rouge pour l'argent perdu) -->
-                                    <div
-                                        class="absolute -right-10 -top-10 w-32 h-32 bg-red-500/10 rounded-full blur-2xl group-hover:bg-red-500/20 transition-colors duration-500">
-                                    </div>
-
-                                    <div class="relative z-10">
-                                        <!-- Header de la carte : Le "Status Tag" remplace l'icône -->
-                                        <div class="flex justify-between items-start mb-4">
-                                            <div
-                                                class="inline-flex items-center gap-2 px-2 py-1 rounded bg-red-500/10 border border-red-500/20 text-red-400 text-[10px] font-mono tracking-wider uppercase">
-                                                <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
-                                                Dépendance_Externe
-                                            </div>
-                                            <span class="text-gray-600 text-xs font-mono">ERR_402</span>
-                                        </div>
-
-                                        <h3
-                                            class="text-lg font-bold text-white mb-2 group-hover:text-red-300 transition-colors">
-                                            La rente "Doctolib"</h3>
-                                        <p class="text-gray-400 text-sm leading-relaxed">
-                                            Payer un loyer mensuel à vie pour être noyé au milieu de vos concurrents,
-                                            sans
-                                            jamais posséder votre propre visibilité ni vos données clients.
-                                        </p>
-                                    </div>
+                                    class="inline-block px-3 py-1 mb-6 border border-gray-300 rounded-full bg-transparent text-neutral-500 text-xs font-bold tracking-widest uppercase">
+                                    Le Constat
                                 </div>
 
-                                <!-- Douleur 2 : Image Amateur (WARNING ORANGE) -->
-                                <div
-                                    class="group relative bg-[#0F172A] rounded-2xl p-6 border border-white/5 shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-warm-orange/30">
+                                <h2 class="text-3xl md:text-5xl font-bold text-neutral-dark mb-8 leading-tight">
+                                    Expert dans votre cabinet.<br>
+                                    <span class="text-neutral-light/60">Perdu dans le digital ?</span>
+                                </h2>
 
-                                    <!-- Lueur d'ambiance au survol -->
+                                <div class="space-y-5">
+
+                                    <!-- Douleur 1 : Doctolib (ALERT RED) -->
                                     <div
-                                        class="absolute -right-10 -top-10 w-32 h-32 bg-warm-orange/10 rounded-full blur-2xl group-hover:bg-warm-orange/20 transition-colors duration-500">
-                                    </div>
+                                        class="group relative bg-[#0F172A] rounded-2xl p-6 border border-white/5 shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-red-500/30">
 
-                                    <div class="relative z-10">
-                                        <div class="flex justify-between items-start mb-4">
-                                            <div
-                                                class="inline-flex items-center gap-2 px-2 py-1 rounded bg-orange-500/10 border border-orange-500/20 text-orange-400 text-[10px] font-mono tracking-wider uppercase">
-                                                <span
-                                                    class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
-                                                Image_Non_Conforme
-                                            </div>
-                                            <span class="text-gray-600 text-xs font-mono">WARN_301</span>
+                                        <!-- Lueur d'ambiance au survol (Rouge pour l'argent perdu) -->
+                                        <div
+                                            class="absolute -right-10 -top-10 w-32 h-32 bg-red-500/10 rounded-full blur-2xl group-hover:bg-red-500/20 transition-colors duration-500">
                                         </div>
 
-                                        <h3
-                                            class="text-lg font-bold text-white mb-2 group-hover:text-orange-300 transition-colors">
-                                            L'effet "Bricolage"</h3>
-                                        <p class="text-gray-400 text-sm leading-relaxed">
-                                            Votre accompagnement est haut de gamme, mais votre site actuel
-                                            (Wix/Wordpress
-                                            mal configuré) renvoie une image d'amateur qui fait fuir les tarifs premium.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <!-- Douleur 3 : La Technique (SYSTEM BLUE/PURPLE) -->
-                                <div
-                                    class="group relative bg-[#0F172A] rounded-2xl p-6 border border-white/5 shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/30">
-
-                                    <!-- Lueur d'ambiance au survol -->
-                                    <div
-                                        class="absolute -right-10 -top-10 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl group-hover:bg-indigo-500/20 transition-colors duration-500">
-                                    </div>
-
-                                    <div class="relative z-10">
-                                        <div class="flex justify-between items-start mb-4">
-                                            <div
-                                                class="inline-flex items-center gap-2 px-2 py-1 rounded bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-[10px] font-mono tracking-wider uppercase">
-                                                <span
-                                                    class="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
-                                                Surcharge_Cognitive
+                                        <div class="relative z-10">
+                                            <!-- Header de la carte : Le "Status Tag" remplace l'icône -->
+                                            <div class="flex justify-between items-start mb-4">
+                                                <div
+                                                    class="inline-flex items-center gap-2 px-2 py-1 rounded bg-red-500/10 border border-red-500/20 text-red-400 text-[10px] font-mono tracking-wider uppercase">
+                                                    <span
+                                                        class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                                                    Dépendance_Externe
+                                                </div>
+                                                <span class="text-gray-600 text-xs font-mono">ERR_402</span>
                                             </div>
-                                            <span class="text-gray-600 text-xs font-mono">SYS_500</span>
-                                        </div>
 
-                                        <h3
-                                            class="text-lg font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors">
-                                            La phobie technique</h3>
-                                        <p class="text-gray-400 text-sm leading-relaxed">
-                                            DNS, SSL, Mises à jour... Ces termes vous stressent ? Votre énergie doit
-                                            être
-                                            100% dédiée à vos patients, pas à la maintenance informatique.
-                                        </p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-
-
-                        <!-- COLONNE DROITE : LA RÉPONSE (Carte Dark Premium - NETTOYÉE) -->
-                        <div class="relative group" data-sr data-sr-delay="200">
-
-                            <!-- Lueur d'arrière-plan (Style Terminal) -->
-                            <!-- C'est ce bloc qui crée la lumière derrière le cadre -->
-                            <div
-                                class="absolute -inset-1 bg-gradient-to-r from-clarity-blue via-success-green to-deep-blue rounded-[2rem] blur opacity-30 group-hover:opacity-50 transition duration-1000">
-                            </div>
-
-                            <!-- La Carte Principale -->
-                            <!-- Suppression du overflow-hidden pour que la lueur arrière respire, mais background opaque -->
-                            <div
-                                class="relative bg-[#0F172A] rounded-[2rem] p-10 md:p-12 shadow-2xl border border-white/10 h-full flex flex-col justify-center">
-
-                                <!-- (J'ai supprimé la div de texture "bruit" et le cercle lumineux interne ici) -->
-
-                                <div class="relative z-10">
-
-                                    <!-- NOUVEAU BADGE (Style Hero) -->
-                                    <div
-                                        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-success-green text-xs font-bold uppercase tracking-widest shadow-lg mb-8">
-                                        <!-- Point vert clignotant -->
-                                        <span class="relative flex h-2 w-2">
-                                            <span
-                                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-success-green opacity-75"></span>
-                                            <span
-                                                class="relative inline-flex rounded-full h-2 w-2 bg-success-green"></span>
-                                        </span>
-                                        La Mission Clartem
-                                    </div>
-
-                                    <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
-                                        Je traduis votre <br>
-                                        <span
-                                            class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-white">"Savoir-Faire"</span>
-                                        en <br>
-                                        <span
-                                            class="text-transparent bg-clip-text bg-gradient-to-r from-warm-orange to-white">"Faire-Venir".</span>
-                                    </h3>
-
-                                    <div class="space-y-6 text-gray-400 text-lg leading-relaxed font-light mb-10">
-                                        <p>
-                                            Je ne suis pas là pour vous vendre "du code", mais pour construire le pont
-                                            psychologique entre la douleur de votre client et votre solution.
-                                        </p>
-                                        <p>
-                                            Je prends en charge toute la complexité technique et marketing.
-                                        </p>
-                                        <p class="text-white font-medium border-l-2 border-clarity-blue pl-4">
-                                            Vous soignez vos patients. Je soigne votre image.
-                                        </p>
-                                    </div>
-
-                                    <!-- Signature / Profil -->
-                                    <div class="flex items-center gap-5 pt-8 border-t border-white/10">
-                                        <div class="relative w-16 h-16">
-                                            <!-- Petit halo subtil uniquement autour de la photo -->
-                                            <div
-                                                class="absolute inset-0 bg-gradient-to-br from-clarity-blue to-success-green rounded-full opacity-40 blur-sm">
-                                            </div>
-                                            <img src="assets/photo-frederic.jpg" alt="Frédéric Delavictoire"
-                                                class="relative w-full h-full object-cover rounded-full border-2 border-white/20 p-0.5 bg-neutral-dark">
-                                        </div>
-                                        <div>
-                                            <p class="text-white font-bold text-lg">Votre Partenaire</p>
-                                            <p class="text-clarity-blue text-sm font-medium">Spécialisé Coachs &
-                                                Thérapeutes
+                                            <h3
+                                                class="text-lg font-bold text-white mb-2 group-hover:text-red-300 transition-colors">
+                                                La rente "Doctolib"</h3>
+                                            <p class="text-gray-400 text-sm leading-relaxed">
+                                                Payer un loyer mensuel à vie pour être noyé au milieu de vos
+                                                concurrents,
+                                                sans
+                                                jamais posséder votre propre visibilité ni vos données clients.
                                             </p>
                                         </div>
                                     </div>
+
+                                    <!-- Douleur 2 : Image Amateur (WARNING ORANGE) -->
+                                    <div
+                                        class="group relative bg-[#0F172A] rounded-2xl p-6 border border-white/5 shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-warm-orange/30">
+
+                                        <!-- Lueur d'ambiance au survol -->
+                                        <div
+                                            class="absolute -right-10 -top-10 w-32 h-32 bg-warm-orange/10 rounded-full blur-2xl group-hover:bg-warm-orange/20 transition-colors duration-500">
+                                        </div>
+
+                                        <div class="relative z-10">
+                                            <div class="flex justify-between items-start mb-4">
+                                                <div
+                                                    class="inline-flex items-center gap-2 px-2 py-1 rounded bg-orange-500/10 border border-orange-500/20 text-orange-400 text-[10px] font-mono tracking-wider uppercase">
+                                                    <span
+                                                        class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
+                                                    Image_Non_Conforme
+                                                </div>
+                                                <span class="text-gray-600 text-xs font-mono">WARN_301</span>
+                                            </div>
+
+                                            <h3
+                                                class="text-lg font-bold text-white mb-2 group-hover:text-orange-300 transition-colors">
+                                                L'effet "Bricolage"</h3>
+                                            <p class="text-gray-400 text-sm leading-relaxed">
+                                                Votre accompagnement est haut de gamme, mais votre site actuel
+                                                (Wix/Wordpress
+                                                mal configuré) renvoie une image d'amateur qui fait fuir les tarifs
+                                                premium.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Douleur 3 : La Technique (SYSTEM BLUE/PURPLE) -->
+                                    <div
+                                        class="group relative bg-[#0F172A] rounded-2xl p-6 border border-white/5 shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/30">
+
+                                        <!-- Lueur d'ambiance au survol -->
+                                        <div
+                                            class="absolute -right-10 -top-10 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl group-hover:bg-indigo-500/20 transition-colors duration-500">
+                                        </div>
+
+                                        <div class="relative z-10">
+                                            <div class="flex justify-between items-start mb-4">
+                                                <div
+                                                    class="inline-flex items-center gap-2 px-2 py-1 rounded bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-[10px] font-mono tracking-wider uppercase">
+                                                    <span
+                                                        class="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
+                                                    Surcharge_Cognitive
+                                                </div>
+                                                <span class="text-gray-600 text-xs font-mono">SYS_500</span>
+                                            </div>
+
+                                            <h3
+                                                class="text-lg font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors">
+                                                La phobie technique</h3>
+                                            <p class="text-gray-400 text-sm leading-relaxed">
+                                                DNS, SSL, Mises à jour... Ces termes vous stressent ? Votre énergie doit
+                                                être
+                                                100% dédiée à vos patients, pas à la maintenance informatique.
+                                            </p>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
 
+
+
+                            <!-- COLONNE DROITE : LA RÉPONSE (Carte Dark Premium - NETTOYÉE) -->
+                            <div class="relative group" data-sr data-sr-delay="200">
+
+                                <!-- Lueur d'arrière-plan (Style Terminal) -->
+                                <!-- C'est ce bloc qui crée la lumière derrière le cadre -->
+                                <div
+                                    class="absolute -inset-1 bg-gradient-to-r from-clarity-blue via-success-green to-deep-blue rounded-[2rem] blur opacity-30 group-hover:opacity-50 transition duration-1000">
+                                </div>
+
+                                <!-- La Carte Principale -->
+                                <!-- Suppression du overflow-hidden pour que la lueur arrière respire, mais background opaque -->
+                                <div
+                                    class="relative bg-[#0F172A] rounded-[2rem] p-10 md:p-12 shadow-2xl border border-white/10 h-full flex flex-col justify-center">
+
+                                    <!-- (J'ai supprimé la div de texture "bruit" et le cercle lumineux interne ici) -->
+
+                                    <div class="relative z-10">
+
+                                        <!-- NOUVEAU BADGE (Style Hero) -->
+                                        <div
+                                            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-success-green text-xs font-bold uppercase tracking-widest shadow-lg mb-8">
+                                            <!-- Point vert clignotant -->
+                                            <span class="relative flex h-2 w-2">
+                                                <span
+                                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-success-green opacity-75"></span>
+                                                <span
+                                                    class="relative inline-flex rounded-full h-2 w-2 bg-success-green"></span>
+                                            </span>
+                                            La Mission Clartem
+                                        </div>
+
+                                        <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+                                            Je traduis votre <br>
+                                            <span
+                                                class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-white">"Savoir-Faire"</span>
+                                            en <br>
+                                            <span
+                                                class="text-transparent bg-clip-text bg-gradient-to-r from-warm-orange to-white">"Faire-Venir".</span>
+                                        </h3>
+
+                                        <div class="space-y-6 text-gray-400 text-lg leading-relaxed font-light mb-10">
+                                            <p>
+                                                Je ne suis pas là pour vous vendre "du code", mais pour construire le
+                                                pont
+                                                psychologique entre la douleur de votre client et votre solution.
+                                            </p>
+                                            <p>
+                                                Je prends en charge toute la complexité technique et marketing.
+                                            </p>
+                                            <p class="text-white font-medium border-l-2 border-clarity-blue pl-4">
+                                                Vous soignez vos patients. Je soigne votre image.
+                                            </p>
+                                        </div>
+
+                                        <!-- Signature / Profil -->
+                                        <div class="flex items-center gap-5 pt-8 border-t border-white/10">
+                                            <div class="relative w-16 h-16">
+                                                <!-- Petit halo subtil uniquement autour de la photo -->
+                                                <div
+                                                    class="absolute inset-0 bg-gradient-to-br from-clarity-blue to-success-green rounded-full opacity-40 blur-sm">
+                                                </div>
+                                                <img src="assets/photo-frederic.jpg" alt="Frédéric Delavictoire"
+                                                    class="relative w-full h-full object-cover rounded-full border-2 border-white/20 p-0.5 bg-neutral-dark">
+                                            </div>
+                                            <div>
+                                                <p class="text-white font-bold text-lg">Votre Partenaire</p>
+                                                <p class="text-clarity-blue text-sm font-medium">Spécialisé Coachs &
+                                                    Thérapeutes
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
                         </div>
-
-
-
                     </div>
-                </div>
             </section>
 
 
