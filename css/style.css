@@ -1609,3 +1609,80 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     width: 16px !important;
     height: 16px !important;
 }
+
+
+
+
+
+
+/* ======================================================= */
+/*    NOUVEAU : MISE EN AVANT DES MENUS STRUCTURE (V3)     */
+/*    Cible : Les accordéons "Impact" et "Ancrage"         */
+/* ======================================================= */
+
+/* 1. Base du style "Featured" (Structure commune) */
+.pricing-toggle.featured-toggle {
+    /* On force une marge en bas pour séparer visuellement la "Base" du reste de la liste */
+    margin-bottom: 12px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border-radius: 12px; /* Arrondi un peu plus prononcé */
+    font-weight: 600;    /* Texte un peu plus gras par défaut */
+}
+
+/* 2. Style Spécifique pour l'offre IMPACT (Bleu Clair) */
+.premium-offer-card.variant-blue .pricing-toggle.featured-toggle {
+    background-color: rgba(59, 130, 246, 0.04); /* Bleu très pâle */
+    border: 1px solid rgba(59, 130, 246, 0.15); /* Bordure subtile */
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.05); /* Légère ombre colorée */
+}
+
+/* Interaction Hover Impact */
+.premium-offer-card.variant-blue .pricing-toggle.featured-toggle:hover {
+    background-color: rgba(59, 130, 246, 0.08);
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.1);
+    transform: translateY(-1px); /* Petit lift */
+}
+
+/* État Actif (Ouvert) Impact */
+.premium-offer-card.variant-blue .pricing-toggle.featured-toggle.active {
+    background-color: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: inset 0 2px 4px rgba(59, 130, 246, 0.05); /* Effet enfoncé */
+}
+
+
+/* 3. Style Spécifique pour l'offre ANCRAGE (Deep Blue) */
+.premium-offer-card.variant-deep .pricing-toggle.featured-toggle {
+    background-color: rgba(30, 58, 138, 0.04); /* Deep Blue très pâle */
+    border: 1px solid rgba(30, 58, 138, 0.12);
+    box-shadow: 0 2px 4px rgba(30, 58, 138, 0.05);
+}
+
+/* Interaction Hover Ancrage */
+.premium-offer-card.variant-deep .pricing-toggle.featured-toggle:hover {
+    background-color: rgba(30, 58, 138, 0.08);
+    border-color: rgba(30, 58, 138, 0.4);
+    box-shadow: 0 4px 8px rgba(30, 58, 138, 0.1);
+    transform: translateY(-1px);
+}
+
+/* État Actif (Ouvert) Ancrage */
+.premium-offer-card.variant-deep .pricing-toggle.featured-toggle.active {
+    background-color: rgba(30, 58, 138, 0.1);
+    border-color: rgba(30, 58, 138, 0.5);
+    box-shadow: inset 0 2px 4px rgba(30, 58, 138, 0.05);
+}
+
+
+/* 4. Petit détail : On colore légèrement l'icône à l'intérieur pour renforcer l'identité */
+.premium-offer-card.variant-blue .pricing-toggle.featured-toggle svg:first-child {
+    color: #3B82F6; /* Clarity Blue */
+    filter: drop-shadow(0 2px 4px rgba(59,130,246,0.2));
+}
+
+.premium-offer-card.variant-deep .pricing-toggle.featured-toggle svg:first-child {
+    color: #1E3A8A; /* Deep Blue */
+    filter: drop-shadow(0 2px 4px rgba(30,58,138,0.2));
+}
