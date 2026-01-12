@@ -1861,23 +1861,39 @@
 
 
 
-
         <!-- ======================================================= -->
-        <!--       SECTION OFFRES (MISE À JOUR COMPLÈTE)             -->
+        <!--       SECTION OFFRES (MISE À JOUR DYNAMIQUE)            -->
         <!-- ======================================================= -->
         <section id="offres" class="py-24 bg-soft-blue relative overflow-hidden">
 
-            <!-- Décoration de fond -->
-            <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+            <!-- DÉBUT : ARRIÈRE-PLAN ANIMÉ DYNAMIQUE -->
+            <!-- Ce conteneur s'étire automatiquement avec la hauteur de la section -->
+            <div class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
+
+                <!-- Orbe 1 : Bleu (Haut Gauche) -->
                 <div
-                    class="absolute top-0 left-1/4 w-[800px] h-[800px] bg-white rounded-full mix-blend-overlay filter blur-[100px] opacity-60">
+                    class="absolute top-0 left-[-10%] w-[500px] h-[500px] bg-clarity-blue/20 rounded-full mix-blend-multiply filter blur-[80px] opacity-70 animate-float-slow">
                 </div>
+
+                <!-- Orbe 2 : Orange (Milieu Droit - bouge quand on ouvre les menus) -->
                 <div
-                    class="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-clarity-blue/10 rounded-full mix-blend-multiply filter blur-[80px]">
+                    class="absolute top-[40%] right-[-5%] w-[400px] h-[400px] bg-warm-orange/15 rounded-full mix-blend-multiply filter blur-[80px] opacity-60 animate-float-medium animation-delay-2000">
+                </div>
+
+                <!-- Orbe 3 : Violet/Bleu Profond (Bas Gauche - remplit le vide en bas) -->
+                <div
+                    class="absolute bottom-[-10%] left-[20%] w-[600px] h-[600px] bg-deep-blue/10 rounded-full mix-blend-multiply filter blur-[100px] opacity-50 animate-float-slow animation-delay-4000">
+                </div>
+
+                <!-- Orbe 4 : Extra Large (Bas Droit - pour les grands écrans/menus ouverts) -->
+                <div
+                    class="absolute bottom-[10%] right-[10%] w-[500px] h-[500px] bg-clarity-blue/10 rounded-full mix-blend-multiply filter blur-[90px] opacity-40 animate-pulse-slow">
                 </div>
             </div>
+            <!-- FIN : ARRIÈRE-PLAN ANIMÉ -->
 
             <div class="container mx-auto px-6 relative z-10">
+
 
                 <!-- EN-TÊTE -->
                 <div class="text-center mb-16 max-w-3xl mx-auto" data-sr>
