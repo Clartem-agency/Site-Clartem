@@ -1577,3 +1577,21 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     display: flex;
     flex-direction: column;
 }
+
+
+
+/* ======================================================= */
+/*    CORRECTIF ALIGNEMENT VERTICAL ICONES (OFFRES)        */
+/* ======================================================= */
+
+/* 1. On cible les éléments de liste (li) qui ne sont PAS des colonnes (donc pas les accordéons) */
+#offres ul.space-y-3 li:not(.flex-col) {
+    align-items: center !important; /* Force le centrage vertical parfait */
+}
+
+/* 2. On retire les marges manuelles qui poussaient les icônes vers le bas */
+/* On cible les SVG directs et ceux dans les tooltips s'il y en a */
+#offres ul.space-y-3 li:not(.flex-col) > svg,
+#offres ul.space-y-3 li:not(.flex-col) .offer-list-item svg {
+    margin-top: 0 !important; /* Annule le décalage de 2px ou mt-0.5 */
+}
