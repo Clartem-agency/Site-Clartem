@@ -1686,3 +1686,85 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     color: #1E3A8A; /* Deep Blue */
     filter: drop-shadow(0 2px 4px rgba(30,58,138,0.2));
 }
+
+
+
+
+
+
+
+/* ======================================================= */
+/*    ANIMATIONS "ROAMING" (DYNAMISME OFFRES - GRANDES DISTANCES) */
+/* ======================================================= */
+
+/* Orbe 1 : Grande traversée diagonale (Haut-Gauche vers Bas-Droite) */
+@keyframes roam1 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(80vw, 60vh) scale(1.5); } /* Va très loin vers la droite et le bas */
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+/* Orbe 2 : Grande traversée inverse (Haut-Droite vers Bas-Gauche) */
+@keyframes roam2 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-80vw, 50vh) scale(0.8); } /* Va très loin vers la gauche et le bas */
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+/* Orbe 4 (Bleu foncé) : Remonte du fond (Bas-Droite vers Haut-Gauche) */
+@keyframes roam4 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-70vw, -70vh) scale(1.3); } /* Remonte très haut vers la gauche */
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+/* Application des animations avec des durées augmentées (45s+) pour garder de la douceur */
+.animate-roam-1 { animation: roam1 45s ease-in-out infinite; }
+.animate-roam-2 { animation: roam2 50s ease-in-out infinite; }
+/* Note : animate-roam-3 et animate-roam-orange ont été supprimés */
+.animate-roam-4 { animation: roam4 55s ease-in-out infinite; }
+
+
+
+
+
+
+
+/* ======================================================= */
+/*    ANIMATIONS BOOSTÉES (CONCEPT <-> RÉALITÉ)            */
+/* ======================================================= */
+
+@keyframes flowDownBoosted {
+    0% { 
+        transform: translateY(0) translateX(0) scale(1); 
+    }
+    50% { 
+        /* Descend très bas (120% de la hauteur) et va vers la droite */
+        transform: translateY(100vh) translateX(50vw) scale(1.2); 
+    }
+    100% { 
+        transform: translateY(0) translateX(0) scale(1); 
+    }
+}
+
+@keyframes flowUpBoosted {
+    0% { 
+        transform: translateY(0) translateX(0) scale(1); 
+    }
+    50% { 
+        /* Monte très haut (-100vh) et va vers la gauche */
+        transform: translateY(-100vh) translateX(-50vw) scale(1.2); 
+    }
+    100% { 
+        transform: translateY(0) translateX(0) scale(1); 
+    }
+}
+
+.animate-flow-down-boosted {
+    /* 20 secondes, c'est assez rapide pour être vu, assez lent pour être calme */
+    animation: flowDownBoosted 20s ease-in-out infinite;
+}
+
+.animate-flow-up-boosted {
+    animation: flowUpBoosted 25s ease-in-out infinite; 
+}
