@@ -1690,51 +1690,55 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 
+
+
 /* ======================================================= */
-/*    ANIMATIONS D'ARRIÈRE-PLAN (SECTION OFFRES)           */
+/*    ANIMATIONS "ROAMING" (DYNAMISME OFFRES)              */
 /* ======================================================= */
 
-/* Mouvement lent et fluide (Flotte comme une bulle de lave) */
-@keyframes floatSlow {
-    0% { transform: translate(0px, 0px) scale(1); }
-    33% { transform: translate(30px, -50px) scale(1.1); }
-    66% { transform: translate(-20px, 20px) scale(0.9); }
-    100% { transform: translate(0px, 0px) scale(1); }
+/* Orbe 1 : Diagonale large Haut-Gauche vers Bas-Droite */
+@keyframes roam1 {
+    0% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30vw, 20vh) scale(1.2); }
+    66% { transform: translate(10vw, 40vh) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); }
 }
 
-/* Mouvement un peu plus dynamique (mais toujours doux) */
-@keyframes floatMedium {
-    0% { transform: translate(0px, 0px) rotate(0deg); }
-    50% { transform: translate(-40px, 30px) rotate(10deg); }
-    100% { transform: translate(0px, 0px) rotate(0deg); }
+/* Orbe 2 : Cercle large sur la droite */
+@keyframes roam2 {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-20vw, 30vh); }
+    100% { transform: translate(0, 0); }
 }
 
-/* Pulsation très lente pour le fond */
-@keyframes pulseSlow {
-    0%, 100% { opacity: 0.4; transform: scale(1); }
-    50% { opacity: 0.6; transform: scale(1.1); }
+/* Orbe 3 : Remonte du bas vers le milieu */
+@keyframes roam3 {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(40vw, -30vh) scale(1.3); }
+    100% { transform: translate(0, 0) scale(1); }
 }
 
-/* Classes utilitaires pour appliquer les animations */
-.animate-float-slow {
-    animation: floatSlow 20s ease-in-out infinite;
+/* Orbe 4 : Oscille en bas */
+@keyframes roam4 {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-30vw, -10vh); }
+    100% { transform: translate(0, 0); }
 }
 
-.animate-float-medium {
-    animation: floatMedium 15s ease-in-out infinite;
+/* ORBE ORANGE (Le plus actif) : Traverse l'écran */
+@keyframes roamOrange {
+    0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    33% { transform: translate(40vw, -20vh) rotate(45deg) scale(1.1); }
+    66% { transform: translate(20vw, 20vh) rotate(90deg) scale(0.9); }
+    100% { transform: translate(0, 0) rotate(0deg) scale(1); }
 }
 
-.animate-pulse-slow {
-    animation: pulseSlow 10s ease-in-out infinite;
-}
-
-/* Délais pour désynchroniser les orbes (évite l'effet "robotique") */
-.animation-delay-2000 {
-    animation-delay: 2s;
-}
-.animation-delay-4000 {
-    animation-delay: 4s;
-}
+/* Application des animations avec des durées différentes pour éviter la répétition */
+.animate-roam-1 { animation: roam1 25s ease-in-out infinite; }
+.animate-roam-2 { animation: roam2 28s ease-in-out infinite; }
+.animate-roam-3 { animation: roam3 30s ease-in-out infinite; }
+.animate-roam-4 { animation: roam4 35s ease-in-out infinite; }
+.animate-roam-orange { animation: roamOrange 32s ease-in-out infinite; }
 
 
 
