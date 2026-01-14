@@ -449,34 +449,41 @@
 
 
 
-        <!-- ======================================================= -->
-    <!--    SECTION TRANSITION : LE PORTAIL                      -->
+    <!-- ======================================================= -->
+    <!--    SECTION TRANSITION : LE PORTAIL (VERSION MATRIX)     -->
     <!-- ======================================================= -->
     
     <div id="transition-tunnel" class="relative h-[300vh] z-30">
         <div class="sticky top-0 left-0 w-full h-screen overflow-hidden">
             
-            <!-- COUCHE 1 : DARK (Arrière-plan fixe) -->
-            <div class="absolute inset-0 bg-neutral-dark flex flex-col items-center justify-center z-10">
+            <!-- COUCHE 1 : DARK (Arrière-plan MATRIX) -->
+            <div class="absolute inset-0 bg-neutral-dark flex flex-col items-center justify-center z-10 overflow-hidden">
                 
-                <!-- Contenu Matrix Simplifié (Juste le message final) -->
-                <div class="text-center opacity-100 transition-opacity duration-300 px-6" id="dark-content">
+                <!-- LE CANEVAS MATRIX (La pluie de code) -->
+                <canvas id="matrix-canvas" class="absolute inset-0 w-full h-full opacity-20"></canvas>
+                
+                <!-- Overlay dégradé pour que le texte reste lisible au centre -->
+                <div class="absolute inset-0 bg-radial-gradient from-transparent via-neutral-dark/50 to-neutral-dark pointer-events-none"></div>
+
+                <!-- Contenu Texte (Au-dessus du code) -->
+                <div class="relative z-10 text-center opacity-100 transition-opacity duration-300 px-6" id="dark-content">
                     
                     <!-- Ligne animée décorative -->
                     <div class="w-px h-24 bg-gradient-to-b from-transparent via-green-500 to-transparent mx-auto mb-8 animate-pulse"></div>
 
-                    <p class="text-sm font-mono text-green-500 mb-4 tracking-[0.2em]">> SYSTEM_CHECK: OK</p>
-                    <h2 class="text-3xl md:text-5xl font-bold text-white mb-2">Prêt pour la suite ?</h2>
-                    <p class="text-gray-500 font-mono text-sm mt-4">Initialisation de l'interface humaine...</p>
+                    <div class="inline-block bg-neutral-dark/80 backdrop-blur-sm border border-green-500/20 px-6 py-4 rounded-xl shadow-2xl">
+                        <p class="text-sm font-mono text-green-500 mb-2 tracking-[0.2em] animate-pulse">> SYSTEM_CHECK: OK</p>
+                        <h2 class="text-3xl md:text-5xl font-bold text-white mb-2">Prêt pour la suite ?</h2>
+                        <p class="text-gray-500 font-mono text-sm mt-2">Initialisation de l'interface humaine...</p>
+                    </div>
                     
-                    <div class="mt-16 animate-bounce text-white/30 text-xs tracking-widest uppercase">
+                    <div class="mt-16 animate-bounce text-white/30 text-xs tracking-widest uppercase font-mono">
                         ↓ Scrollez pour ouvrir
                     </div>
                 </div>
             </div>
 
-            <!-- COUCHE 2 : LIGHT (Le masque qui s'ouvre) -->
-            <!-- Notez l'ID 'light-mask' pour le JS -->
+            <!-- COUCHE 2 : LIGHT (Le masque qui s'ouvre) - INCHANGÉ -->
             <div id="light-mask" class="absolute inset-0 bg-gray-50 z-20 flex items-center justify-center pointer-events-none" 
                  style="clip-path: circle(0% at 50% 50%); -webkit-clip-path: circle(0% at 50% 50%);">
                 
