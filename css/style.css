@@ -1784,21 +1784,25 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 /* ======================================================= */
-/*    L'ÂME (SOUL) - Version Liquide / Organique           */
+/*    L'ÂME (SOUL) - Version Liquide CORRIGÉE              */
 /* ======================================================= */
 
 #soul-entity {
     position: absolute;
     left: 50%;
     top: 0;
-    width: 20px; /* Un peu plus petit pour le noyau */
+    width: 20px;
     height: 20px;
     transform: translate(-50%, -50%);
     z-index: 5;
     pointer-events: none;
-    /* On utilisera JS pour gérer le scale (étirement), donc on garde la transition fluide */
-    transition: background-color 0.5s ease; 
+    
+    /* IMPORTANT : Le fond doit être transparent ici pour ne pas voir le carré */
+    background: transparent !important; 
+    
     will-change: top, transform;
+    /* On utilise la propriété color pour piloter la couleur des enfants */
+    transition: color 0.5s ease;
 }
 
 /* Mobile : décalage à gauche */
@@ -1806,49 +1810,51 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     #soul-entity { left: 20px; }
 }
 
-/* LE NOYAU (La tête) */
+/* LE NOYAU (La tête ronde) */
 .soul-core {
     position: absolute;
     inset: 0;
-    border-radius: 50%;
-    background: white;
+    border-radius: 50%; /* Force le rond parfait */
+    background-color: currentColor; /* Prend la couleur définie sur le parent */
     box-shadow: 0 0 15px currentColor; /* Lueur interne */
     z-index: 2;
 }
 
-/* LA TRAÎNÉE (La queue / le liquide) */
-/* C'est ce qui donne l'effet spermatozoïde/goutte */
+/* LA TRAÎNÉE (La queue liquide) */
 .soul-tail {
     position: absolute;
-    top: -10px; /* Juste au dessus */
+    bottom: 50%; /* Part du milieu de la tête */
     left: 50%;
-    width: 12px;
-    height: 25px;
-    background: inherit; /* Prend la couleur du parent */
+    width: 10px; /* Plus fin que la tête */
+    height: 25px; /* Longueur de la traînée */
+    
+    background-color: currentColor; /* Prend la couleur définie sur le parent */
+    
+    /* Forme de goutte inversée */
+    border-radius: 50% 50% 0 0; 
+    
     transform: translateX(-50%);
-    border-radius: 50%;
-    opacity: 0.7;
-    filter: blur(4px);
+    opacity: 0.8;
+    filter: blur(2px); /* Flou pour l'effet liquide fusionné */
     z-index: 1;
-    /* Animation de wobbly pour le côté vivant */
-    animation: tailWiggle 0.5s infinite ease-in-out alternate;
+    
+    /* Le pivot est en bas (collé à la tête) pour que ça bouge comme une antenne */
     transform-origin: bottom center;
+    animation: tailWiggle 0.5s infinite ease-in-out alternate;
 }
 
 /* Animation de la queue qui frétille */
 @keyframes tailWiggle {
-    0% { transform: translateX(-50%) rotate(-10deg) scaleY(1); }
-    100% { transform: translateX(-50%) rotate(10deg) scaleY(1.2); }
+    0% { transform: translateX(-50%) rotate(-15deg) scaleY(1); }
+    100% { transform: translateX(-50%) rotate(15deg) scaleY(1.1); }
 }
 
-/* COULEURS DES ÉTATS (Identique à avant, appliqué sur le parent) */
-.soul-state-neutral { color: #94a3b8; background: #94a3b8; }
-.soul-state-blue    { color: #3B82F6; background: #3B82F6; }
-.soul-state-fire    { color: #F97316; background: #F97316; }
-.soul-state-greed   { color: #16A34A; background: #16A34A; }
-.soul-state-dark    { color: #6d28d9; background: #6d28d9; }
-.soul-state-pure    { color: #ffffff; background: #ffffff; }
+/* --- COULEURS DES ÉTATS --- */
+/* ATTENTION : Ici on ne change QUE la 'color', pas le 'background' du parent */
 
-/* Note: .soul-core et .soul-tail héritent de 'background' défini ci-dessus */
-.soul-core { background: currentColor; }
-.soul-tail { background: currentColor; }
+.soul-state-neutral { color: #94a3b8; } /* Gris */
+.soul-state-blue    { color: #3B82F6; } /* Bleu */
+.soul-state-fire    { color: #F97316; } /* Orange/Rouge */
+.soul-state-greed   { color: #16A34A; } /* Vert */
+.soul-state-dark    { color: #7c3aed; } /* Violet */
+.soul-state-pure    { color: #ffffff; } /* Blanc */
