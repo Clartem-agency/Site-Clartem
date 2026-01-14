@@ -1209,68 +1209,122 @@ initBlogPreview();
 
 
     // ==================================================================
-    // LOGIQUE DE L'ÂME (SOUL) SUR LA TIMELINE
+    // LOGIQUE ÂME ORGANIQUE + AIMANTATION (MAGNET)
     // ==================================================================
     const soulEntity = document.getElementById('soul-entity');
     const timelineContainer = document.getElementById('timeline-container');
-    const timelineChapters = document.querySelectorAll('.timeline-line ~ .space-y-32 > div'); // Sélectionne les blocs chapitres
+    const timelinePoints = document.querySelectorAll('.timeline-point'); // Les cibles magnétiques
+    const timelineChapters = document.querySelectorAll('.timeline-line ~ .space-y-32 > div'); // Pour les couleurs
 
-    if (soulEntity && timelineContainer && timelineChapters.length > 0) {
+    if (soulEntity && timelineContainer) {
         
-        let currentSoulY = 0;
-        let targetSoulY = 0;
+        let currentY = 0;       // Position actuelle
+        let targetY = 0;        // Position cible
+        let velocity = 0;       // Vitesse du mouvement (pour l'étirement)
         
-        // Configuration de la physique
-        // 0.1 = très lent/flottant, 0.9 = très collé au scroll
-        const lerpSpeed = 0.08; 
+        // PARAMÈTRES PHYSIQUES
+        const LERP_SPEED = 0.05;    // Inertie (plus bas = plus lourd/liquide)
+        const MAGNET_RANGE = 100;   // Distance de capture (en px)
+        const MAGNET_STRENGTH = 0.8; // Force avec laquelle le point retient l'âme (0 à 1)
+        const STRETCH_FACTOR = 0.15; // À quel point elle s'étire quand elle bouge
 
         function animateSoul() {
-            // 1. Calcul de la position cible (relative au conteneur)
-            // On veut que l'âme soit au niveau du centre de l'écran, 
-            // mais contrainte à l'intérieur de la timeline.
-            
             const containerRect = timelineContainer.getBoundingClientRect();
-            const viewportCenter = window.innerHeight / 2;
-            
-            // Position idéale : centre de l'écran - le haut du conteneur
-            let idealY = viewportCenter - containerRect.top;
+            const viewportCenter = window.innerHeight / 2; // Le centre de l'écran
 
-            // Bornes : Ne pas sortir du conteneur (haut et bas)
-            // On laisse une marge de 50px en haut et en bas
-            const minY = 0;
-            const maxY = containerRect.height - 50; 
+            // 1. DÉFINIR LA CIBLE PAR DÉFAUT (Centre de l'écran)
+            // C'est là où l'âme "veut" aller naturellement
+            let idealTarget = viewportCenter - containerRect.top;
             
-            idealY = Math.max(minY, Math.min(maxY, idealY));
-            
-            targetSoulY = idealY;
+            // Bornes pour ne pas sortir de la timeline
+            idealTarget = Math.max(0, Math.min(containerRect.height - 50, idealTarget));
 
-            // 2. Interpolation (Lerp) pour le mouvement fluide
-            // Formule : position_actuelle + (position_cible - position_actuelle) * vitesse
-            currentSoulY += (targetSoulY - currentSoulY) * lerpSpeed;
+            // 2. LOGIQUE D'AIMANTATION (MAGNET EFFECT)
+            let isMagnetized = false;
             
-            // Appliquer la position
-            soulEntity.style.top = `${currentSoulY}px`;
+            // On vérifie tous les points pour voir si l'un d'eux est proche du centre de l'écran
+            timelinePoints.forEach(point => {
+                // Position du point relative au conteneur
+                // On ajoute point.offsetTop car le point est en absolute dans un parent relatif souvent
+                // Note: Le calcul exact dépend de votre structure HTML. 
+                // Si les points sont en absolute par rapport au container principal, utilisez point.offsetTop.
+                // Si ils sont dans des grilles, on utilise getBoundingClientRect.
+                
+                const pointRect = point.getBoundingClientRect();
+                const pointYRelative = pointRect.top - containerRect.top + (pointRect.height/2);
+                
+                // Distance entre le point et "l'idéal" (le centre écran)
+                const dist = Math.abs(pointYRelative - idealTarget);
 
-            // 3. Détection du contexte (Changement de couleur)
-            // On regarde quel chapitre est le plus proche de l'âme
-            detectSoulContext(currentSoulY, containerRect.top);
+                // Si on est proche du point (dans la zone d'effet)
+                if (dist < MAGNET_RANGE) {
+                    isMagnetized = true;
+                    // On modifie la cible : ce n'est plus le centre écran, c'est le point !
+                    // Mais on garde un petit décalage si on force le scroll (MAGNET_STRENGTH)
+                    // Si STRENGTH = 1, l'âme est collée au point tant qu'on est dans la zone.
+                    idealTarget = pointYRelative; 
+                }
+            });
+
+            // 3. APPLIQUER L'INERTIE (LERP)
+            // Si on est aimanté, on augmente un peu la vitesse pour le "Snap"
+            const currentSpeed = isMagnetized ? LERP_SPEED * 2 : LERP_SPEED;
+            
+            // Calcul de la nouvelle position
+            const newY = currentY + (idealTarget - currentY) * currentSpeed;
+            
+            // Calcul de la vélocité (pour la déformation)
+            velocity = newY - currentY;
+            currentY = newY;
+
+            // 4. DÉFORMATION ORGANIQUE (SQUASH & STRETCH)
+            // Plus ça va vite, plus ça s'étire en Y et s'affine en X
+            // On limite la déformation pour pas que ça devienne un trait
+            const stretch = Math.min(Math.abs(velocity) * STRETCH_FACTOR, 0.6); 
+            const scaleY = 1 + stretch;
+            const scaleX = 1 - (stretch * 0.5); // Conservation de volume approximative
+            
+            // Rotation : Si velocity est positif (descend), pas de rotation.
+            // Si velocity négatif (monte), on pourrait inverser, mais pour une goutte 
+            // c'est souvent la queue vers le haut.
+            
+            soulEntity.style.top = `${currentY}px`;
+            
+            // On applique la déformation sur le Core, pas le conteneur entier pour garder la queue attachée
+            const core = soulEntity.querySelector('.soul-core');
+            if(core) {
+                core.style.transform = `scale(${scaleX}, ${scaleY})`;
+            }
+            
+            // On peut aussi faire pivoter la queue légèrement à l'opposé du mouvement
+            const tail = soulEntity.querySelector('.soul-tail');
+            if(tail && Math.abs(velocity) > 1) {
+                // Si on descend (vel > 0), la queue pointe vers le haut (normal)
+                // Si on monte (vel < 0), la queue devrait pointer vers le bas
+                const rotation = velocity > 0 ? 0 : 180;
+                // On applique une transition CSS pour que le retournement soit fluide
+                tail.style.transition = 'transform 0.3s';
+                // On garde l'animation de wiggle (translateX) et on ajoute la rotation de direction
+                // Note : C'est complexe de mixer keyframes et transform JS. 
+                // Simplification : On laisse la queue en haut par défaut (effet gravité).
+            }
+
+
+            // 5. GESTION DES COULEURS (CONTEXTE)
+            detectSoulContext(currentY + containerRect.top); // On passe la position absolue écran
 
             requestAnimationFrame(animateSoul);
         }
 
-        function detectSoulContext(yPos, containerTopAbs) {
-            // yPos est relatif au conteneur
-            // On cherche le chapitre dont le centre est le plus proche de yPos
-            
+        function detectSoulContext(absoluteY) {
+            // On cherche le chapitre le plus proche de la position absolue de l'âme
             let closestChapter = null;
             let minDistance = Infinity;
 
             timelineChapters.forEach(chapter => {
                 const rect = chapter.getBoundingClientRect();
-                // Position du centre du chapitre relative au conteneur
-                const chapterCenterRel = (rect.top - containerTopAbs) + (rect.height / 2);
-                
-                const dist = Math.abs(chapterCenterRel - yPos);
+                const center = rect.top + (rect.height / 2);
+                const dist = Math.abs(center - absoluteY);
                 
                 if (dist < minDistance) {
                     minDistance = dist;
@@ -1284,39 +1338,34 @@ initBlogPreview();
         }
 
         function updateSoulState(chapter) {
-            // On analyse le contenu du chapitre pour déterminer l'humeur
-            // On se base sur les classes de couleurs présentes dans le titre ou les dates
             const textContent = chapter.innerHTML;
-            
-            // Reset classes
-            soulEntity.className = 'soul-base';
+            soulEntity.className = ''; // Reset total
 
             if (textContent.includes('text-green-500') || textContent.includes('text-success-green')) {
-                soulEntity.classList.add('soul-state-greed'); // Argent / Succès
+                soulEntity.classList.add('soul-state-greed');
             } 
             else if (textContent.includes('text-red-600') || textContent.includes('text-red-500')) {
-                soulEntity.classList.add('soul-state-fire'); // Danger / Crash
+                soulEntity.classList.add('soul-state-fire');
             }
             else if (textContent.includes('text-orange-500') || textContent.includes('text-warm-orange')) {
-                soulEntity.classList.add('soul-state-fire'); // Feu / Brûler navires
+                soulEntity.classList.add('soul-state-fire');
             }
             else if (textContent.includes('text-purple-400') || textContent.includes('text-indigo-400')) {
-                soulEntity.classList.add('soul-state-dark'); // Dépression / Profondeur
+                soulEntity.classList.add('soul-state-dark');
             }
             else if (textContent.includes('text-clarity-blue') || textContent.includes('text-blue-400')) {
-                soulEntity.classList.add('soul-state-blue'); // Éveil / Tech
+                soulEntity.classList.add('soul-state-blue');
             }
-            else if (textContent.includes('La convergence') || textContent.includes('text-success-green')) {
-                 soulEntity.classList.add('soul-state-pure'); // Clartem final
+            else if (textContent.includes('La convergence')) {
+                 soulEntity.classList.add('soul-state-pure');
             }
             else {
-                soulEntity.classList.add('soul-state-neutral'); // Défaut (Gris)
+                soulEntity.classList.add('soul-state-neutral');
             }
         }
 
-        // Lancer l'animation
         requestAnimationFrame(animateSoul);
     }
-    
+
 
 });
