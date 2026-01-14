@@ -1056,4 +1056,153 @@ initBlogPreview();
     });
     
 
+
+
+
+
+    // ==================================================================
+    // LOGIQUE TRANSITION TUNNEL (VERSION AVEC PAUSE DE LECTURE)
+    // ==================================================================
+    const tunnelSection = document.getElementById('transition-tunnel');
+    const lightMask = document.getElementById('light-mask');
+    const lightContent = document.getElementById('light-content');
+    const darkContent = document.getElementById('dark-content');
+
+    if (tunnelSection && lightMask && lightContent) {
+        
+        function onScrollTunnel() {
+            const rect = tunnelSection.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            const scrolled = -rect.top;
+            const totalScrollable = tunnelSection.offsetHeight - viewportHeight;
+
+            // Reset si on est au-dessus
+            if (scrolled < 0) {
+                lightMask.style.clipPath = `circle(0% at 50% 50%)`;
+                lightContent.style.opacity = '0';
+                darkContent.style.opacity = '1';
+                darkContent.style.transform = 'scale(1)';
+                return;
+            }
+            
+            // Progression brute (0 à 1)
+            let rawProgress = scrolled / totalScrollable;
+            
+            // --- CONFIGURATION DE LA PAUSE ---
+            // L'animation ne commence qu'après 20% du scroll total
+            const startThreshold = 0.20; 
+            
+            let animProgress = 0;
+
+            if (rawProgress < startThreshold) {
+                // PHASE 1 : LECTURE (0% à 20% du scroll)
+                // On force l'animation à 0. Le cercle reste fermé.
+                animProgress = 0;
+                
+                // Petit effet sympa : le texte recule légèrement pendant qu'on lit
+                // pour montrer qu'on est bien en train de scroller
+                const textScale = 1 - (rawProgress * 0.5); // Passe de 1 à 0.9
+                darkContent.style.transform = `scale(${textScale})`;
+                darkContent.style.opacity = '1';
+
+            } else {
+                // PHASE 2 : OUVERTURE (20% à 100% du scroll)
+                // On recalcule une progression de 0 à 1 basée sur l'espace restant
+                animProgress = (rawProgress - startThreshold) / (1 - startThreshold);
+                
+                // On s'assure de ne pas dépasser 1
+                if (animProgress > 1) animProgress = 1;
+                
+                // On fait disparaître le texte sombre rapidement dès que ça s'ouvre
+                darkContent.style.opacity = Math.max(0, 1 - (animProgress * 3));
+                 // On fige l'échelle du texte sombre
+                darkContent.style.transform = `scale(0.9)`;
+            }
+
+            // --- APPLICATION DE L'ANIMATION (Basée sur animProgress) ---
+            
+            // 1. Le Cercle s'ouvre (de 0% à 150%)
+            const clipSize = animProgress * 150;
+            const clipString = `circle(${clipSize}% at 50% 50%)`;
+            
+            lightMask.style.clipPath = clipString;
+            lightMask.style.webkitClipPath = clipString;
+
+            // 2. Le contenu clair apparaît
+            const scale = 1.5 - (animProgress * 0.5);
+            const opacity = Math.min(1, animProgress * 2);
+            
+            lightContent.style.transform = `scale(${scale})`;
+            lightContent.style.opacity = opacity;
+        }
+
+        window.addEventListener('scroll', onScrollTunnel, { passive: true });
+        onScrollTunnel();
+    }
+
+
+
+// ==================================================================
+    // EFFET MATRIX RAIN (CANVAS)
+    // ==================================================================
+    const canvas = document.getElementById('matrix-canvas');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+
+        // Ajuster la taille du canvas à l'écran
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        // Les caractères qui vont tomber (Mélange Katakana + Chiffres pour l'effet Matrix pur)
+        // Si vous préférez juste des 0 et 1, changez cette chaîne.
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*"; 
+        const fontSize = 14;
+        const columns = width / fontSize; // Nombre de colonnes
+
+        // Tableau pour stocker la position Y de chaque colonne
+        const drops = [];
+        for (let i = 0; i < columns; i++) {
+            drops[i] = 1;
+        }
+
+        // Fonction de dessin (appelée en boucle)
+        function drawMatrix() {
+            // Fond noir très transparent pour créer l'effet de traînée (trail effect)
+            ctx.fillStyle = "rgba(15, 23, 42, 0.05)"; // Couleur neutral-dark avec opacité
+            ctx.fillRect(0, 0, width, height);
+
+            // Couleur du texte (Vert Matrix)
+            ctx.fillStyle = "#22c55e"; // green-500
+            ctx.font = fontSize + "px monospace";
+
+            for (let i = 0; i < drops.length; i++) {
+                // Choix aléatoire du caractère
+                const text = letters.charAt(Math.floor(Math.random() * letters.length));
+                
+                // Dessin du caractère
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                // Réinitialisation aléatoire de la goutte vers le haut
+                // ou descente normale
+                if (drops[i] * fontSize > height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+
+                drops[i]++;
+            }
+            
+            requestAnimationFrame(drawMatrix);
+        }
+
+        // Lancer l'animation
+        drawMatrix();
+
+        // Gérer le redimensionnement de la fenêtre
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+    }
+
+
 });
