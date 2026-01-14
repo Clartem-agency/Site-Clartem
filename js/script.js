@@ -1061,7 +1061,7 @@ initBlogPreview();
 
 
     // ==================================================================
-    // LOGIQUE TRANSITION TUNNEL (VERSION CORRIGÉE DIRECTE)
+    // LOGIQUE TRANSITION TUNNEL (VERSION AVEC PAUSE DE LECTURE)
     // ==================================================================
     const tunnelSection = document.getElementById('transition-tunnel');
     const lightMask = document.getElementById('light-mask');
@@ -1071,60 +1071,73 @@ initBlogPreview();
     if (tunnelSection && lightMask && lightContent) {
         
         function onScrollTunnel() {
-            // Position de la section par rapport au haut de l'écran
             const rect = tunnelSection.getBoundingClientRect();
-            
-            // Hauteur de la fenêtre
             const viewportHeight = window.innerHeight;
-            
-            // On calcule combien de pixels on a parcouru DANS la section
-            // rect.top est négatif quand on scrolle vers le bas dans la section
             const scrolled = -rect.top;
-            
-            // La distance totale scrollable (Hauteur section - 1 hauteur d'écran)
             const totalScrollable = tunnelSection.offsetHeight - viewportHeight;
 
-            // Si on n'a pas encore atteint la section ou si on l'a dépassée, on arrête
+            // Reset si on est au-dessus
             if (scrolled < 0) {
-                // Remise à zéro si on est au-dessus
                 lightMask.style.clipPath = `circle(0% at 50% 50%)`;
                 lightContent.style.opacity = '0';
                 darkContent.style.opacity = '1';
+                darkContent.style.transform = 'scale(1)';
                 return;
             }
             
-            // Calcul du pourcentage (0 à 1)
-            let progress = scrolled / totalScrollable;
+            // Progression brute (0 à 1)
+            let rawProgress = scrolled / totalScrollable;
             
-            // Bornes de sécurité
-            if (progress < 0) progress = 0;
-            if (progress > 1) progress = 1;
+            // --- CONFIGURATION DE LA PAUSE ---
+            // L'animation ne commence qu'après 20% du scroll total
+            const startThreshold = 0.20; 
+            
+            let animProgress = 0;
 
-            // --- ANIMATION ---
+            if (rawProgress < startThreshold) {
+                // PHASE 1 : LECTURE (0% à 20% du scroll)
+                // On force l'animation à 0. Le cercle reste fermé.
+                animProgress = 0;
+                
+                // Petit effet sympa : le texte recule légèrement pendant qu'on lit
+                // pour montrer qu'on est bien en train de scroller
+                const textScale = 1 - (rawProgress * 0.5); // Passe de 1 à 0.9
+                darkContent.style.transform = `scale(${textScale})`;
+                darkContent.style.opacity = '1';
+
+            } else {
+                // PHASE 2 : OUVERTURE (20% à 100% du scroll)
+                // On recalcule une progression de 0 à 1 basée sur l'espace restant
+                animProgress = (rawProgress - startThreshold) / (1 - startThreshold);
+                
+                // On s'assure de ne pas dépasser 1
+                if (animProgress > 1) animProgress = 1;
+                
+                // On fait disparaître le texte sombre rapidement dès que ça s'ouvre
+                darkContent.style.opacity = Math.max(0, 1 - (animProgress * 3));
+                 // On fige l'échelle du texte sombre
+                darkContent.style.transform = `scale(0.9)`;
+            }
+
+            // --- APPLICATION DE L'ANIMATION (Basée sur animProgress) ---
             
             // 1. Le Cercle s'ouvre (de 0% à 150%)
-            const clipSize = progress * 150;
+            const clipSize = animProgress * 150;
             const clipString = `circle(${clipSize}% at 50% 50%)`;
             
-            // On applique le style directement (compatible Webkit pour Safari/Chrome)
             lightMask.style.clipPath = clipString;
             lightMask.style.webkitClipPath = clipString;
 
-            // 2. Le contenu clair apparaît et dé-zoome (Effet focus)
-            // Zoom : part de 1.5 vers 1
-            const scale = 1.5 - (progress * 0.5);
-            // Opacité : devient visible rapidement (dès 30% du scroll)
-            const opacity = Math.min(1, progress * 3);
+            // 2. Le contenu clair apparaît
+            const scale = 1.5 - (animProgress * 0.5);
+            const opacity = Math.min(1, animProgress * 2);
             
             lightContent.style.transform = `scale(${scale})`;
             lightContent.style.opacity = opacity;
-
-            // 3. Le contenu sombre s'estompe pour laisser la place
-            darkContent.style.opacity = Math.max(0, 1 - (progress * 4));
         }
 
         window.addEventListener('scroll', onScrollTunnel, { passive: true });
-        onScrollTunnel(); // Appel initial
+        onScrollTunnel();
     }
 
 
