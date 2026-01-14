@@ -1142,4 +1142,67 @@ initBlogPreview();
 
 
 
+// ==================================================================
+    // EFFET MATRIX RAIN (CANVAS)
+    // ==================================================================
+    const canvas = document.getElementById('matrix-canvas');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+
+        // Ajuster la taille du canvas à l'écran
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        // Les caractères qui vont tomber (Mélange Katakana + Chiffres pour l'effet Matrix pur)
+        // Si vous préférez juste des 0 et 1, changez cette chaîne.
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*"; 
+        const fontSize = 14;
+        const columns = width / fontSize; // Nombre de colonnes
+
+        // Tableau pour stocker la position Y de chaque colonne
+        const drops = [];
+        for (let i = 0; i < columns; i++) {
+            drops[i] = 1;
+        }
+
+        // Fonction de dessin (appelée en boucle)
+        function drawMatrix() {
+            // Fond noir très transparent pour créer l'effet de traînée (trail effect)
+            ctx.fillStyle = "rgba(15, 23, 42, 0.05)"; // Couleur neutral-dark avec opacité
+            ctx.fillRect(0, 0, width, height);
+
+            // Couleur du texte (Vert Matrix)
+            ctx.fillStyle = "#22c55e"; // green-500
+            ctx.font = fontSize + "px monospace";
+
+            for (let i = 0; i < drops.length; i++) {
+                // Choix aléatoire du caractère
+                const text = letters.charAt(Math.floor(Math.random() * letters.length));
+                
+                // Dessin du caractère
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                // Réinitialisation aléatoire de la goutte vers le haut
+                // ou descente normale
+                if (drops[i] * fontSize > height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+
+                drops[i]++;
+            }
+            
+            requestAnimationFrame(drawMatrix);
+        }
+
+        // Lancer l'animation
+        drawMatrix();
+
+        // Gérer le redimensionnement de la fenêtre
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+    }
+
+
 });
