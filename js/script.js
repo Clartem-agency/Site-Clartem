@@ -1205,4 +1205,118 @@ initBlogPreview();
     }
 
 
+
+
+
+    // ==================================================================
+    // LOGIQUE DE L'ÂME (SOUL) SUR LA TIMELINE
+    // ==================================================================
+    const soulEntity = document.getElementById('soul-entity');
+    const timelineContainer = document.getElementById('timeline-container');
+    const timelineChapters = document.querySelectorAll('.timeline-line ~ .space-y-32 > div'); // Sélectionne les blocs chapitres
+
+    if (soulEntity && timelineContainer && timelineChapters.length > 0) {
+        
+        let currentSoulY = 0;
+        let targetSoulY = 0;
+        
+        // Configuration de la physique
+        // 0.1 = très lent/flottant, 0.9 = très collé au scroll
+        const lerpSpeed = 0.08; 
+
+        function animateSoul() {
+            // 1. Calcul de la position cible (relative au conteneur)
+            // On veut que l'âme soit au niveau du centre de l'écran, 
+            // mais contrainte à l'intérieur de la timeline.
+            
+            const containerRect = timelineContainer.getBoundingClientRect();
+            const viewportCenter = window.innerHeight / 2;
+            
+            // Position idéale : centre de l'écran - le haut du conteneur
+            let idealY = viewportCenter - containerRect.top;
+
+            // Bornes : Ne pas sortir du conteneur (haut et bas)
+            // On laisse une marge de 50px en haut et en bas
+            const minY = 0;
+            const maxY = containerRect.height - 50; 
+            
+            idealY = Math.max(minY, Math.min(maxY, idealY));
+            
+            targetSoulY = idealY;
+
+            // 2. Interpolation (Lerp) pour le mouvement fluide
+            // Formule : position_actuelle + (position_cible - position_actuelle) * vitesse
+            currentSoulY += (targetSoulY - currentSoulY) * lerpSpeed;
+            
+            // Appliquer la position
+            soulEntity.style.top = `${currentSoulY}px`;
+
+            // 3. Détection du contexte (Changement de couleur)
+            // On regarde quel chapitre est le plus proche de l'âme
+            detectSoulContext(currentSoulY, containerRect.top);
+
+            requestAnimationFrame(animateSoul);
+        }
+
+        function detectSoulContext(yPos, containerTopAbs) {
+            // yPos est relatif au conteneur
+            // On cherche le chapitre dont le centre est le plus proche de yPos
+            
+            let closestChapter = null;
+            let minDistance = Infinity;
+
+            timelineChapters.forEach(chapter => {
+                const rect = chapter.getBoundingClientRect();
+                // Position du centre du chapitre relative au conteneur
+                const chapterCenterRel = (rect.top - containerTopAbs) + (rect.height / 2);
+                
+                const dist = Math.abs(chapterCenterRel - yPos);
+                
+                if (dist < minDistance) {
+                    minDistance = dist;
+                    closestChapter = chapter;
+                }
+            });
+
+            if (closestChapter) {
+                updateSoulState(closestChapter);
+            }
+        }
+
+        function updateSoulState(chapter) {
+            // On analyse le contenu du chapitre pour déterminer l'humeur
+            // On se base sur les classes de couleurs présentes dans le titre ou les dates
+            const textContent = chapter.innerHTML;
+            
+            // Reset classes
+            soulEntity.className = 'soul-base';
+
+            if (textContent.includes('text-green-500') || textContent.includes('text-success-green')) {
+                soulEntity.classList.add('soul-state-greed'); // Argent / Succès
+            } 
+            else if (textContent.includes('text-red-600') || textContent.includes('text-red-500')) {
+                soulEntity.classList.add('soul-state-fire'); // Danger / Crash
+            }
+            else if (textContent.includes('text-orange-500') || textContent.includes('text-warm-orange')) {
+                soulEntity.classList.add('soul-state-fire'); // Feu / Brûler navires
+            }
+            else if (textContent.includes('text-purple-400') || textContent.includes('text-indigo-400')) {
+                soulEntity.classList.add('soul-state-dark'); // Dépression / Profondeur
+            }
+            else if (textContent.includes('text-clarity-blue') || textContent.includes('text-blue-400')) {
+                soulEntity.classList.add('soul-state-blue'); // Éveil / Tech
+            }
+            else if (textContent.includes('La convergence') || textContent.includes('text-success-green')) {
+                 soulEntity.classList.add('soul-state-pure'); // Clartem final
+            }
+            else {
+                soulEntity.classList.add('soul-state-neutral'); // Défaut (Gris)
+            }
+        }
+
+        // Lancer l'animation
+        requestAnimationFrame(animateSoul);
+    }
+    
+
 });
