@@ -459,14 +459,21 @@
             <!-- COUCHE 1 : DARK (Arrière-plan MATRIX) -->
             <div class="absolute inset-0 bg-neutral-dark flex flex-col items-center justify-center z-10 overflow-hidden">
                 
-                <!-- LE CANEVAS MATRIX (La pluie de code) -->
+                <!-- LE CANEVAS MATRIX -->
                 <canvas id="matrix-canvas" class="absolute inset-0 w-full h-full opacity-20"></canvas>
+
+                <!-- ============================================================== -->
+                <!--  NOUVEAU : LE GRADIENT DE TRANSITION (HAUT)                    -->
+                <!--  C'est lui qui fait le lien doux avec la section du dessus     -->
+                <!-- ============================================================== -->
+                <div class="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-neutral-dark via-neutral-dark/80 to-transparent z-10 pointer-events-none"></div>
                 
-                <!-- Overlay dégradé pour que le texte reste lisible au centre -->
+                
+                <!-- Overlay dégradé (Centre) -->
                 <div class="absolute inset-0 bg-radial-gradient from-transparent via-neutral-dark/50 to-neutral-dark pointer-events-none"></div>
 
                 <!-- Contenu Texte (Au-dessus du code) -->
-                <div class="relative z-10 text-center opacity-100 transition-opacity duration-300 px-6" id="dark-content">
+                <div class="relative z-20 text-center opacity-100 transition-opacity duration-300 px-6" id="dark-content">
                     
                     <!-- Ligne animée décorative -->
                     <div class="w-px h-24 bg-gradient-to-b from-transparent via-green-500 to-transparent mx-auto mb-8 animate-pulse"></div>
@@ -482,6 +489,8 @@
                     </div>
                 </div>
             </div>
+
+            
 
             <!-- COUCHE 2 : LIGHT (Le masque qui s'ouvre) - INCHANGÉ -->
             <div id="light-mask" class="absolute inset-0 bg-gray-50 z-20 flex items-center justify-center pointer-events-none" 
