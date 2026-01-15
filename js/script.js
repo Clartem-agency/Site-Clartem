@@ -44,13 +44,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    
+
 
     // ==================================================================
     // ANIMATIONS AVEC SCROLLREVEAL (VERSION SÉCURISÉE POUR TOUT LE SITE)
     // ==================================================================
     if (typeof ScrollReveal !== 'undefined') {
-        
+
         // Fonction d'initialisation
         const initScrollReveal = () => {
             const srConfig = {
@@ -70,16 +70,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Vos sélecteurs globaux (marchent sur toutes les pages)
             // NOTE : On ne cible plus les éléments chargés dynamiquement ici
-            sr.reveal('[data-sr]', { interval: 100 }); 
+            sr.reveal('[data-sr]', { interval: 100 });
             sr.reveal('[data-sr-delay="100"]', { delay: 300 });
             sr.reveal('[data-sr-delay="200"]', { delay: 400 });
             sr.reveal('[data-sr-delay="300"]', { delay: 500 });
             sr.reveal('[data-sr-origin="right"]', { origin: 'right', distance: '60px', duration: 1000, delay: 200 });
             sr.reveal('[data-sr-origin="left"]', { origin: 'left', distance: '60px', duration: 1000, delay: 200 });
-            
+
             // Force un recalcul après un court instant (sécurité anti-bug)
             setTimeout(() => {
-                try { sr.delegate(); } catch(e) {}
+                try { sr.delegate(); } catch (e) { }
             }, 500);
         };
 
@@ -127,22 +127,22 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
-    
 
 
 
 
-    
+
+
 
     // ==================================================================
     // LOGIQUE POUR L'ACCORDÉON DANS LA CARTE PRIX (IMPACT, ANCRAGE & EXPANSION)
     // Mise à jour : Un seul menu ouvert à la fois par carte
     // ==================================================================
     const pricingToggles = document.querySelectorAll('.pricing-toggle');
-    
+
     if (pricingToggles.length > 0) {
         pricingToggles.forEach(toggle => {
-            toggle.addEventListener('click', function() {
+            toggle.addEventListener('click', function () {
                 // 1. Identifier la carte parente (pour ne pas fermer les menus des autres offres)
                 // Dans votre HTML, chaque carte a la classe "group"
                 const parentCard = this.closest('.group');
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (parentCard) {
                     // On cherche tous les boutons déjà actifs DANS cette carte
                     const activeTogglesInCard = parentCard.querySelectorAll('.pricing-toggle.active');
-                    
+
                     activeTogglesInCard.forEach(otherToggle => {
                         // Si ce n'est pas le bouton sur lequel on vient de cliquer, on le ferme
                         if (otherToggle !== this) {
@@ -166,11 +166,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 // 3. Basculer l'état du menu cliqué (Ouvrir/Fermer)
                 this.classList.toggle('active');
                 const content = this.nextElementSibling;
-                
+
                 if (content.style.maxHeight) {
                     // Si ouvert -> on ferme
                     content.style.maxHeight = null;
-                    content.classList.remove('anim-active'); 
+                    content.classList.remove('anim-active');
                 } else {
                     // Si fermé -> on ouvre
                     content.style.maxHeight = content.scrollHeight + "px";
@@ -179,8 +179,8 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
-    
-    
+
+
 
 
 
@@ -264,14 +264,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
- 
 
 
 
 
- 
 
-// ==================================================================
+
+
+    // ==================================================================
     // LOGIQUE POUR L'EFFET STACKING CARDS (SECTION PLAN) - CORRIGÉE
     // ==================================================================
     const planSection = document.getElementById('plan');
@@ -282,13 +282,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const numPanels = panels.length;
 
         // On réduit le délai de démarrage pour que l'animation réagisse tout de suite
-        const START_DELAY = 0.05; 
+        const START_DELAY = 0.05;
         const END_DELAY = 0.05;
 
         const handleScroll = () => {
             const rect = stackingContainer.getBoundingClientRect();
             const viewportHeight = window.innerHeight;
-            
+
             // Calcul de la progression du scroll dans la section (de 0 à 1)
             const start = rect.top * -1;
             const end = stackingContainer.offsetHeight - viewportHeight;
@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // 1. Z-INDEX : On inverse la logique précédente.
                 // La carte 0 est tout au fond (z=0), la suivante par-dessus (z=1), etc.
                 panel.style.zIndex = i;
-                
+
                 // 2. OPACITÉ & CLIC : Toujours visibles et cliquables
                 panel.style.opacity = '1';
                 panel.style.pointerEvents = 'auto';
@@ -323,22 +323,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (offset < -1) {
                     // CAS 1 : Carte future (cachée en bas de l'écran)
                     panel.style.transform = `translateY(120vh) scale(1)`;
-                } 
+                }
                 else if (offset < 0) {
                     // CAS 2 : Carte qui arrive (slide du bas vers le centre)
                     // On convertit l'offset (-1 à 0) en pourcentage de hauteur (100vh à 0vh)
-                    const yPos = Math.abs(offset) * 100; 
+                    const yPos = Math.abs(offset) * 100;
                     panel.style.transform = `translateY(${yPos}vh) scale(1)`;
-                } 
+                }
                 else {
                     // CAS 3 : Carte installée (Active ou Passée)
                     // Elle reste fixe au centre (0px) mais réduit légèrement sa taille
                     // pour créer un effet de profondeur "pile de cartes"
-                    
+
                     // On limite l'effet de profondeur aux 3 dernières cartes pour économiser les ressources
-                    const depth = Math.min(offset, 3); 
+                    const depth = Math.min(offset, 3);
                     const scale = Math.max(0.9, 1 - (depth * 0.05)); // Réduit de 5% par carte par-dessus
-                    
+
                     panel.style.transform = `translateY(0px) scale(${scale})`;
                 }
             });
@@ -348,12 +348,12 @@ document.addEventListener('DOMContentLoaded', function () {
         handleScroll(); // Appel initial
     }
 
-    
 
 
 
 
-   
+
+
 
 
 
@@ -767,36 +767,36 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    
+
 
 
     // ==================================================================
-// LOGIQUE POUR L'APERÇU DU BLOG (STYLE ÉDITORIAL PREMIUM) - CORRIGÉE
-// ==================================================================
-async function initBlogPreview() {
-    // On cible les deux nouveaux conteneurs
-    const featuredContainer = document.getElementById('featured-article-container');
-    const sidebarContainer = document.getElementById('sidebar-articles-container');
-    
-    // Sécurité si la section n'existe pas
-    if (!featuredContainer || !sidebarContainer) return;
+    // LOGIQUE POUR L'APERÇU DU BLOG (STYLE ÉDITORIAL PREMIUM) - CORRIGÉE
+    // ==================================================================
+    async function initBlogPreview() {
+        // On cible les deux nouveaux conteneurs
+        const featuredContainer = document.getElementById('featured-article-container');
+        const sidebarContainer = document.getElementById('sidebar-articles-container');
 
-    try {
-        const response = await fetch('page-cartes-blog.json');
-        if (!response.ok) throw new Error(`Erreur HTTP: ${response.status}`);
-        
-        const allArticles = await response.json();
+        // Sécurité si la section n'existe pas
+        if (!featuredContainer || !sidebarContainer) return;
 
-        // On prend les 3 articles les plus récents
-        const latestArticles = allArticles.slice(0, 3);
+        try {
+            const response = await fetch('page-cartes-blog.json');
+            if (!response.ok) throw new Error(`Erreur HTTP: ${response.status}`);
 
-        if (latestArticles.length === 0) return;
+            const allArticles = await response.json();
 
-        // 1. GÉNÉRATION DE L'ARTICLE À LA UNE (Le premier)
-        const mainArticle = latestArticles[0];
-        
-        // CORRECTION : Utilisation de fade-in-entry et style inline pour le délai
-        featuredContainer.innerHTML = `
+            // On prend les 3 articles les plus récents
+            const latestArticles = allArticles.slice(0, 3);
+
+            if (latestArticles.length === 0) return;
+
+            // 1. GÉNÉRATION DE L'ARTICLE À LA UNE (Le premier)
+            const mainArticle = latestArticles[0];
+
+            // CORRECTION : Utilisation de fade-in-entry et style inline pour le délai
+            featuredContainer.innerHTML = `
             <a href="${mainArticle.link}" class="group block h-full relative overflow-hidden rounded-3xl fade-in-entry" style="animation-delay: 0.1s;">
                 <!-- Image de fond -->
                 <div class="absolute inset-0">
@@ -827,14 +827,14 @@ async function initBlogPreview() {
             </a>
         `;
 
-        // 2. GÉNÉRATION DES ARTICLES SECONDAIRES (Les suivants)
-        const sideArticles = latestArticles.slice(1, 3);
-        
-        let sidebarHTML = `<div class="flex flex-col gap-6 h-full">`;
-        
-        sideArticles.forEach((article, index) => {
-            // CORRECTION : Utilisation de fade-in-entry et calcul du délai
-            sidebarHTML += `
+            // 2. GÉNÉRATION DES ARTICLES SECONDAIRES (Les suivants)
+            const sideArticles = latestArticles.slice(1, 3);
+
+            let sidebarHTML = `<div class="flex flex-col gap-6 h-full">`;
+
+            sideArticles.forEach((article, index) => {
+                // CORRECTION : Utilisation de fade-in-entry et calcul du délai
+                sidebarHTML += `
                 <a href="${article.link}" class="group flex flex-col sm:flex-row gap-6 bg-white/5 border border-white/10 p-5 rounded-2xl hover:bg-white/10 transition-colors h-full fade-in-entry" style="animation-delay: ${(index + 2) * 0.15}s;">
                     <!-- Image miniature -->
                     <div class="w-full sm:w-1/3 aspect-video sm:aspect-square rounded-xl overflow-hidden flex-shrink-0">
@@ -856,20 +856,20 @@ async function initBlogPreview() {
                     </div>
                 </a>
             `;
-        });
-        
-        sidebarHTML += `</div>`;
-        sidebarContainer.innerHTML = sidebarHTML;
+            });
 
-        // NOTE : On ne relance plus ScrollReveal() ici.
+            sidebarHTML += `</div>`;
+            sidebarContainer.innerHTML = sidebarHTML;
 
-    } catch (error) {
-        console.error("Impossible de charger l'aperçu du blog:", error);
+            // NOTE : On ne relance plus ScrollReveal() ici.
+
+        } catch (error) {
+            console.error("Impossible de charger l'aperçu du blog:", error);
+        }
     }
-}
 
-// Appel de la fonction
-initBlogPreview();
+    // Appel de la fonction
+    initBlogPreview();
 
 
 
@@ -884,7 +884,7 @@ initBlogPreview();
 
 
 
-    
+
 
     // ==================================================================
     // NOUVEAU : LOGIQUE POUR LE BANDEAU DE CONSENTEMENT COOKIES
@@ -932,7 +932,7 @@ initBlogPreview();
     // ANIMATION DU TERMINAL (TYPEWRITER EFFECT)
     // ==================================================================
     const terminalContainer = document.getElementById('typewriter-container');
-    
+
     if (terminalContainer) {
         // TRADUCTION FRANÇAISE APPLIQUÉE ICI
         const lines = [
@@ -952,7 +952,7 @@ initBlogPreview();
         function typeLine() {
             if (lineIndex < lines.length) {
                 const currentLineData = lines[lineIndex];
-                
+
                 // Si c'est le début d'une nouvelle ligne, on crée l'élément HTML
                 if (charIndex === 0) {
                     const p = document.createElement('div');
@@ -962,7 +962,7 @@ initBlogPreview();
                 }
 
                 const currentLineElement = document.getElementById(`line-${lineIndex}`);
-                
+
                 // Ajoute un caractère
                 currentLineElement.textContent += currentLineData.text.charAt(charIndex);
                 charIndex++;
@@ -997,14 +997,14 @@ initBlogPreview();
 
 
 
-// ==================================================================
+    // ==================================================================
     // DÉCLENCHEUR EFFET FLOU (Concept 1)
     // ==================================================================
     const heroImage = document.querySelector('.hero-ken-burns');
-    if(heroImage) {
+    if (heroImage) {
         // Ajoute la classe de base immédiatement
         heroImage.classList.add('blur-reveal');
-        
+
         // Attend 500ms puis enlève le flou
         setTimeout(() => {
             heroImage.classList.add('active');
@@ -1017,44 +1017,44 @@ initBlogPreview();
     // EFFET MATRIX "HACKER SCRAMBLE" POUR LES TITRES
     // ==================================================================
     const hackerTitles = document.querySelectorAll(".hacker-title");
-    
+
     // Lettres utilisées pour l'effet de brouillage
     const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*";
 
     hackerTitles.forEach(title => {
         // Au survol de la carte parente
-        title.closest('.group').addEventListener("mouseenter", event => {  
+        title.closest('.group').addEventListener("mouseenter", event => {
             let iteration = 0;
-            
+
             // On récupère le texte original
             const originalText = title.dataset.value;
-            
+
             clearInterval(title.interval);
-            
+
             title.interval = setInterval(() => {
                 title.innerText = originalText
                     .split("")
                     .map((letter, index) => {
                         // Si on a déjà "trouvé" la bonne lettre, on la garde
-                        if(index < iteration) {
+                        if (index < iteration) {
                             return originalText[index];
                         }
                         // Sinon on affiche un caractère aléatoire Matrix
                         return letters[Math.floor(Math.random() * 26)];
                     })
                     .join("");
-                
+
                 // On arrête quand tout le mot est décodé
-                if(iteration >= originalText.length){ 
+                if (iteration >= originalText.length) {
                     clearInterval(title.interval);
                 }
-                
+
                 // Vitesse de décodage
-                iteration += 1 / 3; 
+                iteration += 1 / 3;
             }, 30); // Vitesse de changement des lettres (30ms)
         });
     });
-    
+
 
 
 
@@ -1069,7 +1069,7 @@ initBlogPreview();
     const darkContent = document.getElementById('dark-content');
 
     if (tunnelSection && lightMask && lightContent) {
-        
+
         function onScrollTunnel() {
             const rect = tunnelSection.getBoundingClientRect();
             const viewportHeight = window.innerHeight;
@@ -1084,21 +1084,21 @@ initBlogPreview();
                 darkContent.style.transform = 'scale(1)';
                 return;
             }
-            
+
             // Progression brute (0 à 1)
             let rawProgress = scrolled / totalScrollable;
-            
+
             // --- CONFIGURATION DE LA PAUSE ---
             // L'animation ne commence qu'après 20% du scroll total
-            const startThreshold = 0.20; 
-            
+            const startThreshold = 0.20;
+
             let animProgress = 0;
 
             if (rawProgress < startThreshold) {
                 // PHASE 1 : LECTURE (0% à 20% du scroll)
                 // On force l'animation à 0. Le cercle reste fermé.
                 animProgress = 0;
-                
+
                 // Petit effet sympa : le texte recule légèrement pendant qu'on lit
                 // pour montrer qu'on est bien en train de scroller
                 const textScale = 1 - (rawProgress * 0.5); // Passe de 1 à 0.9
@@ -1109,29 +1109,29 @@ initBlogPreview();
                 // PHASE 2 : OUVERTURE (20% à 100% du scroll)
                 // On recalcule une progression de 0 à 1 basée sur l'espace restant
                 animProgress = (rawProgress - startThreshold) / (1 - startThreshold);
-                
+
                 // On s'assure de ne pas dépasser 1
                 if (animProgress > 1) animProgress = 1;
-                
+
                 // On fait disparaître le texte sombre rapidement dès que ça s'ouvre
                 darkContent.style.opacity = Math.max(0, 1 - (animProgress * 3));
-                 // On fige l'échelle du texte sombre
+                // On fige l'échelle du texte sombre
                 darkContent.style.transform = `scale(0.9)`;
             }
 
             // --- APPLICATION DE L'ANIMATION (Basée sur animProgress) ---
-            
+
             // 1. Le Cercle s'ouvre (de 0% à 150%)
             const clipSize = animProgress * 150;
             const clipString = `circle(${clipSize}% at 50% 50%)`;
-            
+
             lightMask.style.clipPath = clipString;
             lightMask.style.webkitClipPath = clipString;
 
             // 2. Le contenu clair apparaît
             const scale = 1.5 - (animProgress * 0.5);
             const opacity = Math.min(1, animProgress * 2);
-            
+
             lightContent.style.transform = `scale(${scale})`;
             lightContent.style.opacity = opacity;
         }
@@ -1142,7 +1142,7 @@ initBlogPreview();
 
 
 
-// ==================================================================
+    // ==================================================================
     // EFFET MATRIX RAIN (CANVAS)
     // ==================================================================
     const canvas = document.getElementById('matrix-canvas');
@@ -1155,7 +1155,7 @@ initBlogPreview();
 
         // Les caractères qui vont tomber (Mélange Katakana + Chiffres pour l'effet Matrix pur)
         // Si vous préférez juste des 0 et 1, changez cette chaîne.
-        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*"; 
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*";
         const fontSize = 14;
         const columns = width / fontSize; // Nombre de colonnes
 
@@ -1178,7 +1178,7 @@ initBlogPreview();
             for (let i = 0; i < drops.length; i++) {
                 // Choix aléatoire du caractère
                 const text = letters.charAt(Math.floor(Math.random() * letters.length));
-                
+
                 // Dessin du caractère
                 ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
@@ -1190,7 +1190,7 @@ initBlogPreview();
 
                 drops[i]++;
             }
-            
+
             requestAnimationFrame(drawMatrix);
         }
 
@@ -1210,8 +1210,8 @@ initBlogPreview();
 
 
 
-   
- // ==================================================================
+
+    // ==================================================================
     // LOGIQUE ÂME : L'ERRANCE RÉSISTANTE (HEAVY DRIFT)
     // ==================================================================
     const soulEntity = document.getElementById('soul-entity');
@@ -1221,42 +1221,42 @@ initBlogPreview();
     const timelineChapters = document.querySelectorAll('.timeline-line ~ .space-y-32 > div');
 
     if (soulEntity && soulCore && timelineContainer && timelinePoints.length > 0) {
-        
+
         // Positions
-        let currentY = 0;       
-        let lastY = 0; 
-        let currentX = 0; 
-        
+        let currentY = 0;
+        let lastY = 0;
+        let currentX = 0;
+
         // Gestion de l'inactivité (Le Doute)
         let lastScrollTime = Date.now();
         let isIdle = false;
-        let driftDirection = 1; 
-        
+        let driftDirection = 1;
+
         // --- REGLAGES DE LA RÉSISTANCE ---
         const IDLE_DELAY = 1500;      // 1.5 secondes avant de commencer à glisser (plus tolérant)
         const DRIFT_SPEED = 0.004;    // TRES LENT (C'est là que se joue la résistance)
-                                      // Avant c'était 0.02. Ici c'est 5x plus lent.
+        // Avant c'était 0.02. Ici c'est 5x plus lent.
         const RETURN_SPEED = 0.15;    // Retour rapide (Résilience)
         const MAX_DRIFT_X = 600;      // Distance pour sortir de l'écran
-        
+
         // Variables infusion
-        let infusionTimer = null; 
-        let currentTargetChapter = null; 
-        const INFUSION_DELAY = 1200; 
+        let infusionTimer = null;
+        let currentTargetChapter = null;
+        const INFUSION_DELAY = 1200;
 
         // Physique Y
-        const LERP_Y = 0.12;          
-        const STRETCH_FORCE = 0.1;   
-        const MAGNET_RANGE = 150;    
+        const LERP_Y = 0.12;
+        const STRETCH_FORCE = 0.1;
+        const MAGNET_RANGE = 150;
 
         // --- TRAÎNÉE ---
-        const TRAIL_LENGTH = 8; 
+        const TRAIL_LENGTH = 8;
         const trailPieces = [];
-        
+
         for (let i = 0; i < TRAIL_LENGTH; i++) {
             const piece = document.createElement('div');
             piece.classList.add('soul-trail-piece');
-            const scale = 1 - (i * 0.08); 
+            const scale = 1 - (i * 0.08);
             timelineContainer.insertBefore(piece, soulEntity);
             trailPieces.push({ el: piece, y: 0, x: 0, lag: 0.15 + (i * 0.02) });
         }
@@ -1270,9 +1270,9 @@ initBlogPreview();
         }, { passive: true });
 
 
-        
 
-// Récupération de la ligne pour l'effet "Adéquation"
+
+        // Récupération de la ligne pour l'effet "Adéquation"
         const timelineLine = document.querySelector('.timeline-line');
 
         function animateSoul() {
@@ -1287,7 +1287,7 @@ initBlogPreview();
             const startThresholdY = firstPointRect.top - containerRect.top + (firstPointRect.height / 2);
 
             let scrollTargetY = viewportCenter - containerRect.top;
-            const minY = startThresholdY; 
+            const minY = startThresholdY;
             const maxY = containerRect.height - 50;
             let constrainedTargetY = Math.max(minY, Math.min(maxY, scrollTargetY));
 
@@ -1304,8 +1304,8 @@ initBlogPreview();
 
             timelinePoints.forEach((point, index) => {
                 const pointRect = point.getBoundingClientRect();
-                const pointRelY = pointRect.top - containerRect.top + (pointRect.height/2);
-                const dist = Math.abs(pointRelY - constrainedTargetY); 
+                const pointRelY = pointRect.top - containerRect.top + (pointRect.height / 2);
+                const dist = Math.abs(pointRelY - constrainedTargetY);
                 if (dist < minDistance) {
                     minDistance = dist;
                     closestPointY = pointRelY;
@@ -1314,30 +1314,30 @@ initBlogPreview();
             });
 
             let finalTargetY = constrainedTargetY;
-            let isLocked = false; 
+            let isLocked = false;
             if (closestPointY !== null && minDistance < MAGNET_RANGE) {
                 const offset = constrainedTargetY - closestPointY;
                 const ratio = Math.abs(offset) / MAGNET_RANGE;
-                const gravityOffset = offset * Math.pow(ratio, 1.8); 
+                const gravityOffset = offset * Math.pow(ratio, 1.8);
                 finalTargetY = closestPointY + gravityOffset;
                 if (minDistance < 20) isLocked = true;
             }
 
             // --- 2. LOGIQUE HORIZONTALE (X) - RÉSISTANCE ---
             let targetX = 0;
-            let currentLerpX = RETURN_SPEED; 
+            let currentLerpX = RETURN_SPEED;
 
             if (isLocked) {
-                lastScrollTime = now; 
+                lastScrollTime = now;
                 targetX = 0;
             } else {
                 if (now - lastScrollTime > IDLE_DELAY) {
                     isIdle = true;
                     targetX = driftDirection * MAX_DRIFT_X;
-                    currentLerpX = DRIFT_SPEED; 
+                    currentLerpX = DRIFT_SPEED;
                 } else {
                     targetX = 0;
-                    currentLerpX = RETURN_SPEED; 
+                    currentLerpX = RETURN_SPEED;
                 }
             }
 
@@ -1351,7 +1351,7 @@ initBlogPreview();
             currentX += (targetX - currentX) * currentLerpX;
 
             if (isIdle) {
-                const struggle = (Math.random() - 0.5) * 1.5; 
+                const struggle = (Math.random() - 0.5) * 1.5;
                 currentX += struggle;
             }
 
@@ -1359,24 +1359,24 @@ initBlogPreview();
             let velocityY = currentY - lastY;
             lastY = currentY;
             const speed = Math.abs(velocityY) + Math.abs(targetX - currentX) * 0.05;
-            
+
             let stretchY = 1 + (speed * STRETCH_FORCE);
-            let stretchX = 1 - (speed * (STRETCH_FORCE * 0.6)); 
+            let stretchX = 1 - (speed * (STRETCH_FORCE * 0.6));
 
             soulEntity.style.top = `${currentY}px`;
             soulEntity.style.transform = `translate(calc(-50% + ${currentX}px), -50%)`;
             soulCore.style.transform = `scale(${stretchX}, ${stretchY})`;
 
 
-            
+
             // =================================================================
             // LOGIQUE AJUSTÉE : NOIRCISSEMENT DOUX & LIGNE SUBTILE
             // =================================================================
-            
+
             // 1. Calcul du ratio de dérive
             // J'ai augmenté la portée à 800px (au lieu de 300px).
             // Il faut aller beaucoup plus loin pour que ça commence à se voir fort.
-            const darknessRange = 800; 
+            const darknessRange = 800;
             let driftRatio = Math.min(Math.abs(currentX) / darknessRange, 1);
 
             // 2. Application du filtre sur l'âme (Noircissement)
@@ -1385,26 +1385,51 @@ initBlogPreview();
             // Le grayscale (gris) monte moins vite aussi (multiplié par 0.7).
             const brightnessVal = 1 - (driftRatio * 0.4); // Minimum ~0.6 de luminosité
             const grayscaleVal = driftRatio * 0.7; // Reste un peu coloré quand même
-            
+
             // On applique le filtre doux
             soulCore.style.filter = `blur(3px) brightness(${brightnessVal}) grayscale(${grayscaleVal})`;
 
+            
+            
             // 3. Interaction avec la Ligne
-            // La ligne s'active si on est proche du centre (< 15px pour être plus tolérant)
+            // --- Modification de l'interaction ligne ---
             if (timelineLine) {
-                if (Math.abs(currentX) < 15) {
-                    timelineLine.classList.add('line-active'); 
-                    // On ne touche plus à l'âme ici (pas de classe soul-aligned)
-                } else {
+                // Distance par rapport au centre (absolue)
+                const distFromCenter = Math.abs(currentX);
+
+                if (distFromCenter < 20) {
+                    // CAS 1 : ALIGNÉ (Signal Fort)
+                    timelineLine.classList.add('line-active');
+                    timelineLine.style.transform = `translateX(-50%)`; // Reset position
+                    timelineLine.style.filter = `drop-shadow(0 0 5px rgba(255, 255, 255, 0.5))`; // Glow pur
+
+                } else if (distFromCenter > 200) {
+                    // CAS 2 : PERDU / DISSONANCE (Signal Brouillé)
+                    // On fait vibrer la ligne légèrement
+                    const jitter = (Math.random() - 0.5) * 4; // Vibration de 4px
+
                     timelineLine.classList.remove('line-active');
+                    // On applique la vibration
+                    timelineLine.style.transform = `translateX(calc(-50% + ${jitter}px))`;
+                    // On "salit" la ligne (effet glitch/interférence)
+                    timelineLine.style.opacity = 0.1 + Math.random() * 0.2; // Clignotement
+
+                } else {
+                    // CAS 3 : NORMAL
+                    timelineLine.classList.remove('line-active');
+                    timelineLine.style.transform = `translateX(-50%)`;
+                    timelineLine.style.opacity = 0.4;
+                    timelineLine.style.filter = 'none';
                 }
             }
+
             // =================================================================
-            
+
+
 
 
             // --- 4. TRAÎNÉE ---
-            let leaderY = currentY; 
+            let leaderY = currentY;
             let leaderX = currentX;
 
             trailPieces.forEach((piece, index) => {
@@ -1414,17 +1439,17 @@ initBlogPreview();
                     piece.y += (leaderY - piece.y) * piece.lag;
                     piece.x += (leaderX - piece.x) * piece.lag;
                 }
-                
+
                 piece.el.style.top = `${piece.y}px`;
                 piece.el.style.transform = `translate(calc(-50% + ${piece.x}px), -50%) scale(${1 - (index * 0.08)})`;
-                
+
                 // La traînée doit aussi noircir un peu
                 // On applique une opacité réduite si on est loin
                 const baseOpacity = 0.4 - (index * 0.04);
-                
+
                 // Si on dérive (darkness), la traînée devient moins visible (plus sombre/transparente)
-                const driftFade = 1 - (driftRatio * 0.8); 
-                
+                const driftFade = 1 - (driftRatio * 0.8);
+
                 piece.el.style.opacity = Math.max(0, baseOpacity * driftFade);
 
                 // Optionnel : On peut aussi appliquer le filtre sur les pièces, mais c'est coûteux en perfs.
@@ -1447,7 +1472,7 @@ initBlogPreview();
                 if (currentTargetChapter !== null) {
                     currentTargetChapter = null;
                     if (infusionTimer) clearTimeout(infusionTimer);
-                    removeInfusionClasses(); 
+                    removeInfusionClasses();
                 }
             }
 
@@ -1483,6 +1508,34 @@ initBlogPreview();
     }
 
 
+
+
+    // --- LOGIQUE DU GUIDE ÂME ---
+    const soulGuide = document.getElementById('soul-guide');
+
+    if (soulGuide) {
+        // 1. Apparition retardée (pour ne pas agresser tout de suite)
+        setTimeout(() => {
+            // On vérifie qu'on n'a pas déjà scrollé
+            if (window.scrollY < 100) {
+                soulGuide.classList.remove('opacity-0', 'translate-y-4');
+                soulGuide.classList.add('guide-visible');
+            }
+        }, 1500); // Apparaît après 1.5 secondes
+
+        // 2. Disparition au scroll
+        const handleGuideScroll = () => {
+            if (window.scrollY > 50) { // Dès qu'on scroll un peu
+                soulGuide.classList.remove('guide-visible');
+                soulGuide.classList.add('guide-hidden');
+
+                // On nettoie l'écouteur pour la performance (plus besoin après)
+                window.removeEventListener('scroll', handleGuideScroll);
+            }
+        };
+
+        window.addEventListener('scroll', handleGuideScroll, { passive: true });
+    }
 
 
 
