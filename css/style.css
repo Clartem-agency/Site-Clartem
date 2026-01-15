@@ -1783,18 +1783,20 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 
+
+
 /* ======================================================= */
-/*    L'ÂME (SOUL) - Version "Lumière Nébuleuse" (V3)      */
+/*    L'ÂME (SOUL) - Version "Densité Vaporeuse" (Finale)  */
 /* ======================================================= */
 
 #soul-entity {
     position: absolute;
     left: 50%;
     top: 0;
-    width: 40px; /* Un peu plus large pour que le dégradé respire */
-    height: 40px;
+    width: 30px; 
+    height: 30px;
     transform: translate(-50%, -50%);
-    z-index: 20;
+    z-index: 20; 
     pointer-events: none;
     transition: top 0.1s linear; 
     will-change: top, transform;
@@ -1809,56 +1811,65 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     inset: 0;
     border-radius: 50%;
     
-    /* --- L'ASPECT NÉBULEUX (Retour à la V1 améliorée) --- */
-    /* On utilise un dégradé qui va du blanc pur (centre) vers le transparent (bords) */
-    /* Cela évite l'effet "balle de ping-pong" */
-    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.5) 40%, rgba(255, 255, 255, 0) 70%);
+    /* 1. LA COULEUR DE FOND (C'est elle qui va changer doucement) */
+    background-color: #ffffff;
     
-    /* Flou important pour l'effet gazeux de ton image */
-    filter: blur(5px); 
+    /* 2. LA BRILLANCE (Statique) : Donne l'effet 3D / Boule */
+    /* On utilise un dégradé blanc vers transparent pour garder le relief */
+    background-image: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.1));
     
-    /* L'aura par défaut (Blanche et faible) */
-    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.2), 0 0 30px 10px rgba(255, 255, 255, 0.1);
+    /* 3. L'AURA (Vaporeux) */
+    box-shadow: 
+        0 0 15px 2px rgba(255, 255, 255, 0.8),  /* Halo dense */
+        0 0 40px 10px rgba(255, 255, 255, 0.4); /* Halo large */
     
-    /* Animation de respiration */
-    animation: soulBreathe 5s infinite ease-in-out;
+    /* Flou pour l'aspect gaz/esprit */
+    filter: blur(3px); 
     
-    /* LA TRANSITION DOUCE : On anime uniquement l'ombre (l'aura) */
-    transition: box-shadow 2.5s ease-in-out;
+    /* Animation de forme */
+    animation: soulBreathe 4s infinite ease-in-out;
+    
+    /* TRANSITION DOUCE (2s) : On anime la couleur de fond et l'ombre */
+    transition: background-color 2s ease, box-shadow 2s ease;
 }
 
 @keyframes soulBreathe {
-    0% { transform: scale(1) rotate(0deg); opacity: 0.9; }
-    50% { transform: scale(1.2, 0.8) rotate(5deg); opacity: 1; }
-    100% { transform: scale(1) rotate(0deg); opacity: 0.9; }
+    0% { transform: scale(1); border-radius: 50%; }
+    33% { transform: scale(1.1, 0.9); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    66% { transform: scale(0.95, 1.05); border-radius: 40% 60% 70% 30% / 40% 60% 30% 70%; }
+    100% { transform: scale(1); border-radius: 50%; }
 }
 
-/* --- ÉTATS D'INFUSION (L'AURA change, le cœur reste pur) --- */
+/* --- ÉTATS D'INFUSION (La couleur infuse doucement le noyau et l'aura) --- */
 
-/* Feu / Colère (Aura Orange) */
+/* Feu / Colère */
 .soul-infused-fire .soul-core {
+    background-color: #ffedd5; /* Le coeur devient orange très pâle */
     box-shadow: 
-        0 0 20px 5px rgba(249, 115, 22, 0.5),   /* Halo interne */
-        0 0 50px 20px rgba(249, 115, 22, 0.3);  /* Halo externe très large */
+        0 0 15px 2px rgba(249, 115, 22, 0.8), 
+        0 0 50px 15px rgba(249, 115, 22, 0.5);
 }
 
-/* Argent / Succès (Aura Verte) */
+/* Argent / Succès */
 .soul-infused-greed .soul-core {
+    background-color: #dcfce7; /* Le coeur devient vert pâle */
     box-shadow: 
-        0 0 20px 5px rgba(34, 197, 94, 0.5),
-        0 0 50px 20px rgba(34, 197, 94, 0.3);
+        0 0 15px 2px rgba(34, 197, 94, 0.8),
+        0 0 50px 15px rgba(34, 197, 94, 0.5);
 }
 
-/* Dépression / Profondeur (Aura Violette) */
+/* Dépression / Profondeur */
 .soul-infused-dark .soul-core {
+    background-color: #f3e8ff; /* Le coeur devient violet pâle */
     box-shadow: 
-        0 0 20px 5px rgba(124, 58, 237, 0.5),
-        0 0 50px 20px rgba(124, 58, 237, 0.3);
+        0 0 15px 2px rgba(124, 58, 237, 0.8),
+        0 0 50px 15px rgba(124, 58, 237, 0.5);
 }
 
-/* Espoir / Clarté (Aura Bleue) */
+/* Espoir / Clarté */
 .soul-infused-blue .soul-core {
+    background-color: #dbeafe; /* Le coeur devient bleu pâle */
     box-shadow: 
-        0 0 20px 5px rgba(59, 130, 246, 0.5),
-        0 0 50px 20px rgba(59, 130, 246, 0.3);
+        0 0 15px 2px rgba(59, 130, 246, 0.8),
+        0 0 50px 15px rgba(59, 130, 246, 0.5);
 }
