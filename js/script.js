@@ -1211,8 +1211,8 @@ initBlogPreview();
 
 
    
-  // ==================================================================
-    // LOGIQUE ÂME : L'ERRANCE MAGNÉTIQUE (AXES X & Y)
+ // ==================================================================
+    // LOGIQUE ÂME : L'ERRANCE TEMPORELLE (IDLE DRIFT)
     // ==================================================================
     const soulEntity = document.getElementById('soul-entity');
     const soulCore = document.querySelector('.soul-core');
@@ -1222,27 +1222,33 @@ initBlogPreview();
 
     if (soulEntity && soulCore && timelineContainer && timelinePoints.length > 0) {
         
-        // Positions actuelles
+        // Positions
         let currentY = 0;       
         let lastY = 0; 
-        let currentX = 0; // NOUVEAU : Position horizontale (offset par rapport au centre)
+        let currentX = 0; 
         
-        // Variables pour l'infusion de couleur
+        // Gestion de l'inactivité (Le Doute)
+        let lastScrollTime = Date.now();
+        let isIdle = false;
+        let driftDirection = 1; // 1 = droite, -1 = gauche
+        
+        // Configuration
+        const IDLE_DELAY = 1000;      // Temps avant que l'âme commence à partir (1s)
+        const DRIFT_SPEED = 0.02;     // Vitesse à laquelle elle part (lent au début)
+        const RETURN_SPEED = 0.15;    // Vitesse à laquelle elle revient (rapide)
+        const MAX_DRIFT_X = 800;      // Distance max (sort de l'écran)
+        
+        // Variables infusion (couleurs)
         let infusionTimer = null; 
         let currentTargetChapter = null; 
         const INFUSION_DELAY = 1200; 
 
-        // Physique de l'âme
-        const LERP_Y = 0.1;          // Fluidité verticale
-        const LERP_X = 0.08;         // Fluidité horizontale (un peu plus "flottant")
+        // Physique Y (Verticale)
+        const LERP_Y = 0.12;          
         const STRETCH_FORCE = 0.1;   
-        const MAGNET_RANGE = 200;    // Portée de l'attraction verticale
+        const MAGNET_RANGE = 150;    
 
-        // Paramètres de l'Errance (Déviation)
-        const DEVIATION_FORCE = 60;  // Combien de pixels elle s'éloigne du centre (Max)
-        const CHAOS_AMOUNT = 3;      // Tremblement quand elle est déviée
-
-        // --- CONFIGURATION DE LA TRAÎNÉE (GHOSTS) ---
+        // --- CONFIGURATION DE LA TRAÎNÉE ---
         const TRAIL_LENGTH = 8; 
         const trailPieces = [];
         
@@ -1252,23 +1258,30 @@ initBlogPreview();
             const scale = 1 - (i * 0.08); 
             const opacity = 0.4 - (i * 0.04); 
             piece.style.transform = `translate(-50%, -50%) scale(${scale})`;
-            piece.style.opacity = Math.max(0, opacity);
             timelineContainer.insertBefore(piece, soulEntity);
             
             trailPieces.push({
-                el: piece,
-                y: 0,
-                x: 0, // NOUVEAU : La traînée doit suivre en X aussi
-                lag: 0.15 + (i * 0.02)
+                el: piece, y: 0, x: 0, lag: 0.15 + (i * 0.02)
             });
         }
 
+        // ÉCOUTEUR DE SCROLL POUR RESET LE TIMER
+        window.addEventListener('scroll', () => {
+            lastScrollTime = Date.now();
+            if (isIdle) {
+                // Dès qu'on scroll, on n'est plus idle, on change de direction pour la prochaine fois
+                isIdle = false;
+                driftDirection = Math.random() > 0.5 ? 1 : -1;
+            }
+        }, { passive: true });
+
+
         function animateSoul() {
+            const now = Date.now();
             const containerRect = timelineContainer.getBoundingClientRect();
             const viewportCenter = window.innerHeight / 2;
-            const containerCenter = containerRect.width / 2;
 
-            // 1. DÉTECTION SCROLL VERTICAL (CIBLE Y)
+            // --- 1. LOGIQUE VERTICALE (Y) - RESTE CLASSIQUE ---
             const firstPoint = timelinePoints[0];
             const firstPointRect = firstPoint.getBoundingClientRect();
             const startThresholdY = firstPointRect.top - containerRect.top + (firstPointRect.height / 2);
@@ -1278,7 +1291,7 @@ initBlogPreview();
             const maxY = containerRect.height - 50;
             let constrainedTargetY = Math.max(minY, Math.min(maxY, scrollTargetY));
 
-            // GESTION APPARITION
+            // Gestion Apparition
             if (scrollTargetY < startThresholdY - 50) {
                 soulEntity.style.opacity = '0';
                 trailPieces.forEach(p => p.el.style.opacity = '0');
@@ -1286,59 +1299,22 @@ initBlogPreview();
                 soulEntity.style.opacity = '1';
             }
 
-            // 2. CALCUL DE LA DÉVIATION (CIBLE X)
-            // On cherche entre quels points l'âme se trouve pour calculer sa déviation
-            let targetDeviationX = 0;
-            let activeChapter = null;
+            // Gravité points (Magnétisme vertical)
             let minDistance = Infinity;
             let closestPointY = null;
+            let activeChapter = null;
 
-            // Boucle pour trouver le segment actif et le point le plus proche
-            for (let i = 0; i < timelinePoints.length; i++) {
-                const point = timelinePoints[i];
+            timelinePoints.forEach((point, index) => {
                 const pointRect = point.getBoundingClientRect();
                 const pointRelY = pointRect.top - containerRect.top + (pointRect.height/2);
-                
-                // Pour la gravité verticale (Code existant)
                 const dist = Math.abs(pointRelY - constrainedTargetY); 
                 if (dist < minDistance) {
                     minDistance = dist;
                     closestPointY = pointRelY;
-                    activeChapter = timelineChapters[i];
+                    activeChapter = timelineChapters[index];
                 }
+            });
 
-                // Pour la déviation horizontale (NOUVEAU)
-                // Si on a un point suivant, on vérifie si on est dans ce segment
-                if (i < timelinePoints.length - 1) {
-                    const nextPoint = timelinePoints[i+1];
-                    const nextPointRect = nextPoint.getBoundingClientRect();
-                    const nextPointRelY = nextPointRect.top - containerRect.top + (nextPointRect.height/2);
-
-                    if (constrainedTargetY >= pointRelY && constrainedTargetY <= nextPointRelY) {
-                        // On est entre le point i et i+1
-                        
-                        // Calcul du progrès (0% au point i, 50% au milieu, 100% au point i+1)
-                        const segmentLength = nextPointRelY - pointRelY;
-                        const progress = (constrainedTargetY - pointRelY) / segmentLength;
-
-                        // Fonction Sinusoïdale : 0 -> 1 -> 0
-                        // L'âme s'éloigne au milieu du segment et revient à la fin
-                        const curve = Math.sin(progress * Math.PI);
-
-                        // Direction : Alterne gauche/droite selon l'index
-                        // Note: Index pair = déviation vers la droite (contenu à gauche) ou inversement selon ton layout
-                        // Ajuste le multiplicateur (1 ou -1) selon ton design visuel exact
-                        const direction = (i % 2 === 0) ? -1 : 1; 
-
-                        // Ajout d'un peu de chaos aléatoire (tremblement) quand elle est loin du centre
-                        const chaos = (Math.random() - 0.5) * CHAOS_AMOUNT * curve;
-
-                        targetDeviationX = (curve * DEVIATION_FORCE * direction) + chaos;
-                    }
-                }
-            }
-
-            // 3. GRAVITÉ VERTICALE (MAGNETISME)
             let finalTargetY = constrainedTargetY;
             let isLocked = false; 
 
@@ -1348,73 +1324,94 @@ initBlogPreview();
                 const gravityOffset = offset * Math.pow(ratio, 1.8); 
                 finalTargetY = closestPointY + gravityOffset;
                 
-                // Si on est très proche d'un point, on force X à 0 (Recentrage absolu)
-                if (minDistance < 30) {
-                    targetDeviationX = targetDeviationX * (minDistance / 30); // Réduit la déviation à 0
-                    isLocked = true;
+                if (minDistance < 20) isLocked = true; // Verrouillé sur un point
+            }
+
+
+            // --- 2. LOGIQUE HORIZONTALE (X) - L'ERRANCE ---
+            
+            let targetX = 0;
+            let currentLerpX = RETURN_SPEED; // Par défaut, on revient vite
+
+            // Si on est verrouillé sur un point (une date précise), pas d'errance possible
+            if (isLocked) {
+                lastScrollTime = now; // On reset le timer pour empêcher de partir quand on est sur une date
+                targetX = 0;
+            } else {
+                // Si on n'est PAS sur un point ET qu'on ne scrolle pas depuis un moment
+                if (now - lastScrollTime > IDLE_DELAY) {
+                    isIdle = true;
+                    // L'âme part loin (hors écran)
+                    targetX = driftDirection * MAX_DRIFT_X;
+                    currentLerpX = DRIFT_SPEED; // Elle part doucement (insidieusement)
+                } else {
+                    // On est en mouvement ou on vient de s'arrêter
+                    targetX = 0;
+                    currentLerpX = RETURN_SPEED; // On revient vite sur la ligne
                 }
             }
 
-            // Init au chargement
+
+            // --- 3. APPLICATION PHYSIQUE ---
+            
+            // Init
             if (currentY === 0) {
                 currentY = finalTargetY;
                 currentX = 0;
                 trailPieces.forEach(p => { p.y = finalTargetY; p.x = 0; });
             }
 
-            // 4. APPLICATION DU MOUVEMENT (LERP)
+            // Mouvement Y (Standard)
             currentY += (finalTargetY - currentY) * LERP_Y;
-            currentX += (targetDeviationX - currentX) * LERP_X; // Mouvement X plus "sluggish"
+            
+            // Mouvement X (Drift vs Return)
+            currentX += (targetX - currentX) * currentLerpX;
 
-            // 5. SQUASH & STRETCH
+            // Squash & Stretch (Basé sur la vitesse Y + la vitesse X)
             let velocityY = currentY - lastY;
             lastY = currentY;
-            const speed = Math.abs(velocityY);
+            const speed = Math.abs(velocityY) + Math.abs(targetX - currentX) * 0.05;
             
             let stretchY = 1 + (speed * STRETCH_FORCE);
             let stretchX = 1 - (speed * (STRETCH_FORCE * 0.6)); 
-            
-            // Rotation de l'âme selon la direction X pour plus de réalisme
-            const rotation = (targetDeviationX - currentX) * 2; 
 
-            // Application CSS Âme
-            // Note: On ajoute currentX au "left: 50%" via calc ou translate
-            // Ici on utilise translate X pour la déviation
+            // Application
             soulEntity.style.top = `${currentY}px`;
-            soulEntity.style.transform = `translate(calc(-50% + ${currentX}px), -50%) rotate(${rotation}deg)`;
+            // On utilise translate X pour la déviation
+            soulEntity.style.transform = `translate(calc(-50% + ${currentX}px), -50%)`;
             soulCore.style.transform = `scale(${stretchX}, ${stretchY})`;
 
 
-            // 6. PHYSIQUE DE LA TRAÎNÉE (X & Y)
+            // --- 4. TRAÎNÉE ---
             let leaderY = currentY; 
             let leaderX = currentX;
 
             trailPieces.forEach((piece, index) => {
                 if (soulEntity.style.opacity === '0') {
-                    piece.y = leaderY;
-                    piece.x = leaderX;
+                    piece.y = leaderY; piece.x = leaderX;
                 } else {
                     piece.y += (leaderY - piece.y) * piece.lag;
-                    piece.x += (leaderX - piece.x) * piece.lag; // Suivi en X
+                    piece.x += (leaderX - piece.x) * piece.lag;
                 }
-
+                
                 piece.el.style.top = `${piece.y}px`;
-                // Même logique de positionnement X que l'âme
                 piece.el.style.transform = `translate(calc(-50% + ${piece.x}px), -50%) scale(${1 - (index * 0.08)})`;
                 
-                // Gestion opacité vitesse
-                if (scrollTargetY >= startThresholdY - 10) {
-                     const baseOpacity = 0.4 - (index * 0.04);
-                     const speedFactor = Math.min(speed * 0.1, 0.2); 
-                     piece.el.style.opacity = Math.max(0, baseOpacity + speedFactor);
+                // Opacité augmentée si l'âme part loin pour bien voir le fil qui se tend
+                if (isIdle) {
+                    piece.el.style.opacity = Math.max(0, 0.6 - (index * 0.06));
+                } else {
+                    // Opacité standard
+                    const baseOpacity = 0.4 - (index * 0.04);
+                    const speedFactor = Math.min(speed * 0.1, 0.2); 
+                    piece.el.style.opacity = Math.max(0, baseOpacity + speedFactor);
                 }
 
-                leaderY = piece.y; 
-                leaderX = piece.x;
+                leaderY = piece.y; leaderX = piece.x;
             });
 
 
-            // 7. GESTION COULEUR (INFUSION)
+            // --- 5. COULEURS ---
             if (isLocked && speed < 1 && activeChapter) {
                 if (activeChapter !== currentTargetChapter) {
                     currentTargetChapter = activeChapter;
@@ -1435,7 +1432,6 @@ initBlogPreview();
             requestAnimationFrame(animateSoul);
         }
 
-        // ... Les fonctions removeInfusionClasses et applyInfusionColor restent inchangées ...
         function removeInfusionClasses() {
             soulEntity.classList.remove('soul-infused-fire', 'soul-infused-greed', 'soul-infused-blue', 'soul-infused-void', 'soul-infused-stasis', 'soul-infused-hologram');
             trailPieces.forEach(p => {
@@ -1460,7 +1456,7 @@ initBlogPreview();
 
         requestAnimationFrame(animateSoul);
     }
-    
+
 
 
 
