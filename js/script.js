@@ -1211,7 +1211,7 @@ initBlogPreview();
 
 
     // ==================================================================
-    // LOGIQUE ÂME : HARD MAGNETIC LOCK + SQUASH CARTOON
+    // LOGIQUE ÂME : HARD MAGNETIC LOCK + SQUASH CARTOON (OPTIMISÉE)
     // ==================================================================
     const soulEntity = document.getElementById('soul-entity');
     const soulCore = document.querySelector('.soul-core'); 
@@ -1224,85 +1224,86 @@ initBlogPreview();
         let currentY = 0;       
         let lastY = 0; 
 
-        // --- RÉGLAGES PHYSIQUES PUISSANTS ---
-        const LERP = 0.1;            // Réactivité (0.1 = Assez vif pour le snap)
-        const STRETCH_FORCE = 0.20;  // Déformation plus visible
+        // --- RÉGLAGES PHYSIQUES ---
+        const BASE_LERP = 0.1;       // Vitesse de suivi normale (fluide)
+        const SNAP_LERP = 0.3;       // Vitesse du "LOCK" (très rapide pour l'effet aimant)
+        const STRETCH_FORCE = 0.15;  // Force de déformation
         
         // --- RÉGLAGES AIMANT ---
-        const MAGNET_RANGE_FAR = 300; // Début de l'attraction (large)
-        const MAGNET_RANGE_LOCK = 60; // Zone de VERROUILLAGE TOTAL (en px)
+        const MAGNET_RANGE_FAR = 250; // Zone d'influence lointaine
+        const MAGNET_RANGE_LOCK = 80; // Zone de VERROUILLAGE (Si on entre ici, on snap)
 
         function animateSoul() {
             const containerRect = timelineContainer.getBoundingClientRect();
             const viewportCenter = window.innerHeight / 2;
 
-            // 1. Position théorique selon le scroll
+            // 1. Position théorique selon le scroll (Centre de l'écran)
             let scrollTarget = viewportCenter - containerRect.top;
             
-            // Bornes
+            // Bornes (Ne pas sortir du conteneur)
             const minY = 20; 
             const maxY = containerRect.height - 50;
             scrollTarget = Math.max(minY, Math.min(maxY, scrollTarget));
 
-            // 2. Calcul de la Cible Magnétique
-            let finalTarget = scrollTarget; 
-            let activeMagnet = false; // Pour savoir si on est capturé
+            // 2. Trouver le point le plus proche
+            let closestPointY = null;
+            let minDistance = Infinity;
 
             timelinePoints.forEach(point => {
                 const pointRect = point.getBoundingClientRect();
-                // Position exacte du point dans le référentiel timeline
+                // Position Y du point relative au conteneur
                 const pointRelY = pointRect.top - containerRect.top + (pointRect.height/2);
-                
-                // Distance entre le scroll souris et le point
                 const dist = Math.abs(pointRelY - scrollTarget);
-                
-                // --- LOGIQUE HARD LOCK ---
-                
-                // ZONE 1 : VERROUILLAGE TOTAL (Le cœur de l'aimant)
-                // Si la souris est proche du point, l'âme RESTE sur le point.
-                if (dist < MAGNET_RANGE_LOCK) {
-                    finalTarget = pointRelY; // On ignore le scroll souris !
-                    activeMagnet = true;
-                }
-                // ZONE 2 : ATTRACTION ÉLASTIQUE (La sortie de l'aimant)
-                // Si on force pour sortir, on crée une résistance
-                else if (dist < MAGNET_RANGE_FAR) {
-                    // Calcul d'un facteur d'attraction (1 = proche, 0 = loin)
-                    let pull = 1 - (dist / MAGNET_RANGE_FAR);
-                    
-                    // Courbe exponentielle pour que ça "lâche" d'un coup
-                    pull = Math.pow(pull, 0.5); 
 
-                    // Mélange : Le point tire encore l'âme vers lui
-                    // Même si on scrolle loin, l'âme "traîne" derrière vers le point
-                    finalTarget = (pointRelY * pull) + (scrollTarget * (1 - pull));
+                if (dist < minDistance) {
+                    minDistance = dist;
+                    closestPointY = pointRelY;
                 }
             });
 
-            // 3. Application du Mouvement (Inertie)
-            // Si on est locké, on augmente le LERP pour que ça snap vite
-            const currentLerp = activeMagnet ? 0.15 : LERP;
-            currentY += (finalTarget - currentY) * currentLerp;
+            // 3. Calcul de la Cible Magnétique Finale
+            let finalTarget = scrollTarget;
+            let activeLerp = BASE_LERP;
+
+            if (closestPointY !== null) {
+                // ZONE 1 : VERROUILLAGE TOTAL (SNAP)
+                if (minDistance < MAGNET_RANGE_LOCK) {
+                    finalTarget = closestPointY; // On force la position exacte du point
+                    activeLerp = SNAP_LERP;      // On accélère le mouvement pour "claquer"
+                } 
+                // ZONE 2 : ATTRACTION ÉLASTIQUE
+                else if (minDistance < MAGNET_RANGE_FAR) {
+                    // Facteur d'attraction (1 = très proche, 0 = limite de zone)
+                    let pull = 1 - (minDistance / MAGNET_RANGE_FAR);
+                    pull = Math.pow(pull, 2); // Courbe exponentielle pour adoucir l'entrée
+
+                    // Mélange : Le point tire l'âme vers lui progressivement
+                    finalTarget = (closestPointY * pull) + (scrollTarget * (1 - pull));
+                }
+            }
+
+            // 4. Application du Mouvement (Inertie)
+            currentY += (finalTarget - currentY) * activeLerp;
             
-            // 4. Calcul Vitesse & Déformation (Squash & Stretch)
+            // 5. Calcul Vitesse & Déformation (Squash & Stretch)
             let velocity = currentY - lastY;
             lastY = currentY;
 
             const speed = Math.abs(velocity);
             
-            // Plus de déformation quand on "casse" l'aimant (vitesse élevée)
+            // Étirement basé sur la vitesse
             let stretchY = 1 + (speed * STRETCH_FORCE);
-            let stretchX = 1 - (speed * (STRETCH_FORCE * 0.4)); 
+            let stretchX = 1 - (speed * (STRETCH_FORCE * 0.5)); 
 
-            // Limites déformation
-            stretchY = Math.min(stretchY, 3.0);
-            stretchX = Math.max(stretchX, 0.5);
+            // Limites déformation pour éviter les bugs graphiques
+            stretchY = Math.min(stretchY, 2.5);
+            stretchX = Math.max(stretchX, 0.6);
 
-            // 5. Rendu
+            // 6. Rendu
             soulEntity.style.top = `${currentY}px`;
             soulCore.style.transform = `scale(${stretchX}, ${stretchY})`;
 
-            // 6. Couleurs
+            // 7. Couleurs
             detectSoulContext(currentY + containerRect.top);
 
             requestAnimationFrame(animateSoul);
@@ -1327,7 +1328,7 @@ initBlogPreview();
             if (html.includes('text-green-500') || html.includes('text-success-green')) soulEntity.classList.add('soul-state-greed');
             else if (html.includes('text-red-600') || html.includes('text-red-500') || html.includes('text-orange-500') || html.includes('text-warm-orange')) soulEntity.classList.add('soul-state-fire');
             else if (html.includes('text-purple-400') || html.includes('text-indigo-400')) soulEntity.classList.add('soul-state-dark');
-            else if (html.includes('text-clarity-blue') || html.includes('text-blue-400')) soulEntity.classList.add('soul-state-blue');
+            else if (html.includes('text-clarity-blue') || html.includes('text-blue-400') || html.includes('text-teal-400')) soulEntity.classList.add('soul-state-blue');
             else if (html.includes('La convergence')) soulEntity.classList.add('soul-state-pure');
             else soulEntity.classList.add('soul-state-neutral');
         }
