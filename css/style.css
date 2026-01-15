@@ -1833,7 +1833,7 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     animation: soulBreathe 4s infinite ease-in-out;
     
     /* TRANSITION DOUCE (2s) : On anime la couleur de fond et l'ombre */
-    transition: background-color 2s ease, box-shadow 2s ease;
+    transition: background-color 2s ease, box-shadow 2s ease, transform 2s ease;
 }
 
 @keyframes soulBreathe {
@@ -1956,61 +1956,49 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 /* ======================================================= */
-/*    STYLE FUTUR HOLOGRAPHIQUE (CHAPITRE 2026-2030)       */
+/*    STYLE FUTUR HOLOGRAPHIQUE (CORRIGÉ FLUIDE)           */
 /* ======================================================= */
 
-/* 1. Le Texte Irisé / Hologramme */
+/* 1. Le Texte Irisé (Pas de changement ici, c'était bon) */
 .future-text {
-    /* Dégradé plus contrasté : Blanc brillant -> Cyan néon -> Blanc */
     background: linear-gradient(90deg, #ffffff 0%, #22d3ee 50%, #e879f9 75%, #ffffff 100%);
     background-size: 200% auto;
-    
-    /* IMPORTANT : On force la transparence pour voir le fond */
     color: transparent !important;
     -webkit-text-fill-color: transparent !important;
     -webkit-background-clip: text;
     background-clip: text;
-    
     animation: shineFuture 4s linear infinite;
-    filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.4)); /* Lueur cyan */
+    filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.4));
 }
 
 @keyframes shineFuture {
     to { background-position: 200% center; }
 }
 
-/* 2. L'Âme en mode "Hologramme Stable" */
-/* Fini le glitch qui tremble. Place à la séparation RGB élégante */
+/* 2. L'Âme en mode Hologramme "Douce" */
 .soul-infused-hologram .soul-core {
     background-color: #ffffff;
     
-    /* Effet RGB Split statique de base */
-    box-shadow: 
-        -2px 0 0 rgba(0, 255, 255, 0.7),  /* Cyan à gauche */
-        2px 0 0 rgba(255, 0, 255, 0.7),   /* Magenta à droite */
-        0 0 15px 5px rgba(255, 255, 255, 0.5); /* Halo blanc */
-        
-    /* Animation de respiration technologique */
-    animation: soulHoloPulse 3s ease-in-out infinite;
+    /* L'animation dure un peu plus longtemps (4s) pour être plus "zen" */
+    animation: soulHoloPulseSmooth 4s ease-in-out infinite;
 }
 
-@keyframes soulHoloPulse {
+@keyframes soulHoloPulseSmooth {
     0%, 100% {
-        /* État calme */
+        /* ÉTAT 0% = ÉTAT NORMAL (Les couleurs sont cachées derrière) */
+        /* Pas de décalage des ombres, juste un halo blanc propre */
         box-shadow: 
-            -1px 0 0 rgba(0, 255, 255, 0.6), 
-            1px 0 0 rgba(255, 0, 255, 0.6),
-            0 0 15px 2px rgba(255, 255, 255, 0.4);
+            0 0 0 rgba(0, 255, 255, 0),    /* Cyan caché */
+            0 0 0 rgba(255, 0, 255, 0),    /* Magenta caché */
+            0 0 20px 5px rgba(255, 255, 255, 0.6); /* Halo blanc normal */
         transform: scale(1);
-        opacity: 0.9;
     }
     50% {
-        /* État "actif" : les couleurs s'écartent */
+        /* ÉTAT 50% = EFFET HOLOGRAMME (Les couleurs sortent doucement) */
         box-shadow: 
-            -4px 0 2px rgba(0, 255, 255, 0.8),  /* Le cyan s'écarte */
-            4px 0 2px rgba(255, 0, 255, 0.8),   /* Le magenta s'écarte */
-            0 0 25px 8px rgba(34, 211, 238, 0.3); /* Halo cyan */
-        transform: scale(1.05);
-        opacity: 1;
+            -4px 0 4px rgba(0, 255, 255, 0.6),  /* Le cyan sort à gauche */
+            4px 0 4px rgba(255, 0, 255, 0.6),   /* Le magenta sort à droite */
+            0 0 30px 10px rgba(34, 211, 238, 0.2); /* Grand halo cyan */
+        transform: scale(1.08); /* Légère respiration */
     }
 }
