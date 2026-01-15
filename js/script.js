@@ -1212,7 +1212,7 @@ initBlogPreview();
 
    
  // ==================================================================
-    // LOGIQUE ÂME : L'ERRANCE TEMPORELLE (IDLE DRIFT)
+    // LOGIQUE ÂME : L'ERRANCE RÉSISTANTE (HEAVY DRIFT)
     // ==================================================================
     const soulEntity = document.getElementById('soul-entity');
     const soulCore = document.querySelector('.soul-core');
@@ -1230,25 +1230,26 @@ initBlogPreview();
         // Gestion de l'inactivité (Le Doute)
         let lastScrollTime = Date.now();
         let isIdle = false;
-        let driftDirection = 1; // 1 = droite, -1 = gauche
+        let driftDirection = 1; 
         
-        // Configuration
-        const IDLE_DELAY = 1000;      // Temps avant que l'âme commence à partir (1s)
-        const DRIFT_SPEED = 0.02;     // Vitesse à laquelle elle part (lent au début)
-        const RETURN_SPEED = 0.15;    // Vitesse à laquelle elle revient (rapide)
-        const MAX_DRIFT_X = 800;      // Distance max (sort de l'écran)
+        // --- REGLAGES DE LA RÉSISTANCE ---
+        const IDLE_DELAY = 1500;      // 1.5 secondes avant de commencer à glisser (plus tolérant)
+        const DRIFT_SPEED = 0.004;    // TRES LENT (C'est là que se joue la résistance)
+                                      // Avant c'était 0.02. Ici c'est 5x plus lent.
+        const RETURN_SPEED = 0.15;    // Retour rapide (Résilience)
+        const MAX_DRIFT_X = 600;      // Distance pour sortir de l'écran
         
-        // Variables infusion (couleurs)
+        // Variables infusion
         let infusionTimer = null; 
         let currentTargetChapter = null; 
         const INFUSION_DELAY = 1200; 
 
-        // Physique Y (Verticale)
+        // Physique Y
         const LERP_Y = 0.12;          
         const STRETCH_FORCE = 0.1;   
         const MAGNET_RANGE = 150;    
 
-        // --- CONFIGURATION DE LA TRAÎNÉE ---
+        // --- TRAÎNÉE ---
         const TRAIL_LENGTH = 8; 
         const trailPieces = [];
         
@@ -1256,20 +1257,13 @@ initBlogPreview();
             const piece = document.createElement('div');
             piece.classList.add('soul-trail-piece');
             const scale = 1 - (i * 0.08); 
-            const opacity = 0.4 - (i * 0.04); 
-            piece.style.transform = `translate(-50%, -50%) scale(${scale})`;
             timelineContainer.insertBefore(piece, soulEntity);
-            
-            trailPieces.push({
-                el: piece, y: 0, x: 0, lag: 0.15 + (i * 0.02)
-            });
+            trailPieces.push({ el: piece, y: 0, x: 0, lag: 0.15 + (i * 0.02) });
         }
 
-        // ÉCOUTEUR DE SCROLL POUR RESET LE TIMER
         window.addEventListener('scroll', () => {
             lastScrollTime = Date.now();
             if (isIdle) {
-                // Dès qu'on scroll, on n'est plus idle, on change de direction pour la prochaine fois
                 isIdle = false;
                 driftDirection = Math.random() > 0.5 ? 1 : -1;
             }
@@ -1281,7 +1275,7 @@ initBlogPreview();
             const containerRect = timelineContainer.getBoundingClientRect();
             const viewportCenter = window.innerHeight / 2;
 
-            // --- 1. LOGIQUE VERTICALE (Y) - RESTE CLASSIQUE ---
+            // --- 1. LOGIQUE VERTICALE (Y) ---
             const firstPoint = timelinePoints[0];
             const firstPointRect = firstPoint.getBoundingClientRect();
             const startThresholdY = firstPointRect.top - containerRect.top + (firstPointRect.height / 2);
@@ -1291,7 +1285,6 @@ initBlogPreview();
             const maxY = containerRect.height - 50;
             let constrainedTargetY = Math.max(minY, Math.min(maxY, scrollTargetY));
 
-            // Gestion Apparition
             if (scrollTargetY < startThresholdY - 50) {
                 soulEntity.style.opacity = '0';
                 trailPieces.forEach(p => p.el.style.opacity = '0');
@@ -1299,7 +1292,6 @@ initBlogPreview();
                 soulEntity.style.opacity = '1';
             }
 
-            // Gravité points (Magnétisme vertical)
             let minDistance = Infinity;
             let closestPointY = null;
             let activeChapter = null;
@@ -1317,57 +1309,51 @@ initBlogPreview();
 
             let finalTargetY = constrainedTargetY;
             let isLocked = false; 
-
             if (closestPointY !== null && minDistance < MAGNET_RANGE) {
                 const offset = constrainedTargetY - closestPointY;
                 const ratio = Math.abs(offset) / MAGNET_RANGE;
                 const gravityOffset = offset * Math.pow(ratio, 1.8); 
                 finalTargetY = closestPointY + gravityOffset;
-                
-                if (minDistance < 20) isLocked = true; // Verrouillé sur un point
+                if (minDistance < 20) isLocked = true;
             }
 
 
-            // --- 2. LOGIQUE HORIZONTALE (X) - L'ERRANCE ---
+            // --- 2. LOGIQUE HORIZONTALE (X) - RÉSISTANCE ---
             
             let targetX = 0;
-            let currentLerpX = RETURN_SPEED; // Par défaut, on revient vite
+            let currentLerpX = RETURN_SPEED; 
 
-            // Si on est verrouillé sur un point (une date précise), pas d'errance possible
             if (isLocked) {
-                lastScrollTime = now; // On reset le timer pour empêcher de partir quand on est sur une date
+                lastScrollTime = now; 
                 targetX = 0;
             } else {
-                // Si on n'est PAS sur un point ET qu'on ne scrolle pas depuis un moment
                 if (now - lastScrollTime > IDLE_DELAY) {
                     isIdle = true;
-                    // L'âme part loin (hors écran)
                     targetX = driftDirection * MAX_DRIFT_X;
-                    currentLerpX = DRIFT_SPEED; // Elle part doucement (insidieusement)
+                    currentLerpX = DRIFT_SPEED; // Vitesse très lente (résistance)
                 } else {
-                    // On est en mouvement ou on vient de s'arrêter
                     targetX = 0;
-                    currentLerpX = RETURN_SPEED; // On revient vite sur la ligne
+                    currentLerpX = RETURN_SPEED; 
                 }
             }
 
 
             // --- 3. APPLICATION PHYSIQUE ---
-            
-            // Init
             if (currentY === 0) {
-                currentY = finalTargetY;
-                currentX = 0;
+                currentY = finalTargetY; currentX = 0;
                 trailPieces.forEach(p => { p.y = finalTargetY; p.x = 0; });
             }
 
-            // Mouvement Y (Standard)
             currentY += (finalTargetY - currentY) * LERP_Y;
-            
-            // Mouvement X (Drift vs Return)
             currentX += (targetX - currentX) * currentLerpX;
 
-            // Squash & Stretch (Basé sur la vitesse Y + la vitesse X)
+            // AJOUT : Petite vibration de résistance quand on dérive
+            if (isIdle) {
+                const struggle = (Math.random() - 0.5) * 1.5; // Vibration de 1.5px
+                currentX += struggle;
+            }
+
+            // Squash & Stretch
             let velocityY = currentY - lastY;
             lastY = currentY;
             const speed = Math.abs(velocityY) + Math.abs(targetX - currentX) * 0.05;
@@ -1375,9 +1361,7 @@ initBlogPreview();
             let stretchY = 1 + (speed * STRETCH_FORCE);
             let stretchX = 1 - (speed * (STRETCH_FORCE * 0.6)); 
 
-            // Application
             soulEntity.style.top = `${currentY}px`;
-            // On utilise translate X pour la déviation
             soulEntity.style.transform = `translate(calc(-50% + ${currentX}px), -50%)`;
             soulCore.style.transform = `scale(${stretchX}, ${stretchY})`;
 
@@ -1397,11 +1381,10 @@ initBlogPreview();
                 piece.el.style.top = `${piece.y}px`;
                 piece.el.style.transform = `translate(calc(-50% + ${piece.x}px), -50%) scale(${1 - (index * 0.08)})`;
                 
-                // Opacité augmentée si l'âme part loin pour bien voir le fil qui se tend
                 if (isIdle) {
-                    piece.el.style.opacity = Math.max(0, 0.6 - (index * 0.06));
+                    // Quand on dérive loin, la traînée devient un peu plus visible pour montrer le lien tendu
+                    piece.el.style.opacity = Math.max(0, 0.5 - (index * 0.05));
                 } else {
-                    // Opacité standard
                     const baseOpacity = 0.4 - (index * 0.04);
                     const speedFactor = Math.min(speed * 0.1, 0.2); 
                     piece.el.style.opacity = Math.max(0, baseOpacity + speedFactor);
@@ -1410,16 +1393,13 @@ initBlogPreview();
                 leaderY = piece.y; leaderX = piece.x;
             });
 
-
             // --- 5. COULEURS ---
             if (isLocked && speed < 1 && activeChapter) {
                 if (activeChapter !== currentTargetChapter) {
                     currentTargetChapter = activeChapter;
                     if (infusionTimer) clearTimeout(infusionTimer);
                     removeInfusionClasses();
-                    infusionTimer = setTimeout(() => {
-                        applyInfusionColor(activeChapter);
-                    }, INFUSION_DELAY);
+                    infusionTimer = setTimeout(() => { applyInfusionColor(activeChapter); }, INFUSION_DELAY);
                 }
             } else {
                 if (currentTargetChapter !== null) {
