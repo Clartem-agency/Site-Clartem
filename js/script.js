@@ -1211,8 +1211,8 @@ initBlogPreview();
 
 
    
-    // ==================================================================
-    // LOGIQUE ÂME : CORRECTION DE POSITON (DÉPART AU POINT 1)
+  // ==================================================================
+    // LOGIQUE ÂME AVEC TRAÎNÉE (TRAIL EFFECT)
     // ==================================================================
     const soulEntity = document.getElementById('soul-entity');
     const soulCore = document.querySelector('.soul-core');
@@ -1230,41 +1230,65 @@ initBlogPreview();
         let currentTargetChapter = null; 
         const INFUSION_DELAY = 1200; 
 
-        // Physique
+        // Physique de l'âme principale
         const LERP = 0.12;           
         const STRETCH_FORCE = 0.1;   
         const MAGNET_RANGE = 150;    
+
+        // --- CONFIGURATION DE LA TRAÎNÉE (GHOSTS) ---
+        const TRAIL_LENGTH = 8; // Nombre de fantômes (plus il y en a, plus la traînée est longue)
+        const trailPieces = [];
+        
+        // Création des éléments DOM pour la traînée
+        for (let i = 0; i < TRAIL_LENGTH; i++) {
+            const piece = document.createElement('div');
+            piece.classList.add('soul-trail-piece');
+            
+            // On réduit progressivement la taille et l'opacité vers la queue
+            const scale = 1 - (i * 0.08); // De 1.0 à 0.4
+            const opacity = 0.4 - (i * 0.04); // De 0.4 à 0.1
+            
+            piece.style.transform = `translate(-50%, -50%) scale(${scale})`;
+            piece.style.opacity = Math.max(0, opacity);
+            
+            // On insère les fantômes DANS le timeline container, mais AVANT l'âme
+            timelineContainer.insertBefore(piece, soulEntity);
+            
+            // On stocke l'objet pour la physique
+            trailPieces.push({
+                el: piece,
+                y: 0, // Position Y actuelle du fantôme
+                lag: 0.15 + (i * 0.02) // Le retard augmente pour chaque pièce (effet élastique)
+            });
+        }
+
 
         function animateSoul() {
             const containerRect = timelineContainer.getBoundingClientRect();
             const viewportCenter = window.innerHeight / 2;
 
             // 1. CALCUL DU POINT DE DÉPART EXACT
-            // On récupère la position du tout premier point par rapport au conteneur
             const firstPoint = timelinePoints[0];
             const firstPointRect = firstPoint.getBoundingClientRect();
-            
-            // La position Y du premier point relative au conteneur timeline
             const startThresholdY = firstPointRect.top - containerRect.top + (firstPointRect.height / 2);
 
-            // 2. Position théorique (Centre de l'écran par rapport au conteneur)
+            // 2. Position théorique
             let scrollTarget = viewportCenter - containerRect.top;
             
-            // 3. CONTRAINTE : On empêche l'âme d'aller plus haut que le premier point
-            // Elle ne peut pas être dans le titre (minY = startThresholdY)
+            // 3. CONTRAINTE
             const minY = startThresholdY; 
             const maxY = containerRect.height - 50;
-
-            // On applique la contrainte
             let constrainedTarget = Math.max(minY, Math.min(maxY, scrollTarget));
 
-            // 4. LOGIQUE D'APPARITION (OPACITÉ)
-            // Si la position cible est encore au-dessus ou au niveau du premier point, on cache l'âme.
-            // On ajoute une petite marge de 10px pour que ça fade-in juste quand ça commence à descendre.
+            // 4. LOGIQUE D'APPARITION (Soul & Trail)
+            // Si on est avant le début, on cache tout
             if (scrollTarget < startThresholdY - 10) {
                 soulEntity.style.opacity = '0';
+                trailPieces.forEach(p => p.el.style.opacity = '0');
             } else {
                 soulEntity.style.opacity = '1';
+                // L'opacité des trails est gérée individuellement plus bas, on reset juste si visible
+                // Note: on laisse la boucle physics gérer l'opacité exacte
             }
 
             // 5. TROUVER LE POINT LE PLUS PROCHE (Gravité)
@@ -1275,7 +1299,7 @@ initBlogPreview();
             timelinePoints.forEach((point, index) => {
                 const pointRect = point.getBoundingClientRect();
                 const pointRelY = pointRect.top - containerRect.top + (pointRect.height/2);
-                const dist = Math.abs(pointRelY - constrainedTarget); // On utilise constrainedTarget ici
+                const dist = Math.abs(pointRelY - constrainedTarget); 
 
                 if (dist < minDistance) {
                     minDistance = dist;
@@ -1297,15 +1321,17 @@ initBlogPreview();
                 if (ratio < 0.3) isLocked = true;
             }
 
-            // 7. Initialisation au premier chargement pour éviter le "slide" depuis 0
+            // 7. Initialisation au premier chargement
             if (currentY === 0) {
                 currentY = finalTarget;
+                // Init des trails à la même position pour éviter qu'ils arrivent du haut
+                trailPieces.forEach(p => p.y = finalTarget);
             }
 
-            // 8. Mouvement fluide
+            // 8. Mouvement fluide ÂME PRINCIPALE
             currentY += (finalTarget - currentY) * LERP;
             
-            // 9. Squash & Stretch
+            // 9. Squash & Stretch ÂME PRINCIPALE
             let velocity = currentY - lastY;
             lastY = currentY;
             const speed = Math.abs(velocity);
@@ -1318,7 +1344,40 @@ initBlogPreview();
             soulEntity.style.top = `${currentY}px`;
             soulCore.style.transform = `scale(${stretchX}, ${stretchY})`;
 
-            // 10. GESTION DE L'INFUSION (COULEUR) - Inchangé
+
+            // --- 10. PHYSIQUE DE LA TRAÎNÉE (Trail Update) ---
+            // Le "Leader" est l'âme principale
+            let leaderY = currentY; 
+
+            trailPieces.forEach((piece, index) => {
+                // Si l'âme est cachée (en haut), on force la position sans lerp
+                if (soulEntity.style.opacity === '0') {
+                    piece.y = leaderY;
+                } else {
+                    // Chaque pièce suit celle qui la précède (ou l'âme pour la première)
+                    // Formule : pos += (target - pos) * lag
+                    piece.y += (leaderY - piece.y) * piece.lag;
+                }
+
+                // Application DOM
+                piece.el.style.top = `${piece.y}px`;
+                
+                // Si on bouge vite, on allonge un peu la traînée (stretch visuel)
+                // On peut modifier l'échelle ou l'opacité selon la vitesse globale
+                if (scrollTarget >= startThresholdY - 10) {
+                     // Rétablissement de l'opacité de base
+                     const baseOpacity = 0.4 - (index * 0.04);
+                     // Si vitesse élevée, on augmente un peu l'opacité de la traînée pour qu'elle se voie mieux
+                     const speedFactor = Math.min(speed * 0.1, 0.2); 
+                     piece.el.style.opacity = Math.max(0, baseOpacity + speedFactor);
+                }
+
+                // La pièce actuelle devient le leader pour la suivante
+                leaderY = piece.y; 
+            });
+
+
+            // 11. GESTION DE L'INFUSION (COULEUR) - Appliquée à l'âme ET à la traînée
             if (isLocked && speed < 1 && activeChapter) {
                 if (activeChapter !== currentTargetChapter) {
                     currentTargetChapter = activeChapter;
@@ -1340,45 +1399,39 @@ initBlogPreview();
         }
 
         
-
-
-    
         function removeInfusionClasses() {
-    soulEntity.classList.remove(
-        'soul-infused-fire', 
-        'soul-infused-greed', 
-        'soul-infused-blue',
-        'soul-infused-void',
-        'soul-infused-stasis',
-        'soul-infused-hologram' // <--- AJOUT ICI
-    );
-}
+            // Nettoyage Âme
+            soulEntity.classList.remove(
+                'soul-infused-fire', 'soul-infused-greed', 'soul-infused-blue',
+                'soul-infused-void', 'soul-infused-stasis', 'soul-infused-hologram'
+            );
+            
+            // Nettoyage Traînée
+            trailPieces.forEach(p => {
+                p.el.classList.remove(
+                    'soul-trail-fire', 'soul-trail-greed', 'soul-trail-blue',
+                    'soul-trail-void', 'soul-trail-stasis', 'soul-trail-hologram'
+                );
+            });
+        }
 
-function applyInfusionColor(chapter) {
-    const mood = chapter.getAttribute('data-mood');
-    if (!mood) return;
+        function applyInfusionColor(chapter) {
+            const mood = chapter.getAttribute('data-mood');
+            if (!mood) return;
 
-    if (mood === 'fire') {
-        soulEntity.classList.add('soul-infused-fire');
-    }
-    else if (mood === 'greed') {
-        soulEntity.classList.add('soul-infused-greed');
-    }
-    else if (mood === 'void') {
-        soulEntity.classList.add('soul-infused-void');
-    }
-    else if (mood === 'blue') {
-        soulEntity.classList.add('soul-infused-blue');
-    }
-    else if (mood === 'stasis') {
-        soulEntity.classList.add('soul-infused-stasis');
-    }
-    else if (mood === 'hologram') { // <--- AJOUT ICI
-        soulEntity.classList.add('soul-infused-hologram');
-    }
-}
+            let soulClass = '';
+            let trailClass = '';
 
+            if (mood === 'fire') { soulClass = 'soul-infused-fire'; trailClass = 'soul-trail-fire'; }
+            else if (mood === 'greed') { soulClass = 'soul-infused-greed'; trailClass = 'soul-trail-greed'; }
+            else if (mood === 'void') { soulClass = 'soul-infused-void'; trailClass = 'soul-trail-void'; }
+            else if (mood === 'blue') { soulClass = 'soul-infused-blue'; trailClass = 'soul-trail-blue'; }
+            else if (mood === 'stasis') { soulClass = 'soul-infused-stasis'; trailClass = 'soul-trail-stasis'; }
+            else if (mood === 'hologram') { soulClass = 'soul-infused-hologram'; trailClass = 'soul-trail-hologram'; }
 
+            if (soulClass) soulEntity.classList.add(soulClass);
+            if (trailClass) trailPieces.forEach(p => p.el.classList.add(trailClass));
+        }
 
         requestAnimationFrame(animateSoul);
     }
