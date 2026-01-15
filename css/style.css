@@ -1784,77 +1784,57 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 /* ======================================================= */
-/*    L'ÂME (SOUL) - Version Liquide CORRIGÉE              */
+/*    L'ÂME (SOUL) - Version "Squash & Stretch"            */
 /* ======================================================= */
 
 #soul-entity {
     position: absolute;
     left: 50%;
     top: 0;
-    width: 20px;
-    height: 20px;
+    width: 24px; /* Taille de base un peu plus grosse */
+    height: 24px;
     transform: translate(-50%, -50%);
     z-index: 5;
     pointer-events: none;
+    background: transparent !important;
     
-    /* IMPORTANT : Le fond doit être transparent ici pour ne pas voir le carré */
-    background: transparent !important; 
-    
-    will-change: top, transform;
-    /* On utilise la propriété color pour piloter la couleur des enfants */
-    transition: color 0.5s ease;
+    /* On change la couleur doucement, mais la position est gérée par JS sans délai */
+    transition: color 0.4s ease;
+    will-change: transform, top;
 }
 
-/* Mobile : décalage à gauche */
 @media (max-width: 768px) {
     #soul-entity { left: 20px; }
 }
 
-/* LE NOYAU (La tête ronde) */
 .soul-core {
     position: absolute;
     inset: 0;
-    border-radius: 50%; /* Force le rond parfait */
-    background-color: currentColor; /* Prend la couleur définie sur le parent */
-    box-shadow: 0 0 15px currentColor; /* Lueur interne */
-    z-index: 2;
+    background-color: currentColor;
+    
+    /* Lueur externe pour l'effet "énergie/nuage" */
+    box-shadow: 0 0 20px currentColor; 
+    
+    /* Flou léger pour éviter le coté "vecteur dur" */
+    /* filter: blur(1px);  <-- Optionnel : décommentez si vous voulez plus flou */
+    
+    /* Animation de respiration (forme organique au repos) */
+    animation: organicBlob 3s infinite ease-in-out alternate;
+    
+    /* Le JS va piloter le scale, on s'assure que l'origine est au centre */
+    transform-origin: center center;
 }
 
-/* LA TRAÎNÉE (La queue liquide) */
-.soul-tail {
-    position: absolute;
-    bottom: 50%; /* Part du milieu de la tête */
-    left: 50%;
-    width: 10px; /* Plus fin que la tête */
-    height: 25px; /* Longueur de la traînée */
-    
-    background-color: currentColor; /* Prend la couleur définie sur le parent */
-    
-    /* Forme de goutte inversée */
-    border-radius: 50% 50% 0 0; 
-    
-    transform: translateX(-50%);
-    opacity: 0.8;
-    filter: blur(2px); /* Flou pour l'effet liquide fusionné */
-    z-index: 1;
-    
-    /* Le pivot est en bas (collé à la tête) pour que ça bouge comme une antenne */
-    transform-origin: bottom center;
-    animation: tailWiggle 0.5s infinite ease-in-out alternate;
+/* Fait bouger les bords doucement quand c'est à l'arrêt */
+@keyframes organicBlob {
+    0% { border-radius: 50%; }
+    100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
 }
 
-/* Animation de la queue qui frétille */
-@keyframes tailWiggle {
-    0% { transform: translateX(-50%) rotate(-15deg) scaleY(1); }
-    100% { transform: translateX(-50%) rotate(15deg) scaleY(1.1); }
-}
-
-/* --- COULEURS DES ÉTATS --- */
-/* ATTENTION : Ici on ne change QUE la 'color', pas le 'background' du parent */
-
-.soul-state-neutral { color: #94a3b8; } /* Gris */
-.soul-state-blue    { color: #3B82F6; } /* Bleu */
-.soul-state-fire    { color: #F97316; } /* Orange/Rouge */
-.soul-state-greed   { color: #16A34A; } /* Vert */
-.soul-state-dark    { color: #7c3aed; } /* Violet */
-.soul-state-pure    { color: #ffffff; } /* Blanc */
+/* --- COULEURS (Inchangées) --- */
+.soul-state-neutral { color: #94a3b8; }
+.soul-state-blue    { color: #3B82F6; }
+.soul-state-fire    { color: #F97316; }
+.soul-state-greed   { color: #16A34A; }
+.soul-state-dark    { color: #7c3aed; }
+.soul-state-pure    { color: #ffffff; }
