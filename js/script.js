@@ -1342,13 +1342,15 @@ initBlogPreview();
         
 
 
-    function removeInfusionClasses() {
+    
+        function removeInfusionClasses() {
     soulEntity.classList.remove(
         'soul-infused-fire', 
         'soul-infused-greed', 
         'soul-infused-blue',
         'soul-infused-void',
-        'soul-infused-stasis' // <--- AJOUT ICI
+        'soul-infused-stasis',
+        'soul-infused-hologram' // <--- AJOUT ICI
     );
 }
 
@@ -1368,8 +1370,11 @@ function applyInfusionColor(chapter) {
     else if (mood === 'blue') {
         soulEntity.classList.add('soul-infused-blue');
     }
-    else if (mood === 'stasis') { // <--- AJOUT ICI
+    else if (mood === 'stasis') {
         soulEntity.classList.add('soul-infused-stasis');
+    }
+    else if (mood === 'hologram') { // <--- AJOUT ICI
+        soulEntity.classList.add('soul-infused-hologram');
     }
 }
 
