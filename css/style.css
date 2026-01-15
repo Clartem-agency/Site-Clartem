@@ -1792,14 +1792,17 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 #soul-entity {
     position: absolute;
     left: 50%;
-    top: 0;
+    /* On ne définit pas de top ici, le JS le gère */
     width: 30px; 
     height: 30px;
     transform: translate(-50%, -50%);
     z-index: 20; 
     pointer-events: none;
-    transition: top 0.1s linear; 
-    will-change: top, transform;
+    
+    /* MODIFICATION ICI : Opacité à 0 par défaut + Transition ajoutée */
+    opacity: 0; 
+    transition: top 0.1s linear, opacity 0.5s ease-out; 
+    will-change: top, transform, opacity;
 }
 
 @media (max-width: 768px) {
