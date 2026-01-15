@@ -1313,14 +1313,26 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            let finalTargetY = constrainedTargetY;
+            
+
+             let finalTargetY = constrainedTargetY;
             let isLocked = false;
+            
+            // === MODIFICATION : Augmentation de la zone de capture ===
+            // MAGNET_RANGE gère l'attraction verticale (Y)
+            // LOCK_RANGE gère le verrouillage horizontal (X) pour empêcher la dérive
+            const LOCK_RANGE = 100; // AVANT: 20px -> MAINTENANT: 100px (Zone de lecture confortable)
+
             if (closestPointY !== null && minDistance < MAGNET_RANGE) {
                 const offset = constrainedTargetY - closestPointY;
                 const ratio = Math.abs(offset) / MAGNET_RANGE;
                 const gravityOffset = offset * Math.pow(ratio, 1.8);
                 finalTargetY = closestPointY + gravityOffset;
-                if (minDistance < 20) isLocked = true;
+                
+                // Si on est dans la zone de lecture (LOCK_RANGE), on verrouille l'âme
+                if (minDistance < LOCK_RANGE) {
+                    isLocked = true;
+                }
             }
 
             // --- 2. LOGIQUE HORIZONTALE (X) - RÉSISTANCE ---
@@ -1328,9 +1340,12 @@ document.addEventListener('DOMContentLoaded', function () {
             let currentLerpX = RETURN_SPEED;
 
             if (isLocked) {
-                lastScrollTime = now;
-                targetX = 0;
+                // SI VERROUILLÉ : On annule toute dérive immédiatement
+                lastScrollTime = now; // On reset le timer d'inactivité (l'âme "lit" avec vous)
+                targetX = 0;          // On force le centre absolu
+                currentLerpX = 0.2;   // On centre un peu plus vite pour un effet "snap" satisfaisant
             } else {
+                // SI NON VERROUILLÉ : La logique de dérive normale s'applique
                 if (now - lastScrollTime > IDLE_DELAY) {
                     isIdle = true;
                     targetX = driftDirection * MAX_DRIFT_X;
@@ -1340,6 +1355,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     currentLerpX = RETURN_SPEED;
                 }
             }
+
+            
 
             // --- 3. APPLICATION PHYSIQUE ---
             if (currentY === 0) {
