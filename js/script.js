@@ -1209,10 +1209,10 @@ initBlogPreview();
 
 
     // ==================================================================
-    // LOGIQUE ÂME : SQUASH & STRETCH (CARTOON PHYSICS)
+    // LOGIQUE ÂME : SQUASH & STRETCH + AIMANT PUISSANT
     // ==================================================================
     const soulEntity = document.getElementById('soul-entity');
-    const soulCore = document.querySelector('.soul-core'); // On cible le cœur pour le déformer
+    const soulCore = document.querySelector('.soul-core'); 
     const timelineContainer = document.getElementById('timeline-container');
     const timelinePoints = document.querySelectorAll('.timeline-point'); 
     const timelineChapters = document.querySelectorAll('.timeline-line ~ .space-y-32 > div');
@@ -1220,84 +1220,88 @@ initBlogPreview();
     if (soulEntity && soulCore && timelineContainer) {
         
         let currentY = 0;       
-        let targetY = 0;        
-        let lastY = 0; // Pour calculer la vitesse réelle instantanée
+        let lastY = 0; 
 
-        // REGLAGES PHYSIQUES
-        const LERP = 0.08;          // Réactivité (0.08 = fluide et un peu lourd)
-        const STRETCH_FORCE = 0.15; // Puissance de l'étirement (Cartoon effect)
-        const MAX_STRETCH = 2.5;    // Limite max d'étirement (pour pas faire un trait infini)
+        // --- RÉGLAGES PHYSIQUES ---
+        const LERP = 0.08;           // Inertie globale (0.08 = fluide)
+        const STRETCH_FORCE = 0.15;  // Force de la déformation
         
-        const MAGNET_RANGE = 150;   
-        const MAGNET_POWER = 0.3;   // Force d'attraction des points
+        // --- RÉGLAGES AIMANT ---
+        const MAGNET_RANGE = 200;    // Distance de détection (en px) - Augmenté pour anticiper
+        const MAGNET_POWER = 0.95;   // Force du collage (0 à 1). 0.95 = Colle très fort !
 
         function animateSoul() {
             const containerRect = timelineContainer.getBoundingClientRect();
             const viewportCenter = window.innerHeight / 2;
 
-            // 1. Cible idéale (Centre écran)
-            let idealTarget = viewportCenter - containerRect.top;
+            // 1. Position "Naturelle" (Si aucun aimant n'existait)
+            let scrollTarget = viewportCenter - containerRect.top;
             
-            // Bornes
+            // Bornes (ne pas sortir du conteneur)
             const minY = 20; 
             const maxY = containerRect.height - 50;
-            idealTarget = Math.max(minY, Math.min(maxY, idealTarget));
+            scrollTarget = Math.max(minY, Math.min(maxY, scrollTarget));
 
-            // 2. Aimantation (Magnet)
-            let isMagnetized = false;
+            // 2. Calcul de la Meilleure Cible (Aimantation)
+            let finalTarget = scrollTarget; // Par défaut, on suit le scroll
+            let closestDist = Infinity;
+
             timelinePoints.forEach(point => {
                 const pointRect = point.getBoundingClientRect();
-                // Position relative du point dans le conteneur
+                // Position exacte du point dans la timeline
                 const pointRelY = pointRect.top - containerRect.top + (pointRect.height/2);
                 
-                const dist = Math.abs(pointRelY - idealTarget);
+                // Distance entre là où on VOUDRAIT être (scroll) et le point
+                const dist = Math.abs(pointRelY - scrollTarget);
                 
+                // Si on est dans la zone d'influence du point
                 if (dist < MAGNET_RANGE) {
-                    // Formule d'interpolation pour attirer doucement vers le point
-                    // Plus on est près, plus ça tire fort
-                    const pull = 1 - (dist / MAGNET_RANGE);
-                    idealTarget = idealTarget + (pointRelY - idealTarget) * (pull * MAGNET_POWER);
+                    
+                    // Calcul de la force d'attraction (0 à 1)
+                    // Si dist = 0 (dessus), force = 1. Si dist = max, force = 0.
+                    let attraction = 1 - (dist / MAGNET_RANGE);
+                    
+                    // On courbe la force pour qu'elle soit exponentielle (effet "Snap")
+                    // Ça rend l'attraction faible au début, et très forte à la fin
+                    attraction = Math.pow(attraction, 2) * MAGNET_POWER;
+
+                    // MÉLANGE : Plus on est près, plus finalTarget devient le point, et moins le scroll
+                    // C'est ça qui crée l'effet "résistance" au scroll
+                    if (dist < closestDist) {
+                        // On remplace la cible du scroll par un mélange (Scroll <-> Point)
+                        finalTarget = (scrollTarget * (1 - attraction)) + (pointRelY * attraction);
+                        closestDist = dist;
+                    }
                 }
             });
 
-            // 3. Mouvement (Lerp)
-            targetY = idealTarget;
-            currentY += (targetY - currentY) * LERP;
+            // 3. Application du Mouvement (Inertie)
+            // On va vers la finalTarget (qui est soit le scroll, soit le point aimanté)
+            currentY += (finalTarget - currentY) * LERP;
             
-            // 4. Calcul de la vitesse pour la déformation
-            // La vitesse est la différence entre la position actuelle et celle de la frame d'avant
+            // 4. Calcul Vitesse & Déformation
             let velocity = currentY - lastY;
             lastY = currentY;
 
-            // 5. DEFORMATION (SQUASH & STRETCH)
-            // velocity positive = descend / velocity négative = monte
-            // On prend la valeur absolue car on s'étire dans les deux sens de mouvement
             const speed = Math.abs(velocity);
-            
-            // Calcul du facteur d'étirement : 1 = normal. 
-            // Si speed est grand, stretchY augmente (> 1) et stretchX diminue (< 1)
             let stretchY = 1 + (speed * STRETCH_FORCE);
-            let stretchX = 1 - (speed * (STRETCH_FORCE * 0.6)); // On s'affine moins vite qu'on s'allonge pour garder du volume
+            let stretchX = 1 - (speed * (STRETCH_FORCE * 0.5)); 
 
-            // Limiteur pour éviter les bugs graphiques extrêmes
-            stretchY = Math.min(stretchY, MAX_STRETCH);
-            stretchX = Math.max(stretchX, 0.4); // Pas plus fin que 40%
+            // Limites déformation
+            stretchY = Math.min(stretchY, 2.5);
+            stretchX = Math.max(stretchX, 0.5);
 
-            // Application
+            // 5. Rendu
             soulEntity.style.top = `${currentY}px`;
-            
-            // On applique la déformation sur le cœur
-            // scaleX et scaleY font le travail "d'affiner l'arrière" visuellement grâce au flou de mouvement perçu
             soulCore.style.transform = `scale(${stretchX}, ${stretchY})`;
 
-
-            // 6. Gestion Couleurs
+            // 6. Couleurs
             detectSoulContext(currentY + containerRect.top);
 
             requestAnimationFrame(animateSoul);
         }
 
-        // --- Fonctions utilitaires couleurs (Inchangées, elles marchent bien) ---
+        // --- Utilitaires couleurs (Inchangés) ---
         function detectSoulContext(absoluteY) {
             let closestChapter = null;
             let minDistance = Infinity;
@@ -1323,7 +1327,7 @@ initBlogPreview();
 
         requestAnimationFrame(animateSoul);
     }
-    
+
 
 
 });
