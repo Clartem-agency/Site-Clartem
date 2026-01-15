@@ -1339,30 +1339,41 @@ initBlogPreview();
             requestAnimationFrame(animateSoul);
         }
 
-        function removeInfusionClasses() {
-            soulEntity.classList.remove(
-                'soul-infused-fire', 
-                'soul-infused-greed', 
-                'soul-infused-dark', 
-                'soul-infused-blue'
-            );
-        }
+        
 
-        function applyInfusionColor(chapter) {
-            const html = chapter.innerHTML;
-            if (html.includes('text-green-500') || html.includes('text-success-green')) {
-                soulEntity.classList.add('soul-infused-greed');
-            }
-            else if (html.includes('text-red-600') || html.includes('text-red-500') || html.includes('text-orange-500') || html.includes('text-warm-orange')) {
-                soulEntity.classList.add('soul-infused-fire');
-            }
-            else if (html.includes('text-purple-400') || html.includes('text-indigo-400') || html.includes('text-neutral-light')) {
-                soulEntity.classList.add('soul-infused-dark');
-            }
-            else if (html.includes('text-clarity-blue') || html.includes('text-blue-400') || html.includes('text-teal-400')) {
-                soulEntity.classList.add('soul-infused-blue');
-            }
-        }
+
+    function removeInfusionClasses() {
+    soulEntity.classList.remove(
+        'soul-infused-fire', 
+        'soul-infused-greed', 
+        'soul-infused-blue',
+        'soul-infused-void',
+        'soul-infused-stasis' // <--- AJOUT ICI
+    );
+}
+
+function applyInfusionColor(chapter) {
+    const mood = chapter.getAttribute('data-mood');
+    if (!mood) return;
+
+    if (mood === 'fire') {
+        soulEntity.classList.add('soul-infused-fire');
+    }
+    else if (mood === 'greed') {
+        soulEntity.classList.add('soul-infused-greed');
+    }
+    else if (mood === 'void') {
+        soulEntity.classList.add('soul-infused-void');
+    }
+    else if (mood === 'blue') {
+        soulEntity.classList.add('soul-infused-blue');
+    }
+    else if (mood === 'stasis') { // <--- AJOUT ICI
+        soulEntity.classList.add('soul-infused-stasis');
+    }
+}
+
+
 
         requestAnimationFrame(animateSoul);
     }
