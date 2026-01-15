@@ -1510,32 +1510,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-     // --- LOGIQUE DU GUIDE ÂME (HUD) ---
-    const soulGuide = document.getElementById('soul-guide');
-    
-    if (soulGuide) {
-        // 1. On attend 1 seconde et on l'affiche
-        setTimeout(() => {
-            // On vérifie qu'on est toujours en haut de page
-            if (window.scrollY < 200) {
-                soulGuide.classList.remove('guide-start-hidden');
-                soulGuide.classList.add('guide-visible');
-            }
-        }, 1000); 
-
-        // 2. Dès qu'on scroll, on le fait disparaître
-        const handleGuideScroll = () => {
-            if (window.scrollY > 50) { // Dès 50px de scroll
-                soulGuide.classList.remove('guide-visible');
-                soulGuide.classList.add('guide-hidden');
-                
-                // On arrête d'écouter le scroll pour économiser des ressources
-                window.removeEventListener('scroll', handleGuideScroll);
-            }
-        };
-
-        window.addEventListener('scroll', handleGuideScroll, { passive: true });
-    }
 
 
 
