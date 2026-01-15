@@ -1773,3 +1773,106 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 
+/* Utilitaire pour l'overlay Matrix */
+.bg-radial-gradient {
+    background: radial-gradient(circle, rgba(15, 23, 42, 0.4) 0%, rgba(15, 23, 42, 1) 100%);
+}
+
+
+
+
+
+
+
+
+/* ======================================================= */
+/*    L'ÂME (SOUL) - Version "Densité Vaporeuse" (Finale)  */
+/* ======================================================= */
+
+#soul-entity {
+    position: absolute;
+    left: 50%;
+    /* On ne définit pas de top ici, le JS le gère */
+    width: 30px; 
+    height: 30px;
+    transform: translate(-50%, -50%);
+    z-index: 20; 
+    pointer-events: none;
+    
+    /* MODIFICATION ICI : Opacité à 0 par défaut + Transition ajoutée */
+    opacity: 0; 
+    transition: top 0.1s linear, opacity 0.5s ease-out; 
+    will-change: top, transform, opacity;
+}
+
+@media (max-width: 768px) {
+    #soul-entity { left: 20px; }
+}
+
+.soul-core {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    
+    /* 1. LA COULEUR DE FOND (C'est elle qui va changer doucement) */
+    background-color: #ffffff;
+    
+    /* 2. LA BRILLANCE (Statique) : Donne l'effet 3D / Boule */
+    /* On utilise un dégradé blanc vers transparent pour garder le relief */
+    background-image: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.1));
+    
+    /* 3. L'AURA (Vaporeux) */
+    box-shadow: 
+        0 0 15px 2px rgba(255, 255, 255, 0.8),  /* Halo dense */
+        0 0 40px 10px rgba(255, 255, 255, 0.4); /* Halo large */
+    
+    /* Flou pour l'aspect gaz/esprit */
+    filter: blur(3px); 
+    
+    /* Animation de forme */
+    animation: soulBreathe 4s infinite ease-in-out;
+    
+    /* TRANSITION DOUCE (2s) : On anime la couleur de fond et l'ombre */
+    transition: background-color 2s ease, box-shadow 2s ease;
+}
+
+@keyframes soulBreathe {
+    0% { transform: scale(1); border-radius: 50%; }
+    33% { transform: scale(1.1, 0.9); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    66% { transform: scale(0.95, 1.05); border-radius: 40% 60% 70% 30% / 40% 60% 30% 70%; }
+    100% { transform: scale(1); border-radius: 50%; }
+}
+
+/* --- ÉTATS D'INFUSION (La couleur infuse doucement le noyau et l'aura) --- */
+
+/* Feu / Colère */
+.soul-infused-fire .soul-core {
+    background-color: #ffedd5; /* Le coeur devient orange très pâle */
+    box-shadow: 
+        0 0 15px 2px rgba(249, 115, 22, 0.8), 
+        0 0 50px 15px rgba(249, 115, 22, 0.5);
+}
+
+/* Argent / Succès */
+.soul-infused-greed .soul-core {
+    background-color: #dcfce7; /* Le coeur devient vert pâle */
+    box-shadow: 
+        0 0 15px 2px rgba(34, 197, 94, 0.8),
+        0 0 50px 15px rgba(34, 197, 94, 0.5);
+}
+
+/* Dépression / Profondeur */
+.soul-infused-dark .soul-core {
+    background-color: #f3e8ff; /* Le coeur devient violet pâle */
+    box-shadow: 
+        0 0 15px 2px rgba(124, 58, 237, 0.8),
+        0 0 50px 15px rgba(124, 58, 237, 0.5);
+}
+
+/* Espoir / Clarté */
+.soul-infused-blue .soul-core {
+    background-color: #dbeafe; /* Le coeur devient bleu pâle */
+    box-shadow: 
+        0 0 15px 2px rgba(59, 130, 246, 0.8),
+        0 0 50px 15px rgba(59, 130, 246, 0.5);
+}

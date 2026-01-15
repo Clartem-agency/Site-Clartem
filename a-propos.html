@@ -357,16 +357,15 @@
                         </p>
 
                         <!-- Signature visuelle -->
-<div class="pt-8 pb-4"> <!-- Alignement naturel à gauche -->
-    <!-- J'ai gardé la grande taille (h-24/h-32) et la rotation, mais sans le 'flex justify-end' -->
-    <img src="assets/signature-frederic.png" 
-         alt="Frédéric Delavictoire"
-         class="h-24 md:h-32 w-auto filter invert opacity-90 -rotate-3 origin-left ml-2" 
-         onerror="this.style.display='none'">
-         
-    <!-- Optionnel : Un petit titre sous la signature si vous voulez combler encore plus -->
-    <!-- <p class="text-xs text-warm-orange font-bold tracking-widest mt-2 uppercase ml-4">Fondateur, Clartem</p> -->
-</div>
+                        <div class="pt-8 pb-4"> <!-- Alignement naturel à gauche -->
+                            <!-- J'ai gardé la grande taille (h-24/h-32) et la rotation, mais sans le 'flex justify-end' -->
+                            <img src="assets/signature-frederic.png" alt="Frédéric Delavictoire"
+                                class="h-24 md:h-32 w-auto filter invert opacity-90 -rotate-3 origin-left ml-2"
+                                onerror="this.style.display='none'">
+
+                            <!-- Optionnel : Un petit titre sous la signature si vous voulez combler encore plus -->
+                            <!-- <p class="text-xs text-warm-orange font-bold tracking-widest mt-2 uppercase ml-4">Fondateur, Clartem</p> -->
+                        </div>
                     </div>
                 </div>
 
@@ -386,7 +385,7 @@
     <!--                  LA TIMELINE (En-tête modifié)          -->
     <!-- ======================================================= -->
     <section class="py-20 relative overflow-hidden">
-        <div class="container mx-auto px-6 max-w-6xl relative">
+        <div class="container mx-auto px-6 max-w-6xl relative" id="timeline-container">
 
             <div class="text-center mb-24 md:mb-44" data-sr>
 
@@ -402,6 +401,19 @@
 
             <!-- Ligne Centrale Verticale -->
             <div class="timeline-line"></div>
+
+
+
+            <!-- ===  L'ÂME (SOUL) === -->
+            <div id="soul-entity">
+                <div class="soul-core"></div>
+            </div>
+            <!-- ============================ -->
+
+
+
+
+
 
             <div class="space-y-32">
                 <!-- LE RESTE DE LA TIMELINE RESTE INCHANGÉ -->
@@ -429,7 +441,7 @@
                     </div>
                     <!-- Point Central -->
                     <div
-                        class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-clarity-blue rounded-full transform -translate-x-1/2 z-10 shadow-[0_0_15px_#3B82F6]">
+                        class="timeline-point absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-clarity-blue rounded-full transform -translate-x-1/2 z-10 shadow-[0_0_15px_#3B82F6]">
                     </div>
 
                     <!-- Insight Box -->
@@ -460,7 +472,7 @@
                         </div>
                     </div>
                     <div
-                        class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-warm-orange rounded-full transform -translate-x-1/2 z-10">
+                        class="timeline-point absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-warm-orange rounded-full transform -translate-x-1/2 z-10">
                     </div>
                     <div class="md:text-left md:pl-12 order-1 md:order-2 relative pl-12">
                         <span
@@ -503,7 +515,7 @@
                         </p>
                     </div>
                     <div
-                        class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-green-500 rounded-full transform -translate-x-1/2 z-10">
+                        class="timeline-point absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-green-500 rounded-full transform -translate-x-1/2 z-10">
                     </div>
                     <div class="md:pl-12 order-1 md:order-2 pl-12">
                         <div class="bg-card-dark p-6 rounded-xl border border-white/5 relative">
@@ -529,7 +541,7 @@
                         </div>
                     </div>
                     <div
-                        class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-red-600 rounded-full transform -translate-x-1/2 z-10">
+                        class="timeline-point absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-red-600 rounded-full transform -translate-x-1/2 z-10">
                     </div>
                     <div class="md:text-left md:pl-12 order-1 md:order-2 relative pl-12">
                         <span
@@ -574,7 +586,7 @@
                         </p>
                     </div>
                     <div
-                        class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-gray-500 rounded-full transform -translate-x-1/2 z-10">
+                        class="timeline-point absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-gray-500 rounded-full transform -translate-x-1/2 z-10">
                     </div>
                     <div class="md:pl-12 order-1 md:order-2 pl-12">
                         <div class="bg-card-dark p-6 rounded-xl border border-white/5 relative">
@@ -598,7 +610,7 @@
                         </div>
                     </div>
                     <div
-                        class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-yellow-500 rounded-full transform -translate-x-1/2 z-10">
+                        class="timeline-point absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-yellow-500 rounded-full transform -translate-x-1/2 z-10">
                     </div>
                     <div class="md:text-left md:pl-12 order-1 md:order-2 relative pl-12">
                         <span
@@ -639,7 +651,7 @@
                         </p>
                     </div>
                     <div
-                        class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-white rounded-full transform -translate-x-1/2 z-10">
+                        class="timeline-point absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-white rounded-full transform -translate-x-1/2 z-10">
                     </div>
                     <div class="md:pl-12 order-1 md:order-2 pl-12">
                         <div class="bg-card-dark p-6 rounded-xl border border-white/5 relative">
@@ -663,7 +675,7 @@
                         </div>
                     </div>
                     <div
-                        class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-purple-400 rounded-full transform -translate-x-1/2 z-10">
+                        class="timeline-point absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-purple-400 rounded-full transform -translate-x-1/2 z-10">
                     </div>
                     <div class="md:text-left md:pl-12 order-1 md:order-2 relative pl-12">
                         <span
@@ -703,7 +715,7 @@
                         </p>
                     </div>
                     <div
-                        class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-orange-500 rounded-full transform -translate-x-1/2 z-10">
+                        class="timeline-point absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-orange-500 rounded-full transform -translate-x-1/2 z-10">
                     </div>
                     <div class="md:pl-12 order-1 md:order-2 pl-12">
                         <div class="bg-card-dark p-6 rounded-xl border border-white/5 relative">
@@ -728,7 +740,7 @@
                         </div>
                     </div>
                     <div
-                        class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-indigo-400 rounded-full transform -translate-x-1/2 z-10">
+                        class="timeline-point absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-indigo-400 rounded-full transform -translate-x-1/2 z-10">
                     </div>
                     <div class="md:text-left md:pl-12 order-1 md:order-2 relative pl-12">
                         <span
@@ -772,7 +784,7 @@
                         </p>
                     </div>
                     <div
-                        class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-blue-400 rounded-full transform -translate-x-1/2 z-10">
+                        class="timeline-point absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-blue-400 rounded-full transform -translate-x-1/2 z-10">
                     </div>
                     <div class="md:pl-12 order-1 md:order-2 pl-12">
                         <div class="bg-card-dark p-6 rounded-xl border border-white/5 relative">
@@ -797,7 +809,7 @@
                         </div>
                     </div>
                     <div
-                        class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-gray-500 rounded-full transform -translate-x-1/2 z-10">
+                        class="timeline-point absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-gray-500 rounded-full transform -translate-x-1/2 z-10">
                     </div>
                     <div class="md:text-left md:pl-12 order-1 md:order-2 relative pl-12">
                         <span
@@ -842,7 +854,7 @@
                         </p>
                     </div>
                     <div
-                        class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-pink-500 rounded-full transform -translate-x-1/2 z-10">
+                        class="timeline-point absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-pink-500 rounded-full transform -translate-x-1/2 z-10">
                     </div>
                     <div class="md:pl-12 order-1 md:order-2 pl-12">
                         <div class="bg-card-dark p-6 rounded-xl border border-white/5 relative">
@@ -867,7 +879,7 @@
                         </div>
                     </div>
                     <div
-                        class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-teal-400 rounded-full transform -translate-x-1/2 z-10">
+                        class="timeline-point absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-teal-400 rounded-full transform -translate-x-1/2 z-10">
                     </div>
                     <div class="md:text-left md:pl-12 order-1 md:order-2 relative pl-12">
                         <span
@@ -913,7 +925,7 @@
                         </p>
                     </div>
                     <div
-                        class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-yellow-500 rounded-full transform -translate-x-1/2 z-10">
+                        class="timeline-point absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-yellow-500 rounded-full transform -translate-x-1/2 z-10">
                     </div>
                     <div class="md:pl-12 order-1 md:order-2 pl-12">
                         <div class="bg-card-dark p-6 rounded-xl border border-white/5 relative">
@@ -937,7 +949,7 @@
                         </div>
                     </div>
                     <div
-                        class="absolute left-5 md:left-1/2 w-4 h-4 bg-success-green border-4 border-white/20 rounded-full transform -translate-x-1/2 z-10 shadow-[0_0_20px_rgba(22,163,74,0.5)] md:scale-125">
+                        class="timeline-point absolute left-5 md:left-1/2 w-4 h-4 bg-success-green border-4 border-white/20 rounded-full transform -translate-x-1/2 z-10 shadow-[0_0_20px_rgba(22,163,74,0.5)] md:scale-125">
                     </div>
                     <div class="md:text-left md:pl-12 order-1 md:order-2 relative pl-12">
                         <span
@@ -984,7 +996,7 @@
 
                     <!-- Point Central -->
                     <div
-                        class="absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-clarity-blue rounded-full transform -translate-x-1/2 z-10 shadow-[0_0_15px_#3B82F6] animate-pulse">
+                        class="timeline-point absolute left-5 md:left-1/2 w-4 h-4 bg-neutral-dark border-4 border-clarity-blue rounded-full transform -translate-x-1/2 z-10 shadow-[0_0_15px_#3B82F6] animate-pulse">
                     </div>
 
                     <!-- Insight Box -->

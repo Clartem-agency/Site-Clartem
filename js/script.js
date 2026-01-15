@@ -1205,4 +1205,169 @@ initBlogPreview();
     }
 
 
+
+
+
+
+
+   
+    // ==================================================================
+    // LOGIQUE ÂME : CORRECTION DE POSITON (DÉPART AU POINT 1)
+    // ==================================================================
+    const soulEntity = document.getElementById('soul-entity');
+    const soulCore = document.querySelector('.soul-core');
+    const timelineContainer = document.getElementById('timeline-container');
+    const timelinePoints = document.querySelectorAll('.timeline-point');
+    const timelineChapters = document.querySelectorAll('.timeline-line ~ .space-y-32 > div');
+
+    if (soulEntity && soulCore && timelineContainer && timelinePoints.length > 0) {
+        
+        let currentY = 0;       
+        let lastY = 0; 
+
+        // Variables pour l'infusion de couleur
+        let infusionTimer = null; 
+        let currentTargetChapter = null; 
+        const INFUSION_DELAY = 1200; 
+
+        // Physique
+        const LERP = 0.12;           
+        const STRETCH_FORCE = 0.1;   
+        const MAGNET_RANGE = 150;    
+
+        function animateSoul() {
+            const containerRect = timelineContainer.getBoundingClientRect();
+            const viewportCenter = window.innerHeight / 2;
+
+            // 1. CALCUL DU POINT DE DÉPART EXACT
+            // On récupère la position du tout premier point par rapport au conteneur
+            const firstPoint = timelinePoints[0];
+            const firstPointRect = firstPoint.getBoundingClientRect();
+            
+            // La position Y du premier point relative au conteneur timeline
+            const startThresholdY = firstPointRect.top - containerRect.top + (firstPointRect.height / 2);
+
+            // 2. Position théorique (Centre de l'écran par rapport au conteneur)
+            let scrollTarget = viewportCenter - containerRect.top;
+            
+            // 3. CONTRAINTE : On empêche l'âme d'aller plus haut que le premier point
+            // Elle ne peut pas être dans le titre (minY = startThresholdY)
+            const minY = startThresholdY; 
+            const maxY = containerRect.height - 50;
+
+            // On applique la contrainte
+            let constrainedTarget = Math.max(minY, Math.min(maxY, scrollTarget));
+
+            // 4. LOGIQUE D'APPARITION (OPACITÉ)
+            // Si la position cible est encore au-dessus ou au niveau du premier point, on cache l'âme.
+            // On ajoute une petite marge de 10px pour que ça fade-in juste quand ça commence à descendre.
+            if (scrollTarget < startThresholdY - 10) {
+                soulEntity.style.opacity = '0';
+            } else {
+                soulEntity.style.opacity = '1';
+            }
+
+            // 5. TROUVER LE POINT LE PLUS PROCHE (Gravité)
+            let closestPointY = null;
+            let minDistance = Infinity;
+            let activeChapter = null;
+
+            timelinePoints.forEach((point, index) => {
+                const pointRect = point.getBoundingClientRect();
+                const pointRelY = pointRect.top - containerRect.top + (pointRect.height/2);
+                const dist = Math.abs(pointRelY - constrainedTarget); // On utilise constrainedTarget ici
+
+                if (dist < minDistance) {
+                    minDistance = dist;
+                    closestPointY = pointRelY;
+                    activeChapter = timelineChapters[index];
+                }
+            });
+
+            // 6. MAGIE "GRAVITÉ DOUCE"
+            let finalTarget = constrainedTarget;
+            let isLocked = false; 
+
+            if (closestPointY !== null && minDistance < MAGNET_RANGE) {
+                const offset = constrainedTarget - closestPointY;
+                const ratio = Math.abs(offset) / MAGNET_RANGE;
+                const gravityOffset = offset * Math.pow(ratio, 1.8); 
+                finalTarget = closestPointY + gravityOffset;
+                
+                if (ratio < 0.3) isLocked = true;
+            }
+
+            // 7. Initialisation au premier chargement pour éviter le "slide" depuis 0
+            if (currentY === 0) {
+                currentY = finalTarget;
+            }
+
+            // 8. Mouvement fluide
+            currentY += (finalTarget - currentY) * LERP;
+            
+            // 9. Squash & Stretch
+            let velocity = currentY - lastY;
+            lastY = currentY;
+            const speed = Math.abs(velocity);
+            
+            let stretchY = 1 + (speed * STRETCH_FORCE);
+            let stretchX = 1 - (speed * (STRETCH_FORCE * 0.6)); 
+            stretchY = Math.min(stretchY, 1.6);
+            stretchX = Math.max(stretchX, 0.7);
+
+            soulEntity.style.top = `${currentY}px`;
+            soulCore.style.transform = `scale(${stretchX}, ${stretchY})`;
+
+            // 10. GESTION DE L'INFUSION (COULEUR) - Inchangé
+            if (isLocked && speed < 1 && activeChapter) {
+                if (activeChapter !== currentTargetChapter) {
+                    currentTargetChapter = activeChapter;
+                    if (infusionTimer) clearTimeout(infusionTimer);
+                    removeInfusionClasses();
+                    infusionTimer = setTimeout(() => {
+                        applyInfusionColor(activeChapter);
+                    }, INFUSION_DELAY);
+                }
+            } else {
+                if (currentTargetChapter !== null) {
+                    currentTargetChapter = null;
+                    if (infusionTimer) clearTimeout(infusionTimer);
+                    removeInfusionClasses(); 
+                }
+            }
+
+            requestAnimationFrame(animateSoul);
+        }
+
+        function removeInfusionClasses() {
+            soulEntity.classList.remove(
+                'soul-infused-fire', 
+                'soul-infused-greed', 
+                'soul-infused-dark', 
+                'soul-infused-blue'
+            );
+        }
+
+        function applyInfusionColor(chapter) {
+            const html = chapter.innerHTML;
+            if (html.includes('text-green-500') || html.includes('text-success-green')) {
+                soulEntity.classList.add('soul-infused-greed');
+            }
+            else if (html.includes('text-red-600') || html.includes('text-red-500') || html.includes('text-orange-500') || html.includes('text-warm-orange')) {
+                soulEntity.classList.add('soul-infused-fire');
+            }
+            else if (html.includes('text-purple-400') || html.includes('text-indigo-400') || html.includes('text-neutral-light')) {
+                soulEntity.classList.add('soul-infused-dark');
+            }
+            else if (html.includes('text-clarity-blue') || html.includes('text-blue-400') || html.includes('text-teal-400')) {
+                soulEntity.classList.add('soul-infused-blue');
+            }
+        }
+
+        requestAnimationFrame(animateSoul);
+    }
+
+
+
+
 });
