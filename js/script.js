@@ -1208,8 +1208,10 @@ initBlogPreview();
 
 
 
+
+
     // ==================================================================
-    // LOGIQUE ÂME : SQUASH & STRETCH + AIMANT PUISSANT
+    // LOGIQUE ÂME : HARD MAGNETIC LOCK + SQUASH CARTOON
     // ==================================================================
     const soulEntity = document.getElementById('soul-entity');
     const soulCore = document.querySelector('.soul-core'); 
@@ -1222,73 +1224,78 @@ initBlogPreview();
         let currentY = 0;       
         let lastY = 0; 
 
-        // --- RÉGLAGES PHYSIQUES ---
-        const LERP = 0.08;           // Inertie globale (0.08 = fluide)
-        const STRETCH_FORCE = 0.15;  // Force de la déformation
+        // --- RÉGLAGES PHYSIQUES PUISSANTS ---
+        const LERP = 0.1;            // Réactivité (0.1 = Assez vif pour le snap)
+        const STRETCH_FORCE = 0.20;  // Déformation plus visible
         
         // --- RÉGLAGES AIMANT ---
-        const MAGNET_RANGE = 200;    // Distance de détection (en px) - Augmenté pour anticiper
-        const MAGNET_POWER = 0.95;   // Force du collage (0 à 1). 0.95 = Colle très fort !
+        const MAGNET_RANGE_FAR = 300; // Début de l'attraction (large)
+        const MAGNET_RANGE_LOCK = 60; // Zone de VERROUILLAGE TOTAL (en px)
 
         function animateSoul() {
             const containerRect = timelineContainer.getBoundingClientRect();
             const viewportCenter = window.innerHeight / 2;
 
-            // 1. Position "Naturelle" (Si aucun aimant n'existait)
+            // 1. Position théorique selon le scroll
             let scrollTarget = viewportCenter - containerRect.top;
             
-            // Bornes (ne pas sortir du conteneur)
+            // Bornes
             const minY = 20; 
             const maxY = containerRect.height - 50;
             scrollTarget = Math.max(minY, Math.min(maxY, scrollTarget));
 
-            // 2. Calcul de la Meilleure Cible (Aimantation)
-            let finalTarget = scrollTarget; // Par défaut, on suit le scroll
-            let closestDist = Infinity;
+            // 2. Calcul de la Cible Magnétique
+            let finalTarget = scrollTarget; 
+            let activeMagnet = false; // Pour savoir si on est capturé
 
             timelinePoints.forEach(point => {
                 const pointRect = point.getBoundingClientRect();
-                // Position exacte du point dans la timeline
+                // Position exacte du point dans le référentiel timeline
                 const pointRelY = pointRect.top - containerRect.top + (pointRect.height/2);
                 
-                // Distance entre là où on VOUDRAIT être (scroll) et le point
+                // Distance entre le scroll souris et le point
                 const dist = Math.abs(pointRelY - scrollTarget);
                 
-                // Si on est dans la zone d'influence du point
-                if (dist < MAGNET_RANGE) {
+                // --- LOGIQUE HARD LOCK ---
+                
+                // ZONE 1 : VERROUILLAGE TOTAL (Le cœur de l'aimant)
+                // Si la souris est proche du point, l'âme RESTE sur le point.
+                if (dist < MAGNET_RANGE_LOCK) {
+                    finalTarget = pointRelY; // On ignore le scroll souris !
+                    activeMagnet = true;
+                }
+                // ZONE 2 : ATTRACTION ÉLASTIQUE (La sortie de l'aimant)
+                // Si on force pour sortir, on crée une résistance
+                else if (dist < MAGNET_RANGE_FAR) {
+                    // Calcul d'un facteur d'attraction (1 = proche, 0 = loin)
+                    let pull = 1 - (dist / MAGNET_RANGE_FAR);
                     
-                    // Calcul de la force d'attraction (0 à 1)
-                    // Si dist = 0 (dessus), force = 1. Si dist = max, force = 0.
-                    let attraction = 1 - (dist / MAGNET_RANGE);
-                    
-                    // On courbe la force pour qu'elle soit exponentielle (effet "Snap")
-                    // Ça rend l'attraction faible au début, et très forte à la fin
-                    attraction = Math.pow(attraction, 2) * MAGNET_POWER;
+                    // Courbe exponentielle pour que ça "lâche" d'un coup
+                    pull = Math.pow(pull, 0.5); 
 
-                    // MÉLANGE : Plus on est près, plus finalTarget devient le point, et moins le scroll
-                    // C'est ça qui crée l'effet "résistance" au scroll
-                    if (dist < closestDist) {
-                        // On remplace la cible du scroll par un mélange (Scroll <-> Point)
-                        finalTarget = (scrollTarget * (1 - attraction)) + (pointRelY * attraction);
-                        closestDist = dist;
-                    }
+                    // Mélange : Le point tire encore l'âme vers lui
+                    // Même si on scrolle loin, l'âme "traîne" derrière vers le point
+                    finalTarget = (pointRelY * pull) + (scrollTarget * (1 - pull));
                 }
             });
 
             // 3. Application du Mouvement (Inertie)
-            // On va vers la finalTarget (qui est soit le scroll, soit le point aimanté)
-            currentY += (finalTarget - currentY) * LERP;
+            // Si on est locké, on augmente le LERP pour que ça snap vite
+            const currentLerp = activeMagnet ? 0.15 : LERP;
+            currentY += (finalTarget - currentY) * currentLerp;
             
-            // 4. Calcul Vitesse & Déformation
+            // 4. Calcul Vitesse & Déformation (Squash & Stretch)
             let velocity = currentY - lastY;
             lastY = currentY;
 
             const speed = Math.abs(velocity);
+            
+            // Plus de déformation quand on "casse" l'aimant (vitesse élevée)
             let stretchY = 1 + (speed * STRETCH_FORCE);
-            let stretchX = 1 - (speed * (STRETCH_FORCE * 0.5)); 
+            let stretchX = 1 - (speed * (STRETCH_FORCE * 0.4)); 
 
             // Limites déformation
-            stretchY = Math.min(stretchY, 2.5);
+            stretchY = Math.min(stretchY, 3.0);
             stretchX = Math.max(stretchX, 0.5);
 
             // 5. Rendu
@@ -1327,6 +1334,7 @@ initBlogPreview();
 
         requestAnimationFrame(animateSoul);
     }
+
 
 
 
