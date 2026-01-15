@@ -1512,5 +1512,56 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+    // ==================================================================
+    // LOGIQUE GLITCH MOMENTS DE RUPTURE (CORRIGÉE : PLUS LONGUE + SURSAUT)
+    // ==================================================================
+    const glitchTargets = document.querySelectorAll('.glitch-target');
+
+    if (glitchTargets.length > 0) {
+        const glitchObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                // On déclenche plus tôt (dès que 50% est visible)
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    
+                    if (!element.classList.contains('has-glitched')) {
+                        // Marqueur immédiat pour ne pas relancer en boucle
+                        element.classList.add('has-glitched'); 
+
+                        // 1. DÉMARRAGE DU GLITCH (Le Plantage)
+                        element.classList.add('glitch-active');
+
+                        // 2. PREMIER ARRÊT (Après 2.5 secondes - beaucoup plus long)
+                        setTimeout(() => {
+                            element.classList.remove('glitch-active');
+
+                            // 3. LE SURSAUT (Le "Re-glitch")
+                            // 300ms de pause, puis on relance un petit coup court
+                            setTimeout(() => {
+                                element.classList.add('glitch-active');
+                                
+                                // 4. ARRÊT FINAL (Après 0.5s de sursaut)
+                                setTimeout(() => {
+                                    element.classList.remove('glitch-active');
+                                }, 500);
+                                
+                            }, 300);
+
+                        }, 2500); // Durée initiale augmentée à 2.5 secondes
+                    }
+                }
+            });
+        }, {
+            threshold: 0.5, // Déclenche quand l'élément est au milieu (aligné avec l'âme)
+            rootMargin: "0px 0px -100px 0px" 
+        });
+
+        glitchTargets.forEach(target => {
+            glitchObserver.observe(target);
+        });
+    }
+
+
+
 
 });
