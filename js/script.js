@@ -1339,30 +1339,41 @@ initBlogPreview();
             requestAnimationFrame(animateSoul);
         }
 
+        
+
+
         function removeInfusionClasses() {
+            // On retire toutes les variantes possibles
             soulEntity.classList.remove(
                 'soul-infused-fire', 
                 'soul-infused-greed', 
-                'soul-infused-dark', 
-                'soul-infused-blue'
+                'soul-infused-blue',
+                'soul-infused-void' // Ajout de la classe NOIR
             );
         }
 
         function applyInfusionColor(chapter) {
-            const html = chapter.innerHTML;
-            if (html.includes('text-green-500') || html.includes('text-success-green')) {
-                soulEntity.classList.add('soul-infused-greed');
-            }
-            else if (html.includes('text-red-600') || html.includes('text-red-500') || html.includes('text-orange-500') || html.includes('text-warm-orange')) {
+            // Nouvelle logique : on lit l'attribut data-mood directement sur le conteneur du chapitre
+            const mood = chapter.getAttribute('data-mood');
+            
+            // Si pas de mood défini, on laisse l'âme blanche par défaut (état pur)
+            if (!mood) return;
+
+            if (mood === 'fire') {
                 soulEntity.classList.add('soul-infused-fire');
             }
-            else if (html.includes('text-purple-400') || html.includes('text-indigo-400') || html.includes('text-neutral-light')) {
-                soulEntity.classList.add('soul-infused-dark');
+            else if (mood === 'greed') {
+                soulEntity.classList.add('soul-infused-greed');
             }
-            else if (html.includes('text-clarity-blue') || html.includes('text-blue-400') || html.includes('text-teal-400')) {
+            else if (mood === 'void') {
+                soulEntity.classList.add('soul-infused-void'); // C'est ici que ça noircit
+            }
+            else if (mood === 'blue') {
                 soulEntity.classList.add('soul-infused-blue');
             }
         }
+
+
 
         requestAnimationFrame(animateSoul);
     }
