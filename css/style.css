@@ -1933,20 +1933,18 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 /* A-PROPOS - EFFET GRAIN / NOISE (CINÉMA) */
 .noise-overlay {
-    position: fixed; /* Reste fixe même quand on scroll */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     
-    /* Le motif de bruit (SVG encodé pour la légèreté) */
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+    /* J'ai aussi légèrement densifié le grain dans l'URL (baseFrequency 0.8) */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
     
-    /* Réglages pour l'intégration visuelle */
-    opacity: 0.05; /* 5% d'opacité : Subtil. Monte à 0.08 si tu veux plus "sale" */
-    mix-blend-mode: overlay; /* Se fond parfaitement avec les couleurs */
+    opacity: 0.15; /* 15% : Là tu vas forcément le voir */
+    /* mix-blend-mode: overlay;  <-- JE L'AI DESACTIVÉ POUR LE TEST */
     
-    /* CRUCIAL : Permet de cliquer au travers (sur les boutons, liens, etc.) */
     pointer-events: none;
-    z-index: 9999; /* Tout au-dessus de la page */
+    z-index: 99999;
 }
