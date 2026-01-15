@@ -1510,26 +1510,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    // --- LOGIQUE DU GUIDE ÂME ---
+     // --- LOGIQUE DU GUIDE ÂME (HUD) ---
     const soulGuide = document.getElementById('soul-guide');
-
+    
     if (soulGuide) {
-        // 1. Apparition retardée (pour ne pas agresser tout de suite)
+        // 1. On attend 1 seconde et on l'affiche
         setTimeout(() => {
-            // On vérifie qu'on n'a pas déjà scrollé
-            if (window.scrollY < 100) {
-                soulGuide.classList.remove('opacity-0', 'translate-y-4');
+            // On vérifie qu'on est toujours en haut de page
+            if (window.scrollY < 200) {
+                soulGuide.classList.remove('guide-start-hidden');
                 soulGuide.classList.add('guide-visible');
             }
-        }, 1500); // Apparaît après 1.5 secondes
+        }, 1000); 
 
-        // 2. Disparition au scroll
+        // 2. Dès qu'on scroll, on le fait disparaître
         const handleGuideScroll = () => {
-            if (window.scrollY > 50) { // Dès qu'on scroll un peu
+            if (window.scrollY > 50) { // Dès 50px de scroll
                 soulGuide.classList.remove('guide-visible');
                 soulGuide.classList.add('guide-hidden');
-
-                // On nettoie l'écouteur pour la performance (plus besoin après)
+                
+                // On arrête d'écouter le scroll pour économiser des ressources
                 window.removeEventListener('scroll', handleGuideScroll);
             }
         };
