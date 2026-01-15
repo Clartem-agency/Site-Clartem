@@ -2067,3 +2067,26 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
         transform: scale(1.08); /* Légère respiration */
     }
 }
+
+
+
+
+
+
+
+/* 1. La ligne de base */
+.timeline-line {
+    /* On garde le dégradé coloré d'origine */
+    transition: opacity 0.5s ease, filter 0.5s ease;
+    opacity: 0.3; /* Par défaut, elle est un peu discrète */
+}
+
+/* 2. ÉTAT ACTIVÉ : Subtil et Localisé */
+.timeline-line.line-active {
+    /* On ne change PAS la couleur de fond en blanc. */
+    /* On augmente juste l'opacité pour dire "le signal passe" */
+    opacity: 0.8; 
+    
+    /* Un tout petit halo pour le relief, mais très léger */
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+}
