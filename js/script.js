@@ -1513,34 +1513,47 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // ==================================================================
-    // LOGIQUE GLITCH MOMENTS DE RUPTURE (TIMELINE)
+    // LOGIQUE GLITCH MOMENTS DE RUPTURE (CORRIGÉE : PLUS LONGUE + SURSAUT)
     // ==================================================================
     const glitchTargets = document.querySelectorAll('.glitch-target');
 
     if (glitchTargets.length > 0) {
         const glitchObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
+                // On déclenche plus tôt (dès que 50% est visible)
                 if (entry.isIntersecting) {
                     const element = entry.target;
                     
-                    // On vérifie si l'effet a déjà été joué pour ne pas le spammer
                     if (!element.classList.contains('has-glitched')) {
-                        
-                        // 1. On lance le glitch
-                        element.classList.add('glitch-active');
-                        element.classList.add('has-glitched'); // Marqueur pour ne le faire qu'une fois
+                        // Marqueur immédiat pour ne pas relancer en boucle
+                        element.classList.add('has-glitched'); 
 
-                        // 2. On arrête le glitch après un court instant (le "Reboot")
-                        // 800ms est une bonne durée : assez pour voir le bug, assez court pour ne pas gêner la lecture
+                        // 1. DÉMARRAGE DU GLITCH (Le Plantage)
+                        element.classList.add('glitch-active');
+
+                        // 2. PREMIER ARRÊT (Après 2.5 secondes - beaucoup plus long)
                         setTimeout(() => {
                             element.classList.remove('glitch-active');
-                        }, 800);
+
+                            // 3. LE SURSAUT (Le "Re-glitch")
+                            // 300ms de pause, puis on relance un petit coup court
+                            setTimeout(() => {
+                                element.classList.add('glitch-active');
+                                
+                                // 4. ARRÊT FINAL (Après 0.5s de sursaut)
+                                setTimeout(() => {
+                                    element.classList.remove('glitch-active');
+                                }, 500);
+                                
+                            }, 300);
+
+                        }, 2500); // Durée initiale augmentée à 2.5 secondes
                     }
                 }
             });
         }, {
-            threshold: 1.0, // L'élément doit être 100% visible
-            rootMargin: "0px 0px -100px 0px" // Déclenche un peu avant le bas de l'écran
+            threshold: 0.5, // Déclenche quand l'élément est au milieu (aligné avec l'âme)
+            rootMargin: "0px 0px -100px 0px" 
         });
 
         glitchTargets.forEach(target => {
