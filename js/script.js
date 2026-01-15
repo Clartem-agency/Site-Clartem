@@ -1209,163 +1209,121 @@ initBlogPreview();
 
 
     // ==================================================================
-    // LOGIQUE ÂME ORGANIQUE + AIMANTATION (MAGNET)
+    // LOGIQUE ÂME : SQUASH & STRETCH (CARTOON PHYSICS)
     // ==================================================================
     const soulEntity = document.getElementById('soul-entity');
+    const soulCore = document.querySelector('.soul-core'); // On cible le cœur pour le déformer
     const timelineContainer = document.getElementById('timeline-container');
-    const timelinePoints = document.querySelectorAll('.timeline-point'); // Les cibles magnétiques
-    const timelineChapters = document.querySelectorAll('.timeline-line ~ .space-y-32 > div'); // Pour les couleurs
+    const timelinePoints = document.querySelectorAll('.timeline-point'); 
+    const timelineChapters = document.querySelectorAll('.timeline-line ~ .space-y-32 > div');
 
-    if (soulEntity && timelineContainer) {
+    if (soulEntity && soulCore && timelineContainer) {
         
-        let currentY = 0;       // Position actuelle
-        let targetY = 0;        // Position cible
-        let velocity = 0;       // Vitesse du mouvement (pour l'étirement)
+        let currentY = 0;       
+        let targetY = 0;        
+        let lastY = 0; // Pour calculer la vitesse réelle instantanée
+
+        // REGLAGES PHYSIQUES
+        const LERP = 0.08;          // Réactivité (0.08 = fluide et un peu lourd)
+        const STRETCH_FORCE = 0.15; // Puissance de l'étirement (Cartoon effect)
+        const MAX_STRETCH = 2.5;    // Limite max d'étirement (pour pas faire un trait infini)
         
-        // PARAMÈTRES PHYSIQUES
-        const LERP_SPEED = 0.05;    // Inertie (plus bas = plus lourd/liquide)
-        const MAGNET_RANGE = 100;   // Distance de capture (en px)
-        const MAGNET_STRENGTH = 0.8; // Force avec laquelle le point retient l'âme (0 à 1)
-        const STRETCH_FACTOR = 0.15; // À quel point elle s'étire quand elle bouge
+        const MAGNET_RANGE = 150;   
+        const MAGNET_POWER = 0.3;   // Force d'attraction des points
 
         function animateSoul() {
             const containerRect = timelineContainer.getBoundingClientRect();
-            const viewportCenter = window.innerHeight / 2; // Le centre de l'écran
+            const viewportCenter = window.innerHeight / 2;
 
-            // 1. DÉFINIR LA CIBLE PAR DÉFAUT (Centre de l'écran)
-            // C'est là où l'âme "veut" aller naturellement
+            // 1. Cible idéale (Centre écran)
             let idealTarget = viewportCenter - containerRect.top;
             
-            // Bornes pour ne pas sortir de la timeline
-            idealTarget = Math.max(0, Math.min(containerRect.height - 50, idealTarget));
+            // Bornes
+            const minY = 20; 
+            const maxY = containerRect.height - 50;
+            idealTarget = Math.max(minY, Math.min(maxY, idealTarget));
 
-            // 2. LOGIQUE D'AIMANTATION (MAGNET EFFECT)
+            // 2. Aimantation (Magnet)
             let isMagnetized = false;
-            
-            // On vérifie tous les points pour voir si l'un d'eux est proche du centre de l'écran
             timelinePoints.forEach(point => {
-                // Position du point relative au conteneur
-                // On ajoute point.offsetTop car le point est en absolute dans un parent relatif souvent
-                // Note: Le calcul exact dépend de votre structure HTML. 
-                // Si les points sont en absolute par rapport au container principal, utilisez point.offsetTop.
-                // Si ils sont dans des grilles, on utilise getBoundingClientRect.
-                
                 const pointRect = point.getBoundingClientRect();
-                const pointYRelative = pointRect.top - containerRect.top + (pointRect.height/2);
+                // Position relative du point dans le conteneur
+                const pointRelY = pointRect.top - containerRect.top + (pointRect.height/2);
                 
-                // Distance entre le point et "l'idéal" (le centre écran)
-                const dist = Math.abs(pointYRelative - idealTarget);
-
-                // Si on est proche du point (dans la zone d'effet)
+                const dist = Math.abs(pointRelY - idealTarget);
+                
                 if (dist < MAGNET_RANGE) {
-                    isMagnetized = true;
-                    // On modifie la cible : ce n'est plus le centre écran, c'est le point !
-                    // Mais on garde un petit décalage si on force le scroll (MAGNET_STRENGTH)
-                    // Si STRENGTH = 1, l'âme est collée au point tant qu'on est dans la zone.
-                    idealTarget = pointYRelative; 
+                    // Formule d'interpolation pour attirer doucement vers le point
+                    // Plus on est près, plus ça tire fort
+                    const pull = 1 - (dist / MAGNET_RANGE);
+                    idealTarget = idealTarget + (pointRelY - idealTarget) * (pull * MAGNET_POWER);
                 }
             });
 
-            // 3. APPLIQUER L'INERTIE (LERP)
-            // Si on est aimanté, on augmente un peu la vitesse pour le "Snap"
-            const currentSpeed = isMagnetized ? LERP_SPEED * 2 : LERP_SPEED;
+            // 3. Mouvement (Lerp)
+            targetY = idealTarget;
+            currentY += (targetY - currentY) * LERP;
             
-            // Calcul de la nouvelle position
-            const newY = currentY + (idealTarget - currentY) * currentSpeed;
-            
-            // Calcul de la vélocité (pour la déformation)
-            velocity = newY - currentY;
-            currentY = newY;
+            // 4. Calcul de la vitesse pour la déformation
+            // La vitesse est la différence entre la position actuelle et celle de la frame d'avant
+            let velocity = currentY - lastY;
+            lastY = currentY;
 
-            // 4. DÉFORMATION ORGANIQUE (SQUASH & STRETCH)
-            // Plus ça va vite, plus ça s'étire en Y et s'affine en X
-            // On limite la déformation pour pas que ça devienne un trait
-            const stretch = Math.min(Math.abs(velocity) * STRETCH_FACTOR, 0.6); 
-            const scaleY = 1 + stretch;
-            const scaleX = 1 - (stretch * 0.5); // Conservation de volume approximative
+            // 5. DEFORMATION (SQUASH & STRETCH)
+            // velocity positive = descend / velocity négative = monte
+            // On prend la valeur absolue car on s'étire dans les deux sens de mouvement
+            const speed = Math.abs(velocity);
             
-            // Rotation : Si velocity est positif (descend), pas de rotation.
-            // Si velocity négatif (monte), on pourrait inverser, mais pour une goutte 
-            // c'est souvent la queue vers le haut.
-            
+            // Calcul du facteur d'étirement : 1 = normal. 
+            // Si speed est grand, stretchY augmente (> 1) et stretchX diminue (< 1)
+            let stretchY = 1 + (speed * STRETCH_FORCE);
+            let stretchX = 1 - (speed * (STRETCH_FORCE * 0.6)); // On s'affine moins vite qu'on s'allonge pour garder du volume
+
+            // Limiteur pour éviter les bugs graphiques extrêmes
+            stretchY = Math.min(stretchY, MAX_STRETCH);
+            stretchX = Math.max(stretchX, 0.4); // Pas plus fin que 40%
+
+            // Application
             soulEntity.style.top = `${currentY}px`;
             
-            // On applique la déformation sur le Core, pas le conteneur entier pour garder la queue attachée
-            const core = soulEntity.querySelector('.soul-core');
-            if(core) {
-                core.style.transform = `scale(${scaleX}, ${scaleY})`;
-            }
-            
-            // On peut aussi faire pivoter la queue légèrement à l'opposé du mouvement
-            const tail = soulEntity.querySelector('.soul-tail');
-            if(tail && Math.abs(velocity) > 1) {
-                // Si on descend (vel > 0), la queue pointe vers le haut (normal)
-                // Si on monte (vel < 0), la queue devrait pointer vers le bas
-                const rotation = velocity > 0 ? 0 : 180;
-                // On applique une transition CSS pour que le retournement soit fluide
-                tail.style.transition = 'transform 0.3s';
-                // On garde l'animation de wiggle (translateX) et on ajoute la rotation de direction
-                // Note : C'est complexe de mixer keyframes et transform JS. 
-                // Simplification : On laisse la queue en haut par défaut (effet gravité).
-            }
+            // On applique la déformation sur le cœur
+            // scaleX et scaleY font le travail "d'affiner l'arrière" visuellement grâce au flou de mouvement perçu
+            soulCore.style.transform = `scale(${stretchX}, ${stretchY})`;
 
 
-            // 5. GESTION DES COULEURS (CONTEXTE)
-            detectSoulContext(currentY + containerRect.top); // On passe la position absolue écran
+            // 6. Gestion Couleurs
+            detectSoulContext(currentY + containerRect.top);
 
             requestAnimationFrame(animateSoul);
         }
 
+        // --- Fonctions utilitaires couleurs (Inchangées, elles marchent bien) ---
         function detectSoulContext(absoluteY) {
-            // On cherche le chapitre le plus proche de la position absolue de l'âme
             let closestChapter = null;
             let minDistance = Infinity;
-
             timelineChapters.forEach(chapter => {
                 const rect = chapter.getBoundingClientRect();
                 const center = rect.top + (rect.height / 2);
                 const dist = Math.abs(center - absoluteY);
-                
-                if (dist < minDistance) {
-                    minDistance = dist;
-                    closestChapter = chapter;
-                }
+                if (dist < minDistance) { minDistance = dist; closestChapter = chapter; }
             });
-
-            if (closestChapter) {
-                updateSoulState(closestChapter);
-            }
+            if (closestChapter) updateSoulState(closestChapter);
         }
 
         function updateSoulState(chapter) {
-            const textContent = chapter.innerHTML;
-            soulEntity.className = ''; // Reset total
-
-            if (textContent.includes('text-green-500') || textContent.includes('text-success-green')) {
-                soulEntity.classList.add('soul-state-greed');
-            } 
-            else if (textContent.includes('text-red-600') || textContent.includes('text-red-500')) {
-                soulEntity.classList.add('soul-state-fire');
-            }
-            else if (textContent.includes('text-orange-500') || textContent.includes('text-warm-orange')) {
-                soulEntity.classList.add('soul-state-fire');
-            }
-            else if (textContent.includes('text-purple-400') || textContent.includes('text-indigo-400')) {
-                soulEntity.classList.add('soul-state-dark');
-            }
-            else if (textContent.includes('text-clarity-blue') || textContent.includes('text-blue-400')) {
-                soulEntity.classList.add('soul-state-blue');
-            }
-            else if (textContent.includes('La convergence')) {
-                 soulEntity.classList.add('soul-state-pure');
-            }
-            else {
-                soulEntity.classList.add('soul-state-neutral');
-            }
+            const html = chapter.innerHTML;
+            soulEntity.className = ''; 
+            if (html.includes('text-green-500') || html.includes('text-success-green')) soulEntity.classList.add('soul-state-greed');
+            else if (html.includes('text-red-600') || html.includes('text-red-500') || html.includes('text-orange-500') || html.includes('text-warm-orange')) soulEntity.classList.add('soul-state-fire');
+            else if (html.includes('text-purple-400') || html.includes('text-indigo-400')) soulEntity.classList.add('soul-state-dark');
+            else if (html.includes('text-clarity-blue') || html.includes('text-blue-400')) soulEntity.classList.add('soul-state-blue');
+            else if (html.includes('La convergence')) soulEntity.classList.add('soul-state-pure');
+            else soulEntity.classList.add('soul-state-neutral');
         }
 
         requestAnimationFrame(animateSoul);
     }
+    
 
 
 });
