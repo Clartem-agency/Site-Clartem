@@ -1784,23 +1784,22 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 /* ======================================================= */
-/*    L'ÂME (SOUL) - Version "Squash & Stretch"            */
+/*    L'ÂME (SOUL) - Version "Vaporeuse & Éthérée"         */
 /* ======================================================= */
 
 #soul-entity {
     position: absolute;
     left: 50%;
     top: 0;
-    width: 24px; /* Taille de base un peu plus grosse */
-    height: 24px;
+    width: 30px; /* Un peu plus large pour le flou */
+    height: 30px;
     transform: translate(-50%, -50%);
-    z-index: 5;
+    z-index: 20; /* Au-dessus de la timeline */
     pointer-events: none;
-    background: transparent !important;
     
-    /* On change la couleur doucement, mais la position est gérée par JS sans délai */
-    transition: color 0.4s ease;
-    will-change: transform, top;
+    /* La transition de couleur doit être très lente pour faire "absorption" */
+    transition: top 0.1s linear; 
+    will-change: top, transform;
 }
 
 @media (max-width: 768px) {
@@ -1810,31 +1809,57 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 .soul-core {
     position: absolute;
     inset: 0;
-    background-color: currentColor;
+    border-radius: 50%;
     
-    /* Lueur externe pour l'effet "énergie/nuage" */
-    box-shadow: 0 0 20px currentColor; 
+    /* ASPECT PAR DÉFAUT : BLANC PUR, BRILLANT ET VAPOREUX */
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.4));
     
-    /* Flou léger pour éviter le coté "vecteur dur" */
-    /* filter: blur(1px);  <-- Optionnel : décommentez si vous voulez plus flou */
+    /* Double couche d'ombre pour l'effet nébuleux */
+    box-shadow: 
+        0 0 15px 2px rgba(255, 255, 255, 0.6),  /* Halo proche */
+        0 0 40px 10px rgba(255, 255, 255, 0.3); /* Halo large et diffus */
     
-    /* Animation de respiration (forme organique au repos) */
-    animation: organicBlob 3s infinite ease-in-out alternate;
+    /* Le flou crée l'aspect gaz/esprit */
+    filter: blur(3px); 
     
-    /* Le JS va piloter le scale, on s'assure que l'origine est au centre */
-    transform-origin: center center;
+    /* Animation de forme pour faire "vivant" */
+    animation: soulBreathe 4s infinite ease-in-out;
+    
+    /* Transition fluide pour le changement de couleur */
+    transition: background 1.5s ease, box-shadow 1.5s ease;
 }
 
-/* Fait bouger les bords doucement quand c'est à l'arrêt */
-@keyframes organicBlob {
-    0% { border-radius: 50%; }
-    100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+/* Animation de déformation organique (Goutte d'eau en apesanteur) */
+@keyframes soulBreathe {
+    0% { transform: scale(1); border-radius: 50%; }
+    33% { transform: scale(1.1, 0.9); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    66% { transform: scale(0.95, 1.05); border-radius: 40% 60% 70% 30% / 40% 60% 30% 70%; }
+    100% { transform: scale(1); border-radius: 50%; }
 }
 
-/* --- COULEURS (Inchangées) --- */
-.soul-state-neutral { color: #94a3b8; }
-.soul-state-blue    { color: #3B82F6; }
-.soul-state-fire    { color: #F97316; }
-.soul-state-greed   { color: #16A34A; }
-.soul-state-dark    { color: #7c3aed; }
-.soul-state-pure    { color: #ffffff; }
+/* --- ÉTATS D'INFUSION (COULEURS) --- */
+/* Ces classes ne s'appliquent que si JS détecte une pause */
+
+/* Feu / Colère */
+.soul-infused-fire .soul-core {
+    background: radial-gradient(circle at 30% 30%, #ffedd5, #f97316);
+    box-shadow: 0 0 20px 5px rgba(249, 115, 22, 0.6), 0 0 50px 15px rgba(249, 115, 22, 0.3);
+}
+
+/* Argent / Succès */
+.soul-infused-greed .soul-core {
+    background: radial-gradient(circle at 30% 30%, #dcfce7, #22c55e);
+    box-shadow: 0 0 20px 5px rgba(34, 197, 94, 0.6), 0 0 50px 15px rgba(34, 197, 94, 0.3);
+}
+
+/* Dépression / Profondeur */
+.soul-infused-dark .soul-core {
+    background: radial-gradient(circle at 30% 30%, #e9d5ff, #7c3aed);
+    box-shadow: 0 0 20px 5px rgba(124, 58, 237, 0.6), 0 0 50px 15px rgba(124, 58, 237, 0.3);
+}
+
+/* Espoir / Clarté */
+.soul-infused-blue .soul-core {
+    background: radial-gradient(circle at 30% 30%, #dbeafe, #3b82f6);
+    box-shadow: 0 0 20px 5px rgba(59, 130, 246, 0.6), 0 0 50px 15px rgba(59, 130, 246, 0.3);
+}
