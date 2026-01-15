@@ -2090,3 +2090,45 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     /* Un tout petit halo pour le relief, mais très léger */
     filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
 }
+
+
+
+
+
+
+
+/* Positionnement initial du guide */
+#soul-guide {
+    /* On le place un peu avant le premier point de la timeline */
+    top: 180px; 
+}
+
+/* Classe utilitaire pour cacher le guide */
+.guide-hidden {
+    opacity: 0 !important;
+    transform: translate(-50%, -20px) !important; /* Petit mouvement vers le haut en disparaissant */
+}
+
+/* Classe utilitaire pour afficher le guide (via JS) */
+.guide-visible {
+    opacity: 1 !important;
+    transform: translate(-50%, 0) !important;
+}
+
+
+
+
+
+
+/* Positionnement du guide : On le descend pour qu'il soit sous le titre */
+#soul-guide {
+    top: 500px; /* Ajuste ce chiffre si c'est trop haut ou trop bas */
+}
+
+/* Sur mobile, on le remonte un peu car le texte est plus petit */
+@media (max-width: 768px) {
+    #soul-guide {
+        top: 280px;
+    }
+}
+
