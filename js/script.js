@@ -1342,36 +1342,36 @@ initBlogPreview();
         
 
 
-        function removeInfusionClasses() {
-            // On retire toutes les variantes possibles
-            soulEntity.classList.remove(
-                'soul-infused-fire', 
-                'soul-infused-greed', 
-                'soul-infused-blue',
-                'soul-infused-void' // Ajout de la classe NOIR
-            );
-        }
+    function removeInfusionClasses() {
+    soulEntity.classList.remove(
+        'soul-infused-fire', 
+        'soul-infused-greed', 
+        'soul-infused-blue',
+        'soul-infused-void',
+        'soul-infused-stasis' // <--- AJOUT ICI
+    );
+}
 
-        function applyInfusionColor(chapter) {
-            // Nouvelle logique : on lit l'attribut data-mood directement sur le conteneur du chapitre
-            const mood = chapter.getAttribute('data-mood');
-            
-            // Si pas de mood défini, on laisse l'âme blanche par défaut (état pur)
-            if (!mood) return;
+function applyInfusionColor(chapter) {
+    const mood = chapter.getAttribute('data-mood');
+    if (!mood) return;
 
-            if (mood === 'fire') {
-                soulEntity.classList.add('soul-infused-fire');
-            }
-            else if (mood === 'greed') {
-                soulEntity.classList.add('soul-infused-greed');
-            }
-            else if (mood === 'void') {
-                soulEntity.classList.add('soul-infused-void'); // C'est ici que ça noircit
-            }
-            else if (mood === 'blue') {
-                soulEntity.classList.add('soul-infused-blue');
-            }
-        }
+    if (mood === 'fire') {
+        soulEntity.classList.add('soul-infused-fire');
+    }
+    else if (mood === 'greed') {
+        soulEntity.classList.add('soul-infused-greed');
+    }
+    else if (mood === 'void') {
+        soulEntity.classList.add('soul-infused-void');
+    }
+    else if (mood === 'blue') {
+        soulEntity.classList.add('soul-infused-blue');
+    }
+    else if (mood === 'stasis') { // <--- AJOUT ICI
+        soulEntity.classList.add('soul-infused-stasis');
+    }
+}
 
 
 
