@@ -1512,5 +1512,43 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+    // ==================================================================
+    // LOGIQUE GLITCH MOMENTS DE RUPTURE (TIMELINE)
+    // ==================================================================
+    const glitchTargets = document.querySelectorAll('.glitch-target');
+
+    if (glitchTargets.length > 0) {
+        const glitchObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    
+                    // On vérifie si l'effet a déjà été joué pour ne pas le spammer
+                    if (!element.classList.contains('has-glitched')) {
+                        
+                        // 1. On lance le glitch
+                        element.classList.add('glitch-active');
+                        element.classList.add('has-glitched'); // Marqueur pour ne le faire qu'une fois
+
+                        // 2. On arrête le glitch après un court instant (le "Reboot")
+                        // 800ms est une bonne durée : assez pour voir le bug, assez court pour ne pas gêner la lecture
+                        setTimeout(() => {
+                            element.classList.remove('glitch-active');
+                        }, 800);
+                    }
+                }
+            });
+        }, {
+            threshold: 1.0, // L'élément doit être 100% visible
+            rootMargin: "0px 0px -100px 0px" // Déclenche un peu avant le bas de l'écran
+        });
+
+        glitchTargets.forEach(target => {
+            glitchObserver.observe(target);
+        });
+    }
+
+
+
 
 });
