@@ -1931,6 +1931,71 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 
+
+/* ======================================================= */
+/*    LA TRAÎNÉE DE L'ÂME (SOUL TRAIL)                     */
+/* ======================================================= */
+
+.soul-trail-piece {
+    position: absolute;
+    left: 50%; /* Centré comme l'âme principale */
+    transform: translate(-50%, -50%);
+    width: 30px; 
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    pointer-events: none;
+    z-index: 19; /* Juste derrière l'âme (qui est à 20) */
+    
+    /* Effet vaporeux */
+    filter: blur(4px);
+    opacity: 0.4;
+    
+    /* Transition pour la couleur uniquement (pas la position, gérée par JS) */
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* --- ADAPTATION DES COULEURS POUR LA TRAÎNÉE --- */
+/* On reprend les couleurs des infusions pour que la traînée change aussi */
+
+.soul-trail-fire {
+    background-color: rgba(249, 115, 22, 0.6);
+    box-shadow: 0 0 10px rgba(249, 115, 22, 0.4);
+}
+
+.soul-trail-greed {
+    background-color: rgba(34, 197, 94, 0.6);
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.4);
+}
+
+.soul-trail-blue {
+    background-color: rgba(59, 130, 246, 0.6);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+}
+
+.soul-trail-void {
+    background-color: #0f172a;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    opacity: 0.6 !important; /* Plus sombre pour le void */
+}
+
+.soul-trail-stasis {
+    background-color: #94a3b8;
+}
+
+.soul-trail-hologram {
+    background-color: rgba(34, 211, 238, 0.5); /* Cyan */
+    box-shadow: 0 0 10px rgba(232, 121, 249, 0.3); /* Magenta glow */
+}
+
+
+
+
+
+
+
+
+
 /* A-PROPOS - EFFET GRAIN / NOISE (CINÉMA) */
 .noise-overlay {
     position: fixed;
