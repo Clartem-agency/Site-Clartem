@@ -408,36 +408,37 @@
 
 
 
-            <!-- AJOUTE CE BLOC ICI (DÉBUT) -->
-            <div id="soul-guide"
-                class="absolute top-0 left-1/2 -translate-x-1/2 z-30 text-center pointer-events-none transition-all duration-700 opacity-0 translate-y-4">
-                <div class="flex flex-col items-center gap-3">
-                    <!-- Petite ligne de liaison -->
-                    <div class="w-[1px] h-12 bg-gradient-to-b from-transparent to-warm-orange/50"></div>
 
-                    <!-- L'icône souris animée -->
-                    <div class="relative group">
-                        <div class="absolute -inset-2 bg-warm-orange/20 blur-md rounded-full animate-pulse"></div>
-                        <svg class="w-6 h-6 text-white relative z-10 animate-bounce" fill="none" stroke="currentColor"
+
+            <!-- === DÉBUT DU GUIDE (HUD) === -->
+            <div id="soul-guide"
+                class="absolute left-1/2 -translate-x-1/2 z-50 text-center pointer-events-none transition-all duration-700 guide-start-hidden">
+                <div class="flex flex-col items-center gap-3">
+
+                    <!-- Flèche animée vers le bas -->
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-warm-orange/30 blur-lg rounded-full animate-pulse"></div>
+                        <svg class="w-8 h-8 text-white relative z-10 animate-bounce" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122">
-                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
                         </svg>
                     </div>
 
-                    <!-- Le Texte d'instruction (Style HUD) -->
+                    <!-- Le Texte -->
                     <div
-                        class="bg-neutral-900/80 backdrop-blur-sm border border-white/10 px-4 py-2 rounded-lg shadow-xl">
-                        <p
-                            class="text-[10px] md:text-xs uppercase tracking-[0.2em] text-gray-300 font-medium whitespace-nowrap">
-                            Gardez le cap<br>
-                            <span class="text-warm-orange font-bold">Alignez votre souris</span>
+                        class="bg-neutral-900/90 border border-warm-orange/50 px-6 py-3 rounded-full shadow-[0_0_20px_rgba(249,115,22,0.3)] backdrop-blur-md">
+                        <p class="text-xs uppercase tracking-widest text-white font-bold whitespace-nowrap">
+                            Alignez votre souris<br>
+                            <span class="text-warm-orange text-[10px] font-normal normal-case">pour stabiliser le
+                                signal</span>
                         </p>
                     </div>
                 </div>
             </div>
-            <!-- AJOUTE CE BLOC ICI (FIN) -->
+            <!-- === FIN DU GUIDE === -->
+
+
 
 
 
