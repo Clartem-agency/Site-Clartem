@@ -1212,7 +1212,7 @@ initBlogPreview();
 
    
   // ==================================================================
-    // LOGIQUE ÂME AVEC TRAÎNÉE (TRAIL EFFECT)
+    // LOGIQUE ÂME : L'ERRANCE MAGNÉTIQUE (AXES X & Y)
     // ==================================================================
     const soulEntity = document.getElementById('soul-entity');
     const soulCore = document.querySelector('.soul-core');
@@ -1222,162 +1222,199 @@ initBlogPreview();
 
     if (soulEntity && soulCore && timelineContainer && timelinePoints.length > 0) {
         
+        // Positions actuelles
         let currentY = 0;       
         let lastY = 0; 
-
+        let currentX = 0; // NOUVEAU : Position horizontale (offset par rapport au centre)
+        
         // Variables pour l'infusion de couleur
         let infusionTimer = null; 
         let currentTargetChapter = null; 
         const INFUSION_DELAY = 1200; 
 
-        // Physique de l'âme principale
-        const LERP = 0.12;           
+        // Physique de l'âme
+        const LERP_Y = 0.1;          // Fluidité verticale
+        const LERP_X = 0.08;         // Fluidité horizontale (un peu plus "flottant")
         const STRETCH_FORCE = 0.1;   
-        const MAGNET_RANGE = 150;    
+        const MAGNET_RANGE = 200;    // Portée de l'attraction verticale
+
+        // Paramètres de l'Errance (Déviation)
+        const DEVIATION_FORCE = 60;  // Combien de pixels elle s'éloigne du centre (Max)
+        const CHAOS_AMOUNT = 3;      // Tremblement quand elle est déviée
 
         // --- CONFIGURATION DE LA TRAÎNÉE (GHOSTS) ---
-        const TRAIL_LENGTH = 8; // Nombre de fantômes (plus il y en a, plus la traînée est longue)
+        const TRAIL_LENGTH = 8; 
         const trailPieces = [];
         
-        // Création des éléments DOM pour la traînée
         for (let i = 0; i < TRAIL_LENGTH; i++) {
             const piece = document.createElement('div');
             piece.classList.add('soul-trail-piece');
-            
-            // On réduit progressivement la taille et l'opacité vers la queue
-            const scale = 1 - (i * 0.08); // De 1.0 à 0.4
-            const opacity = 0.4 - (i * 0.04); // De 0.4 à 0.1
-            
+            const scale = 1 - (i * 0.08); 
+            const opacity = 0.4 - (i * 0.04); 
             piece.style.transform = `translate(-50%, -50%) scale(${scale})`;
             piece.style.opacity = Math.max(0, opacity);
-            
-            // On insère les fantômes DANS le timeline container, mais AVANT l'âme
             timelineContainer.insertBefore(piece, soulEntity);
             
-            // On stocke l'objet pour la physique
             trailPieces.push({
                 el: piece,
-                y: 0, // Position Y actuelle du fantôme
-                lag: 0.15 + (i * 0.02) // Le retard augmente pour chaque pièce (effet élastique)
+                y: 0,
+                x: 0, // NOUVEAU : La traînée doit suivre en X aussi
+                lag: 0.15 + (i * 0.02)
             });
         }
-
 
         function animateSoul() {
             const containerRect = timelineContainer.getBoundingClientRect();
             const viewportCenter = window.innerHeight / 2;
+            const containerCenter = containerRect.width / 2;
 
-            // 1. CALCUL DU POINT DE DÉPART EXACT
+            // 1. DÉTECTION SCROLL VERTICAL (CIBLE Y)
             const firstPoint = timelinePoints[0];
             const firstPointRect = firstPoint.getBoundingClientRect();
             const startThresholdY = firstPointRect.top - containerRect.top + (firstPointRect.height / 2);
 
-            // 2. Position théorique
-            let scrollTarget = viewportCenter - containerRect.top;
-            
-            // 3. CONTRAINTE
+            let scrollTargetY = viewportCenter - containerRect.top;
             const minY = startThresholdY; 
             const maxY = containerRect.height - 50;
-            let constrainedTarget = Math.max(minY, Math.min(maxY, scrollTarget));
+            let constrainedTargetY = Math.max(minY, Math.min(maxY, scrollTargetY));
 
-            // 4. LOGIQUE D'APPARITION (Soul & Trail)
-            // Si on est avant le début, on cache tout
-            if (scrollTarget < startThresholdY - 10) {
+            // GESTION APPARITION
+            if (scrollTargetY < startThresholdY - 50) {
                 soulEntity.style.opacity = '0';
                 trailPieces.forEach(p => p.el.style.opacity = '0');
             } else {
                 soulEntity.style.opacity = '1';
-                // L'opacité des trails est gérée individuellement plus bas, on reset juste si visible
-                // Note: on laisse la boucle physics gérer l'opacité exacte
             }
 
-            // 5. TROUVER LE POINT LE PLUS PROCHE (Gravité)
-            let closestPointY = null;
-            let minDistance = Infinity;
+            // 2. CALCUL DE LA DÉVIATION (CIBLE X)
+            // On cherche entre quels points l'âme se trouve pour calculer sa déviation
+            let targetDeviationX = 0;
             let activeChapter = null;
+            let minDistance = Infinity;
+            let closestPointY = null;
 
-            timelinePoints.forEach((point, index) => {
+            // Boucle pour trouver le segment actif et le point le plus proche
+            for (let i = 0; i < timelinePoints.length; i++) {
+                const point = timelinePoints[i];
                 const pointRect = point.getBoundingClientRect();
                 const pointRelY = pointRect.top - containerRect.top + (pointRect.height/2);
-                const dist = Math.abs(pointRelY - constrainedTarget); 
-
+                
+                // Pour la gravité verticale (Code existant)
+                const dist = Math.abs(pointRelY - constrainedTargetY); 
                 if (dist < minDistance) {
                     minDistance = dist;
                     closestPointY = pointRelY;
-                    activeChapter = timelineChapters[index];
+                    activeChapter = timelineChapters[i];
                 }
-            });
 
-            // 6. MAGIE "GRAVITÉ DOUCE"
-            let finalTarget = constrainedTarget;
+                // Pour la déviation horizontale (NOUVEAU)
+                // Si on a un point suivant, on vérifie si on est dans ce segment
+                if (i < timelinePoints.length - 1) {
+                    const nextPoint = timelinePoints[i+1];
+                    const nextPointRect = nextPoint.getBoundingClientRect();
+                    const nextPointRelY = nextPointRect.top - containerRect.top + (nextPointRect.height/2);
+
+                    if (constrainedTargetY >= pointRelY && constrainedTargetY <= nextPointRelY) {
+                        // On est entre le point i et i+1
+                        
+                        // Calcul du progrès (0% au point i, 50% au milieu, 100% au point i+1)
+                        const segmentLength = nextPointRelY - pointRelY;
+                        const progress = (constrainedTargetY - pointRelY) / segmentLength;
+
+                        // Fonction Sinusoïdale : 0 -> 1 -> 0
+                        // L'âme s'éloigne au milieu du segment et revient à la fin
+                        const curve = Math.sin(progress * Math.PI);
+
+                        // Direction : Alterne gauche/droite selon l'index
+                        // Note: Index pair = déviation vers la droite (contenu à gauche) ou inversement selon ton layout
+                        // Ajuste le multiplicateur (1 ou -1) selon ton design visuel exact
+                        const direction = (i % 2 === 0) ? -1 : 1; 
+
+                        // Ajout d'un peu de chaos aléatoire (tremblement) quand elle est loin du centre
+                        const chaos = (Math.random() - 0.5) * CHAOS_AMOUNT * curve;
+
+                        targetDeviationX = (curve * DEVIATION_FORCE * direction) + chaos;
+                    }
+                }
+            }
+
+            // 3. GRAVITÉ VERTICALE (MAGNETISME)
+            let finalTargetY = constrainedTargetY;
             let isLocked = false; 
 
             if (closestPointY !== null && minDistance < MAGNET_RANGE) {
-                const offset = constrainedTarget - closestPointY;
+                const offset = constrainedTargetY - closestPointY;
                 const ratio = Math.abs(offset) / MAGNET_RANGE;
                 const gravityOffset = offset * Math.pow(ratio, 1.8); 
-                finalTarget = closestPointY + gravityOffset;
+                finalTargetY = closestPointY + gravityOffset;
                 
-                if (ratio < 0.3) isLocked = true;
+                // Si on est très proche d'un point, on force X à 0 (Recentrage absolu)
+                if (minDistance < 30) {
+                    targetDeviationX = targetDeviationX * (minDistance / 30); // Réduit la déviation à 0
+                    isLocked = true;
+                }
             }
 
-            // 7. Initialisation au premier chargement
+            // Init au chargement
             if (currentY === 0) {
-                currentY = finalTarget;
-                // Init des trails à la même position pour éviter qu'ils arrivent du haut
-                trailPieces.forEach(p => p.y = finalTarget);
+                currentY = finalTargetY;
+                currentX = 0;
+                trailPieces.forEach(p => { p.y = finalTargetY; p.x = 0; });
             }
 
-            // 8. Mouvement fluide ÂME PRINCIPALE
-            currentY += (finalTarget - currentY) * LERP;
-            
-            // 9. Squash & Stretch ÂME PRINCIPALE
-            let velocity = currentY - lastY;
+            // 4. APPLICATION DU MOUVEMENT (LERP)
+            currentY += (finalTargetY - currentY) * LERP_Y;
+            currentX += (targetDeviationX - currentX) * LERP_X; // Mouvement X plus "sluggish"
+
+            // 5. SQUASH & STRETCH
+            let velocityY = currentY - lastY;
             lastY = currentY;
-            const speed = Math.abs(velocity);
+            const speed = Math.abs(velocityY);
             
             let stretchY = 1 + (speed * STRETCH_FORCE);
             let stretchX = 1 - (speed * (STRETCH_FORCE * 0.6)); 
-            stretchY = Math.min(stretchY, 1.6);
-            stretchX = Math.max(stretchX, 0.7);
+            
+            // Rotation de l'âme selon la direction X pour plus de réalisme
+            const rotation = (targetDeviationX - currentX) * 2; 
 
+            // Application CSS Âme
+            // Note: On ajoute currentX au "left: 50%" via calc ou translate
+            // Ici on utilise translate X pour la déviation
             soulEntity.style.top = `${currentY}px`;
+            soulEntity.style.transform = `translate(calc(-50% + ${currentX}px), -50%) rotate(${rotation}deg)`;
             soulCore.style.transform = `scale(${stretchX}, ${stretchY})`;
 
 
-            // --- 10. PHYSIQUE DE LA TRAÎNÉE (Trail Update) ---
-            // Le "Leader" est l'âme principale
+            // 6. PHYSIQUE DE LA TRAÎNÉE (X & Y)
             let leaderY = currentY; 
+            let leaderX = currentX;
 
             trailPieces.forEach((piece, index) => {
-                // Si l'âme est cachée (en haut), on force la position sans lerp
                 if (soulEntity.style.opacity === '0') {
                     piece.y = leaderY;
+                    piece.x = leaderX;
                 } else {
-                    // Chaque pièce suit celle qui la précède (ou l'âme pour la première)
-                    // Formule : pos += (target - pos) * lag
                     piece.y += (leaderY - piece.y) * piece.lag;
+                    piece.x += (leaderX - piece.x) * piece.lag; // Suivi en X
                 }
 
-                // Application DOM
                 piece.el.style.top = `${piece.y}px`;
+                // Même logique de positionnement X que l'âme
+                piece.el.style.transform = `translate(calc(-50% + ${piece.x}px), -50%) scale(${1 - (index * 0.08)})`;
                 
-                // Si on bouge vite, on allonge un peu la traînée (stretch visuel)
-                // On peut modifier l'échelle ou l'opacité selon la vitesse globale
-                if (scrollTarget >= startThresholdY - 10) {
-                     // Rétablissement de l'opacité de base
+                // Gestion opacité vitesse
+                if (scrollTargetY >= startThresholdY - 10) {
                      const baseOpacity = 0.4 - (index * 0.04);
-                     // Si vitesse élevée, on augmente un peu l'opacité de la traînée pour qu'elle se voie mieux
                      const speedFactor = Math.min(speed * 0.1, 0.2); 
                      piece.el.style.opacity = Math.max(0, baseOpacity + speedFactor);
                 }
 
-                // La pièce actuelle devient le leader pour la suivante
                 leaderY = piece.y; 
+                leaderX = piece.x;
             });
 
 
-            // 11. GESTION DE L'INFUSION (COULEUR) - Appliquée à l'âme ET à la traînée
+            // 7. GESTION COULEUR (INFUSION)
             if (isLocked && speed < 1 && activeChapter) {
                 if (activeChapter !== currentTargetChapter) {
                     currentTargetChapter = activeChapter;
@@ -1398,30 +1435,18 @@ initBlogPreview();
             requestAnimationFrame(animateSoul);
         }
 
-        
+        // ... Les fonctions removeInfusionClasses et applyInfusionColor restent inchangées ...
         function removeInfusionClasses() {
-            // Nettoyage Âme
-            soulEntity.classList.remove(
-                'soul-infused-fire', 'soul-infused-greed', 'soul-infused-blue',
-                'soul-infused-void', 'soul-infused-stasis', 'soul-infused-hologram'
-            );
-            
-            // Nettoyage Traînée
+            soulEntity.classList.remove('soul-infused-fire', 'soul-infused-greed', 'soul-infused-blue', 'soul-infused-void', 'soul-infused-stasis', 'soul-infused-hologram');
             trailPieces.forEach(p => {
-                p.el.classList.remove(
-                    'soul-trail-fire', 'soul-trail-greed', 'soul-trail-blue',
-                    'soul-trail-void', 'soul-trail-stasis', 'soul-trail-hologram'
-                );
+                p.el.classList.remove('soul-trail-fire', 'soul-trail-greed', 'soul-trail-blue', 'soul-trail-void', 'soul-trail-stasis', 'soul-trail-hologram');
             });
         }
 
         function applyInfusionColor(chapter) {
             const mood = chapter.getAttribute('data-mood');
             if (!mood) return;
-
-            let soulClass = '';
-            let trailClass = '';
-
+            let soulClass = '', trailClass = '';
             if (mood === 'fire') { soulClass = 'soul-infused-fire'; trailClass = 'soul-trail-fire'; }
             else if (mood === 'greed') { soulClass = 'soul-infused-greed'; trailClass = 'soul-trail-greed'; }
             else if (mood === 'void') { soulClass = 'soul-infused-void'; trailClass = 'soul-trail-void'; }
@@ -1435,6 +1460,7 @@ initBlogPreview();
 
         requestAnimationFrame(animateSoul);
     }
+    
 
 
 
