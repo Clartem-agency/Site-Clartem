@@ -2132,3 +2132,74 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     }
 }
 
+
+
+
+
+
+/* ======================================================= */
+/*    EFFET GLITCH (RUPTURE SYSTÈME)                       */
+/* ======================================================= */
+
+.glitch-target {
+    position: relative;
+    display: inline-block;
+}
+
+/* L'effet ne s'active que quand cette classe est ajoutée par JS */
+.glitch-active {
+    animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+    color: rgba(255, 255, 255, 0.1); /* On cache le texte original légèrement */
+}
+
+.glitch-active::before,
+.glitch-active::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1E293B; /* Couleur de fond (card-dark) pour masquer le texte dessous */
+    opacity: 0.8;
+}
+
+.glitch-active::before {
+    color: #0ff; /* Cyan */
+    z-index: -1;
+    animation: glitch-anim-1 2s infinite linear alternate-reverse;
+}
+
+.glitch-active::after {
+    color: #f0f; /* Magenta */
+    z-index: -2;
+    animation: glitch-anim-2 2s infinite linear alternate-reverse;
+}
+
+/* Animations de découpage (Clip-path) */
+@keyframes glitch-anim-1 {
+    0% { clip-path: inset(20% 0 80% 0); transform: translate(-2px, 1px); }
+    20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -1px); }
+    40% { clip-path: inset(40% 0 50% 0); transform: translate(-2px, 2px); }
+    60% { clip-path: inset(80% 0 5% 0); transform: translate(2px, -2px); }
+    80% { clip-path: inset(10% 0 70% 0); transform: translate(-2px, 1px); }
+    100% { clip-path: inset(30% 0 20% 0); transform: translate(2px, -1px); }
+}
+
+@keyframes glitch-anim-2 {
+    0% { clip-path: inset(10% 0 60% 0); transform: translate(2px, -1px); }
+    20% { clip-path: inset(80% 0 5% 0); transform: translate(-2px, 2px); }
+    40% { clip-path: inset(30% 0 20% 0); transform: translate(2px, -2px); }
+    60% { clip-path: inset(15% 0 80% 0); transform: translate(-2px, 1px); }
+    80% { clip-path: inset(55% 0 10% 0); transform: translate(2px, -1px); }
+    100% { clip-path: inset(40% 0 30% 0); transform: translate(-2px, 2px); }
+}
+
+@keyframes glitch-skew {
+    0% { transform: skew(0deg); }
+    20% { transform: skew(-2deg); }
+    40% { transform: skew(2deg); }
+    60% { transform: skew(-1deg); }
+    80% { transform: skew(1deg); }
+    100% { transform: skew(0deg); }
+}
