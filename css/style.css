@@ -1784,19 +1784,18 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 /* ======================================================= */
-/*    L'ÂME (SOUL) - Version "Infusion Progressive"        */
+/*    L'ÂME (SOUL) - Version "Lumière Nébuleuse" (V3)      */
 /* ======================================================= */
 
 #soul-entity {
     position: absolute;
     left: 50%;
     top: 0;
-    width: 24px;
-    height: 24px;
+    width: 40px; /* Un peu plus large pour que le dégradé respire */
+    height: 40px;
     transform: translate(-50%, -50%);
     z-index: 20;
     pointer-events: none;
-    /* Transition de mouvement fluide */
     transition: top 0.1s linear; 
     will-change: top, transform;
 }
@@ -1810,73 +1809,56 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     inset: 0;
     border-radius: 50%;
     
-    /* --- L'ASPECT BLANC PUR (Base) --- */
+    /* --- L'ASPECT NÉBULEUX (Retour à la V1 améliorée) --- */
+    /* On utilise un dégradé qui va du blanc pur (centre) vers le transparent (bords) */
+    /* Cela évite l'effet "balle de ping-pong" */
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.5) 40%, rgba(255, 255, 255, 0) 70%);
     
-    /* 1. Le coeur : Blanc presque pur */
-    background-color: #ffffff;
+    /* Flou important pour l'effet gazeux de ton image */
+    filter: blur(5px); 
     
-    /* 2. Les halos : C'est ici qu'on crée l'effet vaporeux */
-    /* - inset : donne de la profondeur 3D */
-    /* - ombre 1 : halo brillant proche */
-    /* - ombre 2 : brume lointaine */
-    box-shadow: 
-        inset 0 0 6px rgba(255, 255, 255, 0.8),
-        0 0 15px 4px rgba(255, 255, 255, 0.7),
-        0 0 40px 10px rgba(255, 255, 255, 0.3);
+    /* L'aura par défaut (Blanche et faible) */
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.2), 0 0 30px 10px rgba(255, 255, 255, 0.1);
     
-    /* Flou pour le côté gazeux */
-    filter: blur(2px); 
+    /* Animation de respiration */
+    animation: soulBreathe 5s infinite ease-in-out;
     
-    /* Animation de respiration organique */
-    animation: soulBreathe 4s infinite ease-in-out;
-    
-    /* LE SECRET DE LA DOUCEUR :
-       On demande une transition de 2.5 secondes sur la couleur et l'ombre.
-       L'effet sera très lent et progressif. */
-    transition: background-color 2.5s ease-in-out, box-shadow 2.5s ease-in-out;
+    /* LA TRANSITION DOUCE : On anime uniquement l'ombre (l'aura) */
+    transition: box-shadow 2.5s ease-in-out;
 }
 
 @keyframes soulBreathe {
-    0% { transform: scale(1); border-radius: 50%; }
-    50% { transform: scale(1.15, 0.95); border-radius: 55% 45% 45% 55% / 55% 45% 55% 45%; }
-    100% { transform: scale(1); border-radius: 50%; }
+    0% { transform: scale(1) rotate(0deg); opacity: 0.9; }
+    50% { transform: scale(1.2, 0.8) rotate(5deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0deg); opacity: 0.9; }
 }
 
-/* --- ÉTATS D'INFUSION (COULEURS) --- */
-/* Note : On garde le cœur très clair (presque blanc) et on teinte surtout les ombres (l'aura) */
+/* --- ÉTATS D'INFUSION (L'AURA change, le cœur reste pur) --- */
 
-/* Feu / Colère (Orange chaud) */
+/* Feu / Colère (Aura Orange) */
 .soul-infused-fire .soul-core {
-    background-color: #fff7ed; /* Coeur teinté très légèrement */
     box-shadow: 
-        inset 0 0 6px rgba(249, 115, 22, 0.6),
-        0 0 20px 6px rgba(249, 115, 22, 0.7), /* Aura intense */
-        0 0 60px 20px rgba(249, 115, 22, 0.4); /* Brume large */
+        0 0 20px 5px rgba(249, 115, 22, 0.5),   /* Halo interne */
+        0 0 50px 20px rgba(249, 115, 22, 0.3);  /* Halo externe très large */
 }
 
-/* Argent / Succès (Vert émeraude) */
+/* Argent / Succès (Aura Verte) */
 .soul-infused-greed .soul-core {
-    background-color: #f0fdf4;
     box-shadow: 
-        inset 0 0 6px rgba(34, 197, 94, 0.6),
-        0 0 20px 6px rgba(34, 197, 94, 0.7),
-        0 0 60px 20px rgba(34, 197, 94, 0.4);
+        0 0 20px 5px rgba(34, 197, 94, 0.5),
+        0 0 50px 20px rgba(34, 197, 94, 0.3);
 }
 
-/* Dépression / Profondeur (Violet sombre) */
+/* Dépression / Profondeur (Aura Violette) */
 .soul-infused-dark .soul-core {
-    background-color: #faf5ff;
     box-shadow: 
-        inset 0 0 6px rgba(124, 58, 237, 0.6),
-        0 0 20px 6px rgba(124, 58, 237, 0.7),
-        0 0 60px 20px rgba(124, 58, 237, 0.4);
+        0 0 20px 5px rgba(124, 58, 237, 0.5),
+        0 0 50px 20px rgba(124, 58, 237, 0.3);
 }
 
-/* Espoir / Clarté (Bleu électrique) */
+/* Espoir / Clarté (Aura Bleue) */
 .soul-infused-blue .soul-core {
-    background-color: #eff6ff;
     box-shadow: 
-        inset 0 0 6px rgba(59, 130, 246, 0.6),
-        0 0 20px 6px rgba(59, 130, 246, 0.7),
-        0 0 60px 20px rgba(59, 130, 246, 0.4);
+        0 0 20px 5px rgba(59, 130, 246, 0.5),
+        0 0 50px 20px rgba(59, 130, 246, 0.3);
 }
