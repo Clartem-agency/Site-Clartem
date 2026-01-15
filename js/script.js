@@ -1210,8 +1210,9 @@ initBlogPreview();
 
 
 
+   
     // ==================================================================
-    // LOGIQUE ÂME : SOFT MAGNETISM (DOUX & FLUIDE)
+    // LOGIQUE ÂME : GRAVITY WELL (ALIGNEMENT AUTOMATIQUE DOUX)
     // ==================================================================
     const soulEntity = document.getElementById('soul-entity');
     const soulCore = document.querySelector('.soul-core'); 
@@ -1224,19 +1225,16 @@ initBlogPreview();
         let currentY = 0;       
         let lastY = 0; 
 
-        // --- RÉGLAGES PHYSIQUES PLUS SUBTILS ---
-        const LERP = 0.1;            // Fluidité standard (ne change plus brutalement)
-        const STRETCH_FORCE = 0.08;  // Déformation beaucoup plus légère (moins "gélatine")
-        
-        // --- RÉGLAGES AIMANT DOUX ---
-        // On réduit les zones pour que l'effet soit une "suggestion" et non une contrainte
-        const MAGNET_RANGE = 120; // Distance à partir de laquelle l'attraction commence
+        // --- PHYSIQUE ---
+        const LERP = 0.12;           // Un tout petit peu plus réactif pour bien suivre l'alignement
+        const STRETCH_FORCE = 0.1;   // Déformation modérée
+        const MAGNET_RANGE = 150;    // Rayon d'action (assez large pour anticiper)
 
         function animateSoul() {
             const containerRect = timelineContainer.getBoundingClientRect();
             const viewportCenter = window.innerHeight / 2;
 
-            // 1. Position théorique selon le scroll
+            // 1. Position de la souris (scroll théorique)
             let scrollTarget = viewportCenter - containerRect.top;
             
             // Bornes
@@ -1259,50 +1257,54 @@ initBlogPreview();
                 }
             });
 
-            // 3. Calcul de la Cible (Mélange Fluide)
+            // 3. LA MAGIE "GRAVITÉ DOUCE"
             let finalTarget = scrollTarget;
 
             if (closestPointY !== null && minDistance < MAGNET_RANGE) {
-                // Calcul d'un facteur d'attraction (0 = loin, 1 = dessus)
-                let pull = 1 - (minDistance / MAGNET_RANGE);
+                // Ecart entre la souris et le point (-150 à +150)
+                const offset = scrollTarget - closestPointY;
                 
-                // On adoucit la courbe d'attraction (Ease In)
-                // Cela rend l'entrée dans la zone magnétique imperceptible
-                const smoothedPull = Math.pow(pull, 2); 
+                // On calcule un ratio de distance (0 = au centre, 1 = au bord de la zone)
+                const ratio = Math.abs(offset) / MAGNET_RANGE;
 
-                // Mélange : On garde une part du scroll manuel pour ne pas "figer" l'écran
-                // L'âme glisse vers le point sans jamais bloquer totalement le mouvement
-                finalTarget = (closestPointY * smoothedPull) + (scrollTarget * (1 - smoothedPull));
+                // C'est ICI que tout se joue :
+                // On "écrase" l'écart. Si on est près du centre (ratio petit),
+                // on réduit l'écart quasiment à zéro.
+                // Math.pow(ratio, 2) fait que :
+                // - À 50% de distance, l'âme n'est plus qu'à 25% de l'écart (elle se rapproche du centre)
+                // - À 10% de distance, l'âme est à 1% de l'écart (elle est quasi collée au centre)
+                const gravityOffset = offset * Math.pow(ratio, 1.8); 
+
+                // La nouvelle cible est le centre du point + ce petit écart résiduel
+                finalTarget = closestPointY + gravityOffset;
             }
 
-            // 4. Application du Mouvement (Vitesse constante = Fluidité)
+            // 4. Mouvement fluide vers la cible calculée
             currentY += (finalTarget - currentY) * LERP;
             
-            // 5. Calcul Vitesse & Déformation légère
+            // 5. Squash & Stretch (Réaction à la vitesse)
             let velocity = currentY - lastY;
             lastY = currentY;
-
             const speed = Math.abs(velocity);
             
-            // Déformation subtile
             let stretchY = 1 + (speed * STRETCH_FORCE);
-            let stretchX = 1 - (speed * (STRETCH_FORCE * 0.5)); 
+            let stretchX = 1 - (speed * (STRETCH_FORCE * 0.6)); 
 
-            // Cap pour éviter les glitchs si on scroll très vite
-            stretchY = Math.min(stretchY, 1.5);
-            stretchX = Math.max(stretchX, 0.8);
+            // Limites douces
+            stretchY = Math.min(stretchY, 1.6);
+            stretchX = Math.max(stretchX, 0.7);
 
-            // 6. Rendu
+            // 6. Rendu visuel
             soulEntity.style.top = `${currentY}px`;
             soulCore.style.transform = `scale(${stretchX}, ${stretchY})`;
 
-            // 7. Couleurs
+            // 7. Mise à jour des couleurs
             detectSoulContext(currentY + containerRect.top);
 
             requestAnimationFrame(animateSoul);
         }
 
-        // --- Utilitaires couleurs (Inchangés) ---
+        // --- Fonctions utilitaires (Inchangées) ---
         function detectSoulContext(absoluteY) {
             let closestChapter = null;
             let minDistance = Infinity;
