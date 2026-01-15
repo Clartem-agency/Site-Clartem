@@ -1368,37 +1368,39 @@ initBlogPreview();
             soulCore.style.transform = `scale(${stretchX}, ${stretchY})`;
 
 
+            
             // =================================================================
-            // NOUVEAU : LOGIQUE DE NOIRCISSEMENT & LIGNE LUMINEUSE
+            // LOGIQUE AJUSTÉE : NOIRCISSEMENT DOUX & LIGNE SUBTILE
             // =================================================================
             
-            // 1. Calcul du ratio de dérive (0 = centre, 1 = très loin)
-            // On considère que 300px est la distance où on devient totalement noir
-            const darknessRange = 300; 
+            // 1. Calcul du ratio de dérive
+            // J'ai augmenté la portée à 800px (au lieu de 300px).
+            // Il faut aller beaucoup plus loin pour que ça commence à se voir fort.
+            const darknessRange = 800; 
             let driftRatio = Math.min(Math.abs(currentX) / darknessRange, 1);
 
             // 2. Application du filtre sur l'âme (Noircissement)
-            // Plus on s'éloigne, plus on baisse la luminosité (brightness) et on désature (grayscale)
-            // Au centre : brightness(1) grayscale(0)
-            // Au loin : brightness(0.2) grayscale(1)
-            const brightnessVal = 1 - (driftRatio * 0.8); // Ne descend pas en dessous de 0.2 pour qu'on la voit encore un peu
-            const grayscaleVal = driftRatio;
+            // Avant : on descendait à 0.2 (très sombre).
+            // Maintenant : on ne descend qu'à 0.6 (juste un peu terne).
+            // Le grayscale (gris) monte moins vite aussi (multiplié par 0.7).
+            const brightnessVal = 1 - (driftRatio * 0.4); // Minimum ~0.6 de luminosité
+            const grayscaleVal = driftRatio * 0.7; // Reste un peu coloré quand même
             
-            // On applique le filtre directement
+            // On applique le filtre doux
             soulCore.style.filter = `blur(3px) brightness(${brightnessVal}) grayscale(${grayscaleVal})`;
 
-            // 3. Interaction avec la Ligne (Adéquation)
-            // Si on est très proche du centre (ex: moins de 10px), la ligne s'allume
+            // 3. Interaction avec la Ligne
+            // La ligne s'active si on est proche du centre (< 15px pour être plus tolérant)
             if (timelineLine) {
-                if (Math.abs(currentX) < 10) {
-                    timelineLine.classList.add('line-active'); // La ligne devient blanche/brillante
-                    soulEntity.classList.add('soul-aligned');  // L'âme devient plus pure
+                if (Math.abs(currentX) < 15) {
+                    timelineLine.classList.add('line-active'); 
+                    // On ne touche plus à l'âme ici (pas de classe soul-aligned)
                 } else {
                     timelineLine.classList.remove('line-active');
-                    soulEntity.classList.remove('soul-aligned');
                 }
             }
             // =================================================================
+            
 
 
             // --- 4. TRAÎNÉE ---
