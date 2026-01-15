@@ -1270,12 +1270,18 @@ initBlogPreview();
         }, { passive: true });
 
 
+        
+
+// Récupération de la ligne pour l'effet "Adéquation"
+        const timelineLine = document.querySelector('.timeline-line');
+
         function animateSoul() {
             const now = Date.now();
             const containerRect = timelineContainer.getBoundingClientRect();
             const viewportCenter = window.innerHeight / 2;
 
             // --- 1. LOGIQUE VERTICALE (Y) ---
+            // (Code identique à votre version actuelle pour le calcul Y...)
             const firstPoint = timelinePoints[0];
             const firstPointRect = firstPoint.getBoundingClientRect();
             const startThresholdY = firstPointRect.top - containerRect.top + (firstPointRect.height / 2);
@@ -1317,9 +1323,7 @@ initBlogPreview();
                 if (minDistance < 20) isLocked = true;
             }
 
-
             // --- 2. LOGIQUE HORIZONTALE (X) - RÉSISTANCE ---
-            
             let targetX = 0;
             let currentLerpX = RETURN_SPEED; 
 
@@ -1330,13 +1334,12 @@ initBlogPreview();
                 if (now - lastScrollTime > IDLE_DELAY) {
                     isIdle = true;
                     targetX = driftDirection * MAX_DRIFT_X;
-                    currentLerpX = DRIFT_SPEED; // Vitesse très lente (résistance)
+                    currentLerpX = DRIFT_SPEED; 
                 } else {
                     targetX = 0;
                     currentLerpX = RETURN_SPEED; 
                 }
             }
-
 
             // --- 3. APPLICATION PHYSIQUE ---
             if (currentY === 0) {
@@ -1347,9 +1350,8 @@ initBlogPreview();
             currentY += (finalTargetY - currentY) * LERP_Y;
             currentX += (targetX - currentX) * currentLerpX;
 
-            // AJOUT : Petite vibration de résistance quand on dérive
             if (isIdle) {
-                const struggle = (Math.random() - 0.5) * 1.5; // Vibration de 1.5px
+                const struggle = (Math.random() - 0.5) * 1.5; 
                 currentX += struggle;
             }
 
@@ -1364,6 +1366,39 @@ initBlogPreview();
             soulEntity.style.top = `${currentY}px`;
             soulEntity.style.transform = `translate(calc(-50% + ${currentX}px), -50%)`;
             soulCore.style.transform = `scale(${stretchX}, ${stretchY})`;
+
+
+            // =================================================================
+            // NOUVEAU : LOGIQUE DE NOIRCISSEMENT & LIGNE LUMINEUSE
+            // =================================================================
+            
+            // 1. Calcul du ratio de dérive (0 = centre, 1 = très loin)
+            // On considère que 300px est la distance où on devient totalement noir
+            const darknessRange = 300; 
+            let driftRatio = Math.min(Math.abs(currentX) / darknessRange, 1);
+
+            // 2. Application du filtre sur l'âme (Noircissement)
+            // Plus on s'éloigne, plus on baisse la luminosité (brightness) et on désature (grayscale)
+            // Au centre : brightness(1) grayscale(0)
+            // Au loin : brightness(0.2) grayscale(1)
+            const brightnessVal = 1 - (driftRatio * 0.8); // Ne descend pas en dessous de 0.2 pour qu'on la voit encore un peu
+            const grayscaleVal = driftRatio;
+            
+            // On applique le filtre directement
+            soulCore.style.filter = `blur(3px) brightness(${brightnessVal}) grayscale(${grayscaleVal})`;
+
+            // 3. Interaction avec la Ligne (Adéquation)
+            // Si on est très proche du centre (ex: moins de 10px), la ligne s'allume
+            if (timelineLine) {
+                if (Math.abs(currentX) < 10) {
+                    timelineLine.classList.add('line-active'); // La ligne devient blanche/brillante
+                    soulEntity.classList.add('soul-aligned');  // L'âme devient plus pure
+                } else {
+                    timelineLine.classList.remove('line-active');
+                    soulEntity.classList.remove('soul-aligned');
+                }
+            }
+            // =================================================================
 
 
             // --- 4. TRAÎNÉE ---
@@ -1381,19 +1416,24 @@ initBlogPreview();
                 piece.el.style.top = `${piece.y}px`;
                 piece.el.style.transform = `translate(calc(-50% + ${piece.x}px), -50%) scale(${1 - (index * 0.08)})`;
                 
-                if (isIdle) {
-                    // Quand on dérive loin, la traînée devient un peu plus visible pour montrer le lien tendu
-                    piece.el.style.opacity = Math.max(0, 0.5 - (index * 0.05));
-                } else {
-                    const baseOpacity = 0.4 - (index * 0.04);
-                    const speedFactor = Math.min(speed * 0.1, 0.2); 
-                    piece.el.style.opacity = Math.max(0, baseOpacity + speedFactor);
-                }
+                // La traînée doit aussi noircir un peu
+                // On applique une opacité réduite si on est loin
+                const baseOpacity = 0.4 - (index * 0.04);
+                
+                // Si on dérive (darkness), la traînée devient moins visible (plus sombre/transparente)
+                const driftFade = 1 - (driftRatio * 0.8); 
+                
+                piece.el.style.opacity = Math.max(0, baseOpacity * driftFade);
+
+                // Optionnel : On peut aussi appliquer le filtre sur les pièces, mais c'est coûteux en perfs.
+                // Jouer sur l'opacité suffit souvent.
 
                 leaderY = piece.y; leaderX = piece.x;
             });
 
-            // --- 5. COULEURS ---
+            // --- 5. COULEURS (INFUSION) ---
+            // On garde l'infusion, mais le filtre brightness() appliqué au-dessus 
+            // va naturellement assombrir la couleur infusée (ex: Orange deviendra Marron foncé puis Noir)
             if (isLocked && speed < 1 && activeChapter) {
                 if (activeChapter !== currentTargetChapter) {
                     currentTargetChapter = activeChapter;
@@ -1411,6 +1451,9 @@ initBlogPreview();
 
             requestAnimationFrame(animateSoul);
         }
+
+
+
 
         function removeInfusionClasses() {
             soulEntity.classList.remove('soul-infused-fire', 'soul-infused-greed', 'soul-infused-blue', 'soul-infused-void', 'soul-infused-stasis', 'soul-infused-hologram');
