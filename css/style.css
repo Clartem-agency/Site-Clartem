@@ -2073,35 +2073,20 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 
-/* 1. Modification de la Ligne de base pour permettre la transition */
+
+/* 1. La ligne de base */
 .timeline-line {
-    /* On garde votre dégradé de base mais on ajoute une transition */
-    transition: all 0.5s ease;
-    /* On ajoute une ombre portée par défaut (invisible) */
-    box-shadow: 0 0 0 transparent;
+    /* On garde le dégradé coloré d'origine */
+    transition: opacity 0.5s ease, filter 0.5s ease;
+    opacity: 0.3; /* Par défaut, elle est un peu discrète */
 }
 
-/* 2. ÉTAT ACTIVÉ : La Ligne devient pure lumière */
+/* 2. ÉTAT ACTIVÉ : Subtil et Localisé */
 .timeline-line.line-active {
-    /* On remplace le dégradé coloré par un blanc pur éclatant */
-    background: #ffffff !important; 
-    opacity: 1 !important; /* On force l'opacité au max */
+    /* On ne change PAS la couleur de fond en blanc. */
+    /* On augmente juste l'opacité pour dire "le signal passe" */
+    opacity: 0.8; 
     
-    /* Le Glow intense */
-    box-shadow: 
-        0 0 15px 2px rgba(255, 255, 255, 0.8),
-        0 0 30px 5px rgba(59, 130, 246, 0.3); /* Légère teinte bleue halo */
-        
-    width: 3px; /* La ligne s'épaissit légèrement */
+    /* Un tout petit halo pour le relief, mais très léger */
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
 }
-
-/* 3. ÉTAT ACTIVÉ : L'Âme devient "Hyper Alignée" */
-/* Quand l'âme est parfaitement au centre, on booste sa lumière */
-.soul-aligned .soul-core {
-    /* On ajoute un glow blanc pur supplémentaire par dessus les couleurs */
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 1)) brightness(1.2) !important;
-}
-
-/* Note : Le 'filter' défini en JS (darkness) prendra le dessus sur le CSS si on dérive.
-   Mais quand on est au centre (aligned), le JS met brightness(1), 
-   et cette classe peut ajouter un petit "pop" supplémentaire. */
