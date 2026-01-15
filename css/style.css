@@ -2146,10 +2146,14 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     display: inline-block;
 }
 
-/* L'effet ne s'active que quand cette classe est ajoutée par JS */
+
+
+
+/* MODIFICATION : On garde le texte blanc pour que ce soit plus visible */
 .glitch-active {
     animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
-    color: rgba(255, 255, 255, 0.1); /* On cache le texte original légèrement */
+    color: #ffffff; /* AVANT : rgba(255,255,255,0.1) -> MAINTENANT : Blanc pur */
+    text-shadow: 2px 0 #F97316, -2px 0 #3B82F6; /* Ajout d'une ombre Orange/Bleu pour accentuer l'effet */
 }
 
 .glitch-active::before,
@@ -2160,21 +2164,25 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #1E293B; /* Couleur de fond (card-dark) pour masquer le texte dessous */
+    background: #1E293B; 
     opacity: 0.8;
 }
 
+/* On accélère un peu l'animation pour plus d'agressivité */
 .glitch-active::before {
-    color: #0ff; /* Cyan */
+    color: #0ff;
     z-index: -1;
-    animation: glitch-anim-1 2s infinite linear alternate-reverse;
+    animation: glitch-anim-1 0.4s infinite linear alternate-reverse; /* Passé de 2s à 0.4s */
 }
 
 .glitch-active::after {
-    color: #f0f; /* Magenta */
+    color: #f0f;
     z-index: -2;
-    animation: glitch-anim-2 2s infinite linear alternate-reverse;
+    animation: glitch-anim-2 0.4s infinite linear alternate-reverse; /* Passé de 2s à 0.4s */
 }
+
+
+
 
 /* Animations de découpage (Clip-path) */
 @keyframes glitch-anim-1 {
