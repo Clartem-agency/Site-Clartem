@@ -1212,7 +1212,7 @@ initBlogPreview();
 
    
     // ==================================================================
-    // LOGIQUE ÂME : GRAVITY WELL + INFUSION TEMPORELLE
+    // LOGIQUE ÂME : CORRECTION DE POSITON (DÉPART AU POINT 1)
     // ==================================================================
     const soulEntity = document.getElementById('soul-entity');
     const soulCore = document.querySelector('.soul-core');
@@ -1220,17 +1220,17 @@ initBlogPreview();
     const timelinePoints = document.querySelectorAll('.timeline-point');
     const timelineChapters = document.querySelectorAll('.timeline-line ~ .space-y-32 > div');
 
-    if (soulEntity && soulCore && timelineContainer) {
+    if (soulEntity && soulCore && timelineContainer && timelinePoints.length > 0) {
         
         let currentY = 0;       
         let lastY = 0; 
 
         // Variables pour l'infusion de couleur
-        let infusionTimer = null; // Le chrono
-        let currentTargetChapter = null; // Le chapitre qu'on survole actuellement
-        const INFUSION_DELAY = 1200; // Temps en ms avant que la couleur apparaisse (1.2s)
+        let infusionTimer = null; 
+        let currentTargetChapter = null; 
+        const INFUSION_DELAY = 1200; 
 
-        // --- PHYSIQUE ---
+        // Physique
         const LERP = 0.12;           
         const STRETCH_FORCE = 0.1;   
         const MAGNET_RANGE = 150;    
@@ -1239,51 +1239,73 @@ initBlogPreview();
             const containerRect = timelineContainer.getBoundingClientRect();
             const viewportCenter = window.innerHeight / 2;
 
-            // 1. Position théorique
-            let scrollTarget = viewportCenter - containerRect.top;
-            const minY = 20; 
-            const maxY = containerRect.height - 50;
-            scrollTarget = Math.max(minY, Math.min(maxY, scrollTarget));
+            // 1. CALCUL DU POINT DE DÉPART EXACT
+            // On récupère la position du tout premier point par rapport au conteneur
+            const firstPoint = timelinePoints[0];
+            const firstPointRect = firstPoint.getBoundingClientRect();
+            
+            // La position Y du premier point relative au conteneur timeline
+            const startThresholdY = firstPointRect.top - containerRect.top + (firstPointRect.height / 2);
 
-            // 2. Trouver le point le plus proche pour la gravité
+            // 2. Position théorique (Centre de l'écran par rapport au conteneur)
+            let scrollTarget = viewportCenter - containerRect.top;
+            
+            // 3. CONTRAINTE : On empêche l'âme d'aller plus haut que le premier point
+            // Elle ne peut pas être dans le titre (minY = startThresholdY)
+            const minY = startThresholdY; 
+            const maxY = containerRect.height - 50;
+
+            // On applique la contrainte
+            let constrainedTarget = Math.max(minY, Math.min(maxY, scrollTarget));
+
+            // 4. LOGIQUE D'APPARITION (OPACITÉ)
+            // Si la position cible est encore au-dessus ou au niveau du premier point, on cache l'âme.
+            // On ajoute une petite marge de 10px pour que ça fade-in juste quand ça commence à descendre.
+            if (scrollTarget < startThresholdY - 10) {
+                soulEntity.style.opacity = '0';
+            } else {
+                soulEntity.style.opacity = '1';
+            }
+
+            // 5. TROUVER LE POINT LE PLUS PROCHE (Gravité)
             let closestPointY = null;
             let minDistance = Infinity;
-            
-            // On cherche aussi quel chapitre est le plus proche pour la couleur
             let activeChapter = null;
 
             timelinePoints.forEach((point, index) => {
                 const pointRect = point.getBoundingClientRect();
                 const pointRelY = pointRect.top - containerRect.top + (pointRect.height/2);
-                const dist = Math.abs(pointRelY - scrollTarget);
+                const dist = Math.abs(pointRelY - constrainedTarget); // On utilise constrainedTarget ici
 
                 if (dist < minDistance) {
                     minDistance = dist;
                     closestPointY = pointRelY;
-                    // On associe le point au chapitre correspondant
-                    // (Hypothèse: l'ordre des points correspond à l'ordre des chapitres dans le DOM)
                     activeChapter = timelineChapters[index];
                 }
             });
 
-            // 3. LA MAGIE "GRAVITÉ DOUCE"
-            let finalTarget = scrollTarget;
-            let isLocked = false; // Est-ce qu'on est "collé" à un point ?
+            // 6. MAGIE "GRAVITÉ DOUCE"
+            let finalTarget = constrainedTarget;
+            let isLocked = false; 
 
             if (closestPointY !== null && minDistance < MAGNET_RANGE) {
-                const offset = scrollTarget - closestPointY;
+                const offset = constrainedTarget - closestPointY;
                 const ratio = Math.abs(offset) / MAGNET_RANGE;
                 const gravityOffset = offset * Math.pow(ratio, 1.8); 
                 finalTarget = closestPointY + gravityOffset;
                 
-                // Si on est très proche du centre du point, on considère qu'on est "locké"
                 if (ratio < 0.3) isLocked = true;
             }
 
-            // 4. Mouvement fluide
+            // 7. Initialisation au premier chargement pour éviter le "slide" depuis 0
+            if (currentY === 0) {
+                currentY = finalTarget;
+            }
+
+            // 8. Mouvement fluide
             currentY += (finalTarget - currentY) * LERP;
             
-            // 5. Squash & Stretch
+            // 9. Squash & Stretch
             let velocity = currentY - lastY;
             lastY = currentY;
             const speed = Math.abs(velocity);
@@ -1296,31 +1318,21 @@ initBlogPreview();
             soulEntity.style.top = `${currentY}px`;
             soulCore.style.transform = `scale(${stretchX}, ${stretchY})`;
 
-            // 6. GESTION DE L'INFUSION (COULEUR)
-            // Si on est "calé" sur un chapitre et qu'on ne scrolle pas vite
+            // 10. GESTION DE L'INFUSION (COULEUR) - Inchangé
             if (isLocked && speed < 1 && activeChapter) {
-                
-                // Si c'est un NOUVEAU chapitre ou qu'on n'a pas encore lancé le timer
                 if (activeChapter !== currentTargetChapter) {
                     currentTargetChapter = activeChapter;
-                    
-                    // On reset le timer précédent
                     if (infusionTimer) clearTimeout(infusionTimer);
-                    
-                    // On retire toute couleur immédiatement (retour au blanc)
                     removeInfusionClasses();
-
-                    // On lance le compte à rebours pour l'infusion
                     infusionTimer = setTimeout(() => {
                         applyInfusionColor(activeChapter);
                     }, INFUSION_DELAY);
                 }
             } else {
-                // Si on bouge trop ou qu'on s'éloigne
                 if (currentTargetChapter !== null) {
                     currentTargetChapter = null;
                     if (infusionTimer) clearTimeout(infusionTimer);
-                    removeInfusionClasses(); // Retour immédiat au blanc pur
+                    removeInfusionClasses(); 
                 }
             }
 
@@ -1338,8 +1350,6 @@ initBlogPreview();
 
         function applyInfusionColor(chapter) {
             const html = chapter.innerHTML;
-            
-            // Détection du contexte basée sur les classes de couleur présentes dans le HTML du chapitre
             if (html.includes('text-green-500') || html.includes('text-success-green')) {
                 soulEntity.classList.add('soul-infused-greed');
             }
@@ -1352,7 +1362,6 @@ initBlogPreview();
             else if (html.includes('text-clarity-blue') || html.includes('text-blue-400') || html.includes('text-teal-400')) {
                 soulEntity.classList.add('soul-infused-blue');
             }
-            // Si rien ne correspond, l'âme reste blanche (pure)
         }
 
         requestAnimationFrame(animateSoul);
