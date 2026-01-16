@@ -1253,16 +1253,20 @@ document.addEventListener('DOMContentLoaded', function () {
         const STRETCH_FORCE = 0.1;
         const MAGNET_RANGE = 150;
 
-        // --- TRAÎNÉE ---
-        const TRAIL_LENGTH = 8;
+        
+        // --- TRAÎNÉE (MODIFIÉE : Effet Comète Fluide) ---
+        // On augmente le nombre de points pour combler les vides
+        const TRAIL_LENGTH = 20; 
         const trailPieces = [];
 
         for (let i = 0; i < TRAIL_LENGTH; i++) {
             const piece = document.createElement('div');
             piece.classList.add('soul-trail-piece');
             timelineContainer.insertBefore(piece, soulEntity);
-            trailPieces.push({ el: piece, y: 0, x: 0, lag: 0.15 + (i * 0.02) });
+            // On initialise tout au centre
+            trailPieces.push({ el: piece, y: 0, x: 0 });
         }
+
 
         window.addEventListener('scroll', () => {
             lastScrollTime = Date.now();
@@ -1423,26 +1427,50 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
-            // --- 4. TRAÎNÉE ---
-            let leaderY = currentY;
-            let leaderX = currentX;
+            
+            
+
+            // --- 4. TRAÎNÉE (LOGIQUE CORRIGÉE : INERTIE & TAILLE) ---
+            
+            let trailTargetX = currentX;
+            let trailTargetY = currentY;
 
             trailPieces.forEach((piece, index) => {
-                if (soulEntity.style.opacity === '0') {
-                    piece.y = leaderY; piece.x = leaderX;
-                } else {
-                    piece.y += (leaderY - piece.y) * piece.lag;
-                    piece.x += (leaderX - piece.x) * piece.lag;
-                }
+                // CORRECTION 1 : On ralentit la traînée (0.18 au lieu de 0.35)
+                // Elle aura plus d'inertie et restera bien derrière l'âme lors des accélérations
+                const stiffness = 0.18; 
+
+                // Physique
+                piece.x += (trailTargetX - piece.x) * stiffness;
+                piece.y += (trailTargetY - piece.y) * stiffness;
+
+                // CORRECTION 2 : On commence plus petit (0.75 au lieu de 1)
+                // Ainsi, même si la traînée touche l'âme, elle sera plus petite que le noyau
+                // et ne le cachera pas visuellement.
+                const startScale = 0.75; 
+                const scale = startScale * (1 - (index / TRAIL_LENGTH)); 
+
                 piece.el.style.top = `${piece.y}px`;
-                piece.el.style.transform = `translate(calc(-50% + ${piece.x}px), -50%) scale(${1 - (index * 0.08)})`;
+                piece.el.style.transform = `translate(calc(-50% + ${piece.x}px), -50%) scale(${scale})`;
 
-                const baseOpacity = 0.4 - (index * 0.04);
-                const driftFade = 1 - (driftRatio * 0.8);
-                piece.el.style.opacity = Math.max(0, baseOpacity * driftFade);
+                // Opacité
+                const baseOpacity = 0.5 * (1 - (index / TRAIL_LENGTH)); 
+                
+                if (soulEntity.style.opacity === '0') {
+                    piece.el.style.opacity = '0';
+                    piece.x = currentX;
+                    piece.y = currentY;
+                } else {
+                    const driftFade = 1 - (driftRatio * 0.5);
+                    piece.el.style.opacity = Math.max(0, baseOpacity * driftFade);
+                }
 
-                leaderY = piece.y; leaderX = piece.x;
+                trailTargetX = piece.x;
+                trailTargetY = piece.y;
             });
+            
+
+
 
             // --- 5. COULEURS (INFUSION) ---
             if (isLocked && speed < 1 && activeChapter) {

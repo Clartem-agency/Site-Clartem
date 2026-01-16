@@ -1937,25 +1937,28 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 /*    LA TRAÎNÉE DE L'ÂME (SOUL TRAIL)                     */
 /* ======================================================= */
 
+
 .soul-trail-piece {
     position: absolute;
-    left: 50%; /* Centré comme l'âme principale */
+    /* On utilise la même logique de positionnement que l'âme principale */
+    left: 50%; 
     transform: translate(-50%, -50%);
-    width: 30px; 
-    height: 30px;
+    
+    /* On augmente légèrement la taille pour que le flou se chevauche bien */
+    width: 32px; 
+    height: 32px;
     border-radius: 50%;
     background-color: #ffffff;
     pointer-events: none;
-    z-index: 19; /* Juste derrière l'âme (qui est à 20) */
+    z-index: 19; 
     
-    /* Effet vaporeux */
-    filter: blur(4px);
-    opacity: 0.4;
+    /* C'est ici que la magie opère : 
+       Un flou élevé mélange les cercles pour faire une ligne de "gaz" */
+    filter: blur(8px); 
     
-    /* Transition pour la couleur uniquement (pas la position, gérée par JS) */
-    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+    /* Transition douce pour les changements de couleur */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
-
 
 
 
