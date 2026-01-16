@@ -1430,29 +1430,32 @@ document.addEventListener('DOMContentLoaded', function () {
             
             
 
-            // --- 4. TRAÎNÉE (NOUVELLE LOGIQUE : CHAÎNE) ---
+            // --- 4. TRAÎNÉE (LOGIQUE CORRIGÉE : INERTIE & TAILLE) ---
             
-            // On renomme ces variables pour ne pas créer de conflit avec le targetX de l'âme
             let trailTargetX = currentX;
             let trailTargetY = currentY;
 
             trailPieces.forEach((piece, index) => {
-                // Vitesse de rapprochement (plus c'est haut, plus la traînée est rigide)
-                const stiffness = 0.35; 
+                // CORRECTION 1 : On ralentit la traînée (0.18 au lieu de 0.35)
+                // Elle aura plus d'inertie et restera bien derrière l'âme lors des accélérations
+                const stiffness = 0.18; 
 
-                // Physique : La pièce se rapproche de la cible (trailTarget)
+                // Physique
                 piece.x += (trailTargetX - piece.x) * stiffness;
                 piece.y += (trailTargetY - piece.y) * stiffness;
 
-                // Mise à jour visuelle
-                const scale = 1 - (index / TRAIL_LENGTH); 
+                // CORRECTION 2 : On commence plus petit (0.75 au lieu de 1)
+                // Ainsi, même si la traînée touche l'âme, elle sera plus petite que le noyau
+                // et ne le cachera pas visuellement.
+                const startScale = 0.75; 
+                const scale = startScale * (1 - (index / TRAIL_LENGTH)); 
+
                 piece.el.style.top = `${piece.y}px`;
                 piece.el.style.transform = `translate(calc(-50% + ${piece.x}px), -50%) scale(${scale})`;
 
-                // Opacité dégressive
-                const baseOpacity = 0.6 * (1 - (index / TRAIL_LENGTH)); 
+                // Opacité
+                const baseOpacity = 0.5 * (1 - (index / TRAIL_LENGTH)); 
                 
-                // Si l'âme est cachée, on cache la traînée
                 if (soulEntity.style.opacity === '0') {
                     piece.el.style.opacity = '0';
                     piece.x = currentX;
@@ -1462,11 +1465,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     piece.el.style.opacity = Math.max(0, baseOpacity * driftFade);
                 }
 
-                // La cible de la PROCHAINE pièce devient la position actuelle de CETTE pièce
                 trailTargetX = piece.x;
                 trailTargetY = piece.y;
             });
             
+
 
 
             // --- 5. COULEURS (INFUSION) ---
