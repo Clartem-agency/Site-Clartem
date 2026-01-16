@@ -1806,7 +1806,8 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 }
 
 @media (max-width: 768px) {
-    #soul-entity { left: 20px; }
+    /* CORRECTION : Alignement avec la ligne à 44px */
+    #soul-entity { left: 44px; }
 }
 
 .soul-core {
@@ -1954,6 +1955,20 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     /* Transition pour la couleur uniquement (pas la position, gérée par JS) */
     transition: background-color 0.5s ease, box-shadow 0.5s ease;
 }
+
+
+
+
+/* --- AJOUT : CORRECTIF MOBILE --- */
+/* Cela aligne la traînée sur la ligne (44px) comme l'âme principale */
+@media (max-width: 768px) {
+    .soul-trail-piece {
+        /* CORRECTION : Alignement avec la ligne à 44px */
+        left: 44px; 
+    }
+}
+
+
 
 /* --- ADAPTATION DES COULEURS POUR LA TRAÎNÉE --- */
 /* On reprend les couleurs des infusions pour que la traînée change aussi */

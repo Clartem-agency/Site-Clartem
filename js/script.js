@@ -1210,9 +1210,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
     // ==================================================================
-    // LOGIQUE ÂME : L'ERRANCE RÉSISTANTE (HEAVY DRIFT)
+    // LOGIQUE ÂME : L'ERRANCE RÉSISTANTE (CORRIGÉE MOBILE)
     // ==================================================================
     const soulEntity = document.getElementById('soul-entity');
     const soulCore = document.querySelector('.soul-core');
@@ -1232,12 +1231,17 @@ document.addEventListener('DOMContentLoaded', function () {
         let isIdle = false;
         let driftDirection = 1;
 
-        // --- REGLAGES DE LA RÉSISTANCE ---
-        const IDLE_DELAY = 1500;      // 1.5 secondes avant de commencer à glisser (plus tolérant)
-        const DRIFT_SPEED = 0.004;    // TRES LENT (C'est là que se joue la résistance)
-        // Avant c'était 0.02. Ici c'est 5x plus lent.
-        const RETURN_SPEED = 0.15;    // Retour rapide (Résilience)
-        const MAX_DRIFT_X = 600;      // Distance pour sortir de l'écran
+        // --- REGLAGES ---
+        const IDLE_DELAY = 1000;      // 1 seconde avant de commencer à dériver
+        const DRIFT_SPEED = 0.008;    // Vitesse de dérive (un peu plus rapide pour qu'on la voie bouger)
+        const RETURN_SPEED = 0.10;    // Vitesse de retour (l'effet élastique)
+
+        // DETECTION MOBILE
+        const isMobile = window.innerWidth < 768;
+
+        // DISTANCE DE DÉRIVE MAX
+        // Desktop : 500px (Large) | Mobile : 120px (Reste visible à l'écran)
+        const MAX_DRIFT_X = isMobile ? 120 : 500;
 
         // Variables infusion
         let infusionTimer = null;
@@ -1256,23 +1260,28 @@ document.addEventListener('DOMContentLoaded', function () {
         for (let i = 0; i < TRAIL_LENGTH; i++) {
             const piece = document.createElement('div');
             piece.classList.add('soul-trail-piece');
-            const scale = 1 - (i * 0.08);
             timelineContainer.insertBefore(piece, soulEntity);
             trailPieces.push({ el: piece, y: 0, x: 0, lag: 0.15 + (i * 0.02) });
         }
 
         window.addEventListener('scroll', () => {
             lastScrollTime = Date.now();
+
+            // Si l'utilisateur scroll, on annule l'inactivité immédiatement
             if (isIdle) {
                 isIdle = false;
-                driftDirection = Math.random() > 0.5 ? 1 : -1;
+                // Au prochain arrêt, on recalcule une direction
+                // SUR MOBILE : Toujours 1 (Vers la droite)
+                // SUR DESKTOP : Aléatoire (-1 gauche ou 1 droite)
+                if (isMobile) {
+                    driftDirection = 1;
+                } else {
+                    driftDirection = Math.random() > 0.5 ? 1 : -1;
+                }
             }
         }, { passive: true });
 
 
-
-
-        // Récupération de la ligne pour l'effet "Adéquation"
         const timelineLine = document.querySelector('.timeline-line');
 
         function animateSoul() {
@@ -1281,7 +1290,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const viewportCenter = window.innerHeight / 2;
 
             // --- 1. LOGIQUE VERTICALE (Y) ---
-            // (Code identique à votre version actuelle pour le calcul Y...)
             const firstPoint = timelinePoints[0];
             const firstPointRect = firstPoint.getBoundingClientRect();
             const startThresholdY = firstPointRect.top - containerRect.top + (firstPointRect.height / 2);
@@ -1313,50 +1321,48 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            
-
-             let finalTargetY = constrainedTargetY;
+            let finalTargetY = constrainedTargetY;
             let isLocked = false;
-            
-            // === MODIFICATION : Augmentation de la zone de capture ===
-            // MAGNET_RANGE gère l'attraction verticale (Y)
-            // LOCK_RANGE gère le verrouillage horizontal (X) pour empêcher la dérive
-            const LOCK_RANGE = 100; // AVANT: 20px -> MAINTENANT: 100px (Zone de lecture confortable)
+
+            const LOCK_RANGE = 100;
 
             if (closestPointY !== null && minDistance < MAGNET_RANGE) {
                 const offset = constrainedTargetY - closestPointY;
                 const ratio = Math.abs(offset) / MAGNET_RANGE;
                 const gravityOffset = offset * Math.pow(ratio, 1.8);
                 finalTargetY = closestPointY + gravityOffset;
-                
-                // Si on est dans la zone de lecture (LOCK_RANGE), on verrouille l'âme
+
                 if (minDistance < LOCK_RANGE) {
                     isLocked = true;
                 }
             }
 
-            // --- 2. LOGIQUE HORIZONTALE (X) - RÉSISTANCE ---
+            // --- 2. LOGIQUE HORIZONTALE (X) - C'est ici que tout se joue ---
             let targetX = 0;
             let currentLerpX = RETURN_SPEED;
 
             if (isLocked) {
-                // SI VERROUILLÉ : On annule toute dérive immédiatement
-                lastScrollTime = now; // On reset le timer d'inactivité (l'âme "lit" avec vous)
-                targetX = 0;          // On force le centre absolu
-                currentLerpX = 0.2;   // On centre un peu plus vite pour un effet "snap" satisfaisant
+                // L'utilisateur est sur un point important : L'âme revient se coller à la ligne
+                lastScrollTime = now;
+                targetX = 0;
+                currentLerpX = 0.2; // Retour rapide (Snap)
             } else {
-                // SI NON VERROUILLÉ : La logique de dérive normale s'applique
+                // Entre deux points : La dérive commence
                 if (now - lastScrollTime > IDLE_DELAY) {
+                    // Si on ne scroll plus depuis 1 seconde
                     isIdle = true;
+
+                    // On définit la cible : Vers la droite (ou gauche PC) à X pixels
                     targetX = driftDirection * MAX_DRIFT_X;
+
+                    // Vitesse lente pour montrer qu'elle "part" doucement
                     currentLerpX = DRIFT_SPEED;
                 } else {
+                    // Si on scroll, elle reste au centre
                     targetX = 0;
                     currentLerpX = RETURN_SPEED;
                 }
             }
-
-            
 
             // --- 3. APPLICATION PHYSIQUE ---
             if (currentY === 0) {
@@ -1365,10 +1371,13 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             currentY += (finalTargetY - currentY) * LERP_Y;
+            // C'est ici que l'âme bouge vers la gauche ou la droite
             currentX += (targetX - currentX) * currentLerpX;
 
+            // Ajout d'une petite vibration visible (lutte) quand elle dérive
             if (isIdle) {
-                const struggle = (Math.random() - 0.5) * 1.5;
+                // Vibration plus forte (3px) pour voir qu'elle est instable
+                const struggle = (Math.random() - 0.5) * 3;
                 currentX += struggle;
             }
 
@@ -1384,66 +1393,35 @@ document.addEventListener('DOMContentLoaded', function () {
             soulEntity.style.transform = `translate(calc(-50% + ${currentX}px), -50%)`;
             soulCore.style.transform = `scale(${stretchX}, ${stretchY})`;
 
-
-
-            // =================================================================
-            // LOGIQUE AJUSTÉE : NOIRCISSEMENT DOUX & LIGNE SUBTILE
-            // =================================================================
-
-            // 1. Calcul du ratio de dérive
-            // J'ai augmenté la portée à 800px (au lieu de 300px).
-            // Il faut aller beaucoup plus loin pour que ça commence à se voir fort.
-            const darknessRange = 800;
+            // --- Noircissement ---
+            const darknessRange = isMobile ? 200 : 800; // S'adapte à l'écran
             let driftRatio = Math.min(Math.abs(currentX) / darknessRange, 1);
+            const brightnessVal = 1 - (driftRatio * 0.4);
+            const grayscaleVal = driftRatio * 0.7;
 
-            // 2. Application du filtre sur l'âme (Noircissement)
-            // Avant : on descendait à 0.2 (très sombre).
-            // Maintenant : on ne descend qu'à 0.6 (juste un peu terne).
-            // Le grayscale (gris) monte moins vite aussi (multiplié par 0.7).
-            const brightnessVal = 1 - (driftRatio * 0.4); // Minimum ~0.6 de luminosité
-            const grayscaleVal = driftRatio * 0.7; // Reste un peu coloré quand même
-
-            // On applique le filtre doux
             soulCore.style.filter = `blur(3px) brightness(${brightnessVal}) grayscale(${grayscaleVal})`;
 
-            
-            
-            // 3. Interaction avec la Ligne
-            // --- Modification de l'interaction ligne ---
+            // --- Interaction Ligne ---
             if (timelineLine) {
-                // Distance par rapport au centre (absolue)
                 const distFromCenter = Math.abs(currentX);
 
                 if (distFromCenter < 20) {
-                    // CAS 1 : ALIGNÉ (Signal Fort)
                     timelineLine.classList.add('line-active');
-                    timelineLine.style.transform = `translateX(-50%)`; // Reset position
-                    timelineLine.style.filter = `drop-shadow(0 0 5px rgba(255, 255, 255, 0.5))`; // Glow pur
-
-                } else if (distFromCenter > 200) {
-                    // CAS 2 : PERDU / DISSONANCE (Signal Brouillé)
-                    // On fait vibrer la ligne légèrement
-                    const jitter = (Math.random() - 0.5) * 4; // Vibration de 4px
-
+                    timelineLine.style.transform = `translateX(-50%)`;
+                    timelineLine.style.filter = `drop-shadow(0 0 5px rgba(255, 255, 255, 0.5))`;
+                } else if (distFromCenter > (isMobile ? 50 : 200)) {
+                    // Si l'âme est loin, la ligne tremble
+                    const jitter = (Math.random() - 0.5) * 4;
                     timelineLine.classList.remove('line-active');
-                    // On applique la vibration
                     timelineLine.style.transform = `translateX(calc(-50% + ${jitter}px))`;
-                    // On "salit" la ligne (effet glitch/interférence)
-                    timelineLine.style.opacity = 0.1 + Math.random() * 0.2; // Clignotement
-
+                    timelineLine.style.opacity = 0.1 + Math.random() * 0.2;
                 } else {
-                    // CAS 3 : NORMAL
                     timelineLine.classList.remove('line-active');
                     timelineLine.style.transform = `translateX(-50%)`;
                     timelineLine.style.opacity = 0.4;
                     timelineLine.style.filter = 'none';
                 }
             }
-
-            // =================================================================
-
-
-
 
             // --- 4. TRAÎNÉE ---
             let leaderY = currentY;
@@ -1456,28 +1434,17 @@ document.addEventListener('DOMContentLoaded', function () {
                     piece.y += (leaderY - piece.y) * piece.lag;
                     piece.x += (leaderX - piece.x) * piece.lag;
                 }
-
                 piece.el.style.top = `${piece.y}px`;
                 piece.el.style.transform = `translate(calc(-50% + ${piece.x}px), -50%) scale(${1 - (index * 0.08)})`;
 
-                // La traînée doit aussi noircir un peu
-                // On applique une opacité réduite si on est loin
                 const baseOpacity = 0.4 - (index * 0.04);
-
-                // Si on dérive (darkness), la traînée devient moins visible (plus sombre/transparente)
                 const driftFade = 1 - (driftRatio * 0.8);
-
                 piece.el.style.opacity = Math.max(0, baseOpacity * driftFade);
-
-                // Optionnel : On peut aussi appliquer le filtre sur les pièces, mais c'est coûteux en perfs.
-                // Jouer sur l'opacité suffit souvent.
 
                 leaderY = piece.y; leaderX = piece.x;
             });
 
             // --- 5. COULEURS (INFUSION) ---
-            // On garde l'infusion, mais le filtre brightness() appliqué au-dessus 
-            // va naturellement assombrir la couleur infusée (ex: Orange deviendra Marron foncé puis Noir)
             if (isLocked && speed < 1 && activeChapter) {
                 if (activeChapter !== currentTargetChapter) {
                     currentTargetChapter = activeChapter;
@@ -1495,9 +1462,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             requestAnimationFrame(animateSoul);
         }
-
-
-
 
         function removeInfusionClasses() {
             soulEntity.classList.remove('soul-infused-fire', 'soul-infused-greed', 'soul-infused-blue', 'soul-infused-void', 'soul-infused-stasis', 'soul-infused-hologram');
@@ -1529,6 +1493,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+
     // ==================================================================
     // LOGIQUE GLITCH MOMENTS DE RUPTURE (CORRIGÉE : PLUS LONGUE + SURSAUT)
     // ==================================================================
@@ -1540,10 +1506,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 // On déclenche plus tôt (dès que 50% est visible)
                 if (entry.isIntersecting) {
                     const element = entry.target;
-                    
+
                     if (!element.classList.contains('has-glitched')) {
                         // Marqueur immédiat pour ne pas relancer en boucle
-                        element.classList.add('has-glitched'); 
+                        element.classList.add('has-glitched');
 
                         // 1. DÉMARRAGE DU GLITCH (Le Plantage)
                         element.classList.add('glitch-active');
@@ -1556,12 +1522,12 @@ document.addEventListener('DOMContentLoaded', function () {
                             // 300ms de pause, puis on relance un petit coup court
                             setTimeout(() => {
                                 element.classList.add('glitch-active');
-                                
+
                                 // 4. ARRÊT FINAL (Après 0.5s de sursaut)
                                 setTimeout(() => {
                                     element.classList.remove('glitch-active');
                                 }, 500);
-                                
+
                             }, 300);
 
                         }, 2500); // Durée initiale augmentée à 2.5 secondes
@@ -1570,7 +1536,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }, {
             threshold: 0.5, // Déclenche quand l'élément est au milieu (aligné avec l'âme)
-            rootMargin: "0px 0px -100px 0px" 
+            rootMargin: "0px 0px -100px 0px"
         });
 
         glitchTargets.forEach(target => {
