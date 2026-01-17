@@ -1575,4 +1575,47 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+
+    // ==================================================================
+    // EFFET PARALLAXE SOURIS (SECTION CONTEXTE)
+    // ==================================================================
+    const contextSection = document.getElementById('context-section');
+    
+    if (contextSection) {
+        const layers = contextSection.querySelectorAll('.parallax-layer');
+
+        contextSection.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            
+            // Calcul du centre de l'écran pour équilibrer le mouvement
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+
+            layers.forEach(layer => {
+                const speed = layer.getAttribute('data-speed');
+                
+                // Calcul du déplacement inversé (pour effet de profondeur)
+                const moveX = (x - centerX) * speed / 100;
+                const moveY = (y - centerY) * speed / 100;
+
+                // Application fluide
+                layer.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                // On ajoute une transition CSS inline pour lisser si la souris s'arrête
+                layer.style.transition = 'transform 0.1s linear'; 
+            });
+        });
+        
+        // Reset position quand la souris quitte la section (optionnel, pour l'élégance)
+        contextSection.addEventListener('mouseleave', () => {
+            layers.forEach(layer => {
+                layer.style.transform = 'translate(0, 0)';
+                layer.style.transition = 'transform 0.5s ease-out';
+            });
+        });
+    }
+
+
+    
 });
