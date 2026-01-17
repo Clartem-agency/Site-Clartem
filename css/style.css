@@ -144,16 +144,6 @@ html {
     background-attachment: fixed; /* Effet de parallaxe subtil */
 }
 
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    /* MODIFIÉ : Superposition dégradée plus sombre pour une meilleure lisibilité */
-    background: linear-gradient(0deg, rgba(30, 58, 138, 0.45), rgba(30, 58, 138, 0.3)); 
-    z-index: 1;
-}
 
 /* Assurez-vous que le contenu est au-dessus de la superposition */
 .hero-bg > .container {
@@ -467,11 +457,22 @@ html {
 .hero-overlay {
     position: absolute; /* Force la position absolue */
     top: 0; left: 0; right: 0; bottom: 0; /* Prend tout l'espace */
-    background: linear-gradient(0deg, rgba(30, 58, 138, 0.6), rgba(30, 58, 138, 0.4)); /* Un peu plus sombre pour le contraste */
+    
+    /* --- MODIFICATION ICI --- */
+    /* On utilise un dégradé qui part du noir/bleu nuit (en bas) vers un bleu profond (en haut) */
+    /* 0.95 = 95% d'opacité en bas (le texte sera très lisible) */
+    /* 0.75 = 75% d'opacité en haut (on devine les points sans être gêné) */
+    background: linear-gradient(
+        0deg, 
+        rgba(15, 23, 42, 0.95), 
+        rgba(30, 58, 138, 0.75)
+    );
     
     z-index: 10 !important; /* ÉTAGE 1 : LE TAPIS */
-    pointer-events: none !important; /* <--- LA SOLUTION MAGIQUE : Les clics traversent cet élément */
+    pointer-events: none !important; /* Les clics traversent cet élément */
 }
+
+
 
 /* 3. Le Contenu Texte (Tout au dessus) */
 #hero .container {
