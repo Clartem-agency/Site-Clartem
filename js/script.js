@@ -1577,45 +1577,79 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    // ==================================================================
-    // EFFET PARALLAXE SOURIS (SECTION CONTEXTE)
+   // ==================================================================
+    // EFFET 3D TILT (CARTE) + PARALLAXE FOND
     // ==================================================================
     const contextSection = document.getElementById('context-section');
-    
-    if (contextSection) {
-        const layers = contextSection.querySelectorAll('.parallax-layer');
+    const tiltCard = document.getElementById('tilt-card');
+    const glare = document.querySelector('.card-glare');
+    const parallaxLayers = document.querySelectorAll('.parallax-layer');
 
+    if (contextSection && tiltCard) {
+
+        // --- 1. GESTION DU TILT DE LA CARTE ---
         contextSection.addEventListener('mousemove', (e) => {
-            const x = e.clientX;
-            const y = e.clientY;
-            
-            // Calcul du centre de l'écran pour équilibrer le mouvement
+            // A. PARALLAXE DU FOND (Points)
             const centerX = window.innerWidth / 2;
             const centerY = window.innerHeight / 2;
-
-            layers.forEach(layer => {
+            
+            parallaxLayers.forEach(layer => {
                 const speed = layer.getAttribute('data-speed');
-                
-                // Calcul du déplacement inversé (pour effet de profondeur)
-                const moveX = (x - centerX) * speed / 100;
-                const moveY = (y - centerY) * speed / 100;
-
-                // Application fluide
-                layer.style.transform = `translate(${moveX}px, ${moveY}px)`;
-                // On ajoute une transition CSS inline pour lisser si la souris s'arrête
-                layer.style.transition = 'transform 0.1s linear'; 
+                const x = (e.clientX - centerX) * speed / 100;
+                const y = (e.clientY - centerY) * speed / 100;
+                layer.style.transform = `translate(${x}px, ${y}px)`;
             });
+
+            // B. TILT DE LA CARTE 3D
+            const cardRect = tiltCard.getBoundingClientRect();
+            
+            // Calculer la position de la souris RELATIVE à la carte
+            const cardCenterX = cardRect.left + cardRect.width / 2;
+            const cardCenterY = cardRect.top + cardRect.height / 2;
+
+            const mouseX = e.clientX - cardCenterX;
+            const mouseY = e.clientY - cardCenterY;
+
+            // Calcul de la rotation (Max 10 degrés pour rester élégant)
+            // Note : Pour tourner vers la droite, on tourne autour de l'axe Y positivement
+            // Pour tourner vers le haut, on tourne autour de l'axe X négativement (inverse)
+            const rotateX = ((mouseY / cardRect.height) * -10).toFixed(2); // Axe X (Haut/Bas)
+            const rotateY = ((mouseX / cardRect.width) * 10).toFixed(2);   // Axe Y (Gauche/Droite)
+
+            // Application de la transformation
+            // On retire la classe de reset pour que ce soit instantané
+            tiltCard.classList.remove('is-resetting');
+            tiltCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+            // C. GESTION DU REFLET (GLARE)
+            if (glare) {
+                // Le reflet bouge à l'opposé de la souris
+                const glareX = (mouseX / cardRect.width) * 100;
+                const glareY = (mouseY / cardRect.height) * 100;
+                // On déplace le gradient et on change son angle
+                glare.style.transform = `translate(${glareX}%, ${glareY}%)`;
+            }
         });
-        
-        // Reset position quand la souris quitte la section (optionnel, pour l'élégance)
+
+        // --- 2. RESET QUAND ON QUITTE LA ZONE ---
         contextSection.addEventListener('mouseleave', () => {
-            layers.forEach(layer => {
-                layer.style.transform = 'translate(0, 0)';
-                layer.style.transition = 'transform 0.5s ease-out';
+            // On ajoute la classe pour une transition douce au retour
+            tiltCard.classList.add('is-resetting');
+            tiltCard.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+            
+            if (glare) {
+                glare.style.transform = `translate(0%, 0%)`;
+            }
+
+            // Reset des particules
+            parallaxLayers.forEach(layer => {
+                layer.style.transform = `translate(0px, 0px)`;
             });
         });
     }
 
 
-    
+
+
+
 });
