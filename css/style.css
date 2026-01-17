@@ -2233,45 +2233,61 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 
+
+
+
 /* ======================================================= */
-/*    STYLE CONTEXTE : GLASSMORPHISM & ÉDITORIAL           */
+/*    STYLE CONTEXTE : 3D TILT & PARTICULES                */
 /* ======================================================= */
 
-/* 1. La Carte de Verre (Frosted Glass) */
+/* 1. Le Conteneur doit avoir une perspective (la distance de l'œil) */
+.perspective-container {
+    perspective: 1000px; /* Plus le chiffre est petit, plus l'effet 3D est prononcé */
+}
+
+/* 2. La Carte de Verre */
 .glass-card {
-    background: rgba(255, 255, 255, 0.03); /* Fond très transparent */
-    backdrop-filter: blur(16px);           /* Le flou "Givré" */
-    -webkit-backdrop-filter: blur(16px);   /* Support Safari */
-    box-shadow: 
-        0 4px 30px rgba(0, 0, 0, 0.1),     /* Ombre douce */
-        inset 0 0 0 1px rgba(255, 255, 255, 0.05); /* Bordure interne fine */
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    background: rgba(30, 41, 59, 0.4); /* Fond sombre semi-transparent (Slate-800) */
+    backdrop-filter: blur(12px);       /* Flou */
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); /* Ombre profonde */
+    
+    /* Important pour la 3D : on change la transform via JS, mais on veut une transition smooth quand on sort */
+    transition: transform 0.1s ease-out; /* Très rapide pour suivre la souris sans latence */
 }
 
-/* Petit effet de levitation "Apple" au survol */
-.glass-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 
-        0 10px 40px -10px rgba(0, 0, 0, 0.3),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.1); /* La bordure s'éclaire légèrement */
+/* Quand la souris quitte la carte, elle revient doucement à plat */
+.glass-card.is-resetting {
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* 2. La Lettrine (Drop Cap) - Style Livre de Luxe */
+/* 3. Conservation de la 3D pour les enfants (pour que le texte flotte) */
+.transform-style-3d {
+    transform-style: preserve-3d;
+}
+
+/* On fait ressortir légèrement le texte pour un effet de profondeur */
+.card-element {
+    transform: translateZ(20px); /* Le texte "sort" de la carte de 20px */
+}
+
+/* 4. Le Reflet Lumineux (Glare) */
+.card-glare {
+    mix-blend-mode: overlay; /* Incrustation lumineuse */
+    filter: blur(5px);
+}
+
+/* Typo éditoriale (inchangé) */
 .drop-cap {
     float: left;
-    font-family: 'Times New Roman', serif; /* Police Serif pour le contraste */
+    font-family: 'Times New Roman', serif;
     font-size: 3.5rem;
     line-height: 0.8;
     margin-right: 0.5rem;
     margin-top: 0.1rem;
-    color: #ffffff; /* Blanc pur */
-    font-weight: 400;
+    color: #ffffff;
 }
 
-/* 3. Ajustement de lecture "Premium" */
-.editorial-text {
-    /* On assure une couleur pas trop blanche (gris-300) pour ne pas agresser l'œil */
-    /* Le lissage de police est essentiel pour le rendu fin */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+.text-shadow-sm {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
