@@ -240,20 +240,22 @@
     <!--      SUPER-CONTENEUR : FUSION CONTEXTE & PRÉSENTATION   -->
     <!--      Permet une transition fluide des lumières          -->
     <!-- ======================================================= -->
-    
+
     <!-- NOTE : On garde l'ID 'context-section' ici pour que le script JS de parallaxe fonctionne sur toute la zone -->
     <div id="context-section" class="bg-neutral-dark relative overflow-hidden perspective-container">
 
-        
+
 
         <!-- ================= FOND PARTAGÉ (LAYERS CORRIGÉS) ================= -->
-        
+
         <!-- 1. PARTICULES PARALLAXE (Inchangé) -->
         <div class="parallax-layer absolute inset-0 pointer-events-none z-0" data-speed="2">
             <div class="absolute top-[10%] left-[10%] w-1.5 h-1.5 bg-white rounded-full opacity-40 blur-[1px]"></div>
-            <div class="absolute top-[25%] right-[15%] w-1 h-1 bg-clarity-blue rounded-full opacity-50 blur-[1px]"></div>
+            <div class="absolute top-[25%] right-[15%] w-1 h-1 bg-clarity-blue rounded-full opacity-50 blur-[1px]">
+            </div>
             <div class="absolute top-[60%] left-[20%] w-2 h-2 bg-warm-orange rounded-full opacity-30 blur-[2px]"></div>
-            <div class="absolute bottom-[20%] right-[10%] w-1.5 h-1.5 bg-white rounded-full opacity-20 blur-[1px]"></div>
+            <div class="absolute bottom-[20%] right-[10%] w-1.5 h-1.5 bg-white rounded-full opacity-20 blur-[1px]">
+            </div>
         </div>
 
         <div class="parallax-layer absolute inset-0 pointer-events-none z-0" data-speed="6">
@@ -262,13 +264,17 @@
         </div>
 
         <!-- 2. LUMIÈRE CENTRALE (Plus douce) -->
-        <div class="absolute top-[400px] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-deep-blue/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+        <div
+            class="absolute top-[400px] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-deep-blue/10 rounded-full blur-[120px] pointer-events-none z-0">
+        </div>
 
         <!-- 3. DÉGRADÉ LATÉRAL CORRIGÉ (C'est ici que ça change) -->
         <!-- J'ai mis h-full (toute la hauteur) et ajouté un flou massif (blur-3xl) pour dissoudre les bords -->
-        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/5 via-transparent to-transparent opacity-40 blur-3xl pointer-events-none z-0"></div>
+        <div
+            class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/5 via-transparent to-transparent opacity-40 blur-3xl pointer-events-none z-0">
+        </div>
 
-        
+
 
         <!-- ================= CONTENU 1 : LA CARTE 3D (GENÈSE) ================= -->
         <section class="py-32 relative z-10">
@@ -279,28 +285,36 @@
                     class="glass-card p-10 md:p-14 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden group transform-style-3d will-change-transform">
 
                     <!-- LE REFLET LUMINEUX (GLARE) -->
-                    <div class="card-glare absolute inset-0 pointer-events-none z-20 transition-opacity duration-500 opacity-0 group-hover:opacity-100"></div>
+                    <div
+                        class="card-glare absolute inset-0 pointer-events-none z-20 transition-opacity duration-500 opacity-0 group-hover:opacity-100">
+                    </div>
 
                     <!-- Label -->
                     <div class="text-center mb-10 relative z-10 transform-style-3d">
-                        <span class="inline-block py-1 px-3 border border-white/10 rounded-full text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] backdrop-blur-md shadow-lg card-element">
+                        <span
+                            class="inline-block py-1 px-3 border border-white/10 rounded-full text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] backdrop-blur-md shadow-lg card-element">
                             Genèse
                         </span>
                     </div>
 
                     <!-- Texte -->
                     <div class="space-y-6 text-center relative z-10">
-                        <p class="text-lg md:text-xl text-gray-200 font-light leading-loose editorial-text text-left md:text-justify card-element">
+                        <p
+                            class="text-lg md:text-xl text-gray-200 font-light leading-loose editorial-text text-left md:text-justify card-element">
                             <span class="drop-cap text-white text-shadow-sm">S</span>teve Jobs évoquait ici un cours de
                             calligraphie suivi par simple curiosité intellectuelle. Dix ans plus tard, ce savoir, qui
                             semblait alors futile, est devenu la pierre angulaire du design révolutionnaire du premier
                             Macintosh.
                         </p>
 
-                        <div class="w-12 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent mx-auto my-8"></div>
+                        <div
+                            class="w-12 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent mx-auto my-8">
+                        </div>
 
-                        <p class="text-lg md:text-xl text-gray-300 font-light leading-loose editorial-text text-left md:text-justify card-element">
-                            <span class="text-white font-normal italic">Sa leçon est universelle :</span> ce qui ressemble à
+                        <p
+                            class="text-lg md:text-xl text-gray-300 font-light leading-loose editorial-text text-left md:text-justify card-element">
+                            <span class="text-white font-normal italic">Sa leçon est universelle :</span> ce qui
+                            ressemble à
                             une errance sur le moment est souvent, avec le recul nécessaire, une étape indispensable de
                             notre propre architecture intérieure.
                         </p>
@@ -319,13 +333,17 @@
                     <!-- COLONNE GAUCHE : PHOTO -->
                     <div class="lg:col-span-5 relative" data-sr>
                         <!-- Cadre décoratif arrière -->
-                        <div class="absolute inset-0 translate-x-4 translate-y-4 border border-warm-orange/30 rounded-2xl z-0"></div>
+                        <div
+                            class="absolute inset-0 translate-x-4 translate-y-4 border border-warm-orange/30 rounded-2xl z-0">
+                        </div>
 
                         <!-- Conteneur Image -->
-                        <div class="relative rounded-2xl overflow-hidden shadow-2xl z-10 aspect-[4/5] group cursor-pointer">
-                            <div class="absolute inset-0 bg-neutral-900/10 group-hover:bg-transparent transition-all duration-500 z-20"></div>
-                            <img src="assets/photo-frederic.jpg"
-                                alt="Frédéric Delavictoire"
+                        <div
+                            class="relative rounded-2xl overflow-hidden shadow-2xl z-10 aspect-[4/5] group cursor-pointer">
+                            <div
+                                class="absolute inset-0 bg-neutral-900/10 group-hover:bg-transparent transition-all duration-500 z-20">
+                            </div>
+                            <img src="assets/photo-frederic.jpg" alt="Frédéric Delavictoire"
                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105">
                         </div>
                     </div>
@@ -360,7 +378,7 @@
                             </p>
 
                             <!-- Signature visuelle -->
-                            <div class="pt-8 pb-4"> 
+                            <div class="pt-8 pb-4">
                                 <img src="assets/signature-frederic.png" alt="Frédéric Delavictoire"
                                     class="h-24 md:h-32 w-auto filter invert opacity-90 -rotate-3 origin-left ml-2"
                                     onerror="this.style.display='none'">
@@ -370,9 +388,11 @@
 
                 </div>
             </div>
-            
+
             <!-- LIGNE DE SÉPARATION (Bas du Super-Conteneur) -->
-            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+            <div
+                class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent">
+            </div>
         </section>
 
     </div>
@@ -383,11 +403,35 @@
 
 
 
+
+
+
+
     <!-- ======================================================= -->
     <!--                  LA TIMELINE                            -->
     <!-- ======================================================= -->
-    <section class="py-20 relative overflow-hidden">
-        <div class="container mx-auto px-6 max-w-6xl relative" id="timeline-container">
+    <section class="py-20 relative overflow-hidden bg-neutral-dark">
+
+        <!-- === DÉCOR SPATIAL (NOUVEAU) === -->
+        <!-- Z-Index 0 pour être derrière tout le reste -->
+        <div class="absolute inset-0 z-0 pointer-events-none">
+
+            <!-- 1. Les Étoiles Fixes (Donne l'effet de déplacement FPV) -->
+            <div class="stars-fixed"></div>
+
+            <!-- 2. La Lueur Lointaine (Profondeur Spirituelle) -->
+            <div class="cosmic-glow"></div>
+
+        </div>
+
+        <!-- Conteneur principal (Z-Index 10 pour passer devant les étoiles) -->
+        <div class="container mx-auto px-6 max-w-6xl relative z-10" id="timeline-container">
+
+
+
+
+
+
 
             <div class="text-center mb-24 md:mb-44" data-sr>
                 <span class="text-warm-orange font-bold tracking-[0.2em] uppercase text-xs mb-3 block">L'Origine
