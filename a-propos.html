@@ -237,174 +237,145 @@
 
 
     <!-- ======================================================= -->
-    <!--          SECTION 2 : LE CONTEXTE (3D TILT)              -->
+    <!--      SUPER-CONTENEUR : FUSION CONTEXTE & PRÉSENTATION   -->
+    <!--      Permet une transition fluide des lumières          -->
     <!-- ======================================================= -->
-    <section id="context-section"
-        class="py-32 bg-neutral-dark relative flex items-center justify-center overflow-hidden perspective-container">
+    
+    <!-- NOTE : On garde l'ID 'context-section' ici pour que le script JS de parallaxe fonctionne sur toute la zone -->
+    <div id="context-section" class="bg-neutral-dark relative overflow-hidden perspective-container">
 
-        <!-- FOND PARALLAXE (Renforcé) -->
-        <!-- Layer 1 : Fond (Lent) -->
+        <!-- ================= FOND PARTAGÉ (LAYERS) ================= -->
+        
+        <!-- 1. PARTICULES PARALLAXE (S'étendent sur les deux sections) -->
         <div class="parallax-layer absolute inset-0 pointer-events-none z-0" data-speed="2">
-            <!-- Points plus visibles (opacity-40 au lieu de 20) -->
-            <div class="absolute top-[15%] left-[10%] w-1.5 h-1.5 bg-white rounded-full opacity-40 blur-[1px]"></div>
-            <div class="absolute top-[40%] right-[15%] w-1 h-1 bg-clarity-blue rounded-full opacity-50 blur-[1px]">
-            </div>
-            <div class="absolute bottom-[20%] left-[20%] w-2 h-2 bg-warm-orange rounded-full opacity-30 blur-[2px]">
-            </div>
+            <!-- Points Section Haute -->
+            <div class="absolute top-[10%] left-[10%] w-1.5 h-1.5 bg-white rounded-full opacity-40 blur-[1px]"></div>
+            <div class="absolute top-[25%] right-[15%] w-1 h-1 bg-clarity-blue rounded-full opacity-50 blur-[1px]"></div>
+            
+            <!-- Points Section Basse (Transition) -->
+            <div class="absolute top-[60%] left-[20%] w-2 h-2 bg-warm-orange rounded-full opacity-30 blur-[2px]"></div>
+            <div class="absolute bottom-[20%] right-[10%] w-1.5 h-1.5 bg-white rounded-full opacity-20 blur-[1px]"></div>
         </div>
 
-        <!-- Layer 2 : Premier plan (Rapide) -->
         <div class="parallax-layer absolute inset-0 pointer-events-none z-0" data-speed="6">
-            <div class="absolute top-[25%] left-[80%] w-1 h-1 bg-white rounded-full opacity-60"></div>
-            <div class="absolute bottom-[30%] right-[80%] w-1.5 h-1.5 bg-white rounded-full opacity-40 blur-[1px]">
-            </div>
-            <div class="absolute top-[60%] left-[5%] w-1 h-1 bg-purple-400 rounded-full opacity-40"></div>
+            <div class="absolute top-[15%] left-[80%] w-1 h-1 bg-white rounded-full opacity-60"></div>
+            <div class="absolute top-[55%] left-[5%] w-1 h-1 bg-purple-400 rounded-full opacity-40"></div>
         </div>
 
-        <!-- Lumière d'ambiance centrale (Fixe) -->
-        <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-deep-blue/20 rounded-full blur-[120px] pointer-events-none z-0">
-        </div>
+        <!-- 2. LUMIÈRE BLEUE (Derrière la carte Genèse) -->
+        <!-- Positionnée en absolute par rapport au super-conteneur pour ne pas être coupée -->
+        <div class="absolute top-[400px] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-deep-blue/20 rounded-full blur-[120px] pointer-events-none z-0"></div>
+
+        <!-- 3. DÉGRADÉ LATÉRAL (Derrière la Présentation) -->
+        <div class="absolute bottom-0 right-0 w-1/3 h-2/3 bg-gradient-to-l from-white/5 to-transparent opacity-50 pointer-events-none z-0"></div>
 
 
-        <div class="container mx-auto px-6 max-w-3xl relative z-10" data-sr>
+        <!-- ================= CONTENU 1 : LA CARTE 3D (GENÈSE) ================= -->
+        <section class="py-32 relative z-10">
+            <div class="container mx-auto px-6 max-w-3xl relative" data-sr>
 
-            <!-- LA CARTE 3D (ID ajouté pour le JS) -->
-            <div id="tilt-card"
-                class="glass-card p-10 md:p-14 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden group transform-style-3d will-change-transform">
+                <!-- LA CARTE 3D -->
+                <div id="tilt-card"
+                    class="glass-card p-10 md:p-14 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden group transform-style-3d will-change-transform">
 
-                <!-- LE REFLET LUMINEUX (GLARE) -->
-                <div
-                    class="card-glare absolute inset-0 pointer-events-none z-20 transition-opacity duration-500 opacity-0 group-hover:opacity-100">
-                </div>
+                    <!-- LE REFLET LUMINEUX (GLARE) -->
+                    <div class="card-glare absolute inset-0 pointer-events-none z-20 transition-opacity duration-500 opacity-0 group-hover:opacity-100"></div>
 
-                <!-- Label -->
-                <div class="text-center mb-10 relative z-10 transform-style-3d">
-                    <span
-                        class="inline-block py-1 px-3 border border-white/10 rounded-full text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] backdrop-blur-md shadow-lg card-element">
-                        Genèse
-                    </span>
-                </div>
-
-                <!-- Texte -->
-                <div class="space-y-6 text-center relative z-10">
-                    <p
-                        class="text-lg md:text-xl text-gray-200 font-light leading-loose editorial-text text-left md:text-justify card-element">
-                        <span class="drop-cap text-white text-shadow-sm">S</span>teve Jobs évoquait ici un cours de
-                        calligraphie suivi par simple curiosité intellectuelle. Dix ans plus tard, ce savoir, qui
-                        semblait alors futile, est devenu la pierre angulaire du design révolutionnaire du premier
-                        Macintosh.
-                    </p>
-
-                    <div
-                        class="w-12 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent mx-auto my-8">
-                    </div>
-
-                    <p
-                        class="text-lg md:text-xl text-gray-300 font-light leading-loose editorial-text text-left md:text-justify card-element">
-                        <span class="text-white font-normal italic">Sa leçon est universelle :</span> ce qui ressemble à
-                        une errance sur le moment est souvent, avec le recul nécessaire, une étape indispensable de
-                        notre propre architecture intérieure.
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-
-
-
-
-
-    <!-- ======================================================= -->
-    <!--            SECTION 3 : PRÉSENTATION & PHOTO (PREMIUM)   -->
-    <!-- ======================================================= -->
-    <section class="py-24 relative overflow-hidden bg-neutral-dark">
-        <!-- Fond décoratif subtil pour l'élégance -->
-        <div
-            class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/5 to-transparent opacity-50 pointer-events-none">
-        </div>
-
-        <div class="container mx-auto px-6 relative z-10">
-
-            <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-
-                <!-- COLONNE GAUCHE : PHOTO (Style Éditorial) -->
-                <div class="lg:col-span-5 relative" data-sr>
-                    <!-- Cadre décoratif arrière -->
-                    <div
-                        class="absolute inset-0 translate-x-4 translate-y-4 border border-warm-orange/30 rounded-2xl z-0">
-                    </div>
-
-                    <!-- Conteneur Image -->
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl z-10 aspect-[4/5] group cursor-pointer">
-                        <div
-                            class="absolute inset-0 bg-neutral-900/10 group-hover:bg-transparent transition-all duration-500 z-20">
-                        </div>
-                        <img src="assets/photo-frederic.jpg"
-                            alt="Frédéric Delavictoire, fondateur de l'agence Clartem pour coachs et thérapeutes"
-                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105">
-                    </div>
-                </div>
-
-
-                <!-- COLONNE DROITE : LE TEXTE (Typographie soignée) -->
-                <div class="lg:col-span-7" data-sr data-sr-delay="200">
-
-                    <!-- TITRE MODIFIÉ -->
-                    <h2 class="text-4xl md:text-5xl font-bold mb-8 text-white leading-tight">
-                        L'Architecte de <br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-white">
-                            votre Clarté.
+                    <!-- Label -->
+                    <div class="text-center mb-10 relative z-10 transform-style-3d">
+                        <span class="inline-block py-1 px-3 border border-white/10 rounded-full text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] backdrop-blur-md shadow-lg card-element">
+                            Genèse
                         </span>
-                    </h2>
+                    </div>
 
-                    <div class="space-y-6 text-lg text-gray-400 font-light leading-relaxed">
-                        <!-- Phrase d'accroche -->
-                        <p class="text-xl text-white font-medium border-l-2 border-warm-orange pl-6">
-                            Je m'appelle <span class="text-warm-orange">Frédéric Delavictoire</span> et j'ai 41 ans.
+                    <!-- Texte -->
+                    <div class="space-y-6 text-center relative z-10">
+                        <p class="text-lg md:text-xl text-gray-200 font-light leading-loose editorial-text text-left md:text-justify card-element">
+                            <span class="drop-cap text-white text-shadow-sm">S</span>teve Jobs évoquait ici un cours de
+                            calligraphie suivi par simple curiosité intellectuelle. Dix ans plus tard, ce savoir, qui
+                            semblait alors futile, est devenu la pierre angulaire du design révolutionnaire du premier
+                            Macintosh.
                         </p>
 
-                        <p>
-                            Rien ne me prédestinait à devenir cet architecte digital.
-                        </p>
-                        <p>
-                            Je suis un survivant de mes propres contradictions, un ancien cheminot perdu qui a dû
-                            toucher le fond pour comprendre comment on remonte à la surface.
-                        </p>
-                        <p>
-                            Pendant 15 ans, j'ai cru errer au hasard. Aujourd'hui, en regardant en arrière, je vois
-                            enfin le dessin.
-                            Voici l'histoire sans filtre de celui qui va construire votre empire digital.
-                        </p>
+                        <div class="w-12 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent mx-auto my-8"></div>
 
-                        <!-- Signature visuelle -->
-                        <div class="pt-8 pb-4"> <!-- Alignement naturel à gauche -->
-                            <!-- J'ai gardé la grande taille (h-24/h-32) et la rotation, mais sans le 'flex justify-end' -->
-                            <img src="assets/signature-frederic.png" alt="Frédéric Delavictoire"
-                                class="h-24 md:h-32 w-auto filter invert opacity-90 -rotate-3 origin-left ml-2"
-                                onerror="this.style.display='none'">
-
-                            <!-- Optionnel : Un petit titre sous la signature si vous voulez combler encore plus -->
-                            <!-- <p class="text-xs text-warm-orange font-bold tracking-widest mt-2 uppercase ml-4">Fondateur, Clartem</p> -->
-                        </div>
+                        <p class="text-lg md:text-xl text-gray-300 font-light leading-loose editorial-text text-left md:text-justify card-element">
+                            <span class="text-white font-normal italic">Sa leçon est universelle :</span> ce qui ressemble à
+                            une errance sur le moment est souvent, avec le recul nécessaire, une étape indispensable de
+                            notre propre architecture intérieure.
+                        </p>
                     </div>
                 </div>
-
             </div>
-
-        </div>
-
-        <!-- LIGNE DE SÉPARATION (Bas de Section 3) -->
-        <div
-            class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent">
-        </div>
-
-    </section>
+        </section>
 
 
+        <!-- ================= CONTENU 2 : PRÉSENTATION & PHOTO ================= -->
+        <section class="pb-24 pt-12 relative z-10">
+            <div class="container mx-auto px-6 relative">
+
+                <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+
+                    <!-- COLONNE GAUCHE : PHOTO -->
+                    <div class="lg:col-span-5 relative" data-sr>
+                        <!-- Cadre décoratif arrière -->
+                        <div class="absolute inset-0 translate-x-4 translate-y-4 border border-warm-orange/30 rounded-2xl z-0"></div>
+
+                        <!-- Conteneur Image -->
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl z-10 aspect-[4/5] group cursor-pointer">
+                            <div class="absolute inset-0 bg-neutral-900/10 group-hover:bg-transparent transition-all duration-500 z-20"></div>
+                            <img src="assets/photo-frederic.jpg"
+                                alt="Frédéric Delavictoire"
+                                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105">
+                        </div>
+                    </div>
+
+
+                    <!-- COLONNE DROITE : LE TEXTE -->
+                    <div class="lg:col-span-7" data-sr data-sr-delay="200">
+
+                        <h2 class="text-4xl md:text-5xl font-bold mb-8 text-white leading-tight">
+                            L'Architecte de <br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-white">
+                                votre Clarté.
+                            </span>
+                        </h2>
+
+                        <div class="space-y-6 text-lg text-gray-400 font-light leading-relaxed">
+                            <p class="text-xl text-white font-medium border-l-2 border-warm-orange pl-6">
+                                Je m'appelle <span class="text-warm-orange">Frédéric Delavictoire</span> et j'ai 41 ans.
+                            </p>
+
+                            <p>
+                                Rien ne me prédestinait à devenir cet architecte digital.
+                            </p>
+                            <p>
+                                Je suis un survivant de mes propres contradictions, un ancien cheminot perdu qui a dû
+                                toucher le fond pour comprendre comment on remonte à la surface.
+                            </p>
+                            <p>
+                                Pendant 15 ans, j'ai cru errer au hasard. Aujourd'hui, en regardant en arrière, je vois
+                                enfin le dessin.
+                                Voici l'histoire sans filtre de celui qui va construire votre empire digital.
+                            </p>
+
+                            <!-- Signature visuelle -->
+                            <div class="pt-8 pb-4"> 
+                                <img src="assets/signature-frederic.png" alt="Frédéric Delavictoire"
+                                    class="h-24 md:h-32 w-auto filter invert opacity-90 -rotate-3 origin-left ml-2"
+                                    onerror="this.style.display='none'">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+            <!-- LIGNE DE SÉPARATION (Bas du Super-Conteneur) -->
+            <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+        </section>
+
+    </div>
 
 
 
