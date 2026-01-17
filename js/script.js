@@ -1577,8 +1577,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-   // ==================================================================
-    // EFFET 3D TILT (CARTE) + PARALLAXE FOND
+  // ==================================================================
+    // EFFET 3D TILT (CARTE) + PARALLAXE FOND (CORRIGÉ & STYLÉ)
     // ==================================================================
     const contextSection = document.getElementById('context-section');
     const tiltCard = document.getElementById('tilt-card');
@@ -1587,10 +1587,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (contextSection && tiltCard) {
 
-        
-// --- 1. GESTION DU TILT DE LA CARTE ---
+        // --- A. PARALLAXE DU FOND (Sur toute la section) ---
+        // On sépare la logique : le fond bouge toujours quand on est dans la section
         contextSection.addEventListener('mousemove', (e) => {
-            // A. PARALLAXE DU FOND (Inchangé)
             const centerX = window.innerWidth / 2;
             const centerY = window.innerHeight / 2;
             
@@ -1600,46 +1599,61 @@ document.addEventListener('DOMContentLoaded', function () {
                 const y = (e.clientY - centerY) * speed / 100;
                 layer.style.transform = `translate(${x}px, ${y}px)`;
             });
+        });
 
-            // B. TILT DE LA CARTE 3D (Inchangé)
+        // --- B. TILT DE LA CARTE (Uniquement sur la carte) ---
+        
+        // 1. Entrée souris : On active le mode "Mouvement Rapide"
+        tiltCard.addEventListener('mouseenter', () => {
+            tiltCard.classList.add('is-moving');
+        });
+
+        // 2. Mouvement souris : Calcul de la rotation
+        tiltCard.addEventListener('mousemove', (e) => {
             const cardRect = tiltCard.getBoundingClientRect();
             const cardCenterX = cardRect.left + cardRect.width / 2;
             const cardCenterY = cardRect.top + cardRect.height / 2;
             const mouseX = e.clientX - cardCenterX;
             const mouseY = e.clientY - cardCenterY;
 
-            // Rotation (Max 8 degrés pour être subtil)
+            // Rotation (Max 8 degrés)
             const rotateX = ((mouseY / cardRect.height) * -8).toFixed(2);
             const rotateY = ((mouseX / cardRect.width) * 8).toFixed(2);
 
-            tiltCard.classList.remove('is-resetting');
+            // On applique la rotation
             tiltCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 
-            // C. GESTION DU REFLET (NOUVELLE MÉTHODE)
-            // On calcule la position de la souris en pixels par rapport au coin haut/gauche de la carte
+            // Gestion du reflet (Glare)
             const relativeX = e.clientX - cardRect.left;
             const relativeY = e.clientY - cardRect.top;
-
-            // On injecte ces valeurs dans des variables CSS sur la carte
             tiltCard.style.setProperty('--mouse-x', `${relativeX}px`);
             tiltCard.style.setProperty('--mouse-y', `${relativeY}px`);
         });
 
-
-        // --- 2. RESET QUAND ON QUITTE LA ZONE ---
-        contextSection.addEventListener('mouseleave', () => {
-            // On ajoute la classe pour une transition douce au retour
-            tiltCard.classList.add('is-resetting');
+        // 3. Sortie souris : C'est ici que la magie opère (RESET)
+        const resetCard = () => {
+            // On enlève la classe 'is-moving' -> Le CSS rebascule sur la transition lente/élastique
+            tiltCard.classList.remove('is-moving');
+            
+            // On remet la carte à plat
             tiltCard.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
             
+            // On reset aussi le reflet
             if (glare) {
-                glare.style.transform = `translate(0%, 0%)`;
+               // Optionnel : on peut cacher le glare ou le remettre au centre
             }
+        };
 
-            // Reset des particules
+        tiltCard.addEventListener('mouseleave', resetCard);
+        
+        // Sécurité : Si on scroll et que la souris sort sans déclencher mouseleave
+        // (rare mais possible), on peut observer la sortie de la section
+        contextSection.addEventListener('mouseleave', () => {
+            // On reset aussi les particules du fond
             parallaxLayers.forEach(layer => {
                 layer.style.transform = `translate(0px, 0px)`;
             });
+            resetCard();
         });
     }
 
