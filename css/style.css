@@ -2245,31 +2245,37 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     perspective: 1000px; /* Plus le chiffre est petit, plus l'effet 3D est prononcé */
 }
 
+
+
 /* 2. La Carte de Verre */
 .glass-card {
-    background: rgba(30, 41, 59, 0.4); /* Fond sombre semi-transparent (Slate-800) */
-    backdrop-filter: blur(12px);       /* Flou */
+    background: rgba(30, 41, 59, 0.4); 
+    backdrop-filter: blur(12px);       
     -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); /* Ombre profonde */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); 
     
-    /* Important pour la 3D : on change la transform via JS, mais on veut une transition smooth quand on sort */
-    transition: transform 0.1s ease-out; /* Très rapide pour suivre la souris sans latence */
+    /* PAR DÉFAUT (Quand on ne touche pas) : Transition LENTE et ÉLASTIQUE */
+    /* C'est ça qui donne le côté "stylé" au retour */
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    
+    /* On force la position à 0 par défaut pour éviter les bugs au chargement */
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
 }
 
-/* Quand la souris quitte la carte, elle revient doucement à plat */
-.glass-card.is-resetting {
-    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+/* QUAND ON SURVOLE (Classe ajoutée par JS) : Transition RAPIDE */
+/* Pour que la carte suive la souris sans retard */
+.glass-card.is-moving {
+    transition: transform 0.1s ease-out;
 }
 
-/* 3. Conservation de la 3D pour les enfants (pour que le texte flotte) */
+/* 3. Conservation de la 3D (Inchangé) */
 .transform-style-3d {
     transform-style: preserve-3d;
 }
-
-/* On fait ressortir légèrement le texte pour un effet de profondeur */
 .card-element {
-    transform: translateZ(20px); /* Le texte "sort" de la carte de 20px */
+    transform: translateZ(20px); 
 }
+
 
 
 
