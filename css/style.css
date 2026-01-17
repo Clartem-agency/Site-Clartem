@@ -2409,3 +2409,69 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
         transform: scale(1.1);
     }
 }
+
+
+
+
+
+
+/* ======================================================= */
+/*    OVERRIDE : NAVIGATION DARK GLASS (Pour A-Propos)     */
+/* ======================================================= */
+
+/* 1. L'arriere-plan au scroll : Sombre, Flou et Bordé */
+.dark-nav-page #main-nav.scrolled {
+    /* Fond sombre semi-transparent (Bleu Nuit) */
+    background-color: rgba(15, 23, 42, 0.75) !important; 
+    
+    /* Le flou glassmorphism */
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    
+    /* Une fine bordure lumineuse en bas pour séparer du contenu */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    
+    /* Ombre portée plus sombre */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* 2. Les liens restent BLANCS (au lieu de devenir gris foncé) */
+.dark-nav-page #main-nav.scrolled .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* 3. Au survol, les liens deviennent ORANGE avec un petit effet néon */
+.dark-nav-page #main-nav.scrolled .nav-link:hover {
+    color: #F97316 !important; /* Warm Orange */
+    text-shadow: 0 0 10px rgba(249, 115, 22, 0.4);
+}
+
+/* 4. Gestion des Logos : On force le BLANC à rester visible */
+.dark-nav-page #main-nav.scrolled #logo-white { 
+    opacity: 1 !important; 
+}
+.dark-nav-page #main-nav.scrolled #logo-color { 
+    opacity: 0 !important; 
+}
+
+/* 5. Le Menu Burger sur mobile reste BLANC */
+.dark-nav-page #main-nav.scrolled #mobile-menu-button { 
+    color: #ffffff !important; 
+}
+
+/* 6. Adaptation du Menu Mobile Déroulant (Le tiroir) */
+.dark-nav-page #mobile-menu {
+    /* On le rend sombre aussi pour matcher */
+    background-color: #1E293B !important; /* Card Dark */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff !important;
+}
+
+/* Liens du menu mobile */
+.dark-nav-page #mobile-menu a {
+    color: #e2e8f0 !important; /* Gris clair */
+}
+.dark-nav-page #mobile-menu a:hover {
+    color: #3B82F6 !important; /* Clarity Blue au survol */
+    background-color: rgba(255, 255, 255, 0.05);
+}
