@@ -235,66 +235,84 @@
 
 
 
-    <!-- ======================================================= -->
-    <!--          SECTION 2 : LE CONTEXTE (NEON & LINES)         -->
-    <!-- ======================================================= -->
-    <section class="py-24 bg-neutral-dark relative flex items-center justify-center overflow-hidden">
 
-        <!-- 1. LIGNE DE SÉPARATION (Haut) -->
-        <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent">
+    <!-- ======================================================= -->
+    <!--          SECTION 2 : LE CONTEXTE (3D TILT)              -->
+    <!-- ======================================================= -->
+    <section id="context-section"
+        class="py-32 bg-neutral-dark relative flex items-center justify-center overflow-hidden perspective-container">
+
+        <!-- FOND PARALLAXE (Renforcé) -->
+        <!-- Layer 1 : Fond (Lent) -->
+        <div class="parallax-layer absolute inset-0 pointer-events-none z-0" data-speed="2">
+            <!-- Points plus visibles (opacity-40 au lieu de 20) -->
+            <div class="absolute top-[15%] left-[10%] w-1.5 h-1.5 bg-white rounded-full opacity-40 blur-[1px]"></div>
+            <div class="absolute top-[40%] right-[15%] w-1 h-1 bg-clarity-blue rounded-full opacity-50 blur-[1px]">
+            </div>
+            <div class="absolute bottom-[20%] left-[20%] w-2 h-2 bg-warm-orange rounded-full opacity-30 blur-[2px]">
+            </div>
         </div>
 
-        <div class="container mx-auto px-6 max-w-4xl relative z-10" data-sr>
+        <!-- Layer 2 : Premier plan (Rapide) -->
+        <div class="parallax-layer absolute inset-0 pointer-events-none z-0" data-speed="6">
+            <div class="absolute top-[25%] left-[80%] w-1 h-1 bg-white rounded-full opacity-60"></div>
+            <div class="absolute bottom-[30%] right-[80%] w-1.5 h-1.5 bg-white rounded-full opacity-40 blur-[1px]">
+            </div>
+            <div class="absolute top-[60%] left-[5%] w-1 h-1 bg-purple-400 rounded-full opacity-40"></div>
+        </div>
 
-            <!-- CONTENEUR DU CADRE NÉON -->
-            <div class="relative group">
+        <!-- Lumière d'ambiance centrale (Fixe) -->
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-deep-blue/20 rounded-full blur-[120px] pointer-events-none z-0">
+        </div>
 
-                <!-- EFFET NÉON (Arrière-plan flou) -->
+
+        <div class="container mx-auto px-6 max-w-3xl relative z-10" data-sr>
+
+            <!-- LA CARTE 3D (ID ajouté pour le JS) -->
+            <div id="tilt-card"
+                class="glass-card p-10 md:p-14 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden group transform-style-3d will-change-transform">
+
+                <!-- LE REFLET LUMINEUX (GLARE) -->
                 <div
-                    class="absolute -inset-1 bg-gradient-to-r from-warm-orange via-purple-500 to-clarity-blue rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
+                    class="card-glare absolute inset-0 pointer-events-none z-20 transition-opacity duration-500 opacity-0 group-hover:opacity-100">
                 </div>
 
-                <!-- LA CARTE (Contenu) -->
-                <div class="relative bg-card-dark border border-white/10 rounded-2xl p-10 md:p-12 shadow-2xl">
-
-                    <!-- Label -->
-                    <div class="text-center mb-8">
-                        <span class="text-xs font-bold text-gray-500 uppercase tracking-[0.3em]">Le Contexte</span>
-                    </div>
-
-                    <!-- Texte -->
-                    <div class="text-center space-y-8">
-                        <p class="text-xl text-gray-300 font-light leading-relaxed">
-                            Steve Jobs évoquait ici un <strong class="text-white font-medium">cours de
-                                calligraphie</strong> suivi par simple curiosité. Dix ans plus tard, ce savoir "inutile"
-                            est devenu la base du design révolutionnaire du premier Macintosh.
-                        </p>
-
-                        <!-- Séparateur interne subtil -->
-                        <div
-                            class="w-16 h-[1px] bg-gradient-to-r from-transparent via-gray-500 to-transparent mx-auto opacity-30">
-                        </div>
-
-                        <p class="text-xl text-white font-normal leading-relaxed">
-                            <span
-                                class="text-transparent bg-clip-text bg-gradient-to-r from-warm-orange to-white font-bold">Sa
-                                leçon est universelle :</span>
-                            ce qui ressemble à une errance sur le moment est souvent, avec le recul, une étape
-                            indispensable de notre construction.
-                        </p>
-                    </div>
-
+                <!-- Label -->
+                <div class="text-center mb-10 relative z-10 transform-style-3d">
+                    <span
+                        class="inline-block py-1 px-3 border border-white/10 rounded-full text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] backdrop-blur-md shadow-lg card-element">
+                        Genèse
+                    </span>
                 </div>
+
+                <!-- Texte -->
+                <div class="space-y-6 text-center relative z-10">
+                    <p
+                        class="text-lg md:text-xl text-gray-200 font-light leading-loose editorial-text text-left md:text-justify card-element">
+                        <span class="drop-cap text-white text-shadow-sm">S</span>teve Jobs évoquait ici un cours de
+                        calligraphie suivi par simple curiosité intellectuelle. Dix ans plus tard, ce savoir, qui
+                        semblait alors futile, est devenu la pierre angulaire du design révolutionnaire du premier
+                        Macintosh.
+                    </p>
+
+                    <div
+                        class="w-12 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent mx-auto my-8">
+                    </div>
+
+                    <p
+                        class="text-lg md:text-xl text-gray-300 font-light leading-loose editorial-text text-left md:text-justify card-element">
+                        <span class="text-white font-normal italic">Sa leçon est universelle :</span> ce qui ressemble à
+                        une errance sur le moment est souvent, avec le recul nécessaire, une étape indispensable de
+                        notre propre architecture intérieure.
+                    </p>
+                </div>
+
             </div>
 
         </div>
-
-        <!-- 2. LIGNE DE SÉPARATION (Bas) -->
-        <div
-            class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent">
-        </div>
-
     </section>
+
 
 
 

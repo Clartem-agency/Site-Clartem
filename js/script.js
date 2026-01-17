@@ -1575,4 +1575,76 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+
+   // ==================================================================
+    // EFFET 3D TILT (CARTE) + PARALLAXE FOND
+    // ==================================================================
+    const contextSection = document.getElementById('context-section');
+    const tiltCard = document.getElementById('tilt-card');
+    const glare = document.querySelector('.card-glare');
+    const parallaxLayers = document.querySelectorAll('.parallax-layer');
+
+    if (contextSection && tiltCard) {
+
+        
+// --- 1. GESTION DU TILT DE LA CARTE ---
+        contextSection.addEventListener('mousemove', (e) => {
+            // A. PARALLAXE DU FOND (Inchangé)
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+            
+            parallaxLayers.forEach(layer => {
+                const speed = layer.getAttribute('data-speed');
+                const x = (e.clientX - centerX) * speed / 100;
+                const y = (e.clientY - centerY) * speed / 100;
+                layer.style.transform = `translate(${x}px, ${y}px)`;
+            });
+
+            // B. TILT DE LA CARTE 3D (Inchangé)
+            const cardRect = tiltCard.getBoundingClientRect();
+            const cardCenterX = cardRect.left + cardRect.width / 2;
+            const cardCenterY = cardRect.top + cardRect.height / 2;
+            const mouseX = e.clientX - cardCenterX;
+            const mouseY = e.clientY - cardCenterY;
+
+            // Rotation (Max 8 degrés pour être subtil)
+            const rotateX = ((mouseY / cardRect.height) * -8).toFixed(2);
+            const rotateY = ((mouseX / cardRect.width) * 8).toFixed(2);
+
+            tiltCard.classList.remove('is-resetting');
+            tiltCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+            // C. GESTION DU REFLET (NOUVELLE MÉTHODE)
+            // On calcule la position de la souris en pixels par rapport au coin haut/gauche de la carte
+            const relativeX = e.clientX - cardRect.left;
+            const relativeY = e.clientY - cardRect.top;
+
+            // On injecte ces valeurs dans des variables CSS sur la carte
+            tiltCard.style.setProperty('--mouse-x', `${relativeX}px`);
+            tiltCard.style.setProperty('--mouse-y', `${relativeY}px`);
+        });
+
+
+        // --- 2. RESET QUAND ON QUITTE LA ZONE ---
+        contextSection.addEventListener('mouseleave', () => {
+            // On ajoute la classe pour une transition douce au retour
+            tiltCard.classList.add('is-resetting');
+            tiltCard.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+            
+            if (glare) {
+                glare.style.transform = `translate(0%, 0%)`;
+            }
+
+            // Reset des particules
+            parallaxLayers.forEach(layer => {
+                layer.style.transform = `translate(0px, 0px)`;
+            });
+        });
+    }
+
+
+
+
+
 });

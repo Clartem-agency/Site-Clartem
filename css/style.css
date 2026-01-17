@@ -2229,3 +2229,80 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     80% { transform: skew(1deg); }
     100% { transform: skew(0deg); }
 }
+
+
+
+
+
+
+
+/* ======================================================= */
+/*    STYLE CONTEXTE : 3D TILT & PARTICULES                */
+/* ======================================================= */
+
+/* 1. Le Conteneur doit avoir une perspective (la distance de l'œil) */
+.perspective-container {
+    perspective: 1000px; /* Plus le chiffre est petit, plus l'effet 3D est prononcé */
+}
+
+/* 2. La Carte de Verre */
+.glass-card {
+    background: rgba(30, 41, 59, 0.4); /* Fond sombre semi-transparent (Slate-800) */
+    backdrop-filter: blur(12px);       /* Flou */
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); /* Ombre profonde */
+    
+    /* Important pour la 3D : on change la transform via JS, mais on veut une transition smooth quand on sort */
+    transition: transform 0.1s ease-out; /* Très rapide pour suivre la souris sans latence */
+}
+
+/* Quand la souris quitte la carte, elle revient doucement à plat */
+.glass-card.is-resetting {
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* 3. Conservation de la 3D pour les enfants (pour que le texte flotte) */
+.transform-style-3d {
+    transform-style: preserve-3d;
+}
+
+/* On fait ressortir légèrement le texte pour un effet de profondeur */
+.card-element {
+    transform: translateZ(20px); /* Le texte "sort" de la carte de 20px */
+}
+
+
+
+.card-glare {
+    /* On crée une lumière ronde qui suit la souris via les variables */
+    background: radial-gradient(
+        800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(255, 255, 255, 0.12),
+        transparent 40%
+    );
+    /* Incrustation lumineuse */
+    mix-blend-mode: overlay;
+    
+    /* On s'assure qu'il couvre bien toute la carte sans bouger */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+
+
+/* Typo éditoriale (inchangé) */
+.drop-cap {
+    float: left;
+    font-family: 'Times New Roman', serif;
+    font-size: 3.5rem;
+    line-height: 0.8;
+    margin-right: 0.5rem;
+    margin-top: 0.1rem;
+    color: #ffffff;
+}
+
+.text-shadow-sm {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
