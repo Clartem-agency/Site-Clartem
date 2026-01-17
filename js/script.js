@@ -1587,9 +1587,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (contextSection && tiltCard) {
 
-        // --- 1. GESTION DU TILT DE LA CARTE ---
+        
+// --- 1. GESTION DU TILT DE LA CARTE ---
         contextSection.addEventListener('mousemove', (e) => {
-            // A. PARALLAXE DU FOND (Points)
+            // A. PARALLAXE DU FOND (Inchangé)
             const centerX = window.innerWidth / 2;
             const centerY = window.innerHeight / 2;
             
@@ -1600,36 +1601,30 @@ document.addEventListener('DOMContentLoaded', function () {
                 layer.style.transform = `translate(${x}px, ${y}px)`;
             });
 
-            // B. TILT DE LA CARTE 3D
+            // B. TILT DE LA CARTE 3D (Inchangé)
             const cardRect = tiltCard.getBoundingClientRect();
-            
-            // Calculer la position de la souris RELATIVE à la carte
             const cardCenterX = cardRect.left + cardRect.width / 2;
             const cardCenterY = cardRect.top + cardRect.height / 2;
-
             const mouseX = e.clientX - cardCenterX;
             const mouseY = e.clientY - cardCenterY;
 
-            // Calcul de la rotation (Max 10 degrés pour rester élégant)
-            // Note : Pour tourner vers la droite, on tourne autour de l'axe Y positivement
-            // Pour tourner vers le haut, on tourne autour de l'axe X négativement (inverse)
-            const rotateX = ((mouseY / cardRect.height) * -10).toFixed(2); // Axe X (Haut/Bas)
-            const rotateY = ((mouseX / cardRect.width) * 10).toFixed(2);   // Axe Y (Gauche/Droite)
+            // Rotation (Max 8 degrés pour être subtil)
+            const rotateX = ((mouseY / cardRect.height) * -8).toFixed(2);
+            const rotateY = ((mouseX / cardRect.width) * 8).toFixed(2);
 
-            // Application de la transformation
-            // On retire la classe de reset pour que ce soit instantané
             tiltCard.classList.remove('is-resetting');
             tiltCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 
-            // C. GESTION DU REFLET (GLARE)
-            if (glare) {
-                // Le reflet bouge à l'opposé de la souris
-                const glareX = (mouseX / cardRect.width) * 100;
-                const glareY = (mouseY / cardRect.height) * 100;
-                // On déplace le gradient et on change son angle
-                glare.style.transform = `translate(${glareX}%, ${glareY}%)`;
-            }
+            // C. GESTION DU REFLET (NOUVELLE MÉTHODE)
+            // On calcule la position de la souris en pixels par rapport au coin haut/gauche de la carte
+            const relativeX = e.clientX - cardRect.left;
+            const relativeY = e.clientY - cardRect.top;
+
+            // On injecte ces valeurs dans des variables CSS sur la carte
+            tiltCard.style.setProperty('--mouse-x', `${relativeX}px`);
+            tiltCard.style.setProperty('--mouse-y', `${relativeY}px`);
         });
+
 
         // --- 2. RESET QUAND ON QUITTE LA ZONE ---
         contextSection.addEventListener('mouseleave', () => {
