@@ -2229,3 +2229,49 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     80% { transform: skew(1deg); }
     100% { transform: skew(0deg); }
 }
+
+
+
+
+/* ======================================================= */
+/*    STYLE CONTEXTE : GLASSMORPHISM & ÉDITORIAL           */
+/* ======================================================= */
+
+/* 1. La Carte de Verre (Frosted Glass) */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03); /* Fond très transparent */
+    backdrop-filter: blur(16px);           /* Le flou "Givré" */
+    -webkit-backdrop-filter: blur(16px);   /* Support Safari */
+    box-shadow: 
+        0 4px 30px rgba(0, 0, 0, 0.1),     /* Ombre douce */
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05); /* Bordure interne fine */
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Petit effet de levitation "Apple" au survol */
+.glass-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 10px 40px -10px rgba(0, 0, 0, 0.3),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1); /* La bordure s'éclaire légèrement */
+}
+
+/* 2. La Lettrine (Drop Cap) - Style Livre de Luxe */
+.drop-cap {
+    float: left;
+    font-family: 'Times New Roman', serif; /* Police Serif pour le contraste */
+    font-size: 3.5rem;
+    line-height: 0.8;
+    margin-right: 0.5rem;
+    margin-top: 0.1rem;
+    color: #ffffff; /* Blanc pur */
+    font-weight: 400;
+}
+
+/* 3. Ajustement de lecture "Premium" */
+.editorial-text {
+    /* On assure une couleur pas trop blanche (gris-300) pour ne pas agresser l'œil */
+    /* Le lissage de police est essentiel pour le rendu fin */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
