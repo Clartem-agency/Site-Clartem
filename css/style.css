@@ -2312,3 +2312,73 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 .text-shadow-sm {
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
+
+
+
+
+
+
+
+/* ======================================================= */
+/*    DÉCOR SPATIAL (PROFONDEUR TIMELINE)                  */
+/* ======================================================= */
+
+/* 1. Les Étoiles Fixes (Effet FPV) */
+/* L'astuce est 'background-attachment: fixed'. 
+   Les étoiles restent collées à l'écran pendant que le texte défile. */
+.stars-fixed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Génération de poussière d'étoiles via des dégradés radiaux multiples */
+    background-image: 
+        radial-gradient(1px 1px at 10% 10%, rgba(255, 255, 255, 0.8) 50%, transparent 100%),
+        radial-gradient(1px 1px at 20% 80%, rgba(255, 255, 255, 0.6) 50%, transparent 100%),
+        radial-gradient(2px 2px at 30% 40%, rgba(255, 255, 255, 0.5) 50%, transparent 100%),
+        radial-gradient(1px 1px at 40% 20%, rgba(255, 255, 255, 0.7) 50%, transparent 100%),
+        radial-gradient(2px 2px at 50% 60%, rgba(255, 255, 255, 0.4) 50%, transparent 100%),
+        radial-gradient(1px 1px at 60% 90%, rgba(255, 255, 255, 0.6) 50%, transparent 100%),
+        radial-gradient(2px 2px at 70% 30%, rgba(255, 255, 255, 0.5) 50%, transparent 100%),
+        radial-gradient(1px 1px at 80% 50%, rgba(255, 255, 255, 0.7) 50%, transparent 100%),
+        radial-gradient(1px 1px at 90% 10%, rgba(255, 255, 255, 0.8) 50%, transparent 100%);
+        
+    background-size: 500px 500px; /* Répétition du motif */
+    background-attachment: fixed; /* C'EST LA CLÉ DE L'EFFET FPV */
+    opacity: 0.4; /* Discret pour ne pas gêner la lecture */
+}
+
+/* 2. La Lueur Cosmique (Profondeur Spirituelle) */
+/* Une lumière qui semble très loin derrière */
+.cosmic-glow {
+    position: fixed; /* Reste au même endroit sur l'écran = sensation de lointain */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;  /* Très large */
+    height: 60vh; /* Très haut */
+    border-radius: 50%;
+    
+    /* Un bleu profond/violet très subtil */
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+    
+    filter: blur(60px);
+    z-index: 0;
+    pointer-events: none;
+    
+    /* Animation de respiration lente (Spiritualité) */
+    animation: cosmicPulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes cosmicPulse {
+    0% {
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    100% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
