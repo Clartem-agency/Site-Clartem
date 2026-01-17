@@ -2271,11 +2271,26 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     transform: translateZ(20px); /* Le texte "sort" de la carte de 20px */
 }
 
-/* 4. Le Reflet Lumineux (Glare) */
+
+
 .card-glare {
-    mix-blend-mode: overlay; /* Incrustation lumineuse */
-    filter: blur(5px);
+    /* On crée une lumière ronde qui suit la souris via les variables */
+    background: radial-gradient(
+        800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(255, 255, 255, 0.12),
+        transparent 40%
+    );
+    /* Incrustation lumineuse */
+    mix-blend-mode: overlay;
+    
+    /* On s'assure qu'il couvre bien toute la carte sans bouger */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
+
+
 
 /* Typo éditoriale (inchangé) */
 .drop-cap {
