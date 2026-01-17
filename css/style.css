@@ -2350,35 +2350,62 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     opacity: 0.4; /* Discret pour ne pas gêner la lecture */
 }
 
-/* 2. La Lueur Cosmique (Profondeur Spirituelle) */
-/* Une lumière qui semble très loin derrière */
+
+
+/* 2. Les Nébuleuses (Le paysage lointain) */
 .cosmic-glow {
-    position: fixed; /* Reste au même endroit sur l'écran = sensation de lointain */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60vw;  /* Très large */
-    height: 60vh; /* Très haut */
-    border-radius: 50%;
-    
-    /* Un bleu profond/violet très subtil */
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
-    
-    filter: blur(60px);
+    position: fixed; /* Reste fixe à l'écran = Effet FPV */
     z-index: 0;
     pointer-events: none;
-    
-    /* Animation de respiration lente (Spiritualité) */
-    animation: cosmicPulse 8s ease-in-out infinite alternate;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
 
-@keyframes cosmicPulse {
+/* Nébuleuse 1 : La Clarté (Bleue) - Décalée à Droite */
+.cosmic-glow::before {
+    content: '';
+    position: absolute;
+    top: 20%;      /* Située dans le tiers haut */
+    right: -10%;   /* Déborde sur la droite */
+    width: 60vw;
+    height: 60vw;
+    border-radius: 50%;
+    
+    /* Bleu profond, plus visible */
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, rgba(15, 23, 42, 0) 70%);
+    filter: blur(80px);
+    
+    /* Respiration lente */
+    animation: nebulaFloat 10s ease-in-out infinite alternate;
+}
+
+/* Nébuleuse 2 : La Vie (Orange) - Décalée à Gauche */
+.cosmic-glow::after {
+    content: '';
+    position: absolute;
+    bottom: 10%;   /* Située dans le tiers bas */
+    left: -10%;    /* Déborde sur la gauche */
+    width: 50vw;
+    height: 50vw;
+    border-radius: 50%;
+    
+    /* Orange chaud très subtil (contraste spirituel) */
+    background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+    filter: blur(80px);
+    
+    /* Respiration décalée */
+    animation: nebulaFloat 12s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes nebulaFloat {
     0% {
-        opacity: 0.3;
-        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.5;
+        transform: scale(1);
     }
     100% {
-        opacity: 0.6;
-        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.8; /* Devient plus lumineux */
+        transform: scale(1.1);
     }
 }
