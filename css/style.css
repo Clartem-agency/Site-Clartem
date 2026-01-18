@@ -2483,26 +2483,27 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 /* ======================================================= */
-/*    STYLE CARTE STARDUST (CORRIGÉ : FINESSE & OPACITÉ)   */
+/*    STYLE CARTE STARDUST (CORRIGÉ : EFFET FLOTTANT)      */
 /* ======================================================= */
 
 .stardust-card {
     position: relative;
-    /* CORRECTION OPACITÉ : Fond sombre quasi-opaque (Deep Blue) */
+    /* Fond sombre quasi-opaque (Deep Blue) */
     background-color: rgba(15, 23, 42, 0.95); 
     
-    /* Ajout d'un grain subtil ou dégradé très léger pour la texture */
+    /* Grain subtil ou dégradé très léger pour la texture */
     background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 100%);
     
-    backdrop-filter: blur(10px); /* Flou d'arrière-plan pour lisser ce qui est derrière */
-    border-radius: 12px; /* Arrondi un peu plus serré pour la finesse */
-    padding: 1.25rem;    /* Padding réduit (était 1.5rem) */
+    backdrop-filter: blur(10px); /* Flou d'arrière-plan */
+    border-radius: 12px; /* Arrondi fin */
+    padding: 1.25rem;    /* Padding compact */
     
     /* Bordure fine et discrète */
     border: 1px solid rgba(255, 255, 255, 0.08);
     
-    /* Ombre portée plus forte pour bien détacher du fond (Effet premier plan) */
-    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+    /* MODIFICATION MAJEURE : PAS D'OMBRE PORTÉE */
+    /* Dans l'espace, il n'y a pas de mur derrière pour projeter une ombre noire */
+    box-shadow: none;
     
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -2511,12 +2512,17 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     pointer-events: auto; 
 }
 
-/* CORRECTION BUG HOVER : On cible la carte elle-même, pas le groupe parent */
+/* Au survol */
 .stardust-card:hover {
-    border-color: rgba(255, 255, 255, 0.3); /* Bordure s'illumine */
+    border-color: rgba(255, 255, 255, 0.4); /* Bordure s'illumine */
     background-color: rgba(15, 23, 42, 1); /* Devient totalement opaque */
-    box-shadow: 0 15px 40px -5px rgba(0, 0, 0, 0.7); /* L'ombre grandit */
-    transform: translateY(-3px);
+    
+    /* EFFET GLOW (Lueur) au lieu d'ombre */
+    /* Simule la réflexion de la lumière autour de l'objet flottant */
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.08); 
+    
+    /* On avance légèrement vers la caméra */
+    transform: translateY(-2px) scale(1.01);
 }
 
 /* La traînée de comète en haut (plus fine) */
@@ -2534,7 +2540,7 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     color: white;
     opacity: 0; 
     pointer-events: none;
-    width: 10px; /* Réduit la taille des étoiles */
+    width: 10px; /* Taille réduite */
     height: 10px;
 }
 
