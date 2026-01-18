@@ -2482,7 +2482,7 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 /* ======================================================= */
-/*    STYLE CARTE STARDUST (OBSIDIENNE / NEUTRE CHAUD)     */
+/*    STYLE CARTE STARDUST (OBSIDIENNE SPATIALE - SANS OMBRE) */
 /* ======================================================= */
 
 .stardust-card {
@@ -2490,54 +2490,52 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     width: 100%;
     max-width: 480px; 
     
-    /* MODIFICATION MAJEURE ICI : LE FOND */
-    /* On utilise des teintes "Stone" (Gris chaud) au lieu de bleu */
+    /* FOND : On garde ce ton "Pierre/Métal" neutre pour couper avec le bleu */
     background: linear-gradient(
-        145deg, 
-        rgba(255, 255, 255, 0.12) 0%,   /* Reflet lumineux blanc net */
-        rgba(40, 40, 40, 0.7) 40%,      /* Gris neutre dense au milieu */
-        rgba(10, 10, 10, 0.9) 100%      /* Noir quasi pur en bas pour l'ancrage */
+        160deg, 
+        rgba(255, 255, 255, 0.1) 0%,    /* Reflet haut */
+        rgba(50, 50, 50, 0.6) 40%,      /* Gris neutre dense */
+        rgba(15, 15, 15, 0.8) 100%      /* Base sombre */
     );
     
-    /* On garde le flou pour l'intégration, mais on l'augmente un peu */
-    backdrop-filter: blur(16px); 
-    -webkit-backdrop-filter: blur(16px);
+    /* Flou d'arrière-plan pour que les étoiles derrière soient "floutées" par la vitre/matière */
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
     
     border-radius: 16px;
     padding: 1.5rem 2rem;
     
-    /* BORDURES : Plus fines mais plus contrastées (aspect verre découpé) */
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-top: 1px solid rgba(255, 255, 255, 0.3); /* Lumière zénithale */
-    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    /* BORDURES LUMINEUSES (RIM LIGHT) - C'est ça qui remplace l'ombre */
+    border: 1px solid rgba(255, 255, 255, 0.1);       /* Contour général fin */
+    border-top: 1px solid rgba(255, 255, 255, 0.4);   /* Lumière forte en haut (comme une étoile au dessus) */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);      /* Le bas est dans l'ombre de l'objet lui-même */
     
-    /* OMBRES : On ajoute une ombre portée noire pour décoller la carte du fond bleu */
-    box-shadow: 
-        0 20px 40px -10px rgba(0, 0, 0, 0.6), /* Ombre portée forte */
-        inset 0 0 20px rgba(0, 0, 0, 0.5);    /* Ombre interne pour la densité */
+    /* ZÉRO OMBRE PORTÉE. Juste une ombre INTERNE pour donner de l'épaisseur à l'objet */
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5);
     
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     pointer-events: auto; 
 }
 
-/* Au survol : La carte s'allume légèrement en teinte chaude */
+/* Au survol */
 .stardust-card:hover {
-    /* Le dégradé s'éclaircit légèrement vers le chaud */
+    /* On éclaircit légèrement la matière */
     background: linear-gradient(
-        145deg, 
-        rgba(255, 255, 255, 0.18) 0%, 
-        rgba(60, 55, 50, 0.8) 50%,    /* Légère teinte marron/gris chaud */
-        rgba(20, 20, 20, 1) 100%
+        160deg, 
+        rgba(255, 255, 255, 0.15) 0%, 
+        rgba(70, 65, 60, 0.7) 50%,    /* Légère chaleur organique (brun/gris) */
+        rgba(20, 20, 20, 0.9) 100%
     );
     
-    border-color: rgba(255, 255, 255, 0.4);
-    transform: translateY(-4px) scale(1.02);
+    border-top-color: rgba(255, 255, 255, 0.7); /* L'arête brille plus fort */
+    transform: translateY(-2px) scale(1.01); /* Mouvement très léger, comme en apesanteur */
     
-    /* Lueur chaude (Warm Orange très subtil) au survol */
+    /* Au lieu d'une ombre noire, on met une lueur DIFFUSE (Glow) */
+    /* Comme si l'objet reflétait un peu l'ambiance */
     box-shadow: 
-        0 25px 50px -12px rgba(0, 0, 0, 0.8),
-        0 0 30px rgba(249, 115, 22, 0.15); /* Petit halo orange qui rappelle ton branding */
+        inset 0 0 30px rgba(0, 0, 0, 0.3), /* On réduit l'ombre interne */
+        0 0 20px rgba(255, 255, 255, 0.05); /* Très léger halo externe (atmosphère) */
 }
 
 
