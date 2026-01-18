@@ -2482,7 +2482,7 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 /* ======================================================= */
-/*    STYLE CARTE STARDUST (PREMIUM SPACE - NO SHADOW)     */
+/*    STYLE CARTE STARDUST (OBSIDIENNE / NEUTRE CHAUD)     */
 /* ======================================================= */
 
 .stardust-card {
@@ -2490,64 +2490,56 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     width: 100%;
     max-width: 480px; 
     
-    /* FOND SATINÉ */
+    /* MODIFICATION MAJEURE ICI : LE FOND */
+    /* On utilise des teintes "Stone" (Gris chaud) au lieu de bleu */
     background: linear-gradient(
-        135deg, 
-        rgba(255, 255, 255, 0.08) 0%, 
-        rgba(30, 41, 59, 0.6) 50%, 
-        rgba(15, 23, 42, 0.8) 100%
+        145deg, 
+        rgba(255, 255, 255, 0.12) 0%,   /* Reflet lumineux blanc net */
+        rgba(40, 40, 40, 0.7) 40%,      /* Gris neutre dense au milieu */
+        rgba(10, 10, 10, 0.9) 100%      /* Noir quasi pur en bas pour l'ancrage */
     );
     
-    backdrop-filter: blur(12px); 
-    -webkit-backdrop-filter: blur(12px);
+    /* On garde le flou pour l'intégration, mais on l'augmente un peu */
+    backdrop-filter: blur(16px); 
+    -webkit-backdrop-filter: blur(16px);
     
     border-radius: 16px;
     padding: 1.5rem 2rem;
     
-    /* BORDURES LUMINEUSES (Rim Light) */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-top: 1px solid rgba(255, 255, 255, 0.2); 
-    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    /* BORDURES : Plus fines mais plus contrastées (aspect verre découpé) */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: 1px solid rgba(255, 255, 255, 0.3); /* Lumière zénithale */
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
     
-    /* CORRECTION : PLUS D'OMBRE NOIRE */
-    /* On garde uniquement un reflet interne pour le volume du verre */
-    box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.02);
+    /* OMBRES : On ajoute une ombre portée noire pour décoller la carte du fond bleu */
+    box-shadow: 
+        0 20px 40px -10px rgba(0, 0, 0, 0.6), /* Ombre portée forte */
+        inset 0 0 20px rgba(0, 0, 0, 0.5);    /* Ombre interne pour la densité */
     
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     pointer-events: auto; 
 }
 
-/* Au survol */
+/* Au survol : La carte s'allume légèrement en teinte chaude */
 .stardust-card:hover {
+    /* Le dégradé s'éclaircit légèrement vers le chaud */
     background: linear-gradient(
-        135deg, 
-        rgba(255, 255, 255, 0.12) 0%, 
-        rgba(40, 55, 80, 0.7) 50%, 
-        rgba(15, 23, 42, 0.9) 100%
+        145deg, 
+        rgba(255, 255, 255, 0.18) 0%, 
+        rgba(60, 55, 50, 0.8) 50%,    /* Légère teinte marron/gris chaud */
+        rgba(20, 20, 20, 1) 100%
     );
     
-    border-color: rgba(255, 255, 255, 0.3);
-    border-top-color: rgba(255, 255, 255, 0.6); 
-    
-    /* REMPLACEMENT DE L'OMBRE PAR UNE AURA (GLOW) */
-    /* Au lieu de projeter du noir derrière, on projette une lueur blanche autour */
-    box-shadow: 
-        0 0 25px rgba(255, 255, 255, 0.05), /* Lueur externe subtile */
-        inset 0 0 20px rgba(255, 255, 255, 0.08); /* Reflet interne plus fort */
-    
+    border-color: rgba(255, 255, 255, 0.4);
     transform: translateY(-4px) scale(1.02);
+    
+    /* Lueur chaude (Warm Orange très subtil) au survol */
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.8),
+        0 0 30px rgba(249, 115, 22, 0.15); /* Petit halo orange qui rappelle ton branding */
 }
 
-
-
-/* Trait de séparation satiné */
-.stardust-line {
-    width: 40px;
-    height: 1px;
-    background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.6), rgba(255,255,255,0));
-    margin-top: 10px;
-}
 
 
 
