@@ -2564,3 +2564,59 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.4), rgba(255,255,255,0));
     margin-top: 8px;
 }
+
+
+
+
+
+/* ======================================================= */
+/*          EFFETS SPÉCIAUX CHAPITRE 16 (Nexus)       */
+/* ======================================================= */
+
+
+/* 1. Animation du Ping lent pour le radar */
+@keyframes ping-slow {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(3); opacity: 0; }
+}
+.animate-ping-slow {
+    animation: ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* 2. Ligne de scan (Effet Sci-Fi doux) */
+@keyframes scan-vertical {
+    0% { top: 0%; opacity: 0; }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.5; }
+    100% { top: 100%; opacity: 0; }
+}
+.scan-line {
+    animation: scan-vertical 4s linear infinite;
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+}
+
+/* 3. Texte scintillant pour "Clartem" */
+@keyframes shimmer-text {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+.animate-shimmer {
+    background-size: 200% auto;
+    /* Un dégradé qui passe du vert au blanc et revient au vert */
+    background-image: linear-gradient(to right, #16A34A 0%, #ffffff 50%, #16A34A 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer-text 3s linear infinite;
+}
+
+/* 4. Nexus Card (Le conteneur du texte) */
+.nexus-card {
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 0 1px rgba(22, 163, 74, 0.1), inset 0 0 20px rgba(22, 163, 74, 0.05);
+}
+
+/* Interaction au survol : La carte s'illumine légèrement */
+.group:hover .nexus-card {
+    box-shadow: 0 0 0 1px rgba(22, 163, 74, 0.3), inset 0 0 30px rgba(22, 163, 74, 0.1);
+}
