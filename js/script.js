@@ -1256,7 +1256,7 @@ document.addEventListener('DOMContentLoaded', function () {
         
         // --- TRAÎNÉE (MODIFIÉE : Effet Comète Fluide) ---
         // On augmente le nombre de points pour combler les vides
-        const TRAIL_LENGTH = 100; 
+        const TRAIL_LENGTH = 120; 
         const trailPieces = [];
 
         for (let i = 0; i < TRAIL_LENGTH; i++) {
