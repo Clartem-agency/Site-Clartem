@@ -2321,84 +2321,81 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 /* ======================================================= */
-/*    DÉCOR SPATIAL (PROFONDEUR TIMELINE)                  */
+/*    DÉCOR SPATIAL (PROFONDEUR TIMELINE) - CORRIGÉ        */
 /* ======================================================= */
 
-/* 1. Les Étoiles Fixes (Effet FPV) */
-/* L'astuce est 'background-attachment: fixed'. 
-   Les étoiles restent collées à l'écran pendant que le texte défile. */
+/* 1. Les Étoiles Fixes (DOIVENT ÊTRE DEVANT LES LUEURS) */
 .stars-fixed {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 1; /* IMPORTANT : Au-dessus des lueurs */
     
-    /* Génération de poussière d'étoiles via des dégradés radiaux multiples */
     background-image: 
-        radial-gradient(1px 1px at 10% 10%, rgba(255, 255, 255, 0.8) 50%, transparent 100%),
-        radial-gradient(1px 1px at 20% 80%, rgba(255, 255, 255, 0.6) 50%, transparent 100%),
-        radial-gradient(2px 2px at 30% 40%, rgba(255, 255, 255, 0.5) 50%, transparent 100%),
-        radial-gradient(1px 1px at 40% 20%, rgba(255, 255, 255, 0.7) 50%, transparent 100%),
-        radial-gradient(2px 2px at 50% 60%, rgba(255, 255, 255, 0.4) 50%, transparent 100%),
-        radial-gradient(1px 1px at 60% 90%, rgba(255, 255, 255, 0.6) 50%, transparent 100%),
-        radial-gradient(2px 2px at 70% 30%, rgba(255, 255, 255, 0.5) 50%, transparent 100%),
-        radial-gradient(1px 1px at 80% 50%, rgba(255, 255, 255, 0.7) 50%, transparent 100%),
-        radial-gradient(1px 1px at 90% 10%, rgba(255, 255, 255, 0.8) 50%, transparent 100%);
+        radial-gradient(1px 1px at 10% 10%, rgba(255, 255, 255, 0.9) 50%, transparent 100%),
+        radial-gradient(1px 1px at 20% 80%, rgba(255, 255, 255, 0.7) 50%, transparent 100%),
+        radial-gradient(2px 2px at 30% 40%, rgba(255, 255, 255, 0.6) 50%, transparent 100%),
+        radial-gradient(1px 1px at 40% 20%, rgba(255, 255, 255, 0.8) 50%, transparent 100%),
+        radial-gradient(2px 2px at 50% 60%, rgba(255, 255, 255, 0.5) 50%, transparent 100%),
+        radial-gradient(1px 1px at 60% 90%, rgba(255, 255, 255, 0.7) 50%, transparent 100%),
+        radial-gradient(2px 2px at 70% 30%, rgba(255, 255, 255, 0.6) 50%, transparent 100%),
+        radial-gradient(1px 1px at 80% 50%, rgba(255, 255, 255, 0.8) 50%, transparent 100%),
+        radial-gradient(1px 1px at 90% 10%, rgba(255, 255, 255, 0.9) 50%, transparent 100%);
         
-    background-size: 500px 500px; /* Répétition du motif */
-    background-attachment: fixed; /* C'EST LA CLÉ DE L'EFFET FPV */
-    opacity: 0.4; /* Discret pour ne pas gêner la lecture */
+    background-size: 500px 500px;
+    background-attachment: fixed; 
+    opacity: 0.6; /* Un peu plus visible maintenant qu'elles sont devant */
 }
 
-
-
-/* 2. Les Nébuleuses (Le paysage lointain) */
+/* 2. Les Nébuleuses (DOIVENT ÊTRE TOUT AU FOND) */
 .cosmic-glow {
-    position: fixed; /* Reste fixe à l'écran = Effet FPV */
-    z-index: 0;
+    position: fixed; 
+    z-index: 0; /* IMPORTANT : Tout au fond */
     pointer-events: none;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
+    /* Ajout d'un mix-blend-mode pour que la couleur s'incruste mieux dans le noir */
+    mix-blend-mode: screen; 
 }
 
-/* Nébuleuse 1 : La Clarté (Bleue) - Décalée à Droite */
+/* Nébuleuse 1 : La Clarté (Bleue) */
 .cosmic-glow::before {
     content: '';
     position: absolute;
-    top: 20%;      /* Située dans le tiers haut */
-    right: -10%;   /* Déborde sur la droite */
+    top: 10%;      
+    right: -20%;   /* On la pousse un peu plus loin */
+    width: 70vw;   /* Plus large mais plus diffuse */
+    height: 70vw;
+    border-radius: 50%;
+    
+    /* Opacité réduite (0.15 au lieu de 0.25) pour éviter l'effet "buée" */
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(15, 23, 42, 0) 60%);
+    filter: blur(100px); /* Flou augmenté pour la douceur */
+    
+    animation: nebulaFloat 10s ease-in-out infinite alternate;
+}
+
+/* Nébuleuse 2 : La Vie (Orange) */
+.cosmic-glow::after {
+    content: '';
+    position: absolute;
+    bottom: 0%;   
+    left: -20%;    /* On la pousse un peu plus loin */
     width: 60vw;
     height: 60vw;
     border-radius: 50%;
     
-    /* Bleu profond, plus visible */
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, rgba(15, 23, 42, 0) 70%);
-    filter: blur(80px);
+    /* Opacité réduite (0.10 au lieu de 0.15) */
+    background: radial-gradient(circle, rgba(249, 115, 22, 0.10) 0%, rgba(15, 23, 42, 0) 60%);
+    filter: blur(100px);
     
-    /* Respiration lente */
-    animation: nebulaFloat 10s ease-in-out infinite alternate;
-}
-
-/* Nébuleuse 2 : La Vie (Orange) - Décalée à Gauche */
-.cosmic-glow::after {
-    content: '';
-    position: absolute;
-    bottom: 10%;   /* Située dans le tiers bas */
-    left: -10%;    /* Déborde sur la gauche */
-    width: 50vw;
-    height: 50vw;
-    border-radius: 50%;
-    
-    /* Orange chaud très subtil (contraste spirituel) */
-    background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
-    filter: blur(80px);
-    
-    /* Respiration décalée */
     animation: nebulaFloat 12s ease-in-out infinite alternate-reverse;
 }
+
 
 @keyframes nebulaFloat {
     0% {
