@@ -1251,7 +1251,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Physique Y
         const LERP_Y = 0.12;
         const STRETCH_FORCE = 0.1;
-        const MAGNET_RANGE = 180;
+        const MAGNET_RANGE = 400;
 
         
         // --- TRAÎNÉE (MODIFIÉE : Effet Comète Fluide) ---
@@ -1328,7 +1328,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let finalTargetY = constrainedTargetY;
             let isLocked = false;
 
-            const LOCK_RANGE = 100;
+            const LOCK_RANGE = 300;
 
             if (closestPointY !== null && minDistance < MAGNET_RANGE) {
                 const offset = constrainedTargetY - closestPointY;
