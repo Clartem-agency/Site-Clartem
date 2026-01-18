@@ -1438,7 +1438,7 @@ document.addEventListener('DOMContentLoaded', function () {
             trailPieces.forEach((piece, index) => {
                 // CORRECTION 1 : On ralentit la traînée (0.18 au lieu de 0.35)
                 // Elle aura plus d'inertie et restera bien derrière l'âme lors des accélérations
-                const stiffness = 0.36; 
+                const stiffness = 0.45; 
 
                 // Physique
                 piece.x += (trailTargetX - piece.x) * stiffness;
