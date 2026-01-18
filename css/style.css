@@ -2543,25 +2543,6 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 }
 
 
-/* Les étoiles (Sparkles) - Inchangé */
-.star-sparkle {
-    position: absolute;
-    color: white;
-    opacity: 0; 
-    pointer-events: none;
-    width: 12px; /* Un peu plus grand */
-    height: 12px;
-}
-.stardust-card:hover .star-sparkle {
-    animation: twinkle 2s infinite ease-in-out;
-}
-
-@keyframes twinkle {
-    0%, 100% { opacity: 0.2; transform: scale(0.8); }
-    50% { opacity: 0.9; transform: scale(1.2); filter: drop-shadow(0 0 5px white); }
-}
-.stardust-card .star-top-right { top: 10px; right: 10px; }
-.stardust-card .star-bottom-left { bottom: 10px; left: 10px; animation-delay: 1s; }
 
 /* Trait de séparation satiné */
 .stardust-line {
