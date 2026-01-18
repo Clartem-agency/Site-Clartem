@@ -1328,7 +1328,7 @@ document.addEventListener('DOMContentLoaded', function () {
             let finalTargetY = constrainedTargetY;
             let isLocked = false;
 
-            const LOCK_RANGE = 300;
+            const LOCK_RANGE = 200;
 
             if (closestPointY !== null && minDistance < MAGNET_RANGE) {
                 const offset = constrainedTargetY - closestPointY;
