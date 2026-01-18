@@ -2483,82 +2483,78 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 /* ======================================================= */
-/*    NOUVEAU STYLE : CARTES CITATIONS "STARDUST"          */
+/*    STYLE CARTE STARDUST (CORRIGÉ : FINESSE & OPACITÉ)   */
 /* ======================================================= */
 
 .stardust-card {
     position: relative;
-    /* Fond très sombre mais transparent pour laisser passer le fond étoilé derrière */
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
-    backdrop-filter: blur(4px); /* Léger flou pour la lisibilité */
-    border-radius: 16px;
-    padding: 1.5rem;
+    /* CORRECTION OPACITÉ : Fond sombre quasi-opaque (Deep Blue) */
+    background-color: rgba(15, 23, 42, 0.95); 
     
-    /* Bordure très subtile, presque invisible sauf les reflets */
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    /* Ajout d'un grain subtil ou dégradé très léger pour la texture */
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 100%);
+    
+    backdrop-filter: blur(10px); /* Flou d'arrière-plan pour lisser ce qui est derrière */
+    border-radius: 12px; /* Arrondi un peu plus serré pour la finesse */
+    padding: 1.25rem;    /* Padding réduit (était 1.5rem) */
+    
+    /* Bordure fine et discrète */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    
+    /* Ombre portée plus forte pour bien détacher du fond (Effet premier plan) */
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
     
     overflow: hidden;
-    transition: all 0.5s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    /* Important pour que le hover ne se déclenche que sur la carte */
+    pointer-events: auto; 
 }
 
-/* Effet de survol : La carte s'illumine légèrement */
-.group:hover .stardust-card {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
-    border-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-    transform: translateY(-2px);
+/* CORRECTION BUG HOVER : On cible la carte elle-même, pas le groupe parent */
+.stardust-card:hover {
+    border-color: rgba(255, 255, 255, 0.3); /* Bordure s'illumine */
+    background-color: rgba(15, 23, 42, 1); /* Devient totalement opaque */
+    box-shadow: 0 15px 40px -5px rgba(0, 0, 0, 0.7); /* L'ombre grandit */
+    transform: translateY(-3px);
 }
 
-/* LA TRAÎNÉE DE COMÈTE (Bordure haute lumineuse) */
+/* La traînée de comète en haut (plus fine) */
 .stardust-card::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    /* Un dégradé qui part du centre vers les bords, comme une lumière qui s'étale */
-    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.8) 50%, transparent 100%);
-    opacity: 0.5;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.6) 50%, transparent 100%);
+    opacity: 0.3;
 }
 
-/* LES ÉTINCELLES (SPARKLES) */
+/* Les étoiles (Sparkles) */
 .star-sparkle {
     position: absolute;
     color: white;
-    opacity: 0; /* Invisible par défaut */
+    opacity: 0; 
     pointer-events: none;
-    filter: drop-shadow(0 0 2px white);
+    width: 10px; /* Réduit la taille des étoiles */
+    height: 10px;
 }
 
-/* Animation de scintillement */
+/* Apparition des étoiles au survol de la CARTE uniquement */
+.stardust-card:hover .star-sparkle {
+    animation: twinkle 2s infinite ease-in-out;
+}
+
 @keyframes twinkle {
-    0%, 100% { opacity: 0.3; transform: scale(0.8); }
-    50% { opacity: 1; transform: scale(1.2); }
+    0%, 100% { opacity: 0.2; transform: scale(0.8); }
+    50% { opacity: 0.8; transform: scale(1.2); }
 }
 
-/* Positionnement des étoiles déco */
-.stardust-card .star-top-right {
-    top: 8px;
-    right: 8px;
-    width: 12px;
-    height: 12px;
-    animation: twinkle 3s infinite ease-in-out;
-}
+.stardust-card .star-top-right { top: 6px; right: 6px; }
+.stardust-card .star-bottom-left { bottom: 6px; left: 6px; animation-delay: 1s; }
 
-.stardust-card .star-bottom-left {
-    bottom: 8px;
-    left: 8px;
-    width: 8px;
-    height: 8px;
-    animation: twinkle 4s infinite ease-in-out 1s; /* Délai pour désynchroniser */
-}
-
-/* Le petit trait décoratif sous l'auteur */
+/* Trait de séparation plus fin */
 .stardust-line {
-    width: 40px;
+    width: 30px;
     height: 1px;
-    background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.5), rgba(255,255,255,0));
-    margin-top: 10px;
+    background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.4), rgba(255,255,255,0));
+    margin-top: 8px;
 }
