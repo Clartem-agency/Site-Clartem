@@ -2483,43 +2483,38 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 
+
 /* ======================================================= */
-/*    STYLE CARTE STARDUST (PREMIUM SATINÉ & LARGE)        */
+/*    STYLE CARTE STARDUST (PREMIUM SPACE - NO SHADOW)     */
 /* ======================================================= */
 
 .stardust-card {
     position: relative;
-    /* LARGEUR : On élargit pour uniformiser */
     width: 100%;
-    max-width: 480px; /* Beaucoup plus large qu'avant (c'était ~380px) */
+    max-width: 480px; 
     
-    /* FOND SATINÉ / VITRÉ */
-    /* Dégradé diagonal : Lumière blanche en haut à gauche -> Bleu sombre en bas à droite */
+    /* FOND SATINÉ */
     background: linear-gradient(
         135deg, 
-        rgba(255, 255, 255, 0.1) 0%, 
-        rgba(30, 41, 59, 0.7) 50%, 
-        rgba(15, 23, 42, 0.9) 100%
+        rgba(255, 255, 255, 0.08) 0%, 
+        rgba(30, 41, 59, 0.6) 50%, 
+        rgba(15, 23, 42, 0.8) 100%
     );
     
-    /* Flou d'arrière-plan plus intense (Frosted Glass) */
-    backdrop-filter: blur(16px); 
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
     
-    border-radius: 16px; /* Arrondi un peu plus doux */
-    padding: 1.5rem 2rem; /* Padding augmenté pour l'élégance */
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
     
-    /* BORDURE LUMINEUSE (Effet 3D subtil) */
+    /* BORDURES LUMINEUSES (Rim Light) */
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-top: 1px solid rgba(255, 255, 255, 0.25); /* Le haut capte la lumière */
-    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.2); 
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
     
-    /* OMBRE & PROFONDEUR */
-    /* 1. Ombre portée douce */
-    /* 2. Ombre interne (Inset) pour l'effet satiné/verre */
-    box-shadow: 
-        0 15px 35px -10px rgba(0, 0, 0, 0.6),
-        inset 0 0 20px rgba(255, 255, 255, 0.03);
+    /* CORRECTION : PLUS D'OMBRE NOIRE */
+    /* On garde uniquement un reflet interne pour le volume du verre */
+    box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.02);
     
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -2528,25 +2523,25 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 /* Au survol */
 .stardust-card:hover {
-    /* On éclaircit légèrement le fond */
     background: linear-gradient(
         135deg, 
-        rgba(255, 255, 255, 0.15) 0%, 
-        rgba(40, 55, 80, 0.8) 50%, 
-        rgba(15, 23, 42, 0.95) 100%
+        rgba(255, 255, 255, 0.12) 0%, 
+        rgba(40, 55, 80, 0.7) 50%, 
+        rgba(15, 23, 42, 0.9) 100%
     );
     
     border-color: rgba(255, 255, 255, 0.3);
-    border-top-color: rgba(255, 255, 255, 0.5); /* Éclat plus fort */
+    border-top-color: rgba(255, 255, 255, 0.6); 
     
-    /* Glow externe blanc/bleuté */
+    /* REMPLACEMENT DE L'OMBRE PAR UNE AURA (GLOW) */
+    /* Au lieu de projeter du noir derrière, on projette une lueur blanche autour */
     box-shadow: 
-        0 20px 40px -10px rgba(0, 0, 0, 0.7),
-        0 0 30px rgba(255, 255, 255, 0.1),
-        inset 0 0 20px rgba(255, 255, 255, 0.05);
+        0 0 25px rgba(255, 255, 255, 0.05), /* Lueur externe subtile */
+        inset 0 0 20px rgba(255, 255, 255, 0.08); /* Reflet interne plus fort */
     
     transform: translateY(-4px) scale(1.02);
 }
+
 
 /* Les étoiles (Sparkles) - Inchangé */
 .star-sparkle {
@@ -2560,6 +2555,7 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 .stardust-card:hover .star-sparkle {
     animation: twinkle 2s infinite ease-in-out;
 }
+
 @keyframes twinkle {
     0%, 100% { opacity: 0.2; transform: scale(0.8); }
     50% { opacity: 0.9; transform: scale(1.2); filter: drop-shadow(0 0 5px white); }
