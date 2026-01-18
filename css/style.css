@@ -2482,88 +2482,76 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 
+
+
 /* ======================================================= */
-/*    STYLE CARTE STARDUST (CORRIGÉ : EFFET FLOTTANT)      */
+/*    STYLE CARTE STARDUST (PREMIUM SPACE - NO SHADOW)     */
 /* ======================================================= */
 
 .stardust-card {
     position: relative;
-    /* Fond sombre quasi-opaque (Deep Blue) */
-    background-color: rgba(15, 23, 42, 0.95); 
+    width: 100%;
+    max-width: 480px; 
     
-    /* Grain subtil ou dégradé très léger pour la texture */
-    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 100%);
+    /* FOND SATINÉ */
+    background: linear-gradient(
+        135deg, 
+        rgba(255, 255, 255, 0.08) 0%, 
+        rgba(30, 41, 59, 0.6) 50%, 
+        rgba(15, 23, 42, 0.8) 100%
+    );
     
-    backdrop-filter: blur(10px); /* Flou d'arrière-plan */
-    border-radius: 12px; /* Arrondi fin */
-    padding: 1.25rem;    /* Padding compact */
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
     
-    /* Bordure fine et discrète */
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
     
-    /* MODIFICATION MAJEURE : PAS D'OMBRE PORTÉE */
-    /* Dans l'espace, il n'y a pas de mur derrière pour projeter une ombre noire */
-    box-shadow: none;
+    /* BORDURES LUMINEUSES (Rim Light) */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.2); 
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    
+    /* CORRECTION : PLUS D'OMBRE NOIRE */
+    /* On garde uniquement un reflet interne pour le volume du verre */
+    box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.02);
     
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    
-    /* Important pour que le hover ne se déclenche que sur la carte */
     pointer-events: auto; 
 }
 
 /* Au survol */
 .stardust-card:hover {
-    border-color: rgba(255, 255, 255, 0.4); /* Bordure s'illumine */
-    background-color: rgba(15, 23, 42, 1); /* Devient totalement opaque */
+    background: linear-gradient(
+        135deg, 
+        rgba(255, 255, 255, 0.12) 0%, 
+        rgba(40, 55, 80, 0.7) 50%, 
+        rgba(15, 23, 42, 0.9) 100%
+    );
     
-    /* EFFET GLOW (Lueur) au lieu d'ombre */
-    /* Simule la réflexion de la lumière autour de l'objet flottant */
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.08); 
+    border-color: rgba(255, 255, 255, 0.3);
+    border-top-color: rgba(255, 255, 255, 0.6); 
     
-    /* On avance légèrement vers la caméra */
-    transform: translateY(-2px) scale(1.01);
+    /* REMPLACEMENT DE L'OMBRE PAR UNE AURA (GLOW) */
+    /* Au lieu de projeter du noir derrière, on projette une lueur blanche autour */
+    box-shadow: 
+        0 0 25px rgba(255, 255, 255, 0.05), /* Lueur externe subtile */
+        inset 0 0 20px rgba(255, 255, 255, 0.08); /* Reflet interne plus fort */
+    
+    transform: translateY(-4px) scale(1.02);
 }
 
-/* La traînée de comète en haut (plus fine) */
-.stardust-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; height: 1px;
-    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.6) 50%, transparent 100%);
-    opacity: 0.3;
-}
 
-/* Les étoiles (Sparkles) */
-.star-sparkle {
-    position: absolute;
-    color: white;
-    opacity: 0; 
-    pointer-events: none;
-    width: 10px; /* Taille réduite */
-    height: 10px;
-}
 
-/* Apparition des étoiles au survol de la CARTE uniquement */
-.stardust-card:hover .star-sparkle {
-    animation: twinkle 2s infinite ease-in-out;
-}
-
-@keyframes twinkle {
-    0%, 100% { opacity: 0.2; transform: scale(0.8); }
-    50% { opacity: 0.8; transform: scale(1.2); }
-}
-
-.stardust-card .star-top-right { top: 6px; right: 6px; }
-.stardust-card .star-bottom-left { bottom: 6px; left: 6px; animation-delay: 1s; }
-
-/* Trait de séparation plus fin */
+/* Trait de séparation satiné */
 .stardust-line {
-    width: 30px;
+    width: 40px;
     height: 1px;
-    background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.4), rgba(255,255,255,0));
-    margin-top: 8px;
+    background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.6), rgba(255,255,255,0));
+    margin-top: 10px;
 }
+
 
 
 
