@@ -2482,7 +2482,7 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 /* ======================================================= */
-/*    STYLE CARTE STARDUST (PREMIUM SPACE - NO SHADOW)     */
+/*    STYLE CARTE STARDUST (OBSIDIENNE SPATIALE - SANS OMBRE) */
 /* ======================================================= */
 
 .stardust-card {
@@ -2490,28 +2490,28 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     width: 100%;
     max-width: 480px; 
     
-    /* FOND SATINÉ */
+    /* FOND : On garde ce ton "Pierre/Métal" neutre pour couper avec le bleu */
     background: linear-gradient(
-        135deg, 
-        rgba(255, 255, 255, 0.08) 0%, 
-        rgba(30, 41, 59, 0.6) 50%, 
-        rgba(15, 23, 42, 0.8) 100%
+        160deg, 
+        rgba(255, 255, 255, 0.1) 0%,    /* Reflet haut */
+        rgba(50, 50, 50, 0.6) 40%,      /* Gris neutre dense */
+        rgba(15, 15, 15, 0.8) 100%      /* Base sombre */
     );
     
+    /* Flou d'arrière-plan pour que les étoiles derrière soient "floutées" par la vitre/matière */
     backdrop-filter: blur(12px); 
     -webkit-backdrop-filter: blur(12px);
     
     border-radius: 16px;
     padding: 1.5rem 2rem;
     
-    /* BORDURES LUMINEUSES (Rim Light) */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-top: 1px solid rgba(255, 255, 255, 0.2); 
-    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    /* BORDURES LUMINEUSES (RIM LIGHT) - C'est ça qui remplace l'ombre */
+    border: 1px solid rgba(255, 255, 255, 0.1);       /* Contour général fin */
+    border-top: 1px solid rgba(255, 255, 255, 0.4);   /* Lumière forte en haut (comme une étoile au dessus) */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);      /* Le bas est dans l'ombre de l'objet lui-même */
     
-    /* CORRECTION : PLUS D'OMBRE NOIRE */
-    /* On garde uniquement un reflet interne pour le volume du verre */
-    box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.02);
+    /* ZÉRO OMBRE PORTÉE. Juste une ombre INTERNE pour donner de l'épaisseur à l'objet */
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5);
     
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -2520,34 +2520,24 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 /* Au survol */
 .stardust-card:hover {
+    /* On éclaircit légèrement la matière */
     background: linear-gradient(
-        135deg, 
-        rgba(255, 255, 255, 0.12) 0%, 
-        rgba(40, 55, 80, 0.7) 50%, 
-        rgba(15, 23, 42, 0.9) 100%
+        160deg, 
+        rgba(255, 255, 255, 0.15) 0%, 
+        rgba(70, 65, 60, 0.7) 50%,    /* Légère chaleur organique (brun/gris) */
+        rgba(20, 20, 20, 0.9) 100%
     );
     
-    border-color: rgba(255, 255, 255, 0.3);
-    border-top-color: rgba(255, 255, 255, 0.6); 
+    border-top-color: rgba(255, 255, 255, 0.7); /* L'arête brille plus fort */
+    transform: translateY(-2px) scale(1.01); /* Mouvement très léger, comme en apesanteur */
     
-    /* REMPLACEMENT DE L'OMBRE PAR UNE AURA (GLOW) */
-    /* Au lieu de projeter du noir derrière, on projette une lueur blanche autour */
+    /* Au lieu d'une ombre noire, on met une lueur DIFFUSE (Glow) */
+    /* Comme si l'objet reflétait un peu l'ambiance */
     box-shadow: 
-        0 0 25px rgba(255, 255, 255, 0.05), /* Lueur externe subtile */
-        inset 0 0 20px rgba(255, 255, 255, 0.08); /* Reflet interne plus fort */
-    
-    transform: translateY(-4px) scale(1.02);
+        inset 0 0 30px rgba(0, 0, 0, 0.3), /* On réduit l'ombre interne */
+        0 0 20px rgba(255, 255, 255, 0.05); /* Très léger halo externe (atmosphère) */
 }
 
-
-
-/* Trait de séparation satiné */
-.stardust-line {
-    width: 40px;
-    height: 1px;
-    background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.6), rgba(255,255,255,0));
-    margin-top: 10px;
-}
 
 
 
