@@ -1256,7 +1256,7 @@ document.addEventListener('DOMContentLoaded', function () {
         
         // --- TRAÎNÉE (MODIFIÉE : Effet Comète Fluide) ---
         // On augmente le nombre de points pour combler les vides
-        const TRAIL_LENGTH = 20; 
+        const TRAIL_LENGTH = 120; 
         const trailPieces = [];
 
         for (let i = 0; i < TRAIL_LENGTH; i++) {
@@ -1438,7 +1438,7 @@ document.addEventListener('DOMContentLoaded', function () {
             trailPieces.forEach((piece, index) => {
                 // CORRECTION 1 : On ralentit la traînée (0.18 au lieu de 0.35)
                 // Elle aura plus d'inertie et restera bien derrière l'âme lors des accélérations
-                const stiffness = 0.18; 
+                const stiffness = 0.45; 
 
                 // Physique
                 piece.x += (trailTargetX - piece.x) * stiffness;
