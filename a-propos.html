@@ -410,11 +410,17 @@
     <!-- ======================================================= -->
     <section class="py-20 relative overflow-hidden bg-neutral-dark">
 
-        <!-- === DÉCOR SPATIAL (NOUVEAU) === -->
-        <div class="absolute inset-0 z-0 pointer-events-none">
-            <div class="stars-fixed"></div>
-            <div class="cosmic-glow"></div>
-        </div>
+        
+        <!-- === DÉCOR SPATIAL (CORRIGÉ) === -->
+<!-- Le conteneur parent reste en z-0, mais l'ordre interne change -->
+<div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+    <!-- 1. TOUT AU FOND : La lueur (Background) -->
+    <div class="cosmic-glow"></div>
+    
+    <!-- 2. AU MILIEU : Les étoiles (Midground) -->
+    <div class="stars-fixed"></div>
+</div>
+
 
         <!-- Conteneur principal -->
         <div class="container mx-auto px-6 max-w-6xl relative z-10" id="timeline-container">
