@@ -1251,7 +1251,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Physique Y
         const LERP_Y = 0.12;
         const STRETCH_FORCE = 0.1;
-        const MAGNET_RANGE = 150;
+        const MAGNET_RANGE = 180;
 
         
         // --- TRAÎNÉE (MODIFIÉE : Effet Comète Fluide) ---
@@ -1438,7 +1438,7 @@ document.addEventListener('DOMContentLoaded', function () {
             trailPieces.forEach((piece, index) => {
                 // CORRECTION 1 : On ralentit la traînée (0.18 au lieu de 0.35)
                 // Elle aura plus d'inertie et restera bien derrière l'âme lors des accélérations
-                const stiffness = 0.45; 
+                const stiffness = 0.60; 
 
                 // Physique
                 piece.x += (trailTargetX - piece.x) * stiffness;
