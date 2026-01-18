@@ -1251,7 +1251,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Physique Y
         const LERP_Y = 0.12;
         const STRETCH_FORCE = 0.1;
-        const MAGNET_RANGE = 400;
+        const MAGNET_RANGE = 180;
 
         
         // --- TRAÎNÉE (MODIFIÉE : Effet Comète Fluide) ---
