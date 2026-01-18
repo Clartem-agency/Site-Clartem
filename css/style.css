@@ -2476,3 +2476,89 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     color: #3B82F6 !important; /* Clarity Blue au survol */
     background-color: rgba(255, 255, 255, 0.05);
 }
+
+
+
+
+
+
+/* ======================================================= */
+/*    NOUVEAU STYLE : CARTES CITATIONS "STARDUST"          */
+/* ======================================================= */
+
+.stardust-card {
+    position: relative;
+    /* Fond très sombre mais transparent pour laisser passer le fond étoilé derrière */
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+    backdrop-filter: blur(4px); /* Léger flou pour la lisibilité */
+    border-radius: 16px;
+    padding: 1.5rem;
+    
+    /* Bordure très subtile, presque invisible sauf les reflets */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+/* Effet de survol : La carte s'illumine légèrement */
+.group:hover .stardust-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+}
+
+/* LA TRAÎNÉE DE COMÈTE (Bordure haute lumineuse) */
+.stardust-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    /* Un dégradé qui part du centre vers les bords, comme une lumière qui s'étale */
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.8) 50%, transparent 100%);
+    opacity: 0.5;
+}
+
+/* LES ÉTINCELLES (SPARKLES) */
+.star-sparkle {
+    position: absolute;
+    color: white;
+    opacity: 0; /* Invisible par défaut */
+    pointer-events: none;
+    filter: drop-shadow(0 0 2px white);
+}
+
+/* Animation de scintillement */
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Positionnement des étoiles déco */
+.stardust-card .star-top-right {
+    top: 8px;
+    right: 8px;
+    width: 12px;
+    height: 12px;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+.stardust-card .star-bottom-left {
+    bottom: 8px;
+    left: 8px;
+    width: 8px;
+    height: 8px;
+    animation: twinkle 4s infinite ease-in-out 1s; /* Délai pour désynchroniser */
+}
+
+/* Le petit trait décoratif sous l'auteur */
+.stardust-line {
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.5), rgba(255,255,255,0));
+    margin-top: 10px;
+}
