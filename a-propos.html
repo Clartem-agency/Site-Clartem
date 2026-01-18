@@ -1120,16 +1120,22 @@
         </div>
     </div>
 
-    <!-- POINT CENTRAL (Pulsing Beacon) -->
-    <!-- Note : On ajoute des cercles concentriques pour l'effet radar -->
-    <div class="absolute left-5 md:left-1/2 transform -translate-x-1/2 z-20 flex items-center justify-center">
+    
+    <!-- POINT CENTRAL (Pulsing Beacon) - CORRIGÉ -->
+    <!-- AJOUT DE LA CLASSE 'timeline-point' ICI POUR L'AIMANT -->
+    <div class="timeline-point absolute left-5 md:left-1/2 transform -translate-x-1/2 z-20 flex items-center justify-center w-12 h-12">
+        
         <!-- Cercle externe (Pulse large) -->
-        <div class="absolute w-12 h-12 bg-success-green/20 rounded-full animate-ping-slow"></div>
+        <div class="absolute w-full h-full bg-success-green/20 rounded-full animate-ping-slow pointer-events-none"></div>
+        
         <!-- Cercle moyen (Pulse rapide) -->
-        <div class="absolute w-8 h-8 bg-success-green/40 rounded-full animate-pulse"></div>
-        <!-- Coeur solide -->
+        <div class="absolute w-8 h-8 bg-success-green/40 rounded-full animate-pulse pointer-events-none"></div>
+        
+        <!-- Coeur solide (L'ancre visuelle) -->
         <div class="w-4 h-4 bg-success-green rounded-full shadow-[0_0_20px_#16A34A] border-2 border-white relative z-10"></div>
+
     </div>
+    
 
     <!-- TEXTE (Côté Droit - Nexus Card) -->
     <div class="md:text-left md:pl-12 relative pl-12 order-1 md:order-2">
