@@ -2627,3 +2627,81 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 #modal-content::-webkit-scrollbar-thumb:hover {
     background-color: #4B5563; /* Gris un peu plus clair au survol */
 }
+
+
+
+
+
+
+
+/* ======================================================= */
+/*    EFFET HALO DORÉ (MODALE LEAD MAGNET)                 */
+/* ======================================================= */
+
+@keyframes borderRotate {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.gold-glow-border {
+    position: relative;
+    /* On s'assure que le fond de la boite reste au dessus */
+    z-index: 10; 
+    /* Bordure transparente pour laisser la place au halo */
+    border: 2px solid transparent; 
+}
+
+
+
+/* Le Halo Lumineux animé derrière */
+.gold-glow-border::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 18px; 
+    padding: 2px; 
+    
+    background: linear-gradient(
+        45deg, 
+        #F97316, 
+        #FFD700, 
+        #FFF7AD, 
+        #F97316
+    );
+    background-size: 300% 300%;
+    animation: borderRotate 4s ease infinite;
+    
+    /* === CORRECTION COMPATIBILITÉ === */
+    
+    /* 1. Version Standard (Pour Firefox et le futur) */
+    mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+
+    /* 2. Version Webkit (OBLIGATOIRE pour Chrome, Safari, Edge) */
+    -webkit-mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor; /* Note : 'xor' est l'équivalent webkit de 'exclude' */
+    
+    /* ================================ */
+    
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* Optionnel : Une lueur externe (Glow) pour accentuer l'effet "Énergie" */
+.gold-glow-border::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    transform: translate(0, 0);
+    background: linear-gradient(45deg, #F97316, #FFD700);
+    filter: blur(20px); /* Flou pour faire le halo */
+    opacity: 0.4; /* Pas trop fort pour ne pas gêner la lecture */
+    border-radius: 16px;
+}
