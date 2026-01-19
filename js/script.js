@@ -1661,4 +1661,106 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+
+    // ==================================================================
+    // GESTION DU POPUP LEAD MAGNET (SCROLL + EXIT INTENT)
+    // ==================================================================
+    
+    const modal = document.getElementById('lead-magnet-modal');
+    const backdrop = document.getElementById('modal-backdrop');
+    const content = document.getElementById('modal-content');
+    const closeBtn = document.getElementById('close-modal-btn');
+    
+    // Configuration
+    const SCROLL_TRIGGER_PERCENT = 0.50; // 50% du scroll
+    const STORAGE_KEY = 'clartem_popup_seen'; // Clé pour se souvenir du visiteur
+    
+    // Vérifier si le popup existe et n'a pas déjà été vu/fermé
+    if (modal && !localStorage.getItem(STORAGE_KEY)) {
+        
+        let isPopupOpen = false;
+
+        // Fonction pour OUVRIR le popup
+        const openPopup = () => {
+            if (isPopupOpen) return;
+            
+            // On marque qu'il est ouvert
+            isPopupOpen = true;
+            
+            // On retire la classe hidden
+            modal.classList.remove('hidden');
+            
+            // Petite animation d'entrée (Fade In + Scale Up)
+            setTimeout(() => {
+                backdrop.classList.remove('opacity-0');
+                content.classList.remove('opacity-0', 'scale-95');
+                content.classList.add('opacity-100', 'scale-100');
+            }, 10);
+
+            // On enregistre qu'il a été vu (pour ne pas le rouvrir à chaque page)
+            // Note: Tu peux commenter cette ligne pendant tes tests
+            localStorage.setItem(STORAGE_KEY, 'true');
+        };
+
+        // Fonction pour FERMER le popup
+        const closePopup = () => {
+            // Animation de sortie
+            backdrop.classList.add('opacity-0');
+            content.classList.remove('opacity-100', 'scale-100');
+            content.classList.add('opacity-0', 'scale-95');
+
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                isPopupOpen = false;
+            }, 300); // Attend la fin de la transition CSS
+        };
+
+        // --- TRIGGER 1 : SCROLL ---
+        const handleScrollPopup = () => {
+            const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollCurrent = window.scrollY;
+            
+            if ((scrollCurrent / scrollTotal) > SCROLL_TRIGGER_PERCENT) {
+                openPopup();
+                // On retire l'écouteur pour ne pas le déclencher 100 fois
+                window.removeEventListener('scroll', handleScrollPopup);
+            }
+        };
+        window.addEventListener('scroll', handleScrollPopup, { passive: true });
+
+
+        // --- TRIGGER 2 : EXIT INTENT (Souris qui sort vers le haut) ---
+        const handleExitIntent = (e) => {
+            // Si la souris dépasse le haut de la fenêtre
+            if (e.clientY <= 0) {
+                openPopup();
+                document.removeEventListener('mouseleave', handleExitIntent);
+            }
+        };
+        document.addEventListener('mouseleave', handleExitIntent);
+
+
+        // --- GESTION DE LA FERMETURE ---
+        
+        // 1. Bouton croix
+        closeBtn.addEventListener('click', closePopup);
+        
+        // 2. Clic sur le fond (backdrop)
+        modal.addEventListener('click', (e) => {
+            if (e.target === backdrop || e.target.closest('#modal-backdrop')) {
+                closePopup();
+            }
+        });
+        
+        // 3. Touche Echap
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && isPopupOpen) {
+                closePopup();
+            }
+        });
+    }
+
+
+
 });
