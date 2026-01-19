@@ -675,82 +675,104 @@
                                 </a>
                             </div>
 
-                            <!-- COLONNE DROITE : LES 3 PREMIÈRES CARTES -->
-                            <div class="lg:col-span-7">
-                                <div class="grid md:grid-cols-2 gap-6">
 
-                                    <!-- Carte 1 : Message (Dark Gradient) -->
-                                    <div class="bento-card group p-8 bg-gradient-to-br from-neutral-dark to-gray-900 text-white rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden"
+
+                            <!-- COLONNE DROITE : LES 3 PREMIÈRES CARTES (LAYOUT BENTO) -->
+                            <!-- Ajout de h-full pour s'assurer que la colonne prend toute la hauteur disponible -->
+                            <div class="lg:col-span-7 h-full">
+                                <!-- Ajout de h-full et grid-rows-2 pour le layout bento -->
+                                <div class="grid md:grid-cols-2 grid-rows-2 gap-6 h-full">
+
+                                    <!-- Carte 1 : Impact (DEVIENT UN PILIER VERTICAL À GAUCHE) -->
+                                    <!-- Ajout de md:row-span-2 pour prendre toute la hauteur -->
+                                    <div class="bento-card group p-8 bg-gradient-to-br from-neutral-dark to-gray-900 text-white rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden md:row-span-2 flex flex-col justify-between h-full"
                                         data-sr>
+
+                                        <!-- Décoration de fond -->
                                         <div
-                                            class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl group-hover:bg-white/10 transition-colors">
+                                            class="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full blur-3xl group-hover:bg-white/10 transition-colors pointer-events-none">
+                                        </div>
+                                        <div
+                                            class="absolute bottom-0 left-0 w-32 h-32 bg-warm-orange/10 rounded-full blur-2xl group-hover:bg-warm-orange/20 transition-colors pointer-events-none">
                                         </div>
 
-                                        <div
-                                            class="w-12 h-12 bg-white/10 border border-white/20 rounded-2xl flex items-center justify-center mb-6 text-warm-orange group-hover:scale-110 transition-transform duration-300">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                            </svg>
+                                        <div>
+                                            <div
+                                                class="w-14 h-14 bg-white/10 border border-white/20 rounded-2xl flex items-center justify-center mb-8 text-warm-orange group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-orange-500/10">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                                </svg>
+                                            </div>
+                                            <h3 class="text-2xl font-bold mb-4 leading-tight">Impact<br>Immédiat</h3>
+                                            <p class="text-gray-300 text-base leading-relaxed">
+                                                Les 3 premières secondes sont décisives.
+                                            </p>
                                         </div>
-                                        <h3 class="text-xl font-bold mb-3">Impact Immédiat</h3>
-                                        <p class="text-gray-300 text-sm leading-relaxed">
-                                            Les 3 premières secondes sont décisives. Nous créons un "Hook" visuel et
-                                            textuel qui résonne instantanément avec la douleur de votre client.
+
+                                        <p
+                                            class="text-gray-400 text-sm leading-relaxed mt-6 pt-6 border-t border-white/10">
+                                            Nous créons un "Hook" visuel et textuel qui résonne instantanément avec la
+                                            douleur de votre client, avant même qu'il ne scrolle.
                                         </p>
                                     </div>
 
-                                    <!-- Carte 2 : Structure (Light) -->
-                                    <div class="bento-card group p-8 bg-white rounded-3xl border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 hover:border-clarity-blue/30 transition-all duration-300"
+                                    <!-- Carte 2 : Structure (EN HAUT À DROITE) -->
+                                    <div class="bento-card group p-8 bg-white rounded-3xl border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 hover:border-clarity-blue/30 transition-all duration-300 flex flex-col h-full"
                                         data-sr data-sr-delay="100">
-                                        <div
-                                            class="w-12 h-12 bg-blue-50 text-clarity-blue rounded-2xl flex items-center justify-center mb-6 group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                            </svg>
+                                        <div class="flex items-start justify-between mb-4">
+                                            <div
+                                                class="w-12 h-12 bg-blue-50 text-clarity-blue rounded-2xl flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                                </svg>
+                                            </div>
                                         </div>
-                                        <h3 class="text-xl font-bold text-neutral-dark mb-3">Navigation Fluide</h3>
+
+                                        <h3 class="text-xl font-bold text-neutral-dark mb-2">Navigation Fluide</h3>
                                         <p class="text-neutral-light text-sm leading-relaxed">
-                                            Pas de menus complexes où l'on se perd. Le visiteur n'a qu'un seul chemin
-                                            logique : du problème vers la solution (vous).
+                                            Pas de menus complexes. Le visiteur n'a qu'un seul chemin logique : du
+                                            problème vers la solution (vous).
                                         </p>
                                     </div>
 
-                                    <!-- Carte 3 : CTA (Large) -->
-                                    <div class="bento-card md:col-span-2 p-8 bg-gradient-to-r from-white to-blue-50/50 rounded-3xl border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 hover:border-clarity-blue/20 transition-all duration-300 relative overflow-hidden group"
+                                    <!-- Carte 3 : CTA (EN BAS À DROITE - FORMAT CARRÉ) -->
+                                    <!-- Retrait de md:col-span-2 pour l'aligner sous la navigation -->
+                                    <div class="bento-card group p-8 bg-gradient-to-br from-white to-blue-50/80 rounded-3xl border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 hover:border-clarity-blue/20 transition-all duration-300 relative overflow-hidden flex flex-col h-full"
                                         data-sr data-sr-delay="200">
+
+                                        <!-- Décoration de fond ajustée -->
                                         <div
-                                            class="absolute -right-10 -bottom-10 opacity-5 group-hover:opacity-10 transition-opacity">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-48 w-48 text-deep-blue"
+                                            class="absolute -right-6 -bottom-6 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32 text-deep-blue"
                                                 fill="currentColor" viewBox="0 0 24 24">
                                                 <path
                                                     d="M12 2L2 7l10 5 10-5-10-5zm0 9l2-10 2 10h-4zm10-5v9l-10 5-10-5V6l10 5 10-5z" />
                                             </svg>
                                         </div>
 
-                                        <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center">
+                                        <!-- Contenu réorganisé en vertical -->
+                                        <div class="relative z-10 flex flex-col h-full">
                                             <div
-                                                class="w-16 h-16 flex-shrink-0 bg-success-green/10 text-success-green rounded-2xl flex items-center justify-center group-hover:bg-success-green group-hover:text-white transition-colors duration-300">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none"
+                                                class="w-12 h-12 bg-success-green/10 text-success-green rounded-2xl flex items-center justify-center mb-4 group-hover:bg-success-green group-hover:text-white transition-colors duration-300">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                                     viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
                                                         d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
                                                 </svg>
                                             </div>
-                                            <div>
-                                                <h3 class="text-xl font-bold text-neutral-dark mb-2">Un Appel à l'Action
-                                                    (CTA) Unique</h3>
-                                                <p class="text-neutral-light text-sm leading-relaxed max-w-lg">
-                                                    Que vous souhaitiez un appel découverte ou une vente directe : le
-                                                    design s'adapte à <strong>votre</strong> objectif commercial. On ne
-                                                    laisse pas le visiteur deviner la suite.
-                                                </p>
-                                            </div>
+
+                                            <h3 class="text-xl font-bold text-neutral-dark mb-2">CTA Unique</h3>
+                                            <p class="text-neutral-light text-sm leading-relaxed">
+                                                Le design s'adapte à <strong>votre</strong> objectif (Appel ou Vente).
+                                                On ne laisse pas le visiteur deviner la suite.
+                                            </p>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
