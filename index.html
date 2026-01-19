@@ -319,27 +319,54 @@
         <!-- ======================================================= -->
         <section id="solutions-matrix" class="pt-12 pb-24 lg:pt-20 lg:pb-36 bg-neutral-dark relative z-20">
 
-            <!-- Titre de liaison -->
-    <div class="container mx-auto px-6 mb-24 lg:mb-32 text-center" data-sr>
+
+            <!-- Titre de liaison AVEC DÉCORATION -->
+            <div class="container mx-auto px-6 mb-24 lg:mb-32 text-center relative" data-sr>
+
+                <!-- 1. LUEUR D'AMBIANCE (Derrière le texte) -->
                 <div
-                    class="inline-flex items-center gap-2 px-3 py-1 mb-6 border border-green-500/30 rounded-full bg-green-500/10 text-green-400 text-xs font-bold tracking-widest uppercase font-mono">
-                    <span class="relative flex h-2 w-2">
-                        <span
-                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                    </span>
-                    Protocole Activé
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-green-500/10 blur-[80px] rounded-full pointer-events-none">
                 </div>
-                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
-                    Réécrivons les règles <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">de votre
-                        présence en ligne.</span>
-                </h2>
-                <p class="text-gray-400 max-w-2xl mx-auto text-lg">
-                    Face à la complexité du web, nous appliquons une méthodologie stricte. Pas de flou, pas de jargon,
-                    juste des résultats.
-                </p>
+
+                <!-- 2. LE CONTENU TEXTE -->
+                <div class="relative z-10">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 mb-6 border border-green-500/30 rounded-full bg-green-900/20 text-green-400 text-xs font-bold tracking-widest uppercase font-mono backdrop-blur-sm">
+                        <span class="relative flex h-2 w-2">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                        </span>
+                        Protocole Activé
+                    </div>
+
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
+                        Réécrivons les règles <br>
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-300 to-blue-500">
+                            de votre présence en ligne.
+                        </span>
+                    </h2>
+
+                    <p class="text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-light leading-relaxed">
+                        Face à la complexité du web, nous appliquons une méthodologie stricte. <br
+                            class="hidden md:block">
+                        Pas de flou, pas de jargon, <span class="text-white font-medium">juste des résultats.</span>
+                    </p>
+                </div>
+
+                <!-- 3. LA LIGNE CONNECTRICE (Le "Pont" vers les cartes) -->
+                <!-- Cette ligne descend dans la marge qu'on a créée pour relier visuellement le haut et le bas -->
+                <div
+                    class="absolute left-1/2 -bottom-24 lg:-bottom-32 w-px h-24 lg:h-32 bg-gradient-to-b from-green-500/50 to-transparent -translate-x-1/2">
+                    <!-- Petit point au début de la ligne -->
+                    <div
+                        class="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-green-500 rounded-full shadow-[0_0_10px_rgba(34,197,94,0.8)]">
+                    </div>
+                </div>
+
             </div>
+
 
             <!-- Les 3 Cartes Restaurées -->
             <div class="container mx-auto px-6">
