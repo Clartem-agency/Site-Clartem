@@ -3976,21 +3976,26 @@
                     <!-- LE CONTENU (Grille, Photo, Texte...) RESTE IDENTIQUE EN DESSOUS -->
                     <div class="grid lg:grid-cols-12 gap-12 items-center relative z-10">
 
-                        <!-- ... (Garde tout ton code de colonnes Photo et Texte ici) ... -->
+
                         <!-- COLONNE GAUCHE : LA PHOTO ... -->
-                        <div class="lg:col-span-5 relative group">
-                            <!-- ... code photo ... -->
+                        <!-- MODIFICATION 1 : On change 'group' par 'group/photo' pour isoler l'animation ici -->
+                        <div class="lg:col-span-5 relative group/photo">
+
                             <!-- Scotch décoratif en haut -->
                             <div
                                 class="absolute -top-4 left-1/2 -translate-x-1/2 w-24 h-8 bg-white/10 backdrop-blur-sm rotate-2 z-20 shadow-sm border-t border-white/20">
                             </div>
 
                             <!-- Cadre Photo -->
+                            <!-- MODIFICATION 2 : On change 'group-hover:rotate-0' par 'group-hover/photo:rotate-0' -->
                             <div
-                                class="relative bg-[#f0f0f0] p-3 pb-8 rounded shadow-xl transform -rotate-2 group-hover:rotate-0 transition-transform duration-500 ease-out">
+                                class="relative bg-[#f0f0f0] p-3 pb-8 rounded shadow-xl transform -rotate-2 group-hover/photo:rotate-0 transition-transform duration-500 ease-out">
                                 <div class="relative overflow-hidden aspect-[4/5] bg-neutral-800 filter sepia-[0.2]">
+
+                                    <!-- MODIFICATION 3 : On change 'group-hover:grayscale-0' par 'group-hover/photo:grayscale-0' -->
                                     <img src="assets/photo-frederic.jpg" alt="Frédéric Delavictoire"
-                                        class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 filter contrast-110">
+                                        class="w-full h-full object-cover grayscale group-hover/photo:grayscale-0 transition-all duration-700 filter contrast-110">
+
                                     <!-- Effet vieux grain sur la photo -->
                                     <div class="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay"
                                         style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%221.5%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22 opacity=%221%22/%3E%3C/svg%3E');">
@@ -4003,6 +4008,7 @@
                                 </div>
                             </div>
                         </div>
+
 
                         <!-- COLONNE DROITE : LE RÉCIT ... -->
                         <div class="lg:col-span-7">
