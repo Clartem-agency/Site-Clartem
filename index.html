@@ -3790,32 +3790,29 @@
 
 
         <!-- ======================================================= -->
-        <!--    SÉPARATEUR VAGUES INTERSECTING (OFFRES -> BLOG)      -->
-        <!-- ======================================================= -->
-        <div id="wave-separator-container"
-            class="relative w-full overflow-hidden leading-[0] bg-soft-blue z-20 cursor-pointer group">
-            <svg class="w-full h-auto block relative z-10" viewBox="0 0 1440 320" preserveAspectRatio="none"
-                xmlns="http://www.w3.org/2000/svg">
+<!--    SÉPARATEUR VAGUES CORRIGÉ (OFFRES -> BLOG)           -->
+<!-- ======================================================= -->
+<!-- Le fond du conteneur est bleu clair (bg-soft-blue) pour coller à la section du dessus -->
+<div id="wave-separator-container" class="relative w-full overflow-hidden leading-[0] bg-soft-blue z-20 cursor-pointer group -mb-1">
+    <svg class="w-full h-auto block relative z-10" viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        
+        <style>
+            .wave-path { transition: d 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+        </style>
 
-                <!-- Style pour la transition fluide des vagues -->
-                <style>
-                    .wave-path {
-                        transition: d 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-                    }
-                </style>
-
-                <!-- VAGUE ARRIÈRE (Couleur d'accent : Clarity Blue) -->
-                <!-- Elle fait le lien visuel entre le bleu clair et le foncé -->
-                <path id="wave-back" class="wave-path" fill="#3B82F6" fill-opacity="1"
-                    d="M0,0 L0,65 C 350,65 550,185 850,165 C 1150,145 1300,285 1440,285 L1440,0 Z">
-                </path>
-
-                <!-- VAGUE AVANT (Couleur de la section suivante : Neutral Dark) -->
-                <path id="wave-front" class="wave-path" fill="#1F2937" fill-opacity="1"
-                    d="M0,0 L0,40 C 350,40 550,160 850,140 C 1150,120 1300,260 1440,260 L1440,0 Z">
-                </path>
-            </svg>
-        </div>
+        <!-- VAGUE ARRIÈRE (Accent Bleu) -->
+        <!-- Remplissage du BAS vers le HAUT de la courbe -->
+        <path id="wave-back" class="wave-path" fill="#3B82F6" fill-opacity="1" 
+              d="M0,320 L0,65 C 350,65 550,185 850,165 C 1150,145 1300,285 1440,285 L1440,320 Z">
+        </path>
+        
+        <!-- VAGUE AVANT (Noir/Dark) -->
+        <!-- C'est celle qui fait la jonction avec la section Blog. Elle doit être DEVANT. -->
+        <path id="wave-front" class="wave-path" fill="#1F2937" fill-opacity="1" 
+              d="M0,320 L0,40 C 350,40 550,160 850,140 C 1150,120 1300,260 1440,260 L1440,320 Z">
+        </path>
+    </svg>
+</div>
 
 
 
