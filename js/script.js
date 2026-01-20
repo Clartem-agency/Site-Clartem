@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const planSection = document.getElementById('plan');
     const stackingContainer = document.getElementById('stacking-container');
 
-    if (planSection && stackingContainer && window.innerWidth >= 768) {
+    if (planSection && stackingContainer) {
         const panels = Array.from(planSection.querySelectorAll('.panel'));
         const numPanels = panels.length;
 
@@ -1253,10 +1253,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const STRETCH_FORCE = 0.1;
         const MAGNET_RANGE = 180;
 
-        
+
         // --- TRAÎNÉE (MODIFIÉE : Effet Comète Fluide) ---
         // On augmente le nombre de points pour combler les vides
-        const TRAIL_LENGTH = 120; 
+        const TRAIL_LENGTH = 120;
         const trailPieces = [];
 
         for (let i = 0; i < TRAIL_LENGTH; i++) {
@@ -1427,18 +1427,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
-            
-            
+
+
 
             // --- 4. TRAÎNÉE (LOGIQUE CORRIGÉE : INERTIE & TAILLE) ---
-            
+
             let trailTargetX = currentX;
             let trailTargetY = currentY;
 
             trailPieces.forEach((piece, index) => {
                 // CORRECTION 1 : On ralentit la traînée (0.18 au lieu de 0.35)
                 // Elle aura plus d'inertie et restera bien derrière l'âme lors des accélérations
-                const stiffness = 0.60; 
+                const stiffness = 0.60;
 
                 // Physique
                 piece.x += (trailTargetX - piece.x) * stiffness;
@@ -1447,15 +1447,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 // CORRECTION 2 : On commence plus petit (0.75 au lieu de 1)
                 // Ainsi, même si la traînée touche l'âme, elle sera plus petite que le noyau
                 // et ne le cachera pas visuellement.
-                const startScale = 0.75; 
-                const scale = startScale * (1 - (index / TRAIL_LENGTH)); 
+                const startScale = 0.75;
+                const scale = startScale * (1 - (index / TRAIL_LENGTH));
 
                 piece.el.style.top = `${piece.y}px`;
                 piece.el.style.transform = `translate(calc(-50% + ${piece.x}px), -50%) scale(${scale})`;
 
                 // Opacité
-                const baseOpacity = 0.5 * (1 - (index / TRAIL_LENGTH)); 
-                
+                const baseOpacity = 0.5 * (1 - (index / TRAIL_LENGTH));
+
                 if (soulEntity.style.opacity === '0') {
                     piece.el.style.opacity = '0';
                     piece.x = currentX;
@@ -1468,7 +1468,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 trailTargetX = piece.x;
                 trailTargetY = piece.y;
             });
-            
+
 
 
 
@@ -1577,7 +1577,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-  // ==================================================================
+    // ==================================================================
     // EFFET 3D TILT (CARTE) + PARALLAXE FOND (CORRIGÉ & STYLÉ)
     // ==================================================================
     const contextSection = document.getElementById('context-section');
@@ -1592,7 +1592,7 @@ document.addEventListener('DOMContentLoaded', function () {
         contextSection.addEventListener('mousemove', (e) => {
             const centerX = window.innerWidth / 2;
             const centerY = window.innerHeight / 2;
-            
+
             parallaxLayers.forEach(layer => {
                 const speed = layer.getAttribute('data-speed');
                 const x = (e.clientX - centerX) * speed / 100;
@@ -1602,7 +1602,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // --- B. TILT DE LA CARTE (Uniquement sur la carte) ---
-        
+
         // 1. Entrée souris : On active le mode "Mouvement Rapide"
         tiltCard.addEventListener('mouseenter', () => {
             tiltCard.classList.add('is-moving');
@@ -1634,18 +1634,18 @@ document.addEventListener('DOMContentLoaded', function () {
         const resetCard = () => {
             // On enlève la classe 'is-moving' -> Le CSS rebascule sur la transition lente/élastique
             tiltCard.classList.remove('is-moving');
-            
+
             // On remet la carte à plat
             tiltCard.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
-            
+
             // On reset aussi le reflet
             if (glare) {
-               // Optionnel : on peut cacher le glare ou le remettre au centre
+                // Optionnel : on peut cacher le glare ou le remettre au centre
             }
         };
 
         tiltCard.addEventListener('mouseleave', resetCard);
-        
+
         // Sécurité : Si on scroll et que la souris sort sans déclencher mouseleave
         // (rare mais possible), on peut observer la sortie de la section
         contextSection.addEventListener('mouseleave', () => {
@@ -1666,31 +1666,31 @@ document.addEventListener('DOMContentLoaded', function () {
     // ==================================================================
     // GESTION DU POPUP LEAD MAGNET (SCROLL + EXIT INTENT)
     // ==================================================================
-    
+
     const modal = document.getElementById('lead-magnet-modal');
     const backdrop = document.getElementById('modal-backdrop');
     const content = document.getElementById('modal-content');
     const closeBtn = document.getElementById('close-modal-btn');
-    
+
     // Configuration
     const SCROLL_TRIGGER_PERCENT = 0.50; // 50% du scroll
     const STORAGE_KEY = 'clartem_popup_seen'; // Clé pour se souvenir du visiteur
-    
+
     // Vérifier si le popup existe et n'a pas déjà été vu/fermé
     if (modal && !localStorage.getItem(STORAGE_KEY)) {
-        
+
         let isPopupOpen = false;
 
         // Fonction pour OUVRIR le popup
         const openPopup = () => {
             if (isPopupOpen) return;
-            
+
             // On marque qu'il est ouvert
             isPopupOpen = true;
-            
+
             // On retire la classe hidden
             modal.classList.remove('hidden');
-            
+
             // Petite animation d'entrée (Fade In + Scale Up)
             setTimeout(() => {
                 backdrop.classList.remove('opacity-0');
@@ -1720,7 +1720,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const handleScrollPopup = () => {
             const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
             const scrollCurrent = window.scrollY;
-            
+
             if ((scrollCurrent / scrollTotal) > SCROLL_TRIGGER_PERCENT) {
                 openPopup();
                 // On retire l'écouteur pour ne pas le déclencher 100 fois
@@ -1742,17 +1742,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         // --- GESTION DE LA FERMETURE ---
-        
+
         // 1. Bouton croix
         closeBtn.addEventListener('click', closePopup);
-        
+
         // 2. Clic sur le fond (backdrop)
         modal.addEventListener('click', (e) => {
             if (e.target === backdrop || e.target.closest('#modal-backdrop')) {
                 closePopup();
             }
         });
-        
+
         // 3. Touche Echap
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && isPopupOpen) {
@@ -1765,24 +1765,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-// ==================================================================
+    // ==================================================================
     // ANIMATION DU SÉPARATEUR DE VAGUES (CORRIGÉE : REMPLISSAGE BAS)
     // ==================================================================
     const waveContainer = document.getElementById('wave-separator-container');
-    
+
     if (waveContainer) {
         const waveBack = document.getElementById('wave-back');
         const waveFront = document.getElementById('wave-front');
 
         // Notez la fin des chaines : "L1440,320 Z" au lieu de "L1440,0 Z"
-        
+
         // ÉTAT REPOS (Calme)
         const restFront = "M0,320 L0,40 C 350,40 550,160 850,140 C 1150,120 1300,260 1440,260 L1440,320 Z";
-        const restBack  = "M0,320 L0,65 C 350,65 550,185 850,165 C 1150,145 1300,285 1440,285 L1440,320 Z";
+        const restBack = "M0,320 L0,65 C 350,65 550,185 850,165 C 1150,145 1300,285 1440,285 L1440,320 Z";
 
         // ÉTAT HOVER (Agité / Plongeant)
         const hoverFront = "M0,320 L0,50 C 350,50 550,180 850,150 C 1150,110 1300,280 1440,280 L1440,320 Z";
-        const hoverBack  = "M0,320 L0,75 C 350,75 550,205 850,175 C 1150,135 1300,305 1440,305 L1440,320 Z";
+        const hoverBack = "M0,320 L0,75 C 350,75 550,205 850,175 C 1150,135 1300,305 1440,305 L1440,320 Z";
 
         // Initialisation
         waveFront.setAttribute('d', restFront);
