@@ -3789,6 +3789,36 @@
 
 
 
+        <!-- ======================================================= -->
+        <!--    SÉPARATEUR VAGUES CORRIGÉ (OFFRES -> BLOG)           -->
+        <!-- ======================================================= -->
+
+        <div id="wave-separator-container"
+            class="relative w-full overflow-hidden leading-[0] bg-soft-blue z-20 cursor-pointer group -mb-2">
+
+            <svg class="w-full h-auto block relative z-10 translate-y-[2px]" viewBox="0 0 1440 320"
+                preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+
+                <style>
+                    .wave-path {
+                        transition: d 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+                    }
+                </style>
+
+                <!-- VAGUE ARRIÈRE (Accent Bleu) -->
+                <path id="wave-back" class="wave-path" fill="#3B82F6" fill-opacity="1"
+                    d="M0,320 L0,65 C 350,65 550,185 850,165 C 1150,145 1300,285 1440,285 L1440,320 Z">
+                </path>
+
+                <!-- VAGUE AVANT (Noir/Dark) -->
+                <path id="wave-front" class="wave-path" fill="#1F2937" fill-opacity="1"
+                    d="M0,320 L0,40 C 350,40 550,160 850,140 C 1150,120 1300,260 1440,260 L1440,320 Z">
+                </path>
+            </svg>
+        </div>
+
+
+
 
 
 
@@ -3797,17 +3827,14 @@
         <!--    NOUVELLE SECTION BLOG : STYLE ÉDITORIAL (DARK)       -->
         <!-- ======================================================= -->
 
-        <section id="blog-preview" class="py-24 lg:py-40 bg-neutral-dark relative overflow-hidden">
 
-            <!-- Décoration de fond (Lueur subtile) -->
-            <div
-                class="absolute top-0 right-0 w-[600px] h-[600px] bg-clarity-blue/10 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2 pointer-events-none">
-            </div>
+        <section id="blog-preview" class="pt-6 pb-24 lg:pt-6 lg:pb-40 bg-neutral-dark relative overflow-hidden">
 
-            <!-- Transition Halo vers FAQ (Bas Gauche) -->
+            <!-- Transition Halo vers FAQ (Bas Gauche) - Conservé -->
             <div
                 class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-clarity-blue/10 rounded-full blur-[120px] -translate-x-1/2 translate-y-1/2 pointer-events-none">
             </div>
+
 
             <div class="container mx-auto px-6 relative z-10">
 
@@ -3815,9 +3842,12 @@
                 <!-- En-tête de section PREMIUM -->
                 <div class="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8 relative" data-sr>
 
-                    <!-- Décoration d'arrière-plan localisée (Spotlight) -->
+                    <!-- MODIFICATION : Lueur Orange Ajustée -->
+                    <!-- -top-20 est devenu top-10 (descendue) -->
+                    <!-- w-64 h-64 est devenu w-40 h-40 (rétrécie) -->
+                    <!-- blur-[80px] est devenu blur-[60px] (plus nette) -->
                     <div
-                        class="absolute -top-20 -left-20 w-64 h-64 bg-warm-orange/10 rounded-full blur-[80px] pointer-events-none">
+                        class="absolute top-10 -left-4 w-40 h-40 bg-warm-orange/10 rounded-full blur-[60px] pointer-events-none">
                     </div>
 
                     <div class="max-w-3xl relative z-10">
@@ -3899,6 +3929,7 @@
 
             </div>
         </section>
+
 
 
 
