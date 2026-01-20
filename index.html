@@ -1893,8 +1893,9 @@
 
 
 
-                <!-- CTA FINAL -->
-                <div class="text-center mt-32 lg:mt-48" data-sr>
+
+                <!-- CTA FINAL DU PORTFOLIO -->
+                <div class="text-center mt-32 lg:mt-48 relative z-20" data-sr>
                     <p class="text-gray-400 mb-6">Et bien d'autres réalisations...</p>
                     <a href="portfolio.html"
                         class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-neutral-dark bg-white rounded-lg hover:bg-gray-100 transition-all hover:-translate-y-1 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
@@ -1902,7 +1903,30 @@
                     </a>
                 </div>
 
-            </div>
+                <!-- ========================================== -->
+                <!--      TRANSITION VAGUE ANIMÉE (WAVE)        -->
+                <!-- ========================================== -->
+                <div class="wave-container">
+                    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                        <defs>
+                            <path id="gentle-wave"
+                                d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                        </defs>
+                        <g class="parallax">
+                            <!-- Vague 1 : Transparente, rapide -->
+                            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(239, 246, 255, 0.7)" />
+                            <!-- Vague 2 : Transparente, vitesse moyenne -->
+                            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(239, 246, 255, 0.5)" />
+                            <!-- Vague 3 : Transparente, lente -->
+                            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(239, 246, 255, 0.3)" />
+                            <!-- Vague 4 : Opaque (Couleur de la section suivante : soft-blue #EFF6FF) -->
+                            <use xlink:href="#gentle-wave" x="48" y="7" fill="#EFF6FF" />
+                        </g>
+                    </svg>
+                </div>
+
+            </div> <!-- Fin du container relative z-10 du Portfolio -->
         </section>
 
 
