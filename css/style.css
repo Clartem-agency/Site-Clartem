@@ -189,47 +189,46 @@ html {
 
 
 
+
 /* ======================================================= */
-/* NOUVEAU : STYLES RESPONSIVES POUR DÉSACTIVER LES ANIMATIONS STICKY SUR MOBILE */
-/* (S'applique aux écrans de moins de 768px de large) */
+/*    AJUSTEMENT MOBILE POUR LES CARTES STICKY             */
 /* ======================================================= */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
+    /* On ajuste la hauteur du conteneur pour que le scroll soit moins long sur mobile */
+    #stacking-container {
+        height: 400vh !important; /* Un peu moins haut que les 500vh du desktop */
+    }
 
-     
+    /* On adapte la carte pour qu'elle rentre dans un écran de téléphone */
+    .premium-card {
+        height: auto !important; /* Laisser la hauteur s'adapter au contenu */
+        min-height: 65vh; /* Occupe une bonne partie de l'écran mais pas tout */
+        max-height: 80vh; /* Évite que ça dépasse de l'écran */
+        overflow-y: auto; /* Permet de scroller DANS la carte si le texte est trop long */
+        
+        display: flex !important;
+        flex-direction: column-reverse; /* Image en haut (ou bas selon préférence), Texte ensuite */
+    }
+
+    .premium-content {
+        padding: 1.5rem !important; /* Moins de padding pour gagner de la place */
+        flex: 1; /* Prend l'espace restant */
+    }
+
+    .premium-image-wrapper {
+        height: 200px !important; /* Image plus petite sur mobile */
+        flex-shrink: 0; /* Empêche l'image de disparaître */
+    }
     
-     /* --- Section Plan (Stacking Cards) --- */
-    
-    /* MODIFICATION ICI : On cible l'ID plutôt que la classe spécifique pour être sûr que ça marche */
-    #stacking-container { 
-        height: auto !important; /* Annule la hauteur immense (500vh) du conteneur principal */
-    }
-
-
-    .sticky.top-0.flex.h-screen {
-        position: relative !important; /* Annule le sticky et le flexbox centré */
-        height: auto !important;
-        display: block !important; /* Rétablit un affichage normal */
-        padding: 1rem 0;
-    }
-    .panel {
-        position: relative !important; /* Annule la position absolue */
-        opacity: 1 !important;
-        transform: none !important;
-        width: 100% !important; /* Prend toute la largeur disponible */
-        max-width: 100% !important;
-        margin-bottom: 2rem; /* Ajoute de l'espace entre les cartes */
-    }
-    .panel:last-child {
-        margin-bottom: 0;
-    }
-    .panel-card {
-        grid-template-columns: 1fr; /* Force une seule colonne */
-        padding: 1.5rem;
-    }
-    .panel-image {
-        height: 250px; /* Hauteur fixe pour l'image */
+    .step-number {
+        font-size: 4rem !important; /* Chiffre plus petit */
+        top: 0px !important;
+        right: 10px !important;
     }
 }
+
+
+
 
 
 
