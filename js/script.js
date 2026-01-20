@@ -1765,9 +1765,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-    // ==================================================================
-    // ANIMATION DU SÉPARATEUR DE VAGUES (OFFRES -> BLOG)
+// ==================================================================
+    // ANIMATION DU SÉPARATEUR DE VAGUES (CORRIGÉE : REMPLISSAGE BAS)
     // ==================================================================
     const waveContainer = document.getElementById('wave-separator-container');
     
@@ -1775,17 +1774,17 @@ document.addEventListener('DOMContentLoaded', function () {
         const waveBack = document.getElementById('wave-back');
         const waveFront = document.getElementById('wave-front');
 
-        // --- DÉFINITION DES CHEMINS (PATHS) ---
-
+        // Notez la fin des chaines : "L1440,320 Z" au lieu de "L1440,0 Z"
+        
         // ÉTAT REPOS (Calme)
-        const restFront = "M0,0 L0,40 C 350,40 550,160 850,140 C 1150,120 1300,260 1440,260 L1440,0 Z";
-        const restBack  = "M0,0 L0,65 C 350,65 550,185 850,165 C 1150,145 1300,285 1440,285 L1440,0 Z";
+        const restFront = "M0,320 L0,40 C 350,40 550,160 850,140 C 1150,120 1300,260 1440,260 L1440,320 Z";
+        const restBack  = "M0,320 L0,65 C 350,65 550,185 850,165 C 1150,145 1300,285 1440,285 L1440,320 Z";
 
         // ÉTAT HOVER (Agité / Plongeant)
-        const hoverFront = "M0,0 L0,50 C 350,50 550,180 850,150 C 1150,110 1300,280 1440,280 L1440,0 Z";
-        const hoverBack  = "M0,0 L0,75 C 350,75 550,205 850,175 C 1150,135 1300,305 1440,305 L1440,0 Z";
+        const hoverFront = "M0,320 L0,50 C 350,50 550,180 850,150 C 1150,110 1300,280 1440,280 L1440,320 Z";
+        const hoverBack  = "M0,320 L0,75 C 350,75 550,205 850,175 C 1150,135 1300,305 1440,305 L1440,320 Z";
 
-        // Initialisation (Sécurité)
+        // Initialisation
         waveFront.setAttribute('d', restFront);
         waveBack.setAttribute('d', restBack);
 
@@ -1800,7 +1799,7 @@ document.addEventListener('DOMContentLoaded', function () {
             waveBack.setAttribute('d', restBack);
         });
     }
-    
+
 
 
 });
