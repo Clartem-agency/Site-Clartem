@@ -1776,17 +1776,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Note : Dans un SVG, plus le chiffre Y est PETIT, plus la vague est HAUTE.
         
+        
+
         // ÉTAT REPOS (Calme)
-        // Back (Bleu) : Plus haut (Y=40) pour être visible derrière
-        const restBack = "M0,320 L0,40 C 350,40 550,160 850,140 C 1150,120 1300,260 1440,260 L1440,320 Z";
-        // Front (Noir) : Plus bas (Y=70)
+        // MODIFIÉ : Épais à gauche (Y=20), Fin à droite (Y=280)
+        const restBack = "M0,320 L0,20 C 350,30 550,155 850,140 C 1150,130 1300,275 1440,280 L1440,320 Z";
+        // Front (Noir) : Inchangé
         const restFront = "M0,320 L0,70 C 350,70 550,190 850,170 C 1150,150 1300,290 1440,290 L1440,320 Z";
 
         // ÉTAT HOVER (Agité / Plongeant)
-        // Back (Bleu) : Monte encore plus haut (Y=20)
-        const hoverBack = "M0,320 L0,20 C 350,20 550,150 850,120 C 1150,80 1300,250 1440,250 L1440,320 Z";
-        // Front (Noir) : Monte un peu (Y=50) mais reste sous la bleue
+        // MODIFIÉ : On garde la logique d'effilement même pendant l'animation
+        // Gauche monte à Y=0 (très épais), Droite descend à Y=270 (très fin, car le front est à 280)
+        const hoverBack = "M0,320 L0,0 C 350,10 550,145 850,120 C 1150,90 1300,265 1440,270 L1440,320 Z";
+        // Front (Noir) : Inchangé
         const hoverFront = "M0,320 L0,50 C 350,50 550,180 850,150 C 1150,110 1300,280 1440,280 L1440,320 Z";
+
+        
 
         // Initialisation
         waveFront.setAttribute('d', restFront);
