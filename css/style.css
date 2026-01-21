@@ -2723,53 +2723,57 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     overflow: hidden;
     line-height: 0;
     z-index: 2;
-    /* Petit hack pour éviter la ligne blanche de 1px sur certains écrans */
+    /* Correction sub-pixel */
     transform: translateY(1px); 
 }
 
 .waves {
     position: relative;
     width: 100%;
-    height: 15vh; /* Hauteur de la vague */
+    height: 15vh;
     min-height: 100px;
     max-height: 150px;
-    /* Important : supprime les marges par défaut */
-    margin-bottom: -1px; 
+    margin-bottom: -1px;
 }
 
 /* 
-   L'animation de base.
-   L'astuce "hypnotique" vient du cubic-bezier(.55,.5,.45,.5)
-   qui crée un mouvement de balancier fluide plutôt que linéaire.
+   Animation Hypnotique : 
+   On utilise 'linear' au lieu de 'cubic-bezier' pour un flux continu 
+   sans accélération ni décélération visible (plus organique).
 */
 .parallax > use {
-    animation: wave-motion 25s cubic-bezier(.55, .5, .45, .5) infinite;
+    animation: wave-motion linear infinite;
 }
 
-/* Vague 1 : Rapide et transparente */
+/* Vague 1 : Rapide (Écume) - Sens : Droite à Gauche */
 .parallax > use:nth-child(1) {
+    animation-duration: 25s; 
     animation-delay: -2s;
-    animation-duration: 7s;
 }
 
-/* Vague 2 : Moyenne */
+/* Vague 2 : Moyenne - Sens : Droite à Gauche (Décalée) */
 .parallax > use:nth-child(2) {
+    animation-duration: 35s; 
     animation-delay: -3s;
-    animation-duration: 10s;
 }
 
-/* Vague 3 : Lente */
+/* Vague 3 : Lente - Sens : Droite à Gauche (Très décalée) */
 .parallax > use:nth-child(3) {
+    animation-duration: 50s; 
     animation-delay: -4s;
-    animation-duration: 13s;
 }
 
-/* Vague 4 : Très lente (Le fond solide) */
+/* Vague 4 : Le fond (Très lourde et lente) - Sens : Droite à Gauche */
 .parallax > use:nth-child(4) {
+    animation-duration: 80s; 
     animation-delay: -5s;
-    animation-duration: 20s;
 }
 
+/* 
+   Keyframes simplifiées pour un mouvement perpétuel
+   L'effet hypnotique vient de la superposition de vitesses très différentes
+   qui empêche l'œil de suivre un motif répétitif.
+*/
 @keyframes wave-motion {
     0% {
         transform: translate3d(-90px, 0, 0);
@@ -2779,14 +2783,19 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     }
 }
 
-/* Ajustement Mobile pour que les vagues ne prennent pas tout l'écran */
+/* Ajustement Mobile */
 @media (max-width: 768px) {
     .waves {
-        height: 60px;
-        min-height: 60px;
+        height: 80px;
+        min-height: 80px;
     }
+    
+    /* On accélère légèrement sur mobile pour garder du dynamisme sur petit écran */
+    .parallax > use:nth-child(1) { animation-duration: 18s; }
+    .parallax > use:nth-child(2) { animation-duration: 25s; }
+    .parallax > use:nth-child(3) { animation-duration: 35s; }
+    .parallax > use:nth-child(4) { animation-duration: 50s; }
 }
-
 
 
 
