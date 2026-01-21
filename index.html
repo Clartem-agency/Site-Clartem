@@ -1934,7 +1934,7 @@
 
 
             <!-- ========================================== -->
-            <!--      TRANSITION VAGUE HYPNOTIQUE           -->
+            <!--      TRANSITION VAGUE HYPNOTIQUE (V2)      -->
             <!-- ========================================== -->
             <div class="hypnotic-waves-container">
                 <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1943,26 +1943,31 @@
                         <path id="gentle-wave"
                             d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
                     </defs>
+
+                    <!-- Le groupe "parallax" gère les couches -->
                     <g class="parallax">
                         <!-- 
-               Modifications des valeurs alpha (0.7 -> 0.3) pour un mélange plus doux 
-               Couleur utilisée : rgb(239, 246, 255) correspond à votre 'soft-blue' (#EFF6FF)
+               Modifications pour l'effet hypnotique :
+               - Sens opposés
+               - Opacités très proches pour le mélange des couleurs
+               - Couleur : rgb(239, 246, 255) = #EFF6FF (Soft Blue)
             -->
 
-                        <!-- Couche 1 : L'écume (Rapide, transparente) -->
-                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(239, 246, 255, 0.3)" />
+                        <!-- Couche 1 : L'écume (Rapide, Sens normal) -->
+                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(239, 246, 255, 0.4)" />
 
-                        <!-- Couche 2 : Le corps (Moyenne) -->
-                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(239, 246, 255, 0.5)" />
+                        <!-- Couche 2 : Courant inverse (Moyenne, Sens inverse) -->
+                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(239, 246, 255, 0.6)" />
 
-                        <!-- Couche 3 : La profondeur (Lente) -->
-                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(239, 246, 255, 0.7)" />
+                        <!-- Couche 3 : La masse (Lente, Sens normal) -->
+                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(239, 246, 255, 0.8)" />
 
-                        <!-- Couche 4 : Le fond solide (Liaison section suivante) -->
+                        <!-- Couche 4 : Le fond (Très lente, Sens inverse, Solidifie la base) -->
                         <use xlink:href="#gentle-wave" x="48" y="7" fill="#EFF6FF" />
                     </g>
                 </svg>
             </div>
+
 
 
         </section> <!-- Fin de la section Portfolio -->
