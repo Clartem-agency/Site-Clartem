@@ -1934,27 +1934,30 @@
 
 
             <!-- ========================================== -->
-            <!--      TRANSITION VAGUE HYPNOTIQUE           -->
+            <!--    TRANSITION "LIQUIDE VIVANT"             -->
             <!-- ========================================== -->
-            <div class="hypnotic-waves-container">
-                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            <div class="organic-liquid-container">
+                <svg class="liquid-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
                     <defs>
-                        <path id="gentle-wave"
+                        <path id="organic-wave"
                             d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
                     </defs>
-                    <g class="parallax">
-                        <!-- Couche 1 : La plus rapide, très transparente -->
-                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(239, 246, 255, 0.7)" />
+                    <g class="parallax-group">
+                        <!-- Couche 1 : Fond, lente, va vers la droite -->
+                        <use xlink:href="#organic-wave" x="48" y="0" fill="rgba(239, 246, 255, 0.3)"
+                            class="wave-layer layer-1" />
 
-                        <!-- Couche 2 : Vitesse moyenne -->
-                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(239, 246, 255, 0.5)" />
+                        <!-- Couche 2 : Milieu, vitesse moyenne, va vers la GAUCHE (Contre-courant) -->
+                        <use xlink:href="#organic-wave" x="48" y="3" fill="rgba(239, 246, 255, 0.5)"
+                            class="wave-layer layer-2" />
 
-                        <!-- Couche 3 : Lente -->
-                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(239, 246, 255, 0.3)" />
+                        <!-- Couche 3 : Devant, rapide, va vers la droite + monte/descend -->
+                        <use xlink:href="#organic-wave" x="48" y="5" fill="rgba(239, 246, 255, 0.8)"
+                            class="wave-layer layer-3" />
 
-                        <!-- Couche 4 : Solide (Couleur de la section suivante) -->
-                        <use xlink:href="#gentle-wave" x="48" y="7" fill="#EFF6FF" />
+                        <!-- Couche 4 : Solide (Couleur section suivante), stable mais respire -->
+                        <use xlink:href="#organic-wave" x="48" y="7" fill="#EFF6FF" class="wave-layer layer-4" />
                     </g>
                 </svg>
             </div>
