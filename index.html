@@ -908,149 +908,181 @@
 
 
 
-           <!-- ======================================================= -->
-        <!--    SECTION DIAGNOSTIC (REDESIGN : CARTE FLOTTANTE)      -->
-        <!-- ======================================================= -->
-        <section id="diagnostic" class="py-24 lg:py-32 bg-gray-50 relative">
+            <!-- ======================================================= -->
+            <!--    SECTION DIAGNOSTIC (REDESIGN : CARTE FLOTTANTE)      -->
+            <!-- ======================================================= -->
+            <section id="diagnostic" class="py-24 lg:py-32 bg-gray-50 relative">
 
-            <div class="container mx-auto px-4 md:px-6 relative z-10">
+                <div class="container mx-auto px-4 md:px-6 relative z-10">
 
-                <!-- LA CARTE SOMBRE FLOTTANTE -->
-                <div class="max-w-5xl mx-auto bg-neutral-dark rounded-[2.5rem] shadow-2xl overflow-hidden relative p-8 md:p-16">
+                    <!-- LA CARTE SOMBRE FLOTTANTE -->
+                    <div
+                        class="max-w-5xl mx-auto bg-neutral-dark rounded-[2.5rem] shadow-2xl overflow-hidden relative p-8 md:p-16">
 
-                    <!-- Fond décoratif interne (Grille subtile) -->
-                    <div class="absolute inset-0 opacity-[0.05] pointer-events-none"
-                        style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;">
-                    </div>
-
-                    <!-- Lueur d'ambiance rouge (Alerte/Diagnostic) -->
-                    <div class="absolute top-0 right-0 w-96 h-96 bg-red-500/10 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
-
-
-                    <!-- CONTENU -->
-                    <div class="relative z-10">
-
-                        <!-- En-tête -->
-                        <div class="mb-16 md:pl-4" data-sr>
-                            <div
-                                class="inline-flex items-center gap-2 px-3 py-1 mb-6 border border-red-500/30 rounded-full bg-red-900/20 text-red-400 text-xs font-bold tracking-widest uppercase backdrop-blur-sm">
-                                <span class="relative flex h-2 w-2">
-                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-                                </span>
-                                Diagnostic En Cours
-                            </div>
-                            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                                L'Expertise est là.<br>
-                                <span class="text-gray-500">Mais la vitrine est brisée.</span>
-                            </h2>
-                            <p class="text-lg text-gray-400 max-w-xl">
-                                Vous excellez dans votre cabinet, mais votre présence digitale envoie des signaux
-                                contradictoires. Identifiez-vous ces symptômes ?
-                            </p>
+                        <!-- Fond décoratif interne (Grille subtile) -->
+                        <div class="absolute inset-0 opacity-[0.05] pointer-events-none"
+                            style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;">
                         </div>
 
-                        <!-- LA LISTE INTERACTIVE (CORRIGÉE : ESPACEMENT & ÉQUILIBRE) -->
-                        <div class="flex flex-col space-y-4">
+                        <!-- Lueur d'ambiance rouge (Alerte/Diagnostic) -->
+                        <div
+                            class="absolute top-0 right-0 w-96 h-96 bg-red-500/10 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/3">
+                        </div>
 
-                            <!-- Symptôme 1 -->
-                            <!-- Ajout de 'rounded-2xl' et 'px-6 md:px-10' pour l'équilibre au survol -->
-                            <div class="group relative transition-all duration-300 hover:bg-white/5 rounded-2xl cursor-default border border-transparent hover:border-white/5"
-                                data-sr>
-                                <div class="py-8 px-6 md:px-10 flex flex-col md:flex-row md:items-start gap-6 md:gap-10">
-                                    <!-- Numéro (Fixe, ne bouge pas) -->
-                                    <div class="flex-shrink-0 pt-1">
-                                        <span class="text-gray-700 font-mono text-xl group-hover:text-red-500 transition-colors duration-300">01</span>
-                                    </div>
 
-                                    <!-- Contenu -->
-                                    <div class="flex-grow">
-                                        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-red-400 transition-colors duration-300">
-                                            La "Rente" Doctolib
-                                        </h3>
-                                        <p class="text-gray-400 group-hover:text-gray-300 transition-colors duration-300 leading-relaxed text-lg">
-                                            Vous payez un loyer à vie pour être noyé au milieu de vos concurrents, sans
-                                            jamais posséder votre propre visibilité ni vos données clients.
-                                        </p>
-                                    </div>
+                        <!-- CONTENU -->
+                        <div class="relative z-10">
 
-                                    <!-- Icône (Alignée à droite avec espace) -->
-                                    <div class="hidden md:flex flex-shrink-0 items-center justify-center pt-1">
-                                        <div class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-out">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                                            </svg>
-                                        </div>
-                                    </div>
+                            <!-- En-tête -->
+                            <div class="mb-16 md:pl-4" data-sr>
+                                <div
+                                    class="inline-flex items-center gap-2 px-3 py-1 mb-6 border border-red-500/30 rounded-full bg-red-900/20 text-red-400 text-xs font-bold tracking-widest uppercase backdrop-blur-sm">
+                                    <span class="relative flex h-2 w-2">
+                                        <span
+                                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                                    </span>
+                                    Diagnostic En Cours
                                 </div>
+                                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                                    L'Expertise est là.<br>
+                                    <span class="text-gray-500">Mais la vitrine est brisée.</span>
+                                </h2>
+                                <p class="text-lg text-gray-400 max-w-xl">
+                                    Vous excellez dans votre cabinet, mais votre présence digitale envoie des signaux
+                                    contradictoires. Identifiez-vous ces symptômes ?
+                                </p>
                             </div>
 
-                            <!-- Symptôme 2 -->
-                            <div class="group relative transition-all duration-300 hover:bg-white/5 rounded-2xl cursor-default border border-transparent hover:border-white/5"
-                                data-sr data-sr-delay="100">
-                                <div class="py-8 px-6 md:px-10 flex flex-col md:flex-row md:items-start gap-6 md:gap-10">
-                                    <div class="flex-shrink-0 pt-1">
-                                        <span class="text-gray-700 font-mono text-xl group-hover:text-warm-orange transition-colors duration-300">02</span>
-                                    </div>
-                                    <div class="flex-grow">
-                                        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-warm-orange transition-colors duration-300">
-                                            L'Effet "Bricolage"
-                                        </h3>
-                                        <p class="text-gray-400 group-hover:text-gray-300 transition-colors duration-300 leading-relaxed text-lg">
-                                            Votre accompagnement est haut de gamme, mais votre site Wix/Wordpress
-                                            mal configuré renvoie une image d'amateur qui fait fuir le client Premium.
-                                        </p>
-                                    </div>
-                                    <div class="hidden md:flex flex-shrink-0 items-center justify-center pt-1">
-                                        <div class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-out">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-warm-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <!-- LA LISTE INTERACTIVE (CORRIGÉE : ESPACEMENT & ÉQUILIBRE) -->
+                            <div class="flex flex-col space-y-4">
 
-                            <!-- Symptôme 3 -->
-                            <div class="group relative transition-all duration-300 hover:bg-white/5 rounded-2xl cursor-default border border-transparent hover:border-white/5"
-                                data-sr data-sr-delay="200">
-                                <div class="py-8 px-6 md:px-10 flex flex-col md:flex-row md:items-start gap-6 md:gap-10">
-                                    <div class="flex-shrink-0 pt-1">
-                                        <span class="text-gray-700 font-mono text-xl group-hover:text-purple-500 transition-colors duration-300">03</span>
-                                    </div>
-                                    <div class="flex-grow">
-                                        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors duration-300">
-                                            La Surcharge Cognitive
-                                        </h3>
-                                        <p class="text-gray-400 group-hover:text-gray-300 transition-colors duration-300 leading-relaxed text-lg">
-                                            DNS, SSL, Mises à jour... Votre énergie mentale doit être 100% dédiée à vos
-                                            patients, pas à la maintenance informatique obscure.
-                                        </p>
-                                    </div>
-                                    <div class="hidden md:flex flex-shrink-0 items-center justify-center pt-1">
-                                        <div class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-out">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                            </svg>
+                                <!-- Symptôme 1 -->
+                                <!-- Ajout de 'rounded-2xl' et 'px-6 md:px-10' pour l'équilibre au survol -->
+                                <div class="group relative transition-all duration-300 hover:bg-white/5 rounded-2xl cursor-default border border-transparent hover:border-white/5"
+                                    data-sr>
+                                    <div
+                                        class="py-8 px-6 md:px-10 flex flex-col md:flex-row md:items-start gap-6 md:gap-10">
+                                        <!-- Numéro (Fixe, ne bouge pas) -->
+                                        <div class="flex-shrink-0 pt-1">
+                                            <span
+                                                class="text-gray-700 font-mono text-xl group-hover:text-red-500 transition-colors duration-300">01</span>
+                                        </div>
+
+                                        <!-- Contenu -->
+                                        <div class="flex-grow">
+                                            <h3
+                                                class="text-2xl font-bold text-white mb-3 group-hover:text-red-400 transition-colors duration-300">
+                                                La "Rente" Doctolib
+                                            </h3>
+                                            <p
+                                                class="text-gray-400 group-hover:text-gray-300 transition-colors duration-300 leading-relaxed text-lg">
+                                                Vous payez un loyer à vie pour être noyé au milieu de vos concurrents,
+                                                sans
+                                                jamais posséder votre propre visibilité ni vos données clients.
+                                            </p>
+                                        </div>
+
+                                        <!-- Icône (Alignée à droite avec espace) -->
+                                        <div class="hidden md:flex flex-shrink-0 items-center justify-center pt-1">
+                                            <div
+                                                class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-out">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-400"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                                </svg>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- Symptôme 2 -->
+                                <div class="group relative transition-all duration-300 hover:bg-white/5 rounded-2xl cursor-default border border-transparent hover:border-white/5"
+                                    data-sr data-sr-delay="100">
+                                    <div
+                                        class="py-8 px-6 md:px-10 flex flex-col md:flex-row md:items-start gap-6 md:gap-10">
+                                        <div class="flex-shrink-0 pt-1">
+                                            <span
+                                                class="text-gray-700 font-mono text-xl group-hover:text-warm-orange transition-colors duration-300">02</span>
+                                        </div>
+                                        <div class="flex-grow">
+                                            <h3
+                                                class="text-2xl font-bold text-white mb-3 group-hover:text-warm-orange transition-colors duration-300">
+                                                L'Effet "Bricolage"
+                                            </h3>
+                                            <p
+                                                class="text-gray-400 group-hover:text-gray-300 transition-colors duration-300 leading-relaxed text-lg">
+                                                Votre accompagnement est haut de gamme, mais votre site Wix/Wordpress
+                                                mal configuré renvoie une image d'amateur qui fait fuir le client
+                                                Premium.
+                                            </p>
+                                        </div>
+                                        <div class="hidden md:flex flex-shrink-0 items-center justify-center pt-1">
+                                            <div
+                                                class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-out">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-warm-orange"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Symptôme 3 -->
+                                <div class="group relative transition-all duration-300 hover:bg-white/5 rounded-2xl cursor-default border border-transparent hover:border-white/5"
+                                    data-sr data-sr-delay="200">
+                                    <div
+                                        class="py-8 px-6 md:px-10 flex flex-col md:flex-row md:items-start gap-6 md:gap-10">
+                                        <div class="flex-shrink-0 pt-1">
+                                            <span
+                                                class="text-gray-700 font-mono text-xl group-hover:text-purple-500 transition-colors duration-300">03</span>
+                                        </div>
+                                        <div class="flex-grow">
+                                            <h3
+                                                class="text-2xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors duration-300">
+                                                La Surcharge Cognitive
+                                            </h3>
+                                            <p
+                                                class="text-gray-400 group-hover:text-gray-300 transition-colors duration-300 leading-relaxed text-lg">
+                                                DNS, SSL, Mises à jour... Votre énergie mentale doit être 100% dédiée à
+                                                vos
+                                                patients, pas à la maintenance informatique obscure.
+                                            </p>
+                                        </div>
+                                        <div class="hidden md:flex flex-shrink-0 items-center justify-center pt-1">
+                                            <div
+                                                class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-out">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-400"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
 
                         </div>
-
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
 
 
 
 
 
-        
+
 
 
             <!-- ======================================================= -->
@@ -1896,13 +1928,15 @@
                     </a>
                 </div>
 
-            </div> <!-- 1. ON FERME LE CONTAINER ICI (C'est la correction importante) -->
+            </div> <!-- ON FERME LE CONTAINER ICI -->
+
+
+
 
             <!-- ========================================== -->
-            <!--      TRANSITION VAGUE ANIMÉE (WAVE)        -->
-            <!--      (Maintenant, elle est hors du container mais dans la section) -->
+            <!--      TRANSITION VAGUE HYPNOTIQUE           -->
             <!-- ========================================== -->
-            <div class="wave-container">
+            <div class="hypnotic-waves-container">
                 <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
                     <defs>
@@ -1910,14 +1944,21 @@
                             d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
                     </defs>
                     <g class="parallax">
+                        <!-- Couche 1 : La plus rapide, très transparente -->
                         <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(239, 246, 255, 0.7)" />
+
+                        <!-- Couche 2 : Vitesse moyenne -->
                         <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(239, 246, 255, 0.5)" />
+
+                        <!-- Couche 3 : Lente -->
                         <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(239, 246, 255, 0.3)" />
-                        <!-- Couleur de la section suivante (soft-blue) -->
+
+                        <!-- Couche 4 : Solide (Couleur de la section suivante) -->
                         <use xlink:href="#gentle-wave" x="48" y="7" fill="#EFF6FF" />
                     </g>
                 </svg>
             </div>
+
 
         </section> <!-- Fin de la section Portfolio -->
 
