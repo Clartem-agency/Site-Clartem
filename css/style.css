@@ -2710,9 +2710,8 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 
-
 /* ======================================================= */
-/*    TRANSITION VAGUE HYPNOTIQUE (SHAPE DIVIDER)          */
+/*    TRANSITION VAGUE HYPNOTIQUE (SHAPE DIVIDER) - V2     */
 /* ======================================================= */
 
 .hypnotic-waves-container {
@@ -2730,72 +2729,85 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 .waves {
     position: relative;
     width: 100%;
-    height: 15vh;
+    height: 15vh; /* Hauteur relative confortable */
     min-height: 100px;
     max-height: 150px;
     margin-bottom: -1px;
+    
+    /* Animation de respiration verticale globale */
+    animation: wave-swell 10s ease-in-out infinite alternate;
 }
 
 /* 
-   Animation Hypnotique : 
-   On utilise 'linear' au lieu de 'cubic-bezier' pour un flux continu 
-   sans accélération ni décélération visible (plus organique).
+   Animation Principale : Courants croisés
+   On définit deux animations inverses pour briser la linéarité.
 */
-.parallax > use {
-    animation: wave-motion linear infinite;
+@keyframes move-forever-right {
+    0% { transform: translate3d(-90px, 0, 0); }
+    100% { transform: translate3d(85px, 0, 0); }
 }
 
-/* Vague 1 : Rapide (Écume) - Sens : Droite à Gauche */
+@keyframes move-forever-left {
+    0% { transform: translate3d(85px, 0, 0); }
+    100% { transform: translate3d(-90px, 0, 0); }
+}
+
+/* 
+   Animation Secondaire : Respiration (Swell)
+   Fait monter et descendre doucement tout l'océan
+*/
+@keyframes wave-swell {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(5px); }
+}
+
+/* 
+   Configuration des couches (Parallax)
+   Utilisation de "linear" pour la fluidité, mais avec des sens opposés.
+*/
+
+/* Vague 1 : Écume rapide (Vers la Droite) */
 .parallax > use:nth-child(1) {
-    animation-duration: 25s; 
-    animation-delay: -2s;
+    animation: move-forever-right 23s linear infinite; /* 23s (Nombre premier) */
+    opacity: 0.5; /* Légèrement plus visible */
 }
 
-/* Vague 2 : Moyenne - Sens : Droite à Gauche (Décalée) */
+/* Vague 2 : Courant inverse (Vers la Gauche - C'est ça qui crée l'hypnose) */
 .parallax > use:nth-child(2) {
-    animation-duration: 35s; 
-    animation-delay: -3s;
+    animation: move-forever-left 37s linear infinite; /* Vitesse très différente */
+    opacity: 0.6;
 }
 
-/* Vague 3 : Lente - Sens : Droite à Gauche (Très décalée) */
+/* Vague 3 : Profondeur (Vers la Droite) */
 .parallax > use:nth-child(3) {
-    animation-duration: 50s; 
-    animation-delay: -4s;
+    animation: move-forever-right 41s linear infinite; 
+    opacity: 0.8;
 }
 
-/* Vague 4 : Le fond (Très lourde et lente) - Sens : Droite à Gauche */
+/* Vague 4 : Base lourde (Vers la Gauche) */
 .parallax > use:nth-child(4) {
-    animation-duration: 80s; 
-    animation-delay: -5s;
+    animation: move-forever-left 59s linear infinite; /* Très lent */
+    opacity: 1;
 }
 
-/* 
-   Keyframes simplifiées pour un mouvement perpétuel
-   L'effet hypnotique vient de la superposition de vitesses très différentes
-   qui empêche l'œil de suivre un motif répétitif.
-*/
-@keyframes wave-motion {
-    0% {
-        transform: translate3d(-90px, 0, 0);
-    }
-    100% {
-        transform: translate3d(85px, 0, 0);
-    }
-}
 
 /* Ajustement Mobile */
 @media (max-width: 768px) {
     .waves {
         height: 80px;
         min-height: 80px;
+        /* On désactive le swell sur mobile pour la performance */
+        animation: none; 
     }
     
-    /* On accélère légèrement sur mobile pour garder du dynamisme sur petit écran */
-    .parallax > use:nth-child(1) { animation-duration: 18s; }
-    .parallax > use:nth-child(2) { animation-duration: 25s; }
-    .parallax > use:nth-child(3) { animation-duration: 35s; }
-    .parallax > use:nth-child(4) { animation-duration: 50s; }
+    /* On garde les animations croisées mais un peu plus rapides */
+    .parallax > use:nth-child(1) { animation-duration: 17s; }
+    .parallax > use:nth-child(2) { animation-duration: 23s; }
+    .parallax > use:nth-child(3) { animation-duration: 29s; }
+    .parallax > use:nth-child(4) { animation-duration: 45s; }
 }
+
+
 
 
 
