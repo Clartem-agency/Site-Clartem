@@ -2856,3 +2856,86 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     background-color: #3B82F6; /* clarity-blue */
     color: white;
 }
+
+
+
+
+
+
+/* ======================================================= */
+/*    ELEMENTS PREMIUM (TITRES & BADGES)                   */
+/* ======================================================= */
+
+/* 1. Lueur d'ambiance (Background Flare) */
+/* Crée une lumière douce derrière le texte pour le détacher du fond */
+.premium-flare {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 150%;
+    background: radial-gradient(
+        circle, 
+        rgba(59, 130, 246, 0.15) 0%, /* Clarity Blue très transparent */
+        rgba(255, 255, 255, 0) 70%
+    );
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* 2. Badge "Luxe" (Glassmorphism + Bordure fine) */
+.premium-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(255, 255, 255, 0.03); /* Fond quasi invisible */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Bordure fine */
+    border-radius: 9999px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.premium-pill:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.1); /* Lueur bleue au survol */
+}
+
+/* Le petit point brillant dans le badge */
+.premium-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #F97316; /* Warm Orange */
+    box-shadow: 0 0 8px rgba(249, 115, 22, 0.6);
+    position: relative;
+}
+
+.premium-dot::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    animation: dotPulse 2s infinite;
+}
+
+@keyframes dotPulse {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+/* 3. Typographie Titre Premium */
+/* Ajoute un léger dégradé vertical subtil sur le texte blanc pour le rendre "métallique" */
+.text-gradient-silver {
+    background: linear-gradient(to bottom, #ffffff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
