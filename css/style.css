@@ -2710,56 +2710,67 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 
+
 /* ======================================================= */
-/*    TRANSITION VAGUE (SHAPE DIVIDER ANIMÉ)               */
+/*    TRANSITION VAGUE HYPNOTIQUE (SHAPE DIVIDER)          */
 /* ======================================================= */
 
-.wave-container {
+.hypnotic-waves-container {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     overflow: hidden;
     line-height: 0;
-    z-index: 1; /* Derrière le contenu textuel si besoin, mais devant le fond */
-    transform: translateY(1px); /* Corrige le micro-espace blanc sur certains écrans */
+    z-index: 2;
+    /* Petit hack pour éviter la ligne blanche de 1px sur certains écrans */
+    transform: translateY(1px); 
 }
 
 .waves {
     position: relative;
     width: 100%;
     height: 15vh; /* Hauteur de la vague */
-    margin-bottom: -7px; /* Fix pour Safari */
     min-height: 100px;
     max-height: 150px;
+    /* Important : supprime les marges par défaut */
+    margin-bottom: -1px; 
 }
 
-/* Animation des vagues */
+/* 
+   L'animation de base.
+   L'astuce "hypnotique" vient du cubic-bezier(.55,.5,.45,.5)
+   qui crée un mouvement de balancier fluide plutôt que linéaire.
+*/
 .parallax > use {
-    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+    animation: wave-motion 25s cubic-bezier(.55, .5, .45, .5) infinite;
 }
 
+/* Vague 1 : Rapide et transparente */
 .parallax > use:nth-child(1) {
     animation-delay: -2s;
     animation-duration: 7s;
 }
 
+/* Vague 2 : Moyenne */
 .parallax > use:nth-child(2) {
     animation-delay: -3s;
     animation-duration: 10s;
 }
 
+/* Vague 3 : Lente */
 .parallax > use:nth-child(3) {
     animation-delay: -4s;
     animation-duration: 13s;
 }
 
+/* Vague 4 : Très lente (Le fond solide) */
 .parallax > use:nth-child(4) {
     animation-delay: -5s;
     animation-duration: 20s;
 }
 
-@keyframes move-forever {
+@keyframes wave-motion {
     0% {
         transform: translate3d(-90px, 0, 0);
     }
@@ -2768,13 +2779,15 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     }
 }
 
-/* Ajustement Mobile */
+/* Ajustement Mobile pour que les vagues ne prennent pas tout l'écran */
 @media (max-width: 768px) {
     .waves {
-        height: 40px;
-        min-height: 40px;
+        height: 60px;
+        min-height: 60px;
     }
 }
+
+
 
 
 
