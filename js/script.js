@@ -99,30 +99,50 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // ==================================================================
-    // LOGIQUE POUR L'ACCORDÉON FAQ (MODIFIÉE)
-    // --- DÉBUT DE LA LOGIQUE MODIFIÉE : Un seul tiroir ouvert à la fois ---
+    // LOGIQUE POUR L'ACCORDÉON FAQ (VERSION CARTES SÉPARÉES)
     // ==================================================================
     const faqToggles = document.querySelectorAll('.faq-toggle');
+
     if (faqToggles.length > 0) {
         faqToggles.forEach(clickedToggle => {
             clickedToggle.addEventListener('click', () => {
                 const answerToOpen = clickedToggle.nextElementSibling;
                 const iconToRotate = clickedToggle.querySelector('svg');
+                // On récupère le conteneur du rond pour changer sa couleur si besoin
+                const iconContainer = clickedToggle.querySelector('.w-8'); 
+                
                 const isAlreadyOpen = answerToOpen.style.maxHeight;
 
-                // Étape 1 : Fermer tous les tiroirs ouverts
+                // Étape 1 : Fermer tous les autres tiroirs (Logique accordéon strict)
                 faqToggles.forEach(toggle => {
-                    const answer = toggle.nextElementSibling;
-                    const icon = toggle.querySelector('svg');
-                    answer.style.maxHeight = null;
-                    icon.classList.remove('rotate-180');
+                    if (toggle !== clickedToggle) {
+                        const answer = toggle.nextElementSibling;
+                        const icon = toggle.querySelector('svg');
+                        const container = toggle.querySelector('.w-8');
+                        
+                        answer.style.maxHeight = null;
+                        icon.classList.remove('rotate-180');
+                        toggle.classList.remove('active');
+                        
+                        // Reset style icône inactif
+                        if(container) {
+                             // On laisse les classes hover gérer le retour, 
+                             // ou on force le style par défaut si on avait ajouté des classes via JS
+                        }
+                    }
                 });
 
-                // Étape 2 : Si le tiroir cliqué n'était pas déjà ouvert, on l'ouvre.
-                // S'il était déjà ouvert, l'étape 1 l'a déjà fermé.
+                // Étape 2 : Basculer l'état du cliqué
                 if (!isAlreadyOpen) {
+                    // OUVRIR
                     answerToOpen.style.maxHeight = answerToOpen.scrollHeight + "px";
                     iconToRotate.classList.add('rotate-180');
+                    clickedToggle.classList.add('active');
+                } else {
+                    // FERMER
+                    answerToOpen.style.maxHeight = null;
+                    iconToRotate.classList.remove('rotate-180');
+                    clickedToggle.classList.remove('active');
                 }
             });
         });
