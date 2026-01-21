@@ -2835,3 +2835,24 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 .story-card:hover {
     transform: translateY(-2px); /* Léger mouvement au survol de la zone */
 }
+
+
+
+
+
+
+/* ======================================================= */
+/*    CORRECTIF ROTATION ICÔNE FAQ (PLUS -> CROIX)         */
+/* ======================================================= */
+
+/* L'icône SVG dans le bouton FAQ tourne de 45deg (ou 135deg) */
+.faq-toggle svg.rotate-180 {
+    /* Sur un "+" : 45deg fait une croix "x". 135deg fait aussi une croix avec plus de mouvement */
+    transform: rotate(135deg); 
+}
+
+/* On change aussi la couleur de fond du rond au clic */
+.faq-toggle.active .w-8 {
+    background-color: #3B82F6; /* clarity-blue */
+    color: white;
+}
