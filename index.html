@@ -907,219 +907,216 @@
 
 
 
-            <!-- ======================================================= -->
-            <!--             SECTION : REALITÉ & VISION (CORRIGÉE)       -->
-            <!-- ======================================================= -->
-            <section id="reality-check" class="pt-12 pb-28 lg:pt-20 lg:pb-56 bg-transparent relative z-10">
 
-                <div class="container mx-auto px-6 relative z-10">
+           <!-- ======================================================= -->
+        <!--    SECTION DIAGNOSTIC (REDESIGN : CARTE FLOTTANTE)      -->
+        <!-- ======================================================= -->
+        <section id="diagnostic" class="py-24 lg:py-32 bg-gray-50 relative">
 
-                    <!-- DÉCORATION D'ARRIÈRE-PLAN -->
-                    <div
-                        class="absolute top-1/4 left-0 w-[800px] h-[800px] bg-white rounded-full blur-[100px] opacity-60 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-                    </div>
-                    <div
-                        class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-clarity-blue/5 rounded-full blur-[100px] translate-x-1/3 translate-y-1/3 pointer-events-none">
-                    </div>
-                    <div
-                        class="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-100/40 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+            <div class="container mx-auto px-4 md:px-6 relative z-10">
+
+                <!-- LA CARTE SOMBRE FLOTTANTE -->
+                <div class="max-w-5xl mx-auto bg-neutral-dark rounded-[2.5rem] shadow-2xl overflow-hidden relative p-8 md:p-16">
+
+                    <!-- Fond décoratif interne (Grille subtile) -->
+                    <div class="absolute inset-0 opacity-[0.05] pointer-events-none"
+                        style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;">
                     </div>
 
-                    <div class="container mx-auto px-6 relative z-10">
-
-                        <!-- AJOUT : items-stretch permet d'aligner la hauteur des deux colonnes -->
-                        <div class="grid lg:grid-cols-2 gap-16 lg:gap-12 items-stretch">
+                    <!-- Lueur d'ambiance rouge (Alerte/Diagnostic) -->
+                    <div class="absolute top-0 right-0 w-96 h-96 bg-red-500/10 rounded-full blur-[100px] pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
 
 
+                    <!-- CONTENU -->
+                    <div class="relative z-10">
 
-                            <!-- COLONNE GAUCHE : LES DOULEURS -->
-                            <div class="flex flex-col" data-sr>
-                                <!-- Badge "Contexte" -->
-                                <!-- AJOUT DE 'w-fit' ICI POUR EMPÊCHER L'ÉTIREMENT -->
-                                <div
-                                    class="w-fit inline-block px-3 py-1 mb-6 border border-gray-300 rounded-full bg-transparent text-neutral-500 text-xs font-bold tracking-widest uppercase">
-                                    Le Constat
-                                </div>
+                        <!-- En-tête -->
+                        <div class="mb-16 md:pl-4" data-sr>
+                            <div
+                                class="inline-flex items-center gap-2 px-3 py-1 mb-6 border border-red-500/30 rounded-full bg-red-900/20 text-red-400 text-xs font-bold tracking-widest uppercase backdrop-blur-sm">
+                                <span class="relative flex h-2 w-2">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                                </span>
+                                Diagnostic En Cours
+                            </div>
+                            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                                L'Expertise est là.<br>
+                                <span class="text-gray-500">Mais la vitrine est brisée.</span>
+                            </h2>
+                            <p class="text-lg text-gray-400 max-w-xl">
+                                Vous excellez dans votre cabinet, mais votre présence digitale envoie des signaux
+                                contradictoires. Identifiez-vous ces symptômes ?
+                            </p>
+                        </div>
 
-                                <h2 class="text-3xl md:text-5xl font-bold text-neutral-dark mb-8 leading-tight">
-                                    Expert dans votre cabinet.<br>
-                                    <span class="text-neutral-light/60">Perdu dans le digital ?</span>
-                                </h2>
+                        <!-- LA LISTE INTERACTIVE (CORRIGÉE : ESPACEMENT & ÉQUILIBRE) -->
+                        <div class="flex flex-col space-y-4">
 
-                                <div class="space-y-5 flex-grow">
-
-                                    <!-- Douleur 1 : Doctolib -->
-                                    <div
-                                        class="group relative bg-[#162032] rounded-2xl p-6 border border-white/10 shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-red-500/30 hover:shadow-xl">
-
-                                        <div
-                                            class="absolute -right-10 -top-10 w-32 h-32 bg-red-500/10 rounded-full blur-2xl group-hover:bg-red-500/20 transition-colors duration-500">
-                                        </div>
-
-                                        <div class="relative z-10">
-                                            <div class="flex justify-between items-start mb-4">
-                                                <div
-                                                    class="inline-flex items-center gap-2 px-2 py-1 rounded bg-red-500/10 border border-red-500/20 text-red-400 text-[10px] font-mono tracking-wider uppercase">
-                                                    <span
-                                                        class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
-                                                    Dépendance_Externe
-                                                </div>
-                                                <span class="text-gray-500 text-xs font-mono">ERR_402</span>
-                                            </div>
-
-                                            <h3
-                                                class="text-lg font-bold text-white mb-2 group-hover:text-red-300 transition-colors">
-                                                La rente "Doctolib"
-                                            </h3>
-                                            <p class="text-gray-400 text-sm leading-relaxed">
-                                                Payer un loyer mensuel à vie pour être noyé au milieu de vos
-                                                concurrents, sans jamais posséder votre propre visibilité ni vos données
-                                                clients.
-                                            </p>
-                                        </div>
+                            <!-- Symptôme 1 -->
+                            <!-- Ajout de 'rounded-2xl' et 'px-6 md:px-10' pour l'équilibre au survol -->
+                            <div class="group relative transition-all duration-300 hover:bg-white/5 rounded-2xl cursor-default border border-transparent hover:border-white/5"
+                                data-sr>
+                                <div class="py-8 px-6 md:px-10 flex flex-col md:flex-row md:items-start gap-6 md:gap-10">
+                                    <!-- Numéro (Fixe, ne bouge pas) -->
+                                    <div class="flex-shrink-0 pt-1">
+                                        <span class="text-gray-700 font-mono text-xl group-hover:text-red-500 transition-colors duration-300">01</span>
                                     </div>
 
-                                    <!-- Douleur 2 : Image Amateur -->
-                                    <div
-                                        class="group relative bg-[#162032] rounded-2xl p-6 border border-white/10 shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-warm-orange/30 hover:shadow-xl">
-
-                                        <div
-                                            class="absolute -right-10 -top-10 w-32 h-32 bg-warm-orange/10 rounded-full blur-2xl group-hover:bg-warm-orange/20 transition-colors duration-500">
-                                        </div>
-
-                                        <div class="relative z-10">
-                                            <div class="flex justify-between items-start mb-4">
-                                                <div
-                                                    class="inline-flex items-center gap-2 px-2 py-1 rounded bg-orange-500/10 border border-orange-500/20 text-orange-400 text-[10px] font-mono tracking-wider uppercase">
-                                                    <span
-                                                        class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
-                                                    Image_Non_Conforme
-                                                </div>
-                                                <span class="text-gray-500 text-xs font-mono">WARN_301</span>
-                                            </div>
-
-                                            <h3
-                                                class="text-lg font-bold text-white mb-2 group-hover:text-orange-300 transition-colors">
-                                                L'effet "Bricolage"
-                                            </h3>
-                                            <p class="text-gray-400 text-sm leading-relaxed">
-                                                Votre accompagnement est haut de gamme, mais votre site actuel
-                                                (Wix/Wordpress mal configuré) renvoie une image d'amateur.
-                                            </p>
-                                        </div>
+                                    <!-- Contenu -->
+                                    <div class="flex-grow">
+                                        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-red-400 transition-colors duration-300">
+                                            La "Rente" Doctolib
+                                        </h3>
+                                        <p class="text-gray-400 group-hover:text-gray-300 transition-colors duration-300 leading-relaxed text-lg">
+                                            Vous payez un loyer à vie pour être noyé au milieu de vos concurrents, sans
+                                            jamais posséder votre propre visibilité ni vos données clients.
+                                        </p>
                                     </div>
 
-                                    <!-- Douleur 3 : La Technique -->
-                                    <div
-                                        class="group relative bg-[#162032] rounded-2xl p-6 border border-white/10 shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-indigo-500/30 hover:shadow-xl">
-
-                                        <div
-                                            class="absolute -right-10 -top-10 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl group-hover:bg-indigo-500/20 transition-colors duration-500">
-                                        </div>
-
-                                        <div class="relative z-10">
-                                            <div class="flex justify-between items-start mb-4">
-                                                <div
-                                                    class="inline-flex items-center gap-2 px-2 py-1 rounded bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-[10px] font-mono tracking-wider uppercase">
-                                                    <span
-                                                        class="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
-                                                    Surcharge_Cognitive
-                                                </div>
-                                                <span class="text-gray-500 text-xs font-mono">SYS_500</span>
-                                            </div>
-
-                                            <h3
-                                                class="text-lg font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors">
-                                                La phobie technique
-                                            </h3>
-                                            <p class="text-gray-400 text-sm leading-relaxed">
-                                                DNS, SSL, Mises à jour... Ces termes vous stressent ? Votre énergie doit
-                                                être 100% dédiée à vos patients, pas à la maintenance informatique.
-                                            </p>
+                                    <!-- Icône (Alignée à droite avec espace) -->
+                                    <div class="hidden md:flex flex-shrink-0 items-center justify-center pt-1">
+                                        <div class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-out">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                            </svg>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
 
-
-
-                            <!-- COLONNE DROITE : LA RÉPONSE (Carte alignée et propre) -->
-                            <div class="relative group h-full flex flex-col" data-sr data-sr-delay="200">
-
-                                <!-- Lueur d'arrière-plan -->
-                                <div
-                                    class="absolute -inset-1 bg-gradient-to-r from-clarity-blue via-success-green to-deep-blue rounded-[2rem] blur opacity-30 group-hover:opacity-50 transition duration-1000">
-                                </div>
-
-                                <!-- La Carte Principale -->
-                                <!-- MODIF : h-full pour aligner le bas avec la colonne de gauche -->
-                                <!-- MODIF : bg-[#162032] pour correspondre aux cartes de gauche -->
-                                <!-- MODIF : Flex column avec justify-between pour espacer proprement le contenu -->
-                                <div
-                                    class="relative bg-[#162032] rounded-[2rem] p-10 lg:p-12 shadow-2xl border border-white/10 h-full flex flex-col justify-between">
-
-                                    <!-- Partie HAUT : Badge + Titre -->
-                                    <div>
-                                        <div
-                                            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-success-green text-xs font-bold uppercase tracking-widest shadow-lg mb-8">
-                                            <span class="relative flex h-2 w-2">
-                                                <span
-                                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-success-green opacity-75"></span>
-                                                <span
-                                                    class="relative inline-flex rounded-full h-2 w-2 bg-success-green"></span>
-                                            </span>
-                                            La Mission Clartem
-                                        </div>
-
-                                        <h3 class="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
-                                            Je traduis votre <br>
-                                            <span
-                                                class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-white">"Savoir-Faire"</span>
-                                            en <br>
-                                            <span
-                                                class="text-transparent bg-clip-text bg-gradient-to-r from-warm-orange to-white">"Faire-Venir".</span>
+                            <!-- Symptôme 2 -->
+                            <div class="group relative transition-all duration-300 hover:bg-white/5 rounded-2xl cursor-default border border-transparent hover:border-white/5"
+                                data-sr data-sr-delay="100">
+                                <div class="py-8 px-6 md:px-10 flex flex-col md:flex-row md:items-start gap-6 md:gap-10">
+                                    <div class="flex-shrink-0 pt-1">
+                                        <span class="text-gray-700 font-mono text-xl group-hover:text-warm-orange transition-colors duration-300">02</span>
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-warm-orange transition-colors duration-300">
+                                            L'Effet "Bricolage"
                                         </h3>
+                                        <p class="text-gray-400 group-hover:text-gray-300 transition-colors duration-300 leading-relaxed text-lg">
+                                            Votre accompagnement est haut de gamme, mais votre site Wix/Wordpress
+                                            mal configuré renvoie une image d'amateur qui fait fuir le client Premium.
+                                        </p>
                                     </div>
-
-                                    <!-- Partie MILIEU : Texte -->
-                                    <div class="space-y-6 text-gray-400 text-lg leading-relaxed font-light my-8">
-                                        <p>
-                                            Je ne suis pas là pour vous vendre "du code", mais pour construire le pont
-                                            psychologique entre la douleur de votre client et votre solution.
-                                        </p>
-                                        <p>
-                                            Je prends en charge toute la complexité technique et marketing.
-                                        </p>
-                                        <div class="mt-4 p-4 bg-white/5 border-l-4 border-clarity-blue rounded-r-lg">
-                                            <p class="text-white font-medium text-lg">
-                                                "Vous soignez vos patients. <br>Je soigne votre image."
-                                            </p>
+                                    <div class="hidden md:flex flex-shrink-0 items-center justify-center pt-1">
+                                        <div class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-out">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-warm-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                            </svg>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
 
-                                    <!-- Partie BAS : Signature -->
-                                    <div class="flex items-center gap-5 pt-8 border-t border-white/10 mt-auto">
-                                        <div class="relative w-16 h-16 flex-shrink-0">
-                                            <div
-                                                class="absolute inset-0 bg-gradient-to-br from-clarity-blue to-success-green rounded-full opacity-40 blur-sm">
-                                            </div>
-                                            <img src="assets/photo-frederic.jpg" alt="Frédéric Delavictoire"
-                                                class="relative w-full h-full object-cover rounded-full border-2 border-white/20 p-0.5 bg-neutral-dark">
-                                        </div>
-                                        <div>
-                                            <p class="text-white font-bold text-lg">Votre Partenaire</p>
-                                            <p class="text-clarity-blue text-sm font-medium">Spécialisé Coachs &
-                                                Thérapeutes</p>
+                            <!-- Symptôme 3 -->
+                            <div class="group relative transition-all duration-300 hover:bg-white/5 rounded-2xl cursor-default border border-transparent hover:border-white/5"
+                                data-sr data-sr-delay="200">
+                                <div class="py-8 px-6 md:px-10 flex flex-col md:flex-row md:items-start gap-6 md:gap-10">
+                                    <div class="flex-shrink-0 pt-1">
+                                        <span class="text-gray-700 font-mono text-xl group-hover:text-purple-500 transition-colors duration-300">03</span>
+                                    </div>
+                                    <div class="flex-grow">
+                                        <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-purple-400 transition-colors duration-300">
+                                            La Surcharge Cognitive
+                                        </h3>
+                                        <p class="text-gray-400 group-hover:text-gray-300 transition-colors duration-300 leading-relaxed text-lg">
+                                            DNS, SSL, Mises à jour... Votre énergie mentale doit être 100% dédiée à vos
+                                            patients, pas à la maintenance informatique obscure.
+                                        </p>
+                                    </div>
+                                    <div class="hidden md:flex flex-shrink-0 items-center justify-center pt-1">
+                                        <div class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-out">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            </svg>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                         </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+        
+
+
+            <!-- ======================================================= -->
+            <!--    NOUVELLE SECTION 2 : LE PONT (Typographie)           -->
+            <!--    Style : Clair, Aéré, Grand Texte, "Signature"        -->
+            <!-- ======================================================= -->
+            <section id="mission-bridge" class="py-24 lg:py-40 bg-gray-50 relative">
+
+                <!-- Élément graphique de transition (Ligne verticale) -->
+                <div
+                    class="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-neutral-dark to-transparent opacity-20">
+                </div>
+
+                <div class="container mx-auto px-6">
+
+                    <div class="max-w-5xl mx-auto text-center" data-sr>
+
+                        <!-- Petit label centré -->
+                        <p class="text-clarity-blue font-bold uppercase tracking-widest text-xs mb-8">
+                            Mon rôle est simple
+                        </p>
+
+                        <!-- Grande Typographie (Le message clé) -->
+                        <h2 class="text-3xl md:text-5xl lg:text-6xl font-serif text-neutral-dark leading-tight mb-12">
+                            "Je traduis votre <span
+                                class="italic text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-deep-blue">Savoir-Faire</span><br>
+                            en <span
+                                class="italic text-transparent bg-clip-text bg-gradient-to-r from-warm-orange to-red-500">Faire-Venir</span>."
+                        </h2>
+
+                        <!-- Explication en 2 colonnes (sans grille visible) -->
+                        <div class="grid md:grid-cols-2 gap-8 md:gap-16 text-left max-w-4xl mx-auto">
+                            <div class="relative pl-6 border-l-2 border-clarity-blue">
+                                <p class="text-lg text-neutral-dark font-medium mb-2">Technique Invisible</p>
+                                <p class="text-neutral-light leading-relaxed">
+                                    Je ne suis pas là pour vous vendre du code. Je prends en charge toute la complexité
+                                    (serveurs, sécurité, mobile) pour que vous n'ayez jamais à y penser.
+                                </p>
+                            </div>
+                            <div class="relative pl-6 border-l-2 border-warm-orange">
+                                <p class="text-lg text-neutral-dark font-medium mb-2">Psychologie Avant Tout</p>
+                                <p class="text-neutral-light leading-relaxed">
+                                    Je construis le pont psychologique entre la douleur de votre client et votre
+                                    solution. On ne fait pas un "joli site", on fait un site qui rassure.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Signature Stylisée (Pas de photo) -->
+                        <div class="mt-20 flex justify-center">
+                            <div class="text-center">
+                                <div class="font-serif italic text-3xl text-neutral-400 mb-2 font-light"
+                                    style="font-family: 'Times New Roman', serif;">
+                                    Frédéric D.
+                                </div>
+                                <p class="text-xs font-bold text-neutral-dark uppercase tracking-widest">
+                                    Fondateur, Clartem
+                                </p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
+
+
 
 
 
@@ -1356,7 +1353,7 @@
             <div
                 class="absolute top-0 right-0 w-[600px] h-[600px] bg-clarity-blue/20 rounded-full blur-[120px] translate-x-1/4 -translate-y-1/4 pointer-events-none">
             </div>
-            
+
 
             <!-- Ligne de vie centrale (Background line) -->
             <!-- CORRECTION MOBILE : left-8 (32px) au lieu de left-4 pour l'alignement -->
@@ -1645,7 +1642,7 @@
         <section id="portfolio"
             class="pt-24 pb-48 lg:pt-40 lg:pb-80 bg-neutral-dark text-white overflow-hidden relative">
 
-           
+
 
             <div class="container mx-auto px-6 relative z-10">
 
@@ -3821,7 +3818,7 @@
 
         <section id="blog-preview" class="pt-24 pb-24 lg:pt-6 lg:pb-40 bg-neutral-dark relative overflow-hidden">
 
-           
+
 
             <div class="container mx-auto px-6 relative z-10">
 
@@ -4388,7 +4385,7 @@
         <!-- ======================================================= -->
         <section id="cta" class="pt-16 pb-32 lg:pt-20 lg:pb-48 bg-neutral-dark relative overflow-hidden">
 
-           
+
 
             <div class="container mx-auto px-6 relative z-10">
 
