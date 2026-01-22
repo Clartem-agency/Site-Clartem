@@ -4324,31 +4324,33 @@
 
             <div class="container mx-auto px-6 relative z-10">
 
-                <div class="grid lg:grid-cols-12 gap-12 lg:gap-24 items-start">
 
-                    <!-- COLONNE GAUCHE : L'ACCROCHE (Sticky) -->
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
+
+                    <!-- COLONNE GAUCHE : L'ACCROCHE (Sticky desktop uniquement) -->
                     <div class="lg:col-span-5 lg:sticky lg:top-32" data-sr>
+                        <!-- ... (Le contenu de cette colonne reste inchangé) ... -->
                         <div
                             class="inline-block px-3 py-1 mb-6 border border-gray-700 rounded-full bg-white/5 text-xs font-bold tracking-widest text-gray-300 uppercase backdrop-blur-md">
                             Vos Interrogations
                         </div>
-                        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                        <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
                             Parlons franchement.<br>
                             <span class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-white">
                                 Tout doit être clair.
                             </span>
                         </h2>
-                        <p class="text-lg text-gray-400 mb-8 leading-relaxed">
+                        <p class="text-base md:text-lg text-gray-400 mb-8 leading-relaxed">
                             Un site web est un investissement important. Il est normal d'avoir des questions. Voici
                             celles qui reviennent le plus souvent lors de mes appels.
                         </p>
 
-                        <!-- NOUVEAU BADGE : CONTACT / SUPPORT (Plus humain) -->
+                        <!-- BADGE CONTACT (Inchangé) -->
                         <div
                             class="flex items-center gap-4 p-5 bg-[#1E293B] rounded-2xl border border-white/5 shadow-xl hover:border-warm-orange/30 transition-colors duration-300">
                             <div
                                 class="w-12 h-12 rounded-full bg-warm-orange/10 flex items-center justify-center text-warm-orange shrink-0">
-                                <!-- Icône Chat / Message -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -4363,36 +4365,26 @@
                                 </a>
                             </div>
                         </div>
-
-                        <div class="mt-8 hidden lg:block">
-                            <a href="faq.html"
-                                class="text-sm font-semibold text-white hover:text-clarity-blue transition-colors flex items-center gap-2 group">
-                                Explorer le centre d'aide complet
-                                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
-                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                </svg>
-                            </a>
-                        </div>
                     </div>
 
-                    <!-- COLONNE DROITE : DESIGN MONOBLOC UNIFIÉ -->
+                    <!-- COLONNE DROITE : DESIGN MONOBLOC UNIFIÉ (Modifié pour Mobile) -->
                     <div class="lg:col-span-7" data-sr data-sr-delay="200">
 
-                        <!-- CONTENEUR UNIQUE : Crée un seul bloc solide aligné avec la gauche -->
+                        <!-- CONTENEUR UNIQUE -->
                         <div class="bg-white/5 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-sm">
 
                             <!-- Q1 -->
                             <div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+                                <!-- MODIF : items-start, py-5, flex-1 sur le span -->
                                 <button
-                                    class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+                                    class="faq-toggle w-full flex justify-between items-start text-left py-5 px-5 md:py-6 md:px-8 focus:outline-none">
                                     <span
-                                        class="text-base md:text-lg font-semibold text-white pr-8 group-hover:text-clarity-blue transition-colors leading-snug">
+                                        class="flex-1 min-w-0 text-base md:text-lg font-semibold text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
                                         Le tarif affiché est-il tout compris ou y a-t-il des frais cachés ?
                                     </span>
+                                    <!-- MODIF : mt-1 pour aligner l'icône avec la première ligne de texte -->
                                     <div
-                                        class="flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+                                        class="flex-shrink-0 w-8 h-8 mt-1 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
                                         <svg class="w-4 h-4 transition-transform duration-300" fill="none"
                                             stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -4401,7 +4393,7 @@
                                     </div>
                                 </button>
                                 <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                    <div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm leading-relaxed space-y-4">
+                                    <div class="px-5 md:px-8 pb-8 pt-2 text-gray-300 text-sm leading-relaxed space-y-4">
                                         <p>La transparence est au cœur de mon approche "Clarté". Le tarif que vous voyez
                                             affiché pour chaque formule est un paiement unique qui couvre non seulement
                                             la <strong class="text-white">création complète de votre site, mais aussi
@@ -4418,17 +4410,16 @@
                                 </div>
                             </div>
 
-
                             <!-- Q2 -->
                             <div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
                                 <button
-                                    class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+                                    class="faq-toggle w-full flex justify-between items-start text-left py-5 px-5 md:py-6 md:px-8 focus:outline-none">
                                     <span
-                                        class="text-base md:text-lg font-semibold text-white pr-8 group-hover:text-clarity-blue transition-colors leading-snug">
+                                        class="flex-1 min-w-0 text-base md:text-lg font-semibold text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
                                         Est-ce que je pourrai modifier mon site moi-même facilement ?
                                     </span>
                                     <div
-                                        class="flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+                                        class="flex-shrink-0 w-8 h-8 mt-1 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
                                         <svg class="w-4 h-4 transition-transform duration-300" fill="none"
                                             stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -4437,52 +4428,35 @@
                                     </div>
                                 </button>
                                 <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                    <div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm leading-relaxed space-y-4">
-
+                                    <div class="px-5 md:px-8 pb-8 pt-2 text-gray-300 text-sm leading-relaxed space-y-4">
                                         <p>Oui, absolument ! C'est un des piliers de mon offre "Clarté". Je suis
-                                            convaincu que vous devez avoir le contrôle sur votre propre contenu, sans
-                                            avoir à me contacter pour chaque petite modification.</p>
-
+                                            convaincu que vous devez avoir le contrôle sur votre propre contenu.</p>
                                         <p>À la livraison de votre site, je vous fournis un accès à un <strong
                                                 class="text-white">espace d'administration personnel et
-                                                sécurisé</strong>. Cet outil, appelé CMS (Système de Gestion de
-                                            Contenu), est conçu pour être aussi simple à utiliser qu'un formulaire en
-                                            ligne.</p>
-
-                                        <p><strong class="text-white">Concrètement, vous pourrez :</strong></p>
-
-                                        <!-- Liste avec les points oranges (marker:text-warm-orange) -->
+                                                sécurisé</strong> (Decap CMS). C'est aussi simple à utiliser qu'un
+                                            formulaire en ligne.</p>
                                         <ul class="list-disc pl-5 space-y-2 marker:text-warm-orange">
                                             <li><strong class="text-white">Modifier des textes :</strong> Changer un
-                                                titre, corriger une faute, mettre à jour une description.</li>
+                                                titre, corriger une faute.</li>
                                             <li><strong class="text-white">Changer des images :</strong> Remplacer une
-                                                photo de la galerie ou un portrait.</li>
+                                                photo de la galerie.</li>
                                             <li><strong class="text-white">Mettre à jour vos offres :</strong> Ajuster
-                                                un prix, modifier les détails d'un service.</li>
-                                            <li><strong class="text-white">Ajouter des actualités ou des témoignages
-                                                    :</strong> Garder votre site vivant et à jour.</li>
+                                                un prix.</li>
                                         </ul>
-
-                                        <p>Le tout se fait via une interface claire, sans jamais avoir à toucher une
-                                            seule ligne de code. Je vous fournirai une courte vidéo de prise en main
-                                            pour vous montrer à quel point c'est simple et rapide. Vous êtes autonome
-                                            pour faire vivre votre site au quotidien.</p>
                                     </div>
                                 </div>
                             </div>
-
-
 
                             <!-- Q3 -->
                             <div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
                                 <button
-                                    class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+                                    class="faq-toggle w-full flex justify-between items-start text-left py-5 px-5 md:py-6 md:px-8 focus:outline-none">
                                     <span
-                                        class="text-base md:text-lg font-semibold text-white pr-8 group-hover:text-clarity-blue transition-colors leading-snug">
+                                        class="flex-1 min-w-0 text-base md:text-lg font-semibold text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
                                         Suis-je propriétaire de mon site une fois qu'il est terminé ?
                                     </span>
                                     <div
-                                        class="flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+                                        class="flex-shrink-0 w-8 h-8 mt-1 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
                                         <svg class="w-4 h-4 transition-transform duration-300" fill="none"
                                             stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -4491,40 +4465,28 @@
                                     </div>
                                 </button>
                                 <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                    <div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm leading-relaxed space-y-4">
-
+                                    <div class="px-5 md:px-8 pb-8 pt-2 text-gray-300 text-sm leading-relaxed space-y-4">
                                         <p>Oui, à 100%. C'est un point non négociable pour moi.</p>
-
-                                        <!-- Liste avec les points oranges -->
                                         <ul class="list-disc pl-5 space-y-2 marker:text-warm-orange">
                                             <li><strong class="text-white">Votre Site Web :</strong> Le code, le design,
-                                                les textes et les images créés pour vous sont votre propriété exclusive.
-                                            </li>
+                                                les textes et les images sont votre propriété exclusive.</li>
                                             <li><strong class="text-white">Votre Nom de Domaine :</strong> Je
-                                                l'enregistre en votre nom, ce qui signifie que vous en êtes le
-                                                propriétaire légal. Je ne suis que le "contact technique" qui s'occupe
-                                                de la gestion pour vous.</li>
+                                                l'enregistre en votre nom, vous en êtes le propriétaire légal.</li>
                                         </ul>
-
-                                        <p>Si un jour vous décidez de transférer la gestion de votre site à quelqu'un
-                                            d'autre, le transfert de propriété du nom de domaine est une procédure
-                                            simple que je faciliterai pour assurer une transition en douceur. Votre
-                                            patrimoine numérique vous appartient.</p>
                                     </div>
                                 </div>
                             </div>
-
 
                             <!-- Q4 -->
                             <div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
                                 <button
-                                    class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+                                    class="faq-toggle w-full flex justify-between items-start text-left py-5 px-5 md:py-6 md:px-8 focus:outline-none">
                                     <span
-                                        class="text-base md:text-lg font-semibold text-white pr-8 group-hover:text-clarity-blue transition-colors leading-snug">
+                                        class="flex-1 min-w-0 text-base md:text-lg font-semibold text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
                                         Comment pouvez-vous livrer un site sur-mesure en seulement 7 jours ?
                                     </span>
                                     <div
-                                        class="flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+                                        class="flex-shrink-0 w-8 h-8 mt-1 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
                                         <svg class="w-4 h-4 transition-transform duration-300" fill="none"
                                             stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -4533,51 +4495,32 @@
                                     </div>
                                 </button>
                                 <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                    <div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm leading-relaxed space-y-4">
-
-                                        <p>C'est la question que tout le monde se pose, et elle est parfaitement
-                                            légitime. Comment la vitesse peut-elle rimer avec qualité et sur-mesure ?
-                                        </p>
-
-                                        <p>La réponse est simple : le secret n'est pas de travailler plus vite, mais de
-                                            travailler plus intelligemment <strong class="text-white">en inversant le
-                                                processus de création traditionnel</strong>.</p>
-
-                                        <p>Un projet web classique, c'est souvent 20% de briefing flou et 80% de temps
-                                            passé en allers-retours, corrections, modifications et devinettes. C'est
-                                            long, frustrant et coûteux en énergie pour tout le monde.</p>
-
-                                        <p><strong class="text-white">Ma méthode, c'est l'inverse : 80% de notre effort
-                                                commun est consacré à la clarté en amont.</strong></p>
-
-                                        <!-- Bloc citation avec bordure bleue à gauche -->
+                                    <div class="px-5 md:px-8 pb-8 pt-2 text-gray-300 text-sm leading-relaxed space-y-4">
+                                        <p>Le secret n'est pas de travailler plus vite, mais de travailler plus
+                                            intelligemment <strong class="text-white">en inversant le processus
+                                                traditionnel</strong>.</p>
+                                        <p><strong class="text-white">80% de notre effort commun est consacré à la
+                                                clarté en amont.</strong></p>
                                         <div class="border-l-4 border-clarity-blue pl-4 py-1 my-4 italic text-gray-400">
-                                            <p>L'<strong class="text-white">Atelier de Clarté</strong> n'est pas un
-                                                simple questionnaire. C'est notre phase de <strong
-                                                    class="text-white">"plans d'architecte"</strong>. Nous ne posons pas
-                                                une seule brique avant que le plan de votre maison ne soit absolument
-                                                parfait et validé par vous.</p>
+                                            <p>L'<strong class="text-white">Atelier de Clarté</strong> est notre phase
+                                                de "plans d'architecte". Nous ne posons pas une seule brique avant que
+                                                le plan ne soit validé.</p>
                                         </div>
-
-                                        <p>Une fois ce plan validé, ma phase de production devient une exécution <strong
-                                                class="text-white">fluide, rapide et sans surprise</strong>. Je n'ai
-                                            plus à deviner vos attentes, je n'ai qu'à construire le site que nous avons
-                                            déjà conçu ensemble sur le papier.</p>
+                                        <p>Une fois validé, la production devient une exécution fluide et rapide.</p>
                                     </div>
                                 </div>
                             </div>
-
 
                             <!-- Q5 -->
                             <div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
                                 <button
-                                    class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+                                    class="faq-toggle w-full flex justify-between items-start text-left py-5 px-5 md:py-6 md:px-8 focus:outline-none">
                                     <span
-                                        class="text-base md:text-lg font-semibold text-white pr-8 group-hover:text-clarity-blue transition-colors leading-snug">
+                                        class="flex-1 min-w-0 text-base md:text-lg font-semibold text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
                                         Pourquoi choisir votre service plutôt que de faire mon site moi-même ?
                                     </span>
                                     <div
-                                        class="flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+                                        class="flex-shrink-0 w-8 h-8 mt-1 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
                                         <svg class="w-4 h-4 transition-transform duration-300" fill="none"
                                             stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -4586,44 +4529,24 @@
                                     </div>
                                 </button>
                                 <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                    <div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm leading-relaxed space-y-4">
-
+                                    <div class="px-5 md:px-8 pb-8 pt-2 text-gray-300 text-sm leading-relaxed space-y-4">
                                         <p>Les plateformes comme Wix sont de bons outils, mais elles exigent ce que vous
                                             avez de plus précieux : <strong class="text-white">votre temps et votre
-                                                expertise en design et marketing</strong>.</p>
-
-                                        <p>En choisissant clartem.com, vous ne payez pas pour un outil, mais pour un
-                                            résultat :</p>
-
-                                        <!-- Liste avec les points oranges -->
+                                                expertise marketing</strong>.</p>
                                         <ul class="list-disc pl-5 space-y-2 marker:text-warm-orange">
-                                            <li><strong class="text-white">Un gain de temps massif :</strong> Votre site
-                                                est en ligne et professionnel en 7 jours, pas en 3 mois de tâtonnements.
-                                            </li>
-                                            <li><strong class="text-white">Une expertise stratégique :</strong> Je vous
-                                                guide pour clarifier votre message et le structurer de manière à
-                                                convertir vos visiteurs.</li>
-                                            <li><strong class="text-white">Un design 100% sur-mesure :</strong> Votre
-                                                site sera unique et parfaitement aligné avec votre identité, sans être
-                                                limité par un template générique.</li>
+                                            <li><strong class="text-white">Un gain de temps massif :</strong> Site pro
+                                                en 7 jours vs 3 mois de tâtonnements.</li>
+                                            <li><strong class="text-white">Une expertise stratégique :</strong> Je
+                                                structure votre message pour convertir.</li>
+                                            <li><strong class="text-white">Un design 100% sur-mesure :</strong> Aligné
+                                                avec votre identité, sans les limites d'un template.</li>
                                         </ul>
-
                                     </div>
                                 </div>
                             </div>
 
-
                         </div>
                     </div>
-
-                    <!-- Bouton Mobile uniquement -->
-                    <div class="mt-8 lg:hidden text-center col-span-12">
-                        <a href="faq.html"
-                            class="btn btn-secondary w-full border-gray-600 text-white hover:bg-white hover:text-neutral-dark">
-                            Voir toutes les questions
-                        </a>
-                    </div>
-
                 </div>
             </div>
         </section>
