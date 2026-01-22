@@ -948,95 +948,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-   
-
-
-// ==================================================================
-// ANIMATION TERMINAL MATRIX PREMIUM
-// ==================================================================
-const matrixContainer = document.getElementById('matrix-typewriter');
-const matrixCursor = document.getElementById('matrix-cursor');
-
-if (matrixContainer) {
-    // Le scénario : Monochrome, tech, élégant.
-    const scenario = [
-        { text: "// Initialisation du protocole web...", class: "matrix-dim" },
-        { text: "const webStatus = analyze(current_market);", class: "text-emerald-500/80" },
-        { text: ">> Scanning millions of sites...", class: "matrix-dim italic" },
-        { text: ">> RESULT: 98% DUPLICATE CONTENT DETECTED.", class: "text-emerald-300" },
-        { text: "if (site === 'generic_template') {", class: "text-emerald-500" },
-        { text: "   return 'NO_EMOTIONAL_CONNECTION';", class: "matrix-string" },
-        { text: "}", class: "text-emerald-500" },
-        { text: "// Recherche de l'élément manquant...", class: "matrix-dim mt-4 block" }, // mt-4 ajoute un saut de ligne visuel
-        { text: "const uniqueFactor = IDENTIFY_HUMAN();", class: "text-white font-bold" },
-        { text: ">> MATCH FOUND: VOTRE HISTOIRE.", class: "matrix-highlight mt-2 block tracking-widest" }
-    ];
-
-    let lineIdx = 0;
-    let charIdx = 0;
-    let isMatrixRunning = false;
-
-    function typeMatrix() {
-        if (lineIdx < scenario.length) {
-            const currentLine = scenario[lineIdx];
-            
-            // Création de la ligne au début
-            if (charIdx === 0) {
-                const div = document.createElement('div');
-                // On préserve les classes Tailwind + nos classes custom
-                div.className = `matrix-line ${currentLine.class}`;
-                div.id = `mat-line-${lineIdx}`;
-                matrixContainer.appendChild(div);
-                
-                // Scroll automatique vers le bas si ça dépasse
-                const terminalBody = matrixContainer.parentElement;
-                terminalBody.scrollTop = terminalBody.scrollHeight;
-            }
-
-            const activeLine = document.getElementById(`mat-line-${lineIdx}`);
-            
-            // Ajout caractère
-            activeLine.textContent += currentLine.text.charAt(charIdx);
-            charIdx++;
-
-            // Vitesse de frappe variable (plus rapide pour faire "ordinateur")
-            const speed = Math.random() * (30 - 10) + 10; 
-            
-            if (charIdx < currentLine.text.length) {
-                setTimeout(typeMatrix, speed);
-            } else {
-                // Fin de ligne
-                lineIdx++;
-                charIdx = 0;
-                // Pause variable selon si c'est du code ou du résultat
-                const pause = currentLine.text.includes('>>') ? 600 : 150;
-                setTimeout(typeMatrix, pause);
-            }
-        } else {
-            // Fin de l'animation : Le curseur clignote à la fin
-            matrixCursor.classList.add('animate-pulse');
-        }
-    }
-
-    // Observer pour lancer l'anim quand visible
-    const matrixObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !isMatrixRunning) {
-                isMatrixRunning = true;
-                matrixContainer.innerHTML = ''; // Reset
-                typeMatrix();
-            }
-        });
-    }, { threshold: 0.4 });
-
-    matrixObserver.observe(matrixContainer);
-}
-
-
-
-
-
-
 
 
 
@@ -1856,3 +1767,108 @@ if (matrixContainer) {
 
 
 });
+
+
+
+
+
+
+
+
+// ==================================================================
+// ANIMATION TERMINAL MATRIX (VERSION NARRATIVE THÉRAPEUTE)
+// ==================================================================
+const matrixContainer = document.getElementById('matrix-typewriter');
+const matrixCursor = document.getElementById('matrix-cursor');
+
+if (matrixContainer) {
+    // Le scénario : Une conversation directe avec l'âme du thérapeute.
+    // Pas de code, juste de la vérité.
+    const scenario = [
+        { text: "Réveillez-vous...", class: "text-white font-bold tracking-widest mb-4 block" }, // L'accroche Neo
+        { text: "Le système vous a menti.", class: "text-emerald-500/70" },
+        { text: "On vous a dit qu'il fallait 'faire du marketing'.", class: "text-emerald-500/70" },
+        { text: "Que vous deviez devenir un technicien.", class: "text-emerald-500/70" },
+        { text: "Mais vos clients ne cherchent pas un algorithme...", class: "text-emerald-400 italic block mt-2" },
+        { text: "ILS CHERCHENT VOTRE HUMANITÉ.", class: "text-white font-bold text-lg md:text-xl shadow-green-glow mt-4 block" },
+        { text: "Toc, toc.", class: "text-emerald-600/50 text-sm mt-6 block" },
+        { text: "Suivez le lapin blanc ↓", class: "text-emerald-400 animate-pulse mt-1 block" }
+    ];
+
+    let lineIdx = 0;
+    let charIdx = 0;
+    let isMatrixRunning = false;
+
+    // Fonction pour gérer le clignotement du curseur pendant la pause
+    function toggleCursor(active) {
+        if(active) matrixCursor.classList.add('animate-pulse');
+        else matrixCursor.classList.remove('animate-pulse');
+    }
+
+    function typeMatrix() {
+        if (lineIdx < scenario.length) {
+            const currentLine = scenario[lineIdx];
+            
+            // Création de la ligne au début
+            if (charIdx === 0) {
+                const div = document.createElement('div');
+                // On applique les classes définies dans le scénario
+                // Note: on utilise className directement pour injecter tout le style Tailwind
+                div.className = currentLine.class; 
+                div.id = `mat-line-${lineIdx}`;
+                matrixContainer.appendChild(div);
+                
+                // Arrêt du curseur pendant la frappe pour réalisme
+                toggleCursor(false);
+            }
+
+            const activeLine = document.getElementById(`mat-line-${lineIdx}`);
+            
+            // Ajout caractère par caractère
+            activeLine.textContent += currentLine.text.charAt(charIdx);
+            charIdx++;
+
+            // Vitesse de frappe humaine (irrégulière)
+            // Plus rapide pour les textes longs, plus lente pour les courts/dramatiques
+            let baseSpeed = 40; 
+            if(lineIdx === 0 || lineIdx === 5) baseSpeed = 80; // Plus lent pour l'impact
+            
+            const randomVariance = Math.random() * 30;
+            const speed = baseSpeed + randomVariance;
+            
+            if (charIdx < currentLine.text.length) {
+                setTimeout(typeMatrix, speed);
+            } else {
+                // Fin de la ligne
+                lineIdx++;
+                charIdx = 0;
+                toggleCursor(true); // Le curseur clignote en attendant la suite
+                
+                // Pause dramatique entre les lignes
+                // Pause longue après "Réveillez-vous" et avant la chute
+                let pause = 600;
+                if (lineIdx === 1) pause = 2000; // Après Réveillez-vous
+                if (lineIdx === 5) pause = 1500; // Avant LA révélation
+                
+                setTimeout(typeMatrix, pause);
+            }
+        } else {
+            // Fin de l'animation
+            toggleCursor(true);
+        }
+    }
+
+    // Observer pour lancer l'anim quand visible (pour ne pas qu'elle joue hors champ)
+    const matrixObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !isMatrixRunning) {
+                isMatrixRunning = true;
+                matrixContainer.innerHTML = ''; // Reset propre
+                // Petit délai avant de commencer pour laisser l'utilisateur se poser
+                setTimeout(typeMatrix, 500);
+            }
+        });
+    }, { threshold: 0.4 });
+
+    matrixObserver.observe(matrixContainer);
+}
