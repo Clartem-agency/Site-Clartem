@@ -1766,7 +1766,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-});
 
 
 
@@ -1905,3 +1904,79 @@ if (matrixContainer) {
 
     matrixObserver.observe(matrixContainer);
 }
+
+
+
+
+
+
+
+
+// ==================================================================
+    // LOGIQUE DU LAPIN BLANC (EASTER EGG)
+    // ==================================================================
+    const rabbit = document.getElementById('white-rabbit');
+    const manifestoSection = document.getElementById('manifesto');
+    const finalCtaSection = document.getElementById('cta');
+    const finalCtaButton = document.querySelector('#cta .btn-orange'); // Le bouton final
+
+    if (rabbit && manifestoSection && finalCtaSection && finalCtaButton) {
+        
+        let hasPeeked = false; // Pour qu'il ne sorte qu'une fois au manifeste
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const windowHeight = window.innerHeight;
+
+            // 1. DÉTECTION SECTION MANIFESTE (Le Coucou)
+            const manifestoRect = manifestoSection.getBoundingClientRect();
+            
+            // Si on est dans la section manifeste (et qu'il ne l'a pas déjà fait)
+            if (manifestoRect.top < windowHeight / 2 && manifestoRect.bottom > windowHeight / 2) {
+                if (!hasPeeked) {
+                    rabbit.classList.add('peek-active');
+                    hasPeeked = true;
+
+                    // Il reste 3 secondes puis repart
+                    setTimeout(() => {
+                        rabbit.classList.remove('peek-active');
+                    }, 3000);
+                }
+            }
+
+            // 2. DÉTECTION SECTION CTA FINAL (L'Arrivée)
+            const ctaRect = finalCtaSection.getBoundingClientRect();
+            
+            // Si on arrive tout en bas
+            if (ctaRect.top < windowHeight - 100) {
+                // On change le mode de positionnement pour le coller au bouton
+                // On doit retirer la classe fixed et l'attacher au DOM du bouton
+                if (rabbit.parentElement !== finalCtaButton.parentElement) {
+                    // On le déplace physiquement dans le DOM pour qu'il suive le bouton
+                    // Note: Le parent du bouton doit avoir 'position: relative'
+                    finalCtaButton.parentElement.appendChild(rabbit);
+                    
+                    // On force un petit reflow
+                    void rabbit.offsetWidth;
+                    
+                    rabbit.classList.remove('fixed', 'peek-active');
+                    rabbit.classList.add('cta-mode');
+                }
+            } else {
+                // Si on remonte, on le remet en fixed caché pour le reset (optionnel)
+                if (rabbit.parentElement === finalCtaButton.parentElement) {
+                    document.body.appendChild(rabbit); // Retour au body
+                    rabbit.classList.add('fixed');
+                    rabbit.classList.remove('cta-mode');
+                }
+            }
+        });
+    }
+
+    
+
+
+
+
+
+});
