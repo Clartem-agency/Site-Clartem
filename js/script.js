@@ -1913,11 +1913,9 @@ if (matrixContainer) {
 
 
 // ==================================================================
-    // LOGIQUE DU LAPIN BLANC (EASTER EGG V3 - CORRIGÉE)
+    // LOGIQUE DU LAPIN BLANC (EASTER EGG V4 - INTERACTIF)
     // ==================================================================
     
-    // On utilise des noms de variables uniques (rbt_...) pour éviter les conflits
-    // avec les variables déclarées plus haut dans le fichier.
     const rabbitEntity = document.getElementById('white-rabbit');
     const rbt_Manifesto = document.getElementById('manifesto');
     const rbt_Plan = document.getElementById('plan');      
@@ -1927,83 +1925,118 @@ if (matrixContainer) {
 
     if (rabbitEntity && rbt_Manifesto && rbt_Plan && rbt_Offers && rbt_CTA) {
         
-        // États pour éviter qu'il ne sorte en boucle
         let hasPeekedManifesto = false;
         let hasPeekedPlan = false;
         let hasPeekedOffers = false;
+        
+        // --- NOUVEAU : Logique de clic ---
+        let rabbitClickCount = 0;
+        
+        // Création de la bulle de dialogue
+        const bubble = document.createElement('div');
+        bubble.className = 'rabbit-bubble';
+        rabbitEntity.appendChild(bubble);
 
+        // Fonction pour faire parler le lapin
+        const rabbitSpeak = (text, duration = 2000) => {
+            bubble.textContent = text;
+            bubble.classList.add('show');
+            setTimeout(() => bubble.classList.remove('show'), duration);
+        };
+
+        // Gestionnaire de clic
+        rabbitEntity.addEventListener('click', (e) => {
+            // Empêcher de cliquer sur le bouton derrière si on clique sur le lapin
+            e.stopPropagation();
+            e.preventDefault();
+
+            rabbitClickCount++;
+
+            if (rabbitClickCount === 1) {
+                // CLIC 1 : SAUT
+                rabbitEntity.classList.add('rabbit-anim-jump');
+                rabbitSpeak("Hop !");
+                setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-jump'), 500);
+            } 
+            else if (rabbitClickCount === 2) {
+                // CLIC 2 : GLITCH
+                rabbitEntity.classList.add('rabbit-anim-glitch');
+                rabbitSpeak("Erreur Système...", 1000);
+                setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-glitch'), 1500);
+            } 
+            else if (rabbitClickCount === 3) {
+                // CLIC 3 : DISPARITION
+                rabbitSpeak("Suivez le lapin blanc !", 2000);
+                rabbitEntity.classList.add('rabbit-anim-vanish');
+                
+                // Optionnel : Rediriger ou ouvrir la modale après disparition
+                setTimeout(() => {
+                    // Reset après 5 secondes si l'utilisateur remonte
+                    rabbitEntity.style.display = 'none'; 
+                }, 600);
+            }
+        });
+
+        // Gestionnaire de survol (Hover)
+        rabbitEntity.addEventListener('mouseenter', () => {
+            if (rabbitClickCount === 0) rabbitSpeak("?"); 
+        });
+
+
+        // --- LOGIQUE DE SCROLL EXISTANTE (Inchangée) ---
         window.addEventListener('scroll', () => {
             const windowHeight = window.innerHeight;
-
-            // Fonction utilitaire pour vérifier si une section est au milieu de l'écran
             const isInView = (element) => {
                 const rect = element.getBoundingClientRect();
                 return rect.top < windowHeight / 1.5 && rect.bottom > windowHeight / 1.5;
             };
 
-            // ------------------------------------------------
-            // 1. DÉTECTION MANIFESTE (Coucou à Gauche)
-            // ------------------------------------------------
+            // 1. MANIFESTE
             if (isInView(rbt_Manifesto) && !hasPeekedManifesto) {
                 rabbitEntity.className = 'fixed z-50 pointer-events-none hidden lg:block transition-all duration-700 peek-active';
                 hasPeekedManifesto = true; 
-
-                setTimeout(() => {
-                    rabbitEntity.classList.remove('peek-active');
-                }, 3500); 
+                setTimeout(() => rabbitEntity.classList.remove('peek-active'), 3500); 
             }
 
-            // ------------------------------------------------
-            // 2. DÉTECTION PLAN (Coucou à Droite - Supervision)
-            // ------------------------------------------------
+            // 2. PLAN
             const planRect = rbt_Plan.getBoundingClientRect();
-            // Déclenche quand le haut du plan touche le haut de l'écran
             if (planRect.top < 0 && planRect.bottom > windowHeight && !hasPeekedPlan) {
-                
-                // Reset propre
                 rabbitEntity.className = 'fixed z-50 pointer-events-none hidden lg:block transition-all duration-700';
-                void rabbitEntity.offsetWidth; // Force Reflow
-
+                void rabbitEntity.offsetWidth; 
                 rabbitEntity.classList.add('peek-right-active');
                 hasPeekedPlan = true;
-
-                setTimeout(() => {
-                    rabbitEntity.classList.remove('peek-right-active');
-                }, 4000); 
+                setTimeout(() => rabbitEntity.classList.remove('peek-right-active'), 4000); 
             }
 
-            // ------------------------------------------------
-            // 3. DÉTECTION OFFRES (Coucou à Gauche - Prix)
-            // ------------------------------------------------
+            // 3. OFFRES
             if (isInView(rbt_Offers) && !hasPeekedOffers) {
-                
                 rabbitEntity.className = 'fixed z-50 pointer-events-none hidden lg:block transition-all duration-700';
                 void rabbitEntity.offsetWidth;
-
                 rabbitEntity.classList.add('peek-left-active');
                 hasPeekedOffers = true;
-
-                setTimeout(() => {
-                    rabbitEntity.classList.remove('peek-left-active');
-                }, 3500);
+                setTimeout(() => rabbitEntity.classList.remove('peek-left-active'), 3500);
             }
 
-            // ------------------------------------------------
-            // 4. DÉTECTION CTA FINAL (L'Arrivée sur le bouton)
-            // ------------------------------------------------
+            // 4. CTA (ATTERRISSAGE SUR LE BOUTON)
             const ctaRect = rbt_CTA.getBoundingClientRect();
             
-            // Si on arrive tout en bas
             if (ctaRect.top < windowHeight - 150) {
                 if (rabbitEntity.parentElement !== rbt_Btn.parentElement) {
-                    // Déplacement dans le DOM
                     rbt_Btn.parentElement.appendChild(rabbitEntity);
                     
+                    // On retire toutes les classes de positionnement fixe
                     rabbitEntity.className = ''; 
-                    rabbitEntity.classList.add('cta-mode', 'z-0', 'pointer-events-none', 'transition-all', 'duration-700');
+                    // On ajoute 'cta-mode' qui active le pointer-events: auto dans le CSS
+                    rabbitEntity.classList.add('cta-mode', 'z-20', 'transition-all', 'duration-700');
+                    
+                    // Réinitialiser le compteur si on revient sur le bouton
+                    if(rabbitEntity.style.display === 'none') {
+                        rabbitEntity.style.display = 'block';
+                        rabbitEntity.classList.remove('rabbit-anim-vanish');
+                        rabbitClickCount = 0;
+                    }
                 }
             } else {
-                // Si on remonte
                 if (rabbitEntity.parentElement === rbt_Btn.parentElement) {
                     document.body.appendChild(rabbitEntity); 
                     rabbitEntity.className = 'fixed z-50 pointer-events-none hidden lg:block transition-all duration-700';
