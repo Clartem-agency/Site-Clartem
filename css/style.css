@@ -3240,3 +3240,40 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 #white-rabbit.cta-mode:hover .ear-right-anim {
     animation-duration: 0.5s; /* Elles s'agitent ! */
 }
+
+
+
+/* --- NOUVELLES ANIMATIONS LAPIN (Séquence étendue) --- */
+
+/* Action 2 : La Toupie (Spin) */
+@keyframes rabbitSpin {
+    0% { transform: translateY(0) scale(0.85) rotate(0deg); }
+    100% { transform: translateY(0) scale(0.85) rotate(360deg); }
+}
+.rabbit-anim-spin {
+    animation: rabbitSpin 0.6s ease-out;
+}
+
+/* Action 3 : Mode Matrix (Inversion Couleurs) */
+@keyframes rabbitMatrixColor {
+    0% { filter: none; transform: scale(0.85); }
+    50% { 
+        /* Devient noir et vert style terminal */
+        filter: invert(1) sepia(1) saturate(5) hue-rotate(90deg); 
+        transform: scale(1.1); /* Petit zoom */
+    }
+    100% { filter: none; transform: scale(0.85); }
+}
+.rabbit-anim-matrix-mode {
+    animation: rabbitMatrixColor 0.8s ease-in-out;
+}
+
+/* Action 4 : Le Refus (Shake) */
+@keyframes rabbitShake {
+    0%, 100% { transform: translateX(0) scale(0.85); }
+    25% { transform: translateX(-10px) scale(0.85) rotate(-5deg); }
+    75% { transform: translateX(10px) scale(0.85) rotate(5deg); }
+}
+.rabbit-anim-shake {
+    animation: rabbitShake 0.4s ease-in-out infinite; /* On le répète 2-3 fois via JS */
+}
