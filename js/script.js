@@ -1966,14 +1966,21 @@ if (matrixContainer) {
             } 
             else if (rabbitClickCount === 3) {
                 // CLIC 3 : DISPARITION
-                rabbitSpeak("Suivez le lapin blanc !", 2000);
-                rabbitEntity.classList.add('rabbit-anim-vanish');
                 
-                // Optionnel : Rediriger ou ouvrir la modale après disparition
+                // 1. On affiche le texte
+                rabbitSpeak("Suivez le lapin blanc !", 3000);
+                
+                // 2. On attend 1.5 secondes (1500ms) pour laisser le temps de lire
+                // AVANT d'ajouter la classe qui fait disparaître le lapin
                 setTimeout(() => {
-                    // Reset après 5 secondes si l'utilisateur remonte
+                    rabbitEntity.classList.add('rabbit-anim-vanish');
+                }, 1500);
+                
+                // 3. On cache totalement l'élément une fois l'animation finie
+                // (1500ms de lecture + 600ms d'animation = 2100ms)
+                setTimeout(() => {
                     rabbitEntity.style.display = 'none'; 
-                }, 600);
+                }, 2100);
             }
         });
 
