@@ -1796,7 +1796,7 @@ if (matrixContainer) {
 
         // --- REPONSE SYSTEME ---
         { text: "La Clarté.", class: "text-emerald-400 font-bold text-lg mt-4 block", speed: 60 },
-        { text: "Suis le lapin blanc ci-dessous ↓", class: "text-emerald-500 animate-pulse mt-2 block", speed: 50 }
+        { text: "Suis le lapin blanc ↓", class: "text-emerald-500 animate-pulse mt-2 block", speed: 50 }
     ];
 
     let lineIdx = 0;
@@ -1913,61 +1913,167 @@ if (matrixContainer) {
 
 
 // ==================================================================
-    // LOGIQUE DU LAPIN BLANC (EASTER EGG)
+    // LOGIQUE DU LAPIN BLANC (EASTER EGG V4 - INTERACTIF)
     // ==================================================================
-    const rabbit = document.getElementById('white-rabbit');
-    const manifestoSection = document.getElementById('manifesto');
-    const finalCtaSection = document.getElementById('cta');
-    const finalCtaButton = document.querySelector('#cta .btn-orange'); // Le bouton final
+    
+    const rabbitEntity = document.getElementById('white-rabbit');
+    const rbt_Manifesto = document.getElementById('manifesto');
+    const rbt_Plan = document.getElementById('plan');      
+    const rbt_Offers = document.getElementById('offres'); 
+    const rbt_CTA = document.getElementById('cta');
+    const rbt_Btn = document.querySelector('#cta .btn-orange');
 
-    if (rabbit && manifestoSection && finalCtaSection && finalCtaButton) {
+    if (rabbitEntity && rbt_Manifesto && rbt_Plan && rbt_Offers && rbt_CTA) {
         
-        let hasPeeked = false; // Pour qu'il ne sorte qu'une fois au manifeste
+        let hasPeekedManifesto = false;
+        let hasPeekedPlan = false;
+        let hasPeekedOffers = false;
+        
+        // --- NOUVEAU : Logique de clic ---
+        let rabbitClickCount = 0;
+        
+        // Création de la bulle de dialogue
+        const bubble = document.createElement('div');
+        bubble.className = 'rabbit-bubble';
+        rabbitEntity.appendChild(bubble);
 
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            const windowHeight = window.innerHeight;
+        // Fonction pour faire parler le lapin
+        const rabbitSpeak = (text, duration = 2000) => {
+            bubble.textContent = text;
+            bubble.classList.add('show');
+            setTimeout(() => bubble.classList.remove('show'), duration);
+        };
 
-            // 1. DÉTECTION SECTION MANIFESTE (Le Coucou)
-            const manifestoRect = manifestoSection.getBoundingClientRect();
+        
+
+        // Gestionnaire de clic (Séquence Étendue)
+        rabbitEntity.addEventListener('click', (e) => {
+            // Empêcher de cliquer sur le bouton derrière
+            e.stopPropagation();
+            e.preventDefault();
+
+            rabbitClickCount++;
+
+            // --- ÉTAPE 1 : LE SAUT ---
+            if (rabbitClickCount === 1) {
+                rabbitEntity.classList.add('rabbit-anim-jump');
+                rabbitSpeak("Hop !");
+                setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-jump'), 500);
+            } 
             
-            // Si on est dans la section manifeste (et qu'il ne l'a pas déjà fait)
-            if (manifestoRect.top < windowHeight / 2 && manifestoRect.bottom > windowHeight / 2) {
-                if (!hasPeeked) {
-                    rabbit.classList.add('peek-active');
-                    hasPeeked = true;
-
-                    // Il reste 3 secondes puis repart
-                    setTimeout(() => {
-                        rabbit.classList.remove('peek-active');
-                    }, 3000);
-                }
+            // --- ÉTAPE 2 : LA TOUPIE (NOUVEAU) ---
+            else if (rabbitClickCount === 2) {
+                rabbitEntity.classList.add('rabbit-anim-spin');
+                rabbitSpeak("Ouh là, ça tourne !");
+                setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-spin'), 600);
             }
 
-            // 2. DÉTECTION SECTION CTA FINAL (L'Arrivée)
-            const ctaRect = finalCtaSection.getBoundingClientRect();
+            // --- ÉTAPE 3 : MODE MATRIX (NOUVEAU) ---
+            else if (rabbitClickCount === 3) {
+                rabbitEntity.classList.add('rabbit-anim-matrix-mode');
+                rabbitSpeak("Je vois le code...", 1500); // Reste affiché un peu plus longtemps
+                setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-matrix-mode'), 800);
+            }
+
+            // --- ÉTAPE 4 : LE REFUS (NOUVEAU) ---
+            else if (rabbitClickCount === 4) {
+                rabbitEntity.classList.add('rabbit-anim-shake');
+                rabbitSpeak("Arrête, ça chatouille !", 1000);
+                // On laisse secouer pendant 0.8s
+                setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-shake'), 800);
+            }
+
+            // --- ÉTAPE 5 : GLITCH (LE PLANTAGE) ---
+            else if (rabbitClickCount === 5) {
+                rabbitEntity.classList.add('rabbit-anim-glitch');
+                rabbitSpeak("Erreur Système CRITIQUE...", 1500);
+                setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-glitch'), 1500);
+            } 
+
+            // --- ÉTAPE 6 : DISPARITION FINALE ---
+            else if (rabbitClickCount === 6) {
+                // 1. Message final
+                rabbitSpeak("Suis-moi !", 3000);
+                
+                // 2. Pause lecture
+                setTimeout(() => {
+                    rabbitEntity.classList.add('rabbit-anim-vanish');
+                }, 1500);
+                
+                // 3. Disparition réelle du DOM
+                setTimeout(() => {
+                    rabbitEntity.style.display = 'none'; 
+                    // Optionnel : Reset du compteur pour la prochaine fois qu'il réapparaît (si rechargement)
+                    // Mais ici on le cache définitivement pour cette session.
+                }, 2100);
+            }
+        });
+
+
+
+        // Gestionnaire de survol (Hover)
+        rabbitEntity.addEventListener('mouseenter', () => {
+            if (rabbitClickCount === 0) rabbitSpeak("?"); 
+        });
+
+
+        // --- LOGIQUE DE SCROLL EXISTANTE (Inchangée) ---
+        window.addEventListener('scroll', () => {
+            const windowHeight = window.innerHeight;
+            const isInView = (element) => {
+                const rect = element.getBoundingClientRect();
+                return rect.top < windowHeight / 1.5 && rect.bottom > windowHeight / 1.5;
+            };
+
+            // 1. MANIFESTE
+            if (isInView(rbt_Manifesto) && !hasPeekedManifesto) {
+                rabbitEntity.className = 'fixed z-50 pointer-events-none hidden lg:block transition-all duration-700 peek-active';
+                hasPeekedManifesto = true; 
+                setTimeout(() => rabbitEntity.classList.remove('peek-active'), 3500); 
+            }
+
+            // 2. PLAN
+            const planRect = rbt_Plan.getBoundingClientRect();
+            if (planRect.top < 0 && planRect.bottom > windowHeight && !hasPeekedPlan) {
+                rabbitEntity.className = 'fixed z-50 pointer-events-none hidden lg:block transition-all duration-700';
+                void rabbitEntity.offsetWidth; 
+                rabbitEntity.classList.add('peek-right-active');
+                hasPeekedPlan = true;
+                setTimeout(() => rabbitEntity.classList.remove('peek-right-active'), 4000); 
+            }
+
+            // 3. OFFRES
+            if (isInView(rbt_Offers) && !hasPeekedOffers) {
+                rabbitEntity.className = 'fixed z-50 pointer-events-none hidden lg:block transition-all duration-700';
+                void rabbitEntity.offsetWidth;
+                rabbitEntity.classList.add('peek-left-active');
+                hasPeekedOffers = true;
+                setTimeout(() => rabbitEntity.classList.remove('peek-left-active'), 3500);
+            }
+
+            // 4. CTA (ATTERRISSAGE SUR LE BOUTON)
+            const ctaRect = rbt_CTA.getBoundingClientRect();
             
-            // Si on arrive tout en bas
-            if (ctaRect.top < windowHeight - 100) {
-                // On change le mode de positionnement pour le coller au bouton
-                // On doit retirer la classe fixed et l'attacher au DOM du bouton
-                if (rabbit.parentElement !== finalCtaButton.parentElement) {
-                    // On le déplace physiquement dans le DOM pour qu'il suive le bouton
-                    // Note: Le parent du bouton doit avoir 'position: relative'
-                    finalCtaButton.parentElement.appendChild(rabbit);
+            if (ctaRect.top < windowHeight - 150) {
+                if (rabbitEntity.parentElement !== rbt_Btn.parentElement) {
+                    rbt_Btn.parentElement.appendChild(rabbitEntity);
                     
-                    // On force un petit reflow
-                    void rabbit.offsetWidth;
+                    // On retire toutes les classes de positionnement fixe
+                    rabbitEntity.className = ''; 
+                    // On ajoute 'cta-mode' qui active le pointer-events: auto dans le CSS
+                    rabbitEntity.classList.add('cta-mode', 'z-20', 'transition-all', 'duration-700');
                     
-                    rabbit.classList.remove('fixed', 'peek-active');
-                    rabbit.classList.add('cta-mode');
+                    // Réinitialiser le compteur si on revient sur le bouton
+                    if(rabbitEntity.style.display === 'none') {
+                        rabbitEntity.style.display = 'block';
+                        rabbitEntity.classList.remove('rabbit-anim-vanish');
+                        rabbitClickCount = 0;
+                    }
                 }
             } else {
-                // Si on remonte, on le remet en fixed caché pour le reset (optionnel)
-                if (rabbit.parentElement === finalCtaButton.parentElement) {
-                    document.body.appendChild(rabbit); // Retour au body
-                    rabbit.classList.add('fixed');
-                    rabbit.classList.remove('cta-mode');
+                if (rabbitEntity.parentElement === rbt_Btn.parentElement) {
+                    document.body.appendChild(rabbitEntity); 
+                    rabbitEntity.className = 'fixed z-50 pointer-events-none hidden lg:block transition-all duration-700';
                 }
             }
         });
