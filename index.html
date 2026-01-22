@@ -305,7 +305,7 @@
                     </p>
                 </div>
 
-                <!-- LE TERMINAL (Style Glassmorphism Sombre) -->
+                <!-- LE TERMINAL (Style Message Matrix) -->
                 <div class="max-w-3xl mx-auto relative group" data-sr data-sr-delay="200">
 
                     <!-- Bordure animée subtile -->
@@ -314,38 +314,47 @@
                     </div>
 
                     <div
-                        class="relative bg-[#0B1120]/90 backdrop-blur-xl rounded-xl border border-white/10 overflow-hidden shadow-2xl">
+                        class="relative bg-[#0B1120]/95 backdrop-blur-xl rounded-xl border border-white/10 overflow-hidden shadow-2xl min-h-[300px] flex flex-col">
 
                         <!-- Effet Scanlines (Texture écran) -->
                         <div class="absolute inset-0 pointer-events-none z-20 scanlines"></div>
 
-                        <!-- Barre de titre -->
-                        <div class="bg-black/40 px-4 py-3 flex items-center gap-2 border-b border-white/5">
+                        <!-- Effet Vignette (Coins sombres) -->
+                        <div
+                            class="absolute inset-0 pointer-events-none z-20 bg-[radial-gradient(circle_at_center,transparent_50%,rgba(0,0,0,0.4)_100%)]">
+                        </div>
+
+                        <!-- Barre de titre (Style Message Entrant) -->
+                        <div class="bg-black/60 px-4 py-3 flex items-center gap-2 border-b border-white/5">
                             <div class="flex gap-2">
-                                <div class="w-3 h-3 rounded-full bg-gray-600/50"></div>
-                                <div class="w-3 h-3 rounded-full bg-gray-600/50"></div>
-                                <div class="w-3 h-3 rounded-full bg-gray-600/50"></div>
+                                <div class="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/50"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/50"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/50"></div>
                             </div>
-                            <div class="ml-auto font-mono text-[10px] text-emerald-500/50 tracking-widest uppercase">
-                                source_code.js — r/o
+                            <div
+                                class="ml-auto font-mono text-[10px] text-emerald-500 tracking-widest uppercase animate-pulse">
+                                Connexion_Sécurisée... Établie.
                             </div>
                         </div>
 
                         <!-- Contenu du terminal -->
                         <div
-                            class="p-6 md:p-8 font-mono text-sm md:text-base leading-relaxed min-h-[240px] flex flex-col justify-center relative z-10">
+                            class="p-6 md:p-10 font-mono text-base md:text-lg leading-relaxed flex-grow flex flex-col justify-center relative z-10 text-emerald-400 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)]">
 
                             <!-- Zone de texte dynamique -->
-                            <div id="matrix-typewriter" class="space-y-2">
+                            <div id="matrix-typewriter" class="space-y-4">
                                 <!-- Le JS va écrire ici -->
                             </div>
 
                             <!-- Curseur clignotant -->
-                            <span id="matrix-cursor"
-                                class="inline-block w-2.5 h-5 bg-emerald-500 ml-1 animate-pulse align-middle shadow-[0_0_8px_rgba(16,185,129,0.8)]"></span>
+                            <div class="mt-2">
+                                <span id="matrix-cursor"
+                                    class="inline-block w-3 h-6 bg-emerald-500/80 align-middle shadow-[0_0_10px_rgba(16,185,129,0.8)]"></span>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
