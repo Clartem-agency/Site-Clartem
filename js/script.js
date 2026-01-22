@@ -1944,45 +1944,72 @@ if (matrixContainer) {
             setTimeout(() => bubble.classList.remove('show'), duration);
         };
 
-        // Gestionnaire de clic
+        
+
+        // Gestionnaire de clic (Séquence Étendue)
         rabbitEntity.addEventListener('click', (e) => {
-            // Empêcher de cliquer sur le bouton derrière si on clique sur le lapin
+            // Empêcher de cliquer sur le bouton derrière
             e.stopPropagation();
             e.preventDefault();
 
             rabbitClickCount++;
 
+            // --- ÉTAPE 1 : LE SAUT ---
             if (rabbitClickCount === 1) {
-                // CLIC 1 : SAUT
                 rabbitEntity.classList.add('rabbit-anim-jump');
                 rabbitSpeak("Hop !");
                 setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-jump'), 500);
             } 
+            
+            // --- ÉTAPE 2 : LA TOUPIE (NOUVEAU) ---
             else if (rabbitClickCount === 2) {
-                // CLIC 2 : GLITCH
+                rabbitEntity.classList.add('rabbit-anim-spin');
+                rabbitSpeak("Ouh là, ça tourne !");
+                setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-spin'), 600);
+            }
+
+            // --- ÉTAPE 3 : MODE MATRIX (NOUVEAU) ---
+            else if (rabbitClickCount === 3) {
+                rabbitEntity.classList.add('rabbit-anim-matrix-mode');
+                rabbitSpeak("Je vois le code...", 1500); // Reste affiché un peu plus longtemps
+                setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-matrix-mode'), 800);
+            }
+
+            // --- ÉTAPE 4 : LE REFUS (NOUVEAU) ---
+            else if (rabbitClickCount === 4) {
+                rabbitEntity.classList.add('rabbit-anim-shake');
+                rabbitSpeak("Arrête, ça chatouille !", 1000);
+                // On laisse secouer pendant 0.8s
+                setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-shake'), 800);
+            }
+
+            // --- ÉTAPE 5 : GLITCH (LE PLANTAGE) ---
+            else if (rabbitClickCount === 5) {
                 rabbitEntity.classList.add('rabbit-anim-glitch');
-                rabbitSpeak("Erreur Système...", 1000);
+                rabbitSpeak("Erreur Système CRITIQUE...", 1500);
                 setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-glitch'), 1500);
             } 
-            else if (rabbitClickCount === 3) {
-                // CLIC 3 : DISPARITION
-                
-                // 1. On affiche le texte
+
+            // --- ÉTAPE 6 : DISPARITION FINALE ---
+            else if (rabbitClickCount === 6) {
+                // 1. Message final
                 rabbitSpeak("Suivez le lapin blanc !", 3000);
                 
-                // 2. On attend 1.5 secondes (1500ms) pour laisser le temps de lire
-                // AVANT d'ajouter la classe qui fait disparaître le lapin
+                // 2. Pause lecture
                 setTimeout(() => {
                     rabbitEntity.classList.add('rabbit-anim-vanish');
                 }, 1500);
                 
-                // 3. On cache totalement l'élément une fois l'animation finie
-                // (1500ms de lecture + 600ms d'animation = 2100ms)
+                // 3. Disparition réelle du DOM
                 setTimeout(() => {
                     rabbitEntity.style.display = 'none'; 
+                    // Optionnel : Reset du compteur pour la prochaine fois qu'il réapparaît (si rechargement)
+                    // Mais ici on le cache définitivement pour cette session.
                 }, 2100);
             }
         });
+
+        
 
         // Gestionnaire de survol (Hover)
         rabbitEntity.addEventListener('mouseenter', () => {
