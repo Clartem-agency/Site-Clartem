@@ -948,72 +948,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    // ==================================================================
-    // ANIMATION DU TERMINAL (TYPEWRITER EFFECT)
-    // ==================================================================
-    const terminalContainer = document.getElementById('typewriter-container');
 
-    if (terminalContainer) {
-        // TRADUCTION FRANÇAISE APPLIQUÉE ICI
-        const lines = [
-            { text: "> INITIALISATION : ANALYSE DU WEB...", class: "text-gray-400" },
-            { text: "> CHARGEMENT DES DONNÉES : 99%...", class: "text-gray-400" },
-            { text: "> RECHERCHE D'EMPATHIE...", class: "text-blue-400" },
-            { text: "> ERREUR CRITIQUE : CONNEXION_HUMAINE_INTROUVABLE", class: "text-red-500 font-bold" },
-            { text: "> RECHERCHE D'EXPERTS BIENVEILLANTS...", class: "text-yellow-400" },
-            { text: "> SOLUTION DÉTECTÉE : VOUS.", class: "text-green-400 font-bold text-lg mt-2" }
-        ];
-
-
-        let lineIndex = 0;
-        let charIndex = 0;
-        let isTyping = false;
-
-        function typeLine() {
-            if (lineIndex < lines.length) {
-                const currentLineData = lines[lineIndex];
-
-                // Si c'est le début d'une nouvelle ligne, on crée l'élément HTML
-                if (charIndex === 0) {
-                    const p = document.createElement('div');
-                    p.className = currentLineData.class; // Applique la couleur Tailwind
-                    p.id = `line-${lineIndex}`;
-                    terminalContainer.appendChild(p);
-                }
-
-                const currentLineElement = document.getElementById(`line-${lineIndex}`);
-
-                // Ajoute un caractère
-                currentLineElement.textContent += currentLineData.text.charAt(charIndex);
-                charIndex++;
-
-                // Vitesse de frappe aléatoire pour faire "humain/robot"
-                const typingSpeed = Math.random() * (50 - 20) + 20;
-
-                if (charIndex < currentLineData.text.length) {
-                    setTimeout(typeLine, typingSpeed);
-                } else {
-                    // Fin de la ligne, on passe à la suivante après une petite pause
-                    lineIndex++;
-                    charIndex = 0;
-                    setTimeout(typeLine, 300); // Pause de 300ms entre les lignes
-                }
-            }
-        }
-
-        // On utilise IntersectionObserver pour lancer l'anim seulement quand on voit le terminal
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !isTyping) {
-                    isTyping = true;
-                    terminalContainer.innerHTML = ''; // Vide le conteneur au cas où
-                    typeLine(); // Lance l'animation
-                }
-            });
-        }, { threshold: 0.5 }); // Déclenche quand 50% du terminal est visible
-
-        observer.observe(terminalContainer);
-    }
 
 
 
@@ -1832,3 +1767,141 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 });
+
+
+
+
+
+
+
+
+// ==================================================================
+// ANIMATION TERMINAL MATRIX (VERSION INTERACTIVE & TUTOIEMENT)
+// ==================================================================
+const matrixContainer = document.getElementById('matrix-typewriter');
+const matrixCursor = document.getElementById('matrix-cursor');
+
+if (matrixContainer) {
+    // Le scénario : Dialogue direct système <-> thérapeute
+    const scenario = [
+        { text: "Réveille-toi...", class: "text-emerald-500 font-bold tracking-widest mb-4 block", speed: 100 }, 
+        { text: "Le système t'a menti.", class: "text-emerald-500/80", speed: 50 },
+        { text: "On t'a dit de devenir un technicien.", class: "text-emerald-500/80", speed: 40 },
+        { text: "Mais tes clients ne cherchent pas un algorithme...", class: "text-emerald-500/80", speed: 40 },
+        { text: "ILS CHERCHENT TON ÂME.", class: "text-emerald-300 font-bold block mt-2 shadow-green-glow", speed: 80 },
+        { text: "Toc, toc.", class: "text-emerald-600/70 text-sm mt-6 block", speed: 150 }, // Lent pour le suspens
+        
+        // --- SIMULATION UTILISATEUR (NEO) ---
+        // isUser: true ajoute le prompt "> " et une pause de réflexion avant
+        { text: "Qui est là ?", class: "text-white font-bold mt-2 block", speed: 100, isUser: true },
+
+        // --- REPONSE SYSTEME ---
+        { text: "La Clarté.", class: "text-emerald-400 font-bold text-lg mt-4 block", speed: 60 },
+        { text: "Suis le lapin blanc ci-dessous ↓", class: "text-emerald-500 animate-pulse mt-2 block", speed: 50 }
+    ];
+
+    let lineIdx = 0;
+    let charIdx = 0;
+    let isMatrixRunning = false;
+
+    // Fonction pour gérer le clignotement du curseur
+    function toggleCursor(active) {
+        if(matrixCursor) {
+            if(active) matrixCursor.classList.add('animate-pulse');
+            else matrixCursor.classList.remove('animate-pulse');
+        }
+    }
+
+    function typeMatrix() {
+        if (lineIdx < scenario.length) {
+            const currentLine = scenario[lineIdx];
+            
+            // 1. CRÉATION DE LA LIGNE (Au début de la ligne)
+            if (charIdx === 0) {
+                // Pause réaliste avant que l'utilisateur "réponde"
+                if (currentLine.isUser && !document.getElementById(`mat-line-${lineIdx}`)) {
+                    toggleCursor(true);
+                    setTimeout(() => {
+                        toggleCursor(false);
+                        createLineElement(currentLine);
+                        typeMatrix(); // On relance la frappe après la pause
+                    }, 1500); // 1.5s d'hésitation humaine
+                    return; 
+                } else if (!document.getElementById(`mat-line-${lineIdx}`)) {
+                    createLineElement(currentLine);
+                }
+            }
+
+            const activeLine = document.getElementById(`mat-line-${lineIdx}`);
+            
+            // 2. LOGIQUE DE FRAPPE
+            // Si c'est l'utilisateur, on ajoute le prompt "> " visuellement au début, mais on ne le tape pas lettre par lettre
+            let charToAdd = currentLine.text.charAt(charIdx);
+            
+            activeLine.textContent += charToAdd;
+            charIdx++;
+
+            // Calcul de la vitesse (Humain vs Machine)
+            // L'utilisateur tape un peu plus lentement et irrégulièrement
+            let baseSpeed = currentLine.speed || 50;
+            let variance = Math.random() * 30;
+            
+            if (charIdx < currentLine.text.length) {
+                setTimeout(typeMatrix, baseSpeed + variance);
+            } else {
+                // FIN DE LA LIGNE
+                lineIdx++;
+                charIdx = 0;
+                toggleCursor(true);
+                
+                // Pauses dramatiques entre les lignes
+                let pause = 400; // Pause standard
+                if (currentLine.text.includes("Toc, toc")) pause = 500; 
+                if (currentLine.isUser) pause = 800; // Pause après la question de l'utilisateur
+
+                setTimeout(typeMatrix, pause);
+            }
+        } else {
+            // FIN DU SCENARIO
+            toggleCursor(true);
+        }
+    }
+
+    function createLineElement(lineData) {
+        const div = document.createElement('div');
+        div.className = lineData.class; 
+        div.id = `mat-line-${lineIdx}`;
+        
+        // Si c'est l'utilisateur, on ajoute le prompt "> " tout de suite
+        if (lineData.isUser) {
+            const promptSpan = document.createElement('span');
+            promptSpan.className = "text-gray-500 mr-2";
+            promptSpan.textContent = "> ";
+            div.appendChild(promptSpan);
+            // On crée un span pour le texte qui va être tapé
+            const textSpan = document.createElement('span');
+            textSpan.id = `mat-line-content-${lineIdx}`; // On cible ce span pour écrire
+            div.appendChild(textSpan);
+            
+            // Petite astuce : on change l'ID ciblé par la boucle de frappe pour écrire dans le span et pas le div
+            div.id = `mat-line-${lineIdx}-wrapper`; 
+            textSpan.id = `mat-line-${lineIdx}`;
+        }
+        
+        matrixContainer.appendChild(div);
+        toggleCursor(false);
+    }
+
+    // Observer pour lancer l'anim quand visible
+    const matrixObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !isMatrixRunning) {
+                isMatrixRunning = true;
+                matrixContainer.innerHTML = ''; // Reset
+                setTimeout(typeMatrix, 800);
+            }
+        });
+    }, { threshold: 0.4 });
+
+    matrixObserver.observe(matrixContainer);
+}
