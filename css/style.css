@@ -2939,3 +2939,51 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+
+
+
+
+
+
+
+/* ======================================================= */
+/*          SECTION MANIFESTE (TERMINAL)                   */
+/* ======================================================= */
+
+/* Effet Scanlines pour le terminal Matrix */
+.scanlines {
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0) 50%,
+        rgba(0, 0, 0, 0.2) 50%,
+        rgba(0, 0, 0, 0.2)
+    );
+    background-size: 100% 4px;
+    opacity: 0.15;
+}
+
+/* Police Monospace élégante pour le terminal */
+/* Si vous pouvez, ajoutez @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap'); en haut du CSS */
+#matrix-typewriter {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace; 
+}
+
+/* Classes utilitaires pour les lignes du terminal */
+.matrix-line {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.matrix-dim { color: #64748b; } /* Gris commentaire */
+.matrix-keyword { color: #34d399; font-weight: bold; } /* Vert Émeraude clair */
+.matrix-string { color: #a7f3d0; } /* Vert très pâle */
+.matrix-highlight { 
+    color: #ffffff; 
+    text-shadow: 0 0 10px rgba(52, 211, 153, 0.5); /* Glow blanc/vert */
+}
+.matrix-glitch {
+    color: #ef4444; /* Rouge très léger juste pour le bug */
+    animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+    display: inline-block;
+}
