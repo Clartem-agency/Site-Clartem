@@ -3151,3 +3151,92 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     /* Ajout de transform dans la transition pour animer le scaleX */
     transition: left 0.8s, right 0.8s, opacity 0.8s, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
+
+
+
+
+/* ======================================================= */
+/*    INTERACTIONS LAPIN (HOVER & CLICKS)                  */
+/* ======================================================= */
+
+/* 1. Rendre le lapin cliquable quand il est sur le CTA */
+#white-rabbit.cta-mode {
+    pointer-events: auto !important; /* CRUCIAL : Sinon on clique au travers */
+    cursor: pointer;
+}
+
+/* 2. Animation Saut (Clic 1) */
+@keyframes rabbitJump {
+    0% { transform: translateY(0) scale(0.85); }
+    40% { transform: translateY(-40px) scale(0.85) rotate(-10deg); }
+    50% { transform: translateY(-40px) scale(0.85) rotate(10deg); }
+    100% { transform: translateY(0) scale(0.85) rotate(0deg); }
+}
+.rabbit-anim-jump {
+    animation: rabbitJump 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 3. Animation Glitch Matrix (Clic 2) */
+@keyframes rabbitGlitch {
+    0% { transform: translate(0) scale(0.85); filter: none; }
+    20% { transform: translate(-5px, 5px) scale(0.9); filter: hue-rotate(90deg) invert(1); }
+    40% { transform: translate(5px, -5px) scale(0.85); filter: none; }
+    60% { transform: translate(-5px, 0) scale(0.9) skew(20deg); filter: hue-rotate(90deg) invert(1); }
+    80% { transform: translate(5px, 0) scale(0.85) skew(-20deg); filter: none; }
+    100% { transform: translate(0) scale(0.85); filter: none; }
+}
+.rabbit-anim-glitch {
+    animation: rabbitGlitch 0.4s steps(5) infinite;
+}
+
+/* 4. Animation Disparition / Fuite (Clic 3) */
+@keyframes rabbitVanish {
+    0% { transform: scale(0.85) rotate(0); opacity: 1; }
+    50% { transform: scale(1.2) rotate(-20deg); opacity: 1; }
+    100% { transform: scale(0) rotate(360deg); opacity: 0; }
+}
+.rabbit-anim-vanish {
+    animation: rabbitVanish 0.6s ease-in forwards;
+    pointer-events: none; /* On ne peut plus cliquer */
+}
+
+/* 5. Bulle de dialogue du lapin */
+.rabbit-bubble {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background: white;
+    color: #1F2937;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 60;
+}
+.rabbit-bubble::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+
+.rabbit-bubble.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-15px);
+}
+
+/* Accélération des oreilles au survol */
+#white-rabbit.cta-mode:hover .ear-left-anim,
+#white-rabbit.cta-mode:hover .ear-right-anim {
+    animation-duration: 0.5s; /* Elles s'agitent ! */
+}
