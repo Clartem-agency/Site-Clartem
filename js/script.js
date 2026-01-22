@@ -1796,7 +1796,7 @@ if (matrixContainer) {
 
         // --- REPONSE SYSTEME ---
         { text: "La Clarté.", class: "text-emerald-400 font-bold text-lg mt-4 block", speed: 60 },
-        { text: "Suis le lapin blanc ci-dessous ↓", class: "text-emerald-500 animate-pulse mt-2 block", speed: 50 }
+        { text: "Suis le lapin blanc ↓", class: "text-emerald-500 animate-pulse mt-2 block", speed: 50 }
     ];
 
     let lineIdx = 0;
@@ -1993,7 +1993,7 @@ if (matrixContainer) {
             // --- ÉTAPE 6 : DISPARITION FINALE ---
             else if (rabbitClickCount === 6) {
                 // 1. Message final
-                rabbitSpeak("Suivez le lapin blanc !", 3000);
+                rabbitSpeak("Suis-moi !", 3000);
                 
                 // 2. Pause lecture
                 setTimeout(() => {
@@ -2009,7 +2009,7 @@ if (matrixContainer) {
             }
         });
 
-        
+
 
         // Gestionnaire de survol (Hover)
         rabbitEntity.addEventListener('mouseenter', () => {
