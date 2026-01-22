@@ -3122,3 +3122,32 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     96% { transform: translateY(-1px) scale(1.1); }
     98% { transform: translateY(0) scale(1); }
 }
+
+
+
+/* ======================================================= */
+/*    NOUVELLES CLASSES POUR LE LAPIN (POSITIONNEMENT)     */
+/* ======================================================= */
+
+/* 1. APPARITION À DROITE (Section Plan) */
+/* Note : scaleX(-1) retourne le lapin pour qu'il regarde vers la gauche */
+#white-rabbit.peek-right-active {
+    left: auto !important; /* On annule la gauche */
+    right: -20px;          /* Il sort de la droite */
+    opacity: 1;
+    transform: scaleX(-1) rotate(15deg) translateY(-10px); /* Miroir + Rotation */
+}
+
+/* 2. APPARITION À GAUCHE (Section Offres) */
+#white-rabbit.peek-left-active {
+    left: -20px;
+    right: auto !important;
+    opacity: 1;
+    transform: rotate(15deg) translateY(-10px); /* Juste penché */
+}
+
+/* Ajustement de la transition pour que le retournement soit fluide */
+#white-rabbit {
+    /* Ajout de transform dans la transition pour animer le scaleX */
+    transition: left 0.8s, right 0.8s, opacity 0.8s, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
