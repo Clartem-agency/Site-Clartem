@@ -948,72 +948,96 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    // ==================================================================
-    // ANIMATION DU TERMINAL (TYPEWRITER EFFECT)
-    // ==================================================================
-    const terminalContainer = document.getElementById('typewriter-container');
-
-    if (terminalContainer) {
-        // TRADUCTION FRANÇAISE APPLIQUÉE ICI
-        const lines = [
-            { text: "> INITIALISATION : ANALYSE DU WEB...", class: "text-gray-400" },
-            { text: "> CHARGEMENT DES DONNÉES : 99%...", class: "text-gray-400" },
-            { text: "> RECHERCHE D'EMPATHIE...", class: "text-blue-400" },
-            { text: "> ERREUR CRITIQUE : CONNEXION_HUMAINE_INTROUVABLE", class: "text-red-500 font-bold" },
-            { text: "> RECHERCHE D'EXPERTS BIENVEILLANTS...", class: "text-yellow-400" },
-            { text: "> SOLUTION DÉTECTÉE : VOUS.", class: "text-green-400 font-bold text-lg mt-2" }
-        ];
+   
 
 
-        let lineIndex = 0;
-        let charIndex = 0;
-        let isTyping = false;
+// ==================================================================
+// ANIMATION TERMINAL MATRIX PREMIUM
+// ==================================================================
+const matrixContainer = document.getElementById('matrix-typewriter');
+const matrixCursor = document.getElementById('matrix-cursor');
 
-        function typeLine() {
-            if (lineIndex < lines.length) {
-                const currentLineData = lines[lineIndex];
+if (matrixContainer) {
+    // Le scénario : Monochrome, tech, élégant.
+    const scenario = [
+        { text: "// Initialisation du protocole web...", class: "matrix-dim" },
+        { text: "const webStatus = analyze(current_market);", class: "text-emerald-500/80" },
+        { text: ">> Scanning millions of sites...", class: "matrix-dim italic" },
+        { text: ">> RESULT: 98% DUPLICATE CONTENT DETECTED.", class: "text-emerald-300" },
+        { text: "if (site === 'generic_template') {", class: "text-emerald-500" },
+        { text: "   return 'NO_EMOTIONAL_CONNECTION';", class: "matrix-string" },
+        { text: "}", class: "text-emerald-500" },
+        { text: "// Recherche de l'élément manquant...", class: "matrix-dim mt-4 block" }, // mt-4 ajoute un saut de ligne visuel
+        { text: "const uniqueFactor = IDENTIFY_HUMAN();", class: "text-white font-bold" },
+        { text: ">> MATCH FOUND: VOTRE HISTOIRE.", class: "matrix-highlight mt-2 block tracking-widest" }
+    ];
 
-                // Si c'est le début d'une nouvelle ligne, on crée l'élément HTML
-                if (charIndex === 0) {
-                    const p = document.createElement('div');
-                    p.className = currentLineData.class; // Applique la couleur Tailwind
-                    p.id = `line-${lineIndex}`;
-                    terminalContainer.appendChild(p);
-                }
+    let lineIdx = 0;
+    let charIdx = 0;
+    let isMatrixRunning = false;
 
-                const currentLineElement = document.getElementById(`line-${lineIndex}`);
-
-                // Ajoute un caractère
-                currentLineElement.textContent += currentLineData.text.charAt(charIndex);
-                charIndex++;
-
-                // Vitesse de frappe aléatoire pour faire "humain/robot"
-                const typingSpeed = Math.random() * (50 - 20) + 20;
-
-                if (charIndex < currentLineData.text.length) {
-                    setTimeout(typeLine, typingSpeed);
-                } else {
-                    // Fin de la ligne, on passe à la suivante après une petite pause
-                    lineIndex++;
-                    charIndex = 0;
-                    setTimeout(typeLine, 300); // Pause de 300ms entre les lignes
-                }
+    function typeMatrix() {
+        if (lineIdx < scenario.length) {
+            const currentLine = scenario[lineIdx];
+            
+            // Création de la ligne au début
+            if (charIdx === 0) {
+                const div = document.createElement('div');
+                // On préserve les classes Tailwind + nos classes custom
+                div.className = `matrix-line ${currentLine.class}`;
+                div.id = `mat-line-${lineIdx}`;
+                matrixContainer.appendChild(div);
+                
+                // Scroll automatique vers le bas si ça dépasse
+                const terminalBody = matrixContainer.parentElement;
+                terminalBody.scrollTop = terminalBody.scrollHeight;
             }
+
+            const activeLine = document.getElementById(`mat-line-${lineIdx}`);
+            
+            // Ajout caractère
+            activeLine.textContent += currentLine.text.charAt(charIdx);
+            charIdx++;
+
+            // Vitesse de frappe variable (plus rapide pour faire "ordinateur")
+            const speed = Math.random() * (30 - 10) + 10; 
+            
+            if (charIdx < currentLine.text.length) {
+                setTimeout(typeMatrix, speed);
+            } else {
+                // Fin de ligne
+                lineIdx++;
+                charIdx = 0;
+                // Pause variable selon si c'est du code ou du résultat
+                const pause = currentLine.text.includes('>>') ? 600 : 150;
+                setTimeout(typeMatrix, pause);
+            }
+        } else {
+            // Fin de l'animation : Le curseur clignote à la fin
+            matrixCursor.classList.add('animate-pulse');
         }
-
-        // On utilise IntersectionObserver pour lancer l'anim seulement quand on voit le terminal
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !isTyping) {
-                    isTyping = true;
-                    terminalContainer.innerHTML = ''; // Vide le conteneur au cas où
-                    typeLine(); // Lance l'animation
-                }
-            });
-        }, { threshold: 0.5 }); // Déclenche quand 50% du terminal est visible
-
-        observer.observe(terminalContainer);
     }
+
+    // Observer pour lancer l'anim quand visible
+    const matrixObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !isMatrixRunning) {
+                isMatrixRunning = true;
+                matrixContainer.innerHTML = ''; // Reset
+                typeMatrix();
+            }
+        });
+    }, { threshold: 0.4 });
+
+    matrixObserver.observe(matrixContainer);
+}
+
+
+
+
+
+
+
 
 
 
