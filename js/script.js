@@ -1913,61 +1913,100 @@ if (matrixContainer) {
 
 
 // ==================================================================
-    // LOGIQUE DU LAPIN BLANC (EASTER EGG)
+    // LOGIQUE DU LAPIN BLANC (EASTER EGG V3 - CORRIGÉE)
     // ==================================================================
-    const rabbit = document.getElementById('white-rabbit');
-    const manifestoSection = document.getElementById('manifesto');
-    const finalCtaSection = document.getElementById('cta');
-    const finalCtaButton = document.querySelector('#cta .btn-orange'); // Le bouton final
+    
+    // On utilise des noms de variables uniques (rbt_...) pour éviter les conflits
+    // avec les variables déclarées plus haut dans le fichier.
+    const rabbitEntity = document.getElementById('white-rabbit');
+    const rbt_Manifesto = document.getElementById('manifesto');
+    const rbt_Plan = document.getElementById('plan');      
+    const rbt_Offers = document.getElementById('offres'); 
+    const rbt_CTA = document.getElementById('cta');
+    const rbt_Btn = document.querySelector('#cta .btn-orange');
 
-    if (rabbit && manifestoSection && finalCtaSection && finalCtaButton) {
+    if (rabbitEntity && rbt_Manifesto && rbt_Plan && rbt_Offers && rbt_CTA) {
         
-        let hasPeeked = false; // Pour qu'il ne sorte qu'une fois au manifeste
+        // États pour éviter qu'il ne sorte en boucle
+        let hasPeekedManifesto = false;
+        let hasPeekedPlan = false;
+        let hasPeekedOffers = false;
 
         window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
             const windowHeight = window.innerHeight;
 
-            // 1. DÉTECTION SECTION MANIFESTE (Le Coucou)
-            const manifestoRect = manifestoSection.getBoundingClientRect();
-            
-            // Si on est dans la section manifeste (et qu'il ne l'a pas déjà fait)
-            if (manifestoRect.top < windowHeight / 2 && manifestoRect.bottom > windowHeight / 2) {
-                if (!hasPeeked) {
-                    rabbit.classList.add('peek-active');
-                    hasPeeked = true;
+            // Fonction utilitaire pour vérifier si une section est au milieu de l'écran
+            const isInView = (element) => {
+                const rect = element.getBoundingClientRect();
+                return rect.top < windowHeight / 1.5 && rect.bottom > windowHeight / 1.5;
+            };
 
-                    // Il reste 3 secondes puis repart
-                    setTimeout(() => {
-                        rabbit.classList.remove('peek-active');
-                    }, 3000);
-                }
+            // ------------------------------------------------
+            // 1. DÉTECTION MANIFESTE (Coucou à Gauche)
+            // ------------------------------------------------
+            if (isInView(rbt_Manifesto) && !hasPeekedManifesto) {
+                rabbitEntity.className = 'fixed z-50 pointer-events-none hidden lg:block transition-all duration-700 peek-active';
+                hasPeekedManifesto = true; 
+
+                setTimeout(() => {
+                    rabbitEntity.classList.remove('peek-active');
+                }, 3500); 
             }
 
-            // 2. DÉTECTION SECTION CTA FINAL (L'Arrivée)
-            const ctaRect = finalCtaSection.getBoundingClientRect();
+            // ------------------------------------------------
+            // 2. DÉTECTION PLAN (Coucou à Droite - Supervision)
+            // ------------------------------------------------
+            const planRect = rbt_Plan.getBoundingClientRect();
+            // Déclenche quand le haut du plan touche le haut de l'écran
+            if (planRect.top < 0 && planRect.bottom > windowHeight && !hasPeekedPlan) {
+                
+                // Reset propre
+                rabbitEntity.className = 'fixed z-50 pointer-events-none hidden lg:block transition-all duration-700';
+                void rabbitEntity.offsetWidth; // Force Reflow
+
+                rabbitEntity.classList.add('peek-right-active');
+                hasPeekedPlan = true;
+
+                setTimeout(() => {
+                    rabbitEntity.classList.remove('peek-right-active');
+                }, 4000); 
+            }
+
+            // ------------------------------------------------
+            // 3. DÉTECTION OFFRES (Coucou à Gauche - Prix)
+            // ------------------------------------------------
+            if (isInView(rbt_Offers) && !hasPeekedOffers) {
+                
+                rabbitEntity.className = 'fixed z-50 pointer-events-none hidden lg:block transition-all duration-700';
+                void rabbitEntity.offsetWidth;
+
+                rabbitEntity.classList.add('peek-left-active');
+                hasPeekedOffers = true;
+
+                setTimeout(() => {
+                    rabbitEntity.classList.remove('peek-left-active');
+                }, 3500);
+            }
+
+            // ------------------------------------------------
+            // 4. DÉTECTION CTA FINAL (L'Arrivée sur le bouton)
+            // ------------------------------------------------
+            const ctaRect = rbt_CTA.getBoundingClientRect();
             
             // Si on arrive tout en bas
-            if (ctaRect.top < windowHeight - 100) {
-                // On change le mode de positionnement pour le coller au bouton
-                // On doit retirer la classe fixed et l'attacher au DOM du bouton
-                if (rabbit.parentElement !== finalCtaButton.parentElement) {
-                    // On le déplace physiquement dans le DOM pour qu'il suive le bouton
-                    // Note: Le parent du bouton doit avoir 'position: relative'
-                    finalCtaButton.parentElement.appendChild(rabbit);
+            if (ctaRect.top < windowHeight - 150) {
+                if (rabbitEntity.parentElement !== rbt_Btn.parentElement) {
+                    // Déplacement dans le DOM
+                    rbt_Btn.parentElement.appendChild(rabbitEntity);
                     
-                    // On force un petit reflow
-                    void rabbit.offsetWidth;
-                    
-                    rabbit.classList.remove('fixed', 'peek-active');
-                    rabbit.classList.add('cta-mode');
+                    rabbitEntity.className = ''; 
+                    rabbitEntity.classList.add('cta-mode', 'z-0', 'pointer-events-none', 'transition-all', 'duration-700');
                 }
             } else {
-                // Si on remonte, on le remet en fixed caché pour le reset (optionnel)
-                if (rabbit.parentElement === finalCtaButton.parentElement) {
-                    document.body.appendChild(rabbit); // Retour au body
-                    rabbit.classList.add('fixed');
-                    rabbit.classList.remove('cta-mode');
+                // Si on remonte
+                if (rabbitEntity.parentElement === rbt_Btn.parentElement) {
+                    document.body.appendChild(rabbitEntity); 
+                    rabbitEntity.className = 'fixed z-50 pointer-events-none hidden lg:block transition-all duration-700';
                 }
             }
         });
