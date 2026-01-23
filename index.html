@@ -377,18 +377,26 @@
                 class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light pointer-events-none">
             </div>
 
-            <!-- Titre de liaison AVEC DÉCORATION -->
+
+
+            <!-- Titre de liaison AVEC DÉCORATION ET BRUME MATRIX -->
             <div class="container mx-auto px-6 mb-32 lg:mb-60 text-center relative" data-sr>
 
-                <!-- 1. LUEUR D'AMBIANCE -->
+                <!-- 1. BRUME D'AMBIANCE (Mise à jour : Plus large et organique) -->
+                <!-- Couche 1 : Brume large et diffuse (Fond) -->
                 <div
-                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-emerald-500/10 blur-[80px] rounded-full pointer-events-none">
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[500px] bg-emerald-900/20 blur-[120px] rounded-full pointer-events-none mix-blend-screen">
+                </div>
+
+                <!-- Couche 2 : Cœur lumineux pulsant (Organique) -->
+                <div
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-emerald-500/10 blur-[90px] rounded-full pointer-events-none animate-pulse">
                 </div>
 
                 <!-- 2. LE CONTENU TEXTE -->
                 <div class="relative z-10">
                     <div
-                        class="inline-flex items-center gap-2 px-3 py-1 mb-6 border border-emerald-500/30 rounded-full bg-emerald-900/20 text-emerald-400 text-xs font-bold tracking-widest uppercase font-mono backdrop-blur-sm">
+                        class="inline-flex items-center gap-2 px-3 py-1 mb-6 border border-emerald-500/30 rounded-full bg-emerald-950/40 text-emerald-400 text-xs font-bold tracking-widest uppercase font-mono backdrop-blur-md shadow-[0_0_15px_rgba(16,185,129,0.2)]">
                         <span class="relative flex h-2 w-2">
                             <span
                                 class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -397,30 +405,46 @@
                         Protocole Activé
                     </div>
 
-                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
+                    <h2
+                        class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight drop-shadow-lg">
                         Réécrivons les règles <br>
                         <span
-                            class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-200 to-emerald-400">
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-200 to-emerald-400 animate-shimmer">
                             de votre présence en ligne.
                         </span>
                     </h2>
 
-                    <p class="text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-light leading-relaxed">
+                    <p class="text-emerald-100/80 max-w-2xl mx-auto text-lg md:text-xl font-light leading-relaxed">
                         Face à la complexité du web, nous appliquons une méthodologie stricte. <br
                             class="hidden md:block">
-                        Pas de flou, pas de jargon, <span class="text-white font-medium">juste de la logique.</span>
+                        Pas de flou, pas de jargon, <span
+                            class="text-white font-medium border-b border-emerald-500/50 pb-0.5">juste de la
+                            logique.</span>
                     </p>
                 </div>
 
-                <!-- 3. LA LIGNE CONNECTRICE -->
-                <div
-                    class="absolute left-1/2 top-full h-16 lg:h-32 w-px bg-gradient-to-b from-emerald-500/0 via-emerald-500/40 to-transparent -translate-x-1/2 mt-16 lg:mt-24">
+                <!-- 3. LA LIGNE CONNECTRICE (Mise à jour : Effet Faisceau dans la brume) -->
+                <!-- Le conteneur de la ligne avec effet de brume verticale -->
+                <div class="absolute left-1/2 top-full -translate-x-1/2 mt-16 lg:mt-24 pointer-events-none">
+
+                    <!-- Le Glow diffus (La brume autour du laser) -->
                     <div
-                        class="absolute top-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-emerald-400 rounded-full shadow-[0_0_10px_rgba(16,185,129,0.5)] opacity-80">
+                        class="absolute top-0 left-1/2 -translate-x-1/2 w-1 h-32 lg:h-48 bg-emerald-500/20 blur-[20px]">
+                    </div>
+
+                    <!-- La ligne physique (Le laser) -->
+                    <div
+                        class="h-16 lg:h-32 w-px bg-gradient-to-b from-emerald-500/0 via-emerald-500/60 to-transparent">
+                    </div>
+
+                    <!-- Le point terminal -->
+                    <div
+                        class="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-emerald-400 rounded-full shadow-[0_0_15px_2px_rgba(16,185,129,0.6)]">
                     </div>
                 </div>
 
             </div>
+
 
 
             <!-- Les 3 Cartes UNIFORMISÉES -->
