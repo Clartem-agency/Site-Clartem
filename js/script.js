@@ -93,10 +93,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)',
                 viewFactor: 0.2,
 
-                // IMPORTANT : Nettoyage après animation pour que le HOVER CSS fonctionne
                 afterReveal: function (el) {
-                    el.style.transform = 'none';
-                    el.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+                    // On met une chaîne vide '' au lieu de 'none'. 
+                    // Cela supprime l'attribut style inline et rend la main au CSS/Tailwind.
+                    el.style.transform = '';
+
+                    // On supprime aussi la transition JS pour laisser Tailwind (duration-500) gérer la vitesse
+                    el.style.transition = '';
                 }
             });
 
