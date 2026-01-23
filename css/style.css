@@ -3329,3 +3329,26 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     0%, 100% { transform: scale(1); opacity: 0.5; }
     50% { transform: scale(1.2); opacity: 1; }
 }
+
+
+
+
+
+
+
+/* ======================================================= */
+/*    ANIMATION CONCEPT 3D                                 */
+/* ======================================================= */
+
+/* Donne de la profondeur à la grille pour l'effet 3D */
+.perspective-container {
+    perspective: 1500px; /* Plus le chiffre est grand, plus l'effet 3D est subtil */
+}
+
+/* La carte doit être marquée comme un élément 3D */
+.concept-card {
+    /* Optimisation pour fluidifier l'animation */
+    will-change: transform, opacity;
+    /* On cache l'arrière de la carte pour éviter les bugs visuels pendant la rotation */
+    backface-visibility: hidden; 
+}
