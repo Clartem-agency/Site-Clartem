@@ -2082,6 +2082,23 @@ if (tunnelSection && canvas) {
         const rawProgress = -rect.top / totalHeight;
         scrollProgress = Math.max(0, Math.min(1, rawProgress));
 
+
+
+        // Gestion du dégradé haut (On le cache quand on commence à scroller vers le blanc)
+        const topGradient = document.getElementById('matrix-top-gradient');
+        if (topGradient) {
+            // Dès qu'on dépasse 20% du scroll, on commence à effacer le dégradé noir
+            // À 40% (quand le texte commence à se casser), le dégradé a disparu.
+            if (scrollProgress > 0.2) {
+                const opacity = Math.max(0, 1 - (scrollProgress - 0.2) * 5);
+                topGradient.style.opacity = opacity;
+            } else {
+                topGradient.style.opacity = 1;
+            }
+        }
+
+
+
         // --- PHASE 1 : DÉSAGRÉGATION (0% -> 40%) ---
         // Le texte sombre se brise
         if (scrollProgress < 0.4) {
