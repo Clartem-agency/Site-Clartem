@@ -1919,15 +1919,19 @@ if (matrixContainer) {
     const rabbitEntity = document.getElementById('white-rabbit');
     const rbt_Manifesto = document.getElementById('manifesto');
     const rbt_Plan = document.getElementById('plan');      
-    const rbt_Offers = document.getElementById('offres'); 
+    
+    // MODIFICATION : Cible la section Blog au lieu des Offres
+    const rbt_Blog = document.getElementById('blog-preview'); 
+    
     const rbt_CTA = document.getElementById('cta');
     const rbt_Btn = document.querySelector('#cta .btn-orange');
 
-    if (rabbitEntity && rbt_Manifesto && rbt_Plan && rbt_Offers && rbt_CTA) {
+    // On vérifie que la section Blog existe bien (rbt_Blog)
+    if (rabbitEntity && rbt_Manifesto && rbt_Plan && rbt_Blog && rbt_CTA) {
         
         let hasPeekedManifesto = false;
         let hasPeekedPlan = false;
-        let hasPeekedOffers = false;
+        let hasPeekedBlog = false; // Variable renommée
         
         // --- NOUVEAU : Logique de clic ---
         let rabbitClickCount = 0;
@@ -1943,8 +1947,6 @@ if (matrixContainer) {
             bubble.classList.add('show');
             setTimeout(() => bubble.classList.remove('show'), duration);
         };
-
-        
 
         // Gestionnaire de clic (Séquence Étendue)
         rabbitEntity.addEventListener('click', (e) => {
@@ -2009,15 +2011,13 @@ if (matrixContainer) {
             }
         });
 
-
-
         // Gestionnaire de survol (Hover)
         rabbitEntity.addEventListener('mouseenter', () => {
             if (rabbitClickCount === 0) rabbitSpeak("?"); 
         });
 
 
-        // --- LOGIQUE DE SCROLL EXISTANTE (Inchangée) ---
+        // --- LOGIQUE DE SCROLL EXISTANTE ---
         window.addEventListener('scroll', () => {
             const windowHeight = window.innerHeight;
             const isInView = (element) => {
@@ -2042,12 +2042,13 @@ if (matrixContainer) {
                 setTimeout(() => rabbitEntity.classList.remove('peek-right-active'), 4000); 
             }
 
-            // 3. OFFRES
-            if (isInView(rbt_Offers) && !hasPeekedOffers) {
+            // 3. BLOG (MODIFIÉ : Apparition sur la section Blog)
+            if (isInView(rbt_Blog) && !hasPeekedBlog) {
                 rabbitEntity.className = 'fixed z-50 pointer-events-none hidden lg:block transition-all duration-700';
                 void rabbitEntity.offsetWidth;
+                // On utilise peek-left-active (Sort de la gauche)
                 rabbitEntity.classList.add('peek-left-active');
-                hasPeekedOffers = true;
+                hasPeekedBlog = true;
                 setTimeout(() => rabbitEntity.classList.remove('peek-left-active'), 3500);
             }
 
