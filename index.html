@@ -1060,118 +1060,95 @@
 
 
 
+<!-- ======================================================= -->
+<!--    SECTION 2 REVISITÉE : L'ALCHIMIE (MINIMALISTE)       -->
+/*      Style : Symétrie, Espace Négatif, Central Axis       */
+<!-- ======================================================= -->
+<section id="mission-bridge" class="py-32 lg:py-52 bg-gray-50 relative overflow-hidden">
 
-            <!-- ======================================================= -->
-            <!--    NOUVELLE SECTION 2 : LE PONT (DESIGN MODERNISÉ)      -->
-            <!--    Style : Tech Clean, Architecture, Sans-Serif         -->
-            <!-- ======================================================= -->
-            <section id="mission-bridge" class="py-32 lg:py-56 bg-white relative overflow-hidden">
+    <!-- ARRIÈRE-PLAN : DUALITÉ SUBTILE -->
+    <!-- Côté Gauche (Technique / Bleu froid) -->
+    <div class="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-blue-50/50 to-transparent pointer-events-none opacity-50"></div>
+    <!-- Côté Droit (Humain / Orange chaud) -->
+    <div class="absolute bottom-0 right-0 w-1/2 h-full bg-gradient-to-l from-orange-50/50 to-transparent pointer-events-none opacity-50"></div>
 
-                <!-- FOND : Grille technique subtile (Style Architecte) -->
-                <div class="absolute inset-0 z-0 opacity-[0.4]"
-                    style="background-image: linear-gradient(#e5e7eb 1px, transparent 1px), linear-gradient(to right, #e5e7eb 1px, transparent 1px); background-size: 40px 40px;">
+    <!-- AXE CENTRAL DÉCORATIF -->
+    <div class="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent transform -translate-x-1/2 hidden lg:block"></div>
+
+    <div class="container mx-auto px-6 relative z-10">
+
+        <!-- 1. LA PROMESSE (TITRE) -->
+        <div class="text-center max-w-4xl mx-auto mb-24 lg:mb-40" data-sr>
+            <p class="text-clarity-blue font-bold uppercase tracking-[0.3em] text-xs mb-8">
+                La Traduction
+            </p>
+            <h2 class="text-4xl md:text-6xl lg:text-7xl font-serif text-neutral-dark leading-[1.1]">
+                Je transforme votre <br>
+                <span class="italic text-gray-400 font-light">Savoir-Faire</span>
+                <span class="mx-4 text-sm align-middle opacity-30">⚡️</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-warm-orange to-red-500 font-bold">Faire-Venir</span>
+            </h2>
+        </div>
+
+        <!-- 2. LA DUALITÉ (CONTENU GAUCHE / DROITE) -->
+        <div class="grid lg:grid-cols-2 gap-16 lg:gap-0 items-center max-w-6xl mx-auto">
+
+            <!-- CÔTÉ GAUCHE : TECHNIQUE (Aligné à droite vers le centre) -->
+            <div class="text-left lg:text-right lg:pr-20 group relative" data-sr data-sr-origin="left">
+                <!-- Icône Flottante -->
+                <div class="mb-6 inline-flex p-3 rounded-2xl bg-blue-50 text-clarity-blue shadow-sm group-hover:scale-110 transition-transform duration-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                    </svg>
+                </div>
+                
+                <h3 class="text-2xl font-bold text-neutral-dark mb-4 group-hover:text-clarity-blue transition-colors">
+                    La Technique Invisible
+                </h3>
+                <p class="text-lg text-gray-500 font-light leading-relaxed">
+                    Serveurs, sécurité, DNS, mobile... Pour vous, tout cela doit disparaître. 
+                    Je bâtis une forteresse silencieuse qui tourne toute seule, pour que votre charge mentale reste à <strong class="text-neutral-dark font-medium">zéro</strong>.
+                </p>
+            </div>
+
+            <!-- CÔTÉ DROIT : PSYCHOLOGIE (Aligné à gauche depuis le centre) -->
+            <div class="text-left lg:pl-20 group relative" data-sr data-sr-origin="right">
+                <!-- Icône Flottante -->
+                <div class="mb-6 inline-flex p-3 rounded-2xl bg-orange-50 text-warm-orange shadow-sm group-hover:scale-110 transition-transform duration-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
                 </div>
 
-                <!-- DÉGRADÉ MASQUE (Pour fondre les bords) -->
-                <div
-                    class="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white pointer-events-none z-0">
-                </div>
+                <h3 class="text-2xl font-bold text-neutral-dark mb-4 group-hover:text-warm-orange transition-colors">
+                    La Psychologie Avant Tout
+                </h3>
+                <p class="text-lg text-gray-500 font-light leading-relaxed">
+                    On ne fait pas un "joli site", on construit un <strong class="text-neutral-dark font-medium">pont émotionnel</strong>. 
+                    Chaque mot, chaque couleur est choisi pour valider la douleur de votre visiteur et le rassurer sur votre solution.
+                </p>
+            </div>
 
-                <!-- LIGNE CONNECTRICE CENTRALE -->
-                <div
-                    class="absolute top-0 left-1/2 -translate-x-1/2 w-px h-full bg-gradient-to-b from-blue-100 via-blue-500/20 to-blue-100 z-0">
-                </div>
+        </div>
 
-                <div class="container mx-auto px-6 relative z-10">
+        <!-- 3. LE NOYAU CENTRAL (L'ÉLÉMENT DE LIAISON) -->
+        <!-- Ce cercle se positionne au centre absolu sur Desktop -->
+        <div class="hidden lg:flex absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-white rounded-full items-center justify-center shadow-[0_0_40px_rgba(0,0,0,0.05)] z-20 border border-gray-100">
+            <span class="text-xl">↔</span>
+        </div>
 
-                    <div class="max-w-5xl mx-auto text-center" data-sr>
+        <!-- 4. SIGNATURE (Minimaliste) -->
+        <div class="mt-32 text-center opacity-60 hover:opacity-100 transition-opacity duration-500" data-sr>
+            <div class="font-serif italic text-3xl text-neutral-400" style="font-family: 'Times New Roman', serif;">
+                Frédéric D.
+            </div>
+            <div class="text-[10px] font-bold text-clarity-blue uppercase tracking-widest mt-2">
+                Architecte de Clarté
+            </div>
+        </div>
 
-                        <!-- LABEL : Style Badge Tech -->
-                        <div
-                            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-clarity-blue text-xs font-bold uppercase tracking-widest mb-12">
-                            <span class="w-1.5 h-1.5 rounded-full bg-clarity-blue animate-pulse"></span>
-                            Mission Core
-                        </div>
-
-                        <!-- TITRE : Typographie Moderne & Impactante -->
-                        <h2
-                            class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-neutral-dark leading-tight mb-20 lg:mb-32 tracking-tight">
-                            Je traduis votre <span
-                                class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-deep-blue">Savoir-Faire</span><br>
-                            en <span
-                                class="text-transparent bg-clip-text bg-gradient-to-r from-warm-orange to-red-500">Faire-Venir.</span>
-                        </h2>
-
-                        <!-- EXPLICATION : Cartes Modernes avec Hover -->
-                        <div class="grid md:grid-cols-2 gap-8 lg:gap-16 text-left max-w-5xl mx-auto">
-
-                            <!-- Bloc 1 : Technique -->
-                            <div
-                                class="group relative bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-2xl hover:border-blue-100 transition-all duration-300 hover:-translate-y-1">
-                                <!-- Icône flottante -->
-                                <div
-                                    class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                        class="h-6 w-6 text-clarity-blue group-hover:text-white transition-colors"
-                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                                    </svg>
-                                </div>
-
-                                <h3 class="text-xl text-neutral-dark font-bold mb-4 flex items-center gap-2">
-                                    Technique Invisible
-                                </h3>
-                                <p class="text-gray-500 leading-relaxed text-base">
-                                    Pour vous, la technologie doit devenir invisible. Je prends en charge toute la
-                                    complexité (serveurs, sécurité, mobile) pour que vous n'ayez <strong
-                                        class="text-neutral-dark font-semibold">jamais</strong> à y penser.
-                                </p>
-                            </div>
-
-                            <!-- Bloc 2 : Psychologie -->
-                            <div
-                                class="group relative bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-2xl hover:border-orange-100 transition-all duration-300 hover:-translate-y-1">
-                                <!-- Icône flottante -->
-                                <div
-                                    class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-warm-orange group-hover:text-white transition-colors duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                        class="h-6 w-6 text-warm-orange group-hover:text-white transition-colors"
-                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                </div>
-
-                                <h3 class="text-xl text-neutral-dark font-bold mb-4">
-                                    Psychologie Avant Tout
-                                </h3>
-                                <p class="text-gray-500 leading-relaxed text-base">
-                                    Je construis le pont psychologique entre la douleur de votre client et votre
-                                    solution. On ne fait pas un "joli site", on fait un site <strong
-                                        class="text-neutral-dark font-semibold">qui rassure</strong>.
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- SIGNATURE : Version Moderne (Profil) -->
-                        <div class="mt-24 lg:mt-32 flex flex-col items-center justify-center opacity-90">
-                            <div
-                                class="w-16 h-16 rounded-full bg-gray-100 p-1 mb-4 overflow-hidden border border-gray-200">
-                                <!-- Vous pouvez remettre votre photo ici ou laisser l'avatar générique -->
-                                <img src="assets/photo-frederic.jpg" alt="Frédéric"
-                                    class="w-full h-full object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-500">
-                            </div>
-                            <div class="text-center">
-                                <p class="text-neutral-dark font-bold text-lg">Frédéric D.</p>
-                                <p class="text-sm text-clarity-blue font-medium uppercase tracking-wider mt-1">
-                                    Fondateur, Clartem</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
+    </div>
+</section>
 
 
 
