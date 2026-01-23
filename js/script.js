@@ -46,6 +46,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+   
+
+
+
     // ==================================================================
     // ANIMATIONS AVEC SCROLLREVEAL (VERSION SÉCURISÉE POUR TOUT LE SITE)
     // ==================================================================
@@ -68,8 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const sr = ScrollReveal(srConfig);
 
-            // Vos sélecteurs globaux (marchent sur toutes les pages)
-            // NOTE : On ne cible plus les éléments chargés dynamiquement ici
+            // 1. Vos sélecteurs globaux
             sr.reveal('[data-sr]', { interval: 100 });
             sr.reveal('[data-sr-delay="100"]', { delay: 300 });
             sr.reveal('[data-sr-delay="200"]', { delay: 400 });
@@ -77,15 +80,33 @@ document.addEventListener('DOMContentLoaded', function () {
             sr.reveal('[data-sr-origin="right"]', { origin: 'right', distance: '60px', duration: 1000, delay: 200 });
             sr.reveal('[data-sr-origin="left"]', { origin: 'left', distance: '60px', duration: 1000, delay: 200 });
 
+            // 2. --- ANIMATION SPÉCIFIQUE CONCEPT (ROTATION 3D) ---
+            // CORRECTION : Ce code est maintenant À L'INTÉRIEUR de la fonction, donc "sr" existe.
+            sr.reveal('.concept-card', {
+                duration: 1200,
+                distance: '100px',
+                origin: 'bottom',
+                opacity: 0,
+                scale: 0.85,
+                rotate: { x: 60, y: 0, z: -10 }, // Rotation 3D
+                interval: 200,
+                easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)',
+                viewFactor: 0.2,
+                
+                // IMPORTANT : Nettoyage après animation pour que le HOVER CSS fonctionne
+                afterReveal: function (el) {
+                    el.style.transform = 'none'; 
+                    el.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease'; 
+                }
+            });
+
             // Force un recalcul après un court instant (sécurité anti-bug)
             setTimeout(() => {
                 try { sr.delegate(); } catch (e) { }
             }, 500);
         };
 
-        // Logique de chargement intelligente :
-        // Si la page est déjà chargée (cache), on lance tout de suite.
-        // Sinon, on attend l'événement 'load'.
+        // Logique de chargement intelligente
         if (document.readyState === 'complete') {
             initScrollReveal();
         } else {
@@ -93,6 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    
 
 
 
@@ -109,8 +131,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 const answerToOpen = clickedToggle.nextElementSibling;
                 const iconToRotate = clickedToggle.querySelector('svg');
                 // On récupère le conteneur du rond pour changer sa couleur si besoin
-                const iconContainer = clickedToggle.querySelector('.w-8'); 
-                
+                const iconContainer = clickedToggle.querySelector('.w-8');
+
                 const isAlreadyOpen = answerToOpen.style.maxHeight;
 
                 // Étape 1 : Fermer tous les autres tiroirs (Logique accordéon strict)
@@ -119,15 +141,15 @@ document.addEventListener('DOMContentLoaded', function () {
                         const answer = toggle.nextElementSibling;
                         const icon = toggle.querySelector('svg');
                         const container = toggle.querySelector('.w-8');
-                        
+
                         answer.style.maxHeight = null;
                         icon.classList.remove('rotate-180');
                         toggle.classList.remove('active');
-                        
+
                         // Reset style icône inactif
-                        if(container) {
-                             // On laisse les classes hover gérer le retour, 
-                             // ou on force le style par défaut si on avait ajouté des classes via JS
+                        if (container) {
+                            // On laisse les classes hover gérer le retour, 
+                            // ou on force le style par défaut si on avait ajouté des classes via JS
                         }
                     }
                 });
@@ -1587,8 +1609,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const waveFront = document.getElementById('wave-front');
 
         // Note : Dans un SVG, plus le chiffre Y est PETIT, plus la vague est HAUTE.
-        
-        
+
+
 
         // ÉTAT REPOS (Calme)
         // MODIFIÉ : Épais à gauche (Y=20), Fin à droite (Y=280)
@@ -1603,7 +1625,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Front (Noir) : Inchangé
         const hoverFront = "M0,320 L0,50 C 350,50 550,180 850,150 C 1150,110 1300,280 1440,280 L1440,320 Z";
 
-        
+
 
         // Initialisation
         waveFront.setAttribute('d', restFront);
@@ -1631,136 +1653,137 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-// ==================================================================
-// ANIMATION TERMINAL MATRIX (VERSION INTERACTIVE & TUTOIEMENT)
-// ==================================================================
-const matrixContainer = document.getElementById('matrix-typewriter');
-const matrixCursor = document.getElementById('matrix-cursor');
+    // ==================================================================
+    // ANIMATION TERMINAL MATRIX (VERSION INTERACTIVE & TUTOIEMENT)
+    // ==================================================================
+    const matrixContainer = document.getElementById('matrix-typewriter');
+    const matrixCursor = document.getElementById('matrix-cursor');
 
-if (matrixContainer) {
-    // Le scénario : Dialogue direct système <-> thérapeute
-    const scenario = [
-        { text: "Réveille-toi...", class: "text-emerald-500 font-bold tracking-widest mb-4 block", speed: 100 }, 
-        { text: "Le système t'a menti.", class: "text-emerald-500/80", speed: 50 },
-        { text: "On t'a dit de devenir un technicien.", class: "text-emerald-500/80", speed: 40 },
-        { text: "Mais tes clients ne cherchent pas un algorithme...", class: "text-emerald-500/80", speed: 40 },
-        { text: "ILS CHERCHENT TON ÂME.", class: "text-emerald-300 font-bold block mt-2 shadow-green-glow", speed: 80 },
-        { text: "Toc, toc.", class: "text-emerald-600/70 text-sm mt-6 block", speed: 150 }, // Lent pour le suspens
-        
-        // --- SIMULATION UTILISATEUR (NEO) ---
-        // isUser: true ajoute le prompt "> " et une pause de réflexion avant
-        { text: "Qui est là ?", class: "text-white font-bold mt-2 block", speed: 100, isUser: true },
+    if (matrixContainer) {
+        // Le scénario : Dialogue direct système <-> thérapeute
+        const scenario = [
+            { text: "Réveille-toi...", class: "text-emerald-500 font-bold tracking-widest mb-4 block", speed: 100 },
+            { text: "Le système t'a menti.", class: "text-emerald-500/80", speed: 50 },
+            { text: "On t'a dit de devenir un technicien.", class: "text-emerald-500/80", speed: 40 },
+            { text: "Mais tes clients ne cherchent pas un algorithme...", class: "text-emerald-500/80", speed: 40 },
+            { text: "ILS CHERCHENT TON ÂME.", class: "text-emerald-300 font-bold block mt-2 shadow-green-glow", speed: 80 },
+            { text: "Toc, toc.", class: "text-emerald-600/70 text-sm mt-6 block", speed: 150 }, // Lent pour le suspens
 
-        // --- REPONSE SYSTEME ---
-        { text: "La Clarté.", class: "text-emerald-400 font-bold text-lg mt-4 block", speed: 60 },
-        { text: "Suis le lapin blanc ↓", class: "text-emerald-500 animate-pulse mt-2 block", speed: 50 }
-    ];
+            // --- SIMULATION UTILISATEUR (NEO) ---
+            // isUser: true ajoute le prompt "> " et une pause de réflexion avant
+            { text: "Qui est là ?", class: "text-white font-bold mt-2 block", speed: 100, isUser: true },
 
-    let lineIdx = 0;
-    let charIdx = 0;
-    let isMatrixRunning = false;
+            // --- REPONSE SYSTEME ---
+            { text: "La Clarté.", class: "text-emerald-400 font-bold text-lg mt-4 block", speed: 60 },
+            { text: "Suis le lapin blanc ↓", class: "text-emerald-500 animate-pulse mt-2 block", speed: 50 }
+        ];
 
-    // Fonction pour gérer le clignotement du curseur
-    function toggleCursor(active) {
-        if(matrixCursor) {
-            if(active) matrixCursor.classList.add('animate-pulse');
-            else matrixCursor.classList.remove('animate-pulse');
+        let lineIdx = 0;
+        let charIdx = 0;
+        let isMatrixRunning = false;
+
+        // Fonction pour gérer le clignotement du curseur
+        function toggleCursor(active) {
+            if (matrixCursor) {
+                if (active) matrixCursor.classList.add('animate-pulse');
+                else matrixCursor.classList.remove('animate-pulse');
+            }
         }
-    }
 
-    function typeMatrix() {
-        if (lineIdx < scenario.length) {
-            const currentLine = scenario[lineIdx];
-            
-            // 1. CRÉATION DE LA LIGNE (Au début de la ligne)
-            if (charIdx === 0) {
-                // Pause réaliste avant que l'utilisateur "réponde"
-                if (currentLine.isUser && !document.getElementById(`mat-line-${lineIdx}`)) {
-                    toggleCursor(true);
-                    setTimeout(() => {
-                        toggleCursor(false);
+        function typeMatrix() {
+            if (lineIdx < scenario.length) {
+                const currentLine = scenario[lineIdx];
+
+                // 1. CRÉATION DE LA LIGNE (Au début de la ligne)
+                if (charIdx === 0) {
+                    // Pause réaliste avant que l'utilisateur "réponde"
+                    if (currentLine.isUser && !document.getElementById(`mat-line-${lineIdx}`)) {
+                        toggleCursor(true);
+                        setTimeout(() => {
+                            toggleCursor(false);
+                            createLineElement(currentLine);
+                            typeMatrix(); // On relance la frappe après la pause
+                        }, 1500); // 1.5s d'hésitation humaine
+                        return;
+                    } else if (!document.getElementById(`mat-line-${lineIdx}`)) {
                         createLineElement(currentLine);
-                        typeMatrix(); // On relance la frappe après la pause
-                    }, 1500); // 1.5s d'hésitation humaine
-                    return; 
-                } else if (!document.getElementById(`mat-line-${lineIdx}`)) {
-                    createLineElement(currentLine);
+                    }
                 }
-            }
 
-            const activeLine = document.getElementById(`mat-line-${lineIdx}`);
-            
-            // 2. LOGIQUE DE FRAPPE
-            // Si c'est l'utilisateur, on ajoute le prompt "> " visuellement au début, mais on ne le tape pas lettre par lettre
-            let charToAdd = currentLine.text.charAt(charIdx);
-            
-            activeLine.textContent += charToAdd;
-            charIdx++;
+                const activeLine = document.getElementById(`mat-line-${lineIdx}`);
 
-            // Calcul de la vitesse (Humain vs Machine)
-            // L'utilisateur tape un peu plus lentement et irrégulièrement
-            let baseSpeed = currentLine.speed || 50;
-            let variance = Math.random() * 30;
-            
-            if (charIdx < currentLine.text.length) {
-                setTimeout(typeMatrix, baseSpeed + variance);
+                // 2. LOGIQUE DE FRAPPE
+                // Si c'est l'utilisateur, on ajoute le prompt "> " visuellement au début, mais on ne le tape pas lettre par lettre
+                let charToAdd = currentLine.text.charAt(charIdx);
+
+                activeLine.textContent += charToAdd;
+                charIdx++;
+
+                // Calcul de la vitesse (Humain vs Machine)
+                // L'utilisateur tape un peu plus lentement et irrégulièrement
+                let baseSpeed = currentLine.speed || 50;
+                let variance = Math.random() * 30;
+
+                if (charIdx < currentLine.text.length) {
+                    setTimeout(typeMatrix, baseSpeed + variance);
+                } else {
+                    // FIN DE LA LIGNE
+                    lineIdx++;
+                    charIdx = 0;
+                    toggleCursor(true);
+
+                    // Pauses dramatiques entre les lignes
+                    let pause = 400; // Pause standard
+                    if (currentLine.text.includes("Toc, toc")) pause = 500;
+                    if (currentLine.isUser) pause = 800; // Pause après la question de l'utilisateur
+
+                    setTimeout(typeMatrix, pause);
+                }
             } else {
-                // FIN DE LA LIGNE
-                lineIdx++;
-                charIdx = 0;
+                // FIN DU SCENARIO
                 toggleCursor(true);
-                
-                // Pauses dramatiques entre les lignes
-                let pause = 400; // Pause standard
-                if (currentLine.text.includes("Toc, toc")) pause = 500; 
-                if (currentLine.isUser) pause = 800; // Pause après la question de l'utilisateur
-
-                setTimeout(typeMatrix, pause);
             }
-        } else {
-            // FIN DU SCENARIO
-            toggleCursor(true);
         }
+
+        function createLineElement(lineData) {
+            const div = document.createElement('div');
+            div.className = lineData.class;
+            div.id = `mat-line-${lineIdx}`;
+
+            // Si c'est l'utilisateur, on ajoute le prompt "> " tout de suite
+            if (lineData.isUser) {
+                const promptSpan = document.createElement('span');
+                promptSpan.className = "text-gray-500 mr-2";
+                promptSpan.textContent = "> ";
+                div.appendChild(promptSpan);
+                // On crée un span pour le texte qui va être tapé
+                const textSpan = document.createElement('span');
+                textSpan.id = `mat-line-content-${lineIdx}`; // On cible ce span pour écrire
+                div.appendChild(textSpan);
+
+                // Petite astuce : on change l'ID ciblé par la boucle de frappe pour écrire dans le span et pas le div
+                div.id = `mat-line-${lineIdx}-wrapper`;
+                textSpan.id = `mat-line-${lineIdx}`;
+            }
+
+            matrixContainer.appendChild(div);
+            toggleCursor(false);
+        }
+
+        // Observer pour lancer l'anim quand visible
+        const matrixObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !isMatrixRunning) {
+                    isMatrixRunning = true;
+                    matrixContainer.innerHTML = ''; // Reset
+                    setTimeout(typeMatrix, 800);
+                }
+            });
+        }, { threshold: 0.4 });
+
+        matrixObserver.observe(matrixContainer);
     }
 
-    function createLineElement(lineData) {
-        const div = document.createElement('div');
-        div.className = lineData.class; 
-        div.id = `mat-line-${lineIdx}`;
-        
-        // Si c'est l'utilisateur, on ajoute le prompt "> " tout de suite
-        if (lineData.isUser) {
-            const promptSpan = document.createElement('span');
-            promptSpan.className = "text-gray-500 mr-2";
-            promptSpan.textContent = "> ";
-            div.appendChild(promptSpan);
-            // On crée un span pour le texte qui va être tapé
-            const textSpan = document.createElement('span');
-            textSpan.id = `mat-line-content-${lineIdx}`; // On cible ce span pour écrire
-            div.appendChild(textSpan);
-            
-            // Petite astuce : on change l'ID ciblé par la boucle de frappe pour écrire dans le span et pas le div
-            div.id = `mat-line-${lineIdx}-wrapper`; 
-            textSpan.id = `mat-line-${lineIdx}`;
-        }
-        
-        matrixContainer.appendChild(div);
-        toggleCursor(false);
-    }
-
-    // Observer pour lancer l'anim quand visible
-    const matrixObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !isMatrixRunning) {
-                isMatrixRunning = true;
-                matrixContainer.innerHTML = ''; // Reset
-                setTimeout(typeMatrix, 800);
-            }
-        });
-    }, { threshold: 0.4 });
-
-    matrixObserver.observe(matrixContainer);
-}
 
 
 
@@ -1768,31 +1791,30 @@ if (matrixContainer) {
 
 
 
-
-// ==================================================================
+    // ==================================================================
     // LOGIQUE DU LAPIN BLANC (EASTER EGG V4 - INTERACTIF)
     // ==================================================================
-    
+
     const rabbitEntity = document.getElementById('white-rabbit');
     const rbt_Manifesto = document.getElementById('manifesto');
-    const rbt_Plan = document.getElementById('plan');      
-    
+    const rbt_Plan = document.getElementById('plan');
+
     // MODIFICATION : Cible la section Blog au lieu des Offres
-    const rbt_Blog = document.getElementById('blog-preview'); 
-    
+    const rbt_Blog = document.getElementById('blog-preview');
+
     const rbt_CTA = document.getElementById('cta');
     const rbt_Btn = document.querySelector('#cta .btn-orange');
 
     // On vérifie que la section Blog existe bien (rbt_Blog)
     if (rabbitEntity && rbt_Manifesto && rbt_Plan && rbt_Blog && rbt_CTA) {
-        
+
         let hasPeekedManifesto = false;
         let hasPeekedPlan = false;
         let hasPeekedBlog = false; // Variable renommée
-        
+
         // --- NOUVEAU : Logique de clic ---
         let rabbitClickCount = 0;
-        
+
         // Création de la bulle de dialogue
         const bubble = document.createElement('div');
         bubble.className = 'rabbit-bubble';
@@ -1818,8 +1840,8 @@ if (matrixContainer) {
                 rabbitEntity.classList.add('rabbit-anim-jump');
                 rabbitSpeak("Hop !");
                 setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-jump'), 500);
-            } 
-            
+            }
+
             // --- ÉTAPE 2 : LA TOUPIE (NOUVEAU) ---
             else if (rabbitClickCount === 2) {
                 rabbitEntity.classList.add('rabbit-anim-spin');
@@ -1847,21 +1869,21 @@ if (matrixContainer) {
                 rabbitEntity.classList.add('rabbit-anim-glitch');
                 rabbitSpeak("Erreur Système CRITIQUE...", 1500);
                 setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-glitch'), 1500);
-            } 
+            }
 
             // --- ÉTAPE 6 : DISPARITION FINALE ---
             else if (rabbitClickCount === 6) {
                 // 1. Message final
                 rabbitSpeak("Suis-moi !", 3000);
-                
+
                 // 2. Pause lecture
                 setTimeout(() => {
                     rabbitEntity.classList.add('rabbit-anim-vanish');
                 }, 1500);
-                
+
                 // 3. Disparition réelle du DOM
                 setTimeout(() => {
-                    rabbitEntity.style.display = 'none'; 
+                    rabbitEntity.style.display = 'none';
                     // Optionnel : Reset du compteur pour la prochaine fois qu'il réapparaît (si rechargement)
                     // Mais ici on le cache définitivement pour cette session.
                 }, 2100);
@@ -1870,7 +1892,7 @@ if (matrixContainer) {
 
         // Gestionnaire de survol (Hover)
         rabbitEntity.addEventListener('mouseenter', () => {
-            if (rabbitClickCount === 0) rabbitSpeak("?"); 
+            if (rabbitClickCount === 0) rabbitSpeak("?");
         });
 
 
@@ -1885,18 +1907,18 @@ if (matrixContainer) {
             // 1. MANIFESTE
             if (isInView(rbt_Manifesto) && !hasPeekedManifesto) {
                 rabbitEntity.className = 'fixed z-50 pointer-events-none hidden lg:block transition-all duration-700 peek-active';
-                hasPeekedManifesto = true; 
-                setTimeout(() => rabbitEntity.classList.remove('peek-active'), 3500); 
+                hasPeekedManifesto = true;
+                setTimeout(() => rabbitEntity.classList.remove('peek-active'), 3500);
             }
 
             // 2. PLAN
             const planRect = rbt_Plan.getBoundingClientRect();
             if (planRect.top < 0 && planRect.bottom > windowHeight && !hasPeekedPlan) {
                 rabbitEntity.className = 'fixed z-50 pointer-events-none hidden lg:block transition-all duration-700';
-                void rabbitEntity.offsetWidth; 
+                void rabbitEntity.offsetWidth;
                 rabbitEntity.classList.add('peek-right-active');
                 hasPeekedPlan = true;
-                setTimeout(() => rabbitEntity.classList.remove('peek-right-active'), 4000); 
+                setTimeout(() => rabbitEntity.classList.remove('peek-right-active'), 4000);
             }
 
             // 3. BLOG (MODIFIÉ : Apparition sur la section Blog)
@@ -1911,18 +1933,18 @@ if (matrixContainer) {
 
             // 4. CTA (ATTERRISSAGE SUR LE BOUTON)
             const ctaRect = rbt_CTA.getBoundingClientRect();
-            
+
             if (ctaRect.top < windowHeight - 150) {
                 if (rabbitEntity.parentElement !== rbt_Btn.parentElement) {
                     rbt_Btn.parentElement.appendChild(rabbitEntity);
-                    
+
                     // On retire toutes les classes de positionnement fixe
-                    rabbitEntity.className = ''; 
+                    rabbitEntity.className = '';
                     // On ajoute 'cta-mode' qui active le pointer-events: auto dans le CSS
                     rabbitEntity.classList.add('cta-mode', 'z-20', 'transition-all', 'duration-700');
-                    
+
                     // Réinitialiser le compteur si on revient sur le bouton
-                    if(rabbitEntity.style.display === 'none') {
+                    if (rabbitEntity.style.display === 'none') {
                         rabbitEntity.style.display = 'block';
                         rabbitEntity.classList.remove('rabbit-anim-vanish');
                         rabbitClickCount = 0;
@@ -1930,14 +1952,14 @@ if (matrixContainer) {
                 }
             } else {
                 if (rabbitEntity.parentElement === rbt_Btn.parentElement) {
-                    document.body.appendChild(rabbitEntity); 
+                    document.body.appendChild(rabbitEntity);
                     rabbitEntity.className = 'fixed z-50 pointer-events-none hidden lg:block transition-all duration-700';
                 }
             }
         });
     }
 
-    
+
 
 
 
@@ -1945,254 +1967,256 @@ if (matrixContainer) {
 
 
     // ==================================================================
-// LOGIQUE UNIFIÉE : TUNNEL DE TRANSITION & MATRIX MUTATION
-// ==================================================================
+    // LOGIQUE UNIFIÉE : TUNNEL DE TRANSITION & MATRIX MUTATION
+    // ==================================================================
 
-const tunnelSection = document.getElementById('transition-tunnel');
-const canvas = document.getElementById('matrix-canvas');
-const darkContent = document.getElementById('dark-content');
-const lightContent = document.getElementById('light-content');
-const whiteFlash = document.getElementById('white-flash');
+    const tunnelSection = document.getElementById('transition-tunnel');
+    const canvas = document.getElementById('matrix-canvas');
+    const darkContent = document.getElementById('dark-content');
+    const lightContent = document.getElementById('light-content');
+    const whiteFlash = document.getElementById('white-flash');
 
-// Éléments internes du contenu clair pour animations fines
-const lightIcon = document.getElementById('light-icon');
-const lightTitle = document.getElementById('light-title');
-const lightDesc = document.getElementById('light-desc');
+    // Éléments internes du contenu clair pour animations fines
+    const lightIcon = document.getElementById('light-icon');
+    const lightTitle = document.getElementById('light-title');
+    const lightDesc = document.getElementById('light-desc');
 
-if (tunnelSection && canvas) {
-    const ctx = canvas.getContext('2d');
-    
-    // --- CONFIGURATION MATRIX ---
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
-    
-    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*";
-    const fontSize = 14;
-    const columns = width / fontSize;
-    const drops = [];
-    
-    // Initialisation des gouttes
-    for (let i = 0; i < columns; i++) {
-        drops[i] = 1;
-    }
+    if (tunnelSection && canvas) {
+        const ctx = canvas.getContext('2d');
 
-    // --- ÉTAT DU SCROLL (Variables Globales) ---
-    let scrollProgress = 0; // De 0 à 1
+        // --- CONFIGURATION MATRIX ---
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
 
-    // --- FONCTION DE DESSIN (Boucle infinie) ---
-    function drawMatrix() {
-        // 1. CALCUL DES COULEURS EN FONCTION DU SCROLL
-        
-        // FOND : Passe du Noir (#050911) au Blanc (#FFFFFF)
-        // La transparence (0.05) crée l'effet de traînée. 
-        // Plus on scrolle, plus on veut "effacer" la traînée pour que ça devienne clair.
-        
-        let bgOpacity = 0.05; 
-        let bgColor = `rgba(5, 9, 17, ${bgOpacity})`; // Noir par défaut
-        
-        if (scrollProgress > 0.4) {
-            // Transition vers le blanc entre 40% et 70% du scroll
-            const whiteRatio = Math.min(1, (scrollProgress - 0.4) * 3.33);
-            
-            // Interpolation Noir -> Blanc
-            // On augmente l'opacité du fond pour nettoyer plus vite l'écran (effet de clarté)
-            const cleanOpacity = 0.05 + (0.1 * whiteRatio); 
-            const r = 5 + (250 * whiteRatio);
-            const g = 9 + (246 * whiteRatio);
-            const b = 17 + (238 * whiteRatio);
-            
-            bgColor = `rgba(${r}, ${g}, ${b}, ${cleanOpacity})`;
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*";
+        const fontSize = 14;
+        const columns = width / fontSize;
+        const drops = [];
+
+        // Initialisation des gouttes
+        for (let i = 0; i < columns; i++) {
+            drops[i] = 1;
         }
 
-        ctx.fillStyle = bgColor;
-        ctx.fillRect(0, 0, width, height);
+        // --- ÉTAT DU SCROLL (Variables Globales) ---
+        let scrollProgress = 0; // De 0 à 1
 
-        // TEXTE : Passe du Vert (#22c55e) au Bleu Foncé/Gris (#1E3A8A)
-        // Mais pendant la transition (l'explosion), il devient Blanc.
-        
-        let textColor = "#22c55e"; // Vert Matrix
-        
-        if (scrollProgress > 0.3 && scrollProgress < 0.6) {
-            // PHASE EXPLOSION (30% - 60%) : Le code devient blanc/brillant
-            textColor = "#FFFFFF"; 
-            ctx.shadowBlur = 10; // Glow effect
-            ctx.shadowColor = "white";
-        } else if (scrollProgress >= 0.6) {
-            // PHASE CLARTÉ (60%+) : Le code devient bleu sombre (pour être vu sur fond blanc)
-            // On transitionne doucement vers le bleu
-            const blueRatio = Math.min(1, (scrollProgress - 0.6) * 4);
-            // On peut faire une transition de couleur si on veut, ou switch direct
-            // Pour l'effet "résidu de code", un gris-bleu est élégant
-            ctx.shadowBlur = 0;
-            const darkness = Math.floor(255 - (200 * blueRatio)); // Devient de plus en plus sombre
-            textColor = `rgba(30, 58, 138, ${0.3 + (0.5 * blueRatio)})`; // Bleu avec opacité variable
-        } else {
-            ctx.shadowBlur = 0;
-        }
+        // --- FONCTION DE DESSIN (Boucle infinie) ---
+        function drawMatrix() {
+            // 1. CALCUL DES COULEURS EN FONCTION DU SCROLL
 
-        ctx.fillStyle = textColor;
-        ctx.font = fontSize + "px monospace";
+            // FOND : Passe du Noir (#050911) au Blanc (#FFFFFF)
+            // La transparence (0.05) crée l'effet de traînée. 
+            // Plus on scrolle, plus on veut "effacer" la traînée pour que ça devienne clair.
 
-        // 2. BOUCLE DES GOUTTES
-        for (let i = 0; i < drops.length; i++) {
-            
-            // LOGIQUE DE RARÉFACTION (Moins de code à la fin)
-            // Si on est en phase finale (>60%), on dessine aléatoirement moins de gouttes
-            if (scrollProgress > 0.6 && Math.random() > (1 - scrollProgress + 0.6)) {
-                // On saute le dessin de cette goutte pour cette frame (elle s'efface)
-                // Mais on continue de faire avancer sa position Y pour ne pas figer
+            let bgOpacity = 0.05;
+            let bgColor = `rgba(5, 9, 17, ${bgOpacity})`; // Noir par défaut
+
+            if (scrollProgress > 0.4) {
+                // Transition vers le blanc entre 40% et 70% du scroll
+                const whiteRatio = Math.min(1, (scrollProgress - 0.4) * 3.33);
+
+                // Interpolation Noir -> Blanc
+                // On augmente l'opacité du fond pour nettoyer plus vite l'écran (effet de clarté)
+                const cleanOpacity = 0.05 + (0.1 * whiteRatio);
+                const r = 5 + (250 * whiteRatio);
+                const g = 9 + (246 * whiteRatio);
+                const b = 17 + (238 * whiteRatio);
+
+                bgColor = `rgba(${r}, ${g}, ${b}, ${cleanOpacity})`;
+            }
+
+            ctx.fillStyle = bgColor;
+            ctx.fillRect(0, 0, width, height);
+
+            // TEXTE : Passe du Vert (#22c55e) au Bleu Foncé/Gris (#1E3A8A)
+            // Mais pendant la transition (l'explosion), il devient Blanc.
+
+            let textColor = "#22c55e"; // Vert Matrix
+
+            if (scrollProgress > 0.3 && scrollProgress < 0.6) {
+                // PHASE EXPLOSION (30% - 60%) : Le code devient blanc/brillant
+                textColor = "#FFFFFF";
+                ctx.shadowBlur = 10; // Glow effect
+                ctx.shadowColor = "white";
+            } else if (scrollProgress >= 0.6) {
+                // PHASE CLARTÉ (60%+) : Le code devient bleu sombre (pour être vu sur fond blanc)
+                // On transitionne doucement vers le bleu
+                const blueRatio = Math.min(1, (scrollProgress - 0.6) * 4);
+                // On peut faire une transition de couleur si on veut, ou switch direct
+                // Pour l'effet "résidu de code", un gris-bleu est élégant
+                ctx.shadowBlur = 0;
+                const darkness = Math.floor(255 - (200 * blueRatio)); // Devient de plus en plus sombre
+                textColor = `rgba(30, 58, 138, ${0.3 + (0.5 * blueRatio)})`; // Bleu avec opacité variable
+            } else {
+                ctx.shadowBlur = 0;
+            }
+
+            ctx.fillStyle = textColor;
+            ctx.font = fontSize + "px monospace";
+
+            // 2. BOUCLE DES GOUTTES
+            for (let i = 0; i < drops.length; i++) {
+
+                // LOGIQUE DE RARÉFACTION (Moins de code à la fin)
+                // Si on est en phase finale (>60%), on dessine aléatoirement moins de gouttes
+                if (scrollProgress > 0.6 && Math.random() > (1 - scrollProgress + 0.6)) {
+                    // On saute le dessin de cette goutte pour cette frame (elle s'efface)
+                    // Mais on continue de faire avancer sa position Y pour ne pas figer
+                    drops[i]++;
+                    continue;
+                }
+
+                const text = letters.charAt(Math.floor(Math.random() * letters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                // Reset de la goutte (retour en haut)
+                // Plus on scrolle, moins les gouttes reviennent (elles tombent et disparaissent)
+                const resetThreshold = 0.975 + (scrollProgress * 0.025); // Devient plus dur de reset (0.975 -> 1.0)
+
+                if (drops[i] * fontSize > height && Math.random() > resetThreshold) {
+                    drops[i] = 0;
+                }
+
                 drops[i]++;
-                continue; 
             }
 
-            const text = letters.charAt(Math.floor(Math.random() * letters.length));
-            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-            // Reset de la goutte (retour en haut)
-            // Plus on scrolle, moins les gouttes reviennent (elles tombent et disparaissent)
-            const resetThreshold = 0.975 + (scrollProgress * 0.025); // Devient plus dur de reset (0.975 -> 1.0)
-            
-            if (drops[i] * fontSize > height && Math.random() > resetThreshold) {
-                drops[i] = 0;
-            }
-
-            drops[i]++;
+            requestAnimationFrame(drawMatrix);
         }
-        
-        requestAnimationFrame(drawMatrix);
+
+        // Lancer l'animation canvas
+        drawMatrix();
+
+        // Resize handler
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+
+        // --- GESTION DU SCROLL (TRANSITIONS DOM) ---
+        function handleTunnelScroll() {
+            const rect = tunnelSection.getBoundingClientRect();
+            const viewHeight = window.innerHeight;
+            const totalHeight = tunnelSection.offsetHeight - viewHeight;
+
+            // Calcul du progrès (0 en haut, 1 en bas)
+            const rawProgress = -rect.top / totalHeight;
+            scrollProgress = Math.max(0, Math.min(1, rawProgress));
+
+
+
+            // Gestion du dégradé haut (On le cache quand on commence à scroller vers le blanc)
+            const topGradient = document.getElementById('matrix-top-gradient');
+            if (topGradient) {
+                // Dès qu'on dépasse 20% du scroll, on commence à effacer le dégradé noir
+                // À 40% (quand le texte commence à se casser), le dégradé a disparu.
+                if (scrollProgress > 0.2) {
+                    const opacity = Math.max(0, 1 - (scrollProgress - 0.2) * 5);
+                    topGradient.style.opacity = opacity;
+                } else {
+                    topGradient.style.opacity = 1;
+                }
+            }
+
+
+
+            // --- PHASE 1 : DÉSAGRÉGATION (0% -> 40%) ---
+            // Le texte sombre se brise
+            if (scrollProgress < 0.4) {
+                // Ratio local pour cette phase (0 à 1)
+                const phaseRatio = scrollProgress / 0.4;
+
+                if (darkContent) {
+                    // Effet "Agent Smith meurt" :
+                    // 1. Scale Up (ça vient vers nous)
+                    // 2. Blur (ça se dissout)
+                    // 3. Opacité (ça disparaît)
+                    // 4. Letter Spacing (ça s'écartèle)
+
+                    const scale = 1 + (phaseRatio * 1.5); // 1 -> 2.5
+                    const blur = phaseRatio * 20; // 0px -> 20px
+                    const opacity = 1 - Math.pow(phaseRatio, 3); // Disparition exponentielle à la fin
+                    const spacing = phaseRatio * 20; // 0px -> 20px
+
+                    darkContent.style.transform = `scale(${scale})`;
+                    darkContent.style.filter = `blur(${blur}px) brightness(${100 + (phaseRatio * 200)}%)`; // Brightness augmente
+                    darkContent.style.opacity = opacity;
+                    darkContent.style.letterSpacing = `${spacing}px`;
+                    darkContent.style.pointerEvents = (opacity < 0.1) ? 'none' : 'auto';
+                }
+
+                // Le contenu clair reste caché
+                lightContent.style.opacity = 0;
+                whiteFlash.style.opacity = phaseRatio * 0.5; // Flash blanc monte doucement
+
+            }
+
+            // --- PHASE 2 : LE PASSAGE / FLASH (40% -> 60%) ---
+            else if (scrollProgress >= 0.4 && scrollProgress < 0.6) {
+                // Le "Flash" atteint son pic puis redescend
+                // C'est le moment où le fond passe de noir à blanc dans le Canvas
+
+                // On cache définitivement le sombre
+                if (darkContent) darkContent.style.opacity = 0;
+
+                // Le flash blanc assure la transition visuelle "aveuglante"
+                // Il monte jusqu'à 0.8 puis redescend
+                // Normalisation : 0.4->0.5 (montée), 0.5->0.6 (descente)
+                let flashOpacity;
+                if (scrollProgress < 0.5) {
+                    flashOpacity = 0.5 + ((scrollProgress - 0.4) * 5); // 0.5 -> 1.0
+                } else {
+                    flashOpacity = 1.0 - ((scrollProgress - 0.5) * 5); // 1.0 -> 0.5
+                }
+                whiteFlash.style.opacity = Math.max(0, flashOpacity);
+
+                // On commence à préparer l'arrivée du clair
+                lightContent.style.opacity = 0;
+            }
+
+            // --- PHASE 3 : RÉVÉLATION (60% -> 100%) ---
+            else {
+                if (darkContent) darkContent.style.opacity = 0;
+                whiteFlash.style.opacity = 0;
+
+                // Ratio local (0 -> 1)
+                const revealRatio = (scrollProgress - 0.6) / 0.4;
+
+                lightContent.style.opacity = 1;
+                lightContent.style.pointerEvents = 'auto';
+
+                // Animation des éléments internes du Light Content (Parallaxe inversé)
+                // Ils remontent à leur place d'origine (translateY 0) et fade in
+
+                if (lightIcon) {
+                    // Apparaît vite
+                    const iconProgress = Math.min(1, revealRatio * 2);
+                    lightIcon.style.opacity = iconProgress;
+                    lightIcon.style.transform = `scale(${0.5 + (iconProgress * 0.5)}) translateY(0)`;
+                }
+
+                if (lightTitle) {
+                    // Apparaît après l'icône
+                    const titleProgress = Math.max(0, Math.min(1, (revealRatio - 0.2) * 2));
+                    lightTitle.style.opacity = titleProgress;
+                    lightTitle.style.transform = `translateY(${40 - (titleProgress * 40)}px)`;
+                }
+
+                if (lightDesc) {
+                    // Apparaît en dernier
+                    const descProgress = Math.max(0, Math.min(1, (revealRatio - 0.4) * 2));
+                    lightDesc.style.opacity = descProgress;
+                    lightDesc.style.transform = `translateY(${40 - (descProgress * 40)}px)`;
+                }
+            }
+        }
+
+        window.addEventListener('scroll', handleTunnelScroll, { passive: true });
+        handleTunnelScroll(); // Init
     }
 
-    // Lancer l'animation canvas
-    drawMatrix();
 
-    // Resize handler
-    window.addEventListener('resize', () => {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-    });
-
-
-    // --- GESTION DU SCROLL (TRANSITIONS DOM) ---
-    function handleTunnelScroll() {
-        const rect = tunnelSection.getBoundingClientRect();
-        const viewHeight = window.innerHeight;
-        const totalHeight = tunnelSection.offsetHeight - viewHeight;
-        
-        // Calcul du progrès (0 en haut, 1 en bas)
-        const rawProgress = -rect.top / totalHeight;
-        scrollProgress = Math.max(0, Math.min(1, rawProgress));
-
-
-
-        // Gestion du dégradé haut (On le cache quand on commence à scroller vers le blanc)
-        const topGradient = document.getElementById('matrix-top-gradient');
-        if (topGradient) {
-            // Dès qu'on dépasse 20% du scroll, on commence à effacer le dégradé noir
-            // À 40% (quand le texte commence à se casser), le dégradé a disparu.
-            if (scrollProgress > 0.2) {
-                const opacity = Math.max(0, 1 - (scrollProgress - 0.2) * 5);
-                topGradient.style.opacity = opacity;
-            } else {
-                topGradient.style.opacity = 1;
-            }
-        }
-
-
-
-        // --- PHASE 1 : DÉSAGRÉGATION (0% -> 40%) ---
-        // Le texte sombre se brise
-        if (scrollProgress < 0.4) {
-            // Ratio local pour cette phase (0 à 1)
-            const phaseRatio = scrollProgress / 0.4;
-            
-            if (darkContent) {
-                // Effet "Agent Smith meurt" :
-                // 1. Scale Up (ça vient vers nous)
-                // 2. Blur (ça se dissout)
-                // 3. Opacité (ça disparaît)
-                // 4. Letter Spacing (ça s'écartèle)
-                
-                const scale = 1 + (phaseRatio * 1.5); // 1 -> 2.5
-                const blur = phaseRatio * 20; // 0px -> 20px
-                const opacity = 1 - Math.pow(phaseRatio, 3); // Disparition exponentielle à la fin
-                const spacing = phaseRatio * 20; // 0px -> 20px
-                
-                darkContent.style.transform = `scale(${scale})`;
-                darkContent.style.filter = `blur(${blur}px) brightness(${100 + (phaseRatio * 200)}%)`; // Brightness augmente
-                darkContent.style.opacity = opacity;
-                darkContent.style.letterSpacing = `${spacing}px`;
-                darkContent.style.pointerEvents = (opacity < 0.1) ? 'none' : 'auto';
-            }
-            
-            // Le contenu clair reste caché
-            lightContent.style.opacity = 0;
-            whiteFlash.style.opacity = phaseRatio * 0.5; // Flash blanc monte doucement
-        
-        } 
-        
-        // --- PHASE 2 : LE PASSAGE / FLASH (40% -> 60%) ---
-        else if (scrollProgress >= 0.4 && scrollProgress < 0.6) {
-            // Le "Flash" atteint son pic puis redescend
-            // C'est le moment où le fond passe de noir à blanc dans le Canvas
-            
-            // On cache définitivement le sombre
-            if(darkContent) darkContent.style.opacity = 0;
-            
-            // Le flash blanc assure la transition visuelle "aveuglante"
-            // Il monte jusqu'à 0.8 puis redescend
-            // Normalisation : 0.4->0.5 (montée), 0.5->0.6 (descente)
-            let flashOpacity;
-            if (scrollProgress < 0.5) {
-                flashOpacity = 0.5 + ((scrollProgress - 0.4) * 5); // 0.5 -> 1.0
-            } else {
-                flashOpacity = 1.0 - ((scrollProgress - 0.5) * 5); // 1.0 -> 0.5
-            }
-            whiteFlash.style.opacity = Math.max(0, flashOpacity);
-            
-            // On commence à préparer l'arrivée du clair
-            lightContent.style.opacity = 0;
-        }
-        
-        // --- PHASE 3 : RÉVÉLATION (60% -> 100%) ---
-        else {
-            if(darkContent) darkContent.style.opacity = 0;
-            whiteFlash.style.opacity = 0;
-            
-            // Ratio local (0 -> 1)
-            const revealRatio = (scrollProgress - 0.6) / 0.4;
-            
-            lightContent.style.opacity = 1;
-            lightContent.style.pointerEvents = 'auto';
-            
-            // Animation des éléments internes du Light Content (Parallaxe inversé)
-            // Ils remontent à leur place d'origine (translateY 0) et fade in
-            
-            if(lightIcon) {
-                // Apparaît vite
-                const iconProgress = Math.min(1, revealRatio * 2);
-                lightIcon.style.opacity = iconProgress;
-                lightIcon.style.transform = `scale(${0.5 + (iconProgress * 0.5)}) translateY(0)`;
-            }
-            
-            if(lightTitle) {
-                // Apparaît après l'icône
-                const titleProgress = Math.max(0, Math.min(1, (revealRatio - 0.2) * 2));
-                lightTitle.style.opacity = titleProgress;
-                lightTitle.style.transform = `translateY(${40 - (titleProgress * 40)}px)`;
-            }
-            
-            if(lightDesc) {
-                // Apparaît en dernier
-                const descProgress = Math.max(0, Math.min(1, (revealRatio - 0.4) * 2));
-                lightDesc.style.opacity = descProgress;
-                lightDesc.style.transform = `translateY(${40 - (descProgress * 40)}px)`;
-            }
-        }
-    }
-
-    window.addEventListener('scroll', handleTunnelScroll, { passive: true });
-    handleTunnelScroll(); // Init
-}
 
 
 
