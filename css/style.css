@@ -3277,3 +3277,34 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 .rabbit-anim-shake {
     animation: rabbitShake 0.4s ease-in-out infinite; /* On le répète 2-3 fois via JS */
 }
+
+
+
+
+
+/* ======================================================= */
+/*        SECTION TRANSITION TUNNEL  EFFET DÉSAGRÉGATION       */
+/* ======================================================= */
+
+.disintegrate {
+    /* Le texte devient blanc pur (lumière) */
+    color: white !important; 
+    text-shadow: 0 0 10px white, 0 0 20px white, 0 0 40px #22c55e; /* Halo intense */
+    
+    /* Il s'écarte et se floute */
+    letter-spacing: 10px;
+    filter: blur(10px) contrast(200%);
+    transform: scale(1.5);
+    opacity: 0;
+}
+
+/* Transition fluide pour la désagrégation */
+#dark-content {
+    /* On force l'accélération matérielle pour que ce soit fluide */
+    will-change: opacity, transform, filter, letter-spacing;
+    transition: all 0.1s linear; /* Géré par JS frame par frame, ou CSS rapide */
+}
+
+#matrix-canvas {
+    transition: filter 0.5s ease;
+}

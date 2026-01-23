@@ -1015,149 +1015,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    // ==================================================================
-    // LOGIQUE TRANSITION TUNNEL (VERSION AVEC PAUSE DE LECTURE)
-    // ==================================================================
-    const tunnelSection = document.getElementById('transition-tunnel');
-    const lightMask = document.getElementById('light-mask');
-    const lightContent = document.getElementById('light-content');
-    const darkContent = document.getElementById('dark-content');
-
-    if (tunnelSection && lightMask && lightContent) {
-
-        function onScrollTunnel() {
-            const rect = tunnelSection.getBoundingClientRect();
-            const viewportHeight = window.innerHeight;
-            const scrolled = -rect.top;
-            const totalScrollable = tunnelSection.offsetHeight - viewportHeight;
-
-            // Reset si on est au-dessus
-            if (scrolled < 0) {
-                lightMask.style.clipPath = `circle(0% at 50% 50%)`;
-                lightContent.style.opacity = '0';
-                darkContent.style.opacity = '1';
-                darkContent.style.transform = 'scale(1)';
-                return;
-            }
-
-            // Progression brute (0 à 1)
-            let rawProgress = scrolled / totalScrollable;
-
-            // --- CONFIGURATION DE LA PAUSE ---
-            // L'animation ne commence qu'après 20% du scroll total
-            const startThreshold = 0.20;
-
-            let animProgress = 0;
-
-            if (rawProgress < startThreshold) {
-                // PHASE 1 : LECTURE (0% à 20% du scroll)
-                // On force l'animation à 0. Le cercle reste fermé.
-                animProgress = 0;
-
-                // Petit effet sympa : le texte recule légèrement pendant qu'on lit
-                // pour montrer qu'on est bien en train de scroller
-                const textScale = 1 - (rawProgress * 0.5); // Passe de 1 à 0.9
-                darkContent.style.transform = `scale(${textScale})`;
-                darkContent.style.opacity = '1';
-
-            } else {
-                // PHASE 2 : OUVERTURE (20% à 100% du scroll)
-                // On recalcule une progression de 0 à 1 basée sur l'espace restant
-                animProgress = (rawProgress - startThreshold) / (1 - startThreshold);
-
-                // On s'assure de ne pas dépasser 1
-                if (animProgress > 1) animProgress = 1;
-
-                // On fait disparaître le texte sombre rapidement dès que ça s'ouvre
-                darkContent.style.opacity = Math.max(0, 1 - (animProgress * 3));
-                // On fige l'échelle du texte sombre
-                darkContent.style.transform = `scale(0.9)`;
-            }
-
-            // --- APPLICATION DE L'ANIMATION (Basée sur animProgress) ---
-
-            // 1. Le Cercle s'ouvre (de 0% à 150%)
-            const clipSize = animProgress * 150;
-            const clipString = `circle(${clipSize}% at 50% 50%)`;
-
-            lightMask.style.clipPath = clipString;
-            lightMask.style.webkitClipPath = clipString;
-
-            // 2. Le contenu clair apparaît
-            const scale = 1.5 - (animProgress * 0.5);
-            const opacity = Math.min(1, animProgress * 2);
-
-            lightContent.style.transform = `scale(${scale})`;
-            lightContent.style.opacity = opacity;
-        }
-
-        window.addEventListener('scroll', onScrollTunnel, { passive: true });
-        onScrollTunnel();
-    }
-
-
-
-    // ==================================================================
-    // EFFET MATRIX RAIN (CANVAS)
-    // ==================================================================
-    const canvas = document.getElementById('matrix-canvas');
-    if (canvas) {
-        const ctx = canvas.getContext('2d');
-
-        // Ajuster la taille du canvas à l'écran
-        let width = canvas.width = window.innerWidth;
-        let height = canvas.height = window.innerHeight;
-
-        // Les caractères qui vont tomber (Mélange Katakana + Chiffres pour l'effet Matrix pur)
-        // Si vous préférez juste des 0 et 1, changez cette chaîne.
-        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*";
-        const fontSize = 14;
-        const columns = width / fontSize; // Nombre de colonnes
-
-        // Tableau pour stocker la position Y de chaque colonne
-        const drops = [];
-        for (let i = 0; i < columns; i++) {
-            drops[i] = 1;
-        }
-
-        // Fonction de dessin (appelée en boucle)
-        function drawMatrix() {
-            // Fond noir très transparent pour créer l'effet de traînée (trail effect)
-            ctx.fillStyle = "rgba(15, 23, 42, 0.05)"; // Couleur neutral-dark avec opacité
-            ctx.fillRect(0, 0, width, height);
-
-            // Couleur du texte (Vert Matrix)
-            ctx.fillStyle = "#22c55e"; // green-500
-            ctx.font = fontSize + "px monospace";
-
-            for (let i = 0; i < drops.length; i++) {
-                // Choix aléatoire du caractère
-                const text = letters.charAt(Math.floor(Math.random() * letters.length));
-
-                // Dessin du caractère
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                // Réinitialisation aléatoire de la goutte vers le haut
-                // ou descente normale
-                if (drops[i] * fontSize > height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-
-                drops[i]++;
-            }
-
-            requestAnimationFrame(drawMatrix);
-        }
-
-        // Lancer l'animation
-        drawMatrix();
-
-        // Gérer le redimensionnement de la fenêtre
-        window.addEventListener('resize', () => {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-        });
-    }
 
 
 
@@ -2082,6 +1939,260 @@ if (matrixContainer) {
 
     
 
+
+
+
+
+
+    // ==================================================================
+// LOGIQUE UNIFIÉE : TUNNEL DE TRANSITION & MATRIX MUTATION
+// ==================================================================
+
+const tunnelSection = document.getElementById('transition-tunnel');
+const canvas = document.getElementById('matrix-canvas');
+const darkContent = document.getElementById('dark-content');
+const lightContent = document.getElementById('light-content');
+const whiteFlash = document.getElementById('white-flash');
+
+// Éléments internes du contenu clair pour animations fines
+const lightIcon = document.getElementById('light-icon');
+const lightTitle = document.getElementById('light-title');
+const lightDesc = document.getElementById('light-desc');
+
+if (tunnelSection && canvas) {
+    const ctx = canvas.getContext('2d');
+    
+    // --- CONFIGURATION MATRIX ---
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+    
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*";
+    const fontSize = 14;
+    const columns = width / fontSize;
+    const drops = [];
+    
+    // Initialisation des gouttes
+    for (let i = 0; i < columns; i++) {
+        drops[i] = 1;
+    }
+
+    // --- ÉTAT DU SCROLL (Variables Globales) ---
+    let scrollProgress = 0; // De 0 à 1
+
+    // --- FONCTION DE DESSIN (Boucle infinie) ---
+    function drawMatrix() {
+        // 1. CALCUL DES COULEURS EN FONCTION DU SCROLL
+        
+        // FOND : Passe du Noir (#050911) au Blanc (#FFFFFF)
+        // La transparence (0.05) crée l'effet de traînée. 
+        // Plus on scrolle, plus on veut "effacer" la traînée pour que ça devienne clair.
+        
+        let bgOpacity = 0.05; 
+        let bgColor = `rgba(5, 9, 17, ${bgOpacity})`; // Noir par défaut
+        
+        if (scrollProgress > 0.4) {
+            // Transition vers le blanc entre 40% et 70% du scroll
+            const whiteRatio = Math.min(1, (scrollProgress - 0.4) * 3.33);
+            
+            // Interpolation Noir -> Blanc
+            // On augmente l'opacité du fond pour nettoyer plus vite l'écran (effet de clarté)
+            const cleanOpacity = 0.05 + (0.1 * whiteRatio); 
+            const r = 5 + (250 * whiteRatio);
+            const g = 9 + (246 * whiteRatio);
+            const b = 17 + (238 * whiteRatio);
+            
+            bgColor = `rgba(${r}, ${g}, ${b}, ${cleanOpacity})`;
+        }
+
+        ctx.fillStyle = bgColor;
+        ctx.fillRect(0, 0, width, height);
+
+        // TEXTE : Passe du Vert (#22c55e) au Bleu Foncé/Gris (#1E3A8A)
+        // Mais pendant la transition (l'explosion), il devient Blanc.
+        
+        let textColor = "#22c55e"; // Vert Matrix
+        
+        if (scrollProgress > 0.3 && scrollProgress < 0.6) {
+            // PHASE EXPLOSION (30% - 60%) : Le code devient blanc/brillant
+            textColor = "#FFFFFF"; 
+            ctx.shadowBlur = 10; // Glow effect
+            ctx.shadowColor = "white";
+        } else if (scrollProgress >= 0.6) {
+            // PHASE CLARTÉ (60%+) : Le code devient bleu sombre (pour être vu sur fond blanc)
+            // On transitionne doucement vers le bleu
+            const blueRatio = Math.min(1, (scrollProgress - 0.6) * 4);
+            // On peut faire une transition de couleur si on veut, ou switch direct
+            // Pour l'effet "résidu de code", un gris-bleu est élégant
+            ctx.shadowBlur = 0;
+            const darkness = Math.floor(255 - (200 * blueRatio)); // Devient de plus en plus sombre
+            textColor = `rgba(30, 58, 138, ${0.3 + (0.5 * blueRatio)})`; // Bleu avec opacité variable
+        } else {
+            ctx.shadowBlur = 0;
+        }
+
+        ctx.fillStyle = textColor;
+        ctx.font = fontSize + "px monospace";
+
+        // 2. BOUCLE DES GOUTTES
+        for (let i = 0; i < drops.length; i++) {
+            
+            // LOGIQUE DE RARÉFACTION (Moins de code à la fin)
+            // Si on est en phase finale (>60%), on dessine aléatoirement moins de gouttes
+            if (scrollProgress > 0.6 && Math.random() > (1 - scrollProgress + 0.6)) {
+                // On saute le dessin de cette goutte pour cette frame (elle s'efface)
+                // Mais on continue de faire avancer sa position Y pour ne pas figer
+                drops[i]++;
+                continue; 
+            }
+
+            const text = letters.charAt(Math.floor(Math.random() * letters.length));
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+            // Reset de la goutte (retour en haut)
+            // Plus on scrolle, moins les gouttes reviennent (elles tombent et disparaissent)
+            const resetThreshold = 0.975 + (scrollProgress * 0.025); // Devient plus dur de reset (0.975 -> 1.0)
+            
+            if (drops[i] * fontSize > height && Math.random() > resetThreshold) {
+                drops[i] = 0;
+            }
+
+            drops[i]++;
+        }
+        
+        requestAnimationFrame(drawMatrix);
+    }
+
+    // Lancer l'animation canvas
+    drawMatrix();
+
+    // Resize handler
+    window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    });
+
+
+    // --- GESTION DU SCROLL (TRANSITIONS DOM) ---
+    function handleTunnelScroll() {
+        const rect = tunnelSection.getBoundingClientRect();
+        const viewHeight = window.innerHeight;
+        const totalHeight = tunnelSection.offsetHeight - viewHeight;
+        
+        // Calcul du progrès (0 en haut, 1 en bas)
+        const rawProgress = -rect.top / totalHeight;
+        scrollProgress = Math.max(0, Math.min(1, rawProgress));
+
+
+
+        // Gestion du dégradé haut (On le cache quand on commence à scroller vers le blanc)
+        const topGradient = document.getElementById('matrix-top-gradient');
+        if (topGradient) {
+            // Dès qu'on dépasse 20% du scroll, on commence à effacer le dégradé noir
+            // À 40% (quand le texte commence à se casser), le dégradé a disparu.
+            if (scrollProgress > 0.2) {
+                const opacity = Math.max(0, 1 - (scrollProgress - 0.2) * 5);
+                topGradient.style.opacity = opacity;
+            } else {
+                topGradient.style.opacity = 1;
+            }
+        }
+
+
+
+        // --- PHASE 1 : DÉSAGRÉGATION (0% -> 40%) ---
+        // Le texte sombre se brise
+        if (scrollProgress < 0.4) {
+            // Ratio local pour cette phase (0 à 1)
+            const phaseRatio = scrollProgress / 0.4;
+            
+            if (darkContent) {
+                // Effet "Agent Smith meurt" :
+                // 1. Scale Up (ça vient vers nous)
+                // 2. Blur (ça se dissout)
+                // 3. Opacité (ça disparaît)
+                // 4. Letter Spacing (ça s'écartèle)
+                
+                const scale = 1 + (phaseRatio * 1.5); // 1 -> 2.5
+                const blur = phaseRatio * 20; // 0px -> 20px
+                const opacity = 1 - Math.pow(phaseRatio, 3); // Disparition exponentielle à la fin
+                const spacing = phaseRatio * 20; // 0px -> 20px
+                
+                darkContent.style.transform = `scale(${scale})`;
+                darkContent.style.filter = `blur(${blur}px) brightness(${100 + (phaseRatio * 200)}%)`; // Brightness augmente
+                darkContent.style.opacity = opacity;
+                darkContent.style.letterSpacing = `${spacing}px`;
+                darkContent.style.pointerEvents = (opacity < 0.1) ? 'none' : 'auto';
+            }
+            
+            // Le contenu clair reste caché
+            lightContent.style.opacity = 0;
+            whiteFlash.style.opacity = phaseRatio * 0.5; // Flash blanc monte doucement
+        
+        } 
+        
+        // --- PHASE 2 : LE PASSAGE / FLASH (40% -> 60%) ---
+        else if (scrollProgress >= 0.4 && scrollProgress < 0.6) {
+            // Le "Flash" atteint son pic puis redescend
+            // C'est le moment où le fond passe de noir à blanc dans le Canvas
+            
+            // On cache définitivement le sombre
+            if(darkContent) darkContent.style.opacity = 0;
+            
+            // Le flash blanc assure la transition visuelle "aveuglante"
+            // Il monte jusqu'à 0.8 puis redescend
+            // Normalisation : 0.4->0.5 (montée), 0.5->0.6 (descente)
+            let flashOpacity;
+            if (scrollProgress < 0.5) {
+                flashOpacity = 0.5 + ((scrollProgress - 0.4) * 5); // 0.5 -> 1.0
+            } else {
+                flashOpacity = 1.0 - ((scrollProgress - 0.5) * 5); // 1.0 -> 0.5
+            }
+            whiteFlash.style.opacity = Math.max(0, flashOpacity);
+            
+            // On commence à préparer l'arrivée du clair
+            lightContent.style.opacity = 0;
+        }
+        
+        // --- PHASE 3 : RÉVÉLATION (60% -> 100%) ---
+        else {
+            if(darkContent) darkContent.style.opacity = 0;
+            whiteFlash.style.opacity = 0;
+            
+            // Ratio local (0 -> 1)
+            const revealRatio = (scrollProgress - 0.6) / 0.4;
+            
+            lightContent.style.opacity = 1;
+            lightContent.style.pointerEvents = 'auto';
+            
+            // Animation des éléments internes du Light Content (Parallaxe inversé)
+            // Ils remontent à leur place d'origine (translateY 0) et fade in
+            
+            if(lightIcon) {
+                // Apparaît vite
+                const iconProgress = Math.min(1, revealRatio * 2);
+                lightIcon.style.opacity = iconProgress;
+                lightIcon.style.transform = `scale(${0.5 + (iconProgress * 0.5)}) translateY(0)`;
+            }
+            
+            if(lightTitle) {
+                // Apparaît après l'icône
+                const titleProgress = Math.max(0, Math.min(1, (revealRatio - 0.2) * 2));
+                lightTitle.style.opacity = titleProgress;
+                lightTitle.style.transform = `translateY(${40 - (titleProgress * 40)}px)`;
+            }
+            
+            if(lightDesc) {
+                // Apparaît en dernier
+                const descProgress = Math.max(0, Math.min(1, (revealRatio - 0.4) * 2));
+                lightDesc.style.opacity = descProgress;
+                lightDesc.style.transform = `translateY(${40 - (descProgress * 40)}px)`;
+            }
+        }
+    }
+
+    window.addEventListener('scroll', handleTunnelScroll, { passive: true });
+    handleTunnelScroll(); // Init
+}
 
 
 
