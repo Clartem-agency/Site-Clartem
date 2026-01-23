@@ -777,6 +777,10 @@ html {
 
 
 
+
+
+
+
 /* --- AJOUT CORRECTIF BLOG --- */
 /* Animation d'apparition fluide pour les éléments chargés dynamiquement */
 @keyframes fadeInUp {
@@ -802,6 +806,9 @@ html {
 .fade-in-entry:nth-child(4) { animation-delay: 0.1s; }
 .fade-in-entry:nth-child(5) { animation-delay: 0.2s; }
 .fade-in-entry:nth-child(6) { animation-delay: 0.3s; }
+
+
+
 
 
 
@@ -3398,4 +3405,25 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     background-size: 100% 200%;
     pointer-events: none;
     animation: scan-flash 1.5s ease-out forwards;
+}
+
+
+
+
+
+
+/* ======================================================= */
+/*    CORRECTIF HOVER CONCEPT CARDS                        */
+/* ======================================================= */
+
+.concept-card {
+    /* Assure que la transition est fluide */
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    will-change: transform; /* Optimisation performance */
+}
+
+/* Force le soulèvement au survol avec !important pour écraser tout conflit éventuel */
+.concept-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important; /* Ombre plus forte */
 }
