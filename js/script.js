@@ -46,6 +46,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+   
+
+
+
     // ==================================================================
     // ANIMATIONS AVEC SCROLLREVEAL (VERSION SÉCURISÉE POUR TOUT LE SITE)
     // ==================================================================
@@ -68,8 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const sr = ScrollReveal(srConfig);
 
-            // Vos sélecteurs globaux (marchent sur toutes les pages)
-            // NOTE : On ne cible plus les éléments chargés dynamiquement ici
+            // 1. Vos sélecteurs globaux
             sr.reveal('[data-sr]', { interval: 100 });
             sr.reveal('[data-sr-delay="100"]', { delay: 300 });
             sr.reveal('[data-sr-delay="200"]', { delay: 400 });
@@ -77,15 +80,33 @@ document.addEventListener('DOMContentLoaded', function () {
             sr.reveal('[data-sr-origin="right"]', { origin: 'right', distance: '60px', duration: 1000, delay: 200 });
             sr.reveal('[data-sr-origin="left"]', { origin: 'left', distance: '60px', duration: 1000, delay: 200 });
 
+            // 2. --- ANIMATION SPÉCIFIQUE CONCEPT (ROTATION 3D) ---
+            // CORRECTION : Ce code est maintenant À L'INTÉRIEUR de la fonction, donc "sr" existe.
+            sr.reveal('.concept-card', {
+                duration: 1200,
+                distance: '100px',
+                origin: 'bottom',
+                opacity: 0,
+                scale: 0.85,
+                rotate: { x: 60, y: 0, z: -10 }, // Rotation 3D
+                interval: 200,
+                easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)',
+                viewFactor: 0.2,
+                
+                // IMPORTANT : Nettoyage après animation pour que le HOVER CSS fonctionne
+                afterReveal: function (el) {
+                    el.style.transform = 'none'; 
+                    el.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease'; 
+                }
+            });
+
             // Force un recalcul après un court instant (sécurité anti-bug)
             setTimeout(() => {
                 try { sr.delegate(); } catch (e) { }
             }, 500);
         };
 
-        // Logique de chargement intelligente :
-        // Si la page est déjà chargée (cache), on lance tout de suite.
-        // Sinon, on attend l'événement 'load'.
+        // Logique de chargement intelligente
         if (document.readyState === 'complete') {
             initScrollReveal();
         } else {
@@ -93,34 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-
-
-
-    // --- ANIMATION SPÉCIFIQUE CONCEPT (ROTATION 3D) ---
-    sr.reveal('.concept-card', {
-        duration: 1200,       // Animation un peu lente pour l'élégance
-        distance: '100px',    // Vient de plus loin (bas)
-        origin: 'bottom',
-        opacity: 0,
-        scale: 0.85,          // Commence un peu plus petit
-
-        // C'est ICI que la magie opère : la rotation
-        rotate: {
-            x: 60,   // Incline la carte vers l'arrière (comme si elle était couchée)
-            y: 0,
-            z: -10   // Légère rotation sur le côté pour le style "jeté sur la table"
-        },
-
-        interval: 200,        // Délai entre chaque carte (Effet domino)
-        easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', // Effet rebond très doux à la fin
-        viewFactor: 0.2,      // Commence quand 20% de la carte est visible
-
-        // Pour ne pas gêner les interactions après l'animation
-        afterReveal: function (el) {
-            el.style.transform = 'none'; // Nettoie la transformation pour éviter le flou du texte
-            el.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease'; // Réactive les transitions hover CSS
-        }
-    });
+    
 
 
 
