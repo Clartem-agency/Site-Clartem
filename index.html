@@ -591,91 +591,67 @@
 
 
         <!-- ======================================================= -->
-        <!--    SECTION TRANSITION : LE PORTAIL (VERSION MATRIX)     -->
+        <!--    SECTION TRANSITION : LA MUE DIGITALE (MATRIX 2.0)    -->
         <!-- ======================================================= -->
 
-        <div id="transition-tunnel" class="relative h-[300vh] z-30 -mt-1">
-            <div class="sticky top-0 left-0 w-full h-screen overflow-hidden">
+        <div id="transition-tunnel" class="relative h-[400vh] z-30 -mt-1">
+            <div class="sticky top-0 left-0 w-full h-screen overflow-hidden flex items-center justify-center">
 
-                <!-- COUCHE 1 : DARK (Arrière-plan MATRIX) -->
-                <div
-                    class="absolute inset-0 bg-neutral-dark flex flex-col items-center justify-center z-10 overflow-hidden">
+                <!-- 1. LE CANEVAS UNIQUE (Fond dynamique) -->
+                <!-- Il passe de fond noir à fond blanc via JS -->
+                <canvas id="matrix-canvas" class="absolute inset-0 w-full h-full z-0"></canvas>
 
-                    <!-- LE CANEVAS MATRIX -->
-                    <canvas id="matrix-canvas" class="absolute inset-0 w-full h-full opacity-20"></canvas>
-
-                    <!-- ============================================================== -->
-                    <!--  NOUVEAU : LE GRADIENT DE TRANSITION (HAUT)                    -->
-                    <!--  C'est lui qui fait le lien doux avec la section du dessus     -->
-                    <!-- ============================================================== -->
+                <!-- 2. CONTENU SOMBRE (Phase 1) -->
+                <div id="dark-content" class="relative z-10 text-center px-6 transition-all duration-100 ease-out">
+                    <!-- Badge Système -->
                     <div
-                        class="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-[#050911] via-neutral-dark/90 to-transparent z-10 pointer-events-none">
+                        class="inline-flex items-center gap-2 px-3 py-1 mb-8 border border-emerald-500/30 rounded-full bg-emerald-950/80 backdrop-blur-md">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span class="text-emerald-400 text-xs font-mono tracking-widest uppercase">System_Locked</span>
                     </div>
 
+                    <h2 class="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight glitch-target"
+                        data-text="La Matrice est saturée.">
+                        La Matrice est saturée.
+                    </h2>
+                    <p class="text-emerald-400/80 font-mono text-lg max-w-xl mx-auto">
+                        Il est temps de débrancher le pilote automatique.
+                    </p>
 
-                    <!-- Overlay dégradé (Centre) -->
-                    <div
-                        class="absolute inset-0 bg-radial-gradient from-transparent via-neutral-dark/50 to-neutral-dark pointer-events-none">
-                    </div>
-
-                    <!-- Contenu Texte (Au-dessus du code) -->
-                    <div class="relative z-20 text-center opacity-100 transition-opacity duration-300 px-6"
-                        id="dark-content">
-
-                        <!-- Ligne animée décorative -->
-                        <div
-                            class="w-px h-24 bg-gradient-to-b from-transparent via-green-500 to-transparent mx-auto mb-8 animate-pulse">
-                        </div>
-
-                        <div
-                            class="inline-block bg-neutral-dark/80 backdrop-blur-sm border border-green-500/20 px-6 py-4 rounded-xl shadow-2xl">
-                            <p class="text-sm font-mono text-green-500 mb-2 tracking-[0.2em] animate-pulse">>
-                                SYSTEM_CHECK: OK</p>
-                            <h2 class="text-3xl md:text-5xl font-bold text-white mb-2">Prêt pour la suite ?</h2>
-                            <p class="text-gray-500 font-mono text-sm mt-2">Initialisation de l'interface humaine...</p>
-                        </div>
-
-                        <div class="mt-16 animate-bounce text-white/30 text-xs tracking-widest uppercase font-mono">
-                            ↓ Scrollez pour ouvrir
-                        </div>
+                    <div class="mt-12 animate-bounce text-emerald-500/50 text-xs tracking-[0.3em] uppercase font-mono">
+                        ↓ Scrollez pour briser le code
                     </div>
                 </div>
 
+                <!-- 3. CONTENU CLAIR (Phase 2) -->
+                <!-- Opacity 0 au début, apparaît par dessus le chaos -->
+                <div id="light-content"
+                    class="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-6 opacity-0 pointer-events-none">
 
-
-                <!-- COUCHE 2 : LIGHT (Le masque qui s'ouvre) - INCHANGÉ -->
-                <div id="light-mask"
-                    class="absolute inset-0 bg-gray-50 z-20 flex items-center justify-center pointer-events-none"
-                    style="clip-path: circle(0% at 50% 50%); -webkit-clip-path: circle(0% at 50% 50%);">
-
-                    <div id="light-content"
-                        class="text-center px-6 opacity-0 transform scale-150 transition-all duration-100 ease-linear">
-
-
-                        <!-- Icône décorative : L'Éclat (North Star) -->
-                        <div
-                            class="w-20 h-20 bg-gradient-to-tr from-clarity-blue to-deep-blue rounded-full mx-auto mb-8 flex items-center justify-center shadow-2xl shadow-blue-500/30 relative overflow-hidden">
-                            <!-- Petit effet de brillance interne -->
-                            <div class="absolute inset-0 bg-white/20 blur-xl"></div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white relative z-10"
-                                fill="currentColor" viewBox="0 0 24 24">
-                                <!-- Forme d'étoile à 4 branches effilées -->
-                                <path
-                                    d="M12 2.25a.75.75 0 01.75.75c0 5.523 4.477 10 10 10a.75.75 0 010 1.5c-5.523 0-10 4.477-10 10a.75.75 0 01-1.5 0c0-5.523-4.477-10-10-10a.75.75 0 010-1.5c5.523 0 10-4.477 10-10a.75.75 0 01.75-.75z" />
-                            </svg>
-                        </div>
-
-                        <h2
-                            class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-neutral-dark mb-6 tracking-tight">
-                            Place à la <span
-                                class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-deep-blue">Clarté.</span>
-                        </h2>
-                        <p class="text-xl text-neutral-light max-w-2xl mx-auto">
-                            Votre expertise mérite mieux qu'un site obscur.<br>Bienvenue dans votre nouvel écosystème.
-                        </p>
+                    <!-- Icône L'Éclat (North Star) -->
+                    <div class="w-20 h-20 bg-gradient-to-tr from-clarity-blue to-deep-blue rounded-full mb-8 flex items-center justify-center shadow-2xl shadow-blue-500/30 scale-50 opacity-0 transform transition-all duration-700"
+                        id="light-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.25a.75.75 0 01.75.75c0 5.523 4.477 10 10 10a.75.75 0 010 1.5c-5.523 0-10 4.477-10 10a.75.75 0 01-1.5 0c0-5.523-4.477-10-10-10a.75.75 0 010-1.5c5.523 0 10-4.477 10-10a.75.75 0 01.75-.75z" />
+                        </svg>
                     </div>
+
+                    <h2 class="text-5xl md:text-7xl font-extrabold text-neutral-dark mb-6 tracking-tight translate-y-10 transition-transform duration-700"
+                        id="light-title">
+                        Place à la <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-deep-blue">Clarté.</span>
+                    </h2>
+                    <p class="text-xl text-neutral-light max-w-2xl mx-auto translate-y-10 transition-transform duration-700 delay-100"
+                        id="light-desc">
+                        Laissez la technique disparaître.<br>Votre expertise reprend le contrôle.
+                    </p>
                 </div>
+
+                <!-- Flash blanc de transition (L'explosion Agent Smith) -->
+                <div id="white-flash"
+                    class="absolute inset-0 bg-white pointer-events-none opacity-0 z-15 mix-blend-screen"></div>
 
             </div>
         </div>
