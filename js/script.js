@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-   
+
 
 
 
@@ -92,11 +92,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 interval: 200,
                 easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)',
                 viewFactor: 0.2,
-                
+
                 // IMPORTANT : Nettoyage après animation pour que le HOVER CSS fonctionne
                 afterReveal: function (el) {
-                    el.style.transform = 'none'; 
-                    el.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease'; 
+                    el.style.transform = 'none';
+                    el.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
                 }
             });
 
@@ -114,7 +114,47 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    
+
+
+    // 3. --- ANIMATION SPÉCIFIQUE DIAGNOSTIC (LE DÉPLIAGE 3D) ---
+    sr.reveal('#diagnostic-card', {
+        duration: 1500, // Assez lent pour être majestueux
+        distance: '100px', // Vient du bas
+        origin: 'bottom',
+        opacity: 0,
+        scale: 0.9, // Commence un peu plus petit
+
+        // C'est ici l'effet "Feuille/Tablette" : Rotation sur l'axe X
+        rotate: { x: 40, y: 0, z: 0 },
+
+        // Une courbe d'animation "Back" pour un petit effet de rebond à la fin (très satisfaisant)
+        easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+
+        viewFactor: 0.3, // Déclenche quand 30% de la carte est visible
+
+        // Une fois l'animation finie, on lance l'effet de scan lumineux + reset
+        afterReveal: function (el) {
+            el.style.transform = 'none'; // Nettoyage pour la netteté du texte
+            el.classList.add('diagnostic-scanned'); // Lance le flash lumineux
+        }
+    });
+
+    // 4. --- CASCADE DES SYMPTÔMES (À L'INTÉRIEUR DE LA CARTE) ---
+    // On fait apparaître les items 1, 2, 3 APRÈS que la carte soit arrivée
+    sr.reveal('#diagnostic-card .group', {
+        delay: 600, // Attend que la carte soit presque en place
+        interval: 200, // 200ms entre chaque symptôme
+        origin: 'left', // Ils glissent de la gauche
+        distance: '20px',
+        opacity: 0,
+        duration: 800,
+        easing: 'ease-out'
+    });
+
+
+
+
+
 
 
 
