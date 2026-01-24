@@ -341,10 +341,9 @@
                         </div>
 
                         <!-- Contenu du terminal -->
-                        <!-- MODIFICATION ICI : Suppression de 'justify-center' pour aligner le texte en haut -->
-                        <!-- Ajout de 'overflow-y-auto' au cas où le texte dépasserait sur de très petits écrans -->
-                        <div
-                            class="p-6 md:p-10 font-mono text-base md:text-lg leading-relaxed flex-grow flex flex-col relative z-10 text-emerald-400 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] overflow-y-auto custom-scrollbar">
+                        <!-- Terminal avec auto-scroll invisible : le texte remonte naturellement sans scrollbar visible -->
+                        <div id="terminal-content-wrapper"
+                            class="p-6 md:p-10 font-mono text-base md:text-lg leading-relaxed flex-grow flex flex-col relative z-10 text-emerald-400 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] overflow-y-scroll terminal-no-scrollbar">
 
                             <!-- Zone de texte dynamique -->
                             <div id="matrix-typewriter" class="space-y-4">
