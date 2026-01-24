@@ -2078,7 +2078,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // TEXTE : Passe du Vert (#22c55e) au Bleu Foncé/Gris (#1E3A8A)
             // Mais pendant la transition (l'explosion), il devient Blanc.
 
-            let textColor = "#22c55e"; // Vert Matrix
+            let textColor = "#10B981"; // <--- C'est la couleur exacte des autres sections
 
             if (scrollProgress > 0.3 && scrollProgress < 0.6) {
                 // PHASE EXPLOSION (30% - 60%) : Le code devient blanc/brillant
