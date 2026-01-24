@@ -11,6 +11,19 @@
 /* IMPORT DE LA NOUVELLE POLICE (Style Vieux Terminal CRT) */
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
+/* 
+ * TERMINAL SANS SCROLLBAR VISIBLE
+ * Le scroll fonctionne toujours (via JS auto-scroll) 
+ * mais la barre est cachée pour l'immersion
+ */
+.terminal-no-scrollbar {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+.terminal-no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
 /* Application de la police au terminal */
 #matrix-typewriter {
     font-family: 'VT323', monospace; /* La police rétro */
