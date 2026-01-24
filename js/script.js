@@ -1697,23 +1697,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // ==================================================================
-    // ANIMATION TERMINAL MATRIX (VERSION INTERACTIVE & TUTOIEMENT)
+    // ANIMATION TERMINAL MATRIX (VERSION CORRIGÉE : CURSEUR INLINE)
     // ==================================================================
     const matrixContainer = document.getElementById('matrix-typewriter');
-    const matrixCursor = document.getElementById('matrix-cursor');
 
     if (matrixContainer) {
-        // Le scénario : Dialogue direct système <-> thérapeute
+        // 1. CRÉATION DU CURSEUR DYNAMIQUE
+        const cursor = document.createElement('span');
+        cursor.className = 'inline-block w-3 h-5 bg-emerald-500/80 align-text-bottom shadow-[0_0_10px_rgba(16,185,129,0.8)] ml-1 animate-pulse';
+        
         const scenario = [
             { text: "Réveille-toi...", class: "text-emerald-500 font-bold tracking-widest mb-4 block", speed: 100 },
             { text: "Le système t'a menti.", class: "text-emerald-500/80", speed: 50 },
             { text: "On t'a dit de devenir un technicien.", class: "text-emerald-500/80", speed: 40 },
             { text: "Mais tes clients ne cherchent pas un algorithme...", class: "text-emerald-500/80", speed: 40 },
             { text: "ILS CHERCHENT TON ÂME.", class: "text-emerald-300 font-bold block mt-2 shadow-green-glow", speed: 80 },
-            { text: "Toc, toc.", class: "text-emerald-600/70 text-sm mt-6 block", speed: 150 }, // Lent pour le suspens
+            { text: "Toc, toc.", class: "text-emerald-600/70 text-sm mt-6 block", speed: 150 }, 
 
             // --- SIMULATION UTILISATEUR (NEO) ---
-            // isUser: true ajoute le prompt "> " et une pause de réflexion avant
             { text: "Qui est là ?", class: "text-white font-bold mt-2 block", speed: 100, isUser: true },
 
             // --- REPONSE SYSTEME ---
@@ -1725,14 +1726,6 @@ document.addEventListener('DOMContentLoaded', function () {
         let charIdx = 0;
         let isMatrixRunning = false;
 
-        // Fonction pour gérer le clignotement du curseur
-        function toggleCursor(active) {
-            if (matrixCursor) {
-                if (active) matrixCursor.classList.add('animate-pulse');
-                else matrixCursor.classList.remove('animate-pulse');
-            }
-        }
-
         function typeMatrix() {
             if (lineIdx < scenario.length) {
                 const currentLine = scenario[lineIdx];
@@ -1740,30 +1733,26 @@ document.addEventListener('DOMContentLoaded', function () {
                 // 1. CRÉATION DE LA LIGNE (Au début de la ligne)
                 if (charIdx === 0) {
                     // Pause réaliste avant que l'utilisateur "réponde"
-                    if (currentLine.isUser && !document.getElementById(`mat-line-${lineIdx}`)) {
-                        toggleCursor(true);
+                    if (currentLine.isUser && !document.getElementById(`mat-line-text-${lineIdx}`)) {
                         setTimeout(() => {
-                            toggleCursor(false);
                             createLineElement(currentLine);
-                            typeMatrix(); // On relance la frappe après la pause
-                        }, 1500); // 1.5s d'hésitation humaine
+                            typeMatrix(); 
+                        }, 1500); 
                         return;
-                    } else if (!document.getElementById(`mat-line-${lineIdx}`)) {
+                    } else if (!document.getElementById(`mat-line-text-${lineIdx}`)) {
                         createLineElement(currentLine);
                     }
                 }
 
-                const activeLine = document.getElementById(`mat-line-${lineIdx}`);
+                // On cible le SPAN de texte à l'intérieur de la ligne
+                const activeTextSpan = document.getElementById(`mat-line-text-${lineIdx}`);
 
                 // 2. LOGIQUE DE FRAPPE
-                // Si c'est l'utilisateur, on ajoute le prompt "> " visuellement au début, mais on ne le tape pas lettre par lettre
                 let charToAdd = currentLine.text.charAt(charIdx);
-
-                activeLine.textContent += charToAdd;
+                activeTextSpan.textContent += charToAdd;
                 charIdx++;
 
-                // Calcul de la vitesse (Humain vs Machine)
-                // L'utilisateur tape un peu plus lentement et irrégulièrement
+                // Vitesse variable
                 let baseSpeed = currentLine.speed || 50;
                 let variance = Math.random() * 30;
 
@@ -1773,44 +1762,41 @@ document.addEventListener('DOMContentLoaded', function () {
                     // FIN DE LA LIGNE
                     lineIdx++;
                     charIdx = 0;
-                    toggleCursor(true);
 
-                    // Pauses dramatiques entre les lignes
-                    let pause = 400; // Pause standard
+                    // Pauses dramatiques
+                    let pause = 400; 
                     if (currentLine.text.includes("Toc, toc")) pause = 500;
-                    if (currentLine.isUser) pause = 800; // Pause après la question de l'utilisateur
+                    if (currentLine.isUser) pause = 800; 
 
                     setTimeout(typeMatrix, pause);
                 }
             } else {
-                // FIN DU SCENARIO
-                toggleCursor(true);
+                // FIN DU SCENARIO : On laisse le curseur clignoter à la fin
             }
         }
 
         function createLineElement(lineData) {
-            const div = document.createElement('div');
-            div.className = lineData.class;
-            div.id = `mat-line-${lineIdx}`;
-
-            // Si c'est l'utilisateur, on ajoute le prompt "> " tout de suite
+            // Création du conteneur de ligne (Block)
+            const divWrapper = document.createElement('div');
+            divWrapper.className = lineData.class; // Applique les classes (margin, couleur...)
+            
+            // Si c'est l'utilisateur, on ajoute le prompt "> "
             if (lineData.isUser) {
                 const promptSpan = document.createElement('span');
                 promptSpan.className = "text-gray-500 mr-2";
                 promptSpan.textContent = "> ";
-                div.appendChild(promptSpan);
-                // On crée un span pour le texte qui va être tapé
-                const textSpan = document.createElement('span');
-                textSpan.id = `mat-line-content-${lineIdx}`; // On cible ce span pour écrire
-                div.appendChild(textSpan);
-
-                // Petite astuce : on change l'ID ciblé par la boucle de frappe pour écrire dans le span et pas le div
-                div.id = `mat-line-${lineIdx}-wrapper`;
-                textSpan.id = `mat-line-${lineIdx}`;
+                divWrapper.appendChild(promptSpan);
             }
 
-            matrixContainer.appendChild(div);
-            toggleCursor(false);
+            // Création du SPAN qui contiendra le texte (pour que le curseur soit à côté)
+            const textSpan = document.createElement('span');
+            textSpan.id = `mat-line-text-${lineIdx}`;
+            divWrapper.appendChild(textSpan);
+
+            // IMPORTANT : On déplace le curseur DANS cette nouvelle ligne
+            divWrapper.appendChild(cursor);
+
+            matrixContainer.appendChild(divWrapper);
         }
 
         // Observer pour lancer l'anim quand visible
@@ -1819,6 +1805,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (entry.isIntersecting && !isMatrixRunning) {
                     isMatrixRunning = true;
                     matrixContainer.innerHTML = ''; // Reset
+                    lineIdx = 0;
+                    charIdx = 0;
                     setTimeout(typeMatrix, 800);
                 }
             });
@@ -1826,6 +1814,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         matrixObserver.observe(matrixContainer);
     }
+
+    
 
 
 
