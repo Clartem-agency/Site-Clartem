@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 rotate: { x: 60, y: 0, z: -10 }, // Rotation 3D
                 interval: 200,
                 easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)',
-                viewFactor: 0.2,
+                viewFactor: 0.5,
 
                 afterReveal: function (el) {
                     // On met une chaîne vide '' au lieu de 'none'. 
