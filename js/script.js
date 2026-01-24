@@ -1752,6 +1752,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 activeTextSpan.textContent += charToAdd;
                 charIdx++;
 
+                // AUTO-SCROLL pendant la frappe (pour suivre le texte en temps réel)
+                const terminalWrapper = document.getElementById('terminal-content-wrapper');
+                if (terminalWrapper) {
+                    terminalWrapper.scrollTop = terminalWrapper.scrollHeight;
+                }
+
                 // Vitesse variable
                 let baseSpeed = currentLine.speed || 50;
                 let variance = Math.random() * 30;
@@ -1797,6 +1803,12 @@ document.addEventListener('DOMContentLoaded', function () {
             divWrapper.appendChild(cursor);
 
             matrixContainer.appendChild(divWrapper);
+            
+            // AUTO-SCROLL : On fait remonter le texte automatiquement (sans scrollbar visible)
+            const terminalWrapper = document.getElementById('terminal-content-wrapper');
+            if (terminalWrapper) {
+                terminalWrapper.scrollTop = terminalWrapper.scrollHeight;
+            }
         }
 
         // Observer pour lancer l'anim quand visible
