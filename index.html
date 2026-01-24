@@ -279,30 +279,48 @@
             <div class="container mx-auto px-6 relative z-10">
 
                 <!-- PARTIE 1 : LE CONSTAT -->
-                <div class="max-w-4xl mx-auto text-center mb-16" data-sr>
+                <!-- AJOUT : 'relative' sur le conteneur pour positionner la brume -->
+                <div class="max-w-4xl mx-auto text-center mb-16 relative" data-sr>
 
-                    <!-- Badge "System Status" -->
+                    <!-- 1. BRUME TOXIQUE (Même effet que la section suivante) -->
+
+                    <!-- Couche 1 : Nappe de gaz large et sombre -->
                     <div
-                        class="inline-flex items-center gap-3 px-4 py-1.5 mb-8 border border-emerald-500/20 rounded-full bg-emerald-950/30 backdrop-blur-md">
-                        <span class="relative flex h-2 w-2">
-                            <span
-                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                        </span>
-                        <span
-                            class="text-emerald-400 text-xs font-mono tracking-widest uppercase">Analyse_Système</span>
+                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[500px] bg-emerald-900/30 blur-[100px] rounded-full pointer-events-none mix-blend-screen opacity-60">
                     </div>
 
-                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                        Le digital est froid.<br>
-                        <span
-                            class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 to-emerald-600">L'humain
-                            est votre force.</span>
-                    </h2>
-                    <p class="text-lg md:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto">
-                        Dans un univers saturé de bruit, la seule chose qui connecte vraiment, c'est votre
-                        authenticité.
-                    </p>
+                    <!-- Couche 2 : Cœur actif lent (Respiration 10s) -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[300px] bg-emerald-500/10 blur-[80px] rounded-full pointer-events-none"
+                        style="animation: pulse 10s cubic-bezier(0.4, 0, 0.6, 1) infinite;">
+                    </div>
+
+
+                    <!-- 2. LE CONTENU TEXTE (Mis en relative z-10 pour passer au dessus de la brume) -->
+                    <div class="relative z-10">
+                        <!-- Badge "System Status" -->
+                        <div
+                            class="inline-flex items-center gap-3 px-4 py-1.5 mb-8 border border-emerald-500/20 rounded-full bg-emerald-950/30 backdrop-blur-md">
+                            <span class="relative flex h-2 w-2">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                            </span>
+                            <span
+                                class="text-emerald-400 text-xs font-mono tracking-widest uppercase">Analyse_Système</span>
+                        </div>
+
+                        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                            Le digital est froid.<br>
+                            <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 to-emerald-600">L'humain
+                                est votre force.</span>
+                        </h2>
+                        <p class="text-lg md:text-xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto">
+                            Dans un univers saturé de bruit, la seule chose qui connecte vraiment, c'est votre
+                            authenticité.
+                        </p>
+                    </div>
+
                 </div>
 
 
@@ -381,15 +399,18 @@
             <!-- Titre de liaison AVEC DÉCORATION ET BRUME MATRIX -->
             <div class="container mx-auto px-6 mb-32 lg:mb-60 text-center relative" data-sr>
 
-                <!-- 1. BRUME D'AMBIANCE (Mise à jour : Plus large et organique) -->
-                <!-- Couche 1 : Brume large et diffuse (Fond) -->
+                <!-- 1. BRUME CHIMIQUE "MATRIX" (Correction : Lente et Diffuse) -->
+
+                <!-- Couche 1 : Le Gaz de fond (Très large et descend vers la ligne) -->
+                <!-- top-[60%] le pousse vers le bas pour toucher la ligne laser -->
                 <div
-                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[500px] bg-emerald-900/20 blur-[120px] rounded-full pointer-events-none mix-blend-screen">
+                    class="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160%] md:w-[1200px] h-[700px] bg-emerald-900/40 blur-[150px] rounded-full pointer-events-none mix-blend-screen opacity-60">
                 </div>
 
-                <!-- Couche 2 : Cœur lumineux pulsant (Organique) -->
-                <div
-                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-emerald-500/10 blur-[90px] rounded-full pointer-events-none animate-pulse">
+                <!-- Couche 2 : Le Cœur Radioactif (Diffus) -->
+                <!-- Animation inline de 10 secondes pour un effet de "respiration" très lent -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[500px] bg-emerald-500/10 blur-[100px] rounded-[100%] pointer-events-none"
+                    style="animation: pulse 10s cubic-bezier(0.4, 0, 0.6, 1) infinite;">
                 </div>
 
                 <!-- 2. LE CONTENU TEXTE -->
