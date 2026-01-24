@@ -1696,8 +1696,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    // ==================================================================
-    // ANIMATION TERMINAL MATRIX (VERSION CORRIGÉE : CURSEUR INLINE)
+   // ==================================================================
+    // ANIMATION TERMINAL MATRIX (VERSION UX CORRIGÉE : SCROLL AUTO)
     // ==================================================================
     const matrixContainer = document.getElementById('matrix-typewriter');
 
@@ -1726,6 +1726,16 @@ document.addEventListener('DOMContentLoaded', function () {
         let charIdx = 0;
         let isMatrixRunning = false;
 
+        // Fonction utilitaire pour scroller en bas (UX)
+        const scrollToBottom = () => {
+            // On scrolle le conteneur lui-même
+            matrixContainer.scrollTop = matrixContainer.scrollHeight;
+            // Sécurité : si le conteneur est dans un parent scrollable (selon ton HTML), on scrolle le parent aussi
+            if (matrixContainer.parentElement) {
+                matrixContainer.parentElement.scrollTop = matrixContainer.parentElement.scrollHeight;
+            }
+        };
+
         function typeMatrix() {
             if (lineIdx < scenario.length) {
                 const currentLine = scenario[lineIdx];
@@ -1736,11 +1746,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (currentLine.isUser && !document.getElementById(`mat-line-text-${lineIdx}`)) {
                         setTimeout(() => {
                             createLineElement(currentLine);
+                            scrollToBottom(); // Scroll immédiat à la création
                             typeMatrix(); 
                         }, 1500); 
                         return;
                     } else if (!document.getElementById(`mat-line-text-${lineIdx}`)) {
                         createLineElement(currentLine);
+                        scrollToBottom(); // Scroll immédiat à la création
                     }
                 }
 
@@ -1752,6 +1764,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 activeTextSpan.textContent += charToAdd;
                 charIdx++;
 
+                // UX : Scroll automatique à chaque lettre pour garder le focus
+                scrollToBottom();
+
                 // Vitesse variable
                 let baseSpeed = currentLine.speed || 50;
                 let variance = Math.random() * 30;
@@ -1762,6 +1777,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     // FIN DE LA LIGNE
                     lineIdx++;
                     charIdx = 0;
+                    scrollToBottom(); // Scroll de sécurité fin de ligne
 
                     // Pauses dramatiques
                     let pause = 400; 
@@ -1771,7 +1787,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     setTimeout(typeMatrix, pause);
                 }
             } else {
-                // FIN DU SCENARIO : On laisse le curseur clignoter à la fin
+                // FIN DU SCENARIO
             }
         }
 
@@ -1815,7 +1831,7 @@ document.addEventListener('DOMContentLoaded', function () {
         matrixObserver.observe(matrixContainer);
     }
 
-    
+
 
 
 
