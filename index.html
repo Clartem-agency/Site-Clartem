@@ -591,6 +591,23 @@
 
 
         <!-- ======================================================= -->
+        <!--    WRAPPER GLOBAL POUR LES ORBES FLOTTANTES             -->
+        <!-- ======================================================= -->
+        <div id="unified-orbs-container" class="relative">
+            <!-- ORBES FLOTTANTES (se baladent dans tout le conteneur) -->
+            <div class="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-[45]">
+                <!-- ORBE BLEU DOUX (Haut Gauche) -->
+                <div
+                    class="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-blue-300 rounded-full mix-blend-multiply filter blur-[80px] opacity-20 animate-flow-down-boosted">
+                </div>
+
+                <!-- ORBE BLEU DOUX (Bas Droite) -->
+                <div
+                    class="absolute top-[60%] right-[-10%] w-[500px] h-[500px] bg-blue-300 rounded-full mix-blend-multiply filter blur-[80px] opacity-20 animate-flow-up-boosted">
+                </div>
+            </div>
+
+        <!-- ======================================================= -->
         <!--    SECTION TRANSITION : LA MUE DIGITALE (MATRIX 2.0)    -->
         <!-- ======================================================= -->
 
@@ -679,27 +696,7 @@
         <!-- ======================================================= -->
         <!--    CONTENEUR UNIFIÉ : CONCEPT (Suite logique)           -->
         <!-- ======================================================= -->
-        <div class="relative bg-gray-50 overflow-hidden -mt-[25vh] pt-32 z-40">
-
-
-            <!-- ARRIÈRE-PLAN ANIMÉ COMMUN -->
-            <div class="absolute inset-0 w-full h-full pointer-events-none">
-
-
-
-                <!-- 2. ORBE BLEU DOUX (Haut Gauche) -->
-                <!-- Changé : bg-blue-300 (plus doux que le 500) et maintien de l'opacité basse -->
-                <div
-                    class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-300 rounded-full mix-blend-multiply filter blur-[80px] opacity-20 animate-flow-down-boosted">
-                </div>
-
-                <!-- 3. ORBE BLEU DOUX (Bas Droite - Anciennement Orange) -->
-                <!-- MODIFICATION : Passage de bottom-[-10%] à bottom-[15%] pour éviter le séparateur -->
-                <div
-                    class="absolute bottom-[15%] right-[-10%] w-[500px] h-[500px] bg-blue-300 rounded-full mix-blend-multiply filter blur-[80px] opacity-20 animate-flow-up-boosted">
-                </div>
-
-            </div>
+<div class="relative bg-gray-50 overflow-hidden -mt-[10vh] pt-10 z-40">
 
 
 
@@ -1229,6 +1226,8 @@
 
 
 
+        </div>
+        <!-- FIN DU WRAPPER GLOBAL POUR LES ORBES -->
         </div>
 
 
@@ -2415,7 +2414,7 @@
                                     </svg>
                                     <span class="tooltip-bubble">
                                         Fini le "@gmail.com". Je crée votre adresse professionnelle (ex:
-                                        contact@prenom-nom.com) pour <strong>crédibiliser immédiatement</strong> vos
+                                        <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2b4844455f4a485f6b5b594e4544460645444605484446">[email&#160;protected]</a>) pour <strong>crédibiliser immédiatement</strong> vos
                                         échanges.
                                     </span>
                                 </span>
@@ -4407,8 +4406,7 @@
                             </div>
                             <div>
                                 <p class="text-white font-bold text-base mb-0.5">Une question spécifique ?</p>
-                                <a href="mailto:contact@clartem.com"
-                                    class="text-gray-400 text-sm hover:text-warm-orange transition-colors flex items-center gap-2">
+                                <a href="/cdn-cgi/l/email-protection#22414d4c5643415662414e435056474f0c414d4f" class="text-gray-400 text-sm hover:text-warm-orange transition-colors flex items-center gap-2">
                                     Écrivez-moi directement &rarr;
                                 </a>
                             </div>
@@ -5137,11 +5135,7 @@
     </div>
 
 
-
-
-
-
-    <!-- Custom JS -->
+ <!-- Custom JS -->
     <script src="js/script.js"></script>
 
 
@@ -5149,3 +5143,6 @@
 </body> <!-- Fin du corps principal </body> -->
 
 </html>
+
+
+
