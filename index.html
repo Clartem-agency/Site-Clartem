@@ -305,6 +305,8 @@
                     </p>
                 </div>
 
+
+
                 <!-- LE TERMINAL (Style Message Matrix) -->
                 <div class="max-w-3xl mx-auto relative group" data-sr data-sr-delay="200">
 
@@ -313,8 +315,9 @@
                         class="absolute -inset-0.5 bg-gradient-to-r from-emerald-500/30 to-teal-500/30 rounded-xl blur opacity-30 group-hover:opacity-60 transition duration-1000">
                     </div>
 
+                    <!-- MODIFICATION ICI : h-[550px] md:h-[450px] au lieu de min-h-[300px] -->
                     <div
-                        class="relative bg-[#0B1120]/95 backdrop-blur-xl rounded-xl border border-white/10 overflow-hidden shadow-2xl min-h-[300px] flex flex-col">
+                        class="relative bg-[#0B1120]/95 backdrop-blur-xl rounded-xl border border-white/10 overflow-hidden shadow-2xl h-[550px] md:h-[450px] flex flex-col">
 
                         <!-- Effet Scanlines (Texture écran) -->
                         <div class="absolute inset-0 pointer-events-none z-20 scanlines"></div>
@@ -325,7 +328,7 @@
                         </div>
 
                         <!-- Barre de titre (Style Message Entrant) -->
-                        <div class="bg-black/60 px-4 py-3 flex items-center gap-2 border-b border-white/5">
+                        <div class="bg-black/60 px-4 py-3 flex items-center gap-2 border-b border-white/5 shrink-0">
                             <div class="flex gap-2">
                                 <div class="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/50"></div>
                                 <div class="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/50"></div>
@@ -338,19 +341,16 @@
                         </div>
 
                         <!-- Contenu du terminal -->
-                        <div
-                            class="p-6 md:p-10 font-mono text-base md:text-lg leading-relaxed flex-grow flex flex-col justify-center relative z-10 text-emerald-400 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)]">
+                        <!-- Terminal avec auto-scroll invisible : le texte remonte naturellement sans scrollbar visible -->
+                        <div id="terminal-content-wrapper"
+                            class="p-6 md:p-10 font-mono text-base md:text-lg leading-relaxed flex-grow flex flex-col relative z-10 text-emerald-400 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] overflow-y-scroll terminal-no-scrollbar">
 
                             <!-- Zone de texte dynamique -->
                             <div id="matrix-typewriter" class="space-y-4">
                                 <!-- Le JS va écrire ici -->
                             </div>
 
-                            <!-- Curseur clignotant -->
-                            <div class="mt-2">
-                                <span id="matrix-cursor"
-                                    class="inline-block w-3 h-6 bg-emerald-500/80 align-middle shadow-[0_0_10px_rgba(16,185,129,0.8)]"></span>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

@@ -3,34 +3,56 @@
 
 
 
+
 /* ======================================================= */
 /*          POLICE SECTION MANIFESTE (TERMINAL)       */
 /* ======================================================= */
 
-/* Import de la police style Terminal Matrix */
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+/* IMPORT DE LA NOUVELLE POLICE (Style Vieux Terminal CRT) */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+/* 
+ * TERMINAL SANS SCROLLBAR VISIBLE
+ * Le scroll fonctionne toujours (via JS auto-scroll) 
+ * mais la barre est cachée pour l'immersion
+ */
+.terminal-no-scrollbar {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+.terminal-no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
 
 /* Application de la police au terminal */
 #matrix-typewriter {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 1.1rem; /* Un peu plus gros pour la lisibilité */
-    line-height: 1.5;
+    font-family: 'VT323', monospace; /* La police rétro */
+    font-size: 1.5rem; /* On augmente la taille car VT323 est un peu petite */
+    line-height: 1.4;
+    letter-spacing: 1px; /* Espacement pour la lisibilité */
 }
 
-/* Curseur clignotant style vieux PC */
+/* LE SECRET DU HACKER : LUEUR VERTE (PHOSPHORESCENCE) */
+#matrix-typewriter div, 
+#matrix-typewriter span {
+    text-shadow: 0 0 4px rgba(52, 211, 153, 0.6), 0 0 8px rgba(16, 185, 129, 0.4);
+}
+
+/* Style spécifique pour la ligne de l'utilisateur (la question) */
+/* On la rend blanche avec une lueur blanche */
+#matrix-typewriter .text-white {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+/* Curseur clignotant style vieux PC (Bloc plein) */
 #matrix-cursor {
     display: inline-block;
-    width: 10px;
-    height: 1.2em;
+    width: 12px;
+    height: 1.4em; /* Ajusté à la nouvelle police */
     background-color: #10b981; /* Emerald 500 */
-    vertical-align: sub;
+    vertical-align: bottom;
+    box-shadow: 0 0 8px #10b981; /* Le curseur brille aussi */
 }
-
-/* Animation de lueur pour le texte final */
-.shadow-green-glow {
-    text-shadow: 0 0 5px rgba(16, 185, 129, 0.8), 0 0 10px rgba(16, 185, 129, 0.4);
-}
-
 
 
 
