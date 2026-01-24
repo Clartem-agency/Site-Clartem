@@ -38,9 +38,10 @@
 
 /* ======================================================= */
 /*    CORRECTIF : Empêche le débordement horizontal        */
+/*    NOTE: overflow-x: clip ne casse pas position: sticky */
 /* ======================================================= */
 body {
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 /* ======================================================= */
@@ -3438,9 +3439,12 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 /* ======================================================= */
 
 /* 1. Coupe tout dépassement horizontal sur tout le site */
+/* NOTE: On utilise overflow-x: clip au lieu de hidden    */
+/* car hidden casse le comportement de position: sticky   */
+/* clip fait le même travail sans créer de scroll context */
 html, body {
     max-width: 100%;
-    overflow-x: hidden !important;
+    overflow-x: clip;
 }
 
 /* 2. Force le lapin à disparaître sur mobile/tablette */
