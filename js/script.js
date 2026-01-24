@@ -1849,7 +1849,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const rbt_Btn = document.querySelector('#cta .btn-orange');
 
     // On vérifie que la section Blog existe bien (rbt_Blog)
-    if (rabbitEntity && rbt_Manifesto && rbt_Plan && rbt_Blog && rbt_CTA) {
+    // MODIFICATION : On ajoute une vérification de la taille d'écran
+    if (rabbitEntity && rbt_Manifesto && rbt_Plan && rbt_Blog && rbt_CTA && window.innerWidth >= 1024) {
 
         let hasPeekedManifesto = false;
         let hasPeekedPlan = false;
