@@ -17,7 +17,23 @@
     font-size: 1.5rem; /* On augmente la taille car VT323 est un peu petite */
     line-height: 1.4;
     letter-spacing: 1px; /* Espacement pour la lisibilité */
+
+/* MODIFICATIONS UX CRUCIALES */
+    overflow-y: hidden; /* 1. Cache la barre et empêche le scroll manuel (souris libérée) */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+    /* 2. Effet de fondu en haut : le texte disparaît doucement */
+    mask-image: linear-gradient(to bottom, transparent 0%, black 15%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%);
+    
+    height: 100%; /* S'assure qu'il remplit le terminal */
+    scroll-behavior: auto; /* Scroll instantané pour l'effet machine */
 }
+
+
+
 
 /* LE SECRET DU HACKER : LUEUR VERTE (PHOSPHORESCENCE) */
 #matrix-typewriter div, 
