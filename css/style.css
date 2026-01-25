@@ -4258,27 +4258,25 @@ body {
 /*    STYLE "ZEN TECH" (SECTION PLAN) - 2025               */
 /* ======================================================= */
 
-/* 1. LA CARTE DE BASE (Conteneur Verre Fumé) */
-/* Remplace l'ancienne classe .premium-card pour le style visuel */
+/* 1. LA CARTE DE BASE (Conteneur Verre Fumé - PROPRE) */
 .zen-glass-card {
-    /* Fond sombre semi-transparent (Bleu nuit très profond) */
+    /* Fond sombre semi-transparent */
     background: rgba(15, 23, 42, 0.7);
     
-    /* Le flou d'arrière-plan (Glassmorphism) */
+    /* Le flou d'arrière-plan */
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     
-    /* Bordures ultra-fines et lumineuses (Biseautage) */
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Bordures fines : On garde celle du haut pour la lumière, on allège les autres */
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-top: 1px solid rgba(255, 255, 255, 0.15); /* Lumière zénithale */
     border-radius: 24px;
     
-    /* Ombre très douce et diffuse (Zen) */
-    box-shadow: 
-        0 40px 80px -20px rgba(0, 0, 0, 0.5), /* Profondeur */
-        inset 0 0 0 1px rgba(255, 255, 255, 0.05); /* Lueur interne */
+    /* MODIFICATION ICI : On supprime l'ombre externe noire */
+    /* On ne garde que l'ombre INTERNE (inset) pour l'effet de volume */
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05); 
 
-    /* Layout : Grille 2 colonnes (Texte | Image) */
+    /* Layout */
     display: grid;
     grid-template-columns: 1.2fr 1fr;
     height: 500px;
@@ -4289,13 +4287,14 @@ body {
     transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Interaction au survol global de la carte */
+/* Interaction au survol (On reste subtil) */
 .zen-glass-card:hover {
-    border-color: rgba(255, 255, 255, 0.2); /* La bordure s'allume un peu */
-    box-shadow: 
-        0 50px 100px -20px rgba(0, 0, 0, 0.6),
-        inset 0 0 20px rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2); 
+    /* Au survol, on ajoute juste une lueur interne un peu plus forte, pas d'ombre externe */
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05);
 }
+
+
 
 /* 2. LE CONTENU TEXTE */
 .premium-content {
