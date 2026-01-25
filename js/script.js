@@ -2369,7 +2369,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // On crée une animation "Déploiement HUD"
         // La carte part tournée à 90deg (plate) et se redresse
         sr.reveal('[data-sr-matrix-card]', {
-            duration: 1500,  // PLUS LENT : Pour bien voir le mouvement (était 1200)
+            duration: 2000,  // RALENTI : 2 secondes pour un effet lourd et majestueux
             distance: '0px', // Pas de mouvement vertical, pure rotation
             opacity: 0,
             scale: 0.8,      // Part un peu plus petit
@@ -2378,11 +2378,9 @@ document.addEventListener('DOMContentLoaded', function () {
             rotate: { x: 90, y: 0, z: 0 },
 
             easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)', // Effet rebond élastique à la fin
-            interval: 200,   // Délai entre chaque carte
+            interval: 250,   // Délai un peu plus long entre chaque carte aussi (était 200)
 
-            // --- LA MODIFICATION CLÉ ICI ---
-            viewFactor: 0.5, // 50% de la carte doit être visible avant déclenchement (était 0.3)
-            // Cela force l'animation à se jouer plus près du centre de l'écran
+            viewFactor: 0.5, // 50% de la carte visible avant de lancer (bien centré)
 
             afterReveal: function (el) {
                 // Important : On nettoie le transform pour laisser le script de Tilt prendre le relais
