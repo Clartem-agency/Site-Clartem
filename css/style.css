@@ -1941,6 +1941,7 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 
+
 /* ======================================================= */
 /*    CORRECTIF TAILLE ICONES SECONDAIRES (OFFRES)         */
 /* ======================================================= */
@@ -1953,6 +1954,22 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 }
 
 
+
+
+/* ======================================================= */
+/*    Donne de la profondeur 3D à la grille des offres         */
+/* ======================================================= */
+
+#offres .grid {
+    perspective: 1200px;
+}
+
+/* Optimisation pour éviter les bugs d'affichage pendant l'animation */
+.premium-offer-card, 
+.premium-offer-card-dark {
+    will-change: transform, opacity;
+    transform-style: preserve-3d;
+}
 
 
 
