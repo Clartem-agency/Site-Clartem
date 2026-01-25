@@ -4364,3 +4364,20 @@ body {
         mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 100%);
     }
 }
+
+
+/* ======================================================= */
+/*    CORRECTIF LIAISON PLAN -> OBJECTIFS                  */
+/* ======================================================= */
+
+/* On cible la carte à l'intérieur du dernier panneau (.panel:last-child) */
+.panel:last-child .zen-glass-card {
+    /* On supprime l'ombre pour éviter la barre noire */
+    box-shadow: none !important;
+    
+    /* On supprime la bordure du bas pour une fusion parfaite */
+    border-bottom: none !important;
+    
+    /* On s'assure que le fond correspond exactement à la section suivante */
+    background: #0F172A !important; 
+}
