@@ -1274,32 +1274,48 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
-            // --- 2. LOGIQUE HORIZONTALE (X) - C'est ici que tout se joue ---
+
+            // --- 2. LOGIQUE HORIZONTALE (X) ---
             let targetX = 0;
             let currentLerpX = RETURN_SPEED;
 
-            if (isLocked) {
-                // L'utilisateur est sur un point important : L'âme revient se coller à la ligne
-                lastScrollTime = now;
+            // === CORRECTION MOBILE : L'ÂME RESTE SUR LES RAILS ===
+            if (isMobile) {
+                // Sur mobile, on force la position centrale absolue
                 targetX = 0;
-                currentLerpX = 0.2; // Retour rapide (Snap)
-            } else {
-                // Entre deux points : La dérive commence
-                if (now - lastScrollTime > IDLE_DELAY) {
-                    // Si on ne scroll plus depuis 1 seconde
-                    isIdle = true;
 
-                    // On définit la cible : Vers la droite (ou gauche PC) à X pixels
-                    targetX = driftDirection * MAX_DRIFT_X;
+                // On annule l'état "Idle" pour éviter que ça vibre
+                isIdle = false;
 
-                    // Vitesse lente pour montrer qu'elle "part" doucement
-                    currentLerpX = DRIFT_SPEED;
-                } else {
-                    // Si on scroll, elle reste au centre
+                // On garde une physique réactive pour suivre la ligne
+                currentLerpX = 0.2;
+            }
+            else {
+                // === VERSION DESKTOP (AVEC DÉRIVE) ===
+                if (isLocked) {
+                    // L'utilisateur est sur un point important : L'âme revient se coller à la ligne
+                    lastScrollTime = now;
                     targetX = 0;
-                    currentLerpX = RETURN_SPEED;
+                    currentLerpX = 0.2; // Retour rapide (Snap)
+                } else {
+                    // Entre deux points : La dérive commence
+                    if (now - lastScrollTime > IDLE_DELAY) {
+                        // Si on ne scroll plus depuis 1 seconde
+                        isIdle = true;
+
+                        // On définit la cible : Vers la droite (ou gauche PC) à X pixels
+                        targetX = driftDirection * MAX_DRIFT_X;
+
+                        // Vitesse lente pour montrer qu'elle "part" doucement
+                        currentLerpX = DRIFT_SPEED;
+                    } else {
+                        // Si on scroll, elle reste au centre
+                        targetX = 0;
+                        currentLerpX = RETURN_SPEED;
+                    }
                 }
             }
+
 
             // --- 3. APPLICATION PHYSIQUE ---
             if (currentY === 0) {
