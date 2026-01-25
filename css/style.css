@@ -702,134 +702,7 @@ html {
 
 
 
-/* ======================================================= */
-/*             STYLES POUR LA BENTO GRID                   */
-/* ======================================================= */
 
-.bento-card {
-    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.bento-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
-}
-
-
-
-
-/* ======================================================= */
-/*    NOUVEAU STYLE PREMIUM POUR LA SECTION PLAN (FINAL)   */
-/* ======================================================= */
-
-.premium-card {
-    background: rgba(30, 41, 59, 0.7);
-    /* Fond sombre semi-transparent */
-    backdrop-filter: blur(20px);
-    /* Effet de flou */
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 24px;
-
-    /* MODIFICATION ICI : On supprime l'ombre massive qui bavait */
-    box-shadow: none;
-    /* Si vous voulez garder un tout petit relief, utilisez ceci à la place : */
-    /* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2); */
-
-    overflow: hidden;
-
-    /* Layout Desktop : Texte à gauche, Image à droite */
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    height: 500px;
-}
-
-/* CORRECTIF VISUEL : La dernière carte devient opaque pour cacher celle d'avant */
-.panel:last-child .premium-card {
-    background-color: #1F2937;
-    /* Gris foncé solide (plus de transparence) */
-    backdrop-filter: none;
-    /* On enlève le flou */
-
-    /* --- CORRECTION ICI --- */
-    box-shadow: none !important;
-    /* Supprime l'ombre noire */
-}
-
-.premium-content {
-    padding: 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    /* CORRECTIF IMPORTANT : Rend le contenu (et le bouton) cliquable */
-    pointer-events: auto !important;
-    z-index: 20;
-}
-
-.premium-image-wrapper {
-    height: 100%;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    z-index: 10;
-}
-
-.premium-image {
-    width: 100%;
-    height: 100%;
-    /* CORRECTIF IMPORTANT : Force l'image à remplir tout le cadre (même la dernière) */
-    object-fit: cover;
-    transition: transform 0.7s ease;
-}
-
-/* Zoom lent au survol */
-.premium-card:hover .premium-image {
-    transform: scale(1.05);
-}
-
-/* Le gros numéro en arrière-plan */
-.step-number {
-    position: absolute;
-    top: 10px;
-    left: 20px;
-    font-size: 8rem;
-    font-weight: 800;
-    line-height: 1;
-    opacity: 0.5;
-    user-select: none;
-    font-family: sans-serif;
-    color: #374151;
-    /* Gris foncé pour se fondre dans le sombre */
-}
-
-/* --- RESPONSIVE MOBILE & TABLETTE (< 1024px) --- */
-@media (max-width: 1024px) {
-    .premium-card {
-        grid-template-columns: 1fr;
-        /* Une seule colonne */
-        grid-template-rows: auto 250px;
-        /* Texte en haut, Image en bas */
-        height: auto;
-        min-height: 500px;
-    }
-
-    .step-number {
-        font-size: 5rem;
-        top: 10px;
-        right: 20px;
-        left: auto;
-        /* On le met à droite sur mobile pour éviter de gêner le titre */
-    }
-
-    .premium-content {
-        padding: 2rem;
-    }
-}
 
 
 
@@ -4373,4 +4246,121 @@ body {
 /* 4. Animation du fond noir (Backdrop) plus douce */
 .backdrop-smooth {
     transition: opacity 0.8s ease-out;
+}
+
+
+
+
+
+
+
+/* ======================================================= */
+/*    STYLE "ZEN TECH" (SECTION PLAN) - 2025               */
+/* ======================================================= */
+
+/* 1. LA CARTE DE BASE (Conteneur Verre Fumé) */
+/* Remplace l'ancienne classe .premium-card pour le style visuel */
+.zen-glass-card {
+    /* Fond sombre semi-transparent (Bleu nuit très profond) */
+    background: rgba(15, 23, 42, 0.7);
+    
+    /* Le flou d'arrière-plan (Glassmorphism) */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    
+    /* Bordures ultra-fines et lumineuses (Biseautage) */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.15); /* Lumière zénithale */
+    border-radius: 24px;
+    
+    /* Ombre très douce et diffuse (Zen) */
+    box-shadow: 
+        0 40px 80px -20px rgba(0, 0, 0, 0.5), /* Profondeur */
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05); /* Lueur interne */
+
+    /* Layout : Grille 2 colonnes (Texte | Image) */
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    height: 500px;
+    width: 100%;
+    
+    overflow: hidden;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Interaction au survol global de la carte */
+.zen-glass-card:hover {
+    border-color: rgba(255, 255, 255, 0.2); /* La bordure s'allume un peu */
+    box-shadow: 
+        0 50px 100px -20px rgba(0, 0, 0, 0.6),
+        inset 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+/* 2. LE CONTENU TEXTE */
+.premium-content {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 20;
+    height: 100%;
+}
+
+/* 3. L'IMAGE (FUSIONNÉE) */
+.premium-image-wrapper {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    
+    /* LE SECRET DU ZEN : Masque de fusion CSS */
+    /* L'image s'efface progressivement vers la gauche pour se fondre dans le texte */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 20%, black 100%);
+}
+
+.premium-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+    /* Par défaut : légèrement sombre et désaturée (Look Cinéma) */
+    filter: saturate(0) contrast(1.1) brightness(0.8);
+    
+    transition: transform 0.8s ease, filter 0.8s ease, opacity 0.8s ease;
+}
+
+/* Au survol : L'image prend vie (Couleur + Zoom) */
+.group:hover .premium-image {
+    transform: scale(1.05);
+    filter: saturate(1) contrast(1) brightness(1); /* Retour à la normale */
+}
+
+/* 4. TYPOGRAPHIE TECH */
+.font-mono {
+    /* Utilise la police système monospace ou celle importée (ex: VT323) */
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* --- RESPONSIVE MOBILE & TABLETTE (< 1024px) --- */
+@media (max-width: 1024px) {
+    .zen-glass-card {
+        grid-template-columns: 1fr; /* Une seule colonne */
+        grid-template-rows: auto 250px; /* Texte en haut, Image en bas */
+        height: auto;
+        min-height: 550px;
+        max-height: 80vh; /* Sécurité pour petits écrans */
+    }
+
+    .premium-content {
+        padding: 2rem; /* Marges réduites */
+    }
+
+    /* Sur mobile, le dégradé de fusion se fait du HAUT vers le BAS */
+    .premium-image-wrapper {
+        -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 100%);
+        mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 100%);
+    }
 }
