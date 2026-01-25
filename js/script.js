@@ -2433,4 +2433,55 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+
+    // ==================================================================
+    // 3D ATMOSPHÉRIQUE : SECTION A PROPOS (L'HISTOIRE)
+    // ==================================================================
+    const storyContainer = document.getElementById('story-card-container');
+    const storyCard = document.getElementById('story-card');
+
+    if (storyContainer && storyCard) {
+        
+        storyContainer.addEventListener('mousemove', (e) => {
+            const rect = storyContainer.getBoundingClientRect();
+            
+            // Calcul de la position de la souris relative au centre de la carte
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            // Rotation TRÈS subtile (max 2 ou 3 degrés) pour un effet "lourd"
+            // rotateY est inversé pour un mouvement naturel
+            const rotateX = ((y - centerY) / centerY) * -2; 
+            const rotateY = ((x - centerX) / centerX) * 2;
+
+            // Application de la transformation
+            storyCard.style.transform = `
+                rotateX(${rotateX}deg) 
+                rotateY(${rotateY}deg) 
+                scale3d(1.01, 1.01, 1.01)
+            `;
+
+            // Mise à jour des variables pour la lumière dynamique (le spot)
+            storyCard.style.setProperty('--mouse-x', `${x}px`);
+            storyCard.style.setProperty('--mouse-y', `${y}px`);
+        });
+
+        // Retour au calme fluide quand la souris quitte
+        storyContainer.addEventListener('mouseleave', () => {
+            storyCard.style.transition = 'transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)'; // Transition lente et élégante
+            storyCard.style.transform = 'rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            
+            // On retire la transition lente après un moment pour que le prochain survol soit réactif
+            setTimeout(() => {
+                storyCard.style.transition = 'transform 0.1s ease-out';
+            }, 800);
+        });
+    }
+
+
+
+
 });
