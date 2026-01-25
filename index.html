@@ -1528,10 +1528,19 @@
                         </div>
                     </div>
 
+
                     <!-- CARTE FINAL CTA (FOND SOMBRE & SANS OMBRE) -->
                     <div class="panel absolute w-[90%] max-w-5xl" style="--index: 5;">
                         <!-- Notez le fond bg-[#0F172A] qui est le même que le bg-neutral-dark de la suite -->
-                        <div class="premium-card zen-glass-card bg-[#0F172A] border-white/20">
+                        <!-- AJOUT : 'relative overflow-hidden' pour contenir la lueur proprement -->
+                        <div class="premium-card zen-glass-card bg-[#0F172A] border-white/20 relative overflow-hidden">
+
+                            <!-- NOUVELLE LUEUR DE LIAISON (BRIDGE GLOW) -->
+                            <!-- Placée DANS la carte, en bas à droite. Elle ne sera jamais coupée. -->
+                            <div
+                                class="absolute -bottom-24 -right-24 w-96 h-96 bg-clarity-blue/30 rounded-full blur-[100px] pointer-events-none z-0">
+                            </div>
+
                             <div class="premium-content relative z-20 flex flex-col justify-center h-full">
                                 <h3 class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
                                     Prêt à lancer <br>
@@ -1568,10 +1577,11 @@
                         </div>
                     </div>
 
+
                 </div>
             </div>
 
-        
+
 
         </section>
 
