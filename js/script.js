@@ -2353,13 +2353,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    
+
 
 
 
     // ==================================================================
     // LOGIQUE MATRIX CARDS : 3D TILT & ENTRÉE WOW
     // ==================================================================
+
 
     // 1. ANIMATION D'ENTRÉE (SCROLLREVEAL SPÉCIFIQUE)
     if (typeof ScrollReveal !== 'undefined') {
@@ -2368,7 +2369,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // On crée une animation "Déploiement HUD"
         // La carte part tournée à 90deg (plate) et se redresse
         sr.reveal('[data-sr-matrix-card]', {
-            duration: 1200,
+            duration: 1500,  // PLUS LENT : Pour bien voir le mouvement (était 1200)
             distance: '0px', // Pas de mouvement vertical, pure rotation
             opacity: 0,
             scale: 0.8,      // Part un peu plus petit
@@ -2378,7 +2379,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)', // Effet rebond élastique à la fin
             interval: 200,   // Délai entre chaque carte
-            viewFactor: 0.3,
+
+            // --- LA MODIFICATION CLÉ ICI ---
+            viewFactor: 0.5, // 50% de la carte doit être visible avant déclenchement (était 0.3)
+            // Cela force l'animation à se jouer plus près du centre de l'écran
 
             afterReveal: function (el) {
                 // Important : On nettoie le transform pour laisser le script de Tilt prendre le relais
@@ -2387,6 +2391,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
 
     // 2. EFFET TILT (SUIVI DE SOURIS)
     const matrixCards = document.querySelectorAll('.matrix-card-3d');
