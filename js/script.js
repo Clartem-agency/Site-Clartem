@@ -1883,20 +1883,32 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
+
         // Observer pour lancer l'anim quand visible
         const matrixObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !isMatrixRunning) {
                     isMatrixRunning = true;
-                    matrixContainer.innerHTML = ''; // Reset
+
+                    // 1. ÉTAT D'ATTENTE : On affiche juste le curseur clignotant
+                    // Cela montre que le terminal est "allumé" mais attend son tour
+                    matrixContainer.innerHTML = '';
+                    matrixContainer.appendChild(cursor);
+
+                    // 2. LANCEMENT DIFFÉRÉ : On laisse 2.5s à l'utilisateur pour lire le titre au-dessus
                     lineIdx = 0;
                     charIdx = 0;
-                    setTimeout(typeMatrix, 800);
+
+                    setTimeout(() => {
+                        matrixContainer.innerHTML = ''; // On nettoie pour commencer propre
+                        typeMatrix(); // Lancement de la séquence
+                    }, 2500); // DÉLAI AUGMENTÉ : 800ms -> 2500ms
                 }
             });
-        }, { threshold: 0.4 });
+        }, { threshold: 0.6 }); // SEUIL AUGMENTÉ : 0.4 -> 0.6 (Déclenche quand l'élément est bien centré)
 
         matrixObserver.observe(matrixContainer);
+
     }
 
 
