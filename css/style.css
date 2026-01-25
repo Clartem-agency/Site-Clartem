@@ -17,11 +17,15 @@
  * mais la barre est cachée pour l'immersion
  */
 .terminal-no-scrollbar {
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE/Edge */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
 }
+
 .terminal-no-scrollbar::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    display: none;
+    /* Chrome, Safari, Opera */
 }
 
 
@@ -29,27 +33,30 @@
 /* Application de la police au terminal */
 #matrix-typewriter {
     font-family: 'VT323', monospace;
-    font-size: 1.1rem; /* TAILLE RÉDUITE POUR MOBILE (était 1.5rem) */
+    font-size: 1.1rem;
+    /* TAILLE RÉDUITE POUR MOBILE (était 1.5rem) */
     line-height: 1.4;
-    letter-spacing: 0.5px; /* Espacement réduit légèrement */
+    letter-spacing: 0.5px;
+    /* Espacement réduit légèrement */
 }
 
 /* Version Desktop : On peut agrandir un peu, mais on reste raisonnable */
 @media (min-width: 768px) {
     #matrix-typewriter {
-        font-size: 1.4rem; 
+        font-size: 1.4rem;
     }
 }
 
 /* PAR DÉFAUT : Lueur blanche légère (style écran cathodique standard) */
-#matrix-typewriter div, 
+#matrix-typewriter div,
 #matrix-typewriter span {
     text-shadow: 0 0 2px rgba(255, 255, 255, 0.4);
 }
 
 /* CLASSE SPÉCIALE : Lueur Verte Matrix (uniquement pour les textes choisis) */
 .matrix-green-glow {
-    color: #10b981 !important; /* Emerald 500 */
+    color: #10b981 !important;
+    /* Emerald 500 */
     text-shadow: 0 0 5px rgba(16, 185, 129, 0.8), 0 0 10px rgba(16, 185, 129, 0.4) !important;
 }
 
@@ -81,11 +88,13 @@ body {
     font-size: 1rem;
     text-align: center;
     cursor: pointer;
-    line-height: 1.5; /* Assure un alignement correct du texte */
+    line-height: 1.5;
+    /* Assure un alignement correct du texte */
 }
 
 .btn-primary {
-    background-image: linear-gradient(120deg, #3B82F6, #1E3A8A, #3B82F6); /* clarity-blue, deep-blue */
+    background-image: linear-gradient(120deg, #3B82F6, #1E3A8A, #3B82F6);
+    /* clarity-blue, deep-blue */
     background-size: 250% auto;
     background-position: 30% 0;
     color: #ffffff;
@@ -101,8 +110,10 @@ body {
 
 .btn-secondary {
     background-color: transparent;
-    color: #1E3A8A; /* deep-blue */
-    border: 2px solid #1E3A8A; /* deep-blue */
+    color: #1E3A8A;
+    /* deep-blue */
+    border: 2px solid #1E3A8A;
+    /* deep-blue */
     transition: all 0.35s ease;
     position: relative;
     z-index: 1;
@@ -116,7 +127,8 @@ body {
     left: 0;
     width: 0;
     height: 100%;
-    background-color: #1E3A8A; /* deep-blue */
+    background-color: #1E3A8A;
+    /* deep-blue */
     transition: width 0.35s ease-out;
     z-index: -1;
 }
@@ -145,12 +157,14 @@ body {
 }
 
 .hero-bg .btn-secondary:hover {
-    color: #1E3A8A; /* deep-blue */
+    color: #1E3A8A;
+    /* deep-blue */
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.25);
 }
 
 .btn-orange {
-    background-image: linear-gradient(120deg, #fb923c, #F97316); /* warm-orange */
+    background-image: linear-gradient(120deg, #fb923c, #F97316);
+    /* warm-orange */
     color: #ffffff;
     border: none;
     box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
@@ -198,15 +212,17 @@ html {
 /* ======================================================= */
 .hero-bg {
     position: relative;
-    background-image: url('../assets/background-hero.webp'); /* Image de remplacement de haute qualité */
+    background-image: url('../assets/background-hero.webp');
+    /* Image de remplacement de haute qualité */
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Effet de parallaxe subtil */
+    background-attachment: fixed;
+    /* Effet de parallaxe subtil */
 }
 
 
 /* Assurez-vous que le contenu est au-dessus de la superposition */
-.hero-bg > .container {
+.hero-bg>.container {
     position: relative;
     z-index: 2;
 }
@@ -220,7 +236,8 @@ html {
 /* ======================================================= */
 
 #value-proposition-section {
-    background-color: #ffffff; /* Fond blanc simple */
+    background-color: #ffffff;
+    /* Fond blanc simple */
 }
 
 
@@ -229,16 +246,16 @@ html {
     /* On garde juste la transition pour le survol */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     /* Assurez-vous que le fond est blanc et qu'il y a une bordure si nécessaire */
-    background-color: white; 
+    background-color: white;
 }
 
 
 .value-prop-card:hover {
     /* AJOUT DE !important ICI */
-    transform: translateY(-5px) !important; 
-    
+    transform: translateY(-5px) !important;
+
     /* On l'ajoute aussi ici par sécurité pour l'ombre */
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important; 
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
 }
 
 
@@ -254,34 +271,46 @@ html {
 /*    AJUSTEMENT MOBILE POUR LES CARTES STICKY             */
 /* ======================================================= */
 @media (max-width: 768px) {
+
     /* On ajuste la hauteur du conteneur pour que le scroll soit moins long sur mobile */
     #stacking-container {
-        height: 400vh !important; /* Un peu moins haut que les 500vh du desktop */
+        height: 400vh !important;
+        /* Un peu moins haut que les 500vh du desktop */
     }
 
     /* On adapte la carte pour qu'elle rentre dans un écran de téléphone */
     .premium-card {
-        height: auto !important; /* Laisser la hauteur s'adapter au contenu */
-        min-height: 65vh; /* Occupe une bonne partie de l'écran mais pas tout */
-        max-height: 80vh; /* Évite que ça dépasse de l'écran */
-        overflow-y: auto; /* Permet de scroller DANS la carte si le texte est trop long */
-        
+        height: auto !important;
+        /* Laisser la hauteur s'adapter au contenu */
+        min-height: 65vh;
+        /* Occupe une bonne partie de l'écran mais pas tout */
+        max-height: 80vh;
+        /* Évite que ça dépasse de l'écran */
+        overflow-y: auto;
+        /* Permet de scroller DANS la carte si le texte est trop long */
+
         display: flex !important;
-        flex-direction: column-reverse; /* Image en haut (ou bas selon préférence), Texte ensuite */
+        flex-direction: column-reverse;
+        /* Image en haut (ou bas selon préférence), Texte ensuite */
     }
 
     .premium-content {
-        padding: 1.5rem !important; /* Moins de padding pour gagner de la place */
-        flex: 1; /* Prend l'espace restant */
+        padding: 1.5rem !important;
+        /* Moins de padding pour gagner de la place */
+        flex: 1;
+        /* Prend l'espace restant */
     }
 
     .premium-image-wrapper {
-        height: 200px !important; /* Image plus petite sur mobile */
-        flex-shrink: 0; /* Empêche l'image de disparaître */
+        height: 200px !important;
+        /* Image plus petite sur mobile */
+        flex-shrink: 0;
+        /* Empêche l'image de disparaître */
     }
-    
+
     .step-number {
-        font-size: 4rem !important; /* Chiffre plus petit */
+        font-size: 4rem !important;
+        /* Chiffre plus petit */
         top: 0px !important;
         right: 10px !important;
     }
@@ -319,23 +348,33 @@ html {
 /* --- Style des boutons de filtre de catégorie --- */
 .filter-btn {
     padding: 8px 16px;
-    border-radius: 9999px; /* rounded-full */
-    font-weight: 600; /* font-semibold */
-    font-size: 0.875rem; /* text-sm */
-    background-color: #ffffff; /* bg-white */
-    color: #3B82F6; /* text-clarity-blue */
-    border: 1px solid #3B82F6; /* border-clarity-blue */
+    border-radius: 9999px;
+    /* rounded-full */
+    font-weight: 600;
+    /* font-semibold */
+    font-size: 0.875rem;
+    /* text-sm */
+    background-color: #ffffff;
+    /* bg-white */
+    color: #3B82F6;
+    /* text-clarity-blue */
+    border: 1px solid #3B82F6;
+    /* border-clarity-blue */
     transition: all 0.2s ease-in-out;
 }
 
 .filter-btn:hover {
-    background-color: #EFF6FF; /* soft-blue */
+    background-color: #EFF6FF;
+    /* soft-blue */
 }
 
 .filter-btn.active {
-    background-color: #1E3A8A; /* bg-deep-blue */
-    color: #ffffff; /* text-white */
-    border-color: #1E3A8A; /* border-deep-blue */
+    background-color: #1E3A8A;
+    /* bg-deep-blue */
+    color: #ffffff;
+    /* text-white */
+    border-color: #1E3A8A;
+    /* border-deep-blue */
 }
 
 /* --- Style des boutons de pagination --- */
@@ -345,23 +384,33 @@ html {
     justify-content: center;
     width: 40px;
     height: 40px;
-    border-radius: 8px; /* rounded-lg */
-    font-weight: 600; /* font-semibold */
-    background-color: #ffffff; /* bg-white */
-    color: #3B82F6; /* text-clarity-blue */
-    border: 1px solid #d1d5db; /* border-gray-300 */
+    border-radius: 8px;
+    /* rounded-lg */
+    font-weight: 600;
+    /* font-semibold */
+    background-color: #ffffff;
+    /* bg-white */
+    color: #3B82F6;
+    /* text-clarity-blue */
+    border: 1px solid #d1d5db;
+    /* border-gray-300 */
     transition: all 0.2s ease-in-out;
 }
 
 .pagination-btn:hover:not(:disabled) {
-    border-color: #3B82F6; /* border-clarity-blue */
-    background-color: #EFF6FF; /* bg-soft-blue */
+    border-color: #3B82F6;
+    /* border-clarity-blue */
+    background-color: #EFF6FF;
+    /* bg-soft-blue */
 }
 
 .pagination-btn.active {
-    background-color: #1E3A8A; /* bg-deep-blue */
-    color: #ffffff; /* text-white */
-    border-color: #1E3A8A; /* border-deep-blue */
+    background-color: #1E3A8A;
+    /* bg-deep-blue */
+    color: #ffffff;
+    /* text-white */
+    border-color: #1E3A8A;
+    /* border-deep-blue */
     cursor: default;
 }
 
@@ -377,7 +426,8 @@ html {
     justify-content: center;
     width: 40px;
     height: 40px;
-    color: #6B7280; /* neutral-light */
+    color: #6B7280;
+    /* neutral-light */
     font-weight: 600;
 }
 
@@ -401,49 +451,70 @@ html {
     background-color: transparent;
     box-shadow: none;
     /* On réduit l'espace vertical : 15px au lieu de 20px */
-    padding-top: 15px; 
+    padding-top: 15px;
     padding-bottom: 15px;
 }
 
 /* Les liens sont BLANCS */
 .nav-link {
-    color: #ffffff; 
+    color: #ffffff;
 }
+
 .nav-link:hover {
-    color: #F97316; /* warm-orange */
+    color: #F97316;
+    /* warm-orange */
 }
 
 /* Gestion des logos */
-#logo-white { opacity: 1; }
-#logo-color { opacity: 0; }
+#logo-white {
+    opacity: 1;
+}
+
+#logo-color {
+    opacity: 0;
+}
 
 
 /* --- 2. ÉTAT SCROLLÉ (Sticky & Compact) --- */
 #main-nav.scrolled {
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Ombre plus douce */
-    
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    /* Ombre plus douce */
+
     /* On rend la barre très compacte au scroll : 8px seulement */
-    padding-top: 8px;    
+    padding-top: 8px;
     padding-bottom: 8px;
 }
 
 /* Les liens deviennent GRIS FONCÉ */
 #main-nav.scrolled .nav-link {
-    color: #1F2937; /* neutral-dark */
+    color: #1F2937;
+    /* neutral-dark */
 }
+
 #main-nav.scrolled .nav-link:hover {
-    color: #3B82F6; /* clarity-blue */
+    color: #3B82F6;
+    /* clarity-blue */
 }
 
 /* Inversion des logos */
-#main-nav.scrolled #logo-white { opacity: 0; }
-#main-nav.scrolled #logo-color { opacity: 1; }
+#main-nav.scrolled #logo-white {
+    opacity: 0;
+}
+
+#main-nav.scrolled #logo-color {
+    opacity: 1;
+}
 
 /* Menu Mobile Hamburger */
-#mobile-menu-button { color: #ffffff; }
-#main-nav.scrolled #mobile-menu-button { color: #1F2937; }
+#mobile-menu-button {
+    color: #ffffff;
+}
+
+#main-nav.scrolled #mobile-menu-button {
+    color: #1F2937;
+}
 
 
 
@@ -469,12 +540,12 @@ html {
     height: 100%;
     background-image: url('../assets/background-hero.webp');
     background-size: cover;
-    
+
     /* PAR DÉFAUT (Desktop) : On centre l'image */
     background-position: center center;
-    
-    z-index: 0; 
-    
+
+    z-index: 0;
+
     animation: kenBurnsEffect 15s ease-in-out infinite alternate;
 }
 
@@ -483,14 +554,18 @@ html {
 @media (max-width: 768px) {
     .hero-ken-burns {
         /* 1. On inverse les dimensions pour que le bloc couvre bien l'écran une fois tourné */
-        width: 100vh;  /* La largeur devient la hauteur de l'écran */
-        height: 100vw; /* La hauteur devient la largeur de l'écran */
-        
+        width: 100vh;
+        /* La largeur devient la hauteur de l'écran */
+        height: 100vw;
+        /* La hauteur devient la largeur de l'écran */
+
         /* 2. On centre le bloc parfaitement avant de le tourner */
         top: 50%;
         left: 50%;
-        margin-left: -50vh; /* Moitié de la nouvelle largeur */
-        margin-top: -50vw;  /* Moitié de la nouvelle hauteur */
+        margin-left: -50vh;
+        /* Moitié de la nouvelle largeur */
+        margin-top: -50vw;
+        /* Moitié de la nouvelle hauteur */
 
         /* 3. On applique une nouvelle animation qui inclut la rotation */
         animation-name: kenBurnsMobileRotate;
@@ -504,6 +579,7 @@ html {
         /* Rotation de 90deg + Taille normale */
         transform: rotate(90deg) scale(1);
     }
+
     100% {
         /* Rotation de 90deg + Zoom léger (1.15) */
         transform: rotate(90deg) scale(1.15);
@@ -514,21 +590,26 @@ html {
 
 /* 2. L'Overlay (Au milieu) */
 .hero-overlay {
-    position: absolute; /* Force la position absolue */
-    top: 0; left: 0; right: 0; bottom: 0; /* Prend tout l'espace */
-    
+    position: absolute;
+    /* Force la position absolue */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Prend tout l'espace */
+
     /* --- MODIFICATION ICI --- */
     /* On utilise un dégradé qui part du noir/bleu nuit (en bas) vers un bleu profond (en haut) */
     /* 0.95 = 95% d'opacité en bas (le texte sera très lisible) */
     /* 0.75 = 75% d'opacité en haut (on devine les points sans être gêné) */
-    background: linear-gradient(
-        0deg, 
-        rgba(15, 23, 42, 0.95), 
-        rgba(30, 58, 138, 0.75)
-    );
-    
-    z-index: 10 !important; /* ÉTAGE 1 : LE TAPIS */
-    pointer-events: none !important; /* Les clics traversent cet élément */
+    background: linear-gradient(0deg,
+            rgba(15, 23, 42, 0.95),
+            rgba(30, 58, 138, 0.75));
+
+    z-index: 10 !important;
+    /* ÉTAGE 1 : LE TAPIS */
+    pointer-events: none !important;
+    /* Les clics traversent cet élément */
 }
 
 
@@ -536,13 +617,19 @@ html {
 /* 3. Le Contenu Texte (Tout au dessus) */
 #hero .container {
     position: relative;
-    z-index: 20 !important; /* ÉTAGE 2 : LES MEUBLES */
+    z-index: 20 !important;
+    /* ÉTAGE 2 : LES MEUBLES */
 }
 
 /* Animations (inchangées) */
 @keyframes kenBurnsEffect {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.15); }
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.15);
+    }
 }
 
 .animate-blur-rise {
@@ -556,6 +643,7 @@ html {
         transform: translateY(60px);
         filter: blur(12px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -563,9 +651,17 @@ html {
     }
 }
 
-.delay-0 { animation-delay: 0.2s; } 
-.delay-1 { animation-delay: 0.8s; } 
-.delay-2 { animation-delay: 1.4s; }
+.delay-0 {
+    animation-delay: 0.2s;
+}
+
+.delay-1 {
+    animation-delay: 0.8s;
+}
+
+.delay-2 {
+    animation-delay: 1.4s;
+}
 
 
 
@@ -578,7 +674,8 @@ html {
 .hero-bg .btn-secondary {
     color: #ffffff !important;
     border-color: rgba(255, 255, 255, 0.3) !important;
-    background-color: rgba(255, 255, 255, 0.05); /* Très légère teinte */
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Très légère teinte */
     position: relative;
     z-index: 50;
 }
@@ -592,10 +689,13 @@ html {
 
 /* 3. État au survol (Effet verre dépoli) */
 .hero-bg .btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.15) !important; /* Fond semi-transparent */
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    /* Fond semi-transparent */
     border-color: #ffffff !important;
-    color: #ffffff !important; /* Texte blanc */
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* Lueur */
+    color: #ffffff !important;
+    /* Texte blanc */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    /* Lueur */
     transform: translateY(-3px);
 }
 
@@ -607,8 +707,8 @@ html {
 /* ======================================================= */
 
 .bento-card {
-    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-                box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -627,14 +727,16 @@ html {
 /* ======================================================= */
 
 .premium-card {
-    background: rgba(30, 41, 59, 0.7); /* Fond sombre semi-transparent */
-    backdrop-filter: blur(20px);       /* Effet de flou */
+    background: rgba(30, 41, 59, 0.7);
+    /* Fond sombre semi-transparent */
+    backdrop-filter: blur(20px);
+    /* Effet de flou */
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 24px;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     overflow: hidden;
-    
+
     /* Layout Desktop : Texte à gauche, Image à droite */
     display: grid;
     grid-template-columns: 1.2fr 1fr;
@@ -643,8 +745,16 @@ html {
 
 /* CORRECTIF VISUEL : La dernière carte devient opaque pour cacher celle d'avant */
 .panel:last-child .premium-card {
-    background-color: #1F2937; /* Gris foncé solide (plus de transparence) */
-    backdrop-filter: none;     /* On enlève le flou */
+    background-color: #1F2937;
+    /* Gris foncé solide (plus de transparence) */
+    backdrop-filter: none;
+    /* On enlève le flou */
+
+    /* --- CORRECTION ICI --- */
+    box-shadow: none !important;
+    /* Supprime l'ombre noire */
+    border-bottom: none !important;
+    /* Supprime la ligne blanche en bas pour une fusion parfaite */
 }
 
 .premium-content {
@@ -670,7 +780,7 @@ html {
     width: 100%;
     height: 100%;
     /* CORRECTIF IMPORTANT : Force l'image à remplir tout le cadre (même la dernière) */
-    object-fit: cover; 
+    object-fit: cover;
     transition: transform 0.7s ease;
 }
 
@@ -690,25 +800,29 @@ html {
     opacity: 0.5;
     user-select: none;
     font-family: sans-serif;
-    color: #374151; /* Gris foncé pour se fondre dans le sombre */
+    color: #374151;
+    /* Gris foncé pour se fondre dans le sombre */
 }
 
 /* --- RESPONSIVE MOBILE & TABLETTE (< 1024px) --- */
 @media (max-width: 1024px) {
     .premium-card {
-        grid-template-columns: 1fr; /* Une seule colonne */
-        grid-template-rows: auto 250px; /* Texte en haut, Image en bas */
+        grid-template-columns: 1fr;
+        /* Une seule colonne */
+        grid-template-rows: auto 250px;
+        /* Texte en haut, Image en bas */
         height: auto;
         min-height: 500px;
     }
-    
+
     .step-number {
         font-size: 5rem;
         top: 10px;
         right: 20px;
-        left: auto; /* On le met à droite sur mobile pour éviter de gêner le titre */
+        left: auto;
+        /* On le met à droite sur mobile pour éviter de gêner le titre */
     }
-    
+
     .premium-content {
         padding: 2rem;
     }
@@ -744,9 +858,17 @@ html {
 
 /* Les étapes de l'animation (gauche -> droite -> gauche) */
 @keyframes animatedTextGradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 
@@ -755,7 +877,8 @@ html {
 /*    STYLE DU TERMINAL                                    */
 /* ======================================================= */
 #typewriter-container {
-    font-family: 'Courier New', Courier, monospace; /* Police style code */
+    font-family: 'Courier New', Courier, monospace;
+    /* Police style code */
     line-height: 1.6;
 }
 
@@ -765,8 +888,15 @@ html {
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 
@@ -781,23 +911,34 @@ html {
     transition: filter 2s ease-out, transform 2s ease-out;
     will-change: filter, transform;
 }
+
 .blur-reveal.active {
     filter: blur(0);
     transform: scale(1);
 }
 
 /* --- 2. Concept Carte 3D (Traducteur) --- */
-.perspective { perspective: 1000px; }
-.style-preserve-3d { transform-style: preserve-3d; }
-.backface-hidden { backface-visibility: hidden; }
+.perspective {
+    perspective: 1000px;
+}
+
+.style-preserve-3d {
+    transform-style: preserve-3d;
+}
+
+.backface-hidden {
+    backface-visibility: hidden;
+}
 
 /* Rotation de 180deg au survol du groupe parent */
-.group:hover .flip-content { 
-    transform: rotateY(180deg); 
+.group:hover .flip-content {
+    transform: rotateY(180deg);
 }
 
 /* État initial de la face arrière déjà tournée */
-.my-rotate-y-180 { transform: rotateY(180deg); }
+.my-rotate-y-180 {
+    transform: rotateY(180deg);
+}
 
 
 
@@ -812,6 +953,7 @@ html {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -819,17 +961,36 @@ html {
 }
 
 .fade-in-entry {
-    opacity: 0; /* Invisible au départ */
-    animation: fadeInUp 0.6s ease-out forwards; /* L'animation se lance dès que l'élément est créé */
+    opacity: 0;
+    /* Invisible au départ */
+    animation: fadeInUp 0.6s ease-out forwards;
+    /* L'animation se lance dès que l'élément est créé */
 }
 
 /* Délais pour créer un effet de cascade */
-.fade-in-entry:nth-child(1) { animation-delay: 0.1s; }
-.fade-in-entry:nth-child(2) { animation-delay: 0.2s; }
-.fade-in-entry:nth-child(3) { animation-delay: 0.3s; }
-.fade-in-entry:nth-child(4) { animation-delay: 0.1s; }
-.fade-in-entry:nth-child(5) { animation-delay: 0.2s; }
-.fade-in-entry:nth-child(6) { animation-delay: 0.3s; }
+.fade-in-entry:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.fade-in-entry:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.fade-in-entry:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.fade-in-entry:nth-child(4) {
+    animation-delay: 0.1s;
+}
+
+.fade-in-entry:nth-child(5) {
+    animation-delay: 0.2s;
+}
+
+.fade-in-entry:nth-child(6) {
+    animation-delay: 0.3s;
+}
 
 
 
@@ -843,7 +1004,8 @@ html {
 /* Permet d'aligner proprement les icônes dans les listes des offres */
 .offer-list-item svg {
     flex-shrink: 0;
-    margin-top: 2px; /* Ajustement fin pour alignement optique avec le texte */
+    margin-top: 2px;
+    /* Ajustement fin pour alignement optique avec le texte */
 }
 
 /* Style spécifique pour le bloc "Garantie d'Évolutivité" */
@@ -855,8 +1017,15 @@ html {
 
 /* Petit effet de pulse sur le badge "Recommandé" */
 @keyframes pulse-soft {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.8; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
 }
 
 .recommended-badge {
@@ -871,7 +1040,8 @@ html {
 /* Rotation de la flèche quand ouvert */
 .pricing-toggle.active svg:last-child {
     transform: rotate(180deg);
-    color: #3B82F6; /* clarity-blue */
+    color: #3B82F6;
+    /* clarity-blue */
 }
 
 /* Style au survol du texte */
@@ -898,41 +1068,50 @@ html {
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    z-index: 10; /* S'assure que le trigger est au-dessus */
+    z-index: 10;
+    /* S'assure que le trigger est au-dessus */
 }
 
 /* L'icône SVG à l'intérieur */
 .tooltip-trigger svg {
-    color: #9CA3AF; 
-    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); /* Rebond très marqué */
+    color: #9CA3AF;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* Rebond très marqué */
     position: relative;
     z-index: 2;
 }
 
 /* --- INTERACTION ICÔNE (L'ALLUMAGE) --- */
 .tooltip-trigger:hover svg {
-    color: #fff; /* Devient blanc pur */
-    transform: scale(1.2); /* Grossit */
-    filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.8)); /* Petit néon interne */
+    color: #fff;
+    /* Devient blanc pur */
+    transform: scale(1.2);
+    /* Grossit */
+    filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.8));
+    /* Petit néon interne */
 }
 
 /* Le cercle d'énergie derrière l'icône */
 .tooltip-trigger::before {
     content: '';
     position: absolute;
-    top: 50%; left: 50%;
-    width: 32px; height: 32px;
-    background: radial-gradient(circle, rgba(59,130,246,1) 0%, rgba(30,58,138,0) 70%);
+    top: 50%;
+    left: 50%;
+    width: 32px;
+    height: 32px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 1) 0%, rgba(30, 58, 138, 0) 70%);
     border-radius: 50%;
     transform: translate(-50%, -50%) scale(0);
     opacity: 0;
     transition: all 0.4s ease-out;
-    z-index: 1; /* Derrière le SVG */
+    z-index: 1;
+    /* Derrière le SVG */
 }
 
 .tooltip-trigger:hover::before {
     transform: translate(-50%, -50%) scale(1.5);
-    opacity: 0.2; /* Lueur subtile bleue derrière */
+    opacity: 0.2;
+    /* Lueur subtile bleue derrière */
 }
 
 
@@ -941,45 +1120,51 @@ html {
     visibility: hidden;
     opacity: 0;
     position: absolute;
-    bottom: 160%; /* Haut pour laisser la place à l'animation */
+    bottom: 160%;
+    /* Haut pour laisser la place à l'animation */
     left: 50%;
-    
+
     /* État de départ : Tout petit, plié, et plus bas */
     transform: translateX(-50%) translateY(15px) scale(0.5) rotateX(-20deg);
-    transform-origin: bottom center; /* L'animation part du bas (de l'icône) */
+    transform-origin: bottom center;
+    /* L'animation part du bas (de l'icône) */
 
     /* DESIGN DE LA BULLE */
     width: max-content;
     max-width: 260px;
-    
+
     /* Fond dégradé sombre très classe */
-    background: linear-gradient(160deg, #1e293b, #0f172a); 
+    background: linear-gradient(160deg, #1e293b, #0f172a);
     color: #e2e8f0;
-    
+
     text-align: center;
     font-size: 0.75rem;
     font-weight: 500;
     line-height: 1.5;
     padding: 14px 18px;
     border-radius: 16px;
-    
+
     /* Bordure lumineuse fine en haut (effet lumière zénithale) */
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-top: 1px solid rgba(255, 255, 255, 0.3); 
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
 
     /* Ombre colorée (Glow externe) */
-    box-shadow: 
-        0 15px 35px -5px rgba(0, 0, 0, 0.5), /* Ombre noire profonde */
-        0 0 20px -5px rgba(59, 130, 246, 0.3); /* Halo bleu diffus */
+    box-shadow:
+        0 15px 35px -5px rgba(0, 0, 0, 0.5),
+        /* Ombre noire profonde */
+        0 0 20px -5px rgba(59, 130, 246, 0.3);
+    /* Halo bleu diffus */
 
     z-index: 100;
     pointer-events: none;
-    overflow: hidden; /* Important pour l'effet de reflet qui passe */
+    overflow: hidden;
+    /* Important pour l'effet de reflet qui passe */
 
     /* Transition complexe pour l'ouverture */
-    transition: 
+    transition:
         opacity 0.2s ease,
-        transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), /* Effet ressort */
+        transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        /* Effet ressort */
         visibility 0.2s;
 }
 
@@ -1007,7 +1192,8 @@ html {
 /* On lance l'animation de lumière UNIQUEMENT quand on survole */
 .tooltip-trigger:hover .tooltip-bubble::before {
     animation: shimmerTooltip 0.8s ease-out forwards;
-    animation-delay: 0.1s; /* Attend juste que la bulle soit ouverte */
+    animation-delay: 0.1s;
+    /* Attend juste que la bulle soit ouverte */
 }
 
 
@@ -1019,9 +1205,9 @@ html {
         white-space: normal !important;
         left: 50% !important;
         /* Simplification de l'animation sur mobile pour la performance */
-        transform: translateX(-50%) translateY(10px) scale(0.9) !important; 
+        transform: translateX(-50%) translateY(10px) scale(0.9) !important;
     }
-    
+
     .tooltip-trigger:hover .tooltip-bubble {
         transform: translateX(-50%) translateY(0) scale(1) !important;
     }
@@ -1044,7 +1230,8 @@ html {
 @media (min-width: 1024px) {
     #parcours-confiance .lg\:block.absolute.top-1\/2 {
         background-image: linear-gradient(to right, #e5e7eb 50%, transparent 50%);
-        background-size: 20px 2px; /* Espacement des pointillés */
+        background-size: 20px 2px;
+        /* Espacement des pointillés */
         background-repeat: repeat-x;
         background-color: transparent;
         height: 2px;
@@ -1053,7 +1240,7 @@ html {
 }
 
 /* 2. Animation au survol des cartes de la timeline */
-#parcours-confiance .group:hover .bg-white, 
+#parcours-confiance .group:hover .bg-white,
 #parcours-confiance .group:hover .bg-neutral-dark {
     transform: translateY(-8px);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
@@ -1065,14 +1252,23 @@ html {
 }
 
 #parcours-confiance .group:hover .bg-neutral-dark {
-    border-color: #F97316; /* warm-orange au survol */
+    border-color: #F97316;
+    /* warm-orange au survol */
 }
 
 /* 4. Effet de pulsation sur l'icône de l'étape active */
 @keyframes icon-pulse {
-    0% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4); }
-    70% { box-shadow: 0 0 0 10px rgba(249, 115, 22, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
+    0% {
+        box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(249, 115, 22, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+    }
 }
 
 #parcours-confiance .group:last-child:hover .w-16 {
@@ -1094,12 +1290,16 @@ html {
 @keyframes badgePulse {
     0% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7); /* Orange */
+        box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
+        /* Orange */
     }
+
     70% {
         transform: scale(1.05);
-        box-shadow: 0 0 0 10px rgba(249, 115, 22, 0); /* Fade out */
+        box-shadow: 0 0 0 10px rgba(249, 115, 22, 0);
+        /* Fade out */
     }
+
     100% {
         transform: scale(1);
         box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
@@ -1108,14 +1308,15 @@ html {
 
 .animate-pulse-badge {
     animation: badgePulse 2s infinite;
-    z-index: 20; /* S'assure qu'il passe au-dessus des bordures */
+    z-index: 20;
+    /* S'assure qu'il passe au-dessus des bordures */
 }
 
 /* --- 2. Animation du Bouton (Reflet Brillant / Shine) --- */
 .btn-shine-loop {
     position: relative;
     /* overflow-hidden est déjà ajouté dans le HTML, mais par sécurité : */
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 /* Le reflet lumineux (pseudo-élément) */
@@ -1123,34 +1324,38 @@ html {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%; /* Départ hors champ à gauche */
+    left: -100%;
+    /* Départ hors champ à gauche */
     width: 50%;
     height: 100%;
-    
+
     /* Dégradé blanc transparent incliné */
-    background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.4) 50%,
-        rgba(255, 255, 255, 0) 100%
-    );
-    
+    background: linear-gradient(to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.4) 50%,
+            rgba(255, 255, 255, 0) 100%);
+
     /* Inclinaison pour l'effet de vitesse/lumière */
     transform: skewX(-25deg);
-    
+
     /* Animation infinie */
     animation: shineLoop 4s infinite;
 }
 
 @keyframes shineLoop {
     0% {
-        left: -100%; /* Position initiale */
+        left: -100%;
+        /* Position initiale */
     }
+
     20% {
-        left: 200%; /* Traverse tout le bouton rapidement */
+        left: 200%;
+        /* Traverse tout le bouton rapidement */
     }
+
     100% {
-        left: 200%; /* Reste invisible (pause) pendant les 3 secondes restantes */
+        left: 200%;
+        /* Reste invisible (pause) pendant les 3 secondes restantes */
     }
 }
 
@@ -1160,17 +1365,20 @@ html {
 /* ======================================================= */
 
 @keyframes brightPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 1;
         box-shadow: 0 0 0 transparent;
         filter: brightness(1);
     }
+
     50% {
         opacity: 1;
         /* Créé une lueur orange autour */
-        box-shadow: 0 0 10px 1px #f97316; 
+        box-shadow: 0 0 10px 1px #f97316;
         /* Rend la couleur orange du point plus vive/blanche */
-        filter: brightness(1.5); 
+        filter: brightness(1.5);
     }
 }
 
@@ -1189,7 +1397,7 @@ html {
 .timeline-step {
     opacity: 0;
     /* On décale beaucoup plus vers la droite (50px) pour un effet de "glissade" */
-    transform: translateX(50px); 
+    transform: translateX(50px);
 }
 
 /* 2. L'animation active */
@@ -1201,25 +1409,54 @@ html {
 @keyframes snapIn {
     0% {
         opacity: 0;
-        transform: translateX(50px); /* Part de la droite */
+        transform: translateX(50px);
+        /* Part de la droite */
     }
+
     100% {
         opacity: 1;
-        transform: translateX(0); /* Arrive à sa place */
+        transform: translateX(0);
+        /* Arrive à sa place */
     }
 }
 
 /* 3. Délais en cascade très marqués (Staggering) */
 /* On laisse 0.1s entre chaque élément, c'est long mais c'est ça qui fait l'effet "un par un" */
-.anim-active .timeline-step:nth-child(1) { animation-delay: 0.0s; }
-.anim-active .timeline-step:nth-child(2) { animation-delay: 0.1s; }
-.anim-active .timeline-step:nth-child(3) { animation-delay: 0.2s; }
-.anim-active .timeline-step:nth-child(4) { animation-delay: 0.3s; }
-.anim-active .timeline-step:nth-child(5) { animation-delay: 0.4s; }
-.anim-active .timeline-step:nth-child(6) { animation-delay: 0.5s; }
-.anim-active .timeline-step:nth-child(7) { animation-delay: 0.6s; }
-.anim-active .timeline-step:nth-child(8) { animation-delay: 0.7s; }
-.anim-active .timeline-step:nth-child(9) { animation-delay: 0.8s; }
+.anim-active .timeline-step:nth-child(1) {
+    animation-delay: 0.0s;
+}
+
+.anim-active .timeline-step:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.anim-active .timeline-step:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.anim-active .timeline-step:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.anim-active .timeline-step:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.anim-active .timeline-step:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+.anim-active .timeline-step:nth-child(7) {
+    animation-delay: 0.6s;
+}
+
+.anim-active .timeline-step:nth-child(8) {
+    animation-delay: 0.7s;
+}
+
+.anim-active .timeline-step:nth-child(9) {
+    animation-delay: 0.8s;
+}
 
 
 
@@ -1234,8 +1471,10 @@ html {
 /* 1. État initial : Invisible, légèrement plus petit, décalé vers le haut et flou */
 .premium-item {
     opacity: 0;
-    transform: translateY(-15px) scale(0.95); /* Vient du haut */
-    filter: blur(8px); /* Le flou crée l'effet premium */
+    transform: translateY(-15px) scale(0.95);
+    /* Vient du haut */
+    filter: blur(8px);
+    /* Le flou crée l'effet premium */
 }
 
 /* 2. L'animation active (déclenchée par le JS existant via .anim-active) */
@@ -1249,6 +1488,7 @@ html {
         transform: translateY(-15px) scale(0.95);
         filter: blur(8px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0) scale(1);
@@ -1257,11 +1497,25 @@ html {
 }
 
 /* 3. Délais en cascade (Staggering) pour l'effet "un par un" */
-.anim-active .premium-item:nth-child(1) { animation-delay: 0.1s; }
-.anim-active .premium-item:nth-child(2) { animation-delay: 0.2s; }
-.anim-active .premium-item:nth-child(3) { animation-delay: 0.3s; }
-.anim-active .premium-item:nth-child(4) { animation-delay: 0.4s; }
-.anim-active .premium-item:nth-child(5) { animation-delay: 0.5s; }
+.anim-active .premium-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.anim-active .premium-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.anim-active .premium-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.anim-active .premium-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.anim-active .premium-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
 
 
 
@@ -1275,16 +1529,18 @@ html {
 @media (max-width: 640px) {
     .tooltip-bubble {
         /* 1. Format "Colonne" très étroit pour éviter les bords d'écran */
-        width: 130px !important;      /* Encore plus étroit (était 160px) */
+        width: 130px !important;
+        /* Encore plus étroit (était 160px) */
         max-width: 130px !important;
-        white-space: normal !important; /* Force le texte à la ligne */
+        white-space: normal !important;
+        /* Force le texte à la ligne */
         text-align: center;
-        
+
         /* 2. Centrage parfait par rapport à l'icône */
         left: 50% !important;
         /* translateX(-50%) aligne le milieu de la bulle avec le milieu de l'icône */
         transform: translateX(-50%) translateY(10px) !important;
-        
+
         /* Optionnel : ajustez le z-index si elle passe sous d'autres éléments */
         z-index: 1000 !important;
     }
@@ -1292,7 +1548,8 @@ html {
     /* 3. La flèche revient au centre */
     .tooltip-bubble::after {
         left: 50% !important;
-        margin-left: -5px !important; /* Centrage exact */
+        margin-left: -5px !important;
+        /* Centrage exact */
     }
 }
 
@@ -1309,30 +1566,34 @@ html {
 .pricing-toggle {
     position: relative;
     border-radius: 8px;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transition plus naturelle */
-    padding: 10px 14px; /* Un peu plus d'espace pour le relief */
-    margin: 2px -14px;  /* Compensation ajustée */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* Transition plus naturelle */
+    padding: 10px 14px;
+    /* Un peu plus d'espace pour le relief */
+    margin: 2px -14px;
+    /* Compensation ajustée */
     background: transparent;
-    overflow: hidden; /* INDISPENSABLE pour la lumière */
-    
+    overflow: hidden;
+    /* INDISPENSABLE pour la lumière */
+
     /* Bordure invisible par défaut pour éviter le saut de pixel au survol */
-    border: 1px solid transparent; 
+    border: 1px solid transparent;
 }
 
 /* 2. Feedback au survol : DÉGRADÉ + RELIEF (La texture) */
 .pricing-toggle:hover {
     /* Fond : Dégradé subtil du blanc vers un gris bleuté très pâle */
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(241, 245, 249, 0.6));
-    
+
     /* Bordure très fine pour détourer */
     border-color: rgba(0, 0, 0, 0.03);
-    
+
     /* LE SECRET DU RELIEF : 
        - Ombre portée douce vers le bas (0 2px 4px)
        - Ombre interne blanche en haut (inset 0 1px 0) pour l'effet "Biseauté/Lumière"
     */
-    box-shadow: 
-        0 2px 4px rgba(0, 0, 0, 0.02), 
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.02),
         inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
@@ -1352,7 +1613,8 @@ html {
 }
 
 .pricing-toggle:hover::before {
-    height: 60%; /* Un peu plus discret pour l'élégance */
+    height: 60%;
+    /* Un peu plus discret pour l'élégance */
     opacity: 1;
 }
 
@@ -1362,7 +1624,8 @@ html {
     position: relative;
     display: inline-block;
     transition: transform 0.3s ease;
-    z-index: 2; /* Au-dessus de la lumière */
+    z-index: 2;
+    /* Au-dessus de la lumière */
 }
 
 .pricing-toggle:hover span.font-bold {
@@ -1372,7 +1635,8 @@ html {
 /* 5. L'Icône : Zoom net */
 .pricing-toggle .flex-shrink-0 {
     position: relative;
-    z-index: 2; /* Au-dessus de la lumière */
+    z-index: 2;
+    /* Au-dessus de la lumière */
     transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -1404,7 +1668,7 @@ html {
     background: linear-gradient(to bottom, rgba(241, 245, 249, 0.5), rgba(241, 245, 249, 0.8));
     border-color: rgba(0, 0, 0, 0.04);
     /* Ombre interne pour l'effet "bouton enfoncé" */
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02); 
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
     font-weight: 700;
 }
 
@@ -1438,18 +1702,19 @@ html {
 ul.space-y-3 {
     display: flex;
     flex-direction: column;
-    gap: 0px; 
+    gap: 0px;
 }
 
 /* 2. On annule les marges par défaut */
-ul.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+ul.space-y-3> :not([hidden])~ :not([hidden]) {
     margin-top: 0 !important;
 }
 
 /* 3. Style de chaque ligne (LI) */
 ul.space-y-3 li {
     position: relative;
-    padding: 12px 0; /* Espace aéré */
+    padding: 12px 0;
+    /* Espace aéré */
 }
 
 /* 4. LA LIGNE DE SÉPARATION */
@@ -1458,18 +1723,17 @@ ul.space-y-3 li:not(:last-child)::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0; 
+    left: 0;
     right: 0;
     height: 1px;
-    
+
     /* Dégradé gris subtil : Invisible bords -> Visible centre -> Invisible bords */
-    background: linear-gradient(
-        to right, 
-        transparent 0%, 
-        rgba(0, 0, 0, 0.08) 20%, /* Gris pâle (8% opacité) */
-        rgba(0, 0, 0, 0.08) 80%, 
-        transparent 100%
-    );
+    background: linear-gradient(to right,
+            transparent 0%,
+            rgba(0, 0, 0, 0.08) 20%,
+            /* Gris pâle (8% opacité) */
+            rgba(0, 0, 0, 0.08) 80%,
+            transparent 100%);
 }
 
 /* 5. Ajustement alignement texte */
@@ -1496,12 +1760,12 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     display: flex;
     flex-direction: column;
     z-index: 1;
-    
+
     /* On garde la transition pour la lumière (box-shadow et border) */
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
-    
+
     /* Ombre interne pour l'effet de matière */
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 1); 
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 1);
 }
 
 /* --- VARIANTE 1 : IMPACT (Bleu Clair) --- */
@@ -1512,8 +1776,10 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 .premium-offer-card.variant-blue:hover {
     /* PLUS DE TRANSFORM ICI (La carte reste fixe) */
-    border-color: rgba(59, 130, 246, 0.6); /* La bordure s'allume */
-    box-shadow: 0 20px 40px -5px rgba(59, 130, 246, 0.25); /* Le glow s'intensifie */
+    border-color: rgba(59, 130, 246, 0.6);
+    /* La bordure s'allume */
+    box-shadow: 0 20px 40px -5px rgba(59, 130, 246, 0.25);
+    /* Le glow s'intensifie */
     z-index: 10;
 }
 
@@ -1555,20 +1821,21 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     /* On utilise ce fond sombre comme couleur de bordure par défaut */
     background: linear-gradient(145deg, #1F2937 0%, #111827 100%);
     border-radius: 24px;
-    padding: 3px; /* Épaisseur de la bordure */
-    
+    padding: 3px;
+    /* Épaisseur de la bordure */
+
     /* Ombre portée */
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
-    
+
     /* Configuration pour l'empilement (Z-Index) */
     z-index: 5;
     display: flex;
     flex-direction: column;
     height: auto;
-    
+
     /* Transitions douces */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    
+
     /* Marges pour l'alignement responsive */
     margin-top: 10px;
     margin-bottom: 10px;
@@ -1587,23 +1854,24 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 .premium-offer-card-dark::before {
     content: "";
     position: absolute;
-    inset: 0; /* Remplit tout l'espace du parent */
-    border-radius: 24px; 
-    
+    inset: 0;
+    /* Remplit tout l'espace du parent */
+    border-radius: 24px;
+
     /* Le dégradé coloré */
-    background: linear-gradient(45deg, #F97316, #DC2626, #9333EA); 
-    
+    background: linear-gradient(45deg, #F97316, #DC2626, #9333EA);
+
     /* Invisible par défaut */
     opacity: 0;
     transition: opacity 0.4s ease;
-    
+
     /* IMPORTANT : On le place juste derrière le contenu, mais devant le fond gris */
-    z-index: 0; 
+    z-index: 0;
 }
 
 /* AU SURVOL DE LA CARTE */
 .premium-offer-card-dark:hover {
-    box-shadow: 
+    box-shadow:
         0 30px 60px -15px rgba(249, 115, 22, 0.3),
         0 0 0 1px rgba(255, 255, 255, 0.1) inset;
     z-index: 20;
@@ -1618,21 +1886,22 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 /* On fait apparaître le dégradé qui va recouvrir le fond gris */
 .premium-offer-card-dark:hover::before {
-    opacity: 1; 
+    opacity: 1;
 }
 
 /* LE CONTENU BLANC (Inner Card) */
 .premium-offer-card-dark .inner-card {
-    background-color: #ffffff; 
-    border-radius: 21px; /* Légèrement plus petit que le parent pour laisser voir la bordure */
+    background-color: #ffffff;
+    border-radius: 21px;
+    /* Légèrement plus petit que le parent pour laisser voir la bordure */
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     position: relative;
-    
+
     /* IMPORTANT : On force le contenu à passer DEVANT le dégradé */
-    z-index: 1; 
+    z-index: 1;
 }
 
 
@@ -1641,7 +1910,8 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 /* Force une hauteur minimale pour aligner les boutons au départ */
 .offer-list-min-height {
-    min-height: 360px; /* Ajustez ce chiffre selon vos besoins */
+    min-height: 360px;
+    /* Ajustez ce chiffre selon vos besoins */
     display: flex;
     flex-direction: column;
 }
@@ -1654,14 +1924,16 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 /* 1. On cible les éléments de liste (li) qui ne sont PAS des colonnes (donc pas les accordéons) */
 #offres ul.space-y-3 li:not(.flex-col) {
-    align-items: center !important; /* Force le centrage vertical parfait */
+    align-items: center !important;
+    /* Force le centrage vertical parfait */
 }
 
 /* 2. On retire les marges manuelles qui poussaient les icônes vers le bas */
 /* On cible les SVG directs et ceux dans les tooltips s'il y en a */
-#offres ul.space-y-3 li:not(.flex-col) > svg,
+#offres ul.space-y-3 li:not(.flex-col)>svg,
 #offres ul.space-y-3 li:not(.flex-col) .offer-list-item svg {
-    margin-top: 0 !important; /* Annule le décalage de 2px ou mt-0.5 */
+    margin-top: 0 !important;
+    /* Annule le décalage de 2px ou mt-0.5 */
 }
 
 
@@ -1671,7 +1943,7 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 /* ======================================================= */
 
 /* On cible les icônes des lignes simples (pas les menus déroulants) */
-#offres ul.space-y-3 li:not(.flex-col) > svg {
+#offres ul.space-y-3 li:not(.flex-col)>svg {
     /* On réduit à 16px (au lieu de 20px standard) pour faire la différence */
     width: 16px !important;
     height: 16px !important;
@@ -1693,15 +1965,20 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     margin-bottom: 12px;
     padding-top: 14px;
     padding-bottom: 14px;
-    border-radius: 12px; /* Arrondi un peu plus prononcé */
-    font-weight: 600;    /* Texte un peu plus gras par défaut */
+    border-radius: 12px;
+    /* Arrondi un peu plus prononcé */
+    font-weight: 600;
+    /* Texte un peu plus gras par défaut */
 }
 
 /* 2. Style Spécifique pour l'offre IMPACT (Bleu Clair) */
 .premium-offer-card.variant-blue .pricing-toggle.featured-toggle {
-    background-color: rgba(59, 130, 246, 0.04); /* Bleu très pâle */
-    border: 1px solid rgba(59, 130, 246, 0.15); /* Bordure subtile */
-    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.05); /* Légère ombre colorée */
+    background-color: rgba(59, 130, 246, 0.04);
+    /* Bleu très pâle */
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    /* Bordure subtile */
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.05);
+    /* Légère ombre colorée */
 }
 
 /* Interaction Hover Impact */
@@ -1709,20 +1986,23 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     background-color: rgba(59, 130, 246, 0.08);
     border-color: rgba(59, 130, 246, 0.4);
     box-shadow: 0 4px 8px rgba(59, 130, 246, 0.1);
-    transform: translateY(-1px); /* Petit lift */
+    transform: translateY(-1px);
+    /* Petit lift */
 }
 
 /* État Actif (Ouvert) Impact */
 .premium-offer-card.variant-blue .pricing-toggle.featured-toggle.active {
     background-color: rgba(59, 130, 246, 0.1);
     border-color: rgba(59, 130, 246, 0.5);
-    box-shadow: inset 0 2px 4px rgba(59, 130, 246, 0.05); /* Effet enfoncé */
+    box-shadow: inset 0 2px 4px rgba(59, 130, 246, 0.05);
+    /* Effet enfoncé */
 }
 
 
 /* 3. Style Spécifique pour l'offre ANCRAGE (Deep Blue) */
 .premium-offer-card.variant-deep .pricing-toggle.featured-toggle {
-    background-color: rgba(30, 58, 138, 0.04); /* Deep Blue très pâle */
+    background-color: rgba(30, 58, 138, 0.04);
+    /* Deep Blue très pâle */
     border: 1px solid rgba(30, 58, 138, 0.12);
     box-shadow: 0 2px 4px rgba(30, 58, 138, 0.05);
 }
@@ -1745,13 +2025,15 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 /* 4. Petit détail : On colore légèrement l'icône à l'intérieur pour renforcer l'identité */
 .premium-offer-card.variant-blue .pricing-toggle.featured-toggle svg:first-child {
-    color: #3B82F6; /* Clarity Blue */
-    filter: drop-shadow(0 2px 4px rgba(59,130,246,0.2));
+    color: #3B82F6;
+    /* Clarity Blue */
+    filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.2));
 }
 
 .premium-offer-card.variant-deep .pricing-toggle.featured-toggle svg:first-child {
-    color: #1E3A8A; /* Deep Blue */
-    filter: drop-shadow(0 2px 4px rgba(30,58,138,0.2));
+    color: #1E3A8A;
+    /* Deep Blue */
+    filter: drop-shadow(0 2px 4px rgba(30, 58, 138, 0.2));
 }
 
 
@@ -1766,30 +2048,65 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 /* Orbe 1 : Grande traversée diagonale (Haut-Gauche vers Bas-Droite) */
 @keyframes roam1 {
-    0% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(80vw, 60vh) scale(1.5); } /* Va très loin vers la droite et le bas */
-    100% { transform: translate(0, 0) scale(1); }
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(80vw, 60vh) scale(1.5);
+    }
+
+    /* Va très loin vers la droite et le bas */
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
 }
 
 /* Orbe 2 : Grande traversée inverse (Haut-Droite vers Bas-Gauche) */
 @keyframes roam2 {
-    0% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(-80vw, 50vh) scale(0.8); } /* Va très loin vers la gauche et le bas */
-    100% { transform: translate(0, 0) scale(1); }
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(-80vw, 50vh) scale(0.8);
+    }
+
+    /* Va très loin vers la gauche et le bas */
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
 }
 
 /* Orbe 4 (Bleu foncé) : Remonte du fond (Bas-Droite vers Haut-Gauche) */
 @keyframes roam4 {
-    0% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(-70vw, -70vh) scale(1.3); } /* Remonte très haut vers la gauche */
-    100% { transform: translate(0, 0) scale(1); }
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(-70vw, -70vh) scale(1.3);
+    }
+
+    /* Remonte très haut vers la gauche */
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
 }
 
 /* Application des animations avec des durées augmentées (45s+) pour garder de la douceur */
-.animate-roam-1 { animation: roam1 45s ease-in-out infinite; }
-.animate-roam-2 { animation: roam2 50s ease-in-out infinite; }
+.animate-roam-1 {
+    animation: roam1 45s ease-in-out infinite;
+}
+
+.animate-roam-2 {
+    animation: roam2 50s ease-in-out infinite;
+}
+
 /* Note : animate-roam-3 et animate-roam-orange ont été supprimés */
-.animate-roam-4 { animation: roam4 55s ease-in-out infinite; }
+.animate-roam-4 {
+    animation: roam4 55s ease-in-out infinite;
+}
 
 
 
@@ -1802,28 +2119,32 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 /* ======================================================= */
 
 @keyframes flowDownBoosted {
-    0% { 
-        transform: translateY(0) translateX(0) scale(1); 
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
     }
-    50% { 
+
+    50% {
         /* Descend très bas (120% de la hauteur) et va vers la droite */
-        transform: translateY(100vh) translateX(50vw) scale(1.2); 
+        transform: translateY(100vh) translateX(50vw) scale(1.2);
     }
-    100% { 
-        transform: translateY(0) translateX(0) scale(1); 
+
+    100% {
+        transform: translateY(0) translateX(0) scale(1);
     }
 }
 
 @keyframes flowUpBoosted {
-    0% { 
-        transform: translateY(0) translateX(0) scale(1); 
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
     }
-    50% { 
+
+    50% {
         /* Monte très haut (-100vh) et va vers la gauche */
-        transform: translateY(-100vh) translateX(-50vw) scale(1.2); 
+        transform: translateY(-100vh) translateX(-50vw) scale(1.2);
     }
-    100% { 
-        transform: translateY(0) translateX(0) scale(1); 
+
+    100% {
+        transform: translateY(0) translateX(0) scale(1);
     }
 }
 
@@ -1833,7 +2154,7 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 }
 
 .animate-flow-up-boosted {
-    animation: flowUpBoosted 25s ease-in-out infinite; 
+    animation: flowUpBoosted 25s ease-in-out infinite;
 }
 
 
@@ -1860,87 +2181,111 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     position: absolute;
     left: 50%;
     /* On ne définit pas de top ici, le JS le gère */
-    width: 30px; 
+    width: 30px;
     height: 30px;
     transform: translate(-50%, -50%);
-    z-index: 20; 
+    z-index: 20;
     pointer-events: none;
-    
+
     /* MODIFICATION ICI : Opacité à 0 par défaut + Transition ajoutée */
-    opacity: 0; 
-    transition: top 0.1s linear, opacity 0.5s ease-out; 
+    opacity: 0;
+    transition: top 0.1s linear, opacity 0.5s ease-out;
     will-change: top, transform, opacity;
 }
 
 @media (max-width: 768px) {
+
     /* CORRECTION : Alignement avec la ligne à 44px */
-    #soul-entity { left: 44px; }
+    #soul-entity {
+        left: 44px;
+    }
 }
 
 .soul-core {
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    
+
     /* 1. LA COULEUR DE FOND (C'est elle qui va changer doucement) */
     background-color: #ffffff;
-    
+
     /* 2. LA BRILLANCE (Statique) : Donne l'effet 3D / Boule */
     /* On utilise un dégradé blanc vers transparent pour garder le relief */
     background-image: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.1));
-    
+
     /* 3. L'AURA (Vaporeux) */
-    box-shadow: 
-        0 0 15px 2px rgba(255, 255, 255, 0.8),  /* Halo dense */
-        0 0 40px 10px rgba(255, 255, 255, 0.4); /* Halo large */
-    
+    box-shadow:
+        0 0 15px 2px rgba(255, 255, 255, 0.8),
+        /* Halo dense */
+        0 0 40px 10px rgba(255, 255, 255, 0.4);
+    /* Halo large */
+
     /* Flou pour l'aspect gaz/esprit */
-    filter: blur(3px); 
-    
+    filter: blur(3px);
+
     /* Animation de forme */
     animation: soulBreathe 4s infinite ease-in-out;
-    
+
     /* TRANSITION DOUCE (2s) : On anime la couleur de fond et l'ombre */
     transition: background-color 2s ease, box-shadow 2s ease, transform 2s ease;
 }
 
 @keyframes soulBreathe {
-    0% { transform: scale(1); border-radius: 50%; }
-    33% { transform: scale(1.1, 0.9); border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-    66% { transform: scale(0.95, 1.05); border-radius: 40% 60% 70% 30% / 40% 60% 30% 70%; }
-    100% { transform: scale(1); border-radius: 50%; }
+    0% {
+        transform: scale(1);
+        border-radius: 50%;
+    }
+
+    33% {
+        transform: scale(1.1, 0.9);
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+
+    66% {
+        transform: scale(0.95, 1.05);
+        border-radius: 40% 60% 70% 30% / 40% 60% 30% 70%;
+    }
+
+    100% {
+        transform: scale(1);
+        border-radius: 50%;
+    }
 }
 
 /* --- ÉTATS D'INFUSION (La couleur infuse doucement le noyau et l'aura) --- */
 
 /* Feu / Colère */
 .soul-infused-fire .soul-core {
-    background-color: #ffedd5; /* Le coeur devient orange très pâle */
-    box-shadow: 
-        0 0 15px 2px rgba(249, 115, 22, 0.8), 
+    background-color: #ffedd5;
+    /* Le coeur devient orange très pâle */
+    box-shadow:
+        0 0 15px 2px rgba(249, 115, 22, 0.8),
         0 0 50px 15px rgba(249, 115, 22, 0.5);
 }
 
 /* Argent / Succès */
 .soul-infused-greed .soul-core {
-    background-color: #dcfce7; /* Le coeur devient vert pâle */
-    box-shadow: 
+    background-color: #dcfce7;
+    /* Le coeur devient vert pâle */
+    box-shadow:
         0 0 15px 2px rgba(34, 197, 94, 0.8),
         0 0 50px 15px rgba(34, 197, 94, 0.5);
 }
 
 /* Dépression / Profondeur */
 .soul-infused-dark .soul-core {
-    background-color: #f3e8ff; /* Le coeur devient violet pâle */
-    box-shadow: 
+    background-color: #f3e8ff;
+    /* Le coeur devient violet pâle */
+    box-shadow:
         0 0 15px 2px rgba(124, 58, 237, 0.8),
         0 0 50px 15px rgba(124, 58, 237, 0.5);
 }
 
 /* Espoir / Clarté */
 .soul-infused-blue .soul-core {
-    background-color: #dbeafe; /* Le coeur devient bleu pâle */
-    box-shadow: 
+    background-color: #dbeafe;
+    /* Le coeur devient bleu pâle */
+    box-shadow:
         0 0 15px 2px rgba(59, 130, 246, 0.8),
         0 0 50px 15px rgba(59, 130, 246, 0.5);
 }
@@ -1950,28 +2295,34 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 /* ETAT: Le Vide / Dépression / Échec (Noir & Sombre) */
 .soul-infused-void .soul-core {
-    background-color: #0f172a; /* Très sombre (presque noir, couleur du fond) */
+    background-color: #0f172a;
+    /* Très sombre (presque noir, couleur du fond) */
     /* On inverse la logique : lueur interne sombre + lueur externe grise faible */
-    box-shadow: 
-        inset 0 0 20px 5px rgba(0, 0, 0, 1), /* Ombre interne pour creuser */
-        0 0 10px 1px rgba(100, 116, 139, 0.3), /* Petit contour gris pour le détacher du fond */
-        0 0 30px 5px rgba(71, 85, 105, 0.1);   /* Halo très faible */
-    filter: grayscale(1) contrast(1.2); /* On tue les couleurs */
-    transform: scale(0.8); /* L'âme se recroqueville légèrement */
+    box-shadow:
+        inset 0 0 20px 5px rgba(0, 0, 0, 1),
+        /* Ombre interne pour creuser */
+        0 0 10px 1px rgba(100, 116, 139, 0.3),
+        /* Petit contour gris pour le détacher du fond */
+        0 0 30px 5px rgba(71, 85, 105, 0.1);
+    /* Halo très faible */
+    filter: grayscale(1) contrast(1.2);
+    /* On tue les couleurs */
+    transform: scale(0.8);
+    /* L'âme se recroqueville légèrement */
 }
 
 /* ETAT: Feu / Colère (Plus intense) */
 .soul-infused-fire .soul-core {
-    background-color: #fff7ed; 
-    box-shadow: 
-        0 0 15px 2px rgba(249, 115, 22, 0.9), 
+    background-color: #fff7ed;
+    box-shadow:
+        0 0 15px 2px rgba(249, 115, 22, 0.9),
         0 0 60px 20px rgba(249, 115, 22, 0.6);
 }
 
 /* ETAT: Argent / Succès (Plus intense) */
 .soul-infused-greed .soul-core {
     background-color: #f0fdf4;
-    box-shadow: 
+    box-shadow:
         0 0 15px 2px rgba(34, 197, 94, 0.9),
         0 0 60px 20px rgba(34, 197, 94, 0.6);
 }
@@ -1979,20 +2330,24 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 /* ETAT: Clarté / Sagesse (Bleu pur) */
 .soul-infused-blue .soul-core {
     background-color: #eff6ff;
-    box-shadow: 
+    box-shadow:
         0 0 15px 2px rgba(59, 130, 246, 0.9),
         0 0 60px 20px rgba(59, 130, 246, 0.6);
 }
 
 /* ETAT: Stase / Ennui / Cage Dorée (Gris brumeux) */
 .soul-infused-stasis .soul-core {
-    background-color: #cbd5e1; /* Gris clair, froid (Slate-300) */
+    background-color: #cbd5e1;
+    /* Gris clair, froid (Slate-300) */
     /* Halo diffus, pas agressif, comme un brouillard */
-    box-shadow: 
-        0 0 15px 5px rgba(148, 163, 184, 0.4), /* Gris bleuté */
-        0 0 5px 0px rgba(255, 255, 255, 0.5); 
-    filter: blur(1px) grayscale(0.8); /* Légèrement flou et désaturé */
-    transform: scale(0.9); /* L'âme est là, mais elle tourne au ralenti */
+    box-shadow:
+        0 0 15px 5px rgba(148, 163, 184, 0.4),
+        /* Gris bleuté */
+        0 0 5px 0px rgba(255, 255, 255, 0.5);
+    filter: blur(1px) grayscale(0.8);
+    /* Légèrement flou et désaturé */
+    transform: scale(0.9);
+    /* L'âme est là, mais elle tourne au ralenti */
 }
 
 
@@ -2008,21 +2363,21 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 .soul-trail-piece {
     position: absolute;
     /* On utilise la même logique de positionnement que l'âme principale */
-    left: 50%; 
+    left: 50%;
     transform: translate(-50%, -50%);
-    
+
     /* On augmente légèrement la taille pour que le flou se chevauche bien */
-    width: 32px; 
+    width: 32px;
     height: 32px;
     border-radius: 50%;
     background-color: #ffffff;
     pointer-events: none;
-    z-index: 19; 
-    
+    z-index: 19;
+
     /* C'est ici que la magie opère : 
        Un flou élevé mélange les cercles pour faire une ligne de "gaz" */
-    filter: blur(8px); 
-    
+    filter: blur(8px);
+
     /* Transition douce pour les changements de couleur */
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -2034,7 +2389,7 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 @media (max-width: 768px) {
     .soul-trail-piece {
         /* CORRECTION : Alignement avec la ligne à 44px */
-        left: 44px; 
+        left: 44px;
     }
 }
 
@@ -2061,7 +2416,8 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 .soul-trail-void {
     background-color: #0f172a;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-    opacity: 0.6 !important; /* Plus sombre pour le void */
+    opacity: 0.6 !important;
+    /* Plus sombre pour le void */
 }
 
 .soul-trail-stasis {
@@ -2069,8 +2425,10 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 }
 
 .soul-trail-hologram {
-    background-color: rgba(34, 211, 238, 0.5); /* Cyan */
-    box-shadow: 0 0 10px rgba(232, 121, 249, 0.3); /* Magenta glow */
+    background-color: rgba(34, 211, 238, 0.5);
+    /* Cyan */
+    box-shadow: 0 0 10px rgba(232, 121, 249, 0.3);
+    /* Magenta glow */
 }
 
 
@@ -2088,14 +2446,16 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     left: 0;
     width: 100vw;
     height: 100vh;
-    
+
     /* J'ai changé baseFrequency à 0.65 pour un grain plus doux/cotonneux */
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
-    
+
     /* LE RÉGLAGE MAGIQUE POUR FOND SOMBRE */
-    opacity: 0.04; /* 4% : À peine perceptible */
-    mix-blend-mode: overlay; /* Incruste le grain dans le bleu */
-    
+    opacity: 0.04;
+    /* 4% : À peine perceptible */
+    mix-blend-mode: overlay;
+    /* Incruste le grain dans le bleu */
+
     pointer-events: none;
     z-index: 99999;
 }
@@ -2122,34 +2482,46 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 }
 
 @keyframes shineFuture {
-    to { background-position: 200% center; }
+    to {
+        background-position: 200% center;
+    }
 }
 
 /* 2. L'Âme en mode Hologramme "Douce" */
 .soul-infused-hologram .soul-core {
     background-color: #ffffff;
-    
+
     /* L'animation dure un peu plus longtemps (4s) pour être plus "zen" */
     animation: soulHoloPulseSmooth 4s ease-in-out infinite;
 }
 
 @keyframes soulHoloPulseSmooth {
-    0%, 100% {
+
+    0%,
+    100% {
         /* ÉTAT 0% = ÉTAT NORMAL (Les couleurs sont cachées derrière) */
         /* Pas de décalage des ombres, juste un halo blanc propre */
-        box-shadow: 
-            0 0 0 rgba(0, 255, 255, 0),    /* Cyan caché */
-            0 0 0 rgba(255, 0, 255, 0),    /* Magenta caché */
-            0 0 20px 5px rgba(255, 255, 255, 0.6); /* Halo blanc normal */
+        box-shadow:
+            0 0 0 rgba(0, 255, 255, 0),
+            /* Cyan caché */
+            0 0 0 rgba(255, 0, 255, 0),
+            /* Magenta caché */
+            0 0 20px 5px rgba(255, 255, 255, 0.6);
+        /* Halo blanc normal */
         transform: scale(1);
     }
+
     50% {
         /* ÉTAT 50% = EFFET HOLOGRAMME (Les couleurs sortent doucement) */
-        box-shadow: 
-            -4px 0 4px rgba(0, 255, 255, 0.6),  /* Le cyan sort à gauche */
-            4px 0 4px rgba(255, 0, 255, 0.6),   /* Le magenta sort à droite */
-            0 0 30px 10px rgba(34, 211, 238, 0.2); /* Grand halo cyan */
-        transform: scale(1.08); /* Légère respiration */
+        box-shadow:
+            -4px 0 4px rgba(0, 255, 255, 0.6),
+            /* Le cyan sort à gauche */
+            4px 0 4px rgba(255, 0, 255, 0.6),
+            /* Le magenta sort à droite */
+            0 0 30px 10px rgba(34, 211, 238, 0.2);
+        /* Grand halo cyan */
+        transform: scale(1.08);
+        /* Légère respiration */
     }
 }
 
@@ -2163,15 +2535,16 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 .timeline-line {
     /* On garde le dégradé coloré d'origine */
     transition: opacity 0.5s ease, filter 0.5s ease;
-    opacity: 0.3; /* Par défaut, elle est un peu discrète */
+    opacity: 0.3;
+    /* Par défaut, elle est un peu discrète */
 }
 
 /* 2. ÉTAT ACTIVÉ : Subtil et Localisé */
 .timeline-line.line-active {
     /* On ne change PAS la couleur de fond en blanc. */
     /* On augmente juste l'opacité pour dire "le signal passe" */
-    opacity: 0.8; 
-    
+    opacity: 0.8;
+
     /* Un tout petit halo pour le relief, mais très léger */
     filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
 }
@@ -2185,13 +2558,14 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 /* Positionnement initial du guide */
 #soul-guide {
     /* On le place un peu avant le premier point de la timeline */
-    top: 180px; 
+    top: 180px;
 }
 
 /* Classe utilitaire pour cacher le guide */
 .guide-hidden {
     opacity: 0 !important;
-    transform: translate(-50%, -20px) !important; /* Petit mouvement vers le haut en disparaissant */
+    transform: translate(-50%, -20px) !important;
+    /* Petit mouvement vers le haut en disparaissant */
 }
 
 /* Classe utilitaire pour afficher le guide (via JS) */
@@ -2207,7 +2581,8 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 /* Positionnement du guide : On le descend pour qu'il soit sous le titre */
 #soul-guide {
-    top: 500px; /* Ajuste ce chiffre si c'est trop haut ou trop bas */
+    top: 500px;
+    /* Ajuste ce chiffre si c'est trop haut ou trop bas */
 }
 
 /* Sur mobile, on le remonte un peu car le texte est plus petit */
@@ -2237,8 +2612,10 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 /* MODIFICATION : On garde le texte blanc pour que ce soit plus visible */
 .glitch-active {
     animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
-    color: #ffffff; /* AVANT : rgba(255,255,255,0.1) -> MAINTENANT : Blanc pur */
-    text-shadow: 2px 0 #F97316, -2px 0 #3B82F6; /* Ajout d'une ombre Orange/Bleu pour accentuer l'effet */
+    color: #ffffff;
+    /* AVANT : rgba(255,255,255,0.1) -> MAINTENANT : Blanc pur */
+    text-shadow: 2px 0 #F97316, -2px 0 #3B82F6;
+    /* Ajout d'une ombre Orange/Bleu pour accentuer l'effet */
 }
 
 .glitch-active::before,
@@ -2249,7 +2626,7 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #1E293B; 
+    background: #1E293B;
     opacity: 0.8;
 }
 
@@ -2257,13 +2634,15 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 .glitch-active::before {
     color: #0ff;
     z-index: -1;
-    animation: glitch-anim-1 0.4s infinite linear alternate-reverse; /* Passé de 2s à 0.4s */
+    animation: glitch-anim-1 0.4s infinite linear alternate-reverse;
+    /* Passé de 2s à 0.4s */
 }
 
 .glitch-active::after {
     color: #f0f;
     z-index: -2;
-    animation: glitch-anim-2 0.4s infinite linear alternate-reverse; /* Passé de 2s à 0.4s */
+    animation: glitch-anim-2 0.4s infinite linear alternate-reverse;
+    /* Passé de 2s à 0.4s */
 }
 
 
@@ -2271,30 +2650,93 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 /* Animations de découpage (Clip-path) */
 @keyframes glitch-anim-1 {
-    0% { clip-path: inset(20% 0 80% 0); transform: translate(-2px, 1px); }
-    20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -1px); }
-    40% { clip-path: inset(40% 0 50% 0); transform: translate(-2px, 2px); }
-    60% { clip-path: inset(80% 0 5% 0); transform: translate(2px, -2px); }
-    80% { clip-path: inset(10% 0 70% 0); transform: translate(-2px, 1px); }
-    100% { clip-path: inset(30% 0 20% 0); transform: translate(2px, -1px); }
+    0% {
+        clip-path: inset(20% 0 80% 0);
+        transform: translate(-2px, 1px);
+    }
+
+    20% {
+        clip-path: inset(60% 0 10% 0);
+        transform: translate(2px, -1px);
+    }
+
+    40% {
+        clip-path: inset(40% 0 50% 0);
+        transform: translate(-2px, 2px);
+    }
+
+    60% {
+        clip-path: inset(80% 0 5% 0);
+        transform: translate(2px, -2px);
+    }
+
+    80% {
+        clip-path: inset(10% 0 70% 0);
+        transform: translate(-2px, 1px);
+    }
+
+    100% {
+        clip-path: inset(30% 0 20% 0);
+        transform: translate(2px, -1px);
+    }
 }
 
 @keyframes glitch-anim-2 {
-    0% { clip-path: inset(10% 0 60% 0); transform: translate(2px, -1px); }
-    20% { clip-path: inset(80% 0 5% 0); transform: translate(-2px, 2px); }
-    40% { clip-path: inset(30% 0 20% 0); transform: translate(2px, -2px); }
-    60% { clip-path: inset(15% 0 80% 0); transform: translate(-2px, 1px); }
-    80% { clip-path: inset(55% 0 10% 0); transform: translate(2px, -1px); }
-    100% { clip-path: inset(40% 0 30% 0); transform: translate(-2px, 2px); }
+    0% {
+        clip-path: inset(10% 0 60% 0);
+        transform: translate(2px, -1px);
+    }
+
+    20% {
+        clip-path: inset(80% 0 5% 0);
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        clip-path: inset(30% 0 20% 0);
+        transform: translate(2px, -2px);
+    }
+
+    60% {
+        clip-path: inset(15% 0 80% 0);
+        transform: translate(-2px, 1px);
+    }
+
+    80% {
+        clip-path: inset(55% 0 10% 0);
+        transform: translate(2px, -1px);
+    }
+
+    100% {
+        clip-path: inset(40% 0 30% 0);
+        transform: translate(-2px, 2px);
+    }
 }
 
 @keyframes glitch-skew {
-    0% { transform: skew(0deg); }
-    20% { transform: skew(-2deg); }
-    40% { transform: skew(2deg); }
-    60% { transform: skew(-1deg); }
-    80% { transform: skew(1deg); }
-    100% { transform: skew(0deg); }
+    0% {
+        transform: skew(0deg);
+    }
+
+    20% {
+        transform: skew(-2deg);
+    }
+
+    40% {
+        transform: skew(2deg);
+    }
+
+    60% {
+        transform: skew(-1deg);
+    }
+
+    80% {
+        transform: skew(1deg);
+    }
+
+    100% {
+        transform: skew(0deg);
+    }
 }
 
 
@@ -2309,22 +2751,23 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 /* 1. Le Conteneur doit avoir une perspective (la distance de l'œil) */
 .perspective-container {
-    perspective: 1000px; /* Plus le chiffre est petit, plus l'effet 3D est prononcé */
+    perspective: 1000px;
+    /* Plus le chiffre est petit, plus l'effet 3D est prononcé */
 }
 
 
 
 /* 2. La Carte de Verre */
 .glass-card {
-    background: rgba(30, 41, 59, 0.4); 
-    backdrop-filter: blur(12px);       
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); 
-    
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+
     /* PAR DÉFAUT (Quand on ne touche pas) : Transition LENTE et ÉLASTIQUE */
     /* C'est ça qui donne le côté "stylé" au retour */
-    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-    
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
     /* On force la position à 0 par défaut pour éviter les bugs au chargement */
     transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
 }
@@ -2339,8 +2782,9 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 .transform-style-3d {
     transform-style: preserve-3d;
 }
+
 .card-element {
-    transform: translateZ(20px); 
+    transform: translateZ(20px);
 }
 
 
@@ -2348,14 +2792,12 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 .card-glare {
     /* On crée une lumière ronde qui suit la souris via les variables */
-    background: radial-gradient(
-        800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(255, 255, 255, 0.12),
-        transparent 40%
-    );
+    background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(255, 255, 255, 0.12),
+            transparent 40%);
     /* Incrustation lumineuse */
     mix-blend-mode: overlay;
-    
+
     /* On s'assure qu'il couvre bien toute la carte sans bouger */
     width: 100%;
     height: 100%;
@@ -2377,7 +2819,7 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 }
 
 .text-shadow-sm {
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -2397,9 +2839,10 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* IMPORTANT : Au-dessus des lueurs */
-    
-    background-image: 
+    z-index: 1;
+    /* IMPORTANT : Au-dessus des lueurs */
+
+    background-image:
         radial-gradient(1px 1px at 10% 10%, rgba(255, 255, 255, 0.9) 50%, transparent 100%),
         radial-gradient(1px 1px at 20% 80%, rgba(255, 255, 255, 0.7) 50%, transparent 100%),
         radial-gradient(2px 2px at 30% 40%, rgba(255, 255, 255, 0.6) 50%, transparent 100%),
@@ -2409,39 +2852,44 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
         radial-gradient(2px 2px at 70% 30%, rgba(255, 255, 255, 0.6) 50%, transparent 100%),
         radial-gradient(1px 1px at 80% 50%, rgba(255, 255, 255, 0.8) 50%, transparent 100%),
         radial-gradient(1px 1px at 90% 10%, rgba(255, 255, 255, 0.9) 50%, transparent 100%);
-        
+
     background-size: 500px 500px;
-    background-attachment: fixed; 
-    opacity: 0.6; /* Un peu plus visible maintenant qu'elles sont devant */
+    background-attachment: fixed;
+    opacity: 0.6;
+    /* Un peu plus visible maintenant qu'elles sont devant */
 }
 
 /* 2. Les Nébuleuses (DOIVENT ÊTRE TOUT AU FOND) */
 .cosmic-glow {
-    position: fixed; 
-    z-index: 0; /* IMPORTANT : Tout au fond */
+    position: fixed;
+    z-index: 0;
+    /* IMPORTANT : Tout au fond */
     pointer-events: none;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
     /* Ajout d'un mix-blend-mode pour que la couleur s'incruste mieux dans le noir */
-    mix-blend-mode: screen; 
+    mix-blend-mode: screen;
 }
 
 /* Nébuleuse 1 : La Clarté (Bleue) */
 .cosmic-glow::before {
     content: '';
     position: absolute;
-    top: 10%;      
-    right: -20%;   /* On la pousse un peu plus loin */
-    width: 70vw;   /* Plus large mais plus diffuse */
+    top: 10%;
+    right: -20%;
+    /* On la pousse un peu plus loin */
+    width: 70vw;
+    /* Plus large mais plus diffuse */
     height: 70vw;
     border-radius: 50%;
-    
+
     /* Opacité réduite (0.15 au lieu de 0.25) pour éviter l'effet "buée" */
     background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(15, 23, 42, 0) 60%);
-    filter: blur(100px); /* Flou augmenté pour la douceur */
-    
+    filter: blur(100px);
+    /* Flou augmenté pour la douceur */
+
     animation: nebulaFloat 10s ease-in-out infinite alternate;
 }
 
@@ -2449,16 +2897,17 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 .cosmic-glow::after {
     content: '';
     position: absolute;
-    bottom: 0%;   
-    left: -20%;    /* On la pousse un peu plus loin */
+    bottom: 0%;
+    left: -20%;
+    /* On la pousse un peu plus loin */
     width: 60vw;
     height: 60vw;
     border-radius: 50%;
-    
+
     /* Opacité réduite (0.10 au lieu de 0.15) */
     background: radial-gradient(circle, rgba(249, 115, 22, 0.10) 0%, rgba(15, 23, 42, 0) 60%);
     filter: blur(100px);
-    
+
     animation: nebulaFloat 12s ease-in-out infinite alternate-reverse;
 }
 
@@ -2468,8 +2917,10 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
         opacity: 0.5;
         transform: scale(1);
     }
+
     100% {
-        opacity: 0.8; /* Devient plus lumineux */
+        opacity: 0.8;
+        /* Devient plus lumineux */
         transform: scale(1.1);
     }
 }
@@ -2486,15 +2937,15 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 /* 1. L'arriere-plan au scroll : Sombre, Flou et Bordé */
 .dark-nav-page #main-nav.scrolled {
     /* Fond sombre semi-transparent (Bleu Nuit) */
-    background-color: rgba(15, 23, 42, 0.75) !important; 
-    
+    background-color: rgba(15, 23, 42, 0.75) !important;
+
     /* Le flou glassmorphism */
     backdrop-filter: blur(16px) !important;
     -webkit-backdrop-filter: blur(16px) !important;
-    
+
     /* Une fine bordure lumineuse en bas pour séparer du contenu */
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    
+
     /* Ombre portée plus sombre */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3) !important;
 }
@@ -2506,37 +2957,43 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 /* 3. Au survol, les liens deviennent ORANGE avec un petit effet néon */
 .dark-nav-page #main-nav.scrolled .nav-link:hover {
-    color: #F97316 !important; /* Warm Orange */
+    color: #F97316 !important;
+    /* Warm Orange */
     text-shadow: 0 0 10px rgba(249, 115, 22, 0.4);
 }
 
 /* 4. Gestion des Logos : On force le BLANC à rester visible */
-.dark-nav-page #main-nav.scrolled #logo-white { 
-    opacity: 1 !important; 
+.dark-nav-page #main-nav.scrolled #logo-white {
+    opacity: 1 !important;
 }
-.dark-nav-page #main-nav.scrolled #logo-color { 
-    opacity: 0 !important; 
+
+.dark-nav-page #main-nav.scrolled #logo-color {
+    opacity: 0 !important;
 }
 
 /* 5. Le Menu Burger sur mobile reste BLANC */
-.dark-nav-page #main-nav.scrolled #mobile-menu-button { 
-    color: #ffffff !important; 
+.dark-nav-page #main-nav.scrolled #mobile-menu-button {
+    color: #ffffff !important;
 }
 
 /* 6. Adaptation du Menu Mobile Déroulant (Le tiroir) */
 .dark-nav-page #mobile-menu {
     /* On le rend sombre aussi pour matcher */
-    background-color: #1E293B !important; /* Card Dark */
+    background-color: #1E293B !important;
+    /* Card Dark */
     border: 1px solid rgba(255, 255, 255, 0.1);
     color: #ffffff !important;
 }
 
 /* Liens du menu mobile */
 .dark-nav-page #mobile-menu a {
-    color: #e2e8f0 !important; /* Gris clair */
+    color: #e2e8f0 !important;
+    /* Gris clair */
 }
+
 .dark-nav-page #mobile-menu a:hover {
-    color: #3B82F6 !important; /* Clarity Blue au survol */
+    color: #3B82F6 !important;
+    /* Clarity Blue au survol */
     background-color: rgba(255, 255, 255, 0.05);
 }
 
@@ -2553,59 +3010,62 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 .stardust-card {
     position: relative;
     width: 100%;
-    max-width: 480px; 
-    
+    max-width: 480px;
+
     /* FOND : On applique ici le style "lumineux/chaud" par défaut */
-    background: linear-gradient(
-        160deg, 
-        rgba(255, 255, 255, 0.15) 0%, 
-        rgba(70, 65, 60, 0.7) 50%,    /* La teinte organique plus claire */
-        rgba(20, 20, 20, 0.9) 100%
-    );
-    
+    background: linear-gradient(160deg,
+            rgba(255, 255, 255, 0.15) 0%,
+            rgba(70, 65, 60, 0.7) 50%,
+            /* La teinte organique plus claire */
+            rgba(20, 20, 20, 0.9) 100%);
+
     /* Flou d'arrière-plan */
-    backdrop-filter: blur(12px); 
+    backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    
+
     border-radius: 16px;
     padding: 1.5rem 2rem;
-    
+
     /* BORDURES : On applique la bordure lumineuse par défaut */
-    border: 1px solid rgba(255, 255, 255, 0.15);       
-    border-top: 1px solid rgba(255, 255, 255, 0.7);   /* Arête brillante */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);      
-    
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: 1px solid rgba(255, 255, 255, 0.7);
+    /* Arête brillante */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+
     /* OMBRE : Le halo diffus par défaut */
-    box-shadow: 
-        inset 0 0 30px rgba(0, 0, 0, 0.3), 
-        0 0 20px rgba(255, 255, 255, 0.05); 
-    
+    box-shadow:
+        inset 0 0 30px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(255, 255, 255, 0.05);
+
     overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Transition lente et fluide */
-    pointer-events: auto; 
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Transition lente et fluide */
+    pointer-events: auto;
 }
 
 /* Au survol : TRÈS DISCRET & SANS MOUVEMENT */
 .stardust-card:hover {
     /* On éclaircit à peine le fond pour simuler un reflet de lumière qui passe */
-    background: linear-gradient(
-        160deg, 
-        rgba(255, 255, 255, 0.2) 0%,  /* Un peu plus blanc en haut */
-        rgba(80, 75, 70, 0.75) 50%,   /* Un tout petit peu plus clair au milieu */
-        rgba(20, 20, 20, 0.9) 100%
-    );
-    
+    background: linear-gradient(160deg,
+            rgba(255, 255, 255, 0.2) 0%,
+            /* Un peu plus blanc en haut */
+            rgba(80, 75, 70, 0.75) 50%,
+            /* Un tout petit peu plus clair au milieu */
+            rgba(20, 20, 20, 0.9) 100%);
+
     /* On intensifie juste l'éclat de la bordure du haut (effet de lumière zénithale) */
-    border-top-color: rgba(255, 255, 255, 0.95); 
+    border-top-color: rgba(255, 255, 255, 0.95);
     border-color: rgba(255, 255, 255, 0.25);
 
     /* PAS DE TRANSFORM (Pas d'élévation) */
-    transform: none; 
-    
+    transform: none;
+
     /* On nettoie un peu l'ombre interne pour faire "entrer" la lumière */
-    box-shadow: 
-        inset 0 0 10px rgba(0, 0, 0, 0.1), /* Moins d'ombre interne = plus de lumière */
-        0 0 25px rgba(255, 255, 255, 0.08); /* Halo externe imperceptiblement plus grand */
+    box-shadow:
+        inset 0 0 10px rgba(0, 0, 0, 0.1),
+        /* Moins d'ombre interne = plus de lumière */
+        0 0 25px rgba(255, 255, 255, 0.08);
+    /* Halo externe imperceptiblement plus grand */
 }
 
 
@@ -2622,20 +3082,42 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 /* 1. Animation du Ping lent pour le radar */
 @keyframes ping-slow {
-    0% { transform: scale(1); opacity: 0.5; }
-    100% { transform: scale(3); opacity: 0; }
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
 }
+
 .animate-ping-slow {
     animation: ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 /* 2. Ligne de scan (Effet Sci-Fi doux) */
 @keyframes scan-vertical {
-    0% { top: 0%; opacity: 0; }
-    10% { opacity: 0.5; }
-    90% { opacity: 0.5; }
-    100% { top: 100%; opacity: 0; }
+    0% {
+        top: 0%;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.5;
+    }
+
+    90% {
+        opacity: 0.5;
+    }
+
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
 }
+
 .scan-line {
     animation: scan-vertical 4s linear infinite;
     box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
@@ -2643,9 +3125,15 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 /* 3. Texte scintillant pour "Clartem" */
 @keyframes shimmer-text {
-    0% { background-position: -200% center; }
-    100% { background-position: 200% center; }
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
 }
+
 .animate-shimmer {
     background-size: 200% auto;
     /* Un dégradé qui passe du vert au blanc et revient au vert */
@@ -2682,16 +3170,19 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 }
 
 #modal-content::-webkit-scrollbar-track {
-    background: #0F172A; /* Fond sombre */
+    background: #0F172A;
+    /* Fond sombre */
 }
 
 #modal-content::-webkit-scrollbar-thumb {
-    background-color: #374151; /* Gris foncé */
+    background-color: #374151;
+    /* Gris foncé */
     border-radius: 20px;
 }
 
 #modal-content::-webkit-scrollbar-thumb:hover {
-    background-color: #4B5563; /* Gris un peu plus clair au survol */
+    background-color: #4B5563;
+    /* Gris un peu plus clair au survol */
 }
 
 
@@ -2705,17 +3196,25 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 /* ======================================================= */
 
 @keyframes borderRotate {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .gold-glow-border {
     position: relative;
     /* On s'assure que le fond de la boite reste au dessus */
-    z-index: 10; 
+    z-index: 10;
     /* Bordure transparente pour laisser la place au halo */
-    border: 2px solid transparent; 
+    border: 2px solid transparent;
 }
 
 
@@ -2725,35 +3224,34 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     content: "";
     position: absolute;
     inset: -2px;
-    border-radius: 18px; 
-    padding: 2px; 
-    
-    background: linear-gradient(
-        45deg, 
-        #F97316, 
-        #FFD700, 
-        #FFF7AD, 
-        #F97316
-    );
+    border-radius: 18px;
+    padding: 2px;
+
+    background: linear-gradient(45deg,
+            #F97316,
+            #FFD700,
+            #FFF7AD,
+            #F97316);
     background-size: 300% 300%;
     animation: borderRotate 4s ease infinite;
-    
+
     /* === CORRECTION COMPATIBILITÉ === */
-    
+
     /* 1. Version Standard (Pour Firefox et le futur) */
-    mask: 
-       linear-gradient(#fff 0 0) content-box, 
-       linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
     mask-composite: exclude;
 
     /* 2. Version Webkit (OBLIGATOIRE pour Chrome, Safari, Edge) */
-    -webkit-mask: 
-       linear-gradient(#fff 0 0) content-box, 
-       linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor; /* Note : 'xor' est l'équivalent webkit de 'exclude' */
-    
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    /* Note : 'xor' est l'équivalent webkit de 'exclude' */
+
     /* ================================ */
-    
+
     pointer-events: none;
     z-index: -1;
 }
@@ -2767,8 +3265,10 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     z-index: -2;
     transform: translate(0, 0);
     background: linear-gradient(45deg, #F97316, #FFD700);
-    filter: blur(20px); /* Flou pour faire le halo */
-    opacity: 0.4; /* Pas trop fort pour ne pas gêner la lecture */
+    filter: blur(20px);
+    /* Flou pour faire le halo */
+    opacity: 0.4;
+    /* Pas trop fort pour ne pas gêner la lecture */
     border-radius: 16px;
 }
 
@@ -2790,17 +3290,18 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     line-height: 0;
     z-index: 2;
     /* Correction sub-pixel */
-    transform: translateY(1px); 
+    transform: translateY(1px);
 }
 
 .waves {
     position: relative;
     width: 100%;
-    height: 15vh; /* Hauteur relative confortable */
+    height: 15vh;
+    /* Hauteur relative confortable */
     min-height: 100px;
     max-height: 150px;
     margin-bottom: -1px;
-    
+
     /* Animation de respiration verticale globale */
     animation: wave-swell 10s ease-in-out infinite alternate;
 }
@@ -2810,13 +3311,23 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
    On définit deux animations inverses pour briser la linéarité.
 */
 @keyframes move-forever-right {
-    0% { transform: translate3d(-90px, 0, 0); }
-    100% { transform: translate3d(85px, 0, 0); }
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
 }
 
 @keyframes move-forever-left {
-    0% { transform: translate3d(85px, 0, 0); }
-    100% { transform: translate3d(-90px, 0, 0); }
+    0% {
+        transform: translate3d(85px, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-90px, 0, 0);
+    }
 }
 
 /* 
@@ -2824,8 +3335,13 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
    Fait monter et descendre doucement tout l'océan
 */
 @keyframes wave-swell {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(5px); }
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(5px);
+    }
 }
 
 /* 
@@ -2834,26 +3350,30 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 */
 
 /* Vague 1 : Écume rapide (Vers la Droite) */
-.parallax > use:nth-child(1) {
-    animation: move-forever-right 23s linear infinite; /* 23s (Nombre premier) */
-    opacity: 0.5; /* Légèrement plus visible */
+.parallax>use:nth-child(1) {
+    animation: move-forever-right 23s linear infinite;
+    /* 23s (Nombre premier) */
+    opacity: 0.5;
+    /* Légèrement plus visible */
 }
 
 /* Vague 2 : Courant inverse (Vers la Gauche - C'est ça qui crée l'hypnose) */
-.parallax > use:nth-child(2) {
-    animation: move-forever-left 37s linear infinite; /* Vitesse très différente */
+.parallax>use:nth-child(2) {
+    animation: move-forever-left 37s linear infinite;
+    /* Vitesse très différente */
     opacity: 0.6;
 }
 
 /* Vague 3 : Profondeur (Vers la Droite) */
-.parallax > use:nth-child(3) {
-    animation: move-forever-right 41s linear infinite; 
+.parallax>use:nth-child(3) {
+    animation: move-forever-right 41s linear infinite;
     opacity: 0.8;
 }
 
 /* Vague 4 : Base lourde (Vers la Gauche) */
-.parallax > use:nth-child(4) {
-    animation: move-forever-left 59s linear infinite; /* Très lent */
+.parallax>use:nth-child(4) {
+    animation: move-forever-left 59s linear infinite;
+    /* Très lent */
     opacity: 1;
 }
 
@@ -2864,14 +3384,25 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
         height: 80px;
         min-height: 80px;
         /* On désactive le swell sur mobile pour la performance */
-        animation: none; 
+        animation: none;
     }
-    
+
     /* On garde les animations croisées mais un peu plus rapides */
-    .parallax > use:nth-child(1) { animation-duration: 17s; }
-    .parallax > use:nth-child(2) { animation-duration: 23s; }
-    .parallax > use:nth-child(3) { animation-duration: 29s; }
-    .parallax > use:nth-child(4) { animation-duration: 45s; }
+    .parallax>use:nth-child(1) {
+        animation-duration: 17s;
+    }
+
+    .parallax>use:nth-child(2) {
+        animation-duration: 23s;
+    }
+
+    .parallax>use:nth-child(3) {
+        animation-duration: 29s;
+    }
+
+    .parallax>use:nth-child(4) {
+        animation-duration: 45s;
+    }
 }
 
 
@@ -2893,14 +3424,15 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 /* Style de la carte biographie */
 .story-card {
     /* Ombre interne pour donner de la profondeur (effet encastré) */
-    box-shadow: 
-        0 20px 40px -10px rgba(0,0,0,0.5),
-        inset 0 1px 0 rgba(255,255,255,0.1); 
+    box-shadow:
+        0 20px 40px -10px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     transition: transform 0.5s ease;
 }
 
 .story-card:hover {
-    transform: translateY(-2px); /* Léger mouvement au survol de la zone */
+    transform: translateY(-2px);
+    /* Léger mouvement au survol de la zone */
 }
 
 
@@ -2915,12 +3447,13 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 /* L'icône SVG dans le bouton FAQ tourne de 45deg (ou 135deg) */
 .faq-toggle svg.rotate-180 {
     /* Sur un "+" : 45deg fait une croix "x". 135deg fait aussi une croix avec plus de mouvement */
-    transform: rotate(135deg); 
+    transform: rotate(135deg);
 }
 
 /* On change aussi la couleur de fond du rond au clic */
 .faq-toggle.active .w-8 {
-    background-color: #3B82F6; /* clarity-blue */
+    background-color: #3B82F6;
+    /* clarity-blue */
     color: white;
 }
 
@@ -2942,11 +3475,10 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     transform: translate(-50%, -50%);
     width: 120%;
     height: 150%;
-    background: radial-gradient(
-        circle, 
-        rgba(59, 130, 246, 0.15) 0%, /* Clarity Blue très transparent */
-        rgba(255, 255, 255, 0) 70%
-    );
+    background: radial-gradient(circle,
+            rgba(59, 130, 246, 0.15) 0%,
+            /* Clarity Blue très transparent */
+            rgba(255, 255, 255, 0) 70%);
     filter: blur(40px);
     pointer-events: none;
     z-index: -1;
@@ -2958,8 +3490,10 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     align-items: center;
     gap: 8px;
     padding: 6px 16px;
-    background: rgba(255, 255, 255, 0.03); /* Fond quasi invisible */
-    border: 1px solid rgba(255, 255, 255, 0.15); /* Bordure fine */
+    background: rgba(255, 255, 255, 0.03);
+    /* Fond quasi invisible */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    /* Bordure fine */
     border-radius: 9999px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -2971,7 +3505,8 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     background: rgba(255, 255, 255, 0.08);
     border-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.1); /* Lueur bleue au survol */
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.1);
+    /* Lueur bleue au survol */
 }
 
 /* Le petit point brillant dans le badge */
@@ -2979,7 +3514,8 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background-color: #F97316; /* Warm Orange */
+    background-color: #F97316;
+    /* Warm Orange */
     box-shadow: 0 0 8px rgba(249, 115, 22, 0.6);
     position: relative;
 }
@@ -2994,8 +3530,15 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 }
 
 @keyframes dotPulse {
-    0% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(2); opacity: 0; }
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
 }
 
 /* 3. Typographie Titre Premium */
@@ -3019,13 +3562,11 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 /* Effet Scanlines pour le terminal Matrix */
 .scanlines {
-    background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0),
-        rgba(255, 255, 255, 0) 50%,
-        rgba(0, 0, 0, 0.2) 50%,
-        rgba(0, 0, 0, 0.2)
-    );
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0) 50%,
+            rgba(0, 0, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0.2));
     background-size: 100% 4px;
     opacity: 0.15;
 }
@@ -3033,7 +3574,7 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 /* Police Monospace élégante pour le terminal */
 /* Si vous pouvez, ajoutez @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap'); en haut du CSS */
 #matrix-typewriter {
-    font-family: 'JetBrains Mono', 'Fira Code', monospace; 
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
 /* Classes utilitaires pour les lignes du terminal */
@@ -3042,15 +3583,31 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     margin-bottom: 0.5rem;
 }
 
-.matrix-dim { color: #64748b; } /* Gris commentaire */
-.matrix-keyword { color: #34d399; font-weight: bold; } /* Vert Émeraude clair */
-.matrix-string { color: #a7f3d0; } /* Vert très pâle */
-.matrix-highlight { 
-    color: #ffffff; 
-    text-shadow: 0 0 10px rgba(52, 211, 153, 0.5); /* Glow blanc/vert */
+.matrix-dim {
+    color: #64748b;
 }
+
+/* Gris commentaire */
+.matrix-keyword {
+    color: #34d399;
+    font-weight: bold;
+}
+
+/* Vert Émeraude clair */
+.matrix-string {
+    color: #a7f3d0;
+}
+
+/* Vert très pâle */
+.matrix-highlight {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(52, 211, 153, 0.5);
+    /* Glow blanc/vert */
+}
+
 .matrix-glitch {
-    color: #ef4444; /* Rouge très léger juste pour le bug */
+    color: #ef4444;
+    /* Rouge très léger juste pour le bug */
     animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
     display: inline-block;
 }
@@ -3066,30 +3623,36 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 #white-rabbit {
     /* Position de départ : Caché hors de l'écran à gauche */
-    left: -100px; /* Reculé un peu plus car il est plus large */
+    left: -100px;
+    /* Reculé un peu plus car il est plus large */
     bottom: 20%;
     opacity: 0;
-    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1); /* Effet ressort */
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* Effet ressort */
     transform-origin: bottom center;
 }
 
 /* 1. L'ETAT "COUCOU" (Manifeste) */
 #white-rabbit.peek-active {
-    left: -10px; /* Il sort un peu */
+    left: -10px;
+    /* Il sort un peu */
     opacity: 1;
-    transform: rotate(15deg) translateY(-10px); /* Penche la tête pour regarder */
+    transform: rotate(15deg) translateY(-10px);
+    /* Penche la tête pour regarder */
 }
 
 /* 2. L'ETAT "FINAL" (Sur le CTA) */
 #white-rabbit.cta-mode {
-    position: absolute; 
+    position: absolute;
     left: auto !important;
     right: 10px;
-    top: -95px; /* Ajusté pour la nouvelle taille */
+    top: -95px;
+    /* Ajusté pour la nouvelle taille */
     bottom: auto;
     opacity: 1;
-    transform: rotate(0deg) scale(0.85); /* Un peu plus petit pour tenir sur le bouton */
-    z-index: 0; 
+    transform: rotate(0deg) scale(0.85);
+    /* Un peu plus petit pour tenir sur le bouton */
+    z-index: 0;
 }
 
 /* --- ANIMATIONS DU CORPS --- */
@@ -3099,45 +3662,95 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     animation: rabbitBreathe 4s ease-in-out infinite;
     transform-origin: bottom center;
 }
+
 @keyframes rabbitBreathe {
-    0%, 100% { transform: scaleY(1); }
-    50% { transform: scaleY(1.03); }
+
+    0%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform: scaleY(1.03);
+    }
 }
 
 /* Clignement des yeux */
 .rabbit-eye {
     animation: rabbitBlink 4s infinite;
-    transform-origin: center; /* Important pour que ça cligne au milieu */
+    transform-origin: center;
+    /* Important pour que ça cligne au milieu */
 }
+
 @keyframes rabbitBlink {
-    0%, 48%, 52%, 100% { transform: scaleY(1); }
-    50% { transform: scaleY(0.1); }
+
+    0%,
+    48%,
+    52%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform: scaleY(0.1);
+    }
 }
 
 /* Mouvement Oreille Gauche */
 .ear-left-anim {
     animation: earWiggleLeft 5s ease-in-out infinite;
     transform-box: fill-box;
-    transform-origin: bottom right; /* Pivote à la base */
+    transform-origin: bottom right;
+    /* Pivote à la base */
 }
+
 @keyframes earWiggleLeft {
-    0%, 100% { transform: rotate(0deg); }
-    10% { transform: rotate(-5deg); }
-    20% { transform: rotate(0deg); }
-    80% { transform: rotate(0deg); }
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    10% {
+        transform: rotate(-5deg);
+    }
+
+    20% {
+        transform: rotate(0deg);
+    }
+
+    80% {
+        transform: rotate(0deg);
+    }
 }
 
 /* Mouvement Oreille Droite (Décalé pour le réalisme) */
 .ear-right-anim {
-    animation: earWiggleRight 6s ease-in-out infinite; /* Durée différente */
+    animation: earWiggleRight 6s ease-in-out infinite;
+    /* Durée différente */
     transform-box: fill-box;
-    transform-origin: bottom left; /* Pivote à la base */
+    transform-origin: bottom left;
+    /* Pivote à la base */
 }
+
 @keyframes earWiggleRight {
-    0%, 100% { transform: rotate(0deg); }
-    40% { transform: rotate(0deg); }
-    50% { transform: rotate(5deg); }
-    60% { transform: rotate(0deg); }
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    40% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+
+    60% {
+        transform: rotate(0deg);
+    }
 }
 
 /* Frétillement du nez */
@@ -3146,12 +3759,30 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     transform-box: fill-box;
     transform-origin: center;
 }
+
 @keyframes noseTwitch {
-    0%, 90%, 100% { transform: translateY(0) scale(1); }
-    92% { transform: translateY(-1px) scale(1.1); }
-    94% { transform: translateY(0) scale(1); }
-    96% { transform: translateY(-1px) scale(1.1); }
-    98% { transform: translateY(0) scale(1); }
+
+    0%,
+    90%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    92% {
+        transform: translateY(-1px) scale(1.1);
+    }
+
+    94% {
+        transform: translateY(0) scale(1);
+    }
+
+    96% {
+        transform: translateY(-1px) scale(1.1);
+    }
+
+    98% {
+        transform: translateY(0) scale(1);
+    }
 }
 
 
@@ -3163,10 +3794,13 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 /* 1. APPARITION À DROITE (Section Plan) */
 /* Note : scaleX(-1) retourne le lapin pour qu'il regarde vers la gauche */
 #white-rabbit.peek-right-active {
-    left: auto !important; /* On annule la gauche */
-    right: -20px;          /* Il sort de la droite */
+    left: auto !important;
+    /* On annule la gauche */
+    right: -20px;
+    /* Il sort de la droite */
     opacity: 1;
-    transform: scaleX(-1) rotate(15deg) translateY(-10px); /* Miroir + Rotation */
+    transform: scaleX(-1) rotate(15deg) translateY(-10px);
+    /* Miroir + Rotation */
 }
 
 /* 2. APPARITION À GAUCHE (Section Offres) */
@@ -3174,7 +3808,8 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     left: -20px;
     right: auto !important;
     opacity: 1;
-    transform: rotate(15deg) translateY(-10px); /* Juste penché */
+    transform: rotate(15deg) translateY(-10px);
+    /* Juste penché */
 }
 
 /* Ajustement de la transition pour que le retournement soit fluide */
@@ -3192,43 +3827,93 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 /* 1. Rendre le lapin cliquable quand il est sur le CTA */
 #white-rabbit.cta-mode {
-    pointer-events: auto !important; /* CRUCIAL : Sinon on clique au travers */
+    pointer-events: auto !important;
+    /* CRUCIAL : Sinon on clique au travers */
     cursor: pointer;
 }
 
 /* 2. Animation Saut (Clic 1) */
 @keyframes rabbitJump {
-    0% { transform: translateY(0) scale(0.85); }
-    40% { transform: translateY(-40px) scale(0.85) rotate(-10deg); }
-    50% { transform: translateY(-40px) scale(0.85) rotate(10deg); }
-    100% { transform: translateY(0) scale(0.85) rotate(0deg); }
+    0% {
+        transform: translateY(0) scale(0.85);
+    }
+
+    40% {
+        transform: translateY(-40px) scale(0.85) rotate(-10deg);
+    }
+
+    50% {
+        transform: translateY(-40px) scale(0.85) rotate(10deg);
+    }
+
+    100% {
+        transform: translateY(0) scale(0.85) rotate(0deg);
+    }
 }
+
 .rabbit-anim-jump {
     animation: rabbitJump 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 /* 3. Animation Glitch Matrix (Clic 2) */
 @keyframes rabbitGlitch {
-    0% { transform: translate(0) scale(0.85); filter: none; }
-    20% { transform: translate(-5px, 5px) scale(0.9); filter: hue-rotate(90deg) invert(1); }
-    40% { transform: translate(5px, -5px) scale(0.85); filter: none; }
-    60% { transform: translate(-5px, 0) scale(0.9) skew(20deg); filter: hue-rotate(90deg) invert(1); }
-    80% { transform: translate(5px, 0) scale(0.85) skew(-20deg); filter: none; }
-    100% { transform: translate(0) scale(0.85); filter: none; }
+    0% {
+        transform: translate(0) scale(0.85);
+        filter: none;
+    }
+
+    20% {
+        transform: translate(-5px, 5px) scale(0.9);
+        filter: hue-rotate(90deg) invert(1);
+    }
+
+    40% {
+        transform: translate(5px, -5px) scale(0.85);
+        filter: none;
+    }
+
+    60% {
+        transform: translate(-5px, 0) scale(0.9) skew(20deg);
+        filter: hue-rotate(90deg) invert(1);
+    }
+
+    80% {
+        transform: translate(5px, 0) scale(0.85) skew(-20deg);
+        filter: none;
+    }
+
+    100% {
+        transform: translate(0) scale(0.85);
+        filter: none;
+    }
 }
+
 .rabbit-anim-glitch {
     animation: rabbitGlitch 0.4s steps(5) infinite;
 }
 
 /* 4. Animation Disparition / Fuite (Clic 3) */
 @keyframes rabbitVanish {
-    0% { transform: scale(0.85) rotate(0); opacity: 1; }
-    50% { transform: scale(1.2) rotate(-20deg); opacity: 1; }
-    100% { transform: scale(0) rotate(360deg); opacity: 0; }
+    0% {
+        transform: scale(0.85) rotate(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.2) rotate(-20deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0) rotate(360deg);
+        opacity: 0;
+    }
 }
+
 .rabbit-anim-vanish {
     animation: rabbitVanish 0.6s ease-in forwards;
-    pointer-events: none; /* On ne peut plus cliquer */
+    pointer-events: none;
+    /* On ne peut plus cliquer */
 }
 
 /* 5. Bulle de dialogue du lapin */
@@ -3247,9 +3932,10 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     opacity: 0;
     transition: opacity 0.3s, transform 0.3s;
     pointer-events: none;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 60;
 }
+
 .rabbit-bubble::after {
     content: '';
     position: absolute;
@@ -3269,7 +3955,8 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 /* Accélération des oreilles au survol */
 #white-rabbit.cta-mode:hover .ear-left-anim,
 #white-rabbit.cta-mode:hover .ear-right-anim {
-    animation-duration: 0.5s; /* Elles s'agitent ! */
+    animation-duration: 0.5s;
+    /* Elles s'agitent ! */
 }
 
 
@@ -3278,35 +3965,63 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 /* Action 2 : La Toupie (Spin) */
 @keyframes rabbitSpin {
-    0% { transform: translateY(0) scale(0.85) rotate(0deg); }
-    100% { transform: translateY(0) scale(0.85) rotate(360deg); }
+    0% {
+        transform: translateY(0) scale(0.85) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(0) scale(0.85) rotate(360deg);
+    }
 }
+
 .rabbit-anim-spin {
     animation: rabbitSpin 0.6s ease-out;
 }
 
 /* Action 3 : Mode Matrix (Inversion Couleurs) */
 @keyframes rabbitMatrixColor {
-    0% { filter: none; transform: scale(0.85); }
-    50% { 
-        /* Devient noir et vert style terminal */
-        filter: invert(1) sepia(1) saturate(5) hue-rotate(90deg); 
-        transform: scale(1.1); /* Petit zoom */
+    0% {
+        filter: none;
+        transform: scale(0.85);
     }
-    100% { filter: none; transform: scale(0.85); }
+
+    50% {
+        /* Devient noir et vert style terminal */
+        filter: invert(1) sepia(1) saturate(5) hue-rotate(90deg);
+        transform: scale(1.1);
+        /* Petit zoom */
+    }
+
+    100% {
+        filter: none;
+        transform: scale(0.85);
+    }
 }
+
 .rabbit-anim-matrix-mode {
     animation: rabbitMatrixColor 0.8s ease-in-out;
 }
 
 /* Action 4 : Le Refus (Shake) */
 @keyframes rabbitShake {
-    0%, 100% { transform: translateX(0) scale(0.85); }
-    25% { transform: translateX(-10px) scale(0.85) rotate(-5deg); }
-    75% { transform: translateX(10px) scale(0.85) rotate(5deg); }
+
+    0%,
+    100% {
+        transform: translateX(0) scale(0.85);
+    }
+
+    25% {
+        transform: translateX(-10px) scale(0.85) rotate(-5deg);
+    }
+
+    75% {
+        transform: translateX(10px) scale(0.85) rotate(5deg);
+    }
 }
+
 .rabbit-anim-shake {
-    animation: rabbitShake 0.4s ease-in-out infinite; /* On le répète 2-3 fois via JS */
+    animation: rabbitShake 0.4s ease-in-out infinite;
+    /* On le répète 2-3 fois via JS */
 }
 
 
@@ -3319,9 +4034,10 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 .disintegrate {
     /* Le texte devient blanc pur (lumière) */
-    color: white !important; 
-    text-shadow: 0 0 10px white, 0 0 20px white, 0 0 40px #22c55e; /* Halo intense */
-    
+    color: white !important;
+    text-shadow: 0 0 10px white, 0 0 20px white, 0 0 40px #22c55e;
+    /* Halo intense */
+
     /* Il s'écarte et se floute */
     letter-spacing: 10px;
     filter: blur(10px) contrast(200%);
@@ -3333,7 +4049,8 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 #dark-content {
     /* On force l'accélération matérielle pour que ce soit fluide */
     will-change: opacity, transform, filter, letter-spacing;
-    transition: all 0.1s linear; /* Géré par JS frame par frame, ou CSS rapide */
+    transition: all 0.1s linear;
+    /* Géré par JS frame par frame, ou CSS rapide */
 }
 
 #matrix-canvas {
@@ -3353,12 +4070,22 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 #mission-bridge .absolute span {
     animation: breathe 3s ease-in-out infinite;
     display: inline-block;
-    color: #9CA3AF; /* Gris neutre */
+    color: #9CA3AF;
+    /* Gris neutre */
 }
 
 @keyframes breathe {
-    0%, 100% { transform: scale(1); opacity: 0.5; }
-    50% { transform: scale(1.2); opacity: 1; }
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
 }
 
 
@@ -3373,7 +4100,8 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 /* Donne de la profondeur à la grille pour l'effet 3D */
 .perspective-container {
-    perspective: 1500px; /* Plus le chiffre est grand, plus l'effet 3D est subtil */
+    perspective: 1500px;
+    /* Plus le chiffre est grand, plus l'effet 3D est subtil */
 }
 
 /* La carte doit être marquée comme un élément 3D */
@@ -3381,7 +4109,7 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     /* Optimisation pour fluidifier l'animation */
     will-change: transform, opacity;
     /* On cache l'arrière de la carte pour éviter les bugs visuels pendant la rotation */
-    backface-visibility: hidden; 
+    backface-visibility: hidden;
 }
 
 
@@ -3395,7 +4123,8 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 /* 1. La Perspective sur le parent (l'œil de la caméra) */
 .perspective-1000 {
-    perspective: 1200px; /* Plus c'est bas, plus l'effet 3D est dramatique */
+    perspective: 1200px;
+    /* Plus c'est bas, plus l'effet 3D est dramatique */
 }
 
 /* 2. L'état initial de la carte (avant animation ScrollReveal) */
@@ -3405,27 +4134,33 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     /* On ajoute une bordure lumineuse subtile en haut pour l'effet 3D */
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     /* Ombre portée massive pour détacher la carte du fond */
-    box-shadow: 
+    box-shadow:
         0 50px 100px -20px rgba(0, 0, 0, 0.7),
         0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 /* Petit effet de brillance qui parcourt la carte une fois arrivée */
 @keyframes scan-flash {
-    0% { background-position: -100% 0; }
-    100% { background-position: 200% 0; }
+    0% {
+        background-position: -100% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
 }
 
 .diagnostic-scanned::after {
     content: "";
     position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        rgba(255, 255, 255, 0.05) 50%,
-        transparent 100%
-    );
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            transparent 0%,
+            rgba(255, 255, 255, 0.05) 50%,
+            transparent 100%);
     background-size: 100% 200%;
     pointer-events: none;
     animation: scan-flash 1.5s ease-out forwards;
@@ -3443,13 +4178,15 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 .concept-card {
     /* Assure que la transition est fluide */
     transition: transform 0.5s ease, box-shadow 0.5s ease;
-    will-change: transform; /* Optimisation performance */
+    will-change: transform;
+    /* Optimisation performance */
 }
 
 /* Force le soulèvement au survol avec !important pour écraser tout conflit éventuel */
 .concept-card:hover {
     transform: translateY(-8px) !important;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important; /* Ombre plus forte */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+    /* Ombre plus forte */
 }
 
 
@@ -3465,7 +4202,8 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 /* NOTE: On utilise overflow-x: clip au lieu de hidden    */
 /* car hidden casse le comportement de position: sticky   */
 /* clip fait le même travail sans créer de scroll context */
-html, body {
+html,
+body {
     max-width: 100%;
     overflow-x: clip;
 }
@@ -3491,11 +4229,13 @@ html, body {
 
 /* On applique la perspective au conteneur de la timeline */
 #objectifs .container {
-    perspective: 2000px; /* Plus le chiffre est grand, plus l'effet 3D est subtil */
+    perspective: 2000px;
+    /* Plus le chiffre est grand, plus l'effet 3D est subtil */
 }
 
 /* Optionnel : Une transition plus douce sur les cartes elles-mêmes */
 #objectifs .bg-white\/5 {
     transition: transform 0.5s ease, border-color 0.3s ease, background-color 0.3s ease;
-    will-change: transform; /* Optimisation pour l'animation */
+    will-change: transform;
+    /* Optimisation pour l'animation */
 }
