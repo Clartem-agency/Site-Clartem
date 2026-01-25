@@ -120,6 +120,36 @@ document.addEventListener('DOMContentLoaded', function () {
                 mobile: false
             });
 
+
+            // --- ANIMATION MAJESTUEUSE DES PRIX (L'EFFET MONOLITHE) ---
+            sr.reveal('[data-sr-pricing]', {
+                duration: 1500,          // Très lent (1.5s) pour donner du poids
+                distance: '60px',        // Arrive de plus bas
+                origin: 'bottom',        // Vient du bas
+                opacity: 0,              // Commence invisible
+                
+                // C'est ici l'effet 3D : Incliné en arrière de 20 degrés
+                rotate: { x: 20, y: 0, z: 0 }, 
+                scale: 0.9,              // Commence un peu plus petit
+                
+                interval: 250,           // Délai entre chaque carte (Cascade)
+                
+                // Courbe d'animation très douce (atterrissage en douceur)
+                easing: 'cubic-bezier(0.2, 0.8, 0.2, 1)', 
+                
+                viewFactor: 0.2,         // Se déclenche quand 20% de la carte est visible
+                mobile: true,            // Active sur mobile aussi
+
+                // CRUCIAL : Nettoyage après l'animation pour que le survol fonctionne
+                afterReveal: function (el) {
+                    el.style.transform = ''; 
+                    el.style.transition = '';
+                    el.style.opacity = '';
+                }
+            });
+
+            
+
             // FALLBACK MOBILE (Animation simple verticale pour les téléphones)
             // ScrollReveal gère cela automatiquement si mobile: false, 
             // mais on peut forcer une animation simple ici si vous préférez :
