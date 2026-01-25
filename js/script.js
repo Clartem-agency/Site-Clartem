@@ -1884,30 +1884,34 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
 
-        // Observer pour lancer l'anim quand visible
+        
+// Observer pour lancer l'anim quand visible
         const matrixObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !isMatrixRunning) {
                     isMatrixRunning = true;
+                    
+                    // 1. ÉTAT D'ATTENTE : Curseur seul
+                    matrixContainer.innerHTML = ''; 
+                    matrixContainer.appendChild(cursor); 
 
-                    // 1. ÉTAT D'ATTENTE : On affiche juste le curseur clignotant
-                    // Cela montre que le terminal est "allumé" mais attend son tour
-                    matrixContainer.innerHTML = '';
-                    matrixContainer.appendChild(cursor);
-
-                    // 2. LANCEMENT DIFFÉRÉ : On laisse 2.5s à l'utilisateur pour lire le titre au-dessus
+                    // 2. LANCEMENT DIFFÉRÉ
                     lineIdx = 0;
                     charIdx = 0;
-
+                    
                     setTimeout(() => {
-                        matrixContainer.innerHTML = ''; // On nettoie pour commencer propre
-                        typeMatrix(); // Lancement de la séquence
-                    }, 2500); // DÉLAI AUGMENTÉ : 800ms -> 2500ms
+                        matrixContainer.innerHTML = ''; 
+                        typeMatrix(); 
+                    }, 2000); // Délai de lecture (2s suffisent si l'élément est bien centré)
                 }
             });
-        }, { threshold: 0.6 }); // SEUIL AUGMENTÉ : 0.4 -> 0.6 (Déclenche quand l'élément est bien centré)
+        }, { 
+            threshold: 0.5,              // Il faut voir la moitié du terminal
+            rootMargin: "0px 0px -25% 0px" // Le déclencheur est décalé : l'élément doit être bien entré dans l'écran
+        });
 
         matrixObserver.observe(matrixContainer);
+
 
     }
 
