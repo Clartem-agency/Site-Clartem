@@ -81,6 +81,62 @@ document.addEventListener('DOMContentLoaded', function () {
             sr.reveal('[data-sr-origin="right"]', { origin: 'right', distance: '60px', duration: 1000, delay: 200 });
             sr.reveal('[data-sr-origin="left"]', { origin: 'left', distance: '60px', duration: 1000, delay: 200 });
 
+
+
+
+
+
+             // --- NOUVEAU : ANIMATIONS 3D TIMELINE ---
+
+            // Cartes de GAUCHE (Arrivent de la gauche avec rotation)
+            sr.reveal('[data-sr-3d-left]', {
+                duration: 1500,          // Animation lente et majestueuse
+                distance: '100px',       // Vient de loin
+                origin: 'left',          // Vient de la gauche
+                opacity: 0,
+                
+                // LA TOUCHE 3D :
+                rotate: { x: 20, y: 50, z: 0 }, // x=20 (bascule un peu arrière), y=50 (pivote côté)
+                
+                scale: 0.85,             // Commence un peu plus petit
+                easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', // Effet rebond doux
+                viewFactor: 0.3,
+                mobile: false // Désactivé sur mobile pour éviter les débordements (voir note plus bas)
+            });
+
+            // Cartes de DROITE (Arrivent de la droite avec rotation inverse)
+            sr.reveal('[data-sr-3d-right]', {
+                duration: 1500,
+                distance: '100px',
+                origin: 'right',         // Vient de la droite
+                opacity: 0,
+                
+                // ROTATION INVERSÉE sur Y (-50)
+                rotate: { x: 20, y: -50, z: 0 }, 
+                
+                scale: 0.85,
+                easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)',
+                viewFactor: 0.3,
+                mobile: false
+            });
+
+            // FALLBACK MOBILE (Animation simple verticale pour les téléphones)
+            // ScrollReveal gère cela automatiquement si mobile: false, 
+            // mais on peut forcer une animation simple ici si vous préférez :
+            if (window.innerWidth < 768) {
+                sr.reveal('[data-sr-3d-left], [data-sr-3d-right]', {
+                    origin: 'bottom',
+                    distance: '50px',
+                    duration: 800,
+                    rotate: { x: 0, y: 0, z: 0 },
+                    opacity: 0
+                });
+            }
+
+
+            
+
+
             // 2. --- ANIMATION SPÉCIFIQUE CONCEPT (ROTATION 3D) ---
             sr.reveal('.concept-card', {
                 duration: 1200,
