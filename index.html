@@ -5023,20 +5023,20 @@
     <!-- ======================================================= -->
     <!-- MODALE LEAD MAGNET - VERSION MOBILE OPTIMISÉE           -->
     <!-- ======================================================= -->
+
     <div id="lead-magnet-modal" class="fixed inset-0 z-[999] hidden" role="dialog" aria-modal="true">
 
-        <!-- Fond flou sombre -->
-        <div id="modal-backdrop"
-            class="absolute inset-0 bg-neutral-dark/90 backdrop-blur-md transition-opacity opacity-0"></div>
+        <!-- Fond flou sombre (Ajout de backdrop-smooth) -->
+        <div id="modal-backdrop" class="absolute inset-0 bg-neutral-dark/90 backdrop-blur-md opacity-0 backdrop-smooth">
+        </div>
 
-        <!-- Conteneur centré avec padding pour mobile -->
+        <!-- Conteneur centré -->
         <div class="relative min-h-screen w-full px-4 py-4 flex items-center justify-center pointer-events-none">
 
-
-            <!-- La Carte Modale (Conteneur de la bordure) -->
-            <!-- MODIFICATION : On retire 'overflow-hidden' et 'bg-[#1E293B]' d'ici -->
+            <!-- La Carte Modale -->
+            <!-- MODIFICATION ICI : On applique nos classes CSS personnalisées -->
             <div id="modal-content"
-                class="gold-glow-border pointer-events-auto relative w-full max-w-5xl rounded-2xl shadow-2xl text-left transform scale-95 opacity-0 transition-all duration-300 max-h-[85vh] lg:max-h-none flex flex-col lg:block">
+                class="gold-glow-border relative w-full max-w-5xl rounded-2xl shadow-2xl text-left max-h-[85vh] lg:max-h-none flex flex-col lg:block modal-transition-base modal-3d-hidden">
 
                 <!-- NOUVEAU WRAPPER INTERNE : C'est lui qui gère le fond et coupe le contenu arrondi -->
                 <div
