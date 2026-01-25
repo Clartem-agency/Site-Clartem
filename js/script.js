@@ -1884,28 +1884,28 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
 
-        
-// Observer pour lancer l'anim quand visible
+
+        // Observer pour lancer l'anim quand visible
         const matrixObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !isMatrixRunning) {
                     isMatrixRunning = true;
-                    
+
                     // 1. ÉTAT D'ATTENTE : Curseur seul
-                    matrixContainer.innerHTML = ''; 
-                    matrixContainer.appendChild(cursor); 
+                    matrixContainer.innerHTML = '';
+                    matrixContainer.appendChild(cursor);
 
                     // 2. LANCEMENT DIFFÉRÉ
                     lineIdx = 0;
                     charIdx = 0;
-                    
+
                     setTimeout(() => {
-                        matrixContainer.innerHTML = ''; 
-                        typeMatrix(); 
+                        matrixContainer.innerHTML = '';
+                        typeMatrix();
                     }, 2000); // Délai de lecture (2s suffisent si l'élément est bien centré)
                 }
             });
-        }, { 
+        }, {
             threshold: 0.5,              // Il faut voir la moitié du terminal
             rootMargin: "0px 0px -25% 0px" // Le déclencheur est décalé : l'élément doit être bien entré dans l'écran
         });
@@ -2351,6 +2351,84 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
+
+
+
+
+
+
+    // ==================================================================
+    // LOGIQUE MATRIX CARDS : 3D TILT & ENTRÉE WOW
+    // ==================================================================
+
+
+    // 1. ANIMATION D'ENTRÉE (SCROLLREVEAL SPÉCIFIQUE)
+    if (typeof ScrollReveal !== 'undefined') {
+        const sr = ScrollReveal();
+
+        // On crée une animation "Déploiement HUD"
+        // La carte part tournée à 90deg (plate) et se redresse
+        sr.reveal('[data-sr-matrix-card]', {
+            duration: 2000,  // RALENTI : 2 secondes pour un effet lourd et majestueux
+            distance: '0px', // Pas de mouvement vertical, pure rotation
+            opacity: 0,
+            scale: 0.8,      // Part un peu plus petit
+
+            // C'est ici l'effet WOW : Rotation sur l'axe X
+            rotate: { x: 90, y: 0, z: 0 },
+
+            easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)', // Effet rebond élastique à la fin
+            interval: 250,   // Délai un peu plus long entre chaque carte aussi (était 200)
+
+            viewFactor: 0.5, // 50% de la carte visible avant de lancer (bien centré)
+
+            afterReveal: function (el) {
+                // Important : On nettoie le transform pour laisser le script de Tilt prendre le relais
+                el.style.transform = 'none';
+                el.style.transition = 'transform 0.1s ease-out'; // On passe en mode "réactif" pour la souris
+            }
+        });
+    }
+
+
+    // 2. EFFET TILT (SUIVI DE SOURIS)
+    const matrixCards = document.querySelectorAll('.matrix-card-3d');
+
+    matrixCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left; // Position X dans la carte
+            const y = e.clientY - rect.top;  // Position Y dans la carte
+
+            // Calcul du centre
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            // Calcul de la rotation (Max 10 degrés pour rester élégant)
+            // Note : rotateY est inversé pour l'effet miroir naturel
+            const rotateX = ((y - centerY) / centerY) * -5;
+            const rotateY = ((x - centerX) / centerX) * 5;
+
+            // Application de la transformation
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+
+            // Mise à jour des variables CSS pour le reflet lumineux
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+
+        // Reset à la sortie de la souris
+        card.addEventListener('mouseleave', () => {
+            // On remet une transition lente pour le retour au calme
+            card.style.transition = 'transform 0.5s ease-out, box-shadow 0.5s ease, border-color 0.5s ease';
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+
+            // Après le retour, on remet la transition rapide pour le prochain survol
+            setTimeout(() => {
+                card.style.transition = 'transform 0.1s ease-out, box-shadow 0.5s ease, border-color 0.5s ease';
+            }, 500);
+        });
+    });
 
 
 

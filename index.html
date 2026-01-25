@@ -466,17 +466,21 @@
             </div>
 
 
-
-            <!-- Les 3 Cartes UNIFORMISÉES -->
+            <!-- Les 3 Cartes Matrix : Monolith Data-Blocks -->
             <div class="container mx-auto px-6 relative z-10">
-                <!-- Ajout de relative z-10 pour passer au dessus du grain -->
-                <div class="grid md:grid-cols-3 gap-8 font-mono">
+                <!-- Ajout de 'matrix-perspective' pour la 3D -->
+                <div class="grid md:grid-cols-3 gap-8 font-mono matrix-perspective">
 
                     <!-- BLOC 1 : LIVRAISON 7 JOURS -->
-                    <!-- Note : Le fond des cartes bg-[#0F172A] ressortira mieux sur le fond noir -->
-                    <div class="group relative bg-[#0F172A] border border-white/10 p-8 rounded-xl hover:border-emerald-500/50 transition-all duration-500 hover:bg-[#0F172A] hover:shadow-[0_0_30px_-10px_rgba(16,185,129,0.15)] hover:-translate-y-1"
-                        data-sr>
-                        <div>
+                    <div class="group relative matrix-card-3d p-8 h-full flex flex-col" data-sr-matrix-card data-tilt>
+
+                        <!-- Décoration Tech (Coins) -->
+                        <div class="matrix-corner corner-tl"></div>
+                        <div class="matrix-corner corner-tr"></div>
+                        <div class="matrix-corner corner-bl"></div>
+                        <div class="matrix-corner corner-br"></div>
+
+                        <div class="relative z-10 flex-grow">
                             <div
                                 class="flex justify-between items-center mb-6 text-[10px] text-gray-500 group-hover:text-emerald-400/80 tracking-widest uppercase transition-colors">
                                 <span>PROCESSUS_OPTIMISÉ</span>
@@ -508,7 +512,7 @@
                             </div>
                         </div>
 
-                        <div class="mt-8 h-0.5 w-full bg-gray-800 rounded-full overflow-hidden">
+                        <div class="mt-8 h-0.5 w-full bg-gray-800 rounded-full overflow-hidden relative z-10">
                             <div
                                 class="h-full bg-emerald-500 w-1/3 group-hover:w-full transition-all duration-1000 ease-out">
                             </div>
@@ -516,9 +520,15 @@
                     </div>
 
                     <!-- BLOC 2 : SUR-MESURE -->
-                    <div class="group relative bg-[#0F172A] border border-white/10 p-8 rounded-xl hover:border-emerald-500/50 transition-all duration-500 hover:bg-[#0F172A] hover:shadow-[0_0_30px_-10px_rgba(16,185,129,0.15)] hover:-translate-y-1"
-                        data-sr data-sr-delay="100">
-                        <div>
+                    <div class="group relative matrix-card-3d p-8 h-full flex flex-col" data-sr-matrix-card data-tilt>
+
+                        <!-- Décoration Tech (Coins) -->
+                        <div class="matrix-corner corner-tl"></div>
+                        <div class="matrix-corner corner-tr"></div>
+                        <div class="matrix-corner corner-bl"></div>
+                        <div class="matrix-corner corner-br"></div>
+
+                        <div class="relative z-10 flex-grow">
                             <div
                                 class="flex justify-between items-center mb-6 text-[10px] text-gray-500 group-hover:text-emerald-400/80 tracking-widest uppercase transition-colors">
                                 <span>DESIGN_UNIQUE</span>
@@ -549,7 +559,7 @@
                             </div>
                         </div>
 
-                        <div class="mt-8 h-0.5 w-full bg-gray-800 rounded-full overflow-hidden">
+                        <div class="mt-8 h-0.5 w-full bg-gray-800 rounded-full overflow-hidden relative z-10">
                             <div
                                 class="h-full bg-emerald-500 w-1/3 group-hover:w-full transition-all duration-1000 ease-out delay-100">
                             </div>
@@ -557,9 +567,15 @@
                     </div>
 
                     <!-- BLOC 3 : TRANSPARENCE -->
-                    <div class="group relative bg-[#0F172A] border border-white/10 p-8 rounded-xl hover:border-emerald-500/50 transition-all duration-500 hover:bg-[#0F172A] hover:shadow-[0_0_30px_-10px_rgba(16,185,129,0.15)] hover:-translate-y-1"
-                        data-sr data-sr-delay="200">
-                        <div>
+                    <div class="group relative matrix-card-3d p-8 h-full flex flex-col" data-sr-matrix-card data-tilt>
+
+                        <!-- Décoration Tech (Coins) -->
+                        <div class="matrix-corner corner-tl"></div>
+                        <div class="matrix-corner corner-tr"></div>
+                        <div class="matrix-corner corner-bl"></div>
+                        <div class="matrix-corner corner-br"></div>
+
+                        <div class="relative z-10 flex-grow">
                             <div
                                 class="flex justify-between items-center mb-6 text-[10px] text-gray-500 group-hover:text-emerald-400/80 tracking-widest uppercase transition-colors">
                                 <span>DONNÉES_CLAIRES</span>
@@ -591,7 +607,7 @@
                             </div>
                         </div>
 
-                        <div class="mt-8 h-0.5 w-full bg-gray-800 rounded-full overflow-hidden">
+                        <div class="mt-8 h-0.5 w-full bg-gray-800 rounded-full overflow-hidden relative z-10">
                             <div
                                 class="h-full bg-emerald-500 w-1/3 group-hover:w-full transition-all duration-1000 ease-out delay-200">
                             </div>
@@ -600,6 +616,8 @@
 
                 </div>
             </div>
+
+
         </section>
 
 
@@ -1334,7 +1352,8 @@
             <div class="relative h-[500vh]" id="stacking-container">
 
 
-               <div class="sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden pb-10 pt-20 lg:pt-28">
+                <div
+                    class="sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden pb-10 pt-20 lg:pt-28">
 
 
 

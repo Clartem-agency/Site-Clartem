@@ -4242,3 +4242,88 @@ body {
     will-change: transform;
     /* Optimisation pour l'animation */
 }
+
+
+
+
+
+
+/* ======================================================= */
+/*    MATRIX CARDS : LE MONOLITH DATA-BLOCK                */
+/* ======================================================= */
+
+/* Conteneur pour la perspective */
+.matrix-perspective {
+    perspective: 1500px; /* Donne la profondeur de champ */
+}
+
+/* La Carte elle-même */
+.matrix-card-3d {
+    position: relative;
+    background: rgba(11, 17, 32, 0.8); /* Fond sombre semi-transparent */
+    backdrop-filter: blur(10px);       /* Flou arrière-plan */
+    border: 1px solid rgba(16, 185, 129, 0.15); /* Bordure vert émeraude très discrète */
+    border-radius: 16px;
+    
+    /* Transition pour le retour au calme */
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                box-shadow 0.4s ease, 
+                border-color 0.4s ease;
+    
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5); /* Ombre noire profonde */
+    overflow: hidden; 
+}
+
+/* L'effet de "Scan" lumineux (Reflet) */
+.matrix-card-3d::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Dégradé brillant vert très subtil */
+    background: radial-gradient(
+        800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(16, 185, 129, 0.1),
+        transparent 40%
+    );
+    opacity: 0; /* Invisible par défaut */
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* --- INTERACTION AU SURVOL --- */
+.matrix-card-3d:hover {
+    /* La transformation 3D est gérée par le JS, ici on gère la lumière */
+    border-color: rgba(16, 185, 129, 0.5); /* La bordure s'allume */
+    box-shadow: 
+        0 20px 50px -10px rgba(0, 0, 0, 0.8), /* Ombre portée plus forte */
+        0 0 15px rgba(16, 185, 129, 0.2);     /* Halo vert externe (Glow) */
+}
+
+.matrix-card-3d:hover::after {
+    opacity: 1; /* Le reflet apparaît */
+}
+
+/* Petite décoration "Tech" dans les coins (facultatif, pour le style) */
+.matrix-corner {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 1px solid rgba(16, 185, 129, 0.0);
+    transition: all 0.3s ease;
+}
+
+.matrix-card-3d:hover .matrix-corner {
+    border-color: #10B981; /* S'allume en vert */
+}
+
+/* Coins positionnés */
+.corner-tl { top: 10px; left: 10px; border-right: 0; border-bottom: 0; }
+.corner-tr { top: 10px; right: 10px; border-left: 0; border-bottom: 0; }
+.corner-bl { bottom: 10px; left: 10px; border-right: 0; border-top: 0; }
+.corner-br { bottom: 10px; right: 10px; border-left: 0; border-top: 0; }
