@@ -4327,3 +4327,62 @@ body {
 .corner-tr { top: 10px; right: 10px; border-left: 0; border-bottom: 0; }
 .corner-bl { bottom: 10px; left: 10px; border-right: 0; border-top: 0; }
 .corner-br { bottom: 10px; right: 10px; border-left: 0; border-top: 0; }
+
+
+
+
+
+/* ======================================================= */
+/*    STYLE 3D ATMOSPHÉRIQUE (SECTION A PROPOS)            */
+/* ======================================================= */
+
+.story-3d-scene {
+    perspective: 1500px; /* Profondeur de champ réaliste */
+}
+
+#story-card {
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out; /* Très réactif pour le suivi souris */
+    
+    /* Ombre initiale lourde */
+    box-shadow: 
+        0 30px 60px -12px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* La lumière dynamique (Spotlight) */
+.story-light-overlay {
+    /* Un dégradé radial qui suivra la souris via les variables CSS */
+    background: radial-gradient(
+        circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+        rgba(255, 255, 255, 0.08) 0%, 
+        rgba(255, 255, 255, 0) 60%
+    );
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    mix-blend-mode: soft-light; /* Incrustation douce */
+}
+
+/* Au survol, on allume la lumière */
+#story-card:hover .story-light-overlay {
+    opacity: 1;
+}
+
+/* La Photo qui flotte (Parallaxe Z) */
+.floating-photo {
+    /* Elle "sort" de l'écran de 40px */
+    transform: translateZ(40px);
+    /* On ajoute une ombre portée spécifique à la photo pour accentuer la distance */
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+    transition: transform 0.3s ease;
+}
+
+/* Le contenu texte (sort un peu moins) */
+.content-layer {
+    transform: translateZ(20px);
+}
+
+/* Helper pour la 3D */
+.transform-style-3d {
+    transform-style: preserve-3d;
+}
