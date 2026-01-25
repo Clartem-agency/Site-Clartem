@@ -1883,20 +1883,36 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        // Observer pour lancer l'anim quand visible
+
+        
+// Observer pour lancer l'anim quand visible
         const matrixObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !isMatrixRunning) {
                     isMatrixRunning = true;
-                    matrixContainer.innerHTML = ''; // Reset
+                    
+                    // 1. ÉTAT D'ATTENTE : Curseur seul
+                    matrixContainer.innerHTML = ''; 
+                    matrixContainer.appendChild(cursor); 
+
+                    // 2. LANCEMENT DIFFÉRÉ
                     lineIdx = 0;
                     charIdx = 0;
-                    setTimeout(typeMatrix, 800);
+                    
+                    setTimeout(() => {
+                        matrixContainer.innerHTML = ''; 
+                        typeMatrix(); 
+                    }, 2000); // Délai de lecture (2s suffisent si l'élément est bien centré)
                 }
             });
-        }, { threshold: 0.4 });
+        }, { 
+            threshold: 0.5,              // Il faut voir la moitié du terminal
+            rootMargin: "0px 0px -25% 0px" // Le déclencheur est décalé : l'élément doit être bien entré dans l'écran
+        });
 
         matrixObserver.observe(matrixContainer);
+
+
     }
 
 
