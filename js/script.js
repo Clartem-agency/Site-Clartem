@@ -1613,7 +1613,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // ==================================================================
-    // GESTION DU POPUP LEAD MAGNET (SCROLL + EXIT INTENT)
+    // GESTION DU POPUP LEAD MAGNET (SCROLL + EXIT INTENT) - VERSION 3D
     // ==================================================================
 
     const modal = document.getElementById('lead-magnet-modal');
@@ -1623,46 +1623,47 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Configuration
     const SCROLL_TRIGGER_PERCENT = 0.50; // 50% du scroll
-    const STORAGE_KEY = 'clartem_popup_seen'; // Clé pour se souvenir du visiteur
+    const STORAGE_KEY = 'clartem_popup_seen';
 
-    // Vérifier si le popup existe et n'a pas déjà été vu/fermé
     if (modal && !localStorage.getItem(STORAGE_KEY)) {
 
         let isPopupOpen = false;
 
-        // Fonction pour OUVRIR le popup
+        // Fonction pour OUVRIR le popup (Version 3D Majestic)
         const openPopup = () => {
             if (isPopupOpen) return;
-
-            // On marque qu'il est ouvert
             isPopupOpen = true;
 
-            // On retire la classe hidden
+            // 1. On retire hidden pour l'afficher dans le DOM
             modal.classList.remove('hidden');
 
-            // Petite animation d'entrée (Fade In + Scale Up)
+            // 2. Petit délai technique pour permettre au navigateur de rendre l'élément
+            // avant de lancer la transition CSS (sinon ça pop sans anim)
             setTimeout(() => {
+                // Fond
                 backdrop.classList.remove('opacity-0');
-                content.classList.remove('opacity-0', 'scale-95');
-                content.classList.add('opacity-100', 'scale-100');
-            }, 10);
 
-            // On enregistre qu'il a été vu (pour ne pas le rouvrir à chaque page)
-            // Note: Tu peux commenter cette ligne pendant tes tests
+                // Contenu : On passe de l'état "Hidden 3D" à "Visible"
+                content.classList.remove('modal-3d-hidden');
+                content.classList.add('modal-3d-visible');
+            }, 50); // 50ms suffisent
+
             localStorage.setItem(STORAGE_KEY, 'true');
         };
 
         // Fonction pour FERMER le popup
         const closePopup = () => {
-            // Animation de sortie
+            // 1. On remet les états de fin (invisibles)
             backdrop.classList.add('opacity-0');
-            content.classList.remove('opacity-100', 'scale-100');
-            content.classList.add('opacity-0', 'scale-95');
 
+            content.classList.remove('modal-3d-visible');
+            content.classList.add('modal-3d-hidden');
+
+            // 2. On attend la fin de la transition (0.8s défini dans le CSS) avant de masquer le DOM
             setTimeout(() => {
                 modal.classList.add('hidden');
                 isPopupOpen = false;
-            }, 300); // Attend la fin de la transition CSS
+            }, 800);
         };
 
         // --- TRIGGER 1 : SCROLL ---
@@ -1672,16 +1673,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if ((scrollCurrent / scrollTotal) > SCROLL_TRIGGER_PERCENT) {
                 openPopup();
-                // On retire l'écouteur pour ne pas le déclencher 100 fois
                 window.removeEventListener('scroll', handleScrollPopup);
             }
         };
         window.addEventListener('scroll', handleScrollPopup, { passive: true });
 
 
-        // --- TRIGGER 2 : EXIT INTENT (Souris qui sort vers le haut) ---
+        // --- TRIGGER 2 : EXIT INTENT ---
         const handleExitIntent = (e) => {
-            // Si la souris dépasse le haut de la fenêtre
             if (e.clientY <= 0) {
                 openPopup();
                 document.removeEventListener('mouseleave', handleExitIntent);
@@ -1690,25 +1689,21 @@ document.addEventListener('DOMContentLoaded', function () {
         document.addEventListener('mouseleave', handleExitIntent);
 
 
-        // --- GESTION DE LA FERMETURE ---
-
-        // 1. Bouton croix
+        // --- GESTION FERMETURE ---
         closeBtn.addEventListener('click', closePopup);
-
-        // 2. Clic sur le fond (backdrop)
         modal.addEventListener('click', (e) => {
             if (e.target === backdrop || e.target.closest('#modal-backdrop')) {
                 closePopup();
             }
         });
-
-        // 3. Touche Echap
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && isPopupOpen) {
-                closePopup();
-            }
+            if (e.key === 'Escape' && isPopupOpen) closePopup();
         });
     }
+
+
+
+
 
 
 

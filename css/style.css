@@ -4327,3 +4327,50 @@ body {
 .corner-tr { top: 10px; right: 10px; border-left: 0; border-bottom: 0; }
 .corner-bl { bottom: 10px; left: 10px; border-right: 0; border-top: 0; }
 .corner-br { bottom: 10px; right: 10px; border-left: 0; border-top: 0; }
+
+
+
+
+
+
+/* ======================================================= */
+/*    MODALE LEAD MAGNET : ENTRÉE 3D MAJESTUEUSE           */
+/* ======================================================= */
+
+/* 1. La classe de base pour la transition */
+.modal-transition-base {
+    /* Une durée longue (0.8s) et une courbe "Exponential Out" pour un atterrissage très doux */
+    transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+    will-change: transform, opacity, filter;
+}
+
+/* 2. ÉTAT INITIAL (Avant apparition / Après fermeture) */
+/* C'est ici qu'on définit la position de départ "3D" */
+.modal-3d-hidden {
+    opacity: 0;
+    /* 
+       perspective(1500px) : Crée la profondeur de champ
+       rotateX(35deg) : Incline la carte vers l'arrière (comme posée sur une table)
+       translateY(100px) : La fait partir de plus bas
+       scale(0.9) : Un peu plus petite (loin)
+    */
+    transform: perspective(1500px) rotateX(35deg) translateY(100px) scale(0.9);
+    
+    /* Flou de mouvement simulé */
+    filter: blur(10px);
+    pointer-events: none;
+}
+
+/* 3. ÉTAT VISIBLE (Arrivée) */
+.modal-3d-visible {
+    opacity: 1;
+    /* On remet tout à plat et à taille réelle */
+    transform: perspective(1500px) rotateX(0deg) translateY(0) scale(1);
+    filter: blur(0);
+    pointer-events: auto;
+}
+
+/* 4. Animation du fond noir (Backdrop) plus douce */
+.backdrop-smooth {
+    transition: opacity 0.8s ease-out;
+}
