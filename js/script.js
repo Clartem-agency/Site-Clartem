@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-             // --- NOUVEAU : ANIMATIONS 3D TIMELINE ---
+            // --- NOUVEAU : ANIMATIONS 3D TIMELINE ---
 
             // Cartes de GAUCHE (Arrivent de la gauche avec rotation)
             sr.reveal('[data-sr-3d-left]', {
@@ -94,10 +94,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 distance: '100px',       // Vient de loin
                 origin: 'left',          // Vient de la gauche
                 opacity: 0,
-                
+
                 // LA TOUCHE 3D :
                 rotate: { x: 20, y: 50, z: 0 }, // x=20 (bascule un peu arrière), y=50 (pivote côté)
-                
+
                 scale: 0.85,             // Commence un peu plus petit
                 easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)', // Effet rebond doux
                 viewFactor: 0.3,
@@ -110,10 +110,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 distance: '100px',
                 origin: 'right',         // Vient de la droite
                 opacity: 0,
-                
+
                 // ROTATION INVERSÉE sur Y (-50)
-                rotate: { x: 20, y: -50, z: 0 }, 
-                
+                rotate: { x: 20, y: -50, z: 0 },
+
                 scale: 0.85,
                 easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)',
                 viewFactor: 0.3,
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
 
-            
+
 
 
             // 2. --- ANIMATION SPÉCIFIQUE CONCEPT (ROTATION 3D) ---
@@ -1761,22 +1761,38 @@ document.addEventListener('DOMContentLoaded', function () {
         // 1. CRÉATION DU CURSEUR DYNAMIQUE
         const cursor = document.createElement('span');
         cursor.className = 'inline-block w-3 h-5 bg-emerald-500/80 align-text-bottom shadow-[0_0_10px_rgba(16,185,129,0.8)] ml-1 animate-pulse';
-        
-        const scenario = [
-            { text: "Réveille-toi...", class: "text-emerald-500 font-bold tracking-widest mb-4 block", speed: 100 },
-            { text: "Le système t'a menti.", class: "text-emerald-500/80", speed: 50 },
-            { text: "On t'a dit de devenir un technicien.", class: "text-emerald-500/80", speed: 40 },
-            { text: "Mais tes clients ne cherchent pas un algorithme...", class: "text-emerald-500/80", speed: 40 },
-            { text: "ILS CHERCHENT TON ÂME.", class: "text-emerald-300 font-bold block mt-2 shadow-green-glow", speed: 80 },
-            { text: "Toc, toc.", class: "text-emerald-600/70 text-sm mt-6 block", speed: 150 }, 
 
-            // --- SIMULATION UTILISATEUR (NEO) ---
+
+        const scenario = [
+            // Ligne 1 : Blanc (Classique)
+            { text: "Réveille-toi...", class: "text-white font-bold tracking-widest mb-4 block", speed: 100 },
+
+            // Lignes 2 & 3 : Gris clair (Code standard)
+            { text: "Le système t'a menti.", class: "text-gray-300", speed: 50 },
+            { text: "On t'a dit de devenir un technicien.", class: "text-gray-300", speed: 40 },
+
+            // Ligne 4 : Toujours blanc/gris
+            { text: "Mais tes clients ne cherchent pas un algorithme...", class: "text-gray-300", speed: 40 },
+
+            // Ligne 5 : Impact fort (Blanc brillant ou Garder blanc pour la sobriété)
+            // Je le mets en blanc très brillant pour l'impact, sans le vert.
+            { text: "ILS CHERCHENT TON ÂME.", class: "text-white font-bold block mt-2", speed: 80 },
+
+            // Pause narrative
+            { text: "Toc, toc.", class: "text-gray-500 text-sm mt-6 block italic", speed: 150 },
+
+            // --- SIMULATION UTILISATEUR ---
+            // Reste blanc/gris pour simuler l'entrée utilisateur
             { text: "Qui est là ?", class: "text-white font-bold mt-2 block", speed: 100, isUser: true },
 
-            // --- REPONSE SYSTEME ---
-            { text: "La Clarté.", class: "text-emerald-400 font-bold text-lg mt-4 block", speed: 60 },
-            { text: "Suis le lapin blanc ↓", class: "text-emerald-500 animate-pulse mt-2 block", speed: 50 }
+            // --- REPONSE ---
+            { text: "La Clarté.", class: "text-white font-bold text-lg mt-4 block", speed: 60 },
+
+            // --- LE SEUL ÉLÉMENT VERT (L'APPEL À L'ACTION) ---
+            // On utilise la classe CSS personnalisée 'matrix-green-glow' créée à l'étape 2
+            { text: "Suis le lapin blanc ↓", class: "matrix-green-glow animate-pulse mt-4 block font-bold tracking-wider", speed: 50 }
         ];
+
 
         let lineIdx = 0;
         let charIdx = 0;
@@ -1792,8 +1808,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (currentLine.isUser && !document.getElementById(`mat-line-text-${lineIdx}`)) {
                         setTimeout(() => {
                             createLineElement(currentLine);
-                            typeMatrix(); 
-                        }, 1500); 
+                            typeMatrix();
+                        }, 1500);
                         return;
                     } else if (!document.getElementById(`mat-line-text-${lineIdx}`)) {
                         createLineElement(currentLine);
@@ -1826,9 +1842,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     charIdx = 0;
 
                     // Pauses dramatiques
-                    let pause = 400; 
+                    let pause = 400;
                     if (currentLine.text.includes("Toc, toc")) pause = 500;
-                    if (currentLine.isUser) pause = 800; 
+                    if (currentLine.isUser) pause = 800;
 
                     setTimeout(typeMatrix, pause);
                 }
@@ -1841,7 +1857,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Création du conteneur de ligne (Block)
             const divWrapper = document.createElement('div');
             divWrapper.className = lineData.class; // Applique les classes (margin, couleur...)
-            
+
             // Si c'est l'utilisateur, on ajoute le prompt "> "
             if (lineData.isUser) {
                 const promptSpan = document.createElement('span');
@@ -1859,7 +1875,7 @@ document.addEventListener('DOMContentLoaded', function () {
             divWrapper.appendChild(cursor);
 
             matrixContainer.appendChild(divWrapper);
-            
+
             // AUTO-SCROLL : On fait remonter le texte automatiquement (sans scrollbar visible)
             const terminalWrapper = document.getElementById('terminal-content-wrapper');
             if (terminalWrapper) {
@@ -1883,7 +1899,7 @@ document.addEventListener('DOMContentLoaded', function () {
         matrixObserver.observe(matrixContainer);
     }
 
-    
+
 
 
 

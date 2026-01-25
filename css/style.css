@@ -24,35 +24,36 @@
     display: none; /* Chrome, Safari, Opera */
 }
 
+
+
 /* Application de la police au terminal */
 #matrix-typewriter {
-    font-family: 'VT323', monospace; /* La police rétro */
-    font-size: 1.5rem; /* On augmente la taille car VT323 est un peu petite */
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem; /* TAILLE RÉDUITE POUR MOBILE (était 1.5rem) */
     line-height: 1.4;
-    letter-spacing: 1px; /* Espacement pour la lisibilité */
+    letter-spacing: 0.5px; /* Espacement réduit légèrement */
 }
 
-/* LE SECRET DU HACKER : LUEUR VERTE (PHOSPHORESCENCE) */
+/* Version Desktop : On peut agrandir un peu, mais on reste raisonnable */
+@media (min-width: 768px) {
+    #matrix-typewriter {
+        font-size: 1.4rem; 
+    }
+}
+
+/* PAR DÉFAUT : Lueur blanche légère (style écran cathodique standard) */
 #matrix-typewriter div, 
 #matrix-typewriter span {
-    text-shadow: 0 0 4px rgba(52, 211, 153, 0.6), 0 0 8px rgba(16, 185, 129, 0.4);
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.4);
 }
 
-/* Style spécifique pour la ligne de l'utilisateur (la question) */
-/* On la rend blanche avec une lueur blanche */
-#matrix-typewriter .text-white {
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+/* CLASSE SPÉCIALE : Lueur Verte Matrix (uniquement pour les textes choisis) */
+.matrix-green-glow {
+    color: #10b981 !important; /* Emerald 500 */
+    text-shadow: 0 0 5px rgba(16, 185, 129, 0.8), 0 0 10px rgba(16, 185, 129, 0.4) !important;
 }
 
-/* Curseur clignotant style vieux PC (Bloc plein) */
-#matrix-cursor {
-    display: inline-block;
-    width: 12px;
-    height: 1.4em; /* Ajusté à la nouvelle police */
-    background-color: #10b981; /* Emerald 500 */
-    vertical-align: bottom;
-    box-shadow: 0 0 8px #10b981; /* Le curseur brille aussi */
-}
+
 
 
 
