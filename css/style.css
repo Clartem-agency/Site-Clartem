@@ -3478,3 +3478,23 @@ html, body {
         pointer-events: none !important;
     }
 }
+
+
+
+
+
+
+/* ======================================================= */
+/*    EFFET 3D TIMELINE OBJECTIFS                          */
+/* ======================================================= */
+
+/* On applique la perspective au conteneur de la timeline */
+#objectifs .container {
+    perspective: 2000px; /* Plus le chiffre est grand, plus l'effet 3D est subtil */
+}
+
+/* Optionnel : Une transition plus douce sur les cartes elles-mêmes */
+#objectifs .bg-white\/5 {
+    transition: transform 0.5s ease, border-color 0.3s ease, background-color 0.3s ease;
+    will-change: transform; /* Optimisation pour l'animation */
+}
