@@ -1,691 +1,820 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Julien Moreau - Consultant Marketing B2B | Levier Marketing</title>
-    <meta name="description" content="Stratégies marketing pragmatiques pour PME B2B. Transformez vos visiteurs en clients rentables avec un expert qui comprend votre réalité terrain.">
-    
+    <title>Portfolio Clartem - Exemples de sites pour Coachs & Thérapeutes</title>
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon-clartem.ico">
+
+    <meta name="description"
+        content="Découvrez nos réalisations de sites web pour coachs, thérapeutes et consultants. Des exemples concrets de Sites Clarté (one-page) conçus pour inspirer confiance et convertir.">
+
+    <!-- ======================================================= -->
+    <!--       DÉBUT DU BLOC SEO & ANALYTICS                     -->
+    <!-- ======================================================= -->
+
+    <!-- 1. Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-54GH7QYLQP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-54GH7QYLQP');
+    </script>
+
+    <!-- 2. Balises SEO (Ciblage France & Canonique) -->
+    <link rel="canonical" href="https://www.clartem.com/portfolio.html" />
+    <link rel="alternate" hreflang="fr-fr" href="https://www.clartem.com/portfolio.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.clartem.com/portfolio.html" />
+
+    <!-- ======================================================= -->
+    <!--       FIN DU BLOC SEO                                   -->
+    <!-- ======================================================= -->
+
+    <!-- Meta Tags Open Graph & Twitter -->
+    <meta property="og:title" content="Portfolio Clartem - Exemples de sites pour Coachs & Thérapeutes">
+    <meta property="og:description"
+        content="Découvrez nos réalisations de sites web pour coachs, thérapeutes et consultants.">
+
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Google Fonts: Poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
 
     <!-- Custom Tailwind Config -->
-    <style type="text/tailwindcss">
-        @layer base {
-            body {
-                @apply bg-background text-foreground antialiased;
-                font-family: 'Poppins', sans-serif;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#1E3A8A',
+                        'clarity-blue': '#3B82F6',
+                        'soft-blue': '#EFF6FF',
+                        'warm-orange': '#F97316',
+                        'success-green': '#16A34A',
+                        'neutral-dark': '#1F2937',
+                        'neutral-light': '#6B7280',
+                        'destructive': '#DC2626',
+                    }
+                }
             }
-            h1, h2, h3, h4 {
-                @apply font-bold text-foreground;
-            }
-            /* Classes utilitaires pour la responsivité */
-            .container-padding {
-                 @apply px-4 sm:px-6 lg:px-8;
-            }
-            .section-padding {
-                @apply py-12 md:py-24; /* Réduit le padding vertical sur mobile */
-            }
-            .animate-on-load { opacity: 0; }
-            .reveal { visibility: hidden; }
         }
-        @layer components {
-            .gradient-primary {
-                @apply bg-gradient-to-br from-blue-600 to-primary text-primary-foreground;
-            }
-            /* Menu mobile transition */
-            .mobile-menu-container {
-                @apply absolute top-full left-0 w-full bg-background shadow-lg border-b border-border overflow-hidden transition-all duration-300 ease-in-out;
-                max-height: 0;
-            }
-            .mobile-menu-container.open {
-                max-height: 400px; /* Valeur arbitraire suffisante pour le contenu */
-            }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Styles spécifiques pour la page portfolio */
+        .portfolio-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .portfolio-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(59, 130, 246, 0.4);
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(59, 130, 246, 0.15);
+        }
+
+        .portfolio-card .card-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-card .card-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(31, 41, 55, 0.9) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-card:hover .card-image::after {
+            opacity: 1;
+        }
+
+        .portfolio-card .card-image img {
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        /* Filter buttons */
+        .filter-btn-dark {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn-dark:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .filter-btn-dark.active {
+            background: linear-gradient(135deg, #3B82F6, #1E3A8A);
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Tags */
+        .tag-dark {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #93C5FD;
+        }
+
+        /* Gradient mesh background */
+        .portfolio-bg {
+            background: 
+                radial-gradient(ellipse 80% 50% at 20% 40%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 80% 60%, rgba(249, 115, 22, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 30% at 50% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+        }
+
+        /* Grid pattern overlay */
+        .grid-pattern {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
         }
     </style>
-    <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            border: '#e2e5e9',
-            input: '#e2e5e9',
-            ring: '#003580',
-            background: '#ffffff',
-            foreground: '#344256',
-            primary: {
-              DEFAULT: '#003580',
-              foreground: '#ffffff',
-              light: '#0047a9'
-            },
-            secondary: {
-              DEFAULT: '#f6f8fa',
-              foreground: '#344256',
-            },
-            muted: {
-              DEFAULT: '#f6f8fa',
-              foreground: '#627084',
-            },
-            card: {
-              DEFAULT: '#ffffff',
-              foreground: '#344256',
-            },
-            success: '#16a34a',
-            'muted-foreground': '#627084',
-          },
-          fontFamily: {
-            sans: ['Poppins', 'sans-serif'],
-          },
-          fontSize: {
-            'hero': ['clamp(2rem, 5vw, 3.75rem)', { lineHeight: '1.1', fontWeight: '700' }], /* Clamp ajusté pour mobile */
-            'section-title': ['clamp(1.5rem, 4vw, 2.25rem)', { lineHeight: '1.2', fontWeight: '700' }],
-            'subsection': ['clamp(1.1rem, 3vw, 1.5rem)', { lineHeight: '1.4', fontWeight: '600' }],
-            'body-large': ['1.125rem', { lineHeight: '1.75rem' }],
-            'body': ['1rem', { lineHeight: '1.6rem' }],
-          },
-          boxShadow: {
-            'elegant': '0 10px 30px -15px rgba(0, 53, 128, 0.2)',
-            'button': '0 4px 15px -5px rgba(0, 53, 128, 0.4)',
-            'card': '0 4px 20px -10px rgba(0, 53, 128, 0.15)',
-          },
-          spacing: {
-            '18': '4.5rem',
-            '22': '5.5rem', 
-          },
-          keyframes: {
-            'fade-in': { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
-            'slide-up': { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
-          },
-          animation: {
-            'fade-in': 'fade-in 0.8s ease-out forwards',
-            'slide-up': 'slide-up 0.8s ease-out forwards',
-          }
-        }
-      }
-    }
-  </script>
 </head>
 
-<body class="bg-background overflow-x-hidden">
+<body class="bg-neutral-dark">
 
-    <div class="min-h-screen bg-background flex flex-col">
+    <div class="min-h-screen flex flex-col">
 
-        <!-- =================================================================
-        HEADER & NAVIGATION
-        ================================================================== -->
-        <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-background/95 backdrop-blur-md shadow-sm">
-            <nav class="container mx-auto container-padding">
-                <div class="flex items-center justify-between py-4">
-                    <!-- Logo -->
-                    <a href="#" class="flex items-center space-x-2 z-50">
-                        <div class="text-xl md:text-2xl font-bold text-primary">Levier Marketing</div>
+        <!-- ======================================================= -->
+        <!--                Section Navigation                       -->
+        <!-- ======================================================= -->
+
+        <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+            <div class="container mx-auto px-6">
+                <div class="flex items-center justify-between">
+
+                    <a href="index.html" class="relative block group py-2">
+                        <img id="logo-white" class="h-10 w-auto transition-opacity duration-300"
+                            src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com blanc">
+                        <img id="logo-color"
+                            class="h-10 w-auto absolute top-2 left-0 transition-opacity duration-300 opacity-0"
+                            src="assets/logo-clartem.svg" alt="Logo clartem.com couleur">
                     </a>
-                    
-                    <!-- Desktop Navigation -->
-                    <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
-                        <a href="#about" class="text-sm font-medium text-foreground hover:text-primary transition-colors">À Propos</a>
-                        <a href="#services" class="text-sm font-medium text-foreground hover:text-primary transition-colors">Solutions</a>
-                        <a href="#methodology" class="text-sm font-medium text-foreground hover:text-primary transition-colors">Méthodologie</a>
-                        <a href="#testimonials" class="text-sm font-medium text-foreground hover:text-primary transition-colors">Résultats</a>
-                    </div>
-                    
-                    <!-- Desktop CTA -->
-                    <div class="hidden md:block">
-                        <a href="#appointment" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium h-10 px-6 py-2 gradient-primary shadow-button hover:shadow-lg transition-all hover:-translate-y-0.5 duration-300">
-                            Appel stratégique
-                        </a>
+
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="a-propos.html" class="nav-link text-sm font-medium transition-colors duration-300">À Propos</a>
+                        <a href="index.html#plan" class="nav-link text-sm font-medium transition-colors duration-300">Processus</a>
+                        <a href="portfolio.html" class="nav-link text-sm font-medium transition-colors duration-300 text-warm-orange">Portfolio</a>
+                        <a href="index.html#offres" class="nav-link text-sm font-medium transition-colors duration-300">Offres</a>
+                        <a href="blog.html" class="nav-link text-sm font-medium transition-colors duration-300">Blog</a>
+                        <a href="faq.html" class="nav-link text-sm font-medium transition-colors duration-300">FAQ</a>
                     </div>
 
-                    <!-- Mobile Menu Button -->
-                    <button class="md:hidden z-50 p-2 text-foreground focus:outline-none" id="mobile-menu-button" aria-label="Menu">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
-                            <line x1="4" x2="20" y1="12" y2="12"></line>
-                            <line x1="4" x2="20" y1="6" y2="6"></line>
-                            <line x1="4" x2="20" y1="18" y2="18"></line>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-6 py-2.5 text-sm">
+                        Planifier un Appel Clarté
+                    </a>
+
+                    <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                         </svg>
                     </button>
                 </div>
 
-                <!-- Mobile Menu Dropdown (Added) -->
-                <div id="mobile-menu" class="mobile-menu-container md:hidden">
-                    <div class="flex flex-col p-4 space-y-4 text-center">
-                        <a href="#about" class="mobile-link text-foreground hover:text-primary py-2 font-medium">À Propos</a>
-                        <a href="#services" class="mobile-link text-foreground hover:text-primary py-2 font-medium">Solutions</a>
-                        <a href="#methodology" class="mobile-link text-foreground hover:text-primary py-2 font-medium">Méthodologie</a>
-                        <a href="#testimonials" class="mobile-link text-foreground hover:text-primary py-2 font-medium">Résultats</a>
-                        <div class="pt-2">
-                            <a href="#appointment" class="mobile-link w-full inline-flex items-center justify-center rounded-md font-medium h-12 px-6 gradient-primary text-white">
-                                Planifier un appel
+                <!-- Mobile Menu -->
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2 pb-4">
+                    <a href="index.html" class="block text-white hover:text-clarity-blue py-2 text-sm">Accueil</a>
+                    <a href="a-propos.html" class="block text-white hover:text-clarity-blue py-2 text-sm">À Propos</a>
+                    <a href="index.html#plan" class="block text-white hover:text-clarity-blue py-2 text-sm">Processus</a>
+                    <a href="portfolio.html" class="block text-warm-orange py-2 text-sm">Portfolio</a>
+                    <a href="index.html#offres" class="block text-white hover:text-clarity-blue py-2 text-sm">Offres</a>
+                    <a href="blog.html" class="block text-white hover:text-clarity-blue py-2 text-sm">Blog</a>
+                    <a href="faq.html" class="block text-white hover:text-clarity-blue py-2 text-sm">FAQ</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer" class="block mt-4 w-full text-center btn btn-primary">
+                        Planifier un Appel Clarté
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="flex-grow">
+            
+            <!-- ================================================================== -->
+            <!-- SECTION PORTFOLIO - STYLE IMMERSIF                                -->
+            <!-- ================================================================== -->
+            <section id="portfolio" class="pt-32 pb-24 lg:pt-44 lg:pb-32 bg-neutral-dark portfolio-bg grid-pattern relative overflow-hidden">
+                
+                <!-- Decorative elements -->
+                <div class="absolute top-20 left-10 w-72 h-72 bg-clarity-blue/5 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute bottom-40 right-10 w-96 h-96 bg-warm-orange/5 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="container mx-auto px-6 relative z-10">
+                    
+                    <!-- EN-TÊTE DE SECTION -->
+                    <div class="max-w-3xl mx-auto text-center mb-16 lg:mb-20" data-sr>
+                        <div class="inline-block px-4 py-1.5 border border-white/20 rounded-full bg-white/5 text-warm-orange text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-sm">
+                            Portfolio Agence
+                        </div>
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                            Mes Sites Clarté en Action<br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-white">Découvrez mes réalisations</span>
+                        </h1>
+                        <p class="text-xl text-gray-400 font-light max-w-2xl mx-auto">
+                            Chaque projet est une collaboration unique, conçue pour répondre à des besoins spécifiques avec clarté et efficacité.
+                        </p>
+                    </div>
+
+                    <!-- BOUTONS DE FILTRE -->
+                    <div class="flex flex-wrap justify-center gap-2 md:gap-3 mb-12 lg:mb-16" data-sr data-sr-delay="100">
+                        <button class="filter-btn-dark active px-4 py-2 rounded-full text-xs md:text-sm font-semibold" data-filter="all">
+                            Tous les projets
+                        </button>
+                        <button class="filter-btn-dark px-4 py-2 rounded-full text-xs md:text-sm font-semibold" data-filter="performance">
+                            Performance & Business
+                        </button>
+                        <button class="filter-btn-dark px-4 py-2 rounded-full text-xs md:text-sm font-semibold" data-filter="transformation">
+                            Transformation
+                        </button>
+                        <button class="filter-btn-dark px-4 py-2 rounded-full text-xs md:text-sm font-semibold" data-filter="bien-etre">
+                            Bien-être
+                        </button>
+                        <button class="filter-btn-dark px-4 py-2 rounded-full text-xs md:text-sm font-semibold" data-filter="design">
+                            Design
+                        </button>
+                       
+                    </div>
+
+                    <!-- GRILLE DE PROJETS -->
+                    <div id="portfolio-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+                        <!-- =================================== -->
+                        <!-- Catégorie : Performance & Business  -->
+                        <!-- =================================== -->
+
+                        <!-- Projet 04 : Consultant en Marketing Digital -->
+                        <div class="portfolio-item" data-category="performance" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-04.jpg"
+                                        alt="Site pour un consultant en marketing digital" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Consultant en Marketing Digital</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Site B2B axé sur la génération de leads, présentant l'expertise et les études de cas pour attirer de nouveaux clients.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Génération de Leads</span>
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Expertise B2B</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-04_consultant-marketing-digital/" target="_blank" rel="noopener noreferrer" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir le site
+                                        </a>
+                                        <a href="study-case-pages/study_case_04.html" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Étude de cas
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projet 07 : Coach Business -->
+                        <div class="portfolio-item" data-category="performance" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-07.jpg"
+                                        alt="Site pour un coach business pour TPE-PME" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Coach Business (pour TPE-PME)</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Plateforme professionnelle pour un coach d'affaires, mettant en avant les programmes d'accompagnement et les témoignages clients.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Coaching TPE/PME</span>
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Témoignages</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-07_coach-business-pour-tpe-pme/" target="_blank" rel="noopener noreferrer" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir le site
+                                        </a>
+                                        <a href="study-case-pages/study_case_07.html" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Étude de cas
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projet 10 : Coach de Carrière -->
+                        <div class="portfolio-item" data-category="performance" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-10.jpg"
+                                        alt="Site pour un coach de carrière" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Coach de Carrière - Professionnel</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Site pour un coach de carrière, avec un blog pour asseoir son expertise et un système de réservation de sessions de coaching.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Blog d'Expertise</span>
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Prise de RDV</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-10_coach-de-carriere-professionnel/" target="_blank" rel="noopener noreferrer" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir le site
+                                        </a>
+                                        <a href="study-case-pages/study_case_10.html" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Étude de cas
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- =================================== -->
+                        <!-- Catégorie : Transformation          -->
+                        <!-- =================================== -->
+
+                        <!-- Projet 06 : Coach de vie -->
+                        <div class="portfolio-item" data-category="transformation" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-06.jpg"
+                                        alt="Site pour un coach de vie" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Coach de vie</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Site inspirant pour une coach de vie, avec présentation des programmes de transformation et réservation de sessions.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Programmes</span>
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Réservation de Session</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-06_coach-de-vie/" target="_blank" rel="noopener noreferrer" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir le site
+                                        </a>
+                                        <a href="study-case-pages/study_case_06.html" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Étude de cas
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projet 08 : Coach en Nutrition -->
+                        <div class="portfolio-item" data-category="transformation" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-08.jpg"
+                                        alt="Site pour un coach en nutrition" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Coach en Nutrition (approche bien-être)</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Site web axé sur une approche bienveillante de la nutrition, avec des programmes, des recettes et la prise de rendez-vous.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Programmes Nutrition</span>
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Blog Recettes</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-08_coach-nutrition-bien-etre/" target="_blank" rel="noopener noreferrer" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir le site
+                                        </a>
+                                        <a href="study-case-pages/study_case_08.html" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Étude de cas
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projet 11 : Coach Sportif -->
+                        <div class="portfolio-item" data-category="transformation" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-11.jpg"
+                                        alt="Site pour un coach sportif" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Coach Sportif (grand public)</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Site dynamique pour un coach personnel, avec vente de programmes en ligne et planning de cours pour le grand public.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Vente en Ligne</span>
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Planning</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-11_coach-sportif-grand-public/" target="_blank" rel="noopener noreferrer" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir le site
+                                        </a>
+                                        <a href="study-case-pages/study_case_11.html" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Étude de cas
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projet 13 : Coach en Confiance en Soi -->
+                        <div class="portfolio-item" data-category="transformation" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-13.jpg"
+                                        alt="Site pour un coach en confiance en soi" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Coach en Confiance en Soi</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Site rassurant et motivant pour un coach spécialisé dans la confiance en soi, avec des témoignages forts et une prise de contact facile.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Estime de soi</span>
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Appel Découverte</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-13_coach-en-confiance-en-soi/" target="_blank" rel="noopener noreferrer" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir le site
+                                        </a>
+                                        <a href="study-case-pages/study_case_13.html" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Étude de cas
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- =================================== -->
+                        <!-- Catégorie : Bien-être & Holistique  -->
+                        <!-- =================================== -->
+
+                        <!-- Projet 01 : Professeur de Yoga -->
+                        <div class="portfolio-item" data-category="bien-etre" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-01.jpg"
+                                        alt="Aperçu du site pour un studio de yoga" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Professeur de Yoga "L'Instant Présent"</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Site vitrine pour un studio à Lille, mettant en avant les cours et facilitant la réservation.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Site Vitrine</span>
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">SEO Local</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-01_professeur-de-yoga/" target="_blank" rel="noopener noreferrer" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir le site
+                                        </a>
+                                        <a href="study-case-pages/study_case_01.html" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Étude de cas
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projet 03 : Naturopathe -->
+                        <div class="portfolio-item" data-category="bien-etre" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-03.jpg"
+                                        alt="Site pour une naturopathe" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Naturopathe "Équilibre & Nature"</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Site de prise de rendez-vous et blog de conseils pour une naturopathe certifiée.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Réservation en ligne</span>
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Blog Santé</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-03_naturopathe/" target="_blank" rel="noopener noreferrer" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir le site
+                                        </a>
+                                        <a href="study-case-pages/study_case_03.html" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Étude de cas
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projet 05 : Sophrologue -->
+                        <div class="portfolio-item" data-category="bien-etre" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-05.jpg"
+                                        alt="Site pour une sophrologue" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Sophrologue</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Plateforme douce et apaisante pour une sophrologue spécialisée dans la gestion du stress et l'amélioration du sommeil.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Prise de RDV</span>
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Gestion du Stress</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-05_sophrologue/" target="_blank" rel="noopener noreferrer" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir le site
+                                        </a>
+                                        <a href="study-case-pages/study_case_05.html" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Étude de cas
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projet 09 : Hypnothérapeute -->
+                        <div class="portfolio-item" data-category="bien-etre" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-09.jpg"
+                                        alt="Site pour un hypnothérapeute" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Hypnothérapeute</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Site professionnel et rassurant pour un hypnothérapeute, expliquant la méthode, les bienfaits et facilitant la prise de rendez-vous.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Thérapies brèves</span>
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Réservation en ligne</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-09_hypnoterapeute/" target="_blank" rel="noopener noreferrer" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir le site
+                                        </a>
+                                        <a href="study-case-pages/study_case_09.html" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Étude de cas
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projet 12 : Masseuse bien-être -->
+                        <div class="portfolio-item" data-category="bien-etre" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-12.jpg"
+                                        alt="Site pour une masseuse bien-être" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Masseuse bien-être</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Site élégant présentant la carte des massages, les tarifs et permettant la réservation en ligne pour un salon ou à domicile.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Carte des Massages</span>
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Réservation</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-12_masseuse-bien-etre/" target="_blank" rel="noopener noreferrer" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir le site
+                                        </a>
+                                        <a href="study-case-pages/study_case_12.html" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Étude de cas
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- =================================== -->
+                        <!-- Catégorie : Design & Création       -->
+                        <!-- =================================== -->
+
+                        <!-- Projet 02 : Decoratrice -->
+                        <div class="portfolio-item" data-category="design" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-02.jpg"
+                                        alt="Aperçu du site pour une décoratrice d'intérieur" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Décoratrice d'Intérieur "Harmonie Intérieure"</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Site web élégant pour une décoratrice d'intérieur, avec intégration Calendly pour automatiser la prise de RDV.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Intégration Calendly</span>
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Portfolio</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-02_decoratrice-dinterieur/" target="_blank" rel="noopener noreferrer" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir le site
+                                        </a>
+                                        <a href="study-case-pages/study_case_02.html" 
+                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Étude de cas
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <!-- BOUTON VOIR PLUS -->
+                    <div id="load-more-container" class="text-center mt-16">
+                        <button id="load-more-btn"
+                            class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-neutral-dark bg-white rounded-lg hover:bg-gray-100 transition-all hover:-translate-y-1 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+                            Voir plus de projets
+                            <svg class="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+            <!-- FIN DE LA SECTION PORTFOLIO -->
+
+        </main>
+
+        <!-- ======================================================= -->
+        <!--                        Footer                           -->
+        <!-- ======================================================= -->
+
+        <footer class="bg-[#111827] text-white py-16 border-t border-white/10">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="index.html">
+                                <img class="h-14 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
                             </a>
+                            <p class="text-lg text-gray-400 mt-2">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-gray-500 leading-relaxed">Vous transformez des vies, votre site devrait le
+                            refléter. J'aide les professionnels de l'accompagnement à traduire leur expertise en une
+                            présence digitale claire, qui inspire confiance et attire les bonnes personnes.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="index.html" class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="a-propos.html" class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">À Propos</a>
+                            <a href="index.html#plan" class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Processus</a>
+                            <a href="index.html#offres" class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Offres</a>
+                            <a href="blog.html" class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                            <a href="faq.html" class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="mentions-legales.html" class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Mentions Légales</a>
+                            <a href="politique-de-confidentialite.html" class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Politique de Confidentialité</a>
+                            <a href="cgv.html" class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Conditions Générales de Vente</a>
+                            <a href="contact.html" class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Contact</a>
                         </div>
                     </div>
                 </div>
-            </nav>
-        </header>
-
-        <!-- =================================================================
-        HERO SECTION
-        ================================================================== -->
-        <section 
-            class="section-padding pt-32 pb-20 md:pt-40 md:pb-32 relative" 
-            style="
-                background-image: 
-                    linear-gradient(180deg, rgba(246, 248, 250, 0.85) 0%, rgba(255, 255, 255, 0.95) 100%),
-                    url('images/hero-background.webp');
-                background-size: cover;
-                background-position: center top; 
-                background-repeat: no-repeat;
-            ">
-            <div class="container mx-auto container-padding">
-                <div class="max-w-4xl mx-auto text-center">
-                    <h1 class="text-hero mb-6 animate-on-load animate-fade-in px-2">
-                        Arrêtez de Dépenser.<br class="hidden sm:block"> 
-                        <span class="text-primary block sm:inline mt-2 sm:mt-0">Commencez à Investir.</span>
-                    </h1>
-                    <p class="text-body md:text-body-large text-muted-foreground mb-8 animate-on-load animate-slide-up [animation-delay:200ms] max-w-2xl mx-auto">
-                        Stratégies marketing B2B pragmatiques pour PME industrielles et de services. Transformons vos visiteurs en clients rentables.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center animate-on-load animate-slide-up [animation-delay:400ms] px-4">
-                        <a href="#appointment" class="inline-flex items-center justify-center whitespace-nowrap font-medium h-12 rounded-lg text-base md:text-lg px-8 gradient-primary shadow-button hover:shadow-lg transition-all hover:-translate-y-0.5 duration-300 w-full sm:w-auto">
-                            Audit stratégique offert
-                        </a>
-                        <a href="#methodology" class="inline-flex items-center justify-center whitespace-nowrap font-medium border border-primary text-primary bg-background hover:bg-primary hover:text-primary-foreground shadow-sm hover:shadow-button h-12 rounded-lg text-base md:text-lg px-8 transition-all hover:-translate-y-0.5 duration-300 w-full sm:w-auto">
-                            Découvrir mon approche
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- =================================================================
-        ABOUT SECTION
-        ================================================================== -->
-        <section id="about" class="section-padding bg-background">
-            <div class="container mx-auto container-padding">
-                <div class="max-w-6xl mx-auto">
-                    <div class="text-center mb-12 md:mb-16 reveal">
-                        <h2 class="text-section-title mb-4 md:mb-6">Un Partenaire qui Comprend Votre Réalité</h2>
-                    </div>
-                    <!-- Responsive Grid: Stacks on mobile, 2 columns on large screens -->
-                    <div class="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
-                        <div class="reveal-left order-2 lg:order-1">
-                            <!-- Image container with aspect ratio control -->
-                            <div class="relative w-full aspect-[4/3] lg:aspect-square max-w-md mx-auto">
-                                <img src="images/portrait-julien-moreau.webp" alt="Portrait professionnel de Julien Moreau" class="absolute inset-0 w-full h-full object-cover rounded-xl shadow-elegant" loading="lazy">
-                            </div>
-                        </div>
-                        <div class="space-y-6 reveal-right order-1 lg:order-2">
-                            <h3 class="text-subsection">De Directeur Marketing à Consultant Stratégique</h3>
-                            <div class="space-y-4 text-body text-muted-foreground text-justify md:text-left">
-                                <p>Pendant plus de 10 ans, j'ai été Directeur Marketing et Commercial au sein d'une PME industrielle. J'ai vécu de l'intérieur les nuits blanches, la pression des objectifs et la frustration de devoir justifier chaque euro dépensé.</p>
-                                <p>Le déclic ? Voir des dirigeants passionnés se perdre avec des agences déconnectées du terrain. Le marketing B2B n'est pas une affaire de jargon, mais de bon sens et de résultats.</p>
-                            </div>
-                            
-                            <!-- Feature List -->
-                            <div class="space-y-4 pt-4 md:pt-6">
-                                <div class="flex items-start space-x-3">
-                                    <svg class="w-6 h-6 text-primary mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-                                    <div>
-                                        <h4 class="font-semibold text-foreground text-sm md:text-base">Une expertise de terrain</h4>
-                                        <p class="text-xs md:text-sm text-muted-foreground">10 ans d'expérience opérationnelle en PME.</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start space-x-3">
-                                    <svg class="w-6 h-6 text-primary mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                    <div>
-                                        <h4 class="font-semibold text-foreground text-sm md:text-base">Approche 100% sur-mesure</h4>
-                                        <p class="text-xs md:text-sm text-muted-foreground">Stratégies adaptées à vos enjeux spécifiques.</p>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="border-t border-white/10 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-gray-500">© 2025 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-gray-500">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- =================================================================
-        SERVICES SECTION
-        ================================================================== -->
-        <section id="services" class="section-padding bg-secondary">
-            <div class="container mx-auto container-padding">
-                <div class="max-w-6xl mx-auto">
-                    <div class="text-center mb-12 md:mb-16 reveal">
-                        <h2 class="text-section-title mb-4 md:mb-6">Solutions pour la Croissance</h2>
-                        <p class="text-body text-muted-foreground max-w-3xl mx-auto">Trois offres claires et progressives pour structurer vos actions.</p>
-                    </div>
-                    
-                    <!-- Responsive Grid for Cards -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                        
-                        <!-- Card 1 -->
-                        <div class="rounded-lg border bg-card shadow-sm relative flex flex-col transition-all hover:shadow-elegant reveal">
-                            <div class="p-6">
-                                <h3 class="text-lg font-bold text-center mb-2">Audit Stratégique 360°</h3>
-                                <p class="text-sm text-center text-muted-foreground mb-6">Arrêtez de naviguer à vue. Analyse complète et feuille de route.</p>
-                                <div class="space-y-4 flex-grow">
-                                    <h4 class="font-semibold text-primary text-sm">Livrables clés :</h4>
-                                    <ul class="space-y-2 text-sm text-muted-foreground">
-                                        <li class="flex items-start gap-2"><span class="text-success">✓</span> Analyse positionnement</li>
-                                        <li class="flex items-start gap-2"><span class="text-success">✓</span> 3 leviers prioritaires</li>
-                                        <li class="flex items-start gap-2"><span class="text-success">✓</span> Plan d'action 90 jours</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="p-6 mt-auto border-t">
-                                <p class="text-xs text-muted-foreground mb-3 text-center">Offert lors du 1er appel</p>
-                                <a href="#appointment" class="block w-full text-center py-2 rounded-md border border-primary text-primary hover:bg-primary hover:text-white transition-colors text-sm font-medium">Obtenir ma feuille de route</a>
-                            </div>
-                        </div>
-
-                        <!-- Card 2 (Highlighted) -->
-                        <div class="rounded-lg border-2 border-primary bg-card shadow-lg relative flex flex-col transform md:-translate-y-2 reveal z-10">
-                            <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                                <span class="bg-primary text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Populaire</span>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-lg font-bold text-center mb-2">Directeur Marketing Externalisé</h3>
-                                <p class="text-sm text-center text-muted-foreground mb-6">Votre pilote stratégique sans le coût d'un temps plein.</p>
-                                <div class="space-y-4">
-                                    <h4 class="font-semibold text-primary text-sm">Livrables clés :</h4>
-                                    <ul class="space-y-2 text-sm text-muted-foreground">
-                                        <li class="flex items-start gap-2"><span class="text-success">✓</span> Stratégie annuelle</li>
-                                        <li class="flex items-start gap-2"><span class="text-success">✓</span> Pilotage opérationnel</li>
-                                        <li class="flex items-start gap-2"><span class="text-success">✓</span> Reporting & KPIs</li>
-                                        <li class="flex items-start gap-2"><span class="text-success">✓</span> Montée en compétence équipe</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="p-6 mt-auto border-t">
-                                <p class="text-xs text-muted-foreground mb-3 text-center">Engagement 6 mois min.</p>
-                                <a href="#appointment" class="block w-full text-center py-2 rounded-md bg-primary text-white hover:bg-primary-light transition-colors text-sm font-medium shadow-button">Discutons de votre projet</a>
-                            </div>
-                        </div>
-
-                        <!-- Card 3 -->
-                        <div class="rounded-lg border bg-card shadow-sm relative flex flex-col transition-all hover:shadow-elegant reveal">
-                            <div class="p-6">
-                                <h3 class="text-lg font-bold text-center mb-2">Formation LinkedIn B2B</h3>
-                                <p class="text-sm text-center text-muted-foreground mb-6">Transformez LinkedIn en machine à leads pour vos commerciaux.</p>
-                                <div class="space-y-4">
-                                    <h4 class="font-semibold text-primary text-sm">Livrables clés :</h4>
-                                    <ul class="space-y-2 text-sm text-muted-foreground">
-                                        <li class="flex items-start gap-2"><span class="text-success">✓</span> Optimisation profils</li>
-                                        <li class="flex items-start gap-2"><span class="text-success">✓</span> Ciblage prospects</li>
-                                        <li class="flex items-start gap-2"><span class="text-success">✓</span> Modèles de messages</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="p-6 mt-auto border-t">
-                                <p class="text-xs text-muted-foreground mb-3 text-center">En intra-entreprise</p>
-                                <a href="#appointment" class="block w-full text-center py-2 rounded-md border border-primary text-primary hover:bg-primary hover:text-white transition-colors text-sm font-medium">Demander le programme</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- =================================================================
-        METHODOLOGY SECTION
-        ================================================================== -->
-        <section id="methodology" class="section-padding bg-background">
-            <div class="container mx-auto container-padding">
-                <div class="max-w-4xl mx-auto">
-                    <div class="text-center mb-12 reveal">
-                        <h2 class="text-section-title mb-6">De la Confusion à la Clarté</h2>
-                        <p class="text-body text-muted-foreground hidden md:block">Processus rigoureux en 4 étapes pour des résultats concrets.</p>
-                    </div>
-                    
-                    <div class="space-y-8 md:space-y-12">
-                        <!-- Step 1 -->
-                        <div class="relative reveal group">
-                            <!-- Responsive Line: Adjusted left position -->
-                            <div class="absolute left-6 md:left-8 top-12 md:top-16 w-0.5 h-full bg-border -z-10 group-last:hidden"></div>
-                            
-                            <div class="flex flex-col md:flex-row md:items-start">
-                                <!-- Number Bubble -->
-                                <div class="flex items-center mb-4 md:mb-0">
-                                    <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary text-white flex items-center justify-center text-lg md:text-xl font-bold mr-4 md:mr-6 flex-shrink-0 shadow-md z-10 relative">01</div>
-                                    <h3 class="md:hidden text-lg font-bold text-foreground">Diagnostic &amp; Immersion</h3>
-                                </div>
-                                
-                                <!-- Content -->
-                                <div class="pl-4 md:pl-0 flex-1">
-                                    <h3 class="hidden md:block text-xl font-bold text-foreground mb-3">Diagnostic &amp; Immersion</h3>
-                                    <p class="text-sm md:text-base text-muted-foreground leading-relaxed">J'analyse vos objectifs, vos défis et votre marché. C'est le fondement indispensable pour construire une stratégie qui fonctionne.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Step 2 -->
-                        <div class="relative reveal group">
-                            <div class="absolute left-6 md:left-8 top-12 md:top-16 w-0.5 h-full bg-border -z-10 group-last:hidden"></div>
-                            <div class="flex flex-col md:flex-row md:items-start">
-                                <div class="flex items-center mb-4 md:mb-0">
-                                    <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary text-white flex items-center justify-center text-lg md:text-xl font-bold mr-4 md:mr-6 flex-shrink-0 shadow-md z-10 relative">02</div>
-                                    <h3 class="md:hidden text-lg font-bold text-foreground">Feuille de Route</h3>
-                                </div>
-                                <div class="pl-4 md:pl-0 flex-1">
-                                    <h3 class="hidden md:block text-xl font-bold text-foreground mb-3">Feuille de Route</h3>
-                                    <p class="text-sm md:text-base text-muted-foreground leading-relaxed">Nous élaborons ensemble votre plan d'action avec des objectifs mesurables (KPIs), un budget et un calendrier réaliste.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Step 3 -->
-                        <div class="relative reveal group">
-                            <div class="absolute left-6 md:left-8 top-12 md:top-16 w-0.5 h-full bg-border -z-10 group-last:hidden"></div>
-                            <div class="flex flex-col md:flex-row md:items-start">
-                                <div class="flex items-center mb-4 md:mb-0">
-                                    <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary text-white flex items-center justify-center text-lg md:text-xl font-bold mr-4 md:mr-6 flex-shrink-0 shadow-md z-10 relative">03</div>
-                                    <h3 class="md:hidden text-lg font-bold text-foreground">Déploiement</h3>
-                                </div>
-                                <div class="pl-4 md:pl-0 flex-1">
-                                    <h3 class="hidden md:block text-xl font-bold text-foreground mb-3">Déploiement</h3>
-                                    <p class="text-sm md:text-base text-muted-foreground leading-relaxed">Je pilote les actions, forme vos équipes ou prends en charge directement. Nous avançons, mesurons et ajustons.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Step 4 -->
-                         <div class="relative reveal group">
-                            <div class="flex flex-col md:flex-row md:items-start">
-                                <div class="flex items-center mb-4 md:mb-0">
-                                    <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary text-white flex items-center justify-center text-lg md:text-xl font-bold mr-4 md:mr-6 flex-shrink-0 shadow-md z-10 relative">04</div>
-                                    <h3 class="md:hidden text-lg font-bold text-foreground">Optimisation</h3>
-                                </div>
-                                <div class="pl-4 md:pl-0 flex-1">
-                                    <h3 class="hidden md:block text-xl font-bold text-foreground mb-3">Mesure &amp; Optimisation</h3>
-                                    <p class="text-sm md:text-base text-muted-foreground leading-relaxed">Le marketing est une amélioration continue. Nous analysons les résultats pour maximiser votre ROI.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- =================================================================
-        TESTIMONIALS SECTION
-        ================================================================== -->
-        <section id="testimonials" class="section-padding bg-secondary">
-            <div class="container mx-auto container-padding">
-                <div class="max-w-6xl mx-auto">
-                    <div class="text-center mb-12 reveal">
-                        <h2 class="text-section-title mb-6">Leurs Résultats, Votre Garantie</h2>
-                    </div>
-                    <!-- Stack on mobile, grid on desktop -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <!-- Testimonial 1 -->
-                        <div class="rounded-lg border bg-card p-6 md:p-8 shadow-sm h-full flex flex-col reveal">
-                            <div class="mb-4 md:mb-6 text-primary opacity-50"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 7.55228 14.017 7V3H19.017C20.6739 3 22.017 4.34315 22.017 6V15C22.017 16.6569 20.6739 18 19.017 18H16.017V21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 7.55228 5.0166 7V3H10.0166C11.6735 3 13.0166 4.34315 13.0166 6V15C13.0166 16.6569 11.6735 18 10.0166 18H7.0166V21H5.0166Z"></path></svg></div>
-                            <blockquote class="text-sm md:text-base mb-6 leading-relaxed flex-grow">"Julien a clarifié notre message et mis en place une stratégie LinkedIn. Le résultat : nos leads qualifiés ont triplé et notre CA a augmenté de 15%."</blockquote>
-                            <div class="flex items-center space-x-4 pt-4 border-t">
-                                <div class="w-12 h-12 rounded-full overflow-hidden bg-muted flex-shrink-0">
-                                    <img src="images/temoignage-sophie-bernard.webp" alt="Sophie Bernard" class="w-full h-full object-cover">
-                                </div>
-                                <div>
-                                    <div class="font-semibold text-sm md:text-base">Sophie Bernard</div>
-                                    <div class="text-xs text-muted-foreground">CEO, Métal-Précision SAS</div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Testimonial 2 -->
-                        <div class="rounded-lg border bg-card p-6 md:p-8 shadow-sm h-full flex flex-col reveal">
-                             <div class="mb-4 md:mb-6 text-primary opacity-50"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 7.55228 14.017 7V3H19.017C20.6739 3 22.017 4.34315 22.017 6V15C22.017 16.6569 20.6739 18 19.017 18H16.017V21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 7.55228 5.0166 7V3H10.0166C11.6735 3 13.0166 4.34315 13.0166 6V15C13.0166 16.6569 11.6735 18 10.0166 18H7.0166V21H5.0166Z"></path></svg></div>
-                            <blockquote class="text-sm md:text-base mb-6 leading-relaxed flex-grow">"Son atelier LinkedIn a été un électrochoc. Une approche pragmatique qui a généré des résultats dès la première semaine."</blockquote>
-                            <div class="flex items-center space-x-4 pt-4 border-t">
-                                <div class="w-12 h-12 rounded-full overflow-hidden bg-muted flex-shrink-0">
-                                    <img src="images/temoignage-marc-dubois.webp" alt="Marc Dubois" class="w-full h-full object-cover">
-                                </div>
-                                <div>
-                                    <div class="font-semibold text-sm md:text-base">Marc Dubois</div>
-                                    <div class="text-xs text-muted-foreground">Gérant, Service-Tech</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- =================================================================
-        RESOURCE SECTION
-        ================================================================== -->
-        <section class="section-padding bg-background">
-             <div class="container mx-auto container-padding">
-                <div class="max-w-4xl mx-auto rounded-xl border bg-card shadow-elegant overflow-hidden reveal">
-                    <div class="p-6 md:p-12">
-                        <div class="grid md:grid-cols-2 gap-8 items-center">
-                            <div class="order-2 md:order-1">
-                                <h3 class="text-xl md:text-2xl font-bold mb-4">Auto-Diagnostic Marketing</h3>
-                                <p class="text-sm text-muted-foreground mb-6">La checklist en 7 piliers pour auditer votre stratégie. Recevez gratuitement l'outil que j'utilise avec mes clients.</p>
-                                <form class="space-y-3">
-                                    <input type="email" placeholder="Votre email professionnel" class="w-full rounded-md border border-input px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
-                                    <button type="submit" class="w-full rounded-md bg-primary text-white py-2 text-sm font-medium hover:bg-primary-light transition-colors">
-                                        Télécharger maintenant
-                                    </button>
-                                </form>
-                            </div>
-                            <div class="order-1 md:order-2 flex justify-center">
-                                <img src="images/ressource-autodiagnostic-mockup.webp" alt="Mockup outil" class="w-2/3 md:w-full max-w-xs object-contain">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-             </div>
-        </section>
-
-        <!-- =================================================================
-        FAQ SECTION
-        ================================================================== -->
-        <section class="section-padding bg-secondary">
-            <div class="container mx-auto container-padding">
-                <div class="max-w-3xl mx-auto">
-                    <div class="text-center mb-10 reveal">
-                        <h2 class="text-section-title">FAQ</h2>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="bg-card rounded-lg border p-4 md:p-6 reveal">
-                            <button class="faq-question w-full flex justify-between items-center text-left font-semibold text-sm md:text-base">
-                                <span>Quelle différence avec une agence ?</span>
-                                <svg class="faq-chevron w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div class="faq-answer overflow-hidden max-h-0 transition-all duration-300">
-                                <p class="text-sm text-muted-foreground mt-4">Interlocuteur unique et senior. Pas de juniors. Une relation de partenaire, pas de fournisseur.</p>
-                            </div>
-                        </div>
-                        <div class="bg-card rounded-lg border p-4 md:p-6 reveal">
-                            <button class="faq-question w-full flex justify-between items-center text-left font-semibold text-sm md:text-base">
-                                <span>Petit budget possible ?</span>
-                                <svg class="faq-chevron w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div class="faq-answer overflow-hidden max-h-0 transition-all duration-300">
-                                <p class="text-sm text-muted-foreground mt-4">Oui, l'Audit ou l'Atelier LinkedIn sont parfaits pour commencer avec un investissement maîtrisé.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- =================================================================
-        CONTACT / CALENDLY SECTION
-        ================================================================== -->
-        <section id="appointment" class="section-padding bg-background pb-24">
-            <div class="container mx-auto container-padding">
-                <div class="max-w-5xl mx-auto">
-                    <div class="text-center mb-12 reveal">
-                        <h2 class="text-section-title mb-4">Prêt à accélérer ?</h2>
-                        <p class="text-muted-foreground">Réservez votre appel découverte de 45 min. Gratuit et sans engagement.</p>
-                    </div>
-                    
-                    <!-- Responsive Calendar Layout -->
-                    <div class="rounded-xl border bg-card shadow-lg overflow-hidden flex flex-col lg:flex-row reveal">
-                        <!-- Info Panel -->
-                        <div class="p-6 md:p-10 bg-secondary/50 lg:w-2/5 border-b lg:border-b-0 lg:border-r border-border">
-                            <div class="flex items-center space-x-4 mb-6">
-                                <img src="images/portrait-julien-moreau.webp" class="w-16 h-16 rounded-full object-cover border-2 border-white shadow-sm">
-                                <div>
-                                    <p class="text-sm text-muted-foreground">Julien Moreau</p>
-                                    <h3 class="font-bold">Appel Stratégique</h3>
-                                </div>
-                            </div>
-                            <div class="space-y-4 text-sm text-muted-foreground">
-                                <div class="flex items-center gap-2"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 45 min</div>
-                                <div class="flex items-center gap-2"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> Visio (Google Meet)</div>
-                            </div>
-                        </div>
-                        
-                        <!-- Fake Calendar Grid (Visual Only) -->
-                        <div class="p-6 md:p-10 lg:w-3/5 flex items-center justify-center bg-white">
-                            <div class="text-center w-full">
-                                <p class="text-lg font-semibold mb-6">Sélectionnez une date</p>
-                                <!-- Simplified calendar for visual representation -->
-                                <div class="grid grid-cols-7 gap-2 text-sm max-w-sm mx-auto">
-                                    <div class="text-xs text-muted-foreground py-2">L</div>
-                                    <div class="text-xs text-muted-foreground py-2">M</div>
-                                    <div class="text-xs text-muted-foreground py-2">M</div>
-                                    <div class="text-xs text-muted-foreground py-2">J</div>
-                                    <div class="text-xs text-muted-foreground py-2">V</div>
-                                    <div class="text-xs text-muted-foreground py-2">S</div>
-                                    <div class="text-xs text-muted-foreground py-2">D</div>
-                                    
-                                    <!-- Days -->
-                                    <button class="p-2 hover:bg-muted rounded-full">1</button>
-                                    <button class="p-2 hover:bg-muted rounded-full">2</button>
-                                    <button class="p-2 hover:bg-muted rounded-full">3</button>
-                                    <button class="p-2 bg-primary text-white rounded-full shadow-md">4</button>
-                                    <button class="p-2 hover:bg-muted rounded-full">5</button>
-                                    <span class="p-2 text-gray-300">6</span>
-                                    <span class="p-2 text-gray-300">7</span>
-                                </div>
-                                <div class="mt-8">
-                                    <a href="#" class="inline-block bg-primary text-white px-8 py-3 rounded-md font-medium text-sm hover:bg-primary-light transition-colors">Voir les disponibilités réelles</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- =================================================================
-        FOOTER
-        ================================================================== -->
-        <footer class="bg-foreground text-background py-12 md:py-16">
-            <div class="container mx-auto container-padding">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 text-center md:text-left">
-                    <div>
-                        <h3 class="text-xl font-bold mb-4">Levier Marketing</h3>
-                        <p class="text-sm text-gray-400">Expertise marketing B2B pragmatique.</p>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold mb-4">Liens</h4>
-                        <div class="flex flex-col space-y-2 text-sm text-gray-400">
-                            <a href="#about" class="hover:text-white transition-colors">À Propos</a>
-                            <a href="#services" class="hover:text-white transition-colors">Solutions</a>
-                            <a href="#appointment" class="hover:text-white transition-colors">Contact</a>
-                        </div>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold mb-4">Contact</h4>
-                        <p class="text-sm text-gray-400">julien@leviermarketing.fr</p>
-                        <p class="text-sm text-gray-400">+33 6 12 34 56 78</p>
-                    </div>
-                </div>
-                <div class="border-t border-gray-700 mt-12 pt-8 text-center text-xs text-gray-500">
-                    © 2024 Levier Marketing - Tous droits réservés.
                 </div>
             </div>
         </footer>
 
     </div>
-    
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
 
+    <!-- BANDEAU DE CONSENTEMENT AUX COOKIES -->
+    <div id="cookie-consent-banner" class="hidden fixed bottom-0 inset-x-0 p-2 sm:p-4 z-[100]">
+        <div class="max-w-7xl mx-auto">
+            <div class="p-4 rounded-lg bg-neutral-dark shadow-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border border-white/10">
+                <div class="flex-1 text-white">
+                    <p class="font-semibold">Ce site utilise des cookies</p>
+                    <p class="mt-1 text-sm text-gray-400">
+                        Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic.
+                        <a href="politique-de-confidentialite.html" target="_blank" class="font-semibold hover:underline text-gray-300">En savoir plus</a>.
+                    </p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                    <button id="cookie-accept-btn" type="button" class="w-full sm:w-auto btn btn-primary px-6 py-2">Accepter</button>
+                    <button id="cookie-decline-btn" type="button" class="w-full sm:w-auto px-6 py-2 border border-white/30 text-white rounded-lg hover:bg-white/10 transition-all">Refuser</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+
+    <!-- Script spécifique pour le filtrage portfolio -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // 1. Mobile Menu Logic
-            const mobileBtn = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileLinks = document.querySelectorAll('.mobile-link');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filtrage des projets
+            const filterBtns = document.querySelectorAll('.filter-btn-dark');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
 
-            mobileBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('open');
-            });
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Activer le bouton cliqué
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
 
-            // Close menu when a link is clicked
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.remove('open');
-                });
-            });
+                    const filter = btn.getAttribute('data-filter');
 
-            // 2. FAQ Logic
-            const faqQuestions = document.querySelectorAll('.faq-question');
-            faqQuestions.forEach(question => {
-                question.addEventListener('click', () => {
-                    const answer = question.nextElementSibling;
-                    const chevron = question.querySelector('.faq-chevron');
-                    
-                    // Toggle current
-                    if (answer.style.maxHeight) {
-                        answer.style.maxHeight = null;
-                        chevron.classList.remove('rotate-180');
-                    } else {
-                        // Close others (optional, keep for accordion effect)
-                        document.querySelectorAll('.faq-answer').forEach(el => el.style.maxHeight = null);
-                        document.querySelectorAll('.faq-chevron').forEach(el => el.classList.remove('rotate-180'));
+                    portfolioItems.forEach(item => {
+                        const category = item.getAttribute('data-category');
                         
-                        answer.style.maxHeight = answer.scrollHeight + 'px';
-                        chevron.classList.add('rotate-180');
-                    }
-                });
-            });
-
-            // 3. Smooth Scroll & Animations (Desktop mostly)
-            const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
-            
-            // Fade-in on load
-            document.querySelectorAll('.animate-on-load').forEach(el => el.style.opacity = '1');
-
-            if (isDesktop) {
-                const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
-                function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-                requestAnimationFrame(raf);
-
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        lenis.scrollTo(this.getAttribute('href'));
+                        if (filter === 'all' || category === filter) {
+                            item.style.display = 'block';
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'scale(0.9)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
                     });
                 });
+            });
 
-                const sr = ScrollReveal({
-                    origin: 'bottom', distance: '40px', duration: 800,
-                    delay: 200, opacity: 0, scale: 1, easing: 'cubic-bezier(0.5, 0, 0, 1)',
-                    viewFactor: 0.2
+            // Navigation scrolled state
+            const nav = document.getElementById('main-nav');
+            const logoWhite = document.getElementById('logo-white');
+            const logoColor = document.getElementById('logo-color');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            function handleScrollNav() {
+                if (window.scrollY > 50) {
+                    nav.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-md');
+                    nav.classList.remove('bg-transparent');
+                    if (logoWhite) logoWhite.classList.add('opacity-0');
+                    if (logoColor) logoColor.classList.remove('opacity-0');
+                    navLinks.forEach(link => {
+                        link.classList.add('text-neutral-dark');
+                        link.classList.remove('text-white');
+                    });
+                } else {
+                    nav.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-md');
+                    nav.classList.add('bg-transparent');
+                    if (logoWhite) logoWhite.classList.remove('opacity-0');
+                    if (logoColor) logoColor.classList.add('opacity-0');
+                    navLinks.forEach(link => {
+                        link.classList.remove('text-neutral-dark');
+                        link.classList.add('text-white');
+                    });
+                }
+            }
+
+            window.addEventListener('scroll', handleScrollNav);
+            handleScrollNav();
+
+            // Mobile menu
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
                 });
-                sr.reveal('.reveal');
-                sr.reveal('.reveal-left', { origin: 'left' });
-                sr.reveal('.reveal-right', { origin: 'right' });
-            } else {
-                // Simplified animations for mobile to avoid performance hit
-                const sr = ScrollReveal({ distance: '20px', duration: 600, viewFactor: 0.1 });
-                sr.reveal('.reveal');
             }
         });
     </script>
 </body>
+
 </html>
