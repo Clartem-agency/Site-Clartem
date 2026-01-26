@@ -1629,27 +1629,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let isPopupOpen = false;
 
-        // Fonction pour OUVRIR le popup (Version 3D Majestic)
+
+        // Fonction pour OUVRIR le popup (Version 3D Majestic - Corrigée)
         const openPopup = () => {
             if (isPopupOpen) return;
             isPopupOpen = true;
 
-            // 1. On retire hidden pour l'afficher dans le DOM
+            // 1. On retire hidden pour l'afficher dans le DOM (mais il est encore invisible visuellement car opacity 0)
             modal.classList.remove('hidden');
 
-            // 2. Petit délai technique pour permettre au navigateur de rendre l'élément
-            // avant de lancer la transition CSS (sinon ça pop sans anim)
-            setTimeout(() => {
+            // 2. TRUC DE PRO : On force le navigateur à calculer la mise en page (Reflow)
+            // Cela oblige le navigateur à réaliser que l'élément est là, dans son état "hidden 3D".
+            void modal.offsetWidth;
+
+            // 3. On lance l'animation à la frame suivante pour garantir la fluidité
+            requestAnimationFrame(() => {
                 // Fond
                 backdrop.classList.remove('opacity-0');
 
                 // Contenu : On passe de l'état "Hidden 3D" à "Visible"
                 content.classList.remove('modal-3d-hidden');
                 content.classList.add('modal-3d-visible');
-            }, 50); // 50ms suffisent
+            });
 
             localStorage.setItem(STORAGE_KEY, 'true');
         };
+
 
         // Fonction pour FERMER le popup
         const closePopup = () => {
