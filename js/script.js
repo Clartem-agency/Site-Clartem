@@ -1637,16 +1637,23 @@ document.addEventListener('DOMContentLoaded', function () {
             // 1. On retire hidden pour l'afficher dans le DOM
             modal.classList.remove('hidden');
 
-            // 2. Petit délai technique pour permettre au navigateur de rendre l'élément
-            // avant de lancer la transition CSS (sinon ça pop sans anim)
-            setTimeout(() => {
-                // Fond
-                backdrop.classList.remove('opacity-0');
+            // 2. FORCE LE REFLOW : On lit une propriété de layout pour obliger
+            // le navigateur à calculer l'état initial AVANT de lancer la transition.
+            // Sans cela, le scroll popup apparaît d'un coup sec car le navigateur
+            // n'a pas le temps de "voir" l'état modal-3d-hidden.
+            void content.offsetHeight;
 
-                // Contenu : On passe de l'état "Hidden 3D" à "Visible"
-                content.classList.remove('modal-3d-hidden');
-                content.classList.add('modal-3d-visible');
-            }, 50); // 50ms suffisent
+            // 3. Double requestAnimationFrame pour garantir que le frame initial est peint
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    // Fond
+                    backdrop.classList.remove('opacity-0');
+
+                    // Contenu : On passe de l'état "Hidden 3D" à "Visible"
+                    content.classList.remove('modal-3d-hidden');
+                    content.classList.add('modal-3d-visible');
+                });
+            });
 
             localStorage.setItem(STORAGE_KEY, 'true');
         };
