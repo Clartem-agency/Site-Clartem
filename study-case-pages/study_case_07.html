@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Étude de Cas : Horizon Stratégie | Clartem</title>
+    <title>Concept & Stratégie : Site pour Coach Business TPE/PME | Clartem</title>
     <meta name="description"
         content="Découvrez comment Clartem a conçu un Site Clarté pour Horizon Stratégie, afin de convaincre les dirigeants de PME et de redonner le contrôle stratégique.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -620,136 +620,138 @@
 
 
         /* ======================================================= */
-/*    STYLES POUR LE BANDEAU DE CONSENTEMENT COOKIES (RESPONSIVE) */
-/* ======================================================= */
-#cookie-consent-banner {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    padding: 0.5rem; /* Moins de padding sur mobile */
-    font-family: 'Poppins', sans-serif;
-}
+        /*    STYLES POUR LE BANDEAU DE CONSENTEMENT COOKIES (RESPONSIVE) */
+        /* ======================================================= */
+        #cookie-consent-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 0.5rem;
+            /* Moins de padding sur mobile */
+            font-family: 'Poppins', sans-serif;
+        }
 
 
-#cookie-consent-banner.hidden {
-    display: none;
-}
+        #cookie-consent-banner.hidden {
+            display: none;
+        }
 
 
-#cookie-consent-banner > div {
-    max-width: 1100px;
-    margin: 0 auto;
-}
+        #cookie-consent-banner>div {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
 
 
-#cookie-consent-banner .banner-content {
-    padding: 1.5rem;
-    border-radius: 8px;
-    background-color: var(--heading-color);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    display: flex;
-    gap: 1.5rem;
-    /* Mobile First : les éléments sont en colonne par défaut */
-    flex-direction: column;
-    align-items: flex-start;
-}
+        #cookie-consent-banner .banner-content {
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: var(--heading-color);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            display: flex;
+            gap: 1.5rem;
+            /* Mobile First : les éléments sont en colonne par défaut */
+            flex-direction: column;
+            align-items: flex-start;
+        }
 
 
-#cookie-consent-banner .banner-text {
-    color: var(--white);
-}
+        #cookie-consent-banner .banner-text {
+            color: var(--white);
+        }
 
 
-#cookie-consent-banner .banner-text p:first-child {
-    font-weight: 600;
-}
+        #cookie-consent-banner .banner-text p:first-child {
+            font-weight: 600;
+        }
 
 
-#cookie-consent-banner .banner-text p {
-    margin: 0;
-    margin-top: 0.25rem;
-    font-size: 0.9rem;
-    color: #d1d5db;
-}
+        #cookie-consent-banner .banner-text p {
+            margin: 0;
+            margin-top: 0.25rem;
+            font-size: 0.9rem;
+            color: #d1d5db;
+        }
 
 
-#cookie-consent-banner .banner-text a {
-    font-weight: 600;
-    text-decoration: underline;
-    color: var(--white);
-}
+        #cookie-consent-banner .banner-text a {
+            font-weight: 600;
+            text-decoration: underline;
+            color: var(--white);
+        }
 
 
-#cookie-consent-banner .banner-buttons {
-    display: flex;
-    gap: 0.75rem;
-    /* Mobile First : les boutons sont en colonne et prennent toute la largeur */
-    flex-direction: column;
-    width: 100%;
-}
+        #cookie-consent-banner .banner-buttons {
+            display: flex;
+            gap: 0.75rem;
+            /* Mobile First : les boutons sont en colonne et prennent toute la largeur */
+            flex-direction: column;
+            width: 100%;
+        }
 
 
-#cookie-consent-banner .btn {
-    width: 100%; /* Les boutons sont pleine largeur sur mobile */
-}
+        #cookie-consent-banner .btn {
+            width: 100%;
+            /* Les boutons sont pleine largeur sur mobile */
+        }
 
 
-#cookie-consent-banner .btn-secondary {
-    color: var(--white);
-    border-color: var(--white);
-}
-#cookie-consent-banner .btn-secondary:hover {
-    color: var(--dark-blue);
-    background-color: var(--white);
-}
-#cookie-consent-banner .btn-secondary::before {
-    background-color: var(--white);
-}
+        #cookie-consent-banner .btn-secondary {
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        #cookie-consent-banner .btn-secondary:hover {
+            color: var(--dark-blue);
+            background-color: var(--white);
+        }
+
+        #cookie-consent-banner .btn-secondary::before {
+            background-color: var(--white);
+        }
 
 
-/* Styles pour les écrans plus grands (tablette et bureau) */
-@media (min-width: 768px) {
-    #cookie-consent-banner {
-        padding: 1rem; /* Plus de padding sur les grands écrans */
-    }
+        /* Styles pour les écrans plus grands (tablette et bureau) */
+        @media (min-width: 768px) {
+            #cookie-consent-banner {
+                padding: 1rem;
+                /* Plus de padding sur les grands écrans */
+            }
 
 
-    #cookie-consent-banner .banner-content {
-        /* On passe en ligne sur les grands écrans */
-        flex-direction: row;
-        align-items: center;
-    }
+            #cookie-consent-banner .banner-content {
+                /* On passe en ligne sur les grands écrans */
+                flex-direction: row;
+                align-items: center;
+            }
 
 
-    #cookie-consent-banner .banner-buttons {
-        /* Les boutons se mettent en ligne et leur largeur s'adapte */
-        flex-direction: row;
-        width: auto;
-    }
+            #cookie-consent-banner .banner-buttons {
+                /* Les boutons se mettent en ligne et leur largeur s'adapte */
+                flex-direction: row;
+                width: auto;
+            }
 
 
-    #cookie-consent-banner .btn {
-        width: auto;
-    }
-}
-
-
-
+            #cookie-consent-banner .btn {
+                width: auto;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-    
-
-
-    
 
 
 
-<header class="main-header">
+
+
+
+
+    <header class="main-header">
         <div class="container">
             <a href="../index.html" class="logo">
                 <img src="../assets/logo-clartem.svg" alt="Logo clartem.com">
@@ -774,10 +776,14 @@
     <main>
         <section class="hero">
             <div class="container">
-                <p class="subtitle fade-in">Étude de Cas</p>
+
+                <p class="subtitle fade-in">Étude de Concept</p>
                 <h1 class="fade-in">Coach Business pour TPE et PME</h1>
-                <p class="case-study-title fade-in">De la Réaction à la Vision : Comment un <strong>Site
-                        Clarté</strong> Redonne le Contrôle aux Dirigeants de PME</p>
+                <p class="case-study-title fade-in">
+                    Analyse stratégique : Comment un site web peut convaincre des dirigeants pressés en parlant ROI et
+                    méthodologie (Basé sur le concept "Horizon Stratégie").
+                </p>
+
 
                 <div class="mockup-container fade-in">
                     <!-- MISE À JOUR : Chemin d'image et texte alternatif pour le nouveau projet -->
@@ -807,7 +813,8 @@
                         site web peut-il, en quelques secondes, convaincre un leader sceptique et pressé que la prise de
                         hauteur stratégique est la solution la plus <em>pratique</em> à ses problèmes opérationnels ?
                         Comment prouver que Julien n'est pas un théoricien, mais un opérateur aguerri qui parle leur
-                        langage et comprend leurs batailles ?</p>
+                        langage et comprend leurs batailles ?
+                    </p>
                 </div>
 
                 <div class="fade-in" style="margin-top: 60px;">
@@ -825,7 +832,8 @@
                                 l'accroche principale. Le visiteur ne découvre pas ce que Julien <em>vend</em>, mais
                                 <em>qui il est</em> : un ancien COO. Ce choix stratégique est crucial. Il ancre
                                 immédiatement la conversation dans le concret et le pragmatisme, répondant à l'objection
-                                silencieuse : "Est-ce qu'il comprend vraiment mes problèmes ?".</p>
+                                silencieuse : "Est-ce qu'il comprend vraiment mes problèmes ?".
+                            </p>
                         </li>
                         <li>
                             <h4>La Transformation des Services en Solutions Business</h4>
@@ -901,7 +909,7 @@
                     <div class="fade-in" style="text-align: center; margin-top: 40px;">
                         <!-- MISE À JOUR : Lien hypothétique vers le site conceptuel -->
                         <a href="https://clartem-agency.github.io/site-portfolio-07_coach-business-pour-tpe-pme/"
-                            class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Voir le site</a>
+                            class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Voir la démo</a>
                     </div>
                 </div>
             </div>
@@ -910,9 +918,11 @@
         <section id="cta" class="container" style="padding-top: 0;">
             <div class="cta-section fade-in">
                 <h2>Prêt(e) à construire votre propre Site Clarté ?</h2>
-                <p>Comme pour Horizon Stratégie, nous pouvons concevoir votre Site Clarté pour qu'il incarne vos
-                    valeurs et attire les clients que vous souhaitez vraiment accompagner. Discutons de votre vision.
-                </p>
+
+                <p>Vous cherchez à convaincre cette cible exigeante ? Je peux appliquer cette logique de conversion pour
+                    structurer votre offre et crédibiliser votre approche auprès des dirigeants.</p>
+
+
                 <div class="cta-buttons">
                     <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
                         rel="noopener noreferrer" class="btn btn-orange">Concevoir mon Site Clarté</a>
@@ -923,20 +933,22 @@
 
     </main>
 
-    
-
-    
 
 
 
-<footer class="main-footer">
+
+
+
+    <footer class="main-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <a href="../index.html" class="logo" style="margin-bottom: 15px; display: block;">
                         <img src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com en blanc">
                     </a>
-                    <p>Vous transformez des vies, votre site devrait le refléter. J'aide les professionnels de l'accompagnement à traduire leur expertise en une présence digitale claire, qui inspire confiance et attire les bonnes personnes.</p>
+                    <p>Vous transformez des vies, votre site devrait le refléter. J'aide les professionnels de
+                        l'accompagnement à traduire leur expertise en une présence digitale claire, qui inspire
+                        confiance et attire les bonnes personnes.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigation</h4>
@@ -969,91 +981,92 @@
 
 
 
-    
+
 
     <script>
-    // --- SCRIPT POUR L'ANIMATION D'APPARITION AU SCROLL ---
-    document.addEventListener('DOMContentLoaded', function () {
-        // VOTRE CODE D'ANIMATION EXISTANT
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
+        // --- SCRIPT POUR L'ANIMATION D'APPARITION AU SCROLL ---
+        document.addEventListener('DOMContentLoaded', function () {
+            // VOTRE CODE D'ANIMATION EXISTANT
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+
+            const elementsToAnimate = document.querySelectorAll('.fade-in');
+            elementsToAnimate.forEach(el => {
+                observer.observe(el);
+            });
+            // FIN DE VOTRE CODE D'ANIMATION EXISTANT
+
+
+
+
+            // ==================================================================
+            // COLLEZ LE CODE DU BANDEAU ICI
+            // ==================================================================
+            const cookieBanner = document.getElementById('cookie-consent-banner');
+            const acceptBtn = document.getElementById('cookie-accept-btn');
+            const declineBtn = document.getElementById('cookie-decline-btn');
+
+
+            if (cookieBanner && acceptBtn && declineBtn) {
+                const consent = localStorage.getItem('cookie_consent');
+
+
+                if (!consent) {
+                    cookieBanner.classList.remove('hidden');
                 }
-            });
-        }, {
-            threshold: 0.1
-        });
 
 
-        const elementsToAnimate = document.querySelectorAll('.fade-in');
-        elementsToAnimate.forEach(el => {
-            observer.observe(el);
-        });
-        // FIN DE VOTRE CODE D'ANIMATION EXISTANT
+                acceptBtn.addEventListener('click', () => {
+                    localStorage.setItem('cookie_consent', 'accepted');
+                    cookieBanner.classList.add('hidden');
+                });
 
 
-
-
-        // ==================================================================
-        // COLLEZ LE CODE DU BANDEAU ICI
-        // ==================================================================
-        const cookieBanner = document.getElementById('cookie-consent-banner');
-        const acceptBtn = document.getElementById('cookie-accept-btn');
-        const declineBtn = document.getElementById('cookie-decline-btn');
-
-
-        if (cookieBanner && acceptBtn && declineBtn) {
-            const consent = localStorage.getItem('cookie_consent');
-
-
-            if (!consent) {
-                cookieBanner.classList.remove('hidden');
+                declineBtn.addEventListener('click', () => {
+                    localStorage.setItem('cookie_consent', 'declined');
+                    cookieBanner.classList.add('hidden');
+                });
             }
+            // ==================================================================
+            // FIN DU CODE POUR LE BANDEAU
+            // ==================================================================
+        });
+    </script>
 
 
-            acceptBtn.addEventListener('click', () => {
-                localStorage.setItem('cookie_consent', 'accepted');
-                cookieBanner.classList.add('hidden');
-            });
-
-
-            declineBtn.addEventListener('click', () => {
-                localStorage.setItem('cookie_consent', 'declined');
-                cookieBanner.classList.add('hidden');
-            });
-        }
-        // ==================================================================
-        // FIN DU CODE POUR LE BANDEAU
-        // ==================================================================
-    });
-</script>
-
-
-<!-- BANDEAU DE CONSENTEMENT AUX COOKIES (VERSION ADAPTÉE) -->
-<div id="cookie-consent-banner" class="hidden">
-    <div> <!-- Div pour le max-width -->
-        <div class="banner-content">
-            <div class="banner-text">
-                <p>Ce site utilise des cookies</p>
-                <p>
-                    Nous utilisons des cookies pour améliorer votre expérience de navigation et analyser notre trafic. En cliquant sur "Accepter", vous consentez à notre utilisation des cookies.
-                    <a href="../politique-de-confidentialite.html" target="_blank">En savoir plus</a>.
-                </p>
-            </div>
-            <div class="banner-buttons">
-                <button id="cookie-accept-btn" type="button" class="btn btn-primary">
-                    Accepter
-                </button>
-                <button id="cookie-decline-btn" type="button" class="btn btn-secondary">
-                    Refuser
-                </button>
+    <!-- BANDEAU DE CONSENTEMENT AUX COOKIES (VERSION ADAPTÉE) -->
+    <div id="cookie-consent-banner" class="hidden">
+        <div> <!-- Div pour le max-width -->
+            <div class="banner-content">
+                <div class="banner-text">
+                    <p>Ce site utilise des cookies</p>
+                    <p>
+                        Nous utilisons des cookies pour améliorer votre expérience de navigation et analyser notre
+                        trafic. En cliquant sur "Accepter", vous consentez à notre utilisation des cookies.
+                        <a href="../politique-de-confidentialite.html" target="_blank">En savoir plus</a>.
+                    </p>
+                </div>
+                <div class="banner-buttons">
+                    <button id="cookie-accept-btn" type="button" class="btn btn-primary">
+                        Accepter
+                    </button>
+                    <button id="cookie-decline-btn" type="button" class="btn btn-secondary">
+                        Refuser
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- FIN DU BANDEAU DE CONSENTEMENT -->
+    <!-- FIN DU BANDEAU DE CONSENTEMENT -->
 
 
 
