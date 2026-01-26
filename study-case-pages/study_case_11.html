@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Étude de Cas : Alexandre Moreau | Clartem</title>
+    <title>Concept & Stratégie : Site pour Coach Sportif | Clartem</title>
     <meta name="description"
         content="Découvrez comment Clartem a conçu un Site Clarté pour Alexandre Moreau, coach sportif, afin de briser l'intimidation et d'attirer les bons clients.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -429,39 +429,133 @@
 
         /* RESPONSIVE DESIGN */
         @media (max-width: 992px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
-            section { padding: 60px 0; }
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
         }
 
         @media (max-width: 768px) {
-            body { font-size: 16px; line-height: 1.6; }
-            .container { padding: 0 15px; }
-            .content-wrapper { padding: 0 15px; }
-            .main-nav { display: none; }
-            .main-header .header-cta { padding: 8px 18px; font-size: 0.9rem; }
-            h1 { font-size: 2.1rem; line-height: 1.2; }
-            h2 { font-size: 1.75rem; line-height: 1.3; }
-            h3 { font-size: 1.4rem; }
-            h4 { font-size: 1.15rem; }
-            section { padding: 50px 0; }
-            .hero { padding-top: 40px; padding-bottom: 30px; }
-            .hero .case-study-title { font-size: 1.1rem; margin-bottom: 30px; }
-            .pillars-list li { padding-left: 45px; }
-            .pillars-list li::before { width: 30px; height: 30px; font-size: 1rem; }
-            .cta-section { padding: 40px 25px; margin: 20px auto; }
-            .cta-buttons { flex-direction: column; gap: 15px; }
-            .cta-buttons .btn { margin: 0; width: 100%; }
-            .footer-grid { text-align: center; gap: 30px; }
-            .footer-col .logo { margin: 0 auto 15px auto; }
+            body {
+                font-size: 16px;
+                line-height: 1.6;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .content-wrapper {
+                padding: 0 15px;
+            }
+
+            .main-nav {
+                display: none;
+            }
+
+            .main-header .header-cta {
+                padding: 8px 18px;
+                font-size: 0.9rem;
+            }
+
+            h1 {
+                font-size: 2.1rem;
+                line-height: 1.2;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+                line-height: 1.3;
+            }
+
+            h3 {
+                font-size: 1.4rem;
+            }
+
+            h4 {
+                font-size: 1.15rem;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+
+            .hero {
+                padding-top: 40px;
+                padding-bottom: 30px;
+            }
+
+            .hero .case-study-title {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
+            }
+
+            .pillars-list li {
+                padding-left: 45px;
+            }
+
+            .pillars-list li::before {
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+            }
+
+            .cta-section {
+                padding: 40px 25px;
+                margin: 20px auto;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .cta-buttons .btn {
+                margin: 0;
+                width: 100%;
+            }
+
+            .footer-grid {
+                text-align: center;
+                gap: 30px;
+            }
+
+            .footer-col .logo {
+                margin: 0 auto 15px auto;
+            }
         }
 
         @media (max-width: 480px) {
-            h1 { font-size: 1.8rem; }
-            h2 { font-size: 1.6rem; }
-            .logo img { height: 2.5rem; }
-            .main-header .header-cta { padding: 8px 12px; font-size: 0.8rem; }
-            .concept-tag { top: 10px; right: 10px; padding: 4px 8px; font-size: 0.75rem; }
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .logo img {
+                height: 2.5rem;
+            }
+
+            .main-header .header-cta {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+
+            .concept-tag {
+                top: 10px;
+                right: 10px;
+                padding: 4px 8px;
+                font-size: 0.75rem;
+            }
         }
 
         /* AJOUT POUR LE BOUTON SUR FOND SOMBRE */
@@ -481,134 +575,136 @@
 
 
 
-/* ======================================================= */
-/*    STYLES POUR LE BANDEAU DE CONSENTEMENT COOKIES (RESPONSIVE) */
-/* ======================================================= */
-#cookie-consent-banner {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    padding: 0.5rem; /* Moins de padding sur mobile */
-    font-family: 'Poppins', sans-serif;
-}
+        /* ======================================================= */
+        /*    STYLES POUR LE BANDEAU DE CONSENTEMENT COOKIES (RESPONSIVE) */
+        /* ======================================================= */
+        #cookie-consent-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 0.5rem;
+            /* Moins de padding sur mobile */
+            font-family: 'Poppins', sans-serif;
+        }
 
 
-#cookie-consent-banner.hidden {
-    display: none;
-}
+        #cookie-consent-banner.hidden {
+            display: none;
+        }
 
 
-#cookie-consent-banner > div {
-    max-width: 1100px;
-    margin: 0 auto;
-}
+        #cookie-consent-banner>div {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
 
 
-#cookie-consent-banner .banner-content {
-    padding: 1.5rem;
-    border-radius: 8px;
-    background-color: var(--heading-color);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    display: flex;
-    gap: 1.5rem;
-    /* Mobile First : les éléments sont en colonne par défaut */
-    flex-direction: column;
-    align-items: flex-start;
-}
+        #cookie-consent-banner .banner-content {
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: var(--heading-color);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            display: flex;
+            gap: 1.5rem;
+            /* Mobile First : les éléments sont en colonne par défaut */
+            flex-direction: column;
+            align-items: flex-start;
+        }
 
 
-#cookie-consent-banner .banner-text {
-    color: var(--white);
-}
+        #cookie-consent-banner .banner-text {
+            color: var(--white);
+        }
 
 
-#cookie-consent-banner .banner-text p:first-child {
-    font-weight: 600;
-}
+        #cookie-consent-banner .banner-text p:first-child {
+            font-weight: 600;
+        }
 
 
-#cookie-consent-banner .banner-text p {
-    margin: 0;
-    margin-top: 0.25rem;
-    font-size: 0.9rem;
-    color: #d1d5db;
-}
+        #cookie-consent-banner .banner-text p {
+            margin: 0;
+            margin-top: 0.25rem;
+            font-size: 0.9rem;
+            color: #d1d5db;
+        }
 
 
-#cookie-consent-banner .banner-text a {
-    font-weight: 600;
-    text-decoration: underline;
-    color: var(--white);
-}
+        #cookie-consent-banner .banner-text a {
+            font-weight: 600;
+            text-decoration: underline;
+            color: var(--white);
+        }
 
 
-#cookie-consent-banner .banner-buttons {
-    display: flex;
-    gap: 0.75rem;
-    /* Mobile First : les boutons sont en colonne et prennent toute la largeur */
-    flex-direction: column;
-    width: 100%;
-}
+        #cookie-consent-banner .banner-buttons {
+            display: flex;
+            gap: 0.75rem;
+            /* Mobile First : les boutons sont en colonne et prennent toute la largeur */
+            flex-direction: column;
+            width: 100%;
+        }
 
 
-#cookie-consent-banner .btn {
-    width: 100%; /* Les boutons sont pleine largeur sur mobile */
-}
+        #cookie-consent-banner .btn {
+            width: 100%;
+            /* Les boutons sont pleine largeur sur mobile */
+        }
 
 
-#cookie-consent-banner .btn-secondary {
-    color: var(--white);
-    border-color: var(--white);
-}
-#cookie-consent-banner .btn-secondary:hover {
-    color: var(--dark-blue);
-    background-color: var(--white);
-}
-#cookie-consent-banner .btn-secondary::before {
-    background-color: var(--white);
-}
+        #cookie-consent-banner .btn-secondary {
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        #cookie-consent-banner .btn-secondary:hover {
+            color: var(--dark-blue);
+            background-color: var(--white);
+        }
+
+        #cookie-consent-banner .btn-secondary::before {
+            background-color: var(--white);
+        }
 
 
-/* Styles pour les écrans plus grands (tablette et bureau) */
-@media (min-width: 768px) {
-    #cookie-consent-banner {
-        padding: 1rem; /* Plus de padding sur les grands écrans */
-    }
+        /* Styles pour les écrans plus grands (tablette et bureau) */
+        @media (min-width: 768px) {
+            #cookie-consent-banner {
+                padding: 1rem;
+                /* Plus de padding sur les grands écrans */
+            }
 
 
-    #cookie-consent-banner .banner-content {
-        /* On passe en ligne sur les grands écrans */
-        flex-direction: row;
-        align-items: center;
-    }
+            #cookie-consent-banner .banner-content {
+                /* On passe en ligne sur les grands écrans */
+                flex-direction: row;
+                align-items: center;
+            }
 
 
-    #cookie-consent-banner .banner-buttons {
-        /* Les boutons se mettent en ligne et leur largeur s'adapte */
-        flex-direction: row;
-        width: auto;
-    }
+            #cookie-consent-banner .banner-buttons {
+                /* Les boutons se mettent en ligne et leur largeur s'adapte */
+                flex-direction: row;
+                width: auto;
+            }
 
 
-    #cookie-consent-banner .btn {
-        width: auto;
-    }
-}
-
-
-
+            #cookie-consent-banner .btn {
+                width: auto;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-  
 
 
 
-<header class="main-header">
+
+    <header class="main-header">
         <div class="container">
             <a href="../index.html" class="logo">
                 <img src="../assets/logo-clartem.svg" alt="Logo clartem.com">
@@ -633,10 +729,13 @@
     <main>
         <section class="hero">
             <div class="container">
-                <p class="subtitle fade-in">Étude de Cas</p>
+
+                <p class="subtitle fade-in">Étude de Concept</p>
                 <h1 class="fade-in">Coach Sportif</h1>
-                <p class="case-study-title fade-in">De la Chaise de Bureau à la Liberté de Mouvement : Comment un
-                    <strong>Site Clarté</strong> Rend le Coaching Sportif Accessible à Tous</p>
+                <p class="case-study-title fade-in">
+                    Analyse stratégique : Comment structurer un site de coaching sportif pour briser l'intimidation et
+                    convertir les débutants (Basé sur le concept "Alexandre Moreau").
+                </p>
 
                 <div class="mockup-container fade-in">
                     <img src="../assets/image-portfolio/mockup-portfolio-11.jpg"
@@ -736,7 +835,8 @@
                                     d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
                                     clip-rule="evenodd" />
                             </svg>
-                            <span><strong>Une Marque Personnelle Forte et Différenciante :</strong> Le site le positionne
+                            <span><strong>Une Marque Personnelle Forte et Différenciante :</strong> Le site le
+                                positionne
                                 comme LE coach des actifs débordés, créant une référence évidente pour sa clientèle
                                 cible.</span>
                         </li>
@@ -754,7 +854,7 @@
 
                     <div class="fade-in" style="text-align: center; margin-top: 40px;">
                         <a href="https://clartem-agency.github.io/site-portfolio-11_coach-sportif-grand-public/"
-                            class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Voir le site</a>
+                            class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Voir la démo</a>
                     </div>
                 </div>
             </div>
@@ -763,8 +863,10 @@
         <section id="cta" class="container" style="padding-top: 0;">
             <div class="cta-section fade-in">
                 <h2>Prêt(e) à construire votre propre Site Clarté ?</h2>
-                <p>Comme pour Alexandre Moreau, nous pouvons concevoir votre Site Clarté pour qu'il incarne vos valeurs
-                    et attire les clients que vous souhaitez vraiment accompagner. Discutons de votre vision.</p>
+
+                <p>Vous souhaitez une approche plus humaine du coaching ? Je peux appliquer cette structure rassurante
+                    pour créer votre site sur-mesure, afin de convertir ceux qui hésitent encore à se lancer.</p>
+
                 <div class="cta-buttons">
                     <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
                         rel="noopener noreferrer" class="btn btn-orange">Concevoir mon Site Clarté</a>
@@ -775,21 +877,23 @@
 
     </main>
 
-   
-
-
-    
 
 
 
-<footer class="main-footer">
+
+
+
+
+    <footer class="main-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <a href="../index.html" class="logo" style="margin-bottom: 15px; display: block;">
                         <img src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com en blanc">
                     </a>
-                    <p>Vous transformez des vies, votre site devrait le refléter. J'aide les professionnels de l'accompagnement à traduire leur expertise en une présence digitale claire, qui inspire confiance et attire les bonnes personnes.</p>
+                    <p>Vous transformez des vies, votre site devrait le refléter. J'aide les professionnels de
+                        l'accompagnement à traduire leur expertise en une présence digitale claire, qui inspire
+                        confiance et attire les bonnes personnes.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigation</h4>
@@ -822,92 +926,93 @@
 
 
 
-    
+
 
     <script>
-    // --- SCRIPT POUR L'ANIMATION D'APPARITION AU SCROLL ---
-    document.addEventListener('DOMContentLoaded', function () {
-        // VOTRE CODE D'ANIMATION EXISTANT
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
+        // --- SCRIPT POUR L'ANIMATION D'APPARITION AU SCROLL ---
+        document.addEventListener('DOMContentLoaded', function () {
+            // VOTRE CODE D'ANIMATION EXISTANT
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+
+            const elementsToAnimate = document.querySelectorAll('.fade-in');
+            elementsToAnimate.forEach(el => {
+                observer.observe(el);
+            });
+            // FIN DE VOTRE CODE D'ANIMATION EXISTANT
+
+
+
+
+            // ==================================================================
+            // COLLEZ LE CODE DU BANDEAU ICI
+            // ==================================================================
+            const cookieBanner = document.getElementById('cookie-consent-banner');
+            const acceptBtn = document.getElementById('cookie-accept-btn');
+            const declineBtn = document.getElementById('cookie-decline-btn');
+
+
+            if (cookieBanner && acceptBtn && declineBtn) {
+                const consent = localStorage.getItem('cookie_consent');
+
+
+                if (!consent) {
+                    cookieBanner.classList.remove('hidden');
                 }
-            });
-        }, {
-            threshold: 0.1
-        });
 
 
-        const elementsToAnimate = document.querySelectorAll('.fade-in');
-        elementsToAnimate.forEach(el => {
-            observer.observe(el);
-        });
-        // FIN DE VOTRE CODE D'ANIMATION EXISTANT
+                acceptBtn.addEventListener('click', () => {
+                    localStorage.setItem('cookie_consent', 'accepted');
+                    cookieBanner.classList.add('hidden');
+                });
 
 
-
-
-        // ==================================================================
-        // COLLEZ LE CODE DU BANDEAU ICI
-        // ==================================================================
-        const cookieBanner = document.getElementById('cookie-consent-banner');
-        const acceptBtn = document.getElementById('cookie-accept-btn');
-        const declineBtn = document.getElementById('cookie-decline-btn');
-
-
-        if (cookieBanner && acceptBtn && declineBtn) {
-            const consent = localStorage.getItem('cookie_consent');
-
-
-            if (!consent) {
-                cookieBanner.classList.remove('hidden');
+                declineBtn.addEventListener('click', () => {
+                    localStorage.setItem('cookie_consent', 'declined');
+                    cookieBanner.classList.add('hidden');
+                });
             }
-
-
-            acceptBtn.addEventListener('click', () => {
-                localStorage.setItem('cookie_consent', 'accepted');
-                cookieBanner.classList.add('hidden');
-            });
-
-
-            declineBtn.addEventListener('click', () => {
-                localStorage.setItem('cookie_consent', 'declined');
-                cookieBanner.classList.add('hidden');
-            });
-        }
-        // ==================================================================
-        // FIN DU CODE POUR LE BANDEAU
-        // ==================================================================
-    });
-</script>
+            // ==================================================================
+            // FIN DU CODE POUR LE BANDEAU
+            // ==================================================================
+        });
+    </script>
 
 
 
-<!-- BANDEAU DE CONSENTEMENT AUX COOKIES (VERSION ADAPTÉE) -->
-<div id="cookie-consent-banner" class="hidden">
-    <div> <!-- Div pour le max-width -->
-        <div class="banner-content">
-            <div class="banner-text">
-                <p>Ce site utilise des cookies</p>
-                <p>
-                    Nous utilisons des cookies pour améliorer votre expérience de navigation et analyser notre trafic. En cliquant sur "Accepter", vous consentez à notre utilisation des cookies.
-                    <a href="../politique-de-confidentialite.html" target="_blank">En savoir plus</a>.
-                </p>
-            </div>
-            <div class="banner-buttons">
-                <button id="cookie-accept-btn" type="button" class="btn btn-primary">
-                    Accepter
-                </button>
-                <button id="cookie-decline-btn" type="button" class="btn btn-secondary">
-                    Refuser
-                </button>
+    <!-- BANDEAU DE CONSENTEMENT AUX COOKIES (VERSION ADAPTÉE) -->
+    <div id="cookie-consent-banner" class="hidden">
+        <div> <!-- Div pour le max-width -->
+            <div class="banner-content">
+                <div class="banner-text">
+                    <p>Ce site utilise des cookies</p>
+                    <p>
+                        Nous utilisons des cookies pour améliorer votre expérience de navigation et analyser notre
+                        trafic. En cliquant sur "Accepter", vous consentez à notre utilisation des cookies.
+                        <a href="../politique-de-confidentialite.html" target="_blank">En savoir plus</a>.
+                    </p>
+                </div>
+                <div class="banner-buttons">
+                    <button id="cookie-accept-btn" type="button" class="btn btn-primary">
+                        Accepter
+                    </button>
+                    <button id="cookie-decline-btn" type="button" class="btn btn-secondary">
+                        Refuser
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- FIN DU BANDEAU DE CONSENTEMENT -->
+    <!-- FIN DU BANDEAU DE CONSENTEMENT -->
 
 
 </body>
