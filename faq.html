@@ -101,12 +101,16 @@
 
         
 
+        
+
+
+
         <!-- Navigation -->
         <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
             <div class="container mx-auto px-6">
                 <div class="flex items-center justify-between">
                     
-                    <!-- Logo Double (Blanc pour fond sombre, Couleur pour fond blanc) -->
+                    <!-- Logo Double : Le blanc s'affiche en haut, le couleur au scroll -->
                     <a href="index.html" class="relative block group py-2">
                         <img id="logo-white" class="h-10 w-auto transition-opacity duration-300" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com blanc">
                         <img id="logo-color" class="h-10 w-auto absolute top-2 left-0 transition-opacity duration-300 opacity-0" src="assets/logo-clartem.svg" alt="Logo clartem.com couleur">
@@ -146,6 +150,8 @@
                 </div>
             </div>
         </nav>
+
+        
 
 
 
@@ -737,6 +743,11 @@
     
 
 
+   
+
+
+
+
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -746,30 +757,29 @@
             const logoWhite = document.getElementById('logo-white');
             const logoColor = document.getElementById('logo-color');
             const navLinks = document.querySelectorAll('.nav-link');
-            const mobileMenuButton = document.getElementById('mobile-menu-button'); // Bouton mobile
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
 
             function handleScrollNav() {
-                if (window.scrollY > 50) {
-                    // Mode Scrolled (Fond blanc, texte sombre)
-                    nav.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-md');
-                    nav.classList.remove('bg-transparent', 'border-b', 'border-white/10'); // Enlever bordure blanche si existante
+                if (window.scrollY > 20) { // Seuil abaissé pour réagir plus vite
+                    // Mode Scrolled : Fond BLANC translucide, texte SOMBRE
+                    nav.classList.remove('bg-transparent', 'border-white/10');
+                    nav.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-md'); // Force le fond blanc
                     
                     if (logoWhite) logoWhite.classList.add('opacity-0');
                     if (logoColor) logoColor.classList.remove('opacity-0');
                     
                     navLinks.forEach(link => {
-                        // On ne change pas la couleur si c'est le lien actif (warm-orange)
+                        // On ne touche pas au lien actif (orange)
                         if (!link.classList.contains('text-warm-orange')) {
-                            link.classList.add('text-neutral-dark');
                             link.classList.remove('text-white');
+                            link.classList.add('text-neutral-dark'); // Texte gris foncé
                         }
                     });
                     
-                    // Gestion couleur bouton mobile
                     if(mobileMenuButton) mobileMenuButton.classList.replace('text-white', 'text-neutral-dark');
 
                 } else {
-                    // Mode Top (Transparent, texte blanc)
+                    // Mode Top : Fond TRANSPARENT, texte BLANC
                     nav.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-md');
                     nav.classList.add('bg-transparent');
                     
@@ -779,17 +789,16 @@
                     navLinks.forEach(link => {
                         if (!link.classList.contains('text-warm-orange')) {
                             link.classList.remove('text-neutral-dark');
-                            link.classList.add('text-white');
+                            link.classList.add('text-white'); // Texte blanc
                         }
                     });
 
-                    // Gestion couleur bouton mobile
                     if(mobileMenuButton) mobileMenuButton.classList.replace('text-neutral-dark', 'text-white');
                 }
             }
 
             window.addEventListener('scroll', handleScrollNav);
-            handleScrollNav(); // Init au chargement
+            handleScrollNav(); // Initialisation au chargement
 
             // --- MENU MOBILE ---
             const mobileMenu = document.getElementById('mobile-menu');
@@ -806,7 +815,6 @@
                     const isAlreadyOpen = answerToOpen.style.maxHeight;
                     const parentContainer = clickedToggle.closest('.bg-white\\/5');
                     
-                    // Fermer les autres dans le même conteneur
                     if (parentContainer) {
                         parentContainer.querySelectorAll('.faq-toggle').forEach(toggle => {
                             if (toggle !== clickedToggle) {
@@ -819,7 +827,6 @@
                         });
                     }
                     
-                    // Toggle l'élément cliqué
                     if (!isAlreadyOpen) {
                         answerToOpen.style.maxHeight = answerToOpen.scrollHeight + "px";
                         iconToRotate.classList.add('rotate-135');
@@ -846,7 +853,7 @@
             if (acceptBtn) acceptBtn.addEventListener('click', () => { localStorage.setItem('cookieConsent', 'accepted'); cookieBanner.classList.add('hidden'); });
             if (declineBtn) declineBtn.addEventListener('click', () => { localStorage.setItem('cookieConsent', 'declined'); cookieBanner.classList.add('hidden'); });
 
-            // --- SMOOTH SCROLL CATEGORIES ---
+            // --- SMOOTH SCROLL ---
             document.querySelectorAll('.category-btn').forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -857,6 +864,8 @@
             });
         });
     </script>
+
+
 
 
 
