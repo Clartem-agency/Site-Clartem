@@ -67,94 +67,97 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 
+
     <style>
-        /* Styles spécifiques pour la page portfolio */
+        /* --- Styles spécifiques pour la page portfolio (VERSION CLAIRE) --- */
+
+        /* Fond de la section avec un dégradé subtil */
+        .portfolio-section-bg {
+            background-color: #F3F4F6;
+            /* Gris très clair */
+            background-image:
+                radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(249, 115, 22, 0.05) 0px, transparent 50%);
+        }
+
+        /* Cartes : Fond blanc pour contraster sur le gris clair */
         .portfolio-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            /* Bordure gris pâle */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .portfolio-card:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(59, 130, 246, 0.4);
             transform: translateY(-8px) scale(1.01);
-            box-shadow: 
-                0 25px 50px -12px rgba(0, 0, 0, 0.5),
-                0 0 30px rgba(59, 130, 246, 0.15);
+            border-color: rgba(59, 130, 246, 0.3);
+            /* Ombre portée plus douce mais plus profonde */
+            box-shadow:
+                0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
 
         .portfolio-card .card-image {
             position: relative;
             overflow: hidden;
+            border-bottom: 1px solid #f3f4f6;
         }
 
-        .portfolio-card .card-image::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(31, 41, 55, 0.9) 0%, transparent 50%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .portfolio-card:hover .card-image::after {
-            opacity: 1;
-        }
-
+        /* Zoom image au survol */
         .portfolio-card .card-image img {
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
 
         .portfolio-card:hover .card-image img {
             transform: scale(1.05);
         }
 
-        /* Filter buttons */
-        .filter-btn-dark {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
+        /* --- Boutons de filtres (Adaptés au fond clair) --- */
+        .filter-btn-custom {
+            background: #ffffff;
+            border: 1px solid #E5E7EB;
+            /* Gris clair */
+            color: #4B5563;
+            /* Gris foncé */
             transition: all 0.3s ease;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
         }
 
-        .filter-btn-dark:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
+        .filter-btn-custom:hover {
+            background: #F9FAFB;
+            border-color: #3B82F6;
+            color: #1F2937;
+            transform: translateY(-1px);
+        }
+
+        .filter-btn-custom.active {
+            background: #1E3A8A;
+            /* Bleu foncé */
+            border-color: #1E3A8A;
             color: white;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.25);
         }
 
-        .filter-btn-dark.active {
-            background: linear-gradient(135deg, #3B82F6, #1E3A8A);
-            border-color: transparent;
-            color: white;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        /* --- Tags (Adaptés au fond blanc) --- */
+        .tag-custom {
+            background: #EFF6FF;
+            /* Bleu très pâle */
+            border: 1px solid #DBEAFE;
+            color: #2563EB;
+            /* Bleu vif pour la lisibilité */
         }
 
-        /* Tags */
-        .tag-dark {
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            color: #93C5FD;
-        }
-
-        /* Gradient mesh background */
-        .portfolio-bg {
-            background: 
-                radial-gradient(ellipse 80% 50% at 20% 40%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse 60% 40% at 80% 60%, rgba(249, 115, 22, 0.05) 0%, transparent 50%),
-                radial-gradient(ellipse 50% 30% at 50% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
-        }
-
-        /* Grid pattern overlay */
-        .grid-pattern {
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            background-size: 50px 50px;
+        /* Grid pattern subtil pour fond clair */
+        .grid-pattern-light {
+            background-image:
+                linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
         }
     </style>
+
+
 </head>
 
 <body class="bg-neutral-dark">
@@ -178,10 +181,14 @@
                     </a>
 
                     <div class="hidden md:flex items-center space-x-8" id="nav-links">
-                        <a href="a-propos.html" class="nav-link text-sm font-medium transition-colors duration-300">À Propos</a>
-                        <a href="index.html#plan" class="nav-link text-sm font-medium transition-colors duration-300">Processus</a>
-                        <a href="portfolio.html" class="nav-link text-sm font-medium transition-colors duration-300 text-warm-orange">Portfolio</a>
-                        <a href="index.html#offres" class="nav-link text-sm font-medium transition-colors duration-300">Offres</a>
+                        <a href="a-propos.html" class="nav-link text-sm font-medium transition-colors duration-300">À
+                            Propos</a>
+                        <a href="index.html#plan"
+                            class="nav-link text-sm font-medium transition-colors duration-300">Processus</a>
+                        <a href="portfolio.html"
+                            class="nav-link text-sm font-medium transition-colors duration-300 text-warm-orange">Portfolio</a>
+                        <a href="index.html#offres"
+                            class="nav-link text-sm font-medium transition-colors duration-300">Offres</a>
                         <a href="blog.html" class="nav-link text-sm font-medium transition-colors duration-300">Blog</a>
                         <a href="faq.html" class="nav-link text-sm font-medium transition-colors duration-300">FAQ</a>
                     </div>
@@ -194,7 +201,8 @@
 
                     <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
                         </svg>
                     </button>
                 </div>
@@ -203,7 +211,8 @@
                 <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2 pb-4">
                     <a href="index.html" class="block text-white hover:text-clarity-blue py-2 text-sm">Accueil</a>
                     <a href="a-propos.html" class="block text-white hover:text-clarity-blue py-2 text-sm">À Propos</a>
-                    <a href="index.html#plan" class="block text-white hover:text-clarity-blue py-2 text-sm">Processus</a>
+                    <a href="index.html#plan"
+                        class="block text-white hover:text-clarity-blue py-2 text-sm">Processus</a>
                     <a href="portfolio.html" class="block text-warm-orange py-2 text-sm">Portfolio</a>
                     <a href="index.html#offres" class="block text-white hover:text-clarity-blue py-2 text-sm">Offres</a>
                     <a href="blog.html" class="block text-white hover:text-clarity-blue py-2 text-sm">Blog</a>
@@ -217,53 +226,79 @@
         </nav>
 
         <main class="flex-grow">
-            
+
+
+
             <!-- ================================================================== -->
-            <!-- SECTION PORTFOLIO - STYLE IMMERSIF                                -->
+            <!-- SECTION PORTFOLIO - NOUVEAU FOND CLAIR                             -->
             <!-- ================================================================== -->
-            <section id="portfolio" class="pt-32 pb-24 lg:pt-44 lg:pb-32 bg-neutral-dark portfolio-bg grid-pattern relative overflow-hidden">
-                
-                <!-- Decorative elements -->
-                <div class="absolute top-20 left-10 w-72 h-72 bg-clarity-blue/5 rounded-full blur-3xl pointer-events-none"></div>
-                <div class="absolute bottom-40 right-10 w-96 h-96 bg-warm-orange/5 rounded-full blur-3xl pointer-events-none"></div>
+            <!-- Note : On a changé bg-neutral-dark par portfolio-section-bg et grid-pattern-light -->
+            <section id="portfolio"
+                class="pt-32 pb-24 lg:pt-44 lg:pb-32 portfolio-section-bg grid-pattern-light relative overflow-hidden">
+
+                <!-- Decorative elements (Ajustés pour fond clair) -->
+                <div class="absolute top-20 left-10 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl pointer-events-none">
+                </div>
+                <div
+                    class="absolute bottom-40 right-10 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl pointer-events-none">
+                </div>
 
                 <div class="container mx-auto px-6 relative z-10">
-                    
-                    <!-- EN-TÊTE DE SECTION -->
+
+                    <!-- EN-TÊTE DE SECTION (Textes passés en sombre) -->
                     <div class="max-w-3xl mx-auto text-center mb-16 lg:mb-20" data-sr>
-                        <div class="inline-block px-4 py-1.5 border border-white/20 rounded-full bg-white/5 text-warm-orange text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-sm">
+                        <!-- Badge modifié pour fond clair -->
+                        <div
+                            class="inline-block px-4 py-1.5 border border-blue-200 rounded-full bg-white text-warm-orange text-xs font-bold tracking-widest uppercase mb-6 shadow-sm">
                             Portfolio Agence
                         </div>
-                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                        <!-- Titre en Gris très foncé (neutral-dark) au lieu de white -->
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-dark mb-6 leading-tight">
                             Mes Sites Clarté en Action<br>
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-white">Découvrez mes réalisations</span>
+                            <!-- Gradient ajusté pour fond clair -->
+                            <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-deep-blue to-clarity-blue">Découvrez
+                                mes réalisations</span>
                         </h1>
-                        <p class="text-xl text-gray-400 font-light max-w-2xl mx-auto">
-                            Chaque projet est une collaboration unique, conçue pour répondre à des besoins spécifiques avec clarté et efficacité.
+                        <!-- Paragraphe en Gris moyen au lieu de gray-400 -->
+                        <p class="text-xl text-gray-600 font-light max-w-2xl mx-auto">
+                            Chaque projet est une collaboration unique, conçue pour répondre à des besoins spécifiques
+                            avec clarté et efficacité.
                         </p>
                     </div>
 
-                    <!-- BOUTONS DE FILTRE -->
-                    <div class="flex flex-wrap justify-center gap-2 md:gap-3 mb-12 lg:mb-16" data-sr data-sr-delay="100">
-                        <button class="filter-btn-dark active px-4 py-2 rounded-full text-xs md:text-sm font-semibold" data-filter="all">
+                    <!-- BOUTONS DE FILTRE (Classe modifiée : filter-btn-custom) -->
+                    <div class="flex flex-wrap justify-center gap-2 md:gap-3 mb-12 lg:mb-16" data-sr
+                        data-sr-delay="100">
+                        <button class="filter-btn-custom active px-4 py-2 rounded-full text-xs md:text-sm font-semibold"
+                            data-filter="all">
                             Tous les projets
                         </button>
-                        <button class="filter-btn-dark px-4 py-2 rounded-full text-xs md:text-sm font-semibold" data-filter="performance">
+                        <button class="filter-btn-custom px-4 py-2 rounded-full text-xs md:text-sm font-semibold"
+                            data-filter="performance">
                             Performance & Business
                         </button>
-                        <button class="filter-btn-dark px-4 py-2 rounded-full text-xs md:text-sm font-semibold" data-filter="transformation">
+                        <button class="filter-btn-custom px-4 py-2 rounded-full text-xs md:text-sm font-semibold"
+                            data-filter="transformation">
                             Transformation
                         </button>
-                        <button class="filter-btn-dark px-4 py-2 rounded-full text-xs md:text-sm font-semibold" data-filter="bien-etre">
+                        <button class="filter-btn-custom px-4 py-2 rounded-full text-xs md:text-sm font-semibold"
+                            data-filter="bien-etre">
                             Bien-être
                         </button>
-                        <button class="filter-btn-dark px-4 py-2 rounded-full text-xs md:text-sm font-semibold" data-filter="design">
+                        <button class="filter-btn-custom px-4 py-2 rounded-full text-xs md:text-sm font-semibold"
+                            data-filter="design">
                             Design
                         </button>
-                       
                     </div>
 
-                    <!-- GRILLE DE PROJETS -->
+
+
+
+
+
+
+                    <!-- GRILLE DE PROJETS (Version Light) -->
                     <div id="portfolio-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
 
                         <!-- =================================== -->
@@ -275,22 +310,29 @@
                             <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
                                 <div class="card-image aspect-video">
                                     <img src="assets/image-portfolio/mockup-portfolio-projet-04.jpg"
-                                        alt="Site pour un consultant en marketing digital" class="w-full h-full object-cover">
+                                        alt="Site pour un consultant en marketing digital"
+                                        class="w-full h-full object-cover">
                                 </div>
                                 <div class="p-6 flex flex-col flex-grow">
-                                    <h3 class="text-xl font-bold text-white mb-2">Consultant en Marketing Digital</h3>
-                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Site B2B axé sur la génération de leads, présentant l'expertise et les études de cas pour attirer de nouveaux clients.</p>
+                                    <h3 class="text-xl font-bold text-neutral-dark mb-2">Consultant en Marketing Digital
+                                    </h3>
+                                    <p class="text-gray-600 text-sm mb-4 flex-grow">Site B2B axé sur la génération de
+                                        leads, présentant l'expertise et les études de cas pour attirer de nouveaux
+                                        clients.</p>
                                     <div class="flex flex-wrap gap-2 mb-6">
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Génération de Leads</span>
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Expertise B2B</span>
+                                        <span class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Génération
+                                            de Leads</span>
+                                        <span class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Expertise
+                                            B2B</span>
                                     </div>
                                     <div class="flex gap-3 mt-auto">
-                                        <a href="https://clartem-agency.github.io/site-portfolio-04_consultant-marketing-digital/" target="_blank" rel="noopener noreferrer" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-04_consultant-marketing-digital/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
                                             Voir le site
                                         </a>
-                                        <a href="study-case-pages/study_case_04.html" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                        <a href="study-case-pages/study_case_04.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 hover:text-deep-blue transition-all">
                                             Étude de cas
                                         </a>
                                     </div>
@@ -303,22 +345,29 @@
                             <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
                                 <div class="card-image aspect-video">
                                     <img src="assets/image-portfolio/mockup-portfolio-projet-07.jpg"
-                                        alt="Site pour un coach business pour TPE-PME" class="w-full h-full object-cover">
+                                        alt="Site pour un coach business pour TPE-PME"
+                                        class="w-full h-full object-cover">
                                 </div>
                                 <div class="p-6 flex flex-col flex-grow">
-                                    <h3 class="text-xl font-bold text-white mb-2">Coach Business (pour TPE-PME)</h3>
-                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Plateforme professionnelle pour un coach d'affaires, mettant en avant les programmes d'accompagnement et les témoignages clients.</p>
+                                    <h3 class="text-xl font-bold text-neutral-dark mb-2">Coach Business (pour TPE-PME)
+                                    </h3>
+                                    <p class="text-gray-600 text-sm mb-4 flex-grow">Plateforme professionnelle pour un
+                                        coach d'affaires, mettant en avant les programmes d'accompagnement et les
+                                        témoignages clients.</p>
                                     <div class="flex flex-wrap gap-2 mb-6">
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Coaching TPE/PME</span>
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Témoignages</span>
+                                        <span class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Coaching
+                                            TPE/PME</span>
+                                        <span
+                                            class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Témoignages</span>
                                     </div>
                                     <div class="flex gap-3 mt-auto">
-                                        <a href="https://clartem-agency.github.io/site-portfolio-07_coach-business-pour-tpe-pme/" target="_blank" rel="noopener noreferrer" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-07_coach-business-pour-tpe-pme/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
                                             Voir le site
                                         </a>
-                                        <a href="study-case-pages/study_case_07.html" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                        <a href="study-case-pages/study_case_07.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 hover:text-deep-blue transition-all">
                                             Étude de cas
                                         </a>
                                     </div>
@@ -334,19 +383,25 @@
                                         alt="Site pour un coach de carrière" class="w-full h-full object-cover">
                                 </div>
                                 <div class="p-6 flex flex-col flex-grow">
-                                    <h3 class="text-xl font-bold text-white mb-2">Coach de Carrière - Professionnel</h3>
-                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Site pour un coach de carrière, avec un blog pour asseoir son expertise et un système de réservation de sessions de coaching.</p>
+                                    <h3 class="text-xl font-bold text-neutral-dark mb-2">Coach de Carrière -
+                                        Professionnel</h3>
+                                    <p class="text-gray-600 text-sm mb-4 flex-grow">Site pour un coach de carrière, avec
+                                        un blog pour asseoir son expertise et un système de réservation de sessions de
+                                        coaching.</p>
                                     <div class="flex flex-wrap gap-2 mb-6">
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Blog d'Expertise</span>
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Prise de RDV</span>
+                                        <span class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Blog
+                                            d'Expertise</span>
+                                        <span class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Prise de
+                                            RDV</span>
                                     </div>
                                     <div class="flex gap-3 mt-auto">
-                                        <a href="https://clartem-agency.github.io/site-portfolio-10_coach-de-carriere-professionnel/" target="_blank" rel="noopener noreferrer" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-10_coach-de-carriere-professionnel/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
                                             Voir le site
                                         </a>
-                                        <a href="study-case-pages/study_case_10.html" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                        <a href="study-case-pages/study_case_10.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 hover:text-deep-blue transition-all">
                                             Étude de cas
                                         </a>
                                     </div>
@@ -366,19 +421,25 @@
                                         alt="Site pour un coach de vie" class="w-full h-full object-cover">
                                 </div>
                                 <div class="p-6 flex flex-col flex-grow">
-                                    <h3 class="text-xl font-bold text-white mb-2">Coach de vie</h3>
-                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Site inspirant pour une coach de vie, avec présentation des programmes de transformation et réservation de sessions.</p>
+                                    <h3 class="text-xl font-bold text-neutral-dark mb-2">Coach de vie</h3>
+                                    <p class="text-gray-600 text-sm mb-4 flex-grow">Site inspirant pour une coach de
+                                        vie, avec présentation des programmes de transformation et réservation de
+                                        sessions.</p>
                                     <div class="flex flex-wrap gap-2 mb-6">
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Programmes</span>
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Réservation de Session</span>
+                                        <span
+                                            class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Programmes</span>
+                                        <span
+                                            class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Réservation
+                                            de Session</span>
                                     </div>
                                     <div class="flex gap-3 mt-auto">
-                                        <a href="https://clartem-agency.github.io/site-portfolio-06_coach-de-vie/" target="_blank" rel="noopener noreferrer" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-06_coach-de-vie/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
                                             Voir le site
                                         </a>
-                                        <a href="study-case-pages/study_case_06.html" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                        <a href="study-case-pages/study_case_06.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 hover:text-deep-blue transition-all">
                                             Étude de cas
                                         </a>
                                     </div>
@@ -394,19 +455,25 @@
                                         alt="Site pour un coach en nutrition" class="w-full h-full object-cover">
                                 </div>
                                 <div class="p-6 flex flex-col flex-grow">
-                                    <h3 class="text-xl font-bold text-white mb-2">Coach en Nutrition (approche bien-être)</h3>
-                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Site web axé sur une approche bienveillante de la nutrition, avec des programmes, des recettes et la prise de rendez-vous.</p>
+                                    <h3 class="text-xl font-bold text-neutral-dark mb-2">Coach en Nutrition (approche
+                                        bien-être)</h3>
+                                    <p class="text-gray-600 text-sm mb-4 flex-grow">Site web axé sur une approche
+                                        bienveillante de la nutrition, avec des programmes, des recettes et la prise de
+                                        rendez-vous.</p>
                                     <div class="flex flex-wrap gap-2 mb-6">
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Programmes Nutrition</span>
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Blog Recettes</span>
+                                        <span class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Programmes
+                                            Nutrition</span>
+                                        <span class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Blog
+                                            Recettes</span>
                                     </div>
                                     <div class="flex gap-3 mt-auto">
-                                        <a href="https://clartem-agency.github.io/site-portfolio-08_coach-nutrition-bien-etre/" target="_blank" rel="noopener noreferrer" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-08_coach-nutrition-bien-etre/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
                                             Voir le site
                                         </a>
-                                        <a href="study-case-pages/study_case_08.html" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                        <a href="study-case-pages/study_case_08.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 hover:text-deep-blue transition-all">
                                             Étude de cas
                                         </a>
                                     </div>
@@ -422,19 +489,25 @@
                                         alt="Site pour un coach sportif" class="w-full h-full object-cover">
                                 </div>
                                 <div class="p-6 flex flex-col flex-grow">
-                                    <h3 class="text-xl font-bold text-white mb-2">Coach Sportif (grand public)</h3>
-                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Site dynamique pour un coach personnel, avec vente de programmes en ligne et planning de cours pour le grand public.</p>
+                                    <h3 class="text-xl font-bold text-neutral-dark mb-2">Coach Sportif (grand public)
+                                    </h3>
+                                    <p class="text-gray-600 text-sm mb-4 flex-grow">Site dynamique pour un coach
+                                        personnel, avec vente de programmes en ligne et planning de cours pour le grand
+                                        public.</p>
                                     <div class="flex flex-wrap gap-2 mb-6">
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Vente en Ligne</span>
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Planning</span>
+                                        <span class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Vente en
+                                            Ligne</span>
+                                        <span
+                                            class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Planning</span>
                                     </div>
                                     <div class="flex gap-3 mt-auto">
-                                        <a href="https://clartem-agency.github.io/site-portfolio-11_coach-sportif-grand-public/" target="_blank" rel="noopener noreferrer" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-11_coach-sportif-grand-public/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
                                             Voir le site
                                         </a>
-                                        <a href="study-case-pages/study_case_11.html" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                        <a href="study-case-pages/study_case_11.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 hover:text-deep-blue transition-all">
                                             Étude de cas
                                         </a>
                                     </div>
@@ -450,19 +523,24 @@
                                         alt="Site pour un coach en confiance en soi" class="w-full h-full object-cover">
                                 </div>
                                 <div class="p-6 flex flex-col flex-grow">
-                                    <h3 class="text-xl font-bold text-white mb-2">Coach en Confiance en Soi</h3>
-                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Site rassurant et motivant pour un coach spécialisé dans la confiance en soi, avec des témoignages forts et une prise de contact facile.</p>
+                                    <h3 class="text-xl font-bold text-neutral-dark mb-2">Coach en Confiance en Soi</h3>
+                                    <p class="text-gray-600 text-sm mb-4 flex-grow">Site rassurant et motivant pour un
+                                        coach spécialisé dans la confiance en soi, avec des témoignages forts et une
+                                        prise de contact facile.</p>
                                     <div class="flex flex-wrap gap-2 mb-6">
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Estime de soi</span>
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Appel Découverte</span>
+                                        <span class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Estime de
+                                            soi</span>
+                                        <span class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Appel
+                                            Découverte</span>
                                     </div>
                                     <div class="flex gap-3 mt-auto">
-                                        <a href="https://clartem-agency.github.io/site-portfolio-13_coach-en-confiance-en-soi/" target="_blank" rel="noopener noreferrer" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-13_coach-en-confiance-en-soi/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
                                             Voir le site
                                         </a>
-                                        <a href="study-case-pages/study_case_13.html" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                        <a href="study-case-pages/study_case_13.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 hover:text-deep-blue transition-all">
                                             Étude de cas
                                         </a>
                                     </div>
@@ -482,19 +560,24 @@
                                         alt="Aperçu du site pour un studio de yoga" class="w-full h-full object-cover">
                                 </div>
                                 <div class="p-6 flex flex-col flex-grow">
-                                    <h3 class="text-xl font-bold text-white mb-2">Professeur de Yoga "L'Instant Présent"</h3>
-                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Site vitrine pour un studio à Lille, mettant en avant les cours et facilitant la réservation.</p>
+                                    <h3 class="text-xl font-bold text-neutral-dark mb-2">Professeur de Yoga "L'Instant
+                                        Présent"</h3>
+                                    <p class="text-gray-600 text-sm mb-4 flex-grow">Site vitrine pour un studio à Lille,
+                                        mettant en avant les cours et facilitant la réservation.</p>
                                     <div class="flex flex-wrap gap-2 mb-6">
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Site Vitrine</span>
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">SEO Local</span>
+                                        <span class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Site
+                                            Vitrine</span>
+                                        <span class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">SEO
+                                            Local</span>
                                     </div>
                                     <div class="flex gap-3 mt-auto">
-                                        <a href="https://clartem-agency.github.io/site-portfolio-01_professeur-de-yoga/" target="_blank" rel="noopener noreferrer" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-01_professeur-de-yoga/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
                                             Voir le site
                                         </a>
-                                        <a href="study-case-pages/study_case_01.html" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                        <a href="study-case-pages/study_case_01.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 hover:text-deep-blue transition-all">
                                             Étude de cas
                                         </a>
                                     </div>
@@ -510,19 +593,25 @@
                                         alt="Site pour une naturopathe" class="w-full h-full object-cover">
                                 </div>
                                 <div class="p-6 flex flex-col flex-grow">
-                                    <h3 class="text-xl font-bold text-white mb-2">Naturopathe "Équilibre & Nature"</h3>
-                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Site de prise de rendez-vous et blog de conseils pour une naturopathe certifiée.</p>
+                                    <h3 class="text-xl font-bold text-neutral-dark mb-2">Naturopathe "Équilibre &
+                                        Nature"</h3>
+                                    <p class="text-gray-600 text-sm mb-4 flex-grow">Site de prise de rendez-vous et blog
+                                        de conseils pour une naturopathe certifiée.</p>
                                     <div class="flex flex-wrap gap-2 mb-6">
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Réservation en ligne</span>
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Blog Santé</span>
+                                        <span
+                                            class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Réservation
+                                            en ligne</span>
+                                        <span class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Blog
+                                            Santé</span>
                                     </div>
                                     <div class="flex gap-3 mt-auto">
-                                        <a href="https://clartem-agency.github.io/site-portfolio-03_naturopathe/" target="_blank" rel="noopener noreferrer" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-03_naturopathe/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
                                             Voir le site
                                         </a>
-                                        <a href="study-case-pages/study_case_03.html" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                        <a href="study-case-pages/study_case_03.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 hover:text-deep-blue transition-all">
                                             Étude de cas
                                         </a>
                                     </div>
@@ -538,19 +627,24 @@
                                         alt="Site pour une sophrologue" class="w-full h-full object-cover">
                                 </div>
                                 <div class="p-6 flex flex-col flex-grow">
-                                    <h3 class="text-xl font-bold text-white mb-2">Sophrologue</h3>
-                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Plateforme douce et apaisante pour une sophrologue spécialisée dans la gestion du stress et l'amélioration du sommeil.</p>
+                                    <h3 class="text-xl font-bold text-neutral-dark mb-2">Sophrologue</h3>
+                                    <p class="text-gray-600 text-sm mb-4 flex-grow">Plateforme douce et apaisante pour
+                                        une sophrologue spécialisée dans la gestion du stress et l'amélioration du
+                                        sommeil.</p>
                                     <div class="flex flex-wrap gap-2 mb-6">
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Prise de RDV</span>
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Gestion du Stress</span>
+                                        <span class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Prise de
+                                            RDV</span>
+                                        <span class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Gestion du
+                                            Stress</span>
                                     </div>
                                     <div class="flex gap-3 mt-auto">
-                                        <a href="https://clartem-agency.github.io/site-portfolio-05_sophrologue/" target="_blank" rel="noopener noreferrer" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-05_sophrologue/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
                                             Voir le site
                                         </a>
-                                        <a href="study-case-pages/study_case_05.html" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                        <a href="study-case-pages/study_case_05.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 hover:text-deep-blue transition-all">
                                             Étude de cas
                                         </a>
                                     </div>
@@ -566,19 +660,25 @@
                                         alt="Site pour un hypnothérapeute" class="w-full h-full object-cover">
                                 </div>
                                 <div class="p-6 flex flex-col flex-grow">
-                                    <h3 class="text-xl font-bold text-white mb-2">Hypnothérapeute</h3>
-                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Site professionnel et rassurant pour un hypnothérapeute, expliquant la méthode, les bienfaits et facilitant la prise de rendez-vous.</p>
+                                    <h3 class="text-xl font-bold text-neutral-dark mb-2">Hypnothérapeute</h3>
+                                    <p class="text-gray-600 text-sm mb-4 flex-grow">Site professionnel et rassurant pour
+                                        un hypnothérapeute, expliquant la méthode, les bienfaits et facilitant la prise
+                                        de rendez-vous.</p>
                                     <div class="flex flex-wrap gap-2 mb-6">
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Thérapies brèves</span>
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Réservation en ligne</span>
+                                        <span class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Thérapies
+                                            brèves</span>
+                                        <span
+                                            class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Réservation
+                                            en ligne</span>
                                     </div>
                                     <div class="flex gap-3 mt-auto">
-                                        <a href="https://clartem-agency.github.io/site-portfolio-09_hypnoterapeute/" target="_blank" rel="noopener noreferrer" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-09_hypnoterapeute/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
                                             Voir le site
                                         </a>
-                                        <a href="study-case-pages/study_case_09.html" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                        <a href="study-case-pages/study_case_09.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 hover:text-deep-blue transition-all">
                                             Étude de cas
                                         </a>
                                     </div>
@@ -594,19 +694,24 @@
                                         alt="Site pour une masseuse bien-être" class="w-full h-full object-cover">
                                 </div>
                                 <div class="p-6 flex flex-col flex-grow">
-                                    <h3 class="text-xl font-bold text-white mb-2">Masseuse bien-être</h3>
-                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Site élégant présentant la carte des massages, les tarifs et permettant la réservation en ligne pour un salon ou à domicile.</p>
+                                    <h3 class="text-xl font-bold text-neutral-dark mb-2">Masseuse bien-être</h3>
+                                    <p class="text-gray-600 text-sm mb-4 flex-grow">Site élégant présentant la carte des
+                                        massages, les tarifs et permettant la réservation en ligne pour un salon ou à
+                                        domicile.</p>
                                     <div class="flex flex-wrap gap-2 mb-6">
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Carte des Massages</span>
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Réservation</span>
+                                        <span class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Carte des
+                                            Massages</span>
+                                        <span
+                                            class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Réservation</span>
                                     </div>
                                     <div class="flex gap-3 mt-auto">
-                                        <a href="https://clartem-agency.github.io/site-portfolio-12_masseuse-bien-etre/" target="_blank" rel="noopener noreferrer" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-12_masseuse-bien-etre/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
                                             Voir le site
                                         </a>
-                                        <a href="study-case-pages/study_case_12.html" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                        <a href="study-case-pages/study_case_12.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 hover:text-deep-blue transition-all">
                                             Étude de cas
                                         </a>
                                     </div>
@@ -623,22 +728,30 @@
                             <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
                                 <div class="card-image aspect-video">
                                     <img src="assets/image-portfolio/mockup-portfolio-projet-02.jpg"
-                                        alt="Aperçu du site pour une décoratrice d'intérieur" class="w-full h-full object-cover">
+                                        alt="Aperçu du site pour une décoratrice d'intérieur"
+                                        class="w-full h-full object-cover">
                                 </div>
                                 <div class="p-6 flex flex-col flex-grow">
-                                    <h3 class="text-xl font-bold text-white mb-2">Décoratrice d'Intérieur "Harmonie Intérieure"</h3>
-                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Site web élégant pour une décoratrice d'intérieur, avec intégration Calendly pour automatiser la prise de RDV.</p>
+                                    <h3 class="text-xl font-bold text-neutral-dark mb-2">Décoratrice d'Intérieur
+                                        "Harmonie Intérieure"</h3>
+                                    <p class="text-gray-600 text-sm mb-4 flex-grow">Site web élégant pour une
+                                        décoratrice d'intérieur, avec intégration Calendly pour automatiser la prise de
+                                        RDV.</p>
                                     <div class="flex flex-wrap gap-2 mb-6">
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Intégration Calendly</span>
-                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Portfolio</span>
+                                        <span
+                                            class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Intégration
+                                            Calendly</span>
+                                        <span
+                                            class="tag-custom text-xs font-semibold px-3 py-1 rounded-full">Portfolio</span>
                                     </div>
                                     <div class="flex gap-3 mt-auto">
-                                        <a href="https://clartem-agency.github.io/site-portfolio-02_decoratrice-dinterieur/" target="_blank" rel="noopener noreferrer" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-02_decoratrice-dinterieur/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
                                             Voir le site
                                         </a>
-                                        <a href="study-case-pages/study_case_02.html" 
-                                           class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                        <a href="study-case-pages/study_case_02.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 hover:text-deep-blue transition-all">
                                             Étude de cas
                                         </a>
                                     </div>
@@ -646,16 +759,21 @@
                             </div>
                         </div>
 
-
                     </div>
+
+
+
+
 
                     <!-- BOUTON VOIR PLUS -->
                     <div id="load-more-container" class="text-center mt-16">
+
                         <button id="load-more-btn"
-                            class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-neutral-dark bg-white rounded-lg hover:bg-gray-100 transition-all hover:-translate-y-1 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+                            class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-deep-blue rounded-lg hover:bg-blue-700 transition-all hover:-translate-y-1 shadow-lg shadow-blue-900/20">
                             Voir plus de projets
                             <svg class="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
                     </div>
@@ -687,21 +805,35 @@
                     <div class="space-y-6">
                         <h4 class="text-xl font-bold text-white">Navigation</h4>
                         <div class="space-y-3">
-                            <a href="index.html" class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Accueil</a>
-                            <a href="a-propos.html" class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">À Propos</a>
-                            <a href="index.html#plan" class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Processus</a>
-                            <a href="index.html#offres" class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Offres</a>
-                            <a href="blog.html" class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Blog</a>
-                            <a href="faq.html" class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            <a href="index.html"
+                                class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="a-propos.html"
+                                class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="index.html#plan"
+                                class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Processus</a>
+                            <a href="index.html#offres"
+                                class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Offres</a>
+                            <a href="blog.html"
+                                class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                            <a href="faq.html"
+                                class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">FAQ</a>
                         </div>
                     </div>
                     <div class="space-y-6">
                         <h4 class="text-xl font-bold text-white">Informations Légales</h4>
                         <div class="space-y-3">
-                            <a href="mentions-legales.html" class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Mentions Légales</a>
-                            <a href="politique-de-confidentialite.html" class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Politique de Confidentialité</a>
-                            <a href="cgv.html" class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Conditions Générales de Vente</a>
-                            <a href="contact.html" class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                            <a href="mentions-legales.html"
+                                class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="politique-de-confidentialite.html"
+                                class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="cgv.html"
+                                class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="contact.html"
+                                class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Contact</a>
                         </div>
                     </div>
                 </div>
@@ -721,17 +853,21 @@
     <!-- BANDEAU DE CONSENTEMENT AUX COOKIES -->
     <div id="cookie-consent-banner" class="hidden fixed bottom-0 inset-x-0 p-2 sm:p-4 z-[100]">
         <div class="max-w-7xl mx-auto">
-            <div class="p-4 rounded-lg bg-neutral-dark shadow-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border border-white/10">
+            <div
+                class="p-4 rounded-lg bg-neutral-dark shadow-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border border-white/10">
                 <div class="flex-1 text-white">
                     <p class="font-semibold">Ce site utilise des cookies</p>
                     <p class="mt-1 text-sm text-gray-400">
                         Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic.
-                        <a href="politique-de-confidentialite.html" target="_blank" class="font-semibold hover:underline text-gray-300">En savoir plus</a>.
+                        <a href="politique-de-confidentialite.html" target="_blank"
+                            class="font-semibold hover:underline text-gray-300">En savoir plus</a>.
                     </p>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-                    <button id="cookie-accept-btn" type="button" class="w-full sm:w-auto btn btn-primary px-6 py-2">Accepter</button>
-                    <button id="cookie-decline-btn" type="button" class="w-full sm:w-auto px-6 py-2 border border-white/30 text-white rounded-lg hover:bg-white/10 transition-all">Refuser</button>
+                    <button id="cookie-accept-btn" type="button"
+                        class="w-full sm:w-auto btn btn-primary px-6 py-2">Accepter</button>
+                    <button id="cookie-decline-btn" type="button"
+                        class="w-full sm:w-auto px-6 py-2 border border-white/30 text-white rounded-lg hover:bg-white/10 transition-all">Refuser</button>
                 </div>
             </div>
         </div>
@@ -742,9 +878,9 @@
 
     <!-- Script spécifique pour le filtrage portfolio -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Filtrage des projets
-            const filterBtns = document.querySelectorAll('.filter-btn-dark');
+            const filterBtns = document.querySelectorAll('.filter-btn-custom'); // Anciennement .filter-btn-dark
             const portfolioItems = document.querySelectorAll('.portfolio-item');
 
             filterBtns.forEach(btn => {
@@ -757,7 +893,7 @@
 
                     portfolioItems.forEach(item => {
                         const category = item.getAttribute('data-category');
-                        
+
                         if (filter === 'all' || category === filter) {
                             item.style.display = 'block';
                             item.style.opacity = '1';
@@ -807,7 +943,7 @@
             // Mobile menu
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            
+
             if (mobileMenuButton && mobileMenu) {
                 mobileMenuButton.addEventListener('click', () => {
                     mobileMenu.classList.toggle('hidden');
