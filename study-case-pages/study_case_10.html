@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Étude de Cas : Julien Moreau | Clartem</title>
+    <title>Concept & Stratégie : Site pour Coach de Carrière | Clartem</title>
     <meta name="description"
         content="Découvrez comment Clartem a conçu un Site Clarté pour Julien Moreau, architecte de carrière, afin de bâtir son autorité et d'attirer une clientèle premium.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -619,136 +619,138 @@
         }
 
 
-/* ======================================================= */
-/*    STYLES POUR LE BANDEAU DE CONSENTEMENT COOKIES (RESPONSIVE) */
-/* ======================================================= */
-#cookie-consent-banner {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    padding: 0.5rem; /* Moins de padding sur mobile */
-    font-family: 'Poppins', sans-serif;
-}
+        /* ======================================================= */
+        /*    STYLES POUR LE BANDEAU DE CONSENTEMENT COOKIES (RESPONSIVE) */
+        /* ======================================================= */
+        #cookie-consent-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 0.5rem;
+            /* Moins de padding sur mobile */
+            font-family: 'Poppins', sans-serif;
+        }
 
 
-#cookie-consent-banner.hidden {
-    display: none;
-}
+        #cookie-consent-banner.hidden {
+            display: none;
+        }
 
 
-#cookie-consent-banner > div {
-    max-width: 1100px;
-    margin: 0 auto;
-}
+        #cookie-consent-banner>div {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
 
 
-#cookie-consent-banner .banner-content {
-    padding: 1.5rem;
-    border-radius: 8px;
-    background-color: var(--heading-color);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    display: flex;
-    gap: 1.5rem;
-    /* Mobile First : les éléments sont en colonne par défaut */
-    flex-direction: column;
-    align-items: flex-start;
-}
+        #cookie-consent-banner .banner-content {
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: var(--heading-color);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            display: flex;
+            gap: 1.5rem;
+            /* Mobile First : les éléments sont en colonne par défaut */
+            flex-direction: column;
+            align-items: flex-start;
+        }
 
 
-#cookie-consent-banner .banner-text {
-    color: var(--white);
-}
+        #cookie-consent-banner .banner-text {
+            color: var(--white);
+        }
 
 
-#cookie-consent-banner .banner-text p:first-child {
-    font-weight: 600;
-}
+        #cookie-consent-banner .banner-text p:first-child {
+            font-weight: 600;
+        }
 
 
-#cookie-consent-banner .banner-text p {
-    margin: 0;
-    margin-top: 0.25rem;
-    font-size: 0.9rem;
-    color: #d1d5db;
-}
+        #cookie-consent-banner .banner-text p {
+            margin: 0;
+            margin-top: 0.25rem;
+            font-size: 0.9rem;
+            color: #d1d5db;
+        }
 
 
-#cookie-consent-banner .banner-text a {
-    font-weight: 600;
-    text-decoration: underline;
-    color: var(--white);
-}
+        #cookie-consent-banner .banner-text a {
+            font-weight: 600;
+            text-decoration: underline;
+            color: var(--white);
+        }
 
 
-#cookie-consent-banner .banner-buttons {
-    display: flex;
-    gap: 0.75rem;
-    /* Mobile First : les boutons sont en colonne et prennent toute la largeur */
-    flex-direction: column;
-    width: 100%;
-}
+        #cookie-consent-banner .banner-buttons {
+            display: flex;
+            gap: 0.75rem;
+            /* Mobile First : les boutons sont en colonne et prennent toute la largeur */
+            flex-direction: column;
+            width: 100%;
+        }
 
 
-#cookie-consent-banner .btn {
-    width: 100%; /* Les boutons sont pleine largeur sur mobile */
-}
+        #cookie-consent-banner .btn {
+            width: 100%;
+            /* Les boutons sont pleine largeur sur mobile */
+        }
 
 
-#cookie-consent-banner .btn-secondary {
-    color: var(--white);
-    border-color: var(--white);
-}
-#cookie-consent-banner .btn-secondary:hover {
-    color: var(--dark-blue);
-    background-color: var(--white);
-}
-#cookie-consent-banner .btn-secondary::before {
-    background-color: var(--white);
-}
+        #cookie-consent-banner .btn-secondary {
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        #cookie-consent-banner .btn-secondary:hover {
+            color: var(--dark-blue);
+            background-color: var(--white);
+        }
+
+        #cookie-consent-banner .btn-secondary::before {
+            background-color: var(--white);
+        }
 
 
-/* Styles pour les écrans plus grands (tablette et bureau) */
-@media (min-width: 768px) {
-    #cookie-consent-banner {
-        padding: 1rem; /* Plus de padding sur les grands écrans */
-    }
+        /* Styles pour les écrans plus grands (tablette et bureau) */
+        @media (min-width: 768px) {
+            #cookie-consent-banner {
+                padding: 1rem;
+                /* Plus de padding sur les grands écrans */
+            }
 
 
-    #cookie-consent-banner .banner-content {
-        /* On passe en ligne sur les grands écrans */
-        flex-direction: row;
-        align-items: center;
-    }
+            #cookie-consent-banner .banner-content {
+                /* On passe en ligne sur les grands écrans */
+                flex-direction: row;
+                align-items: center;
+            }
 
 
-    #cookie-consent-banner .banner-buttons {
-        /* Les boutons se mettent en ligne et leur largeur s'adapte */
-        flex-direction: row;
-        width: auto;
-    }
+            #cookie-consent-banner .banner-buttons {
+                /* Les boutons se mettent en ligne et leur largeur s'adapte */
+                flex-direction: row;
+                width: auto;
+            }
 
 
-    #cookie-consent-banner .btn {
-        width: auto;
-    }
-}
-
-
-
+            #cookie-consent-banner .btn {
+                width: auto;
+            }
+        }
     </style>
 </head>
 
 <body>
 
- 
 
 
 
 
 
-<header class="main-header">
+
+    <header class="main-header">
         <div class="container">
             <a href="../index.html" class="logo">
                 <img src="../assets/logo-clartem.svg" alt="Logo clartem.com">
@@ -774,13 +776,18 @@
     <main>
         <section class="hero">
             <div class="container">
-                <p class="subtitle fade-in">Étude de Cas</p>
+
+                <p class="subtitle fade-in">Étude de Concept</p>
                 <h1 class="fade-in">Coach de Carrière</h1>
-                <p class="case-study-title fade-in">De l'Expertise Invisible à l'Autorité Incontournable : Comment un <strong>Site Clarté</strong> a Bâti la Marque d'un Architecte de Carrière</p>
+                <p class="case-study-title fade-in">
+                    Analyse stratégique : Comment structurer un site pour positionner un coach comme une autorité
+                    incontournable auprès des cadres (Basé sur le concept "Julien Moreau").
+                </p>
 
                 <div class="mockup-container fade-in">
                     <img src="../assets/image-portfolio/mockup-portfolio-10.jpg"
-                        alt="Mockup du site web de Julien Moreau, architecte de carrière, sur un ordinateur portable" class="mockup-image">
+                        alt="Mockup du site web de Julien Moreau, architecte de carrière, sur un ordinateur portable"
+                        class="mockup-image">
                     <div class="concept-tag">[ PROJET CONCEPT ]</div>
                 </div>
             </div>
@@ -791,33 +798,61 @@
 
                 <div class="fade-in">
                     <h2>Le Défi : Se Démarquer dans le Conseil en Capital Humain</h2>
-                    <p>Notre persona conceptuel, Julien Moreau, incarne l'expert qui a traversé le miroir. Après 15 ans passés à orchestrer les carrières des autres en tant que DRH de grands groupes, il a fondé son cabinet pour une raison simple : donner aux cadres ambitieux les clés stratégiques que les entreprises gardent pour elles. Sa mission est de devenir un "architecte de carrière", transformant les managers talentueux en leaders de premier plan.</p>
-                    <p>Pourtant, cette expertise de haut niveau se heurtait à un défi de taille : la perception. Le marché du coaching est un océan où se mêlent les approches les plus variées, du développement personnel au conseil très technique. Comment Julien pouvait-il, en ligne, se différencier instantanément d'un simple "coach" ? Comment transmettre la rigueur, l'exclusivité et la connaissance intime des "règles du jeu" qui font la valeur de son accompagnement ? Son dilemme était de taille : il devait bâtir une plateforme qui ne vendait pas des séances, mais qui incarnait une promesse de promotion et de statut.</p>
+                    <p>Notre persona conceptuel, Julien Moreau, incarne l'expert qui a traversé le miroir. Après 15 ans
+                        passés à orchestrer les carrières des autres en tant que DRH de grands groupes, il a fondé son
+                        cabinet pour une raison simple : donner aux cadres ambitieux les clés stratégiques que les
+                        entreprises gardent pour elles. Sa mission est de devenir un "architecte de carrière",
+                        transformant les managers talentueux en leaders de premier plan.</p>
+                    <p>Pourtant, cette expertise de haut niveau se heurtait à un défi de taille : la perception. Le
+                        marché du coaching est un océan où se mêlent les approches les plus variées, du développement
+                        personnel au conseil très technique. Comment Julien pouvait-il, en ligne, se différencier
+                        instantanément d'un simple "coach" ? Comment transmettre la rigueur, l'exclusivité et la
+                        connaissance intime des "règles du jeu" qui font la valeur de son accompagnement ? Son dilemme
+                        était de taille : il devait bâtir une plateforme qui ne vendait pas des séances, mais qui
+                        incarnait une promesse de promotion et de statut.</p>
                 </div>
 
                 <div class="fade-in" style="margin-top: 60px;">
                     <h2>La Solution : Le Site Clarté, l'ADN de notre Approche One-Page</h2>
-                    <p>Face à ce besoin d'incarner l'autorité et la stratégie, la solution ne pouvait être un site web classique. Nous avons conçu pour lui un <strong>Site Clarté</strong> : notre philosophie d'un site One-Page qui agit non pas comme une brochure, mais comme une conversation stratégique avec un futur dirigeant. Le parcours du visiteur est délibérément conçu pour refléter la montée en puissance d'une carrière, construisant la crédibilité avant de parler de solutions.</p>
+                    <p>Face à ce besoin d'incarner l'autorité et la stratégie, la solution ne pouvait être un site web
+                        classique. Nous avons conçu pour lui un <strong>Site Clarté</strong> : notre philosophie d'un
+                        site One-Page qui agit non pas comme une brochure, mais comme une conversation stratégique avec
+                        un futur dirigeant. Le parcours du visiteur est délibérément conçu pour refléter la montée en
+                        puissance d'une carrière, construisant la crédibilité avant de parler de solutions.</p>
                     <p>Cette stratégie narrative s'articule autour de trois piliers fondamentaux :</p>
                     <ol class="pillars-list">
                         <li>
                             <h4>L'Architecte avant l'Architecture</h4>
-                            <p>La structure du site place la section "Mon Parcours" immédiatement après la promesse initiale. Un cadre en recherche d'un avantage concurrentiel ne choisit pas un "programme", il choisit un mentor qui a déjà joué et gagné le jeu. En révélant son passé de DRH, Julien ne se présente pas comme un coach, mais comme un initié. Cette crédibilité est le socle sur lequel tout le reste est construit.</p>
+                            <p>La structure du site place la section "Mon Parcours" immédiatement après la promesse
+                                initiale. Un cadre en recherche d'un avantage concurrentiel ne choisit pas un
+                                "programme", il choisit un mentor qui a déjà joué et gagné le jeu. En révélant son passé
+                                de DRH, Julien ne se présente pas comme un coach, mais comme un initié. Cette
+                                crédibilité est le socle sur lequel tout le reste est construit.</p>
                         </li>
                         <li>
                             <h4>Transformer le Coaching en Investissement Stratégique</h4>
-                            <p>Les offres ne sont pas présentées comme des "services", mais comme des "Accompagnements Stratégiques". Chaque programme, comme le "Trajectoire Leader", est formulé non pas en heures, mais en résultats tangibles (promotion, prise de poste). Cette sémantique positionne son offre non comme un coût, mais comme un investissement direct dans l'accélération de carrière.</p>
+                            <p>Les offres ne sont pas présentées comme des "services", mais comme des "Accompagnements
+                                Stratégiques". Chaque programme, comme le "Trajectoire Leader", est formulé non pas en
+                                heures, mais en résultats tangibles (promotion, prise de poste). Cette sémantique
+                                positionne son offre non comme un coût, mais comme un investissement direct dans
+                                l'accélération de carrière.</p>
                         </li>
                         <li>
                             <h4>La Méthodologie comme Gage de Rigueur</h4>
-                            <p>La section "Ma Méthodologie" est cruciale. Elle transforme l'immatériel du coaching en un processus en 4 étapes claires (Diagnostic, Stratégie, Action, Mesure). Pour une cible de cadres habitués aux processus et aux KPIs, cette transparence est un puissant levier de réassurance. Elle prouve que l'accompagnement n'est pas de l'improvisation, mais une ingénierie de la réussite.</p>
+                            <p>La section "Ma Méthodologie" est cruciale. Elle transforme l'immatériel du coaching en un
+                                processus en 4 étapes claires (Diagnostic, Stratégie, Action, Mesure). Pour une cible de
+                                cadres habitués aux processus et aux KPIs, cette transparence est un puissant levier de
+                                réassurance. Elle prouve que l'accompagnement n'est pas de l'improvisation, mais une
+                                ingénierie de la réussite.</p>
                         </li>
                     </ol>
                 </div>
 
                 <div class="fade-in" style="margin-top: 60px;">
                     <h2>L'Impact Potentiel : Plus qu'un Site, un Actif Stratégique</h2>
-                    <p>Pour un professionnel comme Julien Moreau, un site web conçu de cette manière devient le pivot de sa marque personnelle, un assistant silencieux qui qualifie ses prospects et assoit son statut d'expert 24h/24.</p>
+                    <p>Pour un professionnel comme Julien Moreau, un site web conçu de cette manière devient le pivot de
+                        sa marque personnelle, un assistant silencieux qui qualifie ses prospects et assoit son statut
+                        d'expert 24h/24.</p>
                     <p>L'impact attendu est concret et transformateur :</p>
                     <ul class="impact-list">
                         <li>
@@ -826,7 +861,9 @@
                                     d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
                                     clip-rule="evenodd" />
                             </svg>
-                            <span><strong>Une Clientèle Premium et Engagée :</strong> Le site attire naturellement des cadres qui ne cherchent pas une solution rapide, mais un véritable partenaire stratégique, et qui sont prêts à investir en conséquence.</span>
+                            <span><strong>Une Clientèle Premium et Engagée :</strong> Le site attire naturellement des
+                                cadres qui ne cherchent pas une solution rapide, mais un véritable partenaire
+                                stratégique, et qui sont prêts à investir en conséquence.</span>
                         </li>
                         <li>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -834,7 +871,9 @@
                                     d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
                                     clip-rule="evenodd" />
                             </svg>
-                            <span><strong>Un Positionnement d'Autorité Incontestable :</strong> La plateforme établit Julien non pas comme un coach parmi d'autres, mais comme une référence incontournable en stratégie de carrière pour les hauts potentiels.</span>
+                            <span><strong>Un Positionnement d'Autorité Incontestable :</strong> La plateforme établit
+                                Julien non pas comme un coach parmi d'autres, mais comme une référence incontournable en
+                                stratégie de carrière pour les hauts potentiels.</span>
                         </li>
                         <li>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -842,7 +881,9 @@
                                     d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
                                     clip-rule="evenodd" />
                             </svg>
-                            <span><strong>Une Optimisation Radicale du Temps Commercial :</strong> Les prospects qui prennent contact via le site sont déjà convaincus de sa crédibilité et de sa méthode, transformant les appels de découverte en véritables sessions de travail.</span>
+                            <span><strong>Une Optimisation Radicale du Temps Commercial :</strong> Les prospects qui
+                                prennent contact via le site sont déjà convaincus de sa crédibilité et de sa méthode,
+                                transformant les appels de découverte en véritables sessions de travail.</span>
                         </li>
                         <li>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -850,13 +891,15 @@
                                     d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
                                     clip-rule="evenodd" />
                             </svg>
-                            <span><strong>Une Marque Personnelle Forte et Durable :</strong> Le Site Clarté devient la pierre angulaire de sa communication, lui permettant de développer son activité avec une confiance et une clarté absolues.</span>
+                            <span><strong>Une Marque Personnelle Forte et Durable :</strong> Le Site Clarté devient la
+                                pierre angulaire de sa communication, lui permettant de développer son activité avec une
+                                confiance et une clarté absolues.</span>
                         </li>
                     </ul>
 
                     <div class="fade-in" style="text-align: center; margin-top: 40px;">
                         <a href="https://clartem-agency.github.io/site-portfolio-10_coach-de-carriere-professionnel/"
-                            class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Voir le site</a>
+                            class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Voir la démo</a>
                     </div>
                 </div>
             </div>
@@ -865,7 +908,11 @@
         <section id="cta" class="container" style="padding-top: 0;">
             <div class="cta-section fade-in">
                 <h2>Prêt(e) à construire votre propre Site Clarté ?</h2>
-                <p>Comme pour Julien Moreau, nous pouvons concevoir votre Site Clarté pour bâtir votre autorité et attirer la clientèle premium que vous méritez. Discutons de votre vision.</p>
+
+                <p>Vous visez une clientèle premium ? Je peux appliquer cette stratégie de 'Marque Personnelle' pour
+                    créer votre site sur-mesure, afin d'asseoir votre autorité sur votre marché.</p>
+
+
                 <div class="cta-buttons">
                     <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
                         rel="noopener noreferrer" class="btn btn-orange">Concevoir mon Site Clarté</a>
@@ -876,20 +923,22 @@
 
     </main>
 
-   
-
-    
 
 
 
-<footer class="main-footer">
+
+
+
+    <footer class="main-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <a href="../index.html" class="logo" style="margin-bottom: 15px; display: block;">
                         <img src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com en blanc">
                     </a>
-                    <p>Vous transformez des vies, votre site devrait le refléter. J'aide les professionnels de l'accompagnement à traduire leur expertise en une présence digitale claire, qui inspire confiance et attire les bonnes personnes.</p>
+                    <p>Vous transformez des vies, votre site devrait le refléter. J'aide les professionnels de
+                        l'accompagnement à traduire leur expertise en une présence digitale claire, qui inspire
+                        confiance et attire les bonnes personnes.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigation</h4>
@@ -922,93 +971,94 @@
 
 
 
-    
+
 
 
     <script>
-    // --- SCRIPT POUR L'ANIMATION D'APPARITION AU SCROLL ---
-    document.addEventListener('DOMContentLoaded', function () {
-        // VOTRE CODE D'ANIMATION EXISTANT
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
+        // --- SCRIPT POUR L'ANIMATION D'APPARITION AU SCROLL ---
+        document.addEventListener('DOMContentLoaded', function () {
+            // VOTRE CODE D'ANIMATION EXISTANT
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+
+            const elementsToAnimate = document.querySelectorAll('.fade-in');
+            elementsToAnimate.forEach(el => {
+                observer.observe(el);
+            });
+            // FIN DE VOTRE CODE D'ANIMATION EXISTANT
+
+
+
+
+            // ==================================================================
+            // COLLEZ LE CODE DU BANDEAU ICI
+            // ==================================================================
+            const cookieBanner = document.getElementById('cookie-consent-banner');
+            const acceptBtn = document.getElementById('cookie-accept-btn');
+            const declineBtn = document.getElementById('cookie-decline-btn');
+
+
+            if (cookieBanner && acceptBtn && declineBtn) {
+                const consent = localStorage.getItem('cookie_consent');
+
+
+                if (!consent) {
+                    cookieBanner.classList.remove('hidden');
                 }
-            });
-        }, {
-            threshold: 0.1
-        });
 
 
-        const elementsToAnimate = document.querySelectorAll('.fade-in');
-        elementsToAnimate.forEach(el => {
-            observer.observe(el);
-        });
-        // FIN DE VOTRE CODE D'ANIMATION EXISTANT
+                acceptBtn.addEventListener('click', () => {
+                    localStorage.setItem('cookie_consent', 'accepted');
+                    cookieBanner.classList.add('hidden');
+                });
 
 
-
-
-        // ==================================================================
-        // COLLEZ LE CODE DU BANDEAU ICI
-        // ==================================================================
-        const cookieBanner = document.getElementById('cookie-consent-banner');
-        const acceptBtn = document.getElementById('cookie-accept-btn');
-        const declineBtn = document.getElementById('cookie-decline-btn');
-
-
-        if (cookieBanner && acceptBtn && declineBtn) {
-            const consent = localStorage.getItem('cookie_consent');
-
-
-            if (!consent) {
-                cookieBanner.classList.remove('hidden');
+                declineBtn.addEventListener('click', () => {
+                    localStorage.setItem('cookie_consent', 'declined');
+                    cookieBanner.classList.add('hidden');
+                });
             }
-
-
-            acceptBtn.addEventListener('click', () => {
-                localStorage.setItem('cookie_consent', 'accepted');
-                cookieBanner.classList.add('hidden');
-            });
-
-
-            declineBtn.addEventListener('click', () => {
-                localStorage.setItem('cookie_consent', 'declined');
-                cookieBanner.classList.add('hidden');
-            });
-        }
-        // ==================================================================
-        // FIN DU CODE POUR LE BANDEAU
-        // ==================================================================
-    });
-</script>
+            // ==================================================================
+            // FIN DU CODE POUR LE BANDEAU
+            // ==================================================================
+        });
+    </script>
 
 
 
-<!-- BANDEAU DE CONSENTEMENT AUX COOKIES (VERSION ADAPTÉE) -->
-<div id="cookie-consent-banner" class="hidden">
-    <div> <!-- Div pour le max-width -->
-        <div class="banner-content">
-            <div class="banner-text">
-                <p>Ce site utilise des cookies</p>
-                <p>
-                    Nous utilisons des cookies pour améliorer votre expérience de navigation et analyser notre trafic. En cliquant sur "Accepter", vous consentez à notre utilisation des cookies.
-                    <a href="../politique-de-confidentialite.html" target="_blank">En savoir plus</a>.
-                </p>
-            </div>
-            <div class="banner-buttons">
-                <button id="cookie-accept-btn" type="button" class="btn btn-primary">
-                    Accepter
-                </button>
-                <button id="cookie-decline-btn" type="button" class="btn btn-secondary">
-                    Refuser
-                </button>
+    <!-- BANDEAU DE CONSENTEMENT AUX COOKIES (VERSION ADAPTÉE) -->
+    <div id="cookie-consent-banner" class="hidden">
+        <div> <!-- Div pour le max-width -->
+            <div class="banner-content">
+                <div class="banner-text">
+                    <p>Ce site utilise des cookies</p>
+                    <p>
+                        Nous utilisons des cookies pour améliorer votre expérience de navigation et analyser notre
+                        trafic. En cliquant sur "Accepter", vous consentez à notre utilisation des cookies.
+                        <a href="../politique-de-confidentialite.html" target="_blank">En savoir plus</a>.
+                    </p>
+                </div>
+                <div class="banner-buttons">
+                    <button id="cookie-accept-btn" type="button" class="btn btn-primary">
+                        Accepter
+                    </button>
+                    <button id="cookie-decline-btn" type="button" class="btn btn-secondary">
+                        Refuser
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- FIN DU BANDEAU DE CONSENTEMENT -->
+    <!-- FIN DU BANDEAU DE CONSENTEMENT -->
 
 
 

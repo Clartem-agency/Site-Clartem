@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Étude de Cas : Alexandre Moreau | Clartem</title>
+    <title>Concept & Stratégie : Site pour Coach Confiance en Soi | Clartem</title>
     <meta name="description"
         content="Découvrez comment Clartem a conçu un Site Clarté pour un coach en confiance en soi, afin de révéler sa mission et d'attirer des clients ciblés.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -619,137 +619,139 @@
         }
 
 
-/* ======================================================= */
-/*    STYLES POUR LE BANDEAU DE CONSENTEMENT COOKIES (RESPONSIVE) */
-/* ======================================================= */
-#cookie-consent-banner {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    padding: 0.5rem; /* Moins de padding sur mobile */
-    font-family: 'Poppins', sans-serif;
-}
+        /* ======================================================= */
+        /*    STYLES POUR LE BANDEAU DE CONSENTEMENT COOKIES (RESPONSIVE) */
+        /* ======================================================= */
+        #cookie-consent-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 0.5rem;
+            /* Moins de padding sur mobile */
+            font-family: 'Poppins', sans-serif;
+        }
 
 
-#cookie-consent-banner.hidden {
-    display: none;
-}
+        #cookie-consent-banner.hidden {
+            display: none;
+        }
 
 
-#cookie-consent-banner > div {
-    max-width: 1100px;
-    margin: 0 auto;
-}
+        #cookie-consent-banner>div {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
 
 
-#cookie-consent-banner .banner-content {
-    padding: 1.5rem;
-    border-radius: 8px;
-    background-color: var(--heading-color);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    display: flex;
-    gap: 1.5rem;
-    /* Mobile First : les éléments sont en colonne par défaut */
-    flex-direction: column;
-    align-items: flex-start;
-}
+        #cookie-consent-banner .banner-content {
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: var(--heading-color);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            display: flex;
+            gap: 1.5rem;
+            /* Mobile First : les éléments sont en colonne par défaut */
+            flex-direction: column;
+            align-items: flex-start;
+        }
 
 
-#cookie-consent-banner .banner-text {
-    color: var(--white);
-}
+        #cookie-consent-banner .banner-text {
+            color: var(--white);
+        }
 
 
-#cookie-consent-banner .banner-text p:first-child {
-    font-weight: 600;
-}
+        #cookie-consent-banner .banner-text p:first-child {
+            font-weight: 600;
+        }
 
 
-#cookie-consent-banner .banner-text p {
-    margin: 0;
-    margin-top: 0.25rem;
-    font-size: 0.9rem;
-    color: #d1d5db;
-}
+        #cookie-consent-banner .banner-text p {
+            margin: 0;
+            margin-top: 0.25rem;
+            font-size: 0.9rem;
+            color: #d1d5db;
+        }
 
 
-#cookie-consent-banner .banner-text a {
-    font-weight: 600;
-    text-decoration: underline;
-    color: var(--white);
-}
+        #cookie-consent-banner .banner-text a {
+            font-weight: 600;
+            text-decoration: underline;
+            color: var(--white);
+        }
 
 
-#cookie-consent-banner .banner-buttons {
-    display: flex;
-    gap: 0.75rem;
-    /* Mobile First : les boutons sont en colonne et prennent toute la largeur */
-    flex-direction: column;
-    width: 100%;
-}
+        #cookie-consent-banner .banner-buttons {
+            display: flex;
+            gap: 0.75rem;
+            /* Mobile First : les boutons sont en colonne et prennent toute la largeur */
+            flex-direction: column;
+            width: 100%;
+        }
 
 
-#cookie-consent-banner .btn {
-    width: 100%; /* Les boutons sont pleine largeur sur mobile */
-}
+        #cookie-consent-banner .btn {
+            width: 100%;
+            /* Les boutons sont pleine largeur sur mobile */
+        }
 
 
-#cookie-consent-banner .btn-secondary {
-    color: var(--white);
-    border-color: var(--white);
-}
-#cookie-consent-banner .btn-secondary:hover {
-    color: var(--dark-blue);
-    background-color: var(--white);
-}
-#cookie-consent-banner .btn-secondary::before {
-    background-color: var(--white);
-}
+        #cookie-consent-banner .btn-secondary {
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        #cookie-consent-banner .btn-secondary:hover {
+            color: var(--dark-blue);
+            background-color: var(--white);
+        }
+
+        #cookie-consent-banner .btn-secondary::before {
+            background-color: var(--white);
+        }
 
 
-/* Styles pour les écrans plus grands (tablette et bureau) */
-@media (min-width: 768px) {
-    #cookie-consent-banner {
-        padding: 1rem; /* Plus de padding sur les grands écrans */
-    }
+        /* Styles pour les écrans plus grands (tablette et bureau) */
+        @media (min-width: 768px) {
+            #cookie-consent-banner {
+                padding: 1rem;
+                /* Plus de padding sur les grands écrans */
+            }
 
 
-    #cookie-consent-banner .banner-content {
-        /* On passe en ligne sur les grands écrans */
-        flex-direction: row;
-        align-items: center;
-    }
+            #cookie-consent-banner .banner-content {
+                /* On passe en ligne sur les grands écrans */
+                flex-direction: row;
+                align-items: center;
+            }
 
 
-    #cookie-consent-banner .banner-buttons {
-        /* Les boutons se mettent en ligne et leur largeur s'adapte */
-        flex-direction: row;
-        width: auto;
-    }
+            #cookie-consent-banner .banner-buttons {
+                /* Les boutons se mettent en ligne et leur largeur s'adapte */
+                flex-direction: row;
+                width: auto;
+            }
 
 
-    #cookie-consent-banner .btn {
-        width: auto;
-    }
-}
-
-
-
+            #cookie-consent-banner .btn {
+                width: auto;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-   
-
-
-    
 
 
 
-<header class="main-header">
+
+
+
+
+    <header class="main-header">
         <div class="container">
             <a href="../index.html" class="logo">
                 <img src="../assets/logo-clartem.svg" alt="Logo clartem.com">
@@ -774,9 +776,13 @@
     <main>
         <section class="hero">
             <div class="container">
-                <p class="subtitle fade-in">Étude de Cas</p>
+
+                <p class="subtitle fade-in">Étude de Concept</p>
                 <h1 class="fade-in">Coach en Confiance en Soi</h1>
-                <p class="case-study-title fade-in">Du Doute au Leadership : Comment un <strong>Site Clarté</strong> a Révélé la Mission d'un Coach en Confiance en Soi</p>
+                <p class="case-study-title fade-in">
+                    Analyse stratégique : Comment structurer un site pour crédibiliser un coach et transformer le
+                    syndrome de l'imposteur en force (Basé sur le concept "Alexandre Moreau").
+                </p>
 
                 <div class="mockup-container fade-in">
                     <!-- MISE À JOUR : Remplacez ce chemin par votre nouvelle image -->
@@ -792,33 +798,61 @@
 
                 <div class="fade-in">
                     <h2>Le Défi : Briser le Plafond de Verre de l'Intérieur</h2>
-                    <p>Notre persona conceptuel, Alexandre Moreau, est l'incarnation d'une transformation profonde. Ancien développeur web brillant mais introverti, il a passé une décennie à être ce collègue silencieux en réunion, la tête pleine d'idées mais paralysé par la peur qu'elles ne soient pas à la hauteur. Le syndrome de l'imposteur n'était pas un simple doute, mais un véritable plafond de verre intérieur qui freinait sa carrière et son épanouissement.</p>
-                    <p>Après avoir lui-même brisé ce cycle grâce au coaching, sa mission est devenue une évidence : aider les jeunes professionnels – développeurs, chefs de projet, entrepreneurs – qui, comme lui, possèdent l'expertise mais manquent de l'assurance pour la revendiquer. Le défi était double. Comment pouvait-il, à travers un écran, transmettre à la fois l'empathie profonde de celui qui a "vécu" le problème, et la structure pragmatique qui a été la clé de sa solution ? Comment créer un espace digital qui inspire la confiance à une audience naturally sceptique, sans tomber dans les clichés d'un coaching impersonnel ?</p>
+                    <p>Notre persona conceptuel, Alexandre Moreau, est l'incarnation d'une transformation profonde.
+                        Ancien développeur web brillant mais introverti, il a passé une décennie à être ce collègue
+                        silencieux en réunion, la tête pleine d'idées mais paralysé par la peur qu'elles ne soient pas à
+                        la hauteur. Le syndrome de l'imposteur n'était pas un simple doute, mais un véritable plafond de
+                        verre intérieur qui freinait sa carrière et son épanouissement.</p>
+                    <p>Après avoir lui-même brisé ce cycle grâce au coaching, sa mission est devenue une évidence :
+                        aider les jeunes professionnels – développeurs, chefs de projet, entrepreneurs – qui, comme lui,
+                        possèdent l'expertise mais manquent de l'assurance pour la revendiquer. Le défi était double.
+                        Comment pouvait-il, à travers un écran, transmettre à la fois l'empathie profonde de celui qui a
+                        "vécu" le problème, et la structure pragmatique qui a été la clé de sa solution ? Comment créer
+                        un espace digital qui inspire la confiance à une audience naturally sceptique, sans tomber dans
+                        les clichés d'un coaching impersonnel ?</p>
                 </div>
 
                 <div class="fade-in" style="margin-top: 60px;">
                     <h2>La Solution : Le Site Clarté, l'ADN de notre Approche One-Page</h2>
-                    <p>Face à ce besoin d'incarner l'authenticité et la structure, nous n'avons pas proposé un site web classique, mais un véritable <strong>Site Clarté</strong>. C'est notre philosophie : un site One-Page stratégique qui agit comme une consultation digitale. Il ne se contente pas de présenter des informations ; il guide le visiteur à travers un parcours narratif conçu pour déconstruire les doutes et bâtir la légitimité.</p>
+                    <p>Face à ce besoin d'incarner l'authenticité et la structure, nous n'avons pas proposé un site web
+                        classique, mais un véritable <strong>Site Clarté</strong>. C'est notre philosophie : un site
+                        One-Page stratégique qui agit comme une consultation digitale. Il ne se contente pas de
+                        présenter des informations ; il guide le visiteur à travers un parcours narratif conçu pour
+                        déconstruire les doutes et bâtir la légitimité.</p>
                     <p>Cette stratégie s'articule autour de trois piliers fondamentaux :</p>
                     <ol class="pillars-list">
                         <li>
                             <h4>Le Parcours Empathique : L'Histoire avant la Méthode.</h4>
-                            <p>La structure du site place la section "Mon Chemin" juste après l'introduction. Le visiteur ne découvre pas d'abord ce qu'Alexandre <em>vend</em>, mais <em>qui il était</em> et <em>qui il est devenu</em>. Cette transparence radicale crée une connexion instantanée. Le jeune professionnel qui doute ne voit plus un coach, mais un pair qui a trouvé une issue. C'est le pilier fondamental pour établir la confiance.</p>
+                            <p>La structure du site place la section "Mon Chemin" juste après l'introduction. Le
+                                visiteur ne découvre pas d'abord ce qu'Alexandre <em>vend</em>, mais <em>qui il
+                                    était</em> et <em>qui il est devenu</em>. Cette transparence radicale crée une
+                                connexion instantanée. Le jeune professionnel qui doute ne voit plus un coach, mais un
+                                pair qui a trouvé une issue. C'est le pilier fondamental pour établir la confiance.</p>
                         </li>
                         <li>
                             <h4>La Clarté du Processus : Transformer l'Abstrait en Plan d'Action.</h4>
-                            <p>Pour une audience souvent analytique, le flou est anxiogène. Les services ne sont pas des "séances" mais des "Parcours" et des "Séances Impulsion". La section "Notre Chemin Ensemble" décompose le coaching en trois étapes simples et logiques (Connexion, Transformation, Envol). Cette structure rationnelle rassure l'esprit logique du visiteur et démontre un professionnalisme qui va au-delà des mots.</p>
+                            <p>Pour une audience souvent analytique, le flou est anxiogène. Les services ne sont pas des
+                                "séances" mais des "Parcours" et des "Séances Impulsion". La section "Notre Chemin
+                                Ensemble" décompose le coaching en trois étapes simples et logiques (Connexion,
+                                Transformation, Envol). Cette structure rationnelle rassure l'esprit logique du visiteur
+                                et démontre un professionnalisme qui va au-delà des mots.</p>
                         </li>
                         <li>
                             <h4>La Preuve par la Transformation : Les Histoires qui Valident.</h4>
-                            <p>Les témoignages sont soigneusement choisis pour refléter les profils cibles (chef de projet, freelance, entrepreneur). Ils ne sont pas de simples éloges, mais des mini-récits de transformation qui répondent à des douleurs précises : oser prendre la parole, augmenter ses tarifs, lancer un projet. C'est la preuve sociale qui transforme l'intérêt en conviction.</p>
+                            <p>Les témoignages sont soigneusement choisis pour refléter les profils cibles (chef de
+                                projet, freelance, entrepreneur). Ils ne sont pas de simples éloges, mais des
+                                mini-récits de transformation qui répondent à des douleurs précises : oser prendre la
+                                parole, augmenter ses tarifs, lancer un projet. C'est la preuve sociale qui transforme
+                                l'intérêt en conviction.</p>
                         </li>
                     </ol>
                 </div>
 
                 <div class="fade-in" style="margin-top: 60px;">
                     <h2>L'Impact Potentiel : Plus qu'un Site, un Actif Stratégique</h2>
-                    <p>Pour un professionnel comme Alexandre Moreau, un site web conçu de cette manière n'est pas une simple carte de visite, mais un allié numérique qui incarne sa mission et travaille pour lui.</p>
+                    <p>Pour un professionnel comme Alexandre Moreau, un site web conçu de cette manière n'est pas une
+                        simple carte de visite, mais un allié numérique qui incarne sa mission et travaille pour lui.
+                    </p>
                     <p>L'impact attendu est concret et transformateur :</p>
                     <ul class="impact-list">
                         <li>
@@ -827,7 +861,10 @@
                                     d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
                                     clip-rule="evenodd" />
                             </svg>
-                            <span><strong>Une Clientèle Ciblée et Engagée :</strong> Le site agit comme un aimant pour les jeunes professionnels qui se reconnaissent dans son histoire. Il filtre naturellement les curieux pour n'attirer que ceux qui sont véritablement prêts à s'investir dans une démarche structurée.</span>
+                            <span><strong>Une Clientèle Ciblée et Engagée :</strong> Le site agit comme un aimant pour
+                                les jeunes professionnels qui se reconnaissent dans son histoire. Il filtre
+                                naturellement les curieux pour n'attirer que ceux qui sont véritablement prêts à
+                                s'investir dans une démarche structurée.</span>
                         </li>
                         <li>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -835,7 +872,10 @@
                                     d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
                                     clip-rule="evenodd" />
                             </svg>
-                            <span><strong>Une Pratique Fluide et Professionnalisée :</strong> L'intégration de la prise de rendez-vous et la clarté de la FAQ réduisent drastiquement la charge administrative. Alexandre peut se concentrer sur son cœur de métier – le coaching – en offrant une expérience client impeccable du premier clic au premier appel.</span>
+                            <span><strong>Une Pratique Fluide et Professionnalisée :</strong> L'intégration de la prise
+                                de rendez-vous et la clarté de la FAQ réduisent drastiquement la charge administrative.
+                                Alexandre peut se concentrer sur son cœur de métier – le coaching – en offrant une
+                                expérience client impeccable du premier clic au premier appel.</span>
                         </li>
                         <li>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -843,7 +883,11 @@
                                     d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
                                     clip-rule="evenodd" />
                             </svg>
-                            <span><strong>Une Autorité Authentique, Pas Imposée :</strong> Le <strong>Site Clarté</strong> ne crie pas "je suis un expert", il le démontre. Par la force de son histoire, la clarté de son processus et la puissance des témoignages, il établit Alexandre comme une référence naturelle et crédible sur le sujet du syndrome de l'imposteur.</span>
+                            <span><strong>Une Autorité Authentique, Pas Imposée :</strong> Le <strong>Site
+                                    Clarté</strong> ne crie pas "je suis un expert", il le démontre. Par la force de son
+                                histoire, la clarté de son processus et la puissance des témoignages, il établit
+                                Alexandre comme une référence naturelle et crédible sur le sujet du syndrome de
+                                l'imposteur.</span>
                         </li>
                         <li>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -851,13 +895,16 @@
                                     d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
                                     clip-rule="evenodd" />
                             </svg>
-                            <span><strong>Un Alignement Parfait entre l'Homme et le Coach :</strong> Le site lui permet de développer son activité sans jamais avoir à jouer un rôle. Il est le reflet fidèle de son parcours et de ses valeurs, attirant des clients en parfaite résonance avec son approche unique, pour une pratique sereine et durable.</span>
+                            <span><strong>Un Alignement Parfait entre l'Homme et le Coach :</strong> Le site lui permet
+                                de développer son activité sans jamais avoir à jouer un rôle. Il est le reflet fidèle de
+                                son parcours et de ses valeurs, attirant des clients en parfaite résonance avec son
+                                approche unique, pour une pratique sereine et durable.</span>
                         </li>
                     </ul>
 
                     <div class="fade-in" style="text-align: center; margin-top: 40px;">
                         <a href="https://clartem-agency.github.io/site-portfolio-13_coach-en-confiance-en-soi/"
-                            class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Voir le site</a>
+                            class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Voir la démo</a>
                     </div>
                 </div>
             </div>
@@ -866,7 +913,11 @@
         <section id="cta" class="container" style="padding-top: 0;">
             <div class="cta-section fade-in">
                 <h2>Prêt(e) à révéler votre propre mission ?</h2>
-                <p>Comme pour Alexandre Moreau, nous pouvons concevoir votre Site Clarté pour qu'il incarne votre parcours unique et attire les clients que vous souhaitez vraiment accompagner. Discutons de votre vision.</p>
+
+                <p>Vous voulez une présence qui inspire confiance ? Je peux appliquer cette stratégie narrative pour
+                    créer votre site sur-mesure, afin de convertir vos visiteurs en clients engagés.</p>
+
+
                 <div class="cta-buttons">
                     <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
                         rel="noopener noreferrer" class="btn btn-orange">Concevoir mon Site Clarté</a>
@@ -877,21 +928,23 @@
 
     </main>
 
-   
-
-
-    
 
 
 
-<footer class="main-footer">
+
+
+
+
+    <footer class="main-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <a href="../index.html" class="logo" style="margin-bottom: 15px; display: block;">
                         <img src="../assets/logo-blanc-clartem.svg" alt="Logo clartem.com en blanc">
                     </a>
-                    <p>Vous transformez des vies, votre site devrait le refléter. J'aide les professionnels de l'accompagnement à traduire leur expertise en une présence digitale claire, qui inspire confiance et attire les bonnes personnes.</p>
+                    <p>Vous transformez des vies, votre site devrait le refléter. J'aide les professionnels de
+                        l'accompagnement à traduire leur expertise en une présence digitale claire, qui inspire
+                        confiance et attire les bonnes personnes.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Navigation</h4>
@@ -924,92 +977,93 @@
 
 
 
-    
 
-<script>
-    // --- SCRIPT POUR L'ANIMATION D'APPARITION AU SCROLL ---
-    document.addEventListener('DOMContentLoaded', function () {
-        // VOTRE CODE D'ANIMATION EXISTANT
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
+
+    <script>
+        // --- SCRIPT POUR L'ANIMATION D'APPARITION AU SCROLL ---
+        document.addEventListener('DOMContentLoaded', function () {
+            // VOTRE CODE D'ANIMATION EXISTANT
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+
+            const elementsToAnimate = document.querySelectorAll('.fade-in');
+            elementsToAnimate.forEach(el => {
+                observer.observe(el);
+            });
+            // FIN DE VOTRE CODE D'ANIMATION EXISTANT
+
+
+
+
+            // ==================================================================
+            // COLLEZ LE CODE DU BANDEAU ICI
+            // ==================================================================
+            const cookieBanner = document.getElementById('cookie-consent-banner');
+            const acceptBtn = document.getElementById('cookie-accept-btn');
+            const declineBtn = document.getElementById('cookie-decline-btn');
+
+
+            if (cookieBanner && acceptBtn && declineBtn) {
+                const consent = localStorage.getItem('cookie_consent');
+
+
+                if (!consent) {
+                    cookieBanner.classList.remove('hidden');
                 }
-            });
-        }, {
-            threshold: 0.1
-        });
 
 
-        const elementsToAnimate = document.querySelectorAll('.fade-in');
-        elementsToAnimate.forEach(el => {
-            observer.observe(el);
-        });
-        // FIN DE VOTRE CODE D'ANIMATION EXISTANT
+                acceptBtn.addEventListener('click', () => {
+                    localStorage.setItem('cookie_consent', 'accepted');
+                    cookieBanner.classList.add('hidden');
+                });
 
 
-
-
-        // ==================================================================
-        // COLLEZ LE CODE DU BANDEAU ICI
-        // ==================================================================
-        const cookieBanner = document.getElementById('cookie-consent-banner');
-        const acceptBtn = document.getElementById('cookie-accept-btn');
-        const declineBtn = document.getElementById('cookie-decline-btn');
-
-
-        if (cookieBanner && acceptBtn && declineBtn) {
-            const consent = localStorage.getItem('cookie_consent');
-
-
-            if (!consent) {
-                cookieBanner.classList.remove('hidden');
+                declineBtn.addEventListener('click', () => {
+                    localStorage.setItem('cookie_consent', 'declined');
+                    cookieBanner.classList.add('hidden');
+                });
             }
-
-
-            acceptBtn.addEventListener('click', () => {
-                localStorage.setItem('cookie_consent', 'accepted');
-                cookieBanner.classList.add('hidden');
-            });
-
-
-            declineBtn.addEventListener('click', () => {
-                localStorage.setItem('cookie_consent', 'declined');
-                cookieBanner.classList.add('hidden');
-            });
-        }
-        // ==================================================================
-        // FIN DU CODE POUR LE BANDEAU
-        // ==================================================================
-    });
-</script>
+            // ==================================================================
+            // FIN DU CODE POUR LE BANDEAU
+            // ==================================================================
+        });
+    </script>
 
 
 
-<!-- BANDEAU DE CONSENTEMENT AUX COOKIES (VERSION ADAPTÉE) -->
-<div id="cookie-consent-banner" class="hidden">
-    <div> <!-- Div pour le max-width -->
-        <div class="banner-content">
-            <div class="banner-text">
-                <p>Ce site utilise des cookies</p>
-                <p>
-                    Nous utilisons des cookies pour améliorer votre expérience de navigation et analyser notre trafic. En cliquant sur "Accepter", vous consentez à notre utilisation des cookies.
-                    <a href="../politique-de-confidentialite.html" target="_blank">En savoir plus</a>.
-                </p>
-            </div>
-            <div class="banner-buttons">
-                <button id="cookie-accept-btn" type="button" class="btn btn-primary">
-                    Accepter
-                </button>
-                <button id="cookie-decline-btn" type="button" class="btn btn-secondary">
-                    Refuser
-                </button>
+    <!-- BANDEAU DE CONSENTEMENT AUX COOKIES (VERSION ADAPTÉE) -->
+    <div id="cookie-consent-banner" class="hidden">
+        <div> <!-- Div pour le max-width -->
+            <div class="banner-content">
+                <div class="banner-text">
+                    <p>Ce site utilise des cookies</p>
+                    <p>
+                        Nous utilisons des cookies pour améliorer votre expérience de navigation et analyser notre
+                        trafic. En cliquant sur "Accepter", vous consentez à notre utilisation des cookies.
+                        <a href="../politique-de-confidentialite.html" target="_blank">En savoir plus</a>.
+                    </p>
+                </div>
+                <div class="banner-buttons">
+                    <button id="cookie-accept-btn" type="button" class="btn btn-primary">
+                        Accepter
+                    </button>
+                    <button id="cookie-decline-btn" type="button" class="btn btn-secondary">
+                        Refuser
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- FIN DU BANDEAU DE CONSENTEMENT -->
+    <!-- FIN DU BANDEAU DE CONSENTEMENT -->
 
 
 
