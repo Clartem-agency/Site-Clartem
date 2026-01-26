@@ -99,37 +99,55 @@
 <body class="bg-neutral-dark">
     <div class="min-h-screen flex flex-col">
 
+        
+
         <!-- Navigation -->
-        <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-neutral-dark/95 backdrop-blur-md border-b border-white/10">
-            <div class="container mx-auto px-6 py-4">
+        <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+            <div class="container mx-auto px-6">
                 <div class="flex items-center justify-between">
-                    <a href="index.html">
-                        <img class="h-14 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                    
+                    <!-- Logo Double (Blanc pour fond sombre, Couleur pour fond blanc) -->
+                    <a href="index.html" class="relative block group py-2">
+                        <img id="logo-white" class="h-10 w-auto transition-opacity duration-300" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com blanc">
+                        <img id="logo-color" class="h-10 w-auto absolute top-2 left-0 transition-opacity duration-300 opacity-0" src="assets/logo-clartem.svg" alt="Logo clartem.com couleur">
                     </a>
-                    <div class="hidden md:flex items-center space-x-8">
-                        <a href="index.html" class="text-gray-300 hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
-                        <a href="a-propos.html" class="text-gray-300 hover:text-clarity-blue transition-colors duration-300 font-medium">À Propos</a>
-                        <a href="index.html#plan" class="text-gray-300 hover:text-clarity-blue transition-colors duration-300 font-medium">Processus</a>
-                        <a href="portfolio.html" class="text-gray-300 hover:text-clarity-blue transition-colors duration-300 font-medium">Portfolio</a>
-                        <a href="index.html#offres" class="text-gray-300 hover:text-clarity-blue transition-colors duration-300 font-medium">Offres</a>
-                        <a href="blog.html" class="text-gray-300 hover:text-clarity-blue transition-colors duration-300 font-medium">Blog</a>
+
+                    <!-- Menu Desktop -->
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="index.html" class="nav-link text-sm font-medium transition-colors duration-300 text-white">Accueil</a>
+                        <a href="a-propos.html" class="nav-link text-sm font-medium transition-colors duration-300 text-white">À Propos</a>
+                        <a href="index.html#plan" class="nav-link text-sm font-medium transition-colors duration-300 text-white">Processus</a>
+                        <a href="portfolio.html" class="nav-link text-sm font-medium transition-colors duration-300 text-white">Portfolio</a>
+                        <a href="index.html#offres" class="nav-link text-sm font-medium transition-colors duration-300 text-white">Offres</a>
+                        <a href="blog.html" class="nav-link text-sm font-medium transition-colors duration-300 text-white">Blog</a>
+                        <!-- Lien FAQ actif (orange) -->
+                        <a href="faq.html" class="nav-link text-sm font-medium transition-colors duration-300 text-warm-orange">FAQ</a>
                     </div>
-                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center justify-center bg-clarity-blue hover:bg-blue-600 text-white font-semibold px-8 h-12 rounded-full transition-all duration-300">Planifier un Appel Clarté</a>
+
+                    <!-- CTA Button -->
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center justify-center bg-clarity-blue hover:bg-blue-600 text-white font-semibold px-6 py-2.5 text-sm rounded-full transition-all duration-300">Planifier un Appel Clarté</a>
+                    
+                    <!-- Mobile Menu Button -->
                     <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                     </button>
                 </div>
-                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
-                    <a href="index.html" class="block text-gray-300 hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
-                    <a href="a-propos.html" class="block text-gray-300 hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À Propos</a>
-                    <a href="index.html#plan" class="block text-gray-300 hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Processus</a>
-                    <a href="portfolio.html" class="block text-gray-300 hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Portfolio</a>
-                    <a href="index.html#offres" class="block text-gray-300 hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Offres</a>
-                    <a href="blog.html" class="block text-gray-300 hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Blog</a>
-                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="block mt-2 w-full text-center bg-clarity-blue hover:bg-blue-600 text-white font-semibold py-3 rounded-full transition-all">Planifier un Appel Clarté</a>
+
+                <!-- Mobile Menu -->
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2 pb-4 bg-neutral-dark/95 backdrop-blur-md rounded-xl p-4 border border-white/10">
+                    <a href="index.html" class="block text-gray-300 hover:text-clarity-blue transition-colors duration-300 font-medium py-2 text-sm">Accueil</a>
+                    <a href="a-propos.html" class="block text-gray-300 hover:text-clarity-blue transition-colors duration-300 font-medium py-2 text-sm">À Propos</a>
+                    <a href="index.html#plan" class="block text-gray-300 hover:text-clarity-blue transition-colors duration-300 font-medium py-2 text-sm">Processus</a>
+                    <a href="portfolio.html" class="block text-gray-300 hover:text-clarity-blue transition-colors duration-300 font-medium py-2 text-sm">Portfolio</a>
+                    <a href="index.html#offres" class="block text-gray-300 hover:text-clarity-blue transition-colors duration-300 font-medium py-2 text-sm">Offres</a>
+                    <a href="blog.html" class="block text-gray-300 hover:text-clarity-blue transition-colors duration-300 font-medium py-2 text-sm">Blog</a>
+                    <a href="faq.html" class="block text-warm-orange font-medium py-2 text-sm">FAQ</a>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="block mt-2 w-full text-center bg-clarity-blue hover:bg-blue-600 text-white font-semibold py-3 rounded-full transition-all text-sm">Planifier un Appel Clarté</a>
                 </div>
             </div>
         </nav>
+
+
 
         <main class="flex-grow">
             <!-- Hero -->
@@ -716,16 +734,70 @@
         </div>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    
+
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Mobile Menu
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            
+            // --- GESTION DU MENU NAVIGATION (Effet Scroll Portfolio) ---
+            const nav = document.getElementById('main-nav');
+            const logoWhite = document.getElementById('logo-white');
+            const logoColor = document.getElementById('logo-color');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const mobileMenuButton = document.getElementById('mobile-menu-button'); // Bouton mobile
+
+            function handleScrollNav() {
+                if (window.scrollY > 50) {
+                    // Mode Scrolled (Fond blanc, texte sombre)
+                    nav.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-md');
+                    nav.classList.remove('bg-transparent', 'border-b', 'border-white/10'); // Enlever bordure blanche si existante
+                    
+                    if (logoWhite) logoWhite.classList.add('opacity-0');
+                    if (logoColor) logoColor.classList.remove('opacity-0');
+                    
+                    navLinks.forEach(link => {
+                        // On ne change pas la couleur si c'est le lien actif (warm-orange)
+                        if (!link.classList.contains('text-warm-orange')) {
+                            link.classList.add('text-neutral-dark');
+                            link.classList.remove('text-white');
+                        }
+                    });
+                    
+                    // Gestion couleur bouton mobile
+                    if(mobileMenuButton) mobileMenuButton.classList.replace('text-white', 'text-neutral-dark');
+
+                } else {
+                    // Mode Top (Transparent, texte blanc)
+                    nav.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-md');
+                    nav.classList.add('bg-transparent');
+                    
+                    if (logoWhite) logoWhite.classList.remove('opacity-0');
+                    if (logoColor) logoColor.classList.add('opacity-0');
+                    
+                    navLinks.forEach(link => {
+                        if (!link.classList.contains('text-warm-orange')) {
+                            link.classList.remove('text-neutral-dark');
+                            link.classList.add('text-white');
+                        }
+                    });
+
+                    // Gestion couleur bouton mobile
+                    if(mobileMenuButton) mobileMenuButton.classList.replace('text-neutral-dark', 'text-white');
+                }
+            }
+
+            window.addEventListener('scroll', handleScrollNav);
+            handleScrollNav(); // Init au chargement
+
+            // --- MENU MOBILE ---
             const mobileMenu = document.getElementById('mobile-menu');
             if (mobileMenuButton && mobileMenu) {
                 mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
             }
 
-            // FAQ Accordion
+            // --- FAQ ACCORDION LOGIC ---
             const faqToggles = document.querySelectorAll('.faq-toggle');
             faqToggles.forEach(clickedToggle => {
                 clickedToggle.addEventListener('click', () => {
@@ -733,6 +805,8 @@
                     const iconToRotate = clickedToggle.querySelector('svg');
                     const isAlreadyOpen = answerToOpen.style.maxHeight;
                     const parentContainer = clickedToggle.closest('.bg-white\\/5');
+                    
+                    // Fermer les autres dans le même conteneur
                     if (parentContainer) {
                         parentContainer.querySelectorAll('.faq-toggle').forEach(toggle => {
                             if (toggle !== clickedToggle) {
@@ -744,6 +818,8 @@
                             }
                         });
                     }
+                    
+                    // Toggle l'élément cliqué
                     if (!isAlreadyOpen) {
                         answerToOpen.style.maxHeight = answerToOpen.scrollHeight + "px";
                         iconToRotate.classList.add('rotate-135');
@@ -756,21 +832,21 @@
                 });
             });
 
-            // ScrollReveal
+            // --- SCROLL REVEAL ---
             if (typeof ScrollReveal !== 'undefined') {
                 ScrollReveal().reveal('[data-sr]', { distance: '30px', duration: 800, easing: 'ease-out', origin: 'bottom', interval: 100 });
                 ScrollReveal().reveal('[data-sr-delay]', { distance: '30px', duration: 800, easing: 'ease-out', origin: 'bottom', delay: 200 });
             }
 
-            // Cookie Consent
+            // --- COOKIE CONSENT ---
             const cookieBanner = document.getElementById('cookie-consent-banner');
             const acceptBtn = document.getElementById('cookie-accept-btn');
             const declineBtn = document.getElementById('cookie-decline-btn');
-            if (!localStorage.getItem('cookieConsent')) cookieBanner.classList.remove('hidden');
+            if (cookieBanner && !localStorage.getItem('cookieConsent')) cookieBanner.classList.remove('hidden');
             if (acceptBtn) acceptBtn.addEventListener('click', () => { localStorage.setItem('cookieConsent', 'accepted'); cookieBanner.classList.add('hidden'); });
             if (declineBtn) declineBtn.addEventListener('click', () => { localStorage.setItem('cookieConsent', 'declined'); cookieBanner.classList.add('hidden'); });
 
-            // Smooth scroll for category links
+            // --- SMOOTH SCROLL CATEGORIES ---
             document.querySelectorAll('.category-btn').forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -781,5 +857,8 @@
             });
         });
     </script>
+
+
+
 </body>
 </html>
