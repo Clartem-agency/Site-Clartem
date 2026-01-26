@@ -135,6 +135,41 @@
             will-change: max-height;
         }
     </style>
+
+
+
+<!-- CSS SPÉCIFIQUE POUR FORCER LE MENU SOMBRE SUR LA FAQ -->
+    <style>
+        /* Force le fond sombre même si le JS essaie de le mettre en blanc */
+        #main-nav {
+            background-color: #1F2937 !important; /* Couleur neutral-dark */
+            color: white !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Force les liens en blanc */
+        #main-nav #nav-links a {
+            color: white !important;
+        }
+        
+        /* Garde le hover bleu */
+        #main-nav #nav-links a:hover {
+            color: #3B82F6 !important;
+        }
+
+        /* Force le bouton mobile en blanc */
+        #mobile-menu-button {
+            color: white !important;
+        }
+
+        /* ASTUCE CRUCIALE : Si le script change l'image du logo pour la version noire,
+           ce filtre la retransforme visuellement en blanc automatiquement */
+        #main-nav img {
+            filter: brightness(0) invert(1);
+        }
+    </style>
+
+
 </head>
 
 
@@ -150,37 +185,32 @@
         <!-- ======================================================= -->
 
         <nav id="main-nav"
-            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-neutral-dark/95 backdrop-blur-md shadow-md border-b border-white/5">
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-neutral-dark">
             <div class="container mx-auto px-6 py-4">
                 <div class="flex items-center justify-between">
                     <a href="index.html">
-                        <!-- UTILISATION DU LOGO BLANC POUR LE FOND SOMBRE -->
+                        <!-- On met le logo blanc par défaut -->
                         <img class="h-14 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
                     </a>
+                    
+                    <!-- Menu Desktop -->
                     <div class="hidden md:flex items-center space-x-8" id="nav-links">
-                        <a href="index.html"
-                            class="text-white hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
-                        <a href="a-propos.html"
-                            class="text-white hover:text-clarity-blue transition-colors duration-300 font-medium">À
-                            Propos</a>
-                        <a href="index.html#plan"
-                            class="text-white hover:text-clarity-blue transition-colors duration-300 font-medium">Processus</a>
-                        <a href="portfolio.html"
-                            class="text-white hover:text-clarity-blue transition-colors duration-300 font-medium">Portfolio</a>
-                        <a href="index.html#offres"
-                            class="text-white hover:text-clarity-blue transition-colors duration-300 font-medium">Offres</a>
-                        <a href="blog.html"
-                            class="text-white hover:text-clarity-blue transition-colors duration-300 font-medium">Blog</a>
-
+                        <a href="index.html" class="font-medium transition-colors duration-300">Accueil</a>
+                        <a href="a-propos.html" class="font-medium transition-colors duration-300">À Propos</a>
+                        <a href="index.html#plan" class="font-medium transition-colors duration-300">Processus</a>
+                        <a href="portfolio.html" class="font-medium transition-colors duration-300">Portfolio</a>
+                        <a href="index.html#offres" class="font-medium transition-colors duration-300">Offres</a>
+                        <a href="blog.html" class="font-medium transition-colors duration-300">Blog</a>
                     </div>
+
+                    <!-- CTA -->
                     <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
                         rel="noopener noreferrer"
-                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier un
-                        Appel Clarté
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier un Appel Clarté
                     </a>
 
-
-                    <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                    <!-- Bouton Mobile -->
+                    <button id="mobile-menu-button" class="md:hidden focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -189,33 +219,21 @@
                     </button>
                 </div>
 
-                <!-- ======================================================= -->
-                <!--                        Mobile Menu                      -->
-                <!-- ======================================================= -->
+                <!-- Menu Mobile -->
                 <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2 pb-4">
-
-                    <a href="index.html"
-                        class="block text-white hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
-                    <a href="a-propos.html"
-                        class="block text-white hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
-                        Propos</a>
-                    <a href="index.html#plan"
-                        class="block text-white hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Processus</a>
-                    <a href="portfolio.html"
-                        class="block text-white hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Portfolio</a>
-                    <a href="index.html#offres"
-                        class="block text-white hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Offres</a>
-                    <a href="blog.html"
-                        class="block text-white hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Blog</a>
-
+                    <a href="index.html" class="block text-white hover:text-clarity-blue font-medium py-2">Accueil</a>
+                    <a href="a-propos.html" class="block text-white hover:text-clarity-blue font-medium py-2">À Propos</a>
+                    <a href="index.html#plan" class="block text-white hover:text-clarity-blue font-medium py-2">Processus</a>
+                    <a href="portfolio.html" class="block text-white hover:text-clarity-blue font-medium py-2">Portfolio</a>
+                    <a href="index.html#offres" class="block text-white hover:text-clarity-blue font-medium py-2">Offres</a>
+                    <a href="blog.html" class="block text-white hover:text-clarity-blue font-medium py-2">Blog</a>
                     <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
-                        rel="noopener noreferrer" class="block mt-4 w-full text-center btn btn-primary">Planifier un
-                        Appel Clarté</a>
+                        rel="noopener noreferrer" class="block mt-4 w-full text-center btn btn-primary">Planifier un Appel Clarté</a>
                 </div>
             </div>
         </nav>
 
-        
+
 
 
 
