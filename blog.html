@@ -162,26 +162,6 @@
             background: rgba(255, 255, 255, 0.08);
         }
 
-        /* Style des cartes d'articles */
-        .article-card-editorial {
-            background: #ffffff;
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .article-card-editorial:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Séparateur vague entre hero et contenu */
-        .wave-separator {
-            position: relative;
-            margin-top: -2px;
-        }
-
         /* Animation pour le point pulsant */
         @keyframes pulse-glow {
             0%, 100% {
@@ -192,6 +172,386 @@
                 opacity: 1;
                 transform: scale(1.5);
             }
+        }
+
+        /* Section contenu principal style éditorial */
+        .blog-content-section {
+            background: linear-gradient(180deg, #ffffff 0%, #F8FAFC 100%);
+            position: relative;
+        }
+
+        /* Titre de section style éditorial */
+        .section-title-editorial {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title-editorial::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #F97316, #fb923c);
+            border-radius: 2px;
+        }
+
+        /* Cartes d'articles style éditorial premium */
+        .blog-card {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            position: relative;
+        }
+
+        .blog-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #F97316, #3B82F6);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+            border-color: transparent;
+        }
+
+        .blog-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Image de la carte */
+        .blog-card-image {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 16/10;
+        }
+
+        .blog-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .blog-card:hover .blog-card-image img {
+            transform: scale(1.08);
+        }
+
+        /* Badge catégorie sur l'image */
+        .blog-card-category {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            padding: 6px 14px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #ffffff;
+            background: rgba(31, 41, 55, 0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Contenu de la carte */
+        .blog-card-content {
+            padding: 24px;
+        }
+
+        .blog-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 0.8rem;
+            color: #6B7280;
+        }
+
+        .blog-card-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .blog-card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1F2937;
+            line-height: 1.4;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .blog-card:hover .blog-card-title {
+            color: #F97316;
+        }
+
+        .blog-card-excerpt {
+            font-size: 0.9rem;
+            color: #6B7280;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .blog-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #1F2937;
+            transition: all 0.3s ease;
+        }
+
+        .blog-card-link svg {
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover .blog-card-link {
+            color: #F97316;
+        }
+
+        .blog-card:hover .blog-card-link svg {
+            transform: translateX(4px);
+        }
+
+        /* Pagination style éditorial */
+        .pagination-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #6B7280;
+            background: #ffffff;
+            border: 1px solid #E5E7EB;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .pagination-btn:hover {
+            color: #1F2937;
+            border-color: #F97316;
+            background: #FFF7ED;
+        }
+
+        .pagination-btn.active {
+            color: #ffffff;
+            background: linear-gradient(135deg, #F97316, #EA580C);
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+        }
+
+        /* Message "Aucun résultat" stylisé */
+        .no-results-message {
+            text-align: center;
+            padding: 60px 20px;
+            color: #6B7280;
+        }
+
+        .no-results-message svg {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 20px;
+            color: #D1D5DB;
+        }
+
+        /* ============================================= */
+        /* STYLES POUR LES CARTES GÉNÉRÉES PAR JS       */
+        /* ============================================= */
+
+        /* Override des cartes générées dynamiquement */
+        #articles-grid .portfolio-item > a > div {
+            background: #ffffff !important;
+            border-radius: 20px !important;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+            border: 1px solid rgba(0, 0, 0, 0.06) !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+            position: relative;
+        }
+
+        #articles-grid .portfolio-item > a > div::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #F97316, #3B82F6);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+        }
+
+        #articles-grid .portfolio-item > a > div:hover {
+            transform: translateY(-12px) !important;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12) !important;
+            border-color: transparent !important;
+        }
+
+        #articles-grid .portfolio-item > a > div:hover::before {
+            opacity: 1;
+        }
+
+        /* Image des cartes */
+        #articles-grid .portfolio-item img {
+            height: 200px !important;
+            transition: transform 0.6s ease;
+        }
+
+        #articles-grid .portfolio-item > a > div:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Contenu des cartes */
+        #articles-grid .portfolio-item .p-6 {
+            padding: 24px !important;
+        }
+
+        /* Titre des cartes */
+        #articles-grid .portfolio-item h3 {
+            font-size: 1.2rem !important;
+            line-height: 1.4 !important;
+            transition: color 0.3s ease !important;
+        }
+
+        #articles-grid .portfolio-item > a > div:hover h3 {
+            color: #F97316 !important;
+        }
+
+        /* Description */
+        #articles-grid .portfolio-item p {
+            color: #6B7280 !important;
+            line-height: 1.6 !important;
+        }
+
+        /* Date */
+        #articles-grid .portfolio-item span {
+            font-size: 0.8rem !important;
+            color: #9CA3AF !important;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        #articles-grid .portfolio-item span::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            background: #F97316;
+            border-radius: 50%;
+        }
+
+        /* ============================================= */
+        /* STYLES POUR L'ARTICLE À LA UNE               */
+        /* ============================================= */
+
+        #featured-post > a > div {
+            background: linear-gradient(135deg, #1F2937 0%, #111827 100%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            transition: all 0.5s ease !important;
+        }
+
+        #featured-post > a > div:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        #featured-post h3 {
+            color: #ffffff !important;
+        }
+
+        #featured-post > a > div:hover h3 {
+            color: #F97316 !important;
+        }
+
+        #featured-post p {
+            color: #9CA3AF !important;
+        }
+
+        #featured-post span {
+            color: #6B7280 !important;
+        }
+
+        #featured-post img {
+            border-radius: 16px !important;
+        }
+
+        /* Titre section "À la Une" */
+        #featured-post > h2 {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        #featured-post > h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #F97316, #fb923c);
+            border-radius: 2px;
+        }
+
+        /* ============================================= */
+        /* STYLES POUR LA PAGINATION                    */
+        /* ============================================= */
+
+        #pagination-container button {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            min-width: 44px !important;
+            height: 44px !important;
+            padding: 0 14px !important;
+            font-size: 0.9rem !important;
+            font-weight: 600 !important;
+            color: #6B7280 !important;
+            background: #ffffff !important;
+            border: 1px solid #E5E7EB !important;
+            border-radius: 12px !important;
+            transition: all 0.3s ease !important;
+            cursor: pointer !important;
+        }
+
+        #pagination-container button:hover {
+            color: #1F2937 !important;
+            border-color: #F97316 !important;
+            background: #FFF7ED !important;
+        }
+
+        #pagination-container button.bg-clarity-blue,
+        #pagination-container button[class*="bg-clarity"] {
+            color: #ffffff !important;
+            background: linear-gradient(135deg, #F97316, #EA580C) !important;
+            border-color: transparent !important;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3) !important;
+        }
+
+        #pagination-container button:disabled {
+            opacity: 0.5 !important;
+            cursor: not-allowed !important;
         }
     </style>
 </head>
@@ -266,7 +626,7 @@
         <!--         Header de la Page Blog (STYLE ÉDITORIAL)        -->
         <!-- ======================================================= -->
 
-        <header class="blog-hero-bg pt-32 pb-24 md:pt-40 md:pb-32 lg:pb-40 relative">
+        <header class="blog-hero-bg pt-32 pb-32 md:pt-40 md:pb-40 lg:pb-48 relative">
 
             <!-- Lueurs décoratives -->
             <div class="glow-orange top-20 -left-20 md:left-10"></div>
@@ -339,25 +699,21 @@
 
                 </div>
             </div>
+
+            <!-- Vague intégrée au header (même fond/grain) -->
+            <div class="absolute bottom-0 left-0 right-0">
+                <svg class="w-full h-auto block" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#ffffff" d="M0,120 L0,60 Q360,0 720,40 T1440,30 L1440,120 Z"></path>
+                </svg>
+            </div>
         </header>
-
-
-        <!-- ======================================================= -->
-        <!--         Séparateur Vague (Hero -> Contenu)              -->
-        <!-- ======================================================= -->
-
-        <div class="wave-separator bg-white">
-            <svg class="w-full h-auto block" viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#1F2937" d="M0,0 L0,60 Q360,100 720,60 T1440,60 L1440,0 Z"></path>
-            </svg>
-        </div>
 
 
         <!-- ======================================================= -->
         <!--                Contenu Principal du Blog                -->
         <!-- ======================================================= -->
 
-        <main class="py-16 md:py-20 bg-white">
+        <main class="py-16 md:py-24 blog-content-section">
             <div class="container mx-auto px-6">
 
                 <!-- Section "À la Une" -->
@@ -367,15 +723,25 @@
 
                 <!-- Grille des Articles -->
                 <section id="all-posts">
-                    <h2 class="text-3xl font-bold text-neutral-dark mb-10 text-center" id="articles-grid-title">Tous les articles</h2>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="articles-grid">
+                    <div class="text-center mb-14">
+                        <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark section-title-editorial" id="articles-grid-title">Tous les articles</h2>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10" id="articles-grid">
                         <!-- Les cartes d'articles seront injectées ici par JavaScript -->
                     </div>
-                    <p id="no-results" class="text-center text-xl text-neutral-light py-16 hidden">Aucun article ne correspond à votre recherche.</p>
+                    
+                    <!-- Message aucun résultat -->
+                    <div id="no-results" class="no-results-message hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                        <p class="text-xl font-medium text-neutral-dark mb-2">Aucun article trouvé</p>
+                        <p class="text-neutral-light">Essayez une autre recherche ou explorez nos catégories.</p>
+                    </div>
                 </section>
 
                 <!-- Pagination -->
-                <nav class="mt-16 md:mt-20 flex justify-center items-center gap-2" id="pagination-container">
+                <nav class="mt-16 md:mt-20 flex justify-center items-center gap-3" id="pagination-container">
                     <!-- Les boutons de pagination seront injectés ici par JavaScript -->
                 </nav>
 
