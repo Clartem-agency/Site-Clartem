@@ -65,50 +65,178 @@
         }
     </script>
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Styles spécifiques à la page blog -->
+    <style>
+        /* Hero Blog avec fond sombre style éditorial */
+        .blog-hero-bg {
+            background: linear-gradient(135deg, #1F2937 0%, #111827 50%, #0F172A 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Effet de grain subtil sur le hero */
+        .blog-hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.03;
+            pointer-events: none;
+            background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="1"/%3E%3C/svg%3E');
+        }
+
+        /* Lueurs décoratives */
+        .glow-orange {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+            pointer-events: none;
+        }
+
+        .glow-blue {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+        }
+
+        /* Boutons de filtre style éditorial */
+        .filter-btn-dark {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.025em;
+            color: #9CA3AF;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .filter-btn-dark:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .filter-btn-dark.active {
+            color: #ffffff;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(249, 115, 22, 0.1));
+            border-color: rgba(249, 115, 22, 0.5);
+            box-shadow: 0 0 20px rgba(249, 115, 22, 0.15);
+        }
+
+        /* Barre de recherche style éditorial */
+        .search-input-dark {
+            width: 100%;
+            height: 56px;
+            padding-left: 52px;
+            padding-right: 20px;
+            font-size: 1rem;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .search-input-dark::placeholder {
+            color: #6B7280;
+        }
+
+        .search-input-dark:focus {
+            outline: none;
+            border-color: rgba(249, 115, 22, 0.5);
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1), 0 0 30px rgba(249, 115, 22, 0.1);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Style des cartes d'articles */
+        .article-card-editorial {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .article-card-editorial:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Séparateur vague entre hero et contenu */
+        .wave-separator {
+            position: relative;
+            margin-top: -2px;
+        }
+
+        /* Animation pour le point pulsant */
+        @keyframes pulse-glow {
+            0%, 100% {
+                opacity: 0.75;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.5);
+            }
+        }
+    </style>
 </head>
 
-<body class="bg-soft-blue">
+<body class="bg-white">
     <div class="min-h-screen">
 
 
-
-
-
-
-         <!-- ======================================================= -->
+        <!-- ======================================================= -->
         <!--                Section Navigation                       -->
         <!-- ======================================================= -->
 
-
-        <nav id="main-nav"
-            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
-            <div class="container mx-auto px-6 py-4">
+        <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+            <div class="container mx-auto px-6">
                 <div class="flex items-center justify-between">
-                    <a href="index.html">
-                        <img class="h-14 w-auto" src="assets/logo-clartem.svg" alt="Logo clartem.com">
+
+                    <!-- LOGO -->
+                    <a href="index.html" class="relative block group py-2">
+                        <img id="logo-white" class="h-10 w-auto transition-opacity duration-300"
+                            src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com blanc">
+
+                        <img id="logo-color"
+                            class="h-10 w-auto absolute top-2 left-0 transition-opacity duration-300 opacity-0"
+                            src="assets/logo-clartem.svg" alt="Logo clartem.com couleur">
                     </a>
+
+                    <!-- LIENS DU MENU -->
                     <div class="hidden md:flex items-center space-x-8" id="nav-links">
-                        <a href="index.html"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
-                        <a href="a-propos.html"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À Propos</a>
-                        <a href="index.html#plan"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Processus</a>
-                        <a href="portfolio.html"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Portfolio</a>
-                        <a href="index.html#offres"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Offres</a>
-                      
-                        <a href="faq.html"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
+                        <a href="index.html" class="nav-link text-sm font-medium transition-colors duration-300 text-white/80 hover:text-white">Accueil</a>
+                        <a href="a-propos.html" class="nav-link text-sm font-medium transition-colors duration-300 text-white/80 hover:text-white">À Propos</a>
+                        <a href="index.html#plan" class="nav-link text-sm font-medium transition-colors duration-300 text-white/80 hover:text-white">Processus</a>
+                        <a href="portfolio.html" class="nav-link text-sm font-medium transition-colors duration-300 text-white/80 hover:text-white">Portfolio</a>
+                        <a href="index.html#offres" class="nav-link text-sm font-medium transition-colors duration-300 text-white/80 hover:text-white">Offres</a>
+                        <a href="faq.html" class="nav-link text-sm font-medium transition-colors duration-300 text-white/80 hover:text-white">FAQ</a>
                     </div>
+
+                    <!-- BOUTON CTA -->
                     <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
                         rel="noopener noreferrer"
-                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier un Appel Clarté
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-6 h-11 text-sm">
+                        Planifier un Appel Clarté
                     </a>
 
-
-                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                    <!-- MENU MOBILE BUTTON -->
+                    <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -117,98 +245,118 @@
                     </button>
                 </div>
 
-
-
-
-                <!-- ======================================================= -->
-                <!--                        Mobile Menu                      -->
-                <!-- ======================================================= -->
-                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
-                   
-                    <a href="index.html"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
-                    <a href="a-propos.html"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À Propos</a>
-                    <a href="index.html#plan"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Processus</a>
-                    <a href="portfolio.html"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Portfolio</a>
-                    <a href="index.html#offres"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Offres</a>
-                   
-                    <a href="faq.html"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                <!-- Mobile Menu -->
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2 pb-4">
+                    <a href="index.html" class="block text-white/80 hover:text-white py-2 text-sm">Accueil</a>
+                    <a href="a-propos.html" class="block text-white/80 hover:text-white py-2 text-sm">À Propos</a>
+                    <a href="index.html#plan" class="block text-white/80 hover:text-white py-2 text-sm">Processus</a>
+                    <a href="portfolio.html" class="block text-white/80 hover:text-white py-2 text-sm">Portfolio</a>
+                    <a href="index.html#offres" class="block text-white/80 hover:text-white py-2 text-sm">Offres</a>
+                    <a href="faq.html" class="block text-white/80 hover:text-white py-2 text-sm">FAQ</a>
                     <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
-                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier un
-                        Appel Clarté</a>
+                        rel="noopener noreferrer" class="block mt-4 w-full text-center btn btn-primary text-sm">
+                        Planifier un Appel Clarté
+                    </a>
                 </div>
             </div>
         </nav>
 
 
-
-
-
-
-
-
-                <!-- ======================================================= -->
-        <!--         Header de la Page Blog (MODIFIÉ)                -->
         <!-- ======================================================= -->
-        <header class="bg-soft-blue pt-32 pb-20 md:pt-40 md:pb-24">
-            <div class="container mx-auto px-6 text-center">
-                
-                <!-- NOUVEAU : Conteneur pour l'animation -->
-                <!-- L'attribut data-sr est déplacé ici pour animer le bloc entier -->
-                <div data-sr>
-                    <h1 class="text-4xl sm:text-5xl font-bold text-neutral-dark leading-tight">
-                        Le Blog Clartem
+        <!--         Header de la Page Blog (STYLE ÉDITORIAL)        -->
+        <!-- ======================================================= -->
+
+        <header class="blog-hero-bg pt-32 pb-24 md:pt-40 md:pb-32 lg:pb-40 relative">
+
+            <!-- Lueurs décoratives -->
+            <div class="glow-orange top-20 -left-20 md:left-10"></div>
+            <div class="glow-blue -top-20 right-0 md:right-20"></div>
+            <div class="glow-orange bottom-20 right-10 opacity-50 hidden lg:block"></div>
+
+            <div class="container mx-auto px-6 relative z-10">
+
+                <!-- En-tête avec Badge et Titre -->
+                <div class="max-w-4xl mx-auto text-center mb-16" data-sr>
+
+                    <!-- Badge Glassmorphism -->
+                    <div class="inline-flex items-center gap-2 px-4 py-2 mb-10 border border-white/10 rounded-full bg-white/5 backdrop-blur-md shadow-lg">
+                        <!-- Point pulsant -->
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-warm-orange opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-warm-orange"></span>
+                        </span>
+                        <span class="text-[11px] font-bold tracking-[0.25em] text-gray-300 uppercase leading-none">Le Journal Clarté</span>
+                    </div>
+
+                    <!-- Titre Magazine -->
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
+                        Cultiver votre <br class="hidden sm:block">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-warm-orange via-orange-300 to-white">
+                            Sagesse Digitale.
+                        </span>
                     </h1>
-                    <!-- J'ai conservé la marge augmentée pour un meilleur espacement de base -->
-                    <p class="text-lg md:text-xl text-neutral-light mt-8 max-w-3xl mx-auto">
-                        Des stratégies, des guides et des conseils concrets pour transformer votre expertise en un site web qui attire, rassure et convertit.
-                    </p>
+
+                    <!-- Paragraphe descriptif avec bordure -->
+                    <div class="flex justify-center">
+                        <div class="border-l-2 border-white/10 pl-6 text-left max-w-2xl">
+                            <p class="text-gray-400 text-lg md:text-xl font-light leading-relaxed">
+                                Des stratégies, des guides et des conseils concrets pour transformer votre expertise en un site web qui attire, rassure et convertit.
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
+
                 <!-- FILTRES ET RECHERCHE -->
-                <div id="blog-filters" class="mt-12">
-                    
+                <div id="blog-filters" class="max-w-5xl mx-auto">
+
                     <!-- Barre de recherche -->
-<!-- L'attribut data-sr est conservé ici car c'est un élément séparé -->
-<div class="max-w-2xl mx-auto mb-12" data-sr>
-    <form id="search-form" class="relative">
-        <input type="search" id="search-input" placeholder="Rechercher un article..." class="w-full h-14 pl-12 pr-4 text-lg bg-white border-2 border-gray-200 rounded-lg focus:ring-clarity-blue focus:border-clarity-blue transition">
-        <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-            <svg class="w-6 h-6 text-neutral-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-        </div>
-    </form>
-</div>
-
-                    
-                    <!-- Conteneur des boutons de filtre -->
-                    <div class="max-w-4xl mx-auto flex flex-wrap justify-center gap-3 md:gap-4" id="category-filters" data-sr-delay="100">
-                        <button class="filter-btn active" data-filter="all">Tous</button>
-                        <button class="filter-btn" data-filter="strategie">Stratégie & Positionnement</button>
-                        <button class="filter-btn" data-filter="debuter">Débuter son Activité</button>
-                        <button class="filter-btn" data-filter="local">Marketing Local & Google</button>
-                        <button class="filter-btn" data-filter="outils">Outils & Productivité</button>
-                        <button class="filter-btn" data-filter="niche-bien-etre">Niche : Bien-être</button>
-                        <button class="filter-btn" data-filter="niche-b2b">Niche : Coachs Business</button>
-                        <button class="filter-btn" data-filter="approche-clarte">Approche "Site Clarté"</button>
-                        <button class="filter-btn" data-filter="marque-communication">Marque & Communication</button>
-                        <button class="filter-btn" data-filter="journal-de-bord">Mon journal de bord</button>
-
+                    <div class="max-w-2xl mx-auto mb-10" data-sr>
+                        <form id="search-form" class="relative">
+                            <input type="search" id="search-input" placeholder="Rechercher un article..." 
+                                class="search-input-dark">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none">
+                                <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                </svg>
+                            </div>
+                        </form>
                     </div>
+
+                    <!-- Conteneur des boutons de filtre -->
+                    <div class="flex flex-wrap justify-center gap-3" id="category-filters" data-sr-delay="100">
+                        <button class="filter-btn filter-btn-dark active" data-filter="all">Tous</button>
+                        <button class="filter-btn filter-btn-dark" data-filter="strategie">Stratégie & Positionnement</button>
+                        <button class="filter-btn filter-btn-dark" data-filter="debuter">Débuter son Activité</button>
+                        <button class="filter-btn filter-btn-dark" data-filter="local">Marketing Local & Google</button>
+                        <button class="filter-btn filter-btn-dark" data-filter="outils">Outils & Productivité</button>
+                        <button class="filter-btn filter-btn-dark" data-filter="niche-bien-etre">Niche : Bien-être</button>
+                        <button class="filter-btn filter-btn-dark" data-filter="niche-b2b">Niche : Coachs Business</button>
+                        <button class="filter-btn filter-btn-dark" data-filter="approche-clarte">Approche "Site Clarté"</button>
+                        <button class="filter-btn filter-btn-dark" data-filter="marque-communication">Marque & Communication</button>
+                        <button class="filter-btn filter-btn-dark" data-filter="journal-de-bord">Mon journal de bord</button>
+                    </div>
+
                 </div>
             </div>
         </header>
 
 
-        
+        <!-- ======================================================= -->
+        <!--         Séparateur Vague (Hero -> Contenu)              -->
+        <!-- ======================================================= -->
+
+        <div class="wave-separator bg-white">
+            <svg class="w-full h-auto block" viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#1F2937" d="M0,0 L0,60 Q360,100 720,60 T1440,60 L1440,0 Z"></path>
+            </svg>
+        </div>
+
 
         <!-- ======================================================= -->
-        <!--                Contenu Principal du Blog (Inchangé)      -->
+        <!--                Contenu Principal du Blog                -->
         <!-- ======================================================= -->
+
         <main class="py-16 md:py-20 bg-white">
             <div class="container mx-auto px-6">
 
@@ -234,67 +382,110 @@
             </div>
         </main>
 
-        
+
+        <!-- ======================================================= -->
+        <!--         Section Newsletter (Style éditorial)            -->
+        <!-- ======================================================= -->
+
+        <section class="bg-neutral-dark py-20 lg:py-28 relative overflow-hidden">
+            
+            <!-- Lueurs décoratives -->
+            <div class="glow-blue absolute -top-20 left-1/4"></div>
+            <div class="glow-orange absolute bottom-0 right-1/4 opacity-30"></div>
+
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-3xl mx-auto text-center" data-sr>
+
+                    <!-- Icône -->
+                    <div class="inline-flex items-center justify-center w-16 h-16 mb-8 rounded-2xl bg-warm-orange/10 border border-warm-orange/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-warm-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                        Restez inspiré chaque semaine
+                    </h2>
+                    <p class="text-gray-400 text-lg mb-10 max-w-xl mx-auto">
+                        Recevez mes meilleurs conseils pour développer votre activité et créer une présence en ligne qui vous ressemble.
+                    </p>
+
+                    <!-- Formulaire Newsletter -->
+                    <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                        <input type="email" placeholder="Votre email" required
+                            class="flex-1 h-14 px-6 text-white bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-warm-orange/50 focus:ring-2 focus:ring-warm-orange/20 transition-all">
+                        <button type="submit" class="btn btn-orange h-14 px-8 whitespace-nowrap">
+                            S'inscrire
+                        </button>
+                    </form>
+
+                    <p class="text-gray-500 text-sm mt-6">
+                        Pas de spam. Désabonnement en 1 clic.
+                    </p>
+
+                </div>
+            </div>
+        </section>
 
 
-       <!-- ======================================================= -->
+        <!-- ======================================================= -->
         <!--                        Footer                           -->
         <!-- ======================================================= -->
 
-
-        <footer class="bg-neutral-dark text-white py-16">
+        <footer class="bg-neutral-dark text-white py-16 border-t border-white/5">
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-3 gap-12">
                     <div class="space-y-6">
                         <div>
                             <a href="index.html">
-                                <img class="h-14 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                                <img class="h-12 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
                             </a>
-                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                            <p class="text-lg text-gray-400 mt-4">Apporter de la clarté dans le chaos digital</p>
                         </div>
-                        <p class="text-neutral-light leading-relaxed">Vous transformez des vies, votre site devrait le
+                        <p class="text-gray-500 leading-relaxed text-sm">Vous transformez des vies, votre site devrait le
                             refléter. J'aide les professionnels de l'accompagnement à traduire leur expertise en une
                             présence digitale claire, qui inspire confiance et attire les bonnes personnes.</p>
                     </div>
                     <div class="space-y-6">
-                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <h4 class="text-lg font-bold text-white">Navigation</h4>
                         <div class="space-y-3">
                             <a href="index.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                                class="block text-gray-400 hover:text-warm-orange transition-colors duration-300 text-sm">Accueil</a>
                             <a href="a-propos.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À Propos</a>
+                                class="block text-gray-400 hover:text-warm-orange transition-colors duration-300 text-sm">À Propos</a>
                             <a href="index.html#plan"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Processus</a>
+                                class="block text-gray-400 hover:text-warm-orange transition-colors duration-300 text-sm">Processus</a>
                             <a href="portfolio.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Portfolio</a>
+                                class="block text-gray-400 hover:text-warm-orange transition-colors duration-300 text-sm">Portfolio</a>
                             <a href="index.html#offres"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Offres</a>
-                           
+                                class="block text-gray-400 hover:text-warm-orange transition-colors duration-300 text-sm">Offres</a>
+                            <a href="blog.html"
+                                class="block text-gray-400 hover:text-warm-orange transition-colors duration-300 text-sm">Blog</a>
                             <a href="faq.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                                class="block text-gray-400 hover:text-warm-orange transition-colors duration-300 text-sm">FAQ</a>
                         </div>
                     </div>
                     <div class="space-y-6">
-                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <h4 class="text-lg font-bold text-white">Informations Légales</h4>
                         <div class="space-y-3">
                             <a href="mentions-legales.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                class="block text-gray-400 hover:text-warm-orange transition-colors duration-300 text-sm">Mentions
                                 Légales</a>
                             <a href="politique-de-confidentialite.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                class="block text-gray-400 hover:text-warm-orange transition-colors duration-300 text-sm">Politique
                                 de Confidentialité</a>
                             <a href="cgv.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                class="block text-gray-400 hover:text-warm-orange transition-colors duration-300 text-sm">Conditions
                                 Générales de Vente</a>
                             <a href="contact.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                                class="block text-gray-400 hover:text-warm-orange transition-colors duration-300 text-sm">Contact</a>
                         </div>
                     </div>
                 </div>
-                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                <div class="border-t border-white/10 mt-12 pt-8">
                     <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                        <p class="text-sm text-neutral-light">© 2025 clartem.com. Tous droits réservés.</p>
-                        <div class="text-sm text-neutral-light">
+                        <p class="text-sm text-gray-500">© 2025 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-gray-500">
                             <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
                         </div>
                     </div>
@@ -303,44 +494,103 @@
         </footer>
 
 
-
-
     </div>
 
 
-    <!-- BANDEAU DE CONSENTEMENT AUX COOKIES (VERSION RESPONSIVE AMÉLIORÉE) -->
-<div id="cookie-consent-banner" class="hidden fixed bottom-0 inset-x-0 p-2 sm:p-4 z-[100]">
-    <div class="max-w-7xl mx-auto">
-        <div class="p-4 rounded-lg bg-neutral-dark shadow-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            
-            <!-- Section Texte -->
-            <div class="flex-1 text-white">
-                <p class="font-semibold">Ce site utilise des cookies</p>
-                <p class="mt-1 text-sm text-neutral-light">
-                    Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic. En cliquant sur "Accepter", vous consentez à notre utilisation des cookies.
-                    <a href="politique-de-confidentialite.html" target="_blank" class="font-semibold hover:underline">En savoir plus</a>.
-                </p>
+    <!-- BANDEAU DE CONSENTEMENT AUX COOKIES -->
+    <div id="cookie-consent-banner" class="hidden fixed bottom-0 inset-x-0 p-2 sm:p-4 z-[100]">
+        <div class="max-w-7xl mx-auto">
+            <div class="p-4 rounded-lg bg-neutral-dark shadow-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                
+                <!-- Section Texte -->
+                <div class="flex-1 text-white">
+                    <p class="font-semibold">Ce site utilise des cookies</p>
+                    <p class="mt-1 text-sm text-neutral-light">
+                        Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic. En cliquant sur "Accepter", vous consentez à notre utilisation des cookies.
+                        <a href="politique-de-confidentialite.html" target="_blank" class="font-semibold hover:underline">En savoir plus</a>.
+                    </p>
+                </div>
+
+
+                <!-- Section Boutons -->
+                <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                    <button id="cookie-accept-btn" type="button" class="w-full sm:w-auto btn btn-primary px-6 py-2">
+                        Accepter
+                    </button>
+                    <button id="cookie-decline-btn" type="button" class="w-full sm:w-auto btn btn-secondary px-6 py-2" style="color: white; border-color: white;">
+                        Refuser
+                    </button>
+                </div>
+
+
             </div>
-
-
-            <!-- Section Boutons -->
-            <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-                <button id="cookie-accept-btn" type="button" class="w-full sm:w-auto btn btn-primary px-6 py-2">
-                    Accepter
-                </button>
-                <button id="cookie-decline-btn" type="button" class="w-full sm:w-auto btn btn-secondary px-6 py-2" style="color: white; border-color: white;">
-                    Refuser
-                </button>
-            </div>
-
-
         </div>
     </div>
-</div>
-<!-- FIN DU BANDEAU DE CONSENTEMENT -->
+    <!-- FIN DU BANDEAU DE CONSENTEMENT -->
 
 
 
     <script src="js/script.js"></script>
+
+    <!-- Script spécifique pour gérer les changements de navigation sur cette page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const nav = document.getElementById('main-nav');
+            const logoWhite = document.getElementById('logo-white');
+            const logoColor = document.getElementById('logo-color');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+
+            function updateNavStyle() {
+                if (window.scrollY > 50) {
+                    nav.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-md');
+                    nav.classList.remove('bg-transparent');
+                    if (logoWhite) logoWhite.classList.add('opacity-0');
+                    if (logoColor) logoColor.classList.remove('opacity-0');
+                    
+                    // Mettre à jour les liens en mode clair
+                    document.querySelectorAll('#nav-links .nav-link').forEach(link => {
+                        link.classList.remove('text-white/80', 'hover:text-white');
+                        link.classList.add('text-neutral-dark', 'hover:text-clarity-blue');
+                    });
+                    
+                    // Bouton menu mobile
+                    if (mobileMenuButton) {
+                        mobileMenuButton.classList.remove('text-white');
+                        mobileMenuButton.classList.add('text-neutral-dark');
+                    }
+                } else {
+                    nav.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-md');
+                    nav.classList.add('bg-transparent');
+                    if (logoWhite) logoWhite.classList.remove('opacity-0');
+                    if (logoColor) logoColor.classList.add('opacity-0');
+                    
+                    // Remettre les liens en mode sombre
+                    document.querySelectorAll('#nav-links .nav-link').forEach(link => {
+                        link.classList.add('text-white/80', 'hover:text-white');
+                        link.classList.remove('text-neutral-dark', 'hover:text-clarity-blue');
+                    });
+                    
+                    // Bouton menu mobile
+                    if (mobileMenuButton) {
+                        mobileMenuButton.classList.add('text-white');
+                        mobileMenuButton.classList.remove('text-neutral-dark');
+                    }
+                }
+            }
+
+            window.addEventListener('scroll', updateNavStyle);
+            updateNavStyle(); // Appel initial
+
+
+            // Gestion des filtres avec le nouveau style
+            const filterButtons = document.querySelectorAll('.filter-btn-dark');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
