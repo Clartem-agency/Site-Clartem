@@ -210,6 +210,43 @@
             /* neutral-dark */
             color: white;
         }
+
+
+
+        /* Animation de l'orbe de clarté */
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            50% {
+                opacity: 0.6;
+                /* Plus lumineux au milieu */
+                transform: translate(-50%, -50%) scale(1.2);
+                /* S'agrandit légèrement */
+            }
+        }
+
+        .orb-light {
+            position: absolute;
+            left: 50%;
+            /* Centré horizontalement */
+            top: 20%;
+            /* Positionné derrière le titre */
+            width: 400px;
+            height: 400px;
+            /* Dégradé radial : Coeur blanc -> Bleu clair -> Transparent */
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(59, 130, 246, 0.15) 40%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+            /* Flou important pour l'effet gazeux */
+            animation: pulse-glow 6s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
     </style>
 </head>
 
@@ -289,14 +326,9 @@
             <!-- ======================================================= -->
             <section id="faq-main" class="pt-32 pb-24 lg:pt-48 lg:pb-40 relative min-h-screen">
 
-                <!-- Décorations de fond (identiques) -->
-                <div
-                    class="absolute top-0 left-0 w-full max-w-[600px] h-[500px] bg-clarity-blue/5 rounded-full blur-3xl pointer-events-none -translate-x-1/3">
-                </div>
 
-                <div
-                    class="absolute top-20 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none translate-x-1/4">
-                </div>
+                <!-- NOUVEL ORBE DE CLARTÉ -->
+                <div class="orb-light"></div>
 
                 <div class="container mx-auto px-4 relative z-10">
 
