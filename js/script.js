@@ -67,9 +67,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 scale: 1,
                 easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
                 reset: false,
-                viewFactor: 0.2,
-                mobile: true // Active sur mobile
+
+                // --- CORRECTION 1 : DÉCLENCHEMENT PLUS SENSIBLE ---
+                // On passe de 0.2 à 0.1 (10% de visibilité suffit)
+                viewFactor: 0.1,
+
+                // --- CORRECTION 2 : GESTION MOBILE ---
+                // Parfois, désactiver le calcul précis sur mobile aide
+                mobile: true,
+                useDelay: 'always' // Force le délai même si on scroll vite
             };
+
 
             const sr = ScrollReveal(srConfig);
 
@@ -196,6 +204,45 @@ document.addEventListener('DOMContentLoaded', function () {
                 duration: 800,
                 easing: 'ease-out'
             });
+
+
+            // =========================================================
+            //  CORRECTION : FILET DE SÉCURITÉ ANTI-BUG SCROLL RAPIDE
+            // =========================================================
+
+            // 1. Force un recalcul quand on arrête de scroller
+            let isScrolling;
+            window.addEventListener('scroll', () => {
+                window.clearTimeout(isScrolling);
+                isScrolling = setTimeout(() => {
+                    // Quand le scroll s'arrête depuis 100ms, on force ScrollReveal à vérifier
+                    try { sr.delegate(); } catch (e) { }
+                }, 100);
+            }, { passive: true });
+
+            // 2. Vérification de secours toutes les secondes
+            // Si un élément est visible à l'écran mais a encore opacity: 0, on le force.
+            setInterval(() => {
+                const revealElements = document.querySelectorAll('[data-sr-id]');
+                const windowHeight = window.innerHeight;
+
+                revealElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    // Si l'élément est dans l'écran
+                    if (rect.top < windowHeight - 50 && rect.bottom > 0) {
+                        // Et qu'il est toujours invisible (opacity proche de 0)
+                        if (getComputedStyle(el).opacity < 0.1) {
+                            // On force l'affichage manuellement
+                            el.style.opacity = '1';
+                            el.style.transform = 'translate(0,0) scale(1)';
+                            el.style.visibility = 'visible';
+                        }
+                    }
+                });
+            }, 1000);
+
+
+
 
             // Force un recalcul après un court instant (sécurité anti-bug)
             setTimeout(() => {
@@ -326,19 +373,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // ==================================================================
-    // ANIMATION DES IMAGES
+    // ANIMATION DES IMAGES + SYNC SCROLLREVEAL
     // ==================================================================
     const lazyImages = document.querySelectorAll('img.lazy-load');
     const handleImageLoad = (img) => {
-        if (img.complete) {
+        const onLoaded = () => {
             img.classList.add('loaded');
+            // CORRECTION : On dit à ScrollReveal de recalculer la hauteur de la page
+            // car l'image vient d'apparaître
+            if (typeof ScrollReveal !== 'undefined') {
+                window.dispatchEvent(new Event('resize'));
+            }
+        };
+
+        if (img.complete) {
+            onLoaded();
         } else {
-            img.addEventListener('load', () => {
-                img.classList.add('loaded');
-            }, { once: true });
+            img.addEventListener('load', onLoaded, { once: true });
         }
     };
     lazyImages.forEach(handleImageLoad);
+
 
 
 
