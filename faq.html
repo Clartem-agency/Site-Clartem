@@ -641,49 +641,10 @@
 
 
 
+
+
     <script>
-        // GESTION UNIFIÉE DES CATÉGORIES (SIDEBAR + SELECT)
-        function switchTab(category) {
-
-            // 1. Masquer tous les contenus
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.add('hidden');
-                content.classList.remove('block');
-            });
-
-            // 2. Afficher le contenu ciblé
-            const targetContent = document.getElementById('content-' + category);
-            if (targetContent) {
-                targetContent.classList.remove('hidden');
-                targetContent.classList.add('block');
-            }
-
-            // 3. Mettre à jour la Sidebar (Desktop)
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('active');
-                btn.classList.add('text-gray-400', 'border-transparent');
-                btn.classList.remove('text-clarity-blue', 'bg-white/10', 'border-clarity-blue'); // Nettoyage
-            });
-
-            // Activer le bouton correspondant
-            const activeBtn = document.getElementById('btn-' + category);
-            if (activeBtn) {
-                activeBtn.classList.add('active');
-                activeBtn.classList.remove('text-gray-400', 'border-transparent');
-            }
-
-            // 4. Mettre à jour le Select (Mobile) - au cas où on switch via JS
-            const mobileSelect = document.getElementById('mobile-category-select');
-            if (mobileSelect) {
-                mobileSelect.value = category;
-            }
-        }
-
-
-
-
-        // --- GESTION DU DROPDOWN MOBILE PERSONNALISÉ ---
-
+        // --- 1. GESTION DU MENU DÉROULANT MOBILE ---
         const dropdownBtn = document.getElementById('dropdown-button');
         const dropdownMenu = document.getElementById('dropdown-menu');
         const dropdownLabel = document.getElementById('dropdown-label');
@@ -694,40 +655,79 @@
             isDropdownOpen = !isDropdownOpen;
             if (isDropdownOpen) {
                 dropdownMenu.classList.remove('hidden');
-                dropdownArrow.classList.add('rotate-180'); // Fait tourner la flèche
+                dropdownArrow.classList.add('rotate-180');
             } else {
                 dropdownMenu.classList.add('hidden');
                 dropdownArrow.classList.remove('rotate-180');
             }
         }
 
-        function selectOption(value, label) {
-            // 1. Mettre à jour le texte du bouton
-            dropdownLabel.innerText = label;
-
-            // 2. Fermer le menu
-            toggleDropdown();
-
-            // 3. Appeler votre fonction existante qui change le contenu
-            switchTab(value);
-        }
-
-        // Fermer le menu si on clique ailleurs sur la page
+        // Fermer le menu si on clique ailleurs
         document.addEventListener('click', function (event) {
             if (!dropdownBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
                 if (isDropdownOpen) toggleDropdown();
             }
         });
 
-        // --- FIN GESTION DROPDOWN ---
+        function selectOption(value, label) {
+            // Mettre à jour le texte du bouton mobile
+            if (dropdownLabel) dropdownLabel.innerText = label;
 
-        // (Conservez votre fonction switchTab existante ici...)
-        function switchTab(category) {
-            // ... votre code switchTab existant ...
+            // Fermer le menu
+            toggleDropdown();
+
+            // Changer le contenu
+            switchTab(value);
         }
 
+        // --- 2. FONCTION PRINCIPALE DE CHANGEMENT D'ONGLET (Desktop & Mobile) ---
+        function switchTab(category) {
 
+            // A. Masquer tous les contenus
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+                content.classList.remove('block');
+            });
+
+            // B. Afficher le contenu ciblé
+            const targetContent = document.getElementById('content-' + category);
+            if (targetContent) {
+                targetContent.classList.remove('hidden');
+                targetContent.classList.add('block');
+
+                // Petit effet d'animation (reset)
+                targetContent.classList.remove('animate-fade-in');
+                void targetContent.offsetWidth; // force reflow
+                targetContent.classList.add('animate-fade-in');
+            }
+
+            // C. Mettre à jour les boutons de la Sidebar (Desktop)
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+                // Remettre le style par défaut (gris)
+                btn.classList.add('text-gray-400', 'border-transparent');
+            });
+
+            // Activer le bouton correspondant
+            const activeBtn = document.getElementById('btn-' + category);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+                activeBtn.classList.remove('text-gray-400', 'border-transparent');
+            }
+
+            // D. Synchroniser le label mobile (si on clique sur desktop)
+            const labels = {
+                'general': 'Général & Confiance',
+                'tarifs': 'Tarifs & Investissement',
+                'technique': 'Technique & Gestion'
+            };
+            if (dropdownLabel && labels[category]) {
+                dropdownLabel.innerText = labels[category];
+            }
+        }
     </script>
+
+
 
 
     <!-- Custom JS -->
