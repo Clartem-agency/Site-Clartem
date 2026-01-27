@@ -121,27 +121,28 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
-    
-    <!-- CSS Supplémentaire pour le Dark Mode FAQ (Inspiré de votre snippet) -->
+
+    <!-- CSS Supplémentaire pour le Dark Mode FAQ -->
     <style>
         .faq-toggle svg.rotate-180 {
-            transform: rotate(135deg); /* Transforme le + en X si l'icone est un plus, sinon fait une rotation */
+            transform: rotate(135deg);
         }
+
+        /* Mise à jour : Orange au lieu de Bleu pour l'état actif */
         .faq-toggle.active .icon-container {
-            background-color: #3B82F6;
+            background-color: #F97316;
+            /* warm-orange */
             color: white;
         }
+
         .faq-answer {
             will-change: max-height;
         }
-    </style>
 
-
-
-    <style>
         /* Force le fond sombre même si le JS essaie de le mettre en blanc */
         #main-nav {
-            background-color: #1F2937 !important; /* Couleur neutral-dark */
+            background-color: #1F2937 !important;
+            /* Couleur neutral-dark */
             color: white !important;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
@@ -150,7 +151,7 @@
         #main-nav #nav-links a {
             color: white !important;
         }
-        
+
         /* Garde le hover bleu */
         #main-nav #nav-links a:hover {
             color: #3B82F6 !important;
@@ -161,64 +162,55 @@
             color: white !important;
         }
 
-        /* ASTUCE CRUCIALE : Si le script change l'image du logo pour la version noire,
-           ce filtre la retransforme visuellement en blanc automatiquement */
+        /* Filtre logo blanc */
         #main-nav img {
             filter: brightness(0) invert(1);
         }
 
-
-
         /* Style pour l'onglet actif */
-.tab-btn.active {
-    background-color: #3B82F6; /* clarity-blue */
-    color: white;
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
-}
+        .tab-btn.active {
+            background-color: #3B82F6;
+            /* clarity-blue */
+            color: white;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+        }
 
-/* Animation douce lors du changement d'onglet */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-.animate-fade-in {
-    animation: fadeIn 0.4s ease-out forwards;
-}
+        /* Animation douce lors du changement d'onglet */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
 
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
     </style>
-
-
-
-
-
-
 </head>
 
 
 <body class="bg-neutral-dark">
     <div class="min-h-screen flex flex-col">
 
-       
-
-
-
-
-<!-- ======================================================= -->
+        <!-- ======================================================= -->
         <!--           Section Navigation (VERSION FINE)             -->
         <!-- ======================================================= -->
 
-        <nav id="main-nav"
-            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-neutral-dark">
-            <!-- Modification ici : py-4 est devenu py-2 pour réduire la hauteur globale -->
+        <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-neutral-dark">
             <div class="container mx-auto px-6 py-2">
                 <div class="flex items-center justify-between">
                     <a href="index.html" class="flex items-center">
-                        <!-- Modification ici : h-14 est devenu h-10 pour un logo plus discret -->
-                        <img class="h-10 w-auto transition-all duration-300" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                        <img class="h-10 w-auto transition-all duration-300" src="assets/logo-blanc-clartem.svg"
+                            alt="Logo clartem.com">
                     </a>
-                    
+
                     <!-- Menu Desktop -->
-                    <!-- J'ai ajouté text-sm pour que les liens soient plus fins visuellement aussi -->
                     <div class="hidden md:flex items-center space-x-8 text-sm" id="nav-links">
                         <a href="index.html" class="font-medium transition-colors duration-300">Accueil</a>
                         <a href="a-propos.html" class="font-medium transition-colors duration-300">À Propos</a>
@@ -229,10 +221,10 @@
                     </div>
 
                     <!-- CTA -->
-                    <!-- Modification ici : h-12 devenu h-10, px-8 devenu px-6 et ajout de text-sm -->
                     <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
                         rel="noopener noreferrer"
-                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-6 h-10 text-sm font-medium">Planifier un Appel
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-6 h-10 text-sm font-medium">Planifier
+                        un Appel
                     </a>
 
                     <!-- Bouton Mobile -->
@@ -247,159 +239,202 @@
 
                 <!-- Menu Mobile -->
                 <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2 pb-4 border-t border-gray-700 pt-4">
-                    <a href="index.html" class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Accueil</a>
-                    <a href="a-propos.html" class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">À Propos</a>
-                    <a href="index.html#plan" class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Processus</a>
-                    <a href="portfolio.html" class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Portfolio</a>
-                    <a href="index.html#offres" class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Offres</a>
-                    <a href="blog.html" class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Blog</a>
+                    <a href="index.html"
+                        class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Accueil</a>
+                    <a href="a-propos.html" class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">À
+                        Propos</a>
+                    <a href="index.html#plan"
+                        class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Processus</a>
+                    <a href="portfolio.html"
+                        class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Portfolio</a>
+                    <a href="index.html#offres"
+                        class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Offres</a>
+                    <a href="blog.html"
+                        class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Blog</a>
                     <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
-                        rel="noopener noreferrer" class="block mt-4 w-full text-center btn btn-primary py-2 text-sm">Planifier un Appel</a>
+                        rel="noopener noreferrer"
+                        class="block mt-4 w-full text-center btn btn-primary py-2 text-sm">Planifier un Appel</a>
                 </div>
             </div>
         </nav>
 
-
-
-
-
-
-
         <main class="flex-grow bg-neutral-dark">
 
+            <!-- ======================================================= -->
+            <!--       NOUVELLE SECTION FAQ (STYLE ONGLETS / TABS)       -->
+            <!-- ======================================================= -->
+            <section id="faq-main" class="pt-32 pb-24 lg:pt-48 lg:pb-40 relative min-h-screen">
 
+                <!-- Décoration de fond : Lueur Bleue (Gauche) -->
+                <div
+                    class="absolute top-0 left-0 w-full max-w-[600px] h-[500px] bg-clarity-blue/5 rounded-full blur-3xl pointer-events-none -translate-x-1/3">
+                </div>
 
-         <!-- ======================================================= -->
-<!--       NOUVELLE SECTION FAQ (STYLE ONGLETS / TABS)       -->
-<!-- ======================================================= -->
-<section id="faq-main" class="pt-32 pb-24 lg:pt-48 lg:pb-40 relative min-h-screen">
-    
-    <!-- Décoration de fond -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[500px] bg-clarity-blue/5 rounded-full blur-3xl pointer-events-none"></div>
+                <!-- NOUVEAU : Décoration de fond : Lueur Orange (Droite) -->
+                <div
+                    class="absolute top-20 right-0 w-96 h-96 bg-warm-orange/10 rounded-full blur-3xl pointer-events-none translate-x-1/4">
+                </div>
 
-    <div class="container mx-auto px-4 relative z-10 max-w-4xl">
-        
-        <!-- 1. EN-TÊTE CENTRÉ -->
-        <div class="text-center mb-12" data-sr>
-            <div class="inline-block px-3 py-1 mb-6 border border-gray-700 rounded-full bg-white/5 text-xs font-bold tracking-widest text-gray-300 uppercase backdrop-blur-md">
-                Centre d'Aide
-            </div>
-            <h1 class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                Réponses & <span class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-white">Clarté</span>
-            </h1>
-            <p class="text-base md:text-lg text-gray-400 max-w-2xl mx-auto">
-                Tout ce que vous devez savoir pour avancer sereinement. Sélectionnez une catégorie ci-dessous pour filtrer les réponses.
-            </p>
-        </div>
+                <div class="container mx-auto px-4 relative z-10 max-w-4xl">
 
-        <!-- 2. NAVIGATION PAR ONGLETS (SCROLLABLE SUR MOBILE) -->
-        <div class="flex flex-wrap justify-center gap-3 mb-10 md:mb-16 border-b border-white/10 pb-8" id="faq-tabs">
-            <!-- Onglet 1 : Actif par défaut -->
-            <button onclick="switchTab('general')" 
-                class="tab-btn active px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 border border-transparent hover:border-white/20">
-                Général & Confiance
-            </button>
-            
-            <!-- Onglet 2 -->
-            <button onclick="switchTab('tarifs')" 
-                class="tab-btn px-6 py-3 rounded-full text-sm font-medium text-gray-400 bg-white/5 border border-white/5 hover:bg-white/10 hover:text-white transition-all duration-300">
-                Tarifs & Investissement
-            </button>
+                    <!-- 1. EN-TÊTE CENTRÉ -->
+                    <div class="text-center mb-12" data-sr>
 
-            <!-- Onglet 3 (Exemple pour vos futures questions) -->
-            <button onclick="switchTab('technique')" 
-                class="tab-btn px-6 py-3 rounded-full text-sm font-medium text-gray-400 bg-white/5 border border-white/5 hover:bg-white/10 hover:text-white transition-all duration-300">
-                Technique & Gestion
-            </button>
-        </div>
-
-        <!-- 3. CONTENU DES QUESTIONS (ACCORDÉONS) -->
-        <!-- Les groupes sont masqués/affichés via JS -->
-        
-        <div class="bg-white/5 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-sm min-h-[400px]">
-            
-            <!-- GROUPE 1 : GÉNÉRAL -->
-            <div id="content-general" class="tab-content block animate-fade-in">
-                <!-- Question 1 -->
-                <div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
-                    <button class="faq-toggle w-full flex justify-between items-start text-left py-5 px-5 md:py-6 md:px-8 focus:outline-none">
-                        <span class="flex-1 min-w-0 text-base md:text-lg font-semibold text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
-                            Pourquoi devrais-je vous faire confiance plutôt qu'à une autre agence ?
-                        </span>
-                        <div class="icon-container flex-shrink-0 w-8 h-8 mt-1 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
-                            <svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                        <!-- MODIFICATION : BADGE AVEC POINT LUMINEUX -->
+                        <div
+                            class="inline-flex items-center gap-2 px-3 py-1 mb-6 border border-warm-orange/30 rounded-full bg-white/5 backdrop-blur-md text-warm-orange text-xs font-bold tracking-widest uppercase shadow-lg">
+                            <span class="relative flex h-2 w-2">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-warm-orange opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-warm-orange"></span>
+                            </span>
+                            Centre d'Aide
                         </div>
-                    </button>
-                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                        <div class="px-5 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4">
-                            <p>Avec Clartem, vous ne choisissez pas entre la vitesse et la qualité. Vous bénéficiez de la rigueur d'une agence, de l'agilité d'un freelance, et d'un processus unique (l'Atelier de Clarté) qui clarifie votre message avant même de commencer le design.</p>
-                        </div>
+
+                        <h1 class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                            Réponses & <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-white">Clarté</span>
+                        </h1>
+                        <p class="text-base md:text-lg text-gray-400 max-w-2xl mx-auto">
+                            Tout ce que vous devez savoir pour avancer sereinement. Sélectionnez une catégorie
+                            ci-dessous pour filtrer les réponses.
+                        </p>
                     </div>
-                </div>
 
-                <!-- Question 2 -->
-                <div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
-                    <button class="faq-toggle w-full flex justify-between items-start text-left py-5 px-5 md:py-6 md:px-8 focus:outline-none">
-                        <span class="flex-1 min-w-0 text-base md:text-lg font-semibold text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
-                            Le « Site Clarté » est-il adapté à ma profession ?
-                        </span>
-                        <div class="icon-container flex-shrink-0 w-8 h-8 mt-1 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
-                            <svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                        </div>
-                    </button>
-                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                        <div class="px-5 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4">
-                            <p>Absolument. Que vous soyez coach, thérapeute ou consultant, la structure est pensée pour établir votre crédibilité et convertir les visiteurs en clients.</p>
-                        </div>
+                    <!-- 2. NAVIGATION PAR ONGLETS -->
+                    <div class="flex flex-wrap justify-center gap-3 mb-10 md:mb-16 border-b border-white/10 pb-8"
+                        id="faq-tabs">
+                        <button onclick="switchTab('general')"
+                            class="tab-btn active px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 border border-transparent hover:border-white/20">
+                            Général & Confiance
+                        </button>
+
+                        <button onclick="switchTab('tarifs')"
+                            class="tab-btn px-6 py-3 rounded-full text-sm font-medium text-gray-400 bg-white/5 border border-white/5 hover:bg-white/10 hover:text-white transition-all duration-300">
+                            Tarifs & Investissement
+                        </button>
+
+                        <button onclick="switchTab('technique')"
+                            class="tab-btn px-6 py-3 rounded-full text-sm font-medium text-gray-400 bg-white/5 border border-white/5 hover:bg-white/10 hover:text-white transition-all duration-300">
+                            Technique & Gestion
+                        </button>
                     </div>
-                </div>
-            </div>
 
-            <!-- GROUPE 2 : TARIFS -->
-            <div id="content-tarifs" class="tab-content hidden animate-fade-in">
-                <!-- Question 1 -->
-                <div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
-                    <button class="faq-toggle w-full flex justify-between items-start text-left py-5 px-5 md:py-6 md:px-8 focus:outline-none">
-                        <span class="flex-1 min-w-0 text-base md:text-lg font-semibold text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
-                            Le tarif est-il tout compris ?
-                        </span>
-                        <div class="icon-container flex-shrink-0 w-8 h-8 mt-1 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
-                            <svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                    <!-- 3. CONTENU DES QUESTIONS (ACCORDÉONS) -->
+                    <div
+                        class="bg-white/5 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-sm min-h-[400px]">
+
+                        <!-- GROUPE 1 : GÉNÉRAL -->
+                        <div id="content-general" class="tab-content block animate-fade-in">
+
+                            <!-- Question 1 -->
+                            <div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+                                <button
+                                    class="faq-toggle w-full flex justify-between items-start text-left py-5 px-5 md:py-6 md:px-8 focus:outline-none">
+                                    <!-- Changement au survol : text-warm-orange -->
+                                    <span
+                                        class="flex-1 min-w-0 text-base md:text-lg font-semibold text-white pr-4 group-hover:text-warm-orange transition-colors leading-snug">
+                                        Pourquoi devrais-je vous faire confiance plutôt qu'à une autre agence ?
+                                    </span>
+                                    <!-- Changement au survol : bg-warm-orange -->
+                                    <div
+                                        class="icon-container flex-shrink-0 w-8 h-8 mt-1 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-warm-orange group-hover:text-white transition-colors duration-300">
+                                        <svg class="w-4 h-4 transition-transform duration-300" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 4v16m8-8H4"></path>
+                                        </svg>
+                                    </div>
+                                </button>
+                                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                                    <div
+                                        class="px-5 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4">
+                                        <p>Avec Clartem, vous ne choisissez pas entre la vitesse et la qualité. Vous
+                                            bénéficiez de la rigueur d'une agence, de l'agilité d'un freelance, et d'un
+                                            processus unique (l'Atelier de Clarté) qui clarifie votre message avant même
+                                            de commencer le design.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Question 2 -->
+                            <div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+                                <button
+                                    class="faq-toggle w-full flex justify-between items-start text-left py-5 px-5 md:py-6 md:px-8 focus:outline-none">
+                                    <span
+                                        class="flex-1 min-w-0 text-base md:text-lg font-semibold text-white pr-4 group-hover:text-warm-orange transition-colors leading-snug">
+                                        Le « Site Clarté » est-il adapté à ma profession ?
+                                    </span>
+                                    <div
+                                        class="icon-container flex-shrink-0 w-8 h-8 mt-1 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-warm-orange group-hover:text-white transition-colors duration-300">
+                                        <svg class="w-4 h-4 transition-transform duration-300" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 4v16m8-8H4"></path>
+                                        </svg>
+                                    </div>
+                                </button>
+                                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                                    <div
+                                        class="px-5 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4">
+                                        <p>Absolument. Que vous soyez coach, thérapeute ou consultant, la structure est
+                                            pensée pour établir votre crédibilité et convertir les visiteurs en clients.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </button>
-                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                        <div class="px-5 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4">
-                            <p>Oui, 100% transparent. Le prix inclut la création, le design, le développement, et la première année d'hébergement et de maintenance.</p>
+
+                        <!-- GROUPE 2 : TARIFS -->
+                        <div id="content-tarifs" class="tab-content hidden animate-fade-in">
+                            <!-- Question 1 -->
+                            <div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+                                <button
+                                    class="faq-toggle w-full flex justify-between items-start text-left py-5 px-5 md:py-6 md:px-8 focus:outline-none">
+                                    <span
+                                        class="flex-1 min-w-0 text-base md:text-lg font-semibold text-white pr-4 group-hover:text-warm-orange transition-colors leading-snug">
+                                        Le tarif est-il tout compris ?
+                                    </span>
+                                    <div
+                                        class="icon-container flex-shrink-0 w-8 h-8 mt-1 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-warm-orange group-hover:text-white transition-colors duration-300">
+                                        <svg class="w-4 h-4 transition-transform duration-300" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 4v16m8-8H4"></path>
+                                        </svg>
+                                    </div>
+                                </button>
+                                <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                                    <div
+                                        class="px-5 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4">
+                                        <p>Oui, 100% transparent. Le prix inclut la création, le design, le
+                                            développement, et la première année d'hébergement et de maintenance.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- GROUPE 3 : TECHNIQUE -->
+                        <div id="content-technique" class="tab-content hidden animate-fade-in">
+                            <div class="p-8 text-center text-gray-400">
+                                <p>Questions techniques à venir...</p>
+                            </div>
+                        </div>
+
                     </div>
+
+                    <!-- CTA FINAL (COULEUR CORRIGÉE) -->
+                    <div class="mt-12 text-center">
+                        <p class="text-gray-400 mb-4">Vous ne trouvez pas votre réponse ?</p>
+                        <!-- Lien passé en warm-orange -->
+                        <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                            class="inline-flex items-center gap-2 text-warm-orange hover:text-white transition-colors font-medium">
+                            Réserver un appel Clarté gratuit &rarr;
+                        </a>
+                    </div>
+
                 </div>
-            </div>
-
-            <!-- GROUPE 3 : TECHNIQUE (VIDE POUR L'INSTANT MAIS PRÊT) -->
-            <div id="content-technique" class="tab-content hidden animate-fade-in">
-                <div class="p-8 text-center text-gray-400">
-                    <p>Questions techniques à venir...</p>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- CTA FINAL -->
-        <div class="mt-12 text-center">
-            <p class="text-gray-400 mb-4">Vous ne trouvez pas votre réponse ?</p>
-            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" 
-               class="inline-flex items-center gap-2 text-clarity-blue hover:text-white transition-colors font-medium">
-                Réserver un appel de découverte gratuit &rarr;
-            </a>
-        </div>
-
-    </div>
-</section>
-
-
-
-
-
+            </section>
 
         </main>
 
@@ -469,8 +504,7 @@
 
     </div>
 
-
-    <!-- BANDEAU DE CONSENTEMENT AUX COOKIES (VERSION RESPONSIVE AMÉLIORÉE) -->
+    <!-- BANDEAU DE CONSENTEMENT AUX COOKIES -->
     <div id="cookie-consent-banner" class="hidden fixed bottom-0 inset-x-0 p-2 sm:p-4 z-[100]">
         <div class="max-w-7xl mx-auto">
             <div
@@ -487,7 +521,6 @@
                     </p>
                 </div>
 
-
                 <!-- Section Boutons -->
                 <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
                     <button id="cookie-accept-btn" type="button" class="w-full sm:w-auto btn btn-primary px-6 py-2">
@@ -498,52 +531,35 @@
                         Refuser
                     </button>
                 </div>
-
-
             </div>
         </div>
     </div>
-    <!-- FIN DU BANDEAU DE CONSENTEMENT -->
-
-
-
 
     <script>
+        // GESTION DES ONGLETS FAQ
+        function switchTab(category) {
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.classList.add('text-gray-400', 'bg-white/5');
+                btn.classList.remove('bg-clarity-blue', 'text-white', 'shadow-lg');
+            });
 
+            const activeBtn = event.currentTarget;
+            activeBtn.classList.add('active');
+            activeBtn.classList.remove('text-gray-400', 'bg-white/5');
 
-// GESTION DES ONGLETS FAQ
-function switchTab(category) {
-    // 1. Gestion des boutons (visuel)
-    // On enlève la classe 'active' de tous les boutons
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('active');
-        btn.classList.add('text-gray-400', 'bg-white/5'); // Remet le style "inactif"
-        btn.classList.remove('bg-clarity-blue', 'text-white', 'shadow-lg'); // Enlève le style "actif"
-    });
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+                content.classList.remove('block');
+            });
 
-    // On active le bouton cliqué (event.target est un peu risqué si on clique sur un enfant, 
-    // donc on utilise une approche directe via CSS class toggle dans le HTML, 
-    // mais voici une méthode simple qui marche avec le onclick ci-dessus)
-    const activeBtn = event.currentTarget;
-    activeBtn.classList.add('active');
-    activeBtn.classList.remove('text-gray-400', 'bg-white/5');
-
-    // 2. Gestion du contenu
-    // On cache tout
-    document.querySelectorAll('.tab-content').forEach(content => {
-        content.classList.add('hidden');
-        content.classList.remove('block');
-    });
-
-    // On affiche la catégorie demandée
-    const targetContent = document.getElementById('content-' + category);
-    if(targetContent) {
-        targetContent.classList.remove('hidden');
-        targetContent.classList.add('block');
-    }
-}
+            const targetContent = document.getElementById('content-' + category);
+            if (targetContent) {
+                targetContent.classList.remove('hidden');
+                targetContent.classList.add('block');
+            }
+        }
     </script>
-
 
     <!-- Custom JS -->
     <script src="js/script.js"></script>
