@@ -121,19 +121,16 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
-
+    
     <!-- CSS Supplémentaire pour le Dark Mode FAQ (Inspiré de votre snippet) -->
     <style>
         .faq-toggle svg.rotate-180 {
-            transform: rotate(135deg);
-            /* Transforme le + en X si l'icone est un plus, sinon fait une rotation */
+            transform: rotate(135deg); /* Transforme le + en X si l'icone est un plus, sinon fait une rotation */
         }
-
         .faq-toggle.active .icon-container {
             background-color: #3B82F6;
             color: white;
         }
-
         .faq-answer {
             will-change: max-height;
         }
@@ -141,12 +138,10 @@
 
 
 
-    <!-- CSS SPÉCIFIQUE POUR FORCER LE MENU SOMBRE SUR LA FAQ -->
     <style>
         /* Force le fond sombre même si le JS essaie de le mettre en blanc */
         #main-nav {
-            background-color: #1F2937 !important;
-            /* Couleur neutral-dark */
+            background-color: #1F2937 !important; /* Couleur neutral-dark */
             color: white !important;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
@@ -155,7 +150,7 @@
         #main-nav #nav-links a {
             color: white !important;
         }
-
+        
         /* Garde le hover bleu */
         #main-nav #nav-links a:hover {
             color: #3B82F6 !important;
@@ -171,7 +166,30 @@
         #main-nav img {
             filter: brightness(0) invert(1);
         }
+
+
+
+        /* Style pour l'onglet actif */
+.tab-btn.active {
+    background-color: #3B82F6; /* clarity-blue */
+    color: white;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+}
+
+/* Animation douce lors du changement d'onglet */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
     </style>
+
+
+
+
 
 
 </head>
@@ -180,25 +198,25 @@
 <body class="bg-neutral-dark">
     <div class="min-h-screen flex flex-col">
 
+       
 
 
 
 
-
-        <!-- ======================================================= -->
+<!-- ======================================================= -->
         <!--           Section Navigation (VERSION FINE)             -->
         <!-- ======================================================= -->
 
-        <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-neutral-dark">
+        <nav id="main-nav"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-neutral-dark">
             <!-- Modification ici : py-4 est devenu py-2 pour réduire la hauteur globale -->
             <div class="container mx-auto px-6 py-2">
                 <div class="flex items-center justify-between">
                     <a href="index.html" class="flex items-center">
                         <!-- Modification ici : h-14 est devenu h-10 pour un logo plus discret -->
-                        <img class="h-10 w-auto transition-all duration-300" src="assets/logo-blanc-clartem.svg"
-                            alt="Logo clartem.com">
+                        <img class="h-10 w-auto transition-all duration-300" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
                     </a>
-
+                    
                     <!-- Menu Desktop -->
                     <!-- J'ai ajouté text-sm pour que les liens soient plus fins visuellement aussi -->
                     <div class="hidden md:flex items-center space-x-8 text-sm" id="nav-links">
@@ -214,8 +232,7 @@
                     <!-- Modification ici : h-12 devenu h-10, px-8 devenu px-6 et ajout de text-sm -->
                     <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
                         rel="noopener noreferrer"
-                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-6 h-10 text-sm font-medium">Planifier
-                        un Appel
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-6 h-10 text-sm font-medium">Planifier un Appel
                     </a>
 
                     <!-- Bouton Mobile -->
@@ -230,24 +247,20 @@
 
                 <!-- Menu Mobile -->
                 <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2 pb-4 border-t border-gray-700 pt-4">
-                    <a href="index.html"
-                        class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Accueil</a>
-                    <a href="a-propos.html" class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">À
-                        Propos</a>
-                    <a href="index.html#plan"
-                        class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Processus</a>
-                    <a href="portfolio.html"
-                        class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Portfolio</a>
-                    <a href="index.html#offres"
-                        class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Offres</a>
-                    <a href="blog.html"
-                        class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Blog</a>
+                    <a href="index.html" class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Accueil</a>
+                    <a href="a-propos.html" class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">À Propos</a>
+                    <a href="index.html#plan" class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Processus</a>
+                    <a href="portfolio.html" class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Portfolio</a>
+                    <a href="index.html#offres" class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Offres</a>
+                    <a href="blog.html" class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Blog</a>
                     <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
-                        rel="noopener noreferrer"
-                        class="block mt-4 w-full text-center btn btn-primary py-2 text-sm">Planifier un Appel</a>
+                        rel="noopener noreferrer" class="block mt-4 w-full text-center btn btn-primary py-2 text-sm">Planifier un Appel</a>
                 </div>
             </div>
         </nav>
+
+
+
 
 
 
@@ -256,392 +269,203 @@
 
 
 
+         <!-- ======================================================= -->
+<!--       NOUVELLE SECTION FAQ (STYLE ONGLETS / TABS)       -->
+<!-- ======================================================= -->
+<section id="faq-main" class="pt-32 pb-24 lg:pt-48 lg:pb-40 relative min-h-screen">
+    
+    <!-- Décoration de fond -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[500px] bg-clarity-blue/5 rounded-full blur-3xl pointer-events-none"></div>
 
+    <div class="container mx-auto px-4 relative z-10 max-w-4xl">
+        
+        <!-- 1. EN-TÊTE CENTRÉ -->
+        <div class="text-center mb-12" data-sr>
+            <div class="inline-block px-3 py-1 mb-6 border border-gray-700 rounded-full bg-white/5 text-xs font-bold tracking-widest text-gray-300 uppercase backdrop-blur-md">
+                Centre d'Aide
+            </div>
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                Réponses & <span class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-white">Clarté</span>
+            </h1>
+            <p class="text-base md:text-lg text-gray-400 max-w-2xl mx-auto">
+                Tout ce que vous devez savoir pour avancer sereinement. Sélectionnez une catégorie ci-dessous pour filtrer les réponses.
+            </p>
+        </div>
 
+        <!-- 2. NAVIGATION PAR ONGLETS (SCROLLABLE SUR MOBILE) -->
+        <div class="flex flex-wrap justify-center gap-3 mb-10 md:mb-16 border-b border-white/10 pb-8" id="faq-tabs">
+            <!-- Onglet 1 : Actif par défaut -->
+            <button onclick="switchTab('general')" 
+                class="tab-btn active px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 border border-transparent hover:border-white/20">
+                Général & Confiance
+            </button>
+            
+            <!-- Onglet 2 -->
+            <button onclick="switchTab('tarifs')" 
+                class="tab-btn px-6 py-3 rounded-full text-sm font-medium text-gray-400 bg-white/5 border border-white/5 hover:bg-white/10 hover:text-white transition-all duration-300">
+                Tarifs & Investissement
+            </button>
 
-            <!-- ======================================================= -->
-            <!--       NOUVELLE SECTION FAQ (Style Centre d'Aide)        -->
-            <!-- ======================================================= -->
-            <section id="faq-main" class="pt-32 pb-24 lg:pt-48 lg:pb-40 relative min-h-screen">
+            <!-- Onglet 3 (Exemple pour vos futures questions) -->
+            <button onclick="switchTab('technique')" 
+                class="tab-btn px-6 py-3 rounded-full text-sm font-medium text-gray-400 bg-white/5 border border-white/5 hover:bg-white/10 hover:text-white transition-all duration-300">
+                Technique & Gestion
+            </button>
+        </div>
 
-                <!-- Fond décoratif léger -->
-                <div
-                    class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-gradient-to-b from-clarity-blue/5 to-transparent pointer-events-none">
-                </div>
-
-                <div class="container mx-auto px-6 relative z-10">
-
-                    <!-- 1. EN-TÊTE & RECHERCHE -->
-                    <div class="max-w-3xl mx-auto text-center mb-16" data-sr>
-                        <div
-                            class="inline-block px-3 py-1 mb-6 border border-gray-700 rounded-full bg-white/5 text-xs font-bold tracking-widest text-gray-300 uppercase backdrop-blur-md">
-                            Centre d'Aide
+        <!-- 3. CONTENU DES QUESTIONS (ACCORDÉONS) -->
+        <!-- Les groupes sont masqués/affichés via JS -->
+        
+        <div class="bg-white/5 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-sm min-h-[400px]">
+            
+            <!-- GROUPE 1 : GÉNÉRAL -->
+            <div id="content-general" class="tab-content block animate-fade-in">
+                <!-- Question 1 -->
+                <div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+                    <button class="faq-toggle w-full flex justify-between items-start text-left py-5 px-5 md:py-6 md:px-8 focus:outline-none">
+                        <span class="flex-1 min-w-0 text-base md:text-lg font-semibold text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                            Pourquoi devrais-je vous faire confiance plutôt qu'à une autre agence ?
+                        </span>
+                        <div class="icon-container flex-shrink-0 w-8 h-8 mt-1 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+                            <svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                         </div>
-                        <h1 class="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                            Comment puis-je vous aider ?
-                        </h1>
-
-                        <!-- Barre de Recherche -->
-                        <div class="relative max-w-xl mx-auto group">
-                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                <svg class="h-5 w-5 text-gray-400 group-focus-within:text-clarity-blue transition-colors"
-                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                </svg>
-                            </div>
-                            <input type="text" id="faq-search"
-                                class="block w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-clarity-blue focus:border-transparent transition-all shadow-lg backdrop-blur-sm"
-                                placeholder="Rechercher une question (ex: prix, délai, modification...)">
-                        </div>
-                    </div>
-
-                    <!-- 2. NAVIGATION PAR CATÉGORIES (ONGLETS) -->
-                    <!-- Scrollable horizontalement sur mobile -->
-                    <div class="flex flex-wrap justify-center gap-3 mb-12 overflow-x-auto pb-4 md:pb-0 no-scrollbar"
-                        id="faq-filters" data-sr data-sr-delay="100">
-                        <button
-                            class="filter-btn active px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-clarity-blue text-white shadow-lg shadow-clarity-blue/25"
-                            data-category="all">
-                            Tout voir
-                        </button>
-                        <button
-                            class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white border border-white/5"
-                            data-category="general">
-                            Général
-                        </button>
-                        <button
-                            class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white border border-white/5"
-                            data-category="tarifs">
-                            Tarifs & Paiement
-                        </button>
-                        <button
-                            class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white border border-white/5"
-                            data-category="technique">
-                            Technique & Gestion
-                        </button>
-                        <button
-                            class="filter-btn px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white border border-white/5"
-                            data-category="process">
-                            Le Processus
-                        </button>
-                    </div>
-
-                    <!-- 3. LISTE DES QUESTIONS (ACCORDÉON UNIQUE) -->
-                    <div class="max-w-3xl mx-auto space-y-4" id="faq-container">
-
-                        <!-- QUESTION 1 (Catégorie: Général) -->
-                        <div class="faq-item group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-colors"
-                            data-category="general">
-                            <button
-                                class="faq-toggle w-full flex justify-between items-center text-left py-5 px-6 focus:outline-none">
-                                <span
-                                    class="text-lg font-semibold text-white group-hover:text-clarity-blue transition-colors pr-4">
-                                    Pourquoi choisir Clartem plutôt qu'une autre agence ?
-                                </span>
-                                <span
-                                    class="icon-wrapper transform transition-transform duration-300 text-gray-400 group-hover:text-white">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </span>
-                            </button>
-                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500">
-                                <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-white/5 pt-4">
-                                    Avec Clartem, vous ne choisissez pas entre la vitesse et la qualité. Vous bénéficiez
-                                    de la rigueur d'une agence, de l'agilité d'un freelance, et d'un processus unique
-                                    (l'Atelier de Clarté) qui clarifie votre message avant même de commencer le design.
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- QUESTION 2 (Catégorie: Tarifs) -->
-                        <div class="faq-item group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-colors"
-                            data-category="tarifs">
-                            <button
-                                class="faq-toggle w-full flex justify-between items-center text-left py-5 px-6 focus:outline-none">
-                                <span
-                                    class="text-lg font-semibold text-white group-hover:text-clarity-blue transition-colors pr-4">
-                                    Le tarif est-il tout compris ou y a-t-il des frais cachés ?
-                                </span>
-                                <span
-                                    class="icon-wrapper transform transition-transform duration-300 text-gray-400 group-hover:text-white">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </span>
-                            </button>
-                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500">
-                                <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-white/5 pt-4">
-                                    Le tarif est 100% transparent. C'est un paiement unique qui couvre la création du
-                                    site et votre première année de tranquillité totale (hébergement, nom de domaine,
-                                    maintenance). Aucun frais caché. Le renouvellement technique n'intervient qu'après
-                                    12 mois.
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- QUESTION 3 (Catégorie: Process) -->
-                        <div class="faq-item group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-colors"
-                            data-category="process">
-                            <button
-                                class="faq-toggle w-full flex justify-between items-center text-left py-5 px-6 focus:outline-none">
-                                <span
-                                    class="text-lg font-semibold text-white group-hover:text-clarity-blue transition-colors pr-4">
-                                    Comment livrez-vous un site sur-mesure en 7 jours ?
-                                </span>
-                                <span
-                                    class="icon-wrapper transform transition-transform duration-300 text-gray-400 group-hover:text-white">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </span>
-                            </button>
-                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500">
-                                <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-white/5 pt-4">
-                                    Le secret est d'inverser le processus habituel : nous consacrons 80% de l'effort à
-                                    la clarté et au contenu *avant* de coder. Une fois le plan validé lors de l'Atelier,
-                                    la production technique est extrêmement fluide.
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- QUESTION 4 (Catégorie: Technique) -->
-                        <div class="faq-item group bg-white/5 border border-white/10 rounded-2xl overflow-hidden hover:border-white/20 transition-colors"
-                            data-category="technique">
-                            <button
-                                class="faq-toggle w-full flex justify-between items-center text-left py-5 px-6 focus:outline-none">
-                                <span
-                                    class="text-lg font-semibold text-white group-hover:text-clarity-blue transition-colors pr-4">
-                                    Pourrai-je modifier mes textes moi-même ?
-                                </span>
-                                <span
-                                    class="icon-wrapper transform transition-transform duration-300 text-gray-400 group-hover:text-white">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </span>
-                            </button>
-                            <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500">
-                                <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-white/5 pt-4">
-                                    Absolument. Vous aurez accès à un espace d'administration sécurisé et simplifié.
-                                    Vous pourrez changer une image, modifier un tarif ou réécrire un texte aussi
-                                    facilement que sur un document Word, sans toucher au code.
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Message si aucun résultat de recherche -->
-                        <div id="no-results" class="hidden text-center py-12">
-                            <p class="text-gray-400 text-lg">Aucune réponse trouvée pour cette recherche.</p>
-                            <button
-                                onclick="document.querySelector('.filter-btn[data-category=\'all\']').click(); document.getElementById('faq-search').value='';"
-                                class="mt-4 text-clarity-blue hover:underline">
-                                Voir toutes les questions
-                            </button>
-                        </div>
-
-                    </div>
-
-                    <!-- CTA BAS DE PAGE -->
-                    <div class="mt-20 text-center" data-sr>
-                        <p class="text-gray-400 mb-6">Vous ne trouvez pas votre réponse ?</p>
-                        <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
-                            class="inline-flex items-center justify-center btn btn-primary px-8 py-4 text-base font-semibold rounded-full shadow-lg shadow-clarity-blue/30 hover:shadow-clarity-blue/50 transition-all transform hover:-translate-y-1">
-                            <span class="mr-2">Discutons-en de vive voix</span>
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                            </svg>
-                        </a>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- SCRIPTS SPÉCIFIQUES POUR CETTE NOUVELLE FAQ -->
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-
-                    // 1. GESTION DES ACCORDÉONS (Ouverture/Fermeture)
-                    const toggles = document.querySelectorAll('.faq-toggle');
-
-                    toggles.forEach(toggle => {
-                        toggle.addEventListener('click', () => {
-                            const answer = toggle.nextElementSibling;
-                            const icon = toggle.querySelector('.icon-wrapper');
-                            const isOpen = answer.style.maxHeight;
-
-                            // Fermer tous les autres accordéons (optionnel, pour garder propre)
-                            document.querySelectorAll('.faq-answer').forEach(el => {
-                                el.style.maxHeight = null;
-                                el.previousElementSibling.querySelector('.icon-wrapper').style.transform = 'rotate(0deg)';
-                                el.previousElementSibling.classList.remove('text-clarity-blue'); // Retirer la couleur active
-                            });
-
-                            // Si ce n'était pas ouvert, on l'ouvre
-                            if (!isOpen) {
-                                answer.style.maxHeight = answer.scrollHeight + "px";
-                                icon.style.transform = 'rotate(180deg)';
-                                toggle.querySelector('span').classList.add('text-clarity-blue');
-                            }
-                        });
-                    });
-
-                    // 2. GESTION DES FILTRES (Catégories)
-                    const filterBtns = document.querySelectorAll('.filter-btn');
-                    const faqItems = document.querySelectorAll('.faq-item');
-                    const searchInput = document.getElementById('faq-search');
-                    const noResults = document.getElementById('no-results');
-
-                    function filterItems(category, searchTerm = '') {
-                        let visibleCount = 0;
-                        searchTerm = searchTerm.toLowerCase();
-
-                        faqItems.forEach(item => {
-                            const itemCategory = item.getAttribute('data-category');
-                            const textContent = item.innerText.toLowerCase();
-
-                            // Logique : Est-ce que ça correspond à la catégorie ? ET au terme de recherche ?
-                            const matchesCategory = (category === 'all' || itemCategory === category);
-                            const matchesSearch = textContent.includes(searchTerm);
-
-                            if (matchesCategory && matchesSearch) {
-                                item.style.display = 'block';
-                                // Petit délai pour l'animation (optionnel)
-                                setTimeout(() => item.style.opacity = '1', 50);
-                                visibleCount++;
-                            } else {
-                                item.style.display = 'none';
-                                item.style.opacity = '0';
-                            }
-                        });
-
-                        // Gestion de l'affichage "Aucun résultat"
-                        if (visibleCount === 0) {
-                            noResults.classList.remove('hidden');
-                        } else {
-                            noResults.classList.add('hidden');
-                        }
-                    }
-
-                    // Clic sur les boutons de filtre
-                    filterBtns.forEach(btn => {
-                        btn.addEventListener('click', () => {
-                            // Gestion visuelle des boutons (Active state)
-                            filterBtns.forEach(b => {
-                                b.classList.remove('bg-clarity-blue', 'text-white', 'shadow-lg');
-                                b.classList.add('bg-white/5', 'text-gray-300');
-                            });
-                            btn.classList.remove('bg-white/5', 'text-gray-300');
-                            btn.classList.add('bg-clarity-blue', 'text-white', 'shadow-lg');
-
-                            // Appliquer le filtre
-                            const category = btn.getAttribute('data-category');
-                            // On garde le terme de recherche actuel s'il y en a un
-                            const currentSearch = searchInput.value;
-                            filterItems(category, currentSearch);
-                        });
-                    });
-
-                    // 3. GESTION DE LA RECHERCHE
-                    searchInput.addEventListener('input', (e) => {
-                        const searchTerm = e.target.value;
-                        // On trouve quelle catégorie est active
-                        const activeBtn = document.querySelector('.filter-btn.bg-clarity-blue'); // Sélecteur basé sur la classe active
-                        const activeCategory = activeBtn ? activeBtn.getAttribute('data-category') : 'all';
-
-                        filterItems(activeCategory, searchTerm);
-                    });
-
-                });
-            </script>
-
-            <style>
-                /* CSS pour cacher la barre de scroll sur les filtres mobiles tout en permettant le scroll */
-                .no-scrollbar::-webkit-scrollbar {
-                    display: none;
-                }
-
-                .no-scrollbar {
-                    -ms-overflow-style: none;
-                    scrollbar-width: none;
-                }
-            </style>
-
-
-
-
-
-
-            <!-- ======================================================= -->
-            <!--                        Footer                           -->
-            <!-- ======================================================= -->
-            <footer class="bg-neutral-dark text-white py-16">
-                <div class="container mx-auto px-6">
-                    <div class="grid md:grid-cols-3 gap-12">
-                        <div class="space-y-6">
-                            <div>
-                                <a href="index.html">
-                                    <img class="h-14 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
-                                </a>
-                                <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
-                            </div>
-                            <p class="text-neutral-light leading-relaxed">Vous transformez des vies, votre site devrait
-                                le
-                                refléter. J'aide les professionnels de l'accompagnement à traduire leur expertise en une
-                                présence digitale claire, qui inspire confiance et attire les bonnes personnes.</p>
-                        </div>
-                        <div class="space-y-6">
-                            <h4 class="text-xl font-bold text-white">Navigation</h4>
-                            <div class="space-y-3">
-                                <a href="index.html"
-                                    class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
-                                <a href="a-propos.html"
-                                    class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
-                                    Propos</a>
-                                <a href="index.html#plan"
-                                    class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Processus</a>
-                                <a href="portfolio.html"
-                                    class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Portfolio</a>
-                                <a href="index.html#offres"
-                                    class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Offres</a>
-                                <a href="blog.html"
-                                    class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
-
-                            </div>
-                        </div>
-                        <div class="space-y-6">
-                            <h4 class="text-xl font-bold text-white">Informations Légales</h4>
-                            <div class="space-y-3">
-                                <a href="mentions-legales.html"
-                                    class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
-                                    Légales</a>
-                                <a href="politique-de-confidentialite.html"
-                                    class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
-                                    de Confidentialité</a>
-                                <a href="cgv.html"
-                                    class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
-                                    Générales de Vente</a>
-                                <a href="contact.html"
-                                    class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border-t border-neutral-light/20 mt-12 pt-8">
-                        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                            <p class="text-sm text-neutral-light">© 2025 clartem.com. Tous droits réservés.</p>
-                            <div class="text-sm text-neutral-light">
-                                <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
-                            </div>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                        <div class="px-5 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4">
+                            <p>Avec Clartem, vous ne choisissez pas entre la vitesse et la qualité. Vous bénéficiez de la rigueur d'une agence, de l'agilité d'un freelance, et d'un processus unique (l'Atelier de Clarté) qui clarifie votre message avant même de commencer le design.</p>
                         </div>
                     </div>
                 </div>
-            </footer>
+
+                <!-- Question 2 -->
+                <div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+                    <button class="faq-toggle w-full flex justify-between items-start text-left py-5 px-5 md:py-6 md:px-8 focus:outline-none">
+                        <span class="flex-1 min-w-0 text-base md:text-lg font-semibold text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                            Le « Site Clarté » est-il adapté à ma profession ?
+                        </span>
+                        <div class="icon-container flex-shrink-0 w-8 h-8 mt-1 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+                            <svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                        <div class="px-5 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4">
+                            <p>Absolument. Que vous soyez coach, thérapeute ou consultant, la structure est pensée pour établir votre crédibilité et convertir les visiteurs en clients.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GROUPE 2 : TARIFS -->
+            <div id="content-tarifs" class="tab-content hidden animate-fade-in">
+                <!-- Question 1 -->
+                <div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+                    <button class="faq-toggle w-full flex justify-between items-start text-left py-5 px-5 md:py-6 md:px-8 focus:outline-none">
+                        <span class="flex-1 min-w-0 text-base md:text-lg font-semibold text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                            Le tarif est-il tout compris ?
+                        </span>
+                        <div class="icon-container flex-shrink-0 w-8 h-8 mt-1 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+                            <svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                        </div>
+                    </button>
+                    <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                        <div class="px-5 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4">
+                            <p>Oui, 100% transparent. Le prix inclut la création, le design, le développement, et la première année d'hébergement et de maintenance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GROUPE 3 : TECHNIQUE (VIDE POUR L'INSTANT MAIS PRÊT) -->
+            <div id="content-technique" class="tab-content hidden animate-fade-in">
+                <div class="p-8 text-center text-gray-400">
+                    <p>Questions techniques à venir...</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CTA FINAL -->
+        <div class="mt-12 text-center">
+            <p class="text-gray-400 mb-4">Vous ne trouvez pas votre réponse ?</p>
+            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" 
+               class="inline-flex items-center gap-2 text-clarity-blue hover:text-white transition-colors font-medium">
+                Réserver un appel de découverte gratuit &rarr;
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+
+        </main>
+
+        <!-- ======================================================= -->
+        <!--                        Footer                           -->
+        <!-- ======================================================= -->
+        <footer class="bg-neutral-dark text-white py-16">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="index.html">
+                                <img class="h-14 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-neutral-light leading-relaxed">Vous transformez des vies, votre site devrait le
+                            refléter. J'aide les professionnels de l'accompagnement à traduire leur expertise en une
+                            présence digitale claire, qui inspire confiance et attire les bonnes personnes.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="index.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="a-propos.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="index.html#plan"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Processus</a>
+                            <a href="portfolio.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Portfolio</a>
+                            <a href="index.html#offres"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Offres</a>
+                            <a href="blog.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="mentions-legales.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="politique-de-confidentialite.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="cgv.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="contact.html"
+                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-neutral-light">© 2025 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-neutral-light">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
     </div>
 
@@ -680,6 +504,46 @@
         </div>
     </div>
     <!-- FIN DU BANDEAU DE CONSENTEMENT -->
+
+
+
+
+    <script>
+
+
+// GESTION DES ONGLETS FAQ
+function switchTab(category) {
+    // 1. Gestion des boutons (visuel)
+    // On enlève la classe 'active' de tous les boutons
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+        btn.classList.add('text-gray-400', 'bg-white/5'); // Remet le style "inactif"
+        btn.classList.remove('bg-clarity-blue', 'text-white', 'shadow-lg'); // Enlève le style "actif"
+    });
+
+    // On active le bouton cliqué (event.target est un peu risqué si on clique sur un enfant, 
+    // donc on utilise une approche directe via CSS class toggle dans le HTML, 
+    // mais voici une méthode simple qui marche avec le onclick ci-dessus)
+    const activeBtn = event.currentTarget;
+    activeBtn.classList.add('active');
+    activeBtn.classList.remove('text-gray-400', 'bg-white/5');
+
+    // 2. Gestion du contenu
+    // On cache tout
+    document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.add('hidden');
+        content.classList.remove('block');
+    });
+
+    // On affiche la catégorie demandée
+    const targetContent = document.getElementById('content-' + category);
+    if(targetContent) {
+        targetContent.classList.remove('hidden');
+        targetContent.classList.add('block');
+    }
+}
+    </script>
+
 
     <!-- Custom JS -->
     <script src="js/script.js"></script>
