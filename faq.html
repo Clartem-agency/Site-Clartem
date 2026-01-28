@@ -32,7 +32,7 @@
     <link rel="alternate" hreflang="fr-fr" href="https://www.clartem.com/faq.html" />
     <link rel="alternate" hreflang="x-default" href="https://www.clartem.com/faq.html" />
 
-    <!-- 3. Données Structurées : FAQPage (Pour les résultats enrichis Google) -->
+    <!-- 3. Données Structurées : FAQPage -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -83,10 +83,6 @@
     }
     </script>
 
-    <!-- ======================================================= -->
-    <!--       FIN DU BLOC SEO                                   -->
-    <!-- ======================================================= -->
-
     <!-- Meta Tags Open Graph & Twitter -->
     <meta property="og:title" content="FAQ - clartem.com">
     <meta property="og:description"
@@ -125,54 +121,170 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- CSS Supplémentaire pour le Dark Mode FAQ -->
+    <style>
+        .faq-toggle svg.rotate-180 {
+            transform: rotate(135deg);
+        }
+
+        /* CORRECTION ICI : On remet le bleu pour l'état actif */
+        .faq-toggle.active .icon-container {
+            background-color: #3B82F6;
+            /* clarity-blue */
+            color: white;
+        }
+
+        .faq-answer {
+            will-change: max-height;
+        }
+
+        /* Force le fond sombre même si le JS essaie de le mettre en blanc */
+        #main-nav {
+            background-color: #1F2937 !important;
+            /* Couleur neutral-dark */
+            color: white !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Force les liens en blanc */
+        #main-nav #nav-links a {
+            color: white !important;
+        }
+
+        /* Garde le hover bleu */
+        #main-nav #nav-links a:hover {
+            color: #3B82F6 !important;
+        }
+
+        /* Force le bouton mobile en blanc */
+        #mobile-menu-button {
+            color: white !important;
+        }
+
+        /* Filtre logo blanc */
+        #main-nav img {
+            filter: brightness(0) invert(1);
+        }
+
+        /* Style pour l'onglet actif */
+        .tab-btn.active {
+            background-color: #3B82F6;
+            /* clarity-blue */
+            color: white;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Animation douce lors du changement d'onglet */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+
+
+        /* Sidebar Navigation Styles */
+        .nav-btn.active {
+            background-color: rgba(59, 130, 246, 0.1);
+            /* clarity-blue très transparent */
+            color: #3B82F6;
+            /* clarity-blue text */
+            border-color: #3B82F6;
+            /* Bordure gauche bleue */
+        }
+
+        /* Style spécifique pour les options du select sur mobile (pour qu'elles soient lisibles) */
+        #mobile-category-select option {
+            background-color: #1F2937;
+            /* neutral-dark */
+            color: white;
+        }
+
+
+
+        /* Animation de l'orbe de clarté */
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            50% {
+                opacity: 0.6;
+                /* Plus lumineux au milieu */
+                transform: translate(-50%, -50%) scale(1.2);
+                /* S'agrandit légèrement */
+            }
+        }
+
+        .orb-light {
+            position: absolute;
+            left: 50%;
+            /* Centré horizontalement */
+            top: 20%;
+            /* Positionné derrière le titre */
+            width: 400px;
+            height: 400px;
+            /* Dégradé radial : Coeur blanc -> Bleu clair -> Transparent */
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(59, 130, 246, 0.15) 40%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+            /* Flou important pour l'effet gazeux */
+            animation: pulse-glow 6s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
 </head>
 
 
-<body class="bg-white">
+<body class="bg-neutral-dark">
     <div class="min-h-screen flex flex-col">
 
-
-
-
-
-
-
         <!-- ======================================================= -->
-        <!--                Section Navigation                       -->
+        <!--           Section Navigation (VERSION FINE)             -->
         <!-- ======================================================= -->
 
-
-        <nav id="main-nav"
-            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
-            <div class="container mx-auto px-6 py-4">
+        <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-neutral-dark">
+            <div class="container mx-auto px-6 py-2">
                 <div class="flex items-center justify-between">
-                    <a href="index.html">
-                        <img class="h-14 w-auto" src="assets/logo-clartem.svg" alt="Logo clartem.com">
+                    <a href="index.html" class="flex items-center">
+                        <img class="h-10 w-auto transition-all duration-300" src="assets/logo-blanc-clartem.svg"
+                            alt="Logo clartem.com">
                     </a>
-                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
-                        <a href="index.html"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
-                        <a href="a-propos.html"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
-                            Propos</a>
-                        <a href="index.html#plan"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Processus</a>
-                        <a href="portfolio.html"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Portfolio</a>
-                        <a href="index.html#offres"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Offres</a>
-                        <a href="blog.html"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Blog</a>
 
+                    <!-- Menu Desktop -->
+                    <div class="hidden md:flex items-center space-x-8 text-sm" id="nav-links">
+                        <a href="index.html" class="font-medium transition-colors duration-300">Accueil</a>
+                        <a href="a-propos.html" class="font-medium transition-colors duration-300">À Propos</a>
+                        <a href="index.html#plan" class="font-medium transition-colors duration-300">Processus</a>
+                        <a href="portfolio.html" class="font-medium transition-colors duration-300">Portfolio</a>
+                        <a href="index.html#offres" class="font-medium transition-colors duration-300">Offres</a>
+                        <a href="blog.html" class="font-medium transition-colors duration-300">Blog</a>
                     </div>
+
+                    <!-- CTA -->
                     <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
                         rel="noopener noreferrer"
-                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier un
-                        Appel Clarté
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-6 h-10 text-sm font-medium">Planifier
+                        un Appel
                     </a>
 
-
-                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                    <!-- Bouton Mobile -->
+                    <button id="mobile-menu-button" class="md:hidden focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -181,180 +293,264 @@
                     </button>
                 </div>
 
-
-
-
-                <!-- ======================================================= -->
-                <!--                        Mobile Menu                      -->
-                <!-- ======================================================= -->
-                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
-
+                <!-- Menu Mobile -->
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2 pb-4 border-t border-gray-700 pt-4">
                     <a href="index.html"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
-                    <a href="a-propos.html"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                        class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Accueil</a>
+                    <a href="a-propos.html" class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">À
                         Propos</a>
                     <a href="index.html#plan"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Processus</a>
+                        class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Processus</a>
                     <a href="portfolio.html"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Portfolio</a>
+                        class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Portfolio</a>
                     <a href="index.html#offres"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Offres</a>
+                        class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Offres</a>
                     <a href="blog.html"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Blog</a>
-
+                        class="block text-white hover:text-clarity-blue font-medium py-2 text-sm">Blog</a>
                     <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
-                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier un
-                        Appel Clarté</a>
+                        rel="noopener noreferrer"
+                        class="block mt-4 w-full text-center btn btn-primary py-2 text-sm">Planifier un Appel</a>
                 </div>
             </div>
         </nav>
 
+        <main class="flex-grow bg-neutral-dark">
 
 
 
 
 
-
-
-
-
-
-        <main class="flex-grow">
-            <!-- ======================================================= -->
-            <!--                Section Hero de la FAQ                   -->
-            <!-- ======================================================= -->
-            <section class="bg-soft-blue pt-32 pb-20 text-center">
-                <div class="container mx-auto px-6">
-                    <h1 class="text-4xl md:text-5xl font-bold text-neutral-dark mb-6" data-sr>
-                        FAQ - Vos questions,<br> <span class="text-clarity-blue">mes réponses en toute clarté.</span>
-                    </h1>
-                    <p class="text-lg md:text-xl text-neutral-light max-w-3xl mx-auto" data-sr-delay="100">
-                        Pour vous aider à y voir plus clair, j'ai organisé les questions les plus fréquentes par thèmes.
-                        Naviguez simplement dans les catégories qui vous intéressent pour trouver les réponses dont vous
-                        avez besoin.
-                    </p>
-                </div>
-            </section>
 
             <!-- ======================================================= -->
-            <!--                Contenu Principal de la FAQ              -->
+            <!--       NOUVELLE SECTION FAQ (LAYOUT SIDEBAR + SELECT)    -->
             <!-- ======================================================= -->
-            <section class="py-20">
-                <div class="container mx-auto px-6">
+            <section id="faq-main" class="pt-32 pb-24 lg:pt-48 lg:pb-40 relative min-h-screen">
 
-                    <!-- Navigation par Catégories -->
-                    <div class="max-w-4xl mx-auto mb-16 text-center" data-sr>
-                        <h2 class="text-xl font-bold text-neutral-dark mb-6">Accès rapide par catégorie :</h2>
-                        <div class="flex flex-wrap justify-center gap-3">
-                            <a href="#category-1" class="btn btn-secondary !py-2 !px-4 !text-sm">Général</a>
-                            <a href="#category-2" class="btn btn-secondary !py-2 !px-4 !text-sm">Tarifs</a>
-                            <a href="#category-3" class="btn btn-secondary !py-2 !px-4 !text-sm">Processus</a>
-                            <a href="#category-4" class="btn btn-secondary !py-2 !px-4 !text-sm">Contenu & Design</a>
-                            <a href="#category-5" class="btn btn-secondary !py-2 !px-4 !text-sm">Le Site Web</a>
-                            <a href="#category-6" class="btn btn-secondary !py-2 !px-4 !text-sm">Technique</a>
-                            <a href="#category-7" class="btn btn-secondary !py-2 !px-4 !text-sm">Après la livraison</a>
+
+                <!-- NOUVEL ORBE DE CLARTÉ -->
+                <div class="orb-light"></div>
+
+                <div class="container mx-auto px-4 relative z-10">
+
+
+
+                    <!-- EN-TÊTE -->
+                    <!-- MODIF 1 : J'ai passé mb-16 à mb-24 (mobile) et lg:mb-32 (desktop) pour créer beaucoup plus d'espace -->
+                    <div class="text-center mb-24 lg:mb-32" data-sr>
+                        <div
+                            class="inline-flex items-center gap-2 px-3 py-1 mb-8 border border-warm-orange/30 rounded-full bg-white/5 backdrop-blur-md text-warm-orange text-xs font-bold tracking-widest uppercase shadow-lg">
+                            <span class="relative flex h-2 w-2">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-warm-orange opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-warm-orange"></span>
+                            </span>
+                            Centre d'Aide
                         </div>
+
+                        <!-- MODIF 2 : J'ai passé le texte de text-3xl/5xl à text-5xl/7xl/8xl + tracking-tight (lettres resserrées) pour l'effet premium -->
+                        <h1
+                            class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-none tracking-tight">
+
+                            Réponses & <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-white">Clarté</span>
+                        </h1>
+
+                        <!-- MODIF 3 : J'ai légèrement agrandi le sous-titre pour équilibrer -->
+                        <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed">
+                            Sélectionnez une catégorie pour filtrer les réponses.
+                        </p>
                     </div>
 
-                    <div class="max-w-4xl mx-auto space-y-16">
-
-                        <!-- Catégorie 1: Questions Générales -->
-                        <div id="category-1" data-sr>
-                            <h3
-                                class="text-2xl md:text-3xl font-bold text-neutral-dark mb-8 border-b-2 border-clarity-blue pb-4">
-                                1. Questions Générales sur l'Offre Clartem
-                            </h3>
-                            <div class="space-y-4">
 
 
-                                <!-- Q1 -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Pourquoi devrais-je vous
-                                            faire confiance plutôt qu'à une autre agence ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
+                    <div class="flex flex-col md:flex-row gap-8 lg:gap-12 max-w-6xl mx-auto">
+
+                        <!-- COLONNE GAUCHE : NAVIGATION -->
+                        <div class="md:w-1/3 lg:w-1/4">
+
+
+                            <!-- VERSION MOBILE : MENU DÉROULANT PERSONNALISÉ -->
+                            <div class="md:hidden mb-8 relative z-30">
+
+                                <!-- Le bouton qui remplace le select (apparence identique mais contrôlée) -->
+                                <button onclick="toggleDropdown()" id="dropdown-button"
+                                    class="w-full flex justify-between items-center bg-white/10 border border-white/20 text-white py-3 px-5 rounded-xl focus:outline-none focus:border-clarity-blue focus:ring-1 focus:ring-clarity-blue font-medium text-sm transition-all duration-300">
+                                    <span id="dropdown-label">Général & Confiance</span>
+                                    <!-- Flèche animée -->
+                                    <svg id="dropdown-arrow" class="w-4 h-4 transition-transform duration-300"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+
+                                <!-- La liste des options (cachée par défaut) -->
+                                <div id="dropdown-menu"
+                                    class="hidden absolute top-full left-0 right-0 mt-2 bg-[#1F2937] border border-white/20 rounded-xl shadow-2xl overflow-hidden origin-top transition-all duration-200">
+
+                                    <div onclick="selectOption('general', 'Général & Confiance')"
+                                        class="px-5 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-white cursor-pointer border-b border-white/5 transition-colors">
+                                        Général & Confiance
+                                    </div>
+
+                                    <div onclick="selectOption('tarifs', 'Tarifs & Investissement')"
+                                        class="px-5 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-white cursor-pointer border-b border-white/5 transition-colors">
+                                        Tarifs & Investissement
+                                    </div>
+
+                                    <div onclick="selectOption('technique', 'Technique & Gestion')"
+                                        class="px-5 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-white cursor-pointer transition-colors">
+                                        Technique & Gestion
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- VERSION DESKTOP : SIDEBAR VERTICALE -->
+                            <div class="hidden md:flex flex-col sticky top-32 space-y-2">
+                                <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2 pl-4">Catégories
+                                </p>
+
+                                <button onclick="switchTab('general')" id="btn-general"
+                                    class="nav-btn active text-left px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 border-l-2 hover:bg-white/5 flex justify-between items-center group">
+                                    <span>Général & Confiance</span>
+                                    <svg class="w-4 h-4 opacity-0 -translate-x-2 group-[.active]:opacity-100 group-[.active]:translate-x-0 transition-all duration-300"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </button>
+
+                                <button onclick="switchTab('tarifs')" id="btn-tarifs"
+                                    class="nav-btn text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-400 border-transparent hover:text-white hover:bg-white/5 transition-all duration-300 border-l-2 flex justify-between items-center group">
+                                    <span>Tarifs & Investissement</span>
+                                    <svg class="w-4 h-4 opacity-0 -translate-x-2 group-[.active]:opacity-100 group-[.active]:translate-x-0 transition-all duration-300"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </button>
+
+                                <button onclick="switchTab('technique')" id="btn-technique"
+                                    class="nav-btn text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-400 border-transparent hover:text-white hover:bg-white/5 transition-all duration-300 border-l-2 flex justify-between items-center group">
+                                    <span>Technique & Gestion</span>
+                                    <svg class="w-4 h-4 opacity-0 -translate-x-2 group-[.active]:opacity-100 group-[.active]:translate-x-0 transition-all duration-300"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+
+                        <!-- COLONNE DROITE : CONTENU DES QUESTIONS -->
+                        <div class="flex-1 min-h-[500px]">
+
+                            <!-- Conteneur style "Carte" -->
+                            <div class="bg-white/5 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-sm">
+
+
+
+
+                                <!-- ... GROUPE 1 : GÉNÉRAL ... -->
+                                <div id="content-general" class="tab-content block animate-fade-in">
+
+
+                                    <!-- Question 1 -->
                                     <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-6">
-                                            <p>
-                                                C'est la question la plus importante. Choisir un prestataire web, c'est
-                                                souvent hésiter entre deux extrêmes : l'agence traditionnelle, chère et
-                                                lente, et le freelance, parfois moins structuré ou disponible sur le
-                                                long terme.
-                                            </p>
-                                            <p class="font-semibold text-neutral-dark">
-                                                Mon approche est conçue pour être le meilleur des deux mondes, en y
-                                                ajoutant une dimension que vous ne trouverez nulle part ailleurs.
-                                            </p>
-                                            <p>Avec moi, vous ne choisissez pas entre la vitesse et la qualité. Vous
-                                                obtenez les deux.</p>
+                                        class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+                                        <button
+                                            class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+                                            <span
+                                                class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Pourquoi devrais-je vous faire confiance plutôt qu'à une autre agence ?
+                                            </span>
+                                            <div
+                                                class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+                                                <svg class="w-4 h-4 transition-transform duration-300" fill="none"
+                                                    stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                                </svg>
+                                            </div>
+                                        </button>
+                                        <div
+                                            class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                                            <div
+                                                class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4">
+                                                <p>C'est la question la plus importante. Choisir un prestataire web,
+                                                    c'est souvent hésiter entre deux extrêmes : l'agence traditionnelle,
+                                                    chère et lente, et le freelance, parfois moins structuré ou
+                                                    disponible sur le long terme.</p>
 
-                                            <ol class="space-y-4 mt-4">
-                                                <li>
-                                                    <p class="font-semibold text-neutral-dark">1. Vous bénéficiez de la
-                                                        Rigueur et la Qualité d'une Agence, sans la lourdeur et les
-                                                        coûts.</p>
-                                                    <p class="pl-6">Je ne suis pas un simple exécutant. Vous profitez
-                                                        d'une expertise stratégique en amont, d'un processus éprouvé
+                                                <p>Mon approche est conçue pour être le meilleur des deux mondes, en y
+                                                    ajoutant une dimension que vous ne trouverez nulle part ailleurs.
+                                                </p>
+
+                                                <p class="text-white font-medium">Avec moi, vous ne choisissez pas entre
+                                                    la vitesse et la qualité. Vous obtenez les deux.</p>
+
+                                                <div class="space-y-4 mt-4">
+                                                    <p>
+                                                        <strong class="text-white block mb-1">1. Vous bénéficiez de la
+                                                            Rigueur et la Qualité d'une Agence, sans la lourdeur et les
+                                                            coûts.</strong>
+                                                        Je ne suis pas un simple exécutant. Vous profitez d'une
+                                                        expertise stratégique en amont, d'un processus éprouvé
                                                         (l'Atelier de Clarté), et d'un design 100% sur-mesure qui
                                                         garantit un résultat professionnel. Le tout, sans les multiples
                                                         interlocuteurs, les délais interminables et les devis à cinq
-                                                        chiffres.</p>
-                                                </li>
-                                                <li>
-                                                    <p class="font-semibold text-neutral-dark">2. Vous obtenez l'Agilité
-                                                        et la Vitesse d'un Freelance, sans l'incertitude.</p>
-                                                    <p class="pl-6">Votre projet n'est pas noyé au milieu de dizaines
-                                                        d'autres. Vous avez un interlocuteur unique et dédié, une
-                                                        communication fluide, et un engagement ferme sur un délai
-                                                        rapide. Une fois que votre contenu est prêt, votre site est en
-                                                        ligne en quelques jours, pas en plusieurs mois.</p>
-                                                </li>
-                                                <li>
-                                                    <p class="font-semibold text-neutral-dark">3. Vous vivez un
-                                                        Processus qui vous Clarifie VOUS, pas seulement votre site.</p>
-                                                    <p class="pl-6">C'est mon plus grand différenciateur.
-                                                        L'<strong>Atelier de Clarté</strong> est bien plus qu'un simple
-                                                        questionnaire de briefing. C'est un véritable outil de coaching
-                                                        qui vous force à structurer votre pensée et à affiner votre
-                                                        message. Beaucoup de mes clients me disent que cet exercice seul
-                                                        valait l'investissement, car il leur a apporté une clarté
-                                                        nouvelle sur leur propre activité.</p>
-                                                </li>
-                                                <li>
-                                                    <p class="font-semibold text-neutral-dark">4. Vous profitez de la
-                                                        Transparence Radicale d'un Partenaire.</p>
-                                                    <p class="pl-6">Ma philosophie est simple : pas de jargon technique,
-                                                        pas de frais cachés, et à la fin, <strong>vous êtes propriétaire
-                                                            à 100% de votre site</strong>. Mon but est de vous rendre
-                                                        autonome et de vous livrer un actif pour votre entreprise, pas
-                                                        de vous rendre dépendant de mon service.</p>
-                                                </li>
-                                            </ol>
+                                                        chiffres.
+                                                    </p>
 
-                                            <p class="pt-2">
-                                                En résumé, vous ne choisissez pas un prestataire, vous choisissez
-                                                <strong>un processus qui garantit un résultat</strong> : la clarté, la
-                                                vitesse et la qualité, au service de votre développement.
-                                            </p>
+                                                    <p>
+                                                        <strong class="text-white block mb-1">2. Vous obtenez l'Agilité
+                                                            et la Vitesse d'un Freelance, sans l'incertitude.</strong>
+                                                        Votre projet n'est pas noyé au milieu de dizaines d'autres. Vous
+                                                        avez un interlocuteur unique et dédié, une communication fluide,
+                                                        et un engagement ferme sur un délai rapide. Une fois que votre
+                                                        contenu est prêt, votre site est en ligne en quelques jours, pas
+                                                        en plusieurs mois.
+                                                    </p>
+
+                                                    <p>
+                                                        <strong class="text-white block mb-1">3. Vous vivez un Processus
+                                                            qui vous Clarifie VOUS, pas seulement votre site.</strong>
+                                                        C'est mon plus grand différenciateur. L'Atelier de Clarté est
+                                                        bien plus qu'un simple questionnaire de briefing. C'est un
+                                                        véritable outil de coaching qui vous force à structurer votre
+                                                        pensée et à affiner votre message. Beaucoup de mes clients me
+                                                        disent que cet exercice seul valait l'investissement, car il
+                                                        leur a apporté une clarté nouvelle sur leur propre activité.
+                                                    </p>
+
+                                                    <p>
+                                                        <strong class="text-white block mb-1">4. Vous profitez de la
+                                                            Transparence Radicale d'un Partenaire.</strong>
+                                                        Ma philosophie est simple : pas de jargon technique, pas de
+                                                        frais cachés, et à la fin, vous êtes propriétaire à 100% de
+                                                        votre site. Mon but est de vous rendre autonome et de vous
+                                                        livrer un actif pour votre entreprise, pas de vous rendre
+                                                        dépendant de mon service.
+                                                    </p>
+                                                </div>
+
+                                                <p class="pt-2 italic text-gray-400">En résumé, vous ne choisissez pas
+                                                    un prestataire, vous choisissez un processus qui garantit un
+                                                    résultat : la clarté, la vitesse et la qualité, au service de votre
+                                                    développement.</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
 
-
-                                <!-- Question 2 -->
+                                    <!-- Question 2 -->
                                     <div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
                                         <button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
                                             <span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
-                                                Le « Site Clarté » est-il adapté à ma profession spécifique ?
+                                                Le « Site Clarté » est-il adapté à ma profession spécifique (Coach, Thérapeute, Consultant) ?
                                             </span>
                                             <div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
                                                 <svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -406,1683 +602,81 @@
                                     </div>
 
 
+                                </div>
 
+                                <!-- ... GROUPE 2 : TARIFS ... -->
+                                <div id="content-tarifs" class="tab-content hidden animate-fade-in">
+                                    <!-- Question 1 -->
+                                    <div
+                                        class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+                                        <button
+                                            class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+                                            <!-- MODIFICATION ICI -->
+                                            <span
+                                                class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Le tarif est-il tout compris ?
+                                            </span>
+                                            <div
+                                                class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+                                                <svg class="w-4 h-4 transition-transform duration-300" fill="none"
+                                                    stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                                </svg>
+                                            </div>
+                                        </button>
+                                        <div
+                                            class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                                            <div
+                                                class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4">
+                                                <p>Oui, 100% transparent. Le prix inclut la création, le design, le
+                                                    développement, et la première année d'hébergement et de maintenance.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <!-- GROUPE 3 : TECHNIQUE -->
+                                <div id="content-technique" class="tab-content hidden animate-fade-in">
+                                    <div class="p-12 text-center text-gray-400">
+                                        <p>Questions techniques à venir...</p>
+                                    </div>
+                                </div>
 
                             </div>
-                        </div>
 
-                        <!-- Catégorie 2: Tarifs & Investissement -->
-                        <div id="category-2" data-sr>
-                            <h3
-                                class="text-2xl md:text-3xl font-bold text-neutral-dark mb-8 border-b-2 border-clarity-blue pb-4">
-                                2. Tarifs & Investissement
-                            </h3>
-                            <div class="space-y-4">
-                                <!-- Q1 (REMPLACER L'EXISTANTE PAR CELLE-CI) -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Le tarif affiché est-il
-                                            tout compris ou y a-t-il des frais cachés ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>La transparence est au cœur de mon approche "Clarté". Le tarif que vous
-                                                voyez affiché pour chaque formule est un paiement unique qui couvre non
-                                                seulement la <strong>création complète de votre site, mais aussi votre
-                                                    première année de tranquillité totale.</strong></p>
-                                            <p>Cette première année inclut mon <strong>"Pack Sérénité Annuel"</strong>
-                                                qui comprend l'hébergement premium, la gestion de votre nom de domaine,
-                                                la maintenance technique et la sécurité.</p>
-                                            <p>Il n'y a donc absolument <strong>aucun frais caché ou coût additionnel à
-                                                    prévoir la première année</strong>. C'est une véritable offre clé en
-                                                main.</p>
-                                            <p>À partir de la deuxième année, pour que votre site continue de
-                                                fonctionner de manière optimale, ce "Pack Sérénité" vous sera proposé au
-                                                renouvellement pour <strong>249€ HT par an</strong>.
-                                            </p>
-                                            <p>Cette approche vous garantit un budget clair et sans surprise, tout en
-                                                vous assurant un service professionnel qui prend tout en charge pour
-                                                vous.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Q2 -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Un « Site Clarté » peut-il
-                                            vraiment m'apporter plus de clients ? Quel est le retour sur investissement
-                                            ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>C'est l'objectif principal. Un Site Clarté n'est pas une dépense, c'est
-                                                un
-                                                investissement dans votre meilleur commercial, disponible 24/7. Son
-                                                retour sur investissement (ROI) se mesure de plusieurs façons :</p>
-                                            <ul class="list-disc list-inside space-y-2">
-                                                <li><strong>Crédibilité instantanée :</strong> Un design professionnel
-                                                    rassure vos prospects et justifie vos tarifs. Vous convertissez plus
-                                                    facilement les visiteurs en clients.</li>
-                                                <li><strong>Gain de temps :</strong> Votre site répond aux questions
-                                                    fréquentes, qualifie vos prospects et peut même gérer vos prises de
-                                                    RDV, vous libérant un temps précieux.</li>
-                                                <li><strong>Génération de prospects :</strong> Avec les formules
-                                                    "Ancrage" et "Expansion", votre site devient une machine à
-                                                    attirer les clients qui vous cherchent activement.</li>
-                                            </ul>
-                                            <p>Un seul client gagné grâce à votre site peut souvent rentabiliser
-                                                l'intégralité de votre investissement.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Q3 (REMPLACER L'EXISTANTE PAR CELLE-CI) -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Comment se déroulent le
-                                            paiement et la facturation ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>Mon processus de facturation est conçu pour être simple, équitable et
-                                                pour établir une relation de confiance dès le départ. Le paiement se
-                                                déroule en deux étapes claires :</p>
-                                            <ol class="list-decimal list-inside space-y-3">
-                                                <li><strong>Un acompte de 50%</strong> est demandé à la signature du
-                                                    devis. Ce premier versement officialise notre collaboration, réserve
-                                                    votre place dans mon planning de production et me permet de
-                                                    commencer le travail sereinement.</li>
-                                                <li><strong>Le solde des 50% restants</strong> est dû à la validation de
-                                                    la version finale du site, juste avant sa mise en ligne officielle.
-                                                    Je vous enverrai un lien privé pour que vous puissiez voir et
-                                                    approuver votre site terminé.</li>
-                                            </ol>
-                                            <p>Une fois le solde réglé, je procède à la dernière étape : la
-                                                configuration de votre nom de domaine et le déploiement de votre site
-                                                pour le rendre visible au monde entier.</p>
-                                            <p>Vous recevez bien sûr une facture en bonne et due forme pour chaque
-                                                paiement, afin de faciliter votre comptabilité.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- NOUVELLE Q -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Pourquoi dois-je payer
-                                            chaque
-                                            année si le site est déjà construit ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>C'est une excellente question, et le mieux est de comparer votre site web
-                                                à
-                                                une voiture. La création de votre site est comme l'achat de la voiture :
-                                                c'est l'investissement initial.</p>
-                                            <p>Cependant, pour que cette voiture roule et reste en bon état, elle a des
-                                                frais de fonctionnement continus :</p>
-                                            <ul class="list-disc list-inside space-y-2">
-                                                <li><strong>L'essence</strong> pour avancer (c'est
-                                                    l'<strong>hébergement</strong> qui le maintient en ligne).</li>
-                                                <li><strong>La place de parking</strong> pour être trouvable (c'est le
-                                                    <strong>nom de domaine</strong>).
-                                                </li>
-                                                <li><strong>L'assurance et l'entretien</strong> pour éviter les pannes
-                                                    (c'est la <strong>sécurité SSL et la maintenance</strong>).</li>
-                                            </ul>
-                                            <p>Le Pack Sérénité Annuel couvre tous ces frais de fonctionnement
-                                                indispensables. C'est la garantie que votre investissement initial
-                                                continue
-                                                de fonctionner parfaitement et de vous apporter de la valeur, année
-                                                après
-                                                année, sans que vous ayez à vous en soucier.</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                                <!-- Question Financement (Mise à jour avec précision ADIE) -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Puis-je financer mon site
-                                            avec mon CPF ou existe-t-il des aides ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>
-                                                C'est une question essentielle pour bien démarrer. Soyons clairs dès le
-                                                début : <strong>le CPF (Compte Personnel de Formation) ne finance pas la
-                                                    création de site internet</strong> en tant que prestation de
-                                                service. Il sert uniquement à financer des formations pour apprendre à
-                                                le faire vous-même.
-                                            </p>
-                                            <p class="font-semibold text-neutral-dark">
-                                                Cependant, ne vous arrêtez pas là ! Il existe d'excellentes alternatives
-                                                pour financer votre lancement :
-                                            </p>
-                                            <ol class="list-decimal list-inside space-y-4 pl-2">
-                                                <li>
-                                                    <strong>L'ADIE (Micro-crédit accompagné) :</strong><br>
-                                                    Si vous n'avez pas accès au crédit bancaire classique, l'<a
-                                                        href="https://www.adie.org/" target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        class="text-clarity-blue hover:underline font-medium">ADIE</a>
-                                                    est un partenaire formidable. Notez bien qu'il s'agit d'un
-                                                    <strong>prêt à rembourser</strong> (micro-crédit jusqu'à 12 000€) et
-                                                    non d'une subvention.
-                                                    C'est un excellent levier pour financer votre outil de travail
-                                                    (votre site),
-                                                    souvent accompagné de conseils précieux pour sécuriser votre
-                                                    lancement.
-                                                </li>
-                                                <li>
-                                                    <strong>Les Chèques Numériques Régionaux (Subventions)
-                                                        :</strong><br>
-                                                    C'est souvent la piste la plus méconnue et pourtant la plus
-                                                    efficace. De nombreuses régions (Île-de-France, Grand Est,
-                                                    Occitanie, etc.) proposent des aides directes (de 500€ à plusieurs
-                                                    milliers d'euros) pour aider les TPE à se digitaliser.
-                                                    Renseignez-vous auprès de la <strong>CCI</strong> ou de la
-                                                    <strong>Chambre des Métiers</strong> de votre département.
-                                                </li>
-                                                <li>
-                                                    <strong>France Travail (Ex-Pôle Emploi) & ARCE :</strong><br>
-                                                    Si vous êtes demandeur d'emploi créateur d'entreprise, vous pouvez
-                                                    opter pour l'ARCE (versement d'une partie de vos droits chômage sous
-                                                    forme de capital). Cette somme est destinée à constituer votre
-                                                    trésorerie de départ et peut parfaitement servir à régler votre site
-                                                    web.
-                                                </li>
-                                                <li>
-                                                    <strong>L'AGEFIPH :</strong><br>
-                                                    Si vous êtes une personne en situation de handicap, l'AGEFIPH
-                                                    propose une aide à la création d'entreprise (environ 6 000€) qui
-                                                    peut couvrir vos frais de communication et de site internet.
-                                                </li>
-                                            </ol>
-                                            <p class="pt-2 text-sm italic">
-                                                Note : En tant qu'agence, je vous fournis toutes les factures et devis
-                                                nécessaires pour monter vos dossiers de financement auprès de ces
-                                                organismes.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                                <!-- Q: Facturation Estonie & Avantage Trésorerie -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Votre entreprise est basée
-                                            en Estonie. Qu'est-ce que cela change pour ma facturation ? (Bonne nouvelle
-                                            !)</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>Cela change une chose essentielle, et c'est un <strong>avantage financier
-                                                    immédiat pour vous</strong>.</p>
-                                            <p>L'Estonie est membre de l'Union Européenne (c'est d'ailleurs le pays le
-                                                plus digitalisé d'Europe). Nos échanges commerciaux sont donc régis par
-                                                les règles de la <strong>TVA Intracommunautaire</strong>.</p>
-                                            <p>Concrètement, cela signifie que je vous facture <strong>0% de
-                                                    TVA</strong> (Hors Taxe).<br>
-                                                Contrairement à une agence française classique où vous devriez payer 20%
-                                                de TVA en plus du prix (par exemple 200€ de TVA pour 1000€ de
-                                                prestation), ici vous ne réglez que le montant Hors Taxe.</p>
-                                            <p><strong>L'avantage pour votre trésorerie :</strong> Vous n'avez pas à
-                                                "avancer" cet argent à l'État lors de l'achat. C'est 20% de moins à
-                                                sortir de votre compte bancaire le jour du paiement.</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Q: Micro-entrepreneur / Franchise de TVA -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Je suis micro-entrepreneur
-                                            ou thérapeute non assujetti à la TVA. Comment ça marche ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>C'est justement pour vous que mon statut est le plus intéressant !</p>
-                                            <p>En tant que micro-entrepreneur ou professionnel de santé exonéré, vous ne
-                                                récupérez généralement pas la TVA sur vos achats. Si vous payez de la
-                                                TVA à un fournisseur français, cet argent est définitivement perdu pour
-                                                vous (c'est une "charge sèche").</p>
-                                            <p>Avec ma facturation estonienne, nous utilisons le mécanisme légal de
-                                                l'<strong>autoliquidation</strong> (Reverse Charge). Comme je vous
-                                                facture 0% de TVA :</p>
-                                            <ul class="list-disc list-inside space-y-2 pl-2">
-                                                <li>Vous recevez une facture nette (HT).</li>
-                                                <li>Vous ne payez pas la TVA à l'achat.</li>
-                                                <li>Vous évitez de décaisser de l'argent inutilement.</li>
-                                            </ul>
-                                            <p class="text-sm italic mt-2">Note : Même si vous êtes en franchise de base
-                                                (vous ne facturez pas de TVA à vos patients), vous êtes considéré comme
-                                                une entreprise aux yeux de l'Europe et vous pouvez bénéficier de ce
-                                                mécanisme.</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Q: Numéro TVA Intracommunautaire -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Je n'ai pas de numéro de
-                                            TVA Intracommunautaire. Est-ce un problème ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>Pas du tout, c'est une simple formalité administrative gratuite !</p>
-                                            <p>Pour que je puisse vous facturer légalement en Hors Taxe (0% TVA), il est
-                                                <strong>obligatoire</strong> que votre facture mentionne votre numéro de
-                                                TVA Intracommunautaire (il commence par <code>FR</code> suivi de 11
-                                                chiffres).
-                                            </p>
-                                            <p><strong>Vous ne l'avez pas ?</strong><br>
-                                                Beaucoup de micro-entrepreneurs pensent ne pas en avoir besoin car ils
-                                                ne facturent pas de TVA en France. Pourtant, vous y avez droit.</p>
-                                            <p>Il suffit d'envoyer un simple message via votre messagerie sécurisée sur
-                                                <strong>impots.gouv.fr</strong> (rubrique Professionnel) en demandant :
-                                                <em>"Bonjour, je souhaite obtenir mon numéro de TVA intracommunautaire
-                                                    pour des achats de prestations de services dans l'UE"</em>.
-                                            </p>
-                                            <p>Le service des impôts vous le transmet généralement sous 48h. C'est
-                                                gratuit et cela vous permettra d'économiser la TVA sur notre prestation.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                                <!-- NOUVELLE Q : ÉVOLUTIVITÉ -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Si je commence petit,
-                                            puis-je changer d'offre plus tard ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>Oui, et c'est une garantie unique chez Clartem : le <strong>Scalable
-                                                    Pricing</strong>.</p>
-                                            <p>Vous n'avez pas besoin de tout décider aujourd'hui. Vous pouvez très bien
-                                                commencer avec l'offre <strong>Impact</strong> (799€) pour vous lancer.
-                                                Si dans 6 mois vous souhaitez passer à l'offre <strong>Ancrage</strong>
-                                                (1299€) pour booster votre SEO local, vous ne repaierez pas un site
-                                                complet.</p>
-                                            <p><strong>Vous ne paierez que la différence de prix</strong> entre les deux
-                                                formules (plus des frais de mise à niveau minimes). Votre site grandit
-                                                au même rythme que votre activité, sans risque financier.</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
+                            <!-- CTA FINAL -->
+                            <div class="mt-8 text-right">
+                                <p class="text-sm text-gray-500 inline-block mr-2">Question introuvable ?</p>
+                                <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web"
+                                    target="_blank"
+                                    class="text-warm-orange hover:text-white transition-colors text-sm font-medium">
+                                    Réserver un appel Clarté &rarr;
+                                </a>
                             </div>
+
                         </div>
 
 
-                        <!-- Catégorie 3: Le Processus -->
-                        <div id="category-3" data-sr>
-                            <h3
-                                class="text-2xl md:text-3xl font-bold text-neutral-dark mb-8 border-b-2 border-clarity-blue pb-4">
-                                3. Le Processus & Notre Collaboration
-                            </h3>
-                            <div class="space-y-4">
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Comment pouvez-vous
-                                            livrer un site sur-mesure en seulement 7 jours ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>
-                                                C'est la question que tout le monde se pose, et elle est
-                                                parfaitement légitime. Comment la vitesse peut-elle rimer avec
-                                                qualité et sur-mesure ?
-                                            </p>
-                                            <p>
-                                                La réponse est simple : le secret n'est pas de travailler plus vite,
-                                                mais de travailler plus intelligemment <strong>en inversant le
-                                                    processus de création traditionnel.</strong>
-                                            </p>
-                                            <p>
-                                                Un projet web classique, c'est souvent 20% de briefing flou et 80%
-                                                de temps passé en allers-retours, corrections, modifications et
-                                                devinettes. C'est long, frustrant et coûteux en énergie pour tout le
-                                                monde.
-                                            </p>
-                                            <p class="font-semibold text-neutral-dark">
-                                                Ma méthode, c'est l'inverse : 80% de notre effort commun est
-                                                consacré à la clarté en amont.
-                                            </p>
-                                            <p>
-                                                Pensez-y comme la construction d'une maison :
-                                            </p>
-                                            <div class="pl-4 border-l-2 border-soft-blue">
-                                                <p>
-                                                    L'<strong>Atelier de Clarté</strong> n'est pas un simple
-                                                    questionnaire. C'est notre phase de <strong>"plans
-                                                        d'architecte"</strong>. Nous ne posons pas une seule brique
-                                                    avant que le plan de votre maison ne soit absolument parfait et
-                                                    validé par vous. Ensemble, nous transformons votre brouillard
-                                                    d'idées en une feuille de route limpide qui définit chaque
-                                                    pièce, chaque couleur, chaque fonction.
-                                                </p>
-                                            </div>
-                                            <p>
-                                                Une fois ce plan validé, ma phase de production devient une
-                                                exécution <strong>fluide, rapide et sans surprise</strong>. Je n'ai
-                                                plus à deviner vos attentes, je n'ai qu'à construire le site que
-                                                nous avons déjà conçu ensemble sur le papier. Les 24h à 48h de
-                                                production intensive ne sont que la dernière étape d'un travail de
-                                                fond que nous avons mené en amont.
-                                            </p>
-                                            <p class="pt-2">
-                                                <strong>En résumé : je ne code pas plus vite. Je prépare
-                                                    mieux.</strong> La vitesse de livraison n'est pas l'objectif,
-                                                c'est la <strong>conséquence</strong> d'une clarté parfaite obtenue
-                                                en amont. C'est ce qui garantit un site sur-mesure, qui vous
-                                                ressemble, livré sans le stress et les délais habituels.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">En quoi consiste l'«
-                                            Atelier de Clarté » et que devrai-je fournir ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>
-                                                L'<strong>Atelier de Clarté</strong> n'est pas un simple formulaire
-                                                de briefing, c'est <strong>le cœur de ma méthode</strong>. C'est un
-                                                espace de travail en ligne, privé et structuré, conçu pour
-                                                transformer le chaos de vos idées en un message d'une limpidité
-                                                absolue.
-                                            </p>
-                                            <p>
-                                                Pensez-y moins comme un "devoir" et plus comme une <strong>session
-                                                    de coaching stratégique asynchrone</strong>. Son objectif n'est
-                                                pas de me donner du contenu, mais de <strong>vous faire accoucher de
-                                                    votre propre clarté</strong>.
-                                            </p>
-                                            <p>
-                                                Concrètement, l'Atelier est un parcours guidé où, étape par étape,
-                                                vous allez :
-                                            </p>
-                                            <ol class="list-decimal list-inside space-y-3 pl-2">
-                                                <li>
-                                                    <strong>Définir votre message fondamental :</strong><br>
-                                                    Grâce à des questions stratégiques, nous allons distiller votre
-                                                    proposition de valeur, votre "pourquoi", et ce qui vous rend
-                                                    unique. Vous ne remplissez pas des cases, vous construisez votre
-                                                    argumentaire. C'est souvent une étape révélatrice pour mes
-                                                    clients sur leur propre activité.
-                                                </li>
-                                                <li>
-                                                    <strong>Rassembler vos éléments de marque :</strong><br>
-                                                    Vous pourrez facilement téléverser vos visuels (logo, photos de
-                                                    vous, de votre lieu...) dans un espace centralisé. Si vous n'en
-                                                    avez pas, des sections spécifiques vous guident pour trouver des
-                                                    solutions (imagerie par IA, banques d'images modernes, etc.).
-                                                </li>
-                                                <li>
-                                                    <strong>Façonner votre identité visuelle :</strong><br>
-                                                    Vous partagerez des exemples de sites dont l'ambiance vous
-                                                    inspire. Cela me permet de ne pas deviner vos goûts, mais de
-                                                    traduire votre sensibilité en un design professionnel et
-                                                    sur-mesure.
-                                                </li>
-                                            </ol>
-                                            <div>
-                                                <p class="font-semibold text-neutral-dark pt-2">Ce que vous y
-                                                    gagnez, bien au-delà du site :</p>
-                                                <ul class="list-disc list-inside space-y-2 mt-2 pl-2">
-                                                    <li><strong>Une clarté inégalée</strong> sur votre propre offre
-                                                        et votre client idéal.</li>
-                                                    <li><strong>La fin de l'angoisse de la page blanche</strong>,
-                                                        car le processus est découpé en questions simples.</li>
-                                                    <li><strong>Un gain de temps massif</strong>, en évitant des
-                                                        dizaines d'emails et de réunions désorganisées.</li>
-                                                </ul>
-                                            </div>
-                                            <p class="pt-2">
-                                                En résumé, l'Atelier de Clarté est l'outil qui me permet de tenir ma
-                                                promesse de rapidité et de qualité. Vous y fournissez la
-                                                <strong>substance</strong> (votre expertise), et il la structure
-                                                pour que je puisse la transformer en un <strong>site web qui
-                                                    convertit</strong>.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Q3 (MODIFIED) -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Le délai de 7 jours
-                                            commence-t-il dès le paiement ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>Non, et c'est une excellente question qui permet de clarifier notre
-                                                collaboration. La promesse des 7 jours est notre <strong>objectif
-                                                    commun</strong>, et son point de départ est notre <strong>Appel
-                                                    Clarté</strong>.</p>
-                                            <p>Voici comment le temps se décompose :</p>
-                                            <ol class="list-decimal list-inside space-y-2">
-                                                <li><strong>Le Point de Départ : Notre Appel Clarté.</strong> C'est
-                                                    ici
-                                                    que
-                                                    nous lançons l'objectif commun de viser une mise en ligne en 7
-                                                    jours.
-                                                    Nous définissons la stratégie et vous recevez l'accès à votre
-                                                    Atelier
-                                                    de Clarté.</li>
-                                                <li><strong>Votre Phase de Réflexion : L'Atelier de Clarté.</strong>
-                                                    C'est
-                                                    la seule <strong>variable</strong> du processus, et c'est là que
-                                                    vous
-                                                    entrez en jeu. Le temps que vous prendrez pour remplir cet
-                                                    atelier
-                                                    d'introspection déterminera la durée totale du projet. Que vous
-                                                    preniez
-                                                    2 jours ou 10 jours, <strong>votre rythme est le nôtre</strong>.
-                                                    Il
-                                                    n'y a aucune pression, car la qualité de cette étape est la clé
-                                                    du
-                                                    succès.</li>
-                                                <li><strong>Ma Phase de Production : 24h à 48h.</strong> C'est mon
-                                                    <strong>engagement ferme</strong>. Dès l'instant où je reçois
-                                                    votre
-                                                    Atelier de Clarté complété et validé, je passe en mode
-                                                    production
-                                                    intensive. Je m'engage à vous livrer la première version
-                                                    complète de
-                                                    votre site sous 24h à 48h.
-                                                </li>
-                                            </ol>
-                                            <p><strong>En résumé :</strong> L'objectif de 7 jours est tout à fait
-                                                réalisable si nous sommes réactifs ensemble. Le délai total dépend
-                                                de
-                                                notre collaboration, mais ma part du travail est garantie pour être
-                                                ultra-rapide. Cela vous donne la flexibilité de travailler sur votre
-                                                contenu sereinement, tout en ayant l'assurance d'un lancement rapide
-                                                une
-                                                fois que vous êtes prêt(e).</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Comment se passe la
-                                            communication pendant la semaine de création ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>
-                                                Ma philosophie est de vous offrir une expérience <strong>sereine et
-                                                    efficace</strong>, qui respecte votre temps précieux.
-                                                Contrairement aux projets web qui vous noient sous les emails et les
-                                                réunions quotidiennes, mon processus est structuré autour de
-                                                <strong>points de contact clés et intentionnels</strong>.
-                                            </p>
-                                            <p>
-                                                Voici à quoi vous attendre une fois que nous avons validé ensemble
-                                                votre Atelier de Clarté :
-                                            </p>
-                                            <ol class="list-decimal space-y-4 pl-5">
-                                                <li>
-                                                    <span class="font-semibold text-neutral-dark">Phase de "Deep
-                                                        Work" (Création intensive)</span>
-                                                    <p class="pl-2">Pendant cette période (généralement 24h à 48h),
-                                                        je rentre dans ma "bulle de création". Vous n'avez pas
-                                                        besoin d'être sur le qui-vive. C'est le moment où vous
-                                                        pouvez vous concentrer à 100% sur votre activité, en sachant
-                                                        que votre projet est entre de bonnes mains. Je ne vous
-                                                        solliciterai que si une question absolument bloquante se
-                                                        présente (ce qui est rare grâce à la qualité de notre
-                                                        préparation).</p>
-                                                </li>
-                                                <li>
-                                                    <span class="font-semibold text-neutral-dark">Point de Contact
-                                                        n°1 : La Livraison de la Première Version</span>
-                                                    <p class="pl-2">C'est notre rendez-vous le plus important. Je
-                                                        vous envoie un lien privé vers la première version complète
-                                                        de votre site. Vous pouvez alors le découvrir tranquillement
-                                                        et me faire vos retours de manière groupée. Pas de panique
-                                                        si vous voyez des ajustements à faire, une phase de retours
-                                                        est prévue pour cela.</p>
-                                                </li>
-                                                <li>
-                                                    <span class="font-semibold text-neutral-dark">Point de Contact
-                                                        n°2 : La Validation Finale et la Mise en Ligne</span>
-                                                    <p class="pl-2">Une fois les ajustements effectués, nous
-                                                        validons ensemble la version finale avant le grand
-                                                        lancement.</p>
-                                                </li>
-                                            </ol>
-                                            <p class="pt-2">
-                                                <strong>En résumé : la communication est minimale, mais elle est
-                                                    maximale en efficacité.</strong> L'objectif est de vous libérer
-                                                de la charge mentale de la gestion de projet. Vous n'avez pas à
-                                                suivre chaque étape de la construction ; vous avez juste à valider
-                                                les plans au début et à réceptionner les clés de votre nouvelle
-                                                maison à la fin. Bien entendu, je reste joignable par email pour
-                                                toute urgence entre ces étapes clés.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Et si nous ne nous
-                                            entendons pas ou si je veux arrêter le projet en cours de route ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>
-                                                C'est une question essentielle qui touche au cœur de la confiance.
-                                                Ma réponse est double : elle repose sur un <strong>processus conçu
-                                                    pour éviter ce scénario</strong> et sur des <strong>règles
-                                                    d'engagement équitables</strong>.
-                                            </p>
-
-                                            <div>
-                                                <p class="font-semibold text-neutral-dark">1. Mon processus est un
-                                                    "filtre à compatibilité" intégré</p>
-                                                <p>Je ne lance jamais un projet "à l'aveugle". Chaque étape est
-                                                    conçue pour s'assurer que nous sommes parfaitement alignés avant
-                                                    d'engager du temps et des ressources significatives :</p>
-                                                <ul class="list-disc list-inside space-y-2 mt-3 pl-2">
-                                                    <li>
-                                                        <strong>L'Appel Clarté initial :</strong> Ce n'est pas un
-                                                        appel de vente, c'est un entretien mutuel. Son premier
-                                                        objectif est de valider que ma méthode correspond à vos
-                                                        besoins et, tout aussi important, que notre communication
-                                                        est fluide. Si l'un de nous a un doute, il est préférable de ne
-                                                        pas aller plus loin.
-                                                    </li>
-                                                    <li>
-                                                        <strong>L'Atelier de Clarté :</strong> C'est notre contrat
-                                                        moral et créatif. La validation de cet atelier confirme que nous
-                                                        sommes 100% d'accord
-                                                        sur la direction à prendre avant que je ne commence le design.
-                                                    </li>
-                                                </ul>
-                                                <p class="mt-2">
-                                                    Grâce à ces garde-fous, le risque d'un désaccord majeur en cours
-                                                    de route est pratiquement inexistant.
-                                                </p>
-                                            </div>
-
-                                            <div>
-                                                <p class="font-semibold text-neutral-dark pt-2">2. Une politique
-                                                    financière claire et juste</p>
-                                                <p>
-                                                    Le versement de l'acompte de 50% valide le démarrage du projet et
-                                                    <strong>réserve votre créneau exclusif</strong> dans mon agenda.
-                                                    Une fois le travail engagé (après l'Appel Clarté), cet acompte
-                                                    couvre
-                                                    le temps réservé et les ressources allouées : il n'est donc plus
-                                                    remboursable
-                                                    si vous décidez d'arrêter le projet.
-                                                </p>
-                                                <p class="mt-2">
-                                                    Cependant, pour votre sécurité, <strong>le solde final des 50%
-                                                        restants n'est dû
-                                                        qu'à la fin</strong>, une fois que vous avez validé le site.
-                                                    Nous partageons
-                                                    donc le risque de manière équitable.
-                                                </p>
-                                            </div>
-
-                                            <p class="pt-2">
-                                                <strong>Ma priorité absolue est votre satisfaction.</strong> Ma
-                                                réputation est construite sur des projets réussis. Je mets
-                                                tant d'énergie à valider chaque étape en amont pour garantir
-                                                une collaboration sereine et un résultat qui vous plaira.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <!-- NOUVELLE Q -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Comment se déroule le
-                                            processus de A à Z pour commencer ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>Mon processus est conçu pour être simple, transparent et sans
-                                                surprise,
-                                                avec un objectif commun de mise en ligne en <strong>environ 7
-                                                    jours</strong>. Il se déroule en 4 étapes claires :</p>
-                                            <!-- J'utilise list-none car les numéros sont inclus dans le texte pour un meilleur contrôle stylistique -->
-                                            <ol class="list-none space-y-4">
-                                                <li>
-                                                    <strong>1. L'Appel Clarté & Stratégie (Gratuit - Point de
-                                                        départ)</strong><br>
-                                                    Tout commence par un appel de 15 minutes pour discuter de vos
-                                                    objectifs. C'est ici que nous lançons officiellement notre
-                                                    collaboration et fixons le cap. Si nous décidons d'avancer, vous
-                                                    réglez la prestation pour enclencher la suite.
-                                                </li>
-                                                <li>
-                                                    <strong>2. L'Atelier de Clarté & Votre Réflexion (Jours 2 & 3 -
-                                                        Flexible)</strong><br>
-                                                    Vous recevez votre accès à l'<strong>Atelier de Clarté</strong>,
-                                                    votre cahier de coaching interactif. Vous le remplissez à votre
-                                                    rythme pour me fournir vos textes, images et préférences. Cette
-                                                    phase
-                                                    est flexible : la durée totale du projet dépendra du temps que
-                                                    vous
-                                                    prendrez pour cette introspection essentielle.
-                                                </li>
-                                                <li>
-                                                    <strong>3. La Création & Première Version (24h à 48h après votre
-                                                        validation)</strong><br>
-                                                    Une fois que vous me soumettez votre Atelier complété, ma phase
-                                                    de
-                                                    production intensive commence. <strong>C'est mon engagement
-                                                        ferme :</strong> je traduis votre vision en un design
-                                                    sur-mesure
-                                                    et
-                                                    je construis une première version complète de votre site sous 24
-                                                    à
-                                                    48
-                                                    heures, que je vous envoie via un lien privé.
-                                                </li>
-                                                <li>
-                                                    <strong>4. La Validation & Lancement (Jours 6 & 7 de notre
-                                                        objectif
-                                                        commun)</strong><br>
-                                                    Vous me faites vos retours pour les ajustements finaux. Une fois
-                                                    votre
-                                                    validation reçue, je m'occupe de toute la partie technique de la
-                                                    mise
-                                                    en ligne. Votre site est alors visible par le monde entier !
-                                                </li>
-                                            </ol>
-                                            <p>Ce processus collaboratif vous offre la flexibilité nécessaire tout
-                                                en
-                                                garantissant une rapidité d'exécution inégalée une fois que votre
-                                                vision
-                                                est claire.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Catégorie 4: Contenu & Design -->
-                        <div id="category-4" data-sr>
-                            <h3
-                                class="text-2xl md:text-3xl font-bold text-neutral-dark mb-8 border-b-2 border-clarity-blue pb-4">
-                                4. Contenu & Design
-                            </h3>
-                            <div class="space-y-4">
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Que se passe-t-il si
-                                            je n'aime pas la proposition de design ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>
-                                                C'est une crainte tout à fait légitime, et c'est précisément pour
-                                                l'éviter que mon processus est radicalement différent d'une approche
-                                                traditionnelle.
-                                            </p>
-                                            <p class="font-semibold text-neutral-dark">
-                                                Le design n'est pas une surprise, c'est le résultat d'une recette
-                                                que nous créons ensemble.
-                                            </p>
-                                            <p>
-                                                Mon travail ne consiste pas à deviner vos goûts, mais à les
-                                                <strong>traduire</strong> en un design professionnel. La clé de
-                                                tout, c'est l'<strong>Atelier de Clarté</strong>. Dans cet atelier,
-                                                nous définissons ensemble les "ingrédients" de votre design :
-                                            </p>
-                                            <ol class="list-decimal list-inside space-y-3 pl-2">
-                                                <li>
-                                                    <strong>L'Inspiration :</strong> Vous me partagez des exemples
-                                                    de sites dont vous aimez l'ambiance, les couleurs ou la
-                                                    typographie. C'est notre point de départ visuel.
-                                                </li>
-                                                <li>
-                                                    <strong>L'Identité :</strong> Nous définissons les mots qui
-                                                    décrivent votre marque (par exemple : "élégant et apaisant",
-                                                    "dynamique et moderne", "chaleureux et authentique").
-                                                </li>
-                                                <li>
-                                                    <strong>L'Objectif :</strong> Nous clarifions l'action
-                                                    principale que le visiteur doit accomplir, ce qui dicte la
-                                                    structure du site.
-                                                </li>
-                                            </ol>
-                                            <p>
-                                                Grâce à cette préparation minutieuse, la première version que je
-                                                vous livre n'est jamais un "coup de poker", mais une
-                                                <strong>interprétation professionnelle et sur-mesure</strong> de la
-                                                direction que nous avons fixée ensemble. Le risque de ne "pas aimer"
-                                                est donc extrêmement faible.
-                                            </p>
-                                            <div>
-                                                <p class="font-semibold text-neutral-dark pt-2">Et pour les
-                                                    ajustements ? C'est prévu.</p>
-                                                <p>
-                                                    Une fois la première version livrée, une <strong>phase de
-                                                        retours complète est incluse</strong>. Vous pourrez me
-                                                    lister tous les ajustements fins que vous souhaitez (changer une
-                                                    couleur, ajuster la taille d'un titre, remplacer une image,
-                                                    etc.). Mon objectif est simple : que vous soyez non seulement
-                                                    satisfait(e), mais <strong>fier(e)</strong> de votre nouveau
-                                                    site. Nous travaillons en collaboration jusqu'à ce que chaque
-                                                    détail soit parfait à vos yeux.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Est-ce que vous
-                                            rédigez les textes pour moi ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>
-                                                C'est une question fondamentale. Mon rôle est encore plus puissant
-                                                que celui d'un simple rédacteur : <strong>je suis le guide qui vous
-                                                    aide à formuler le message le plus authentique et percutant
-                                                    possible.</strong>
-                                            </p>
-                                            <p>
-                                                Voici pourquoi cette approche est bien plus efficace :
-                                            </p>
-                                            <p>
-                                                Un rédacteur extérieur, aussi bon soit-il, ne pourra jamais
-                                                retranscrire votre "pourquoi", votre passion et votre expertise
-                                                unique avec la même conviction que vous. Un texte authentique, même
-                                                imparfait, convertira toujours mieux qu'un texte parfaitement lisse
-                                                mais impersonnel.
-                                            </p>
-                                            <p class="font-semibold text-neutral-dark">
-                                                Mon processus n'est pas conçu pour vous faire travailler, mais pour
-                                                extraire votre message.
-                                            </p>
-                                            <p>
-                                                L'<strong>Atelier de Clarté</strong> n'est pas un "devoir à faire",
-                                                c'est une <strong>interview stratégique structurée</strong>. Il vous
-                                                pose les questions précises qu'un consultant marketing vous poserait
-                                                pour déceler le cœur de votre valeur ajoutée. Beaucoup de mes
-                                                clients vivent cet exercice comme une révélation, qui clarifie leur
-                                                propre vision de leur activité.
-                                            </p>
-                                            <div>
-                                                <p class="font-semibold text-neutral-dark">Mon expertise intervient
-                                                    ensuite :</p>
-                                                <p>Je prends vos mots "bruts", vos idées, votre vision, et je les
-                                                    <strong>sculpte</strong>. Mon travail consiste à :
-                                                </p>
-                                                <ul class="list-disc list-inside space-y-2 mt-3 pl-2">
-                                                    <li><strong>Structurer</strong> vos réponses pour en faire un
-                                                        argumentaire de vente fluide et convaincant.</li>
-                                                    <li><strong>Affiner</strong> les formulations pour un impact
-                                                        maximal.</li>
-                                                    <li><strong>Optimiser</strong> les titres et les appels à
-                                                        l'action pour le web.</li>
-                                                </ul>
-                                            </div>
-                                            <div>
-                                                <p class="font-semibold text-neutral-dark pt-2">Et si la page
-                                                    blanche vous paralyse vraiment ?</p>
-                                                <p>
-                                                    Oui, pour les clients qui souhaitent déléguer entièrement cette
-                                                    étape, je propose une <strong>prestation de copywriting en
-                                                        supplément</strong>. Nous travaillons alors en mode
-                                                    "interview" approfondie pour que je puisse m'imprégner de votre
-                                                    voix et rédiger pour vous.
-                                                </p>
-                                            </div>
-                                            <p class="pt-2">
-                                                <strong>En résumé : je n'écris pas</strong> <em>à votre
-                                                    place</em><strong>, je construis</strong> <em>avec
-                                                    vous</em><strong>. Vous apportez l'âme et l'expertise, j'apporte
-                                                    la structure et la stratégie pour que votre message touche sa
-                                                    cible en plein cœur.</strong>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Q3 -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Je n'ai pas de textes
-                                            percutants ni de photos professionnelles. Pouvez-vous m'aider ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-6">
-                                            <p>
-                                                C'est la préoccupation n°1 de la plupart de mes clients, et la
-                                                réponse est un grand <strong>OUI</strong>. Mon rôle n'est pas
-                                                seulement de construire un site, mais de vous donner les clés pour
-                                                le remplir avec un contenu qui inspire confiance. Voici comment nous
-                                                procédons :
-                                            </p>
-
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-neutral-dark mb-3">Pour vos
-                                                    Textes : La Clarté avant tout</h4>
-                                                <p>
-                                                    Partir d'une page blanche est intimidant. C'est pourquoi
-                                                    l'<strong>Atelier de Clarté</strong> n'est pas un simple
-                                                    formulaire, c'est un <strong>véritable outil de
-                                                        coaching</strong>. Il vous guide pas à pas avec des
-                                                    questions stratégiques pour :
-                                                </p>
-                                                <ul class="list-disc list-inside space-y-2 mt-3 pl-2">
-                                                    <li><strong>Définir</strong> votre client idéal et sa
-                                                        problématique.</li>
-                                                    <li><strong>Articuler</strong> votre promesse et ce qui vous
-                                                        rend unique.</li>
-                                                    <li><strong>Structurer</strong> la description de vos offres
-                                                        pour qu'elles soient irrésistibles.</li>
-                                                </ul>
-                                                <p class="mt-3">
-                                                    Vous n'écrivez pas "pour un site web", vous mettez simplement
-                                                    des mots sur votre expertise. Mon travail consiste ensuite à
-                                                    polir et à intégrer ces mots pour un impact maximal.
-                                                </p>
-                                            </div>
-
-                                            <div>
-                                                <h4 class="text-lg font-semibold text-neutral-dark mb-3">Pour vos
-                                                    Images : Ma "Boîte à Outils Visuelle" à votre service</h4>
-                                                <p>
-                                                    Un visuel vaut mille mots, et nous avons plusieurs options pour
-                                                    créer une ambiance professionnelle et authentique, même sans
-                                                    photographe. Voici la hiérarchie des solutions que je propose :
-                                                </p>
-                                                <ol class="space-y-4 mt-4">
-                                                    <li>
-                                                        <p class="font-semibold text-neutral-dark">1. L'Option
-                                                            Idéale : L'Authenticité (Photos réelles)</p>
-                                                        <p class="pl-6">Rien ne remplace de vraies photos. Si vous
-                                                            avez des portraits professionnels ou des clichés de
-                                                            votre lieu de travail, c'est parfait. Si ce n'est pas le
-                                                            cas, même des photos bien prises avec un smartphone
-                                                            moderne dans un environnement lumineux peuvent être très
-                                                            efficaces. Pour un résultat optimal, je peux aussi vous
-                                                            recommander des photographes de mon réseau.</p>
-                                                    </li>
-                                                    <li>
-                                                        <p class="font-semibold text-neutral-dark">2. L'Option
-                                                            Créative & Sur-Mesure : L'Imagerie par IA</p>
-                                                        <p class="pl-6">C'est la solution la plus innovante. Je peux
-                                                            utiliser des outils d'intelligence artificielle pour
-                                                            <strong>générer des images uniques et
-                                                                personnalisées</strong> qui correspondent
-                                                            parfaitement à l'ambiance et aux couleurs de votre
-                                                            marque. C'est idéal pour :
-                                                        </p>
-                                                        <ul class="list-disc list-inside space-y-1 mt-2 pl-8">
-                                                            <li>Créer des visuels conceptuels qui illustrent vos
-                                                                services.</li>
-                                                            <li>Assurer une cohérence artistique sur l'ensemble du
-                                                                site.</li>
-                                                            <li>Obtenir un résultat haut de gamme et unique, sans le
-                                                                coût d'un shooting photo.</li>
-                                                        </ul>
-                                                    </li>
-                                                    <li>
-                                                        <p class="font-semibold text-neutral-dark">3. L'Option
-                                                            Rapide & Efficace : Les Banques d'Images Modernes</p>
-                                                        <p class="pl-6">Oubliez les photos "stock" vues et revues.
-                                                            Je vous oriente vers des banques d'images de haute
-                                                            qualité (comme Unsplash, Pexels) où l'on trouve des
-                                                            visuels authentiques et artistiques. Je vous aide à
-                                                            sélectionner des images qui renforcent votre message
-                                                            sans paraître génériques.</p>
-                                                    </li>
-                                                </ol>
-                                            </div>
-
-                                            <p class="pt-2">
-                                                <strong>En résumé : vous n'êtes jamais bloqué(e).</strong> Que vous
-                                                ayez déjà tout votre contenu ou que vous partiez de zéro, mon rôle
-                                                est de vous guider vers la meilleure solution en fonction de votre
-                                                situation, de votre budget et de vos objectifs, pour que le résultat
-                                                final soit toujours professionnel et à votre image.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Q4 (REMPLACER L'EXISTANTE PAR CELLE-CI) -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Le service inclut-il
-                                            la création d'un logo ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>Oui, pour que votre lancement soit complet, je m'occupe de votre identité
-                                                visuelle. Le niveau de finition dépend cependant de la formule choisie :
-                                            </p>
-
-                                            <ol class="list-decimal list-inside space-y-4">
-                                                <li>
-                                                    <strong>Avec l'offre IMPACT : Le Logo "Typographique"</strong><br>
-                                                    Je crée un logo textuel, épuré et minimaliste. Je sélectionne une
-                                                    typographie premium et une couleur qui s'harmonisent avec l'ambiance
-                                                    de votre site. C'est le choix de l'élégance et de la simplicité.
-                                                </li>
-                                                <li>
-                                                    <strong>Avec les offres ANCRAGE, LIBERTÉ & EXPANSION : Le Logo
-                                                        "Signature"</strong><br>
-                                                    Nous allons plus loin avec la création d'un véritable
-                                                    <strong>symbole graphique</strong>.
-                                                    <ul
-                                                        class="list-disc list-inside ml-4 mt-2 text-sm text-gray-500 space-y-1">
-                                                        <li>Je recherche une symbolique forte en accord avec votre
-                                                            pratique (douceur, énergie, structure...).</li>
-                                                        <li>Je m'assure que le logo s'intègre parfaitement au design de
-                                                            votre nouveau site (couleurs, formes).</li>
-                                                        <li>Je vous présente <strong>3 pistes créatives</strong>
-                                                            différentes et vous choisissez celle qui résonne le plus
-                                                            avec vous.</li>
-                                                    </ul>
-                                                </li>
-                                            </ol>
-
-                                            <p class="text-sm italic mt-2">
-                                                L'objectif est de vous livrer une image de marque cohérente "clé en
-                                                main", pour que vous n'ayez pas à gérer un graphiste externe en plus du
-                                                site.
-                                            </p>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Catégorie 5: Le Site Web -->
-                        <div id="category-5" data-sr>
-                            <h3
-                                class="text-2xl md:text-3xl font-bold text-neutral-dark mb-8 border-b-2 border-clarity-blue pb-4">
-                                5. Le Site Web : Caractéristiques & Possibilités
-                            </h3>
-                            <div class="space-y-4">
-                                <!-- Q1 -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Mon « Site Clarté »
-                                            sera-t-il bien référencé sur Google (SEO) ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <p class="pb-5 pr-10 text-neutral-light leading-relaxed">
-                                            Chaque Site Clarté est livré avec une <strong>optimisation SEO technique
-                                                de
-                                                base</strong>. Cela signifie que sa structure est propre, il est
-                                            rapide,
-                                            parfaitement adapté aux mobiles, et que les balises essentielles
-                                            (titres,
-                                            descriptions) sont en place. C'est le socle indispensable pour être
-                                            "aimé"
-                                            par Google.<br>Le référencement est ensuite un marathon : il dépendra de
-                                            la
-                                            qualité de votre contenu et de votre stratégie à long terme. La formule
-                                            "SEO
-                                            Local" est spécifiquement conçue pour les entreprises de service qui
-                                            veulent
-                                            dominer leur zone géographique.
-                                        </p>
-                                    </div>
-                                </div>
-                                <!-- Q2 -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Puis-je intégrer des
-                                            outils spécifiques (CRM, Pixel Facebook, Newsletter...) ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>Oui. Les formules "Liberté" et "Expansion" sont
-                                                conçues
-                                                pour cela. Je peux intégrer la plupart des outils externes qui
-                                                fonctionnent avec un simple code à copier-coller :</p>
-                                            <ul class="list-disc list-inside space-y-2">
-                                                <li>Outils de prise de rendez-vous (Calendly, etc.)</li>
-                                                <li>Formulaires de newsletter (Mailchimp, Brevo, etc.)</li>
-                                                <li>Pixels de suivi (Facebook, Google Analytics)</li>
-                                                <li>Et bien d'autres.</li>
-                                            </ul>
-                                            <p>Discutons-en lors de notre Appel Clarté pour s'assurer que votre
-                                                outil
-                                                est compatible.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Q3 (MODIFIED) -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">J'ai besoin d'un blog
-                                            ou
-                                            d'une boutique en ligne. Est-ce possible ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <p class="pb-5 pr-10 text-neutral-light leading-relaxed">
-                                            Tout à fait ! Pour un <strong>blog</strong>, la formule
-                                            <strong>"Expansion"</strong> est spécifiquement conçue pour cela : elle
-                                            intègre un espace de rédaction complet et optimisé pour le référencement,
-                                            idéal pour démontrer votre expertise.
-                                            <br><br>
-                                            Concernant une <strong>boutique en ligne</strong> complexe (avec panier,
-                                            stocks, etc.), cela nécessite une structure différente. Cependant, nous
-                                            pouvons tout à fait intégrer des boutons de paiement simples (Stripe/PayPal)
-                                            pour vendre des services ou des produits numériques via les formules
-                                            "Liberté" et "Expansion".
-                                        </p>
-                                    </div>
-
-                                </div>
-                                <!-- NOUVELLE Q -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Un site one-page
-                                            est-il
-                                            suffisant ? Pourrai-je ajouter des pages plus tard ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <p class="pb-5 pr-10 text-neutral-light leading-relaxed">
-                                            Pour 90% des indépendants et des PME, un Site Clarté (one-page) est la
-                                            solution la plus efficace. Il concentre toute votre valeur en un seul
-                                            endroit et guide le visiteur vers une action unique (vous contacter,
-                                            réserver, etc.), ce qui optimise la conversion.<br>Et oui, votre site
-                                            est
-                                            construit sur des bases saines et évolutives. Si votre activité se
-                                            développe, il sera tout à fait possible d'ajouter de nouvelles pages (un
-                                            blog, des pages de services détaillées, etc.) dans le futur.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Catégorie 6: Technique & Propriété -->
-                        <div id="category-6" data-sr>
-                            <h3
-                                class="text-2xl md:text-3xl font-bold text-neutral-dark mb-8 border-b-2 border-clarity-blue pb-4">
-                                6. Aspects Techniques & Propriété
-                            </h3>
-                            <div class="space-y-4">
-                                <!-- Q1 (REMPLACER L'EXISTANTE PAR CELLE-CI) -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Suis-je propriétaire
-                                            de
-                                            mon site et de mon nom de domaine ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>Oui, à 100%. C'est un point non négociable pour moi.</p>
-                                            <ul class="list-disc list-inside space-y-2">
-                                                <li><strong>Votre Site Web :</strong> Le code, le design, les textes
-                                                    et
-                                                    les images créés pour vous sont votre propriété exclusive.</li>
-                                                <li><strong>Votre Nom de Domaine :</strong> Je l'enregistre en votre
-                                                    nom, ce qui signifie que vous en êtes le propriétaire légal. Je
-                                                    ne
-                                                    suis que le "contact technique" qui s'occupe de la gestion pour
-                                                    vous.</li>
-                                            </ul>
-                                            <p>Si un jour vous décidez de transférer la gestion de votre site à
-                                                quelqu'un d'autre, le transfert de propriété du nom de domaine est
-                                                une
-                                                procédure simple que je faciliterai pour assurer une transition en
-                                                douceur. Votre patrimoine numérique vous appartient.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Q2 (REMPLACER L'EXISTANTE PAR CELLE-CI) -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Est-ce que je pourrai
-                                            modifier mon site moi-même facilement (changer un texte, un tarif, etc.)
-                                            ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>Oui, absolument ! C'est un des piliers de mon offre "Clarté". Je suis
-                                                convaincu que vous devez avoir le contrôle sur votre propre contenu,
-                                                sans avoir à me contacter pour chaque petite modification.</p>
-                                            <p>À la livraison de votre site, je vous fournis un accès à un
-                                                <strong>espace d'administration personnel et sécurisé</strong>. Cet
-                                                outil, appelé CMS (Système de Gestion de Contenu), est conçu pour
-                                                être
-                                                aussi simple à utiliser qu'un formulaire en ligne.
-                                            </p>
-                                            <p><strong>Concrètement, vous pourrez :</strong></p>
-                                            <ul class="list-disc list-inside space-y-2">
-                                                <li><strong>Modifier des textes :</strong> Changer un titre,
-                                                    corriger
-                                                    une faute, mettre à jour une description.</li>
-                                                <li><strong>Changer des images :</strong> Remplacer une photo de la
-                                                    galerie ou un portrait.</li>
-                                                <li><strong>Mettre à jour vos offres :</strong> Ajuster un prix,
-                                                    modifier les détails d'un service.</li>
-                                                <li><strong>Ajouter des actualités ou des témoignages :</strong>
-                                                    Garder
-                                                    votre site vivant et à jour.</li>
-                                            </ul>
-                                            <p>Le tout se fait via une interface claire, sans jamais avoir à toucher
-                                                une
-                                                seule ligne de code. Je vous fournirai une courte vidéo de prise en
-                                                main
-                                                pour vous montrer à quel point c'est simple et rapide. Vous êtes
-                                                autonome pour faire vivre votre site au quotidien.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Q3 (REMPLACER L'ANCIENNE PAR CELLE-CI) -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Pourquoi gérez-vous
-                                            l'hébergement et le nom de domaine pour moi ? Ne serais-je pas plus
-                                            indépendant en le faisant moi-même ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>C'est une question très pertinente qui touche au cœur de ma
-                                                philosophie
-                                                "Clarté". Mon objectif n'est pas de vous rendre dépendant, mais de
-                                                vous
-                                                libérer des contraintes techniques pour que vous puissiez vous
-                                                concentrer sur votre métier.</p>
-                                            <p>En gérant ces aspects pour vous, je vous offre plusieurs garanties :
-                                            </p>
-                                            <ul class="list-disc list-inside space-y-2">
-                                                <li><strong>La Tranquillité d'Esprit :</strong> Vous n'avez jamais à
-                                                    vous soucier des dates de renouvellement, des configurations DNS
-                                                    complexes ou des pannes techniques. Je m'occupe de tout en
-                                                    coulisses.</li>
-                                                <li><strong>La Performance Optimale :</strong> Je sélectionne et
-                                                    configure pour vous un hébergement de pointe (sur un réseau CDN
-                                                    mondial) que vous n'auriez peut-être pas choisi vous-même,
-                                                    garantissant ainsi la vitesse et la fiabilité de votre site.
-                                                </li>
-                                                <li><strong>Un Interlocuteur Unique :</strong> En cas de problème,
-                                                    vous
-                                                    n'avez qu'une seule personne à contacter : moi. Pas besoin de
-                                                    jongler entre un registraire de domaine, un hébergeur et un
-                                                    développeur.</li>
-                                            </ul>
-                                            <p>Et le point le plus important : <strong>votre indépendance est
-                                                    totalement
-                                                    préservée</strong>. Vous restez le <strong>propriétaire légal à
-                                                    100%</strong> de votre nom de domaine. Je ne suis que le
-                                                gestionnaire technique.</p>
-                                            <p>En résumé, je vous offre les avantages de l'indépendance (vous êtes
-                                                propriétaire de tout) sans les inconvénients techniques (vous n'avez
-                                                rien à gérer). C'est la définition même du service Clarté.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Q4 (MODIFIED) -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Quelle technologie
-                                            utilisez-vous pour construire les sites ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>J'utilise des technologies web modernes et standards (HTML, CSS,
-                                                JavaScript) pour coder votre site sur-mesure. Contrairement aux
-                                                systèmes
-                                                de gestion de contenu lourds comme WordPress, cette approche
-                                                garantit :
-                                            </p>
-                                            <ul class="list-disc list-inside space-y-2">
-                                                <li><strong>Une performance maximale :</strong> Votre site se charge
-                                                    à
-                                                    la vitesse de l'éclair, un critère essentiel pour Google et vos
-                                                    visiteurs.</li>
-                                                <li><strong>Une sécurité accrue :</strong> Moins de plugins et de
-                                                    complexité signifie moins de portes d'entrée pour les attaques.
-                                                </li>
-                                                <li><strong>Une totale indépendance :</strong> Vous n'êtes lié à
-                                                    aucune
-                                                    technologie propriétaire ou à des mises à jour complexes.</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Q5 (REMPLACER L'EXISTANTE PAR CELLE-CI) -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Le service inclut-il
-                                            une adresse e-mail professionnelle (ex: contact@monsite.com) ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>Oui, absolument. Avoir une adresse e-mail professionnelle (comme
-                                                <code>contact@votresite.fr</code>) est essentiel pour votre
-                                                crédibilité, et c'est pourquoi ce service est <strong>pleinement
-                                                    inclus dans ma prestation</strong>.
-                                            </p>
-                                            <p>Voici comment cela fonctionne en toute clarté :</p>
-                                            <ol class="list-decimal list-inside space-y-3">
-                                                <li><strong>Le Choix du Service :</strong> Je vous conseille sur la
-                                                    meilleure solution pour vous (par exemple, l'excellente offre
-                                                    gratuite de Zoho Mail, ou Google Workspace si vous avez des
-                                                    besoins plus avancés).</li>
-                                                <li><strong>Votre Propriété :</strong> Vous créez le compte au
-                                                    service d'e-mail choisi. C'est une étape rapide qui garantit que
-                                                    vous en êtes le propriétaire légal à 100%.</li>
-                                                <li><strong>Ma Configuration Technique :</strong> Une fois votre
-                                                    compte créé, <strong>je m'occupe de toute la configuration
-                                                        technique complexe</strong>. Je connecte le service à votre
-                                                    nom de domaine et je m'assure que tout fonctionne parfaitement
-                                                    pour l'envoi et la réception de vos e-mails.</li>
-                                            </ol>
-                                            <p>En résumé, vous n'avez aucune manipulation technique à faire. Je gère
-                                                toute la complexité pour vous livrer une solution clé en main, prête
-                                                à l'emploi.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Q6 -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Le site inclut-il les
-                                            pages légales (Mentions Légales, etc.) ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <p class="pb-5 pr-10 text-neutral-light leading-relaxed">
-                                            Oui, la structure de ces pages est incluse. Je mets en place les pages
-                                            "Mentions Légales" et "Politique de Confidentialité" avec une trame
-                                            standard. Cependant, je ne suis pas juriste : <strong>il est de votre
-                                                responsabilité de fournir le contenu texte final</strong> pour ces
-                                            pages, afin de vous assurer qu'il soit parfaitement conforme à votre
-                                            activité et à la législation en vigueur. Je peux vous orienter vers des
-                                            générateurs en ligne fiables pour vous aider.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Catégorie 7: Après la livraison -->
-                        <div id="category-7" data-sr>
-                            <h3
-                                class="text-2xl md:text-3xl font-bold text-neutral-dark mb-8 border-b-2 border-clarity-blue pb-4">
-                                7. Après la Livraison : Maintenance & Suivi
-                            </h3>
-                            <div class="space-y-4">
-                                <!-- Q1 (MODIFIED) -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Mon site a-t-il besoin
-                                            de
-                                            maintenance ? Proposez-vous un suivi après la mise en ligne ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>Oui, absolument. Un site web, c'est un peu comme une voiture : il a
-                                                besoin d'un entretien régulier pour rester <strong>performant,
-                                                    sécurisé
-                                                    et fiable</strong> sur le long terme. Le web évolue constamment,
-                                                les
-                                                technologies des navigateurs se mettent à jour, et de nouvelles
-                                                failles
-                                                de sécurité peuvent apparaître. Une maintenance proactive est la
-                                                meilleure assurance pour protéger votre investissement et garantir
-                                                que
-                                                votre site reste un atout pour votre activité.</p>
-                                            <p>Pour vous offrir une totale tranquillité d'esprit, je propose une
-                                                offre
-                                                de maintenance optionnelle : <strong>l'Offre Clarté
-                                                    Continue</strong>.
-                                            </p>
-                                            <p>Cette offre est conçue pour que vous n'ayez à vous soucier de rien
-                                                sur le
-                                                plan technique. Elle inclut notamment :</p>
-                                            <ul class="space-y-2">
-                                                <li>✅ <strong>Mises à jour techniques & de sécurité :</strong> Je
-                                                    veille
-                                                    à ce que tous les composants de votre site restent à jour pour
-                                                    le
-                                                    protéger contre les menaces.</li>
-                                                <li>✅ <strong>Sauvegardes mensuelles :</strong> Votre site est
-                                                    sauvegardé intégralement chaque mois. C'est votre filet de
-                                                    sécurité
-                                                    en cas de problème.</li>
-                                                <li>✅ <strong>Monitoring de performance :</strong> Je surveille la
-                                                    vitesse et la disponibilité de votre site pour garantir une
-                                                    expérience utilisateur optimale.</li>
-                                                <li>✅ <strong>Support prioritaire & crédit de temps :</strong> Vous
-                                                    bénéficiez d'un support prioritaire et d'un crédit de temps
-                                                    mensuel
-                                                    pour les petites modifications (changer un texte, une image, un
-                                                    tarif...). C'est la solution idéale pour faire évoluer votre
-                                                    site
-                                                    sans effort.</li>
-                                            </ul>
-                                            <p>Cette offre est <strong>100% optionnelle</strong>. Vous restez
-                                                entièrement propriétaire de votre site et libre de vos choix. Je
-                                                vous la
-                                                présenterai en détail à la fin de notre projet, sans aucun
-                                                engagement,
-                                                afin que vous puissiez décider en toute clarté ce qui convient le
-                                                mieux
-                                                à votre activité.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- NOUVELLE Q -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Puis-je héberger mon
-                                            site
-                                            moi-même après la première année ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <div class="pb-5 pr-10 text-neutral-light leading-relaxed space-y-4">
-                                            <p>Oui, absolument. Le site web et son code vous appartiennent
-                                                entièrement.
-                                                À la fin de la première année incluse, si vous ne souhaitez pas
-                                                continuer avec le Pack Sérénité, je peux vous fournir une archive
-                                                complète de votre site.</p>
-                                            <p>Cependant, il est important de comprendre que vous deviendrez alors
-                                                responsable de toutes les opérations techniques : trouver un
-                                                hébergeur
-                                                compatible, transférer les fichiers, acheter et renouveler votre nom
-                                                de
-                                                domaine, configurer les DNS, installer et renouveler le certificat
-                                                de
-                                                sécurité SSL, et résoudre les problèmes qui pourraient survenir.</p>
-                                            <p>Mon Pack Sérénité est justement conçu pour vous libérer de toutes ces
-                                                contraintes techniques et vous garantir une tranquillité d'esprit
-                                                totale, pour que vous puissiez vous concentrer sur votre activité.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Q2 -->
-                                <div class="faq-item border-b">
-                                    <button class="faq-toggle w-full flex justify-between items-center text-left py-5">
-                                        <span class="text-lg font-semibold text-neutral-dark">Votre aide
-                                            s'arrête-t-elle
-                                            à la livraison du site ?</span>
-                                        <svg class="w-6 h-6 text-clarity-blue flex-shrink-0 transition-transform duration-300"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 9l-7 7-7-7"></path>
-                                        </svg>
-                                    </button>
-                                    <div
-                                        class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                                        <p class="pb-5 pr-10 text-neutral-light leading-relaxed">
-                                            La création du site est notre mission principale, mais la relation ne
-                                            s'arrête pas là. Je reste votre point de contact privilégié pour toute
-                                            question après la mise en ligne. De plus, pour ceux qui souhaitent aller
-                                            plus loin, je propose des services complémentaires comme la
-                                            <strong>maintenance "Clarté Continue"</strong>, des
-                                            <strong>optimisations
-                                                SEO avancées</strong> ou des <strong>évolutions
-                                                fonctionnelles</strong>
-                                            pour accompagner la croissance de votre entreprise.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                     </div>
                 </div>
             </section>
+
+
+
+
+
         </main>
-
-
-
-
 
         <!-- ======================================================= -->
         <!--                        Footer                           -->
         <!-- ======================================================= -->
+        <footer class="bg-neutral-dark border-t border-white/10 text-white py-16">
 
-
-        <footer class="bg-neutral-dark text-white py-16">
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-3 gap-12">
                     <div class="space-y-6">
@@ -2143,17 +737,9 @@
             </div>
         </footer>
 
-
-
-
-
-
-
-
     </div>
 
-
-    <!-- BANDEAU DE CONSENTEMENT AUX COOKIES (VERSION RESPONSIVE AMÉLIORÉE) -->
+    <!-- BANDEAU DE CONSENTEMENT AUX COOKIES -->
     <div id="cookie-consent-banner" class="hidden fixed bottom-0 inset-x-0 p-2 sm:p-4 z-[100]">
         <div class="max-w-7xl mx-auto">
             <div
@@ -2170,7 +756,6 @@
                     </p>
                 </div>
 
-
                 <!-- Section Boutons -->
                 <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
                     <button id="cookie-accept-btn" type="button" class="w-full sm:w-auto btn btn-primary px-6 py-2">
@@ -2181,12 +766,98 @@
                         Refuser
                     </button>
                 </div>
-
-
             </div>
         </div>
     </div>
-    <!-- FIN DU BANDEAU DE CONSENTEMENT -->
+
+
+
+
+
+    <script>
+        // --- 1. GESTION DU MENU DÉROULANT MOBILE ---
+        const dropdownBtn = document.getElementById('dropdown-button');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        const dropdownLabel = document.getElementById('dropdown-label');
+        const dropdownArrow = document.getElementById('dropdown-arrow');
+        let isDropdownOpen = false;
+
+        function toggleDropdown() {
+            isDropdownOpen = !isDropdownOpen;
+            if (isDropdownOpen) {
+                dropdownMenu.classList.remove('hidden');
+                dropdownArrow.classList.add('rotate-180');
+            } else {
+                dropdownMenu.classList.add('hidden');
+                dropdownArrow.classList.remove('rotate-180');
+            }
+        }
+
+        // Fermer le menu si on clique ailleurs
+        document.addEventListener('click', function (event) {
+            if (!dropdownBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                if (isDropdownOpen) toggleDropdown();
+            }
+        });
+
+        function selectOption(value, label) {
+            // Mettre à jour le texte du bouton mobile
+            if (dropdownLabel) dropdownLabel.innerText = label;
+
+            // Fermer le menu
+            toggleDropdown();
+
+            // Changer le contenu
+            switchTab(value);
+        }
+
+        // --- 2. FONCTION PRINCIPALE DE CHANGEMENT D'ONGLET (Desktop & Mobile) ---
+        function switchTab(category) {
+
+            // A. Masquer tous les contenus
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+                content.classList.remove('block');
+            });
+
+            // B. Afficher le contenu ciblé
+            const targetContent = document.getElementById('content-' + category);
+            if (targetContent) {
+                targetContent.classList.remove('hidden');
+                targetContent.classList.add('block');
+
+                // Petit effet d'animation (reset)
+                targetContent.classList.remove('animate-fade-in');
+                void targetContent.offsetWidth; // force reflow
+                targetContent.classList.add('animate-fade-in');
+            }
+
+            // C. Mettre à jour les boutons de la Sidebar (Desktop)
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+                // Remettre le style par défaut (gris)
+                btn.classList.add('text-gray-400', 'border-transparent');
+            });
+
+            // Activer le bouton correspondant
+            const activeBtn = document.getElementById('btn-' + category);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+                activeBtn.classList.remove('text-gray-400', 'border-transparent');
+            }
+
+            // D. Synchroniser le label mobile (si on clique sur desktop)
+            const labels = {
+                'general': 'Général & Confiance',
+                'tarifs': 'Tarifs & Investissement',
+                'technique': 'Technique & Gestion'
+            };
+            if (dropdownLabel && labels[category]) {
+                dropdownLabel.innerText = labels[category];
+            }
+        }
+    </script>
+
 
 
 
