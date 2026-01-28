@@ -421,6 +421,14 @@
                                         class="px-5 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-white cursor-pointer transition-colors">
                                         Technique & Gestion
                                     </div>
+
+
+                                    <div onclick="selectOption('maintenance', 'Maintenance & Suivi')"
+                                        class="px-5 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-white cursor-pointer transition-colors">
+                                        Maintenance & Suivi
+                                    </div>
+
+
                                 </div>
                             </div>
 
@@ -496,6 +504,21 @@
                                             d="M9 5l7 7-7 7"></path>
                                     </svg>
                                 </button>
+
+
+
+                                <button onclick="switchTab('maintenance')" id="btn-maintenance"
+                                    class="nav-btn text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-400 border-transparent hover:text-white hover:bg-white/5 transition-all duration-300 border-l-2 flex justify-between items-center group">
+                                    <span>Maintenance & Suivi</span>
+                                    <svg class="w-4 h-4 opacity-0 -translate-x-2 group-[.active]:opacity-100 group-[.active]:translate-x-0 transition-all duration-300"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </button>
+
+
+
                             </div>
                         </div>
 
@@ -2832,7 +2855,8 @@
                                                         statique ultra-sécurisée (Jamstack via Github/Netlify). Il ne
                                                         contient aucune base de données piratable. Il sert uniquement à
                                                         <strong class="text-white">afficher</strong> votre expertise et
-                                                        rassurer vos visiteurs. C'est une forteresse numérique.</p>
+                                                        rassurer vos visiteurs. C'est une forteresse numérique.
+                                                    </p>
                                                 </div>
 
                                                 <div class="bg-white/5 p-4 rounded-lg border-l-2 border-l-clarity-blue">
@@ -2846,7 +2870,7 @@
                                                         des agendas sécurisés.</p>
                                                 </div>
 
-                                                <p class="pt-2">Cette stratégie vous assure que <strong
+                                                <p class="pt-2">Cette stratégie vous assure qu'<strong
                                                         class="text-white">aucune donnée de santé ne transite jamais par
                                                         les serveurs de votre site vitrine</strong>. Vous profitez d'un
                                                     design sur-mesure tout en restant à 100% dans les clous de la
@@ -2888,7 +2912,8 @@
                                                 <p>Cela part d'une intention de protection. Dans un formulaire
                                                     classique, un patient en détresse peut être tenté d'écrire :
                                                     <em>"Bonjour, je fais une dépression et je prends tel
-                                                        médicament..."</em>.</p>
+                                                        médicament..."</em>.
+                                                </p>
 
                                                 <p>Dès cet instant, ce message devient une <strong
                                                         class="text-white">Donnée de Santé</strong>. S'il est stocké
@@ -2922,6 +2947,101 @@
 
 
 
+
+
+
+                                    <!-- ... GROUPE 7 : MAINTENANCE & SUIVI ... -->
+                                    <div id="content-maintenance" class="tab-content hidden animate-fade-in">
+
+                                        <!-- Question 1 -->
+                                        <div
+                                            class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+                                            <button
+                                                class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+                                                <span
+                                                    class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                    Mon site a-t-il besoin de maintenance ? Proposez-vous un suivi ?
+                                                </span>
+                                                <div
+                                                    class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+                                                    <svg class="w-4 h-4 transition-transform duration-300" fill="none"
+                                                        stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                                    </svg>
+                                                </div>
+                                            </button>
+                                            <div
+                                                class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                                                <div
+                                                    class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4">
+                                                    <p>Oui, absolument. Un site web est comme une voiture : il a besoin
+                                                        d'un entretien régulier pour rester performant, sécurisé et
+                                                        fiable.</p>
+
+                                                    <p><strong class="text-white">Mais voici la bonne nouvelle
+                                                            :</strong> Vous n'avez pas à vous en soucier, ni à payer de
+                                                        supplément maintenant.</p>
+
+                                                    <p>Le "Pack Sérénité" est 100% inclus dans votre tarif initial pour
+                                                        la première année. Concrètement, je gère tout en coulisses pour
+                                                        vous :</p>
+
+                                                    <ul class="space-y-2 mt-2 ml-2">
+                                                        <li class="flex items-start gap-3">
+                                                            <span class="text-success-green text-lg">✅</span>
+                                                            <span><strong class="text-white">Hébergement & Nom de
+                                                                    domaine :</strong> Je gère le renouvellement
+                                                                technique.</span>
+                                                        </li>
+                                                        <li class="flex items-start gap-3">
+                                                            <span class="text-success-green text-lg">✅</span>
+                                                            <span><strong class="text-white">Sécurité & Mises à jour
+                                                                    :</strong> Je veille à ce que le code reste sain
+                                                                face aux menaces.</span>
+                                                        </li>
+                                                        <li class="flex items-start gap-3">
+                                                            <span class="text-success-green text-lg">✅</span>
+                                                            <span><strong class="text-white">Sauvegardes :</strong>
+                                                                Votre site est sauvegardé régulièrement (votre filet de
+                                                                sécurité).</span>
+                                                        </li>
+                                                        <li class="flex items-start gap-3">
+                                                            <span class="text-success-green text-lg">✅</span>
+                                                            <span><strong class="text-white">Support prioritaire
+                                                                    :</strong> En cas de bug ou de question technique,
+                                                                je suis là.</span>
+                                                        </li>
+                                                    </ul>
+
+                                                    <!-- Encadré Tarif Renouvellement -->
+                                                    <div class="bg-white/5 p-4 rounded-lg border border-white/10 mt-4">
+                                                        <strong class="text-white block mb-2 text-lg">Et après 1 an
+                                                            ?</strong>
+                                                        <p class="text-sm">Pour continuer à bénéficier de cette
+                                                            tranquillité totale (hébergement + maintenance + support),
+                                                            le Pack Sérénité est proposé au tarif clair de <strong
+                                                                class="text-white">249€/an</strong>.</p>
+                                                        <p class="text-sm italic text-gray-400 mt-2">C'est sans
+                                                            engagement : vous restez libre de reprendre la gestion
+                                                            technique vous-même si vous le souhaitez.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+
+                                        
+
+
+
+
+                                    </div>
 
 
 
