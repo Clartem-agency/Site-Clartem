@@ -399,6 +399,12 @@
                                         Tarifs & Investissement
                                     </div>
 
+
+                                    <div onclick="selectOption('processus', 'Le Processus & Notre Collaboration')"
+                                        class="px-5 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-white cursor-pointer border-b border-white/5 transition-colors">
+                                        Processus & Collaboration
+                                    </div>
+
                                     <div onclick="selectOption('technique', 'Technique & Gestion')"
                                         class="px-5 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-white cursor-pointer transition-colors">
                                         Technique & Gestion
@@ -425,6 +431,17 @@
                                 <button onclick="switchTab('tarifs')" id="btn-tarifs"
                                     class="nav-btn text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-400 border-transparent hover:text-white hover:bg-white/5 transition-all duration-300 border-l-2 flex justify-between items-center group">
                                     <span>Tarifs & Investissement</span>
+                                    <svg class="w-4 h-4 opacity-0 -translate-x-2 group-[.active]:opacity-100 group-[.active]:translate-x-0 transition-all duration-300"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </button>
+
+
+                                <button onclick="switchTab('processus')" id="btn-processus"
+                                    class="nav-btn text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-400 border-transparent hover:text-white hover:bg-white/5 transition-all duration-300 border-l-2 flex justify-between items-center group">
+                                    <span>Processus & Collaboration</span>
                                     <svg class="w-4 h-4 opacity-0 -translate-x-2 group-[.active]:opacity-100 group-[.active]:translate-x-0 transition-all duration-300"
                                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -1201,6 +1218,100 @@
 
 
                                 </div>
+
+
+
+
+
+
+
+
+
+                                <!-- ... GROUPE 3 : PROCESSUS ... -->
+                                <div id="content-processus" class="tab-content hidden animate-fade-in">
+
+
+                                    <!-- Question 1 -->
+                                    <div
+                                        class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+                                        <button
+                                            class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+                                            <span
+                                                class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Comment pouvez-vous livrer un site sur-mesure en seulement 7 jours ?
+                                            </span>
+                                            <div
+                                                class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+                                                <svg class="w-4 h-4 transition-transform duration-300" fill="none"
+                                                    stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                                </svg>
+                                            </div>
+                                        </button>
+                                        <div
+                                            class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                                            <div
+                                                class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4">
+                                                <p>C'est la question que tout le monde se pose, et elle est parfaitement
+                                                    légitime. Comment la vitesse peut-elle rimer avec qualité et
+                                                    sur-mesure ?</p>
+
+                                                <p>La réponse est simple : le secret n'est pas de travailler plus vite,
+                                                    mais de travailler plus intelligemment <strong class="text-white">en
+                                                        inversant le processus de création traditionnel.</strong></p>
+
+                                                <p>Un projet web classique, c'est souvent 20% de briefing flou et 80% de
+                                                    temps passé en allers-retours, corrections, modifications et
+                                                    devinettes. C'est long, frustrant et coûteux en énergie pour tout le
+                                                    monde.</p>
+
+                                                <p>Ma méthode, c'est l'inverse : <strong class="text-white">80% de notre
+                                                        effort commun est consacré à la clarté en amont.</strong></p>
+
+                                                <!-- Analogie Maison -->
+                                                <div
+                                                    class="bg-white/5 p-5 rounded-lg border-l-4 border-l-warm-orange my-4">
+                                                    <p class="font-bold text-white mb-2">Pensez-y comme la construction
+                                                        d'une maison :</p>
+                                                    <p class="text-sm">L'<strong class="text-white">Atelier de
+                                                            Clarté</strong> n'est pas un simple questionnaire. C'est
+                                                        notre phase de <strong class="text-white">"plans
+                                                            d'architecte"</strong>. Nous ne posons pas une seule brique
+                                                        avant que le plan de votre maison ne soit absolument parfait et
+                                                        validé par vous. Ensemble, nous transformons votre brouillard
+                                                        d'idées en une feuille de route limpide qui définit chaque
+                                                        pièce, chaque couleur, chaque fonction.</p>
+                                                </div>
+
+                                                <p>Une fois ce plan validé, ma phase de production devient une exécution
+                                                    <strong class="text-white">fluide, rapide et sans surprise</strong>.
+                                                    Je n'ai plus à deviner vos attentes, je n'ai qu'à construire le site
+                                                    que nous avons déjà conçu ensemble sur le papier. Les 24h à 48h de
+                                                    production intensive ne sont que la dernière étape d'un travail de
+                                                    fond que nous avons mené en amont.</p>
+
+                                                <p class="pt-2 italic text-gray-400"><strong
+                                                        class="text-white not-italic">En résumé : je ne code pas plus
+                                                        vite. Je prépare mieux.</strong> La vitesse de livraison n'est
+                                                    pas l'objectif, c'est la <strong
+                                                        class="text-white not-italic">conséquence</strong> d'une clarté
+                                                    parfaite obtenue en amont. C'est ce qui garantit un site sur-mesure,
+                                                    qui vous ressemble, livré sans le stress et les délais habituels.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
 
 
 
