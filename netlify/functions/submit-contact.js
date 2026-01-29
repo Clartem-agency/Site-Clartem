@@ -8,34 +8,33 @@ exports.handler = async (event) => {
 
   try {
     // 1. Récupérer les données du formulaire Netlify
-    // Netlify envoie les données dans event.body
     const payload = JSON.parse(event.body);
-    const formData = payload.data; // Les champs du formulaire sont ici
+    const formData = payload.data;
 
     console.log("Données reçues :", formData);
 
-    // 2. Configurer Brevo
-    let defaultClient = brevo.ApiClient.instance;
-    let apiKey = defaultClient.authentications['api-key'];
+    // 2. Configurer Brevo (SYNTAXE CORRIGÉE)
+    let apiInstance = new brevo.TransactionalEmailsApi();
+    
+    // On attache la clé API directement à l'instance
+    let apiKey = apiInstance.authentications['apiKey'];
     apiKey.apiKey = process.env.BREVO_API_KEY;
 
-    let apiInstance = new brevo.TransactionalEmailsApi();
     let sendSmtpEmail = new brevo.SendSmtpEmail();
 
     // 3. Préparer l'email
     sendSmtpEmail.subject = `Nouveau contact de ${formData['first-name']} - ${formData.subject}`;
     
-    // L'email que TU vas recevoir (ta boite pro)
-    // MODIFIE ICI SI BESOIN (par défaut je mets celle de ton profil Brevo)
+    // Ton adresse de réception
     sendSmtpEmail.to = [{ "email": "contact@clartem.com", "name": "Frédéric" }]; 
 
-    // L'expéditeur (Doit être une adresse validée dans Brevo, utilise ton adresse pro)
+    // L'expéditeur (Validé dans Brevo)
     sendSmtpEmail.sender = { "email": "contact@clartem.com", "name": "Site Clartem" };
 
-    // Le Reply-To (Pour que quand tu cliques sur "Répondre", ça réponde au visiteur)
+    // Le Reply-To (Email du visiteur)
     sendSmtpEmail.replyTo = { "email": formData.email, "name": `${formData['first-name']} ${formData['last-name']}` };
 
-    // Le contenu HTML de l'email
+    // Le contenu HTML
     sendSmtpEmail.htmlContent = `
       <html><body>
         <h2>Nouveau message du site</h2>
@@ -56,6 +55,7 @@ exports.handler = async (event) => {
 
   } catch (error) {
     console.error('Erreur Brevo:', error);
-    return { statusCode: 500, body: "Erreur interne" };
+    // On renvoie l'erreur précise pour le debug
+    return { statusCode: 500, body: JSON.stringify(error) };
   }
 };
