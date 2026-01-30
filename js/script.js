@@ -22,24 +22,40 @@ document.addEventListener('DOMContentLoaded', function () {
         handleScroll();
     }
 
-    // Logique du menu mobile (inchangée)
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (mobileMenuButton && mobileMenu) {
-        const navLinks = mobileMenu.querySelectorAll('a');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            // Astuce : Si on ouvre le menu mobile tout en haut, on met le fond blanc pour la lisibilité
-            if (!nav.classList.contains('scrolled')) {
-                nav.classList.add('scrolled');
-            } else if (window.scrollY <= 50) {
-                nav.classList.remove('scrolled');
+
+
+
+
+
+    // ==================================================================
+    // LOGIQUE MENU MOBILE PREMIUM (FULL SCREEN)
+    // ==================================================================
+    const mobileBtn = document.getElementById('mobile-menu-button');
+    const mobileOverlay = document.getElementById('mobile-menu-overlay');
+    const mobileLinks = document.querySelectorAll('.mobile-link'); // Les liens dans l'overlay
+
+    if (mobileBtn && mobileOverlay) {
+
+        function toggleMenu() {
+            const isClosed = !mobileOverlay.classList.contains('open');
+
+            if (isClosed) {
+                // OUVERTURE
+                mobileOverlay.classList.add('open');
+                document.body.classList.add('menu-open'); // Pour le burger et bloquer le scroll
+            } else {
+                // FERMETURE
+                mobileOverlay.classList.remove('open');
+                document.body.classList.remove('menu-open');
             }
-        });
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
+        }
+
+        // Clic sur le burger
+        mobileBtn.addEventListener('click', toggleMenu);
+
+        // Clic sur un lien (ferme le menu automatiquement)
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
         });
     }
 
