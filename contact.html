@@ -243,22 +243,29 @@
                     </div>
                 </div>
 
-                
+
 
 
                 <!-- COLONNE DROITE : LE FORMULAIRE (STYLE PREMIUM DARK) -->
                 <div class="lg:col-span-7">
                     <!-- Cadre Premium : Fond sombre, flou, bordure fine -->
-                    <div class="bg-[#1E293B]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden group">
-                        
+                    <div
+                        class="bg-[#1E293B]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden group">
+
                         <!-- Effet de lueur d'ambiance en haut à droite -->
-                        <div class="absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-[80px] pointer-events-none group-hover:bg-white/20 transition-colors duration-500"></div>
+                        <div
+                            class="absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-[80px] pointer-events-none group-hover:bg-white/20 transition-colors duration-500">
+                        </div>
 
                         <!-- Ligne décorative (Gradient) -->
-                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-clarity-blue via-white to-white opacity-80"></div>
+                        <div
+                            class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-clarity-blue via-white to-white opacity-80">
+                        </div>
 
-                        <form id="contact-form" name="contact-form-agence" method="POST" action="/merci-formulaire-contact/" netlify netlify-honeypot="bot-field" enctype="multipart/form-data" class="space-y-6 relative z-10">
-                            
+                        <form id="contact-form" name="contact-form-agence" method="POST"
+                            action="/merci-formulaire-contact/" netlify netlify-honeypot="bot-field"
+                            enctype="multipart/form-data" class="space-y-6 relative z-10">
+
                             <p class="hidden"><label>Ne pas remplir : <input name="bot-field" /></label></p>
                             <input type="hidden" name="form-name" value="contact-form-agence" />
                             <input type="hidden" name="image-urls" id="cloudinary-urls">
@@ -266,61 +273,87 @@
                             <!-- IDENTITÉ -->
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
-                                    <label for="first-name" class="block text-sm font-bold text-gray-300 mb-2">Prénom</label>
-                                    <input type="text" name="first-name" id="first-name" placeholder="Votre prénom" required 
+                                    <label for="first-name"
+                                        class="block text-sm font-bold text-gray-300 mb-2">Prénom</label>
+                                    <input type="text" name="first-name" id="first-name" placeholder="Votre prénom"
+                                        required
                                         class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:bg-white/10 focus:border-warm-orange focus:ring-1 focus:ring-warm-orange outline-none transition-all">
                                 </div>
                                 <div>
-                                    <label for="last-name" class="block text-sm font-bold text-gray-300 mb-2">Nom</label>
-                                    <input type="text" name="last-name" id="last-name" placeholder="Votre nom" required 
+                                    <label for="last-name"
+                                        class="block text-sm font-bold text-gray-300 mb-2">Nom</label>
+                                    <input type="text" name="last-name" id="last-name" placeholder="Votre nom" required
                                         class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:bg-white/10 focus:border-warm-orange focus:ring-1 focus:ring-warm-orange outline-none transition-all">
                                 </div>
                             </div>
 
                             <!-- EMAIL (MODIFIÉ : PLUS GÉNÉRIQUE) -->
                             <div>
-                                <label for="email" class="block text-sm font-bold text-gray-300 mb-2">Votre Email</label>
-                                <input type="email" name="email" id="email" placeholder="jean.dupont@email.com" required 
+                                <label for="email" class="block text-sm font-bold text-gray-300 mb-2">Votre
+                                    Email</label>
+                                <input type="email" name="email" id="email" placeholder="jean.dupont@email.com" required
                                     class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:bg-white/10 focus:border-warm-orange focus:ring-1 focus:ring-warm-orange outline-none transition-all">
                             </div>
 
                             <!-- SUJET -->
                             <div>
-                                <label for="subject" class="block text-sm font-bold text-gray-300 mb-2">Quel est l'objet de votre demande ?</label>
+                                <label for="subject" class="block text-sm font-bold text-gray-300 mb-2">Quel est l'objet
+                                    de votre demande ?</label>
                                 <div class="relative">
-                                    <select id="subject" name="subject" required 
+                                    <select id="subject" name="subject" required
                                         class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:bg-white/10 focus:border-warm-orange focus:ring-1 focus:ring-warm-orange outline-none transition-all appearance-none cursor-pointer">
                                         <!-- Option par défaut grisée -->
-                                        <option value="" disabled selected class="bg-neutral-dark text-gray-500">Sélectionnez une option...</option>
+                                        <option value="" disabled selected class="bg-neutral-dark text-gray-500">
+                                            Sélectionnez une option...</option>
                                         <!-- Options avec fond sombre pour lisibilité -->
-                                        <option value="ready" class="bg-neutral-dark">🚀 Je suis prêt à lancer mon Site Clarté</option>
-                                        <option value="hesitation" class="bg-neutral-dark">🤔 J'hésite entre deux offres</option>
-                                        <option value="partner" class="bg-neutral-dark">🤝 Proposition de partenariat / Collab</option>
-                                        <option value="job" class="bg-neutral-dark">👋 Candidature spontanée (Rejoindre l'équipe)</option>
-                                        <option value="other" class="bg-neutral-dark">✉️ Autre demande / Simple bonjour</option>
+                                        <option value="ready" class="bg-neutral-dark">🚀 Je suis prêt à lancer mon Site
+                                            Clarté</option>
+                                        <option value="hesitation" class="bg-neutral-dark">🤔 J'hésite entre deux offres
+                                        </option>
+                                        <option value="partner" class="bg-neutral-dark">🤝 Proposition de partenariat /
+                                            Collab</option>
+                                        <option value="job" class="bg-neutral-dark">👋 Candidature spontanée (Rejoindre
+                                            l'équipe)</option>
+                                        <option value="other" class="bg-neutral-dark">✉️ Autre demande / Simple bonjour
+                                        </option>
                                     </select>
                                     <!-- Flèche custom blanche -->
-                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400">
-                                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    <div
+                                        class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400">
+                                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 9l-7 7-7-7"></path>
+                                        </svg>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- MESSAGE -->
                             <div>
-                                <label for="message" class="block text-sm font-bold text-gray-300 mb-2">Votre Message</label>
-                                <textarea id="message" name="message" rows="5" placeholder="Parlez-moi de votre activité, de vos objectifs actuels et de ce qui vous bloque..." required 
+                                <label for="message" class="block text-sm font-bold text-gray-300 mb-2">Votre
+                                    Message</label>
+                                <textarea id="message" name="message" rows="5"
+                                    placeholder="Parlez-moi de votre activité, de vos objectifs actuels et de ce qui vous bloque..."
+                                    required
                                     class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:bg-white/10 focus:border-warm-orange focus:ring-1 focus:ring-warm-orange outline-none transition-all resize-y"></textarea>
                             </div>
 
                             <!-- UPLOAD FICHIER (Style Dark) -->
                             <div>
-                                <label class="block text-sm font-bold text-gray-300 mb-2">Pièce jointe (Optionnel)</label>
-                                <label for="file-upload-input" class="group flex flex-col items-center justify-center w-full h-24 border-2 border-white/10 border-dashed rounded-xl cursor-pointer bg-white/5 hover:bg-white/10 hover:border-warm-orange/50 transition-all duration-300">
+                                <label class="block text-sm font-bold text-gray-300 mb-2">Pièce jointe
+                                    (Optionnel)</label>
+                                <label for="file-upload-input"
+                                    class="group flex flex-col items-center justify-center w-full h-24 border-2 border-white/10 border-dashed rounded-xl cursor-pointer bg-white/5 hover:bg-white/10 hover:border-warm-orange/50 transition-all duration-300">
                                     <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                        <div class="flex items-center gap-2 text-gray-400 group-hover:text-white transition-colors">
-                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-4-4V7a4 4 0 014-4h.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414A1 1 0 0116.414 3H17a4 4 0 014 4v5a4 4 0 01-4 4H7z"></path></svg>
-                                            <span class="text-sm font-medium">Cliquez pour ajouter un fichier (Image, PDF...)</span>
+                                        <div
+                                            class="flex items-center gap-2 text-gray-400 group-hover:text-white transition-colors">
+                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M7 16a4 4 0 01-4-4V7a4 4 0 014-4h.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414A1 1 0 0116.414 3H17a4 4 0 014 4v5a4 4 0 01-4 4H7z">
+                                                </path>
+                                            </svg>
+                                            <span class="text-sm font-medium">Cliquez pour ajouter un fichier (Image,
+                                                PDF...)</span>
                                         </div>
                                     </div>
                                     <input id="file-upload-input" type="file" multiple accept="image/*,application/pdf">
@@ -331,23 +364,30 @@
                             <!-- CONSENTEMENT -->
                             <div class="flex items-start pt-2">
                                 <div class="flex items-center h-5">
-                                    <input id="consent-contact" name="consent-contact" type="checkbox" required 
+                                    <input id="consent-contact" name="consent-contact" type="checkbox" required
                                         class="w-4 h-4 text-warm-orange border-gray-600 rounded bg-white/10 focus:ring-warm-orange cursor-pointer">
                                 </div>
                                 <div class="ml-3 text-sm">
                                     <label for="consent-contact" class="text-gray-400">
-                                        J'accepte que mes informations soient utilisées pour traiter ma demande. <a href="politique-de-confidentialite.html" target="_blank" class="text-white font-semibold hover:underline decoration-warm-orange">Politique de confidentialité</a>.
+                                        En soumettant ce formulaire, j'accepte que mes informations soient utilisées
+                                        exclusivement dans le cadre de ma demande et de la relation commerciale éthique
+                                        qui peut en découler. J'ai lu et j'accepte la <a
+                                            href="politique-de-confidentialite.html" target="_blank"
+                                            class="text-white font-semibold hover:underline decoration-warm-orange">Politique
+                                            de confidentialité</a>.
                                     </label>
                                 </div>
                             </div>
 
                             <!-- BOUTON SUBMIT -->
                             <div class="pt-4">
-                                <button type="submit" id="submit-button" 
+                                <button type="submit" id="submit-button"
                                     class="w-full btn btn-orange text-lg font-bold py-4 shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 relative overflow-hidden group">
                                     <span class="relative z-10">Envoyer mon message</span>
                                     <!-- Petit effet brillance au survol -->
-                                    <div class="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+                                    <div
+                                        class="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]">
+                                    </div>
                                 </button>
                                 <p id="form-status" class="mt-4 text-sm font-medium text-center text-gray-300"></p>
                             </div>
