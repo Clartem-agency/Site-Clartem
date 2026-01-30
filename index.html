@@ -5437,24 +5437,63 @@
     </div>
 
 
-    <!-- ======================================================= -->
-    <!--          CHATBREVO                              -->
-    <!-- ======================================================= -->
+    
 
-    <script>
-            (function (d, w, c) {
-                w.BrevoConversationsID = '688afd5eb78a71119e0a4e37';
-                w[c] = w[c] || function () {
-                    (w[c].q = w[c].q || []).push(arguments);
-                };
-                var s = d.createElement('script');
-                s.async = true;
-                s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
-                if (d.head) d.head.appendChild(s);
-            })(document, window, 'BrevoConversations');
-    </script>
-    <!-- Fin Chat Brevo  -->
+<!-- ======================================================= -->
+<!--          CHATBREVO CUSTOM INTEGRATION                   -->
+<!-- ======================================================= -->
+<script>
+    (function (d, w, c) {
+        w.BrevoConversationsID = '688afd5eb78a71119e0a4e37';
+        w[c] = w[c] || function () {
+            (w[c].q = w[c].q || []).push(arguments);
+        };
+        var s = d.createElement('script');
+        s.async = true;
+        s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
+        if (d.head) d.head.appendChild(s);
+    })(document, window, 'BrevoConversations');
 
+    // --- LOGIQUE CUSTOM ---
+    window.BrevoConversationsSetup = {
+        // 1. On cache le bouton par défaut de Brevo
+        customLauncherSelector: '#custom-chat-trigger' 
+    };
+
+    // Une fois Brevo chargé, on active notre bouton
+    window.BrevoConversations('on', 'load', function() {
+        const trigger = document.getElementById('custom-chat-trigger');
+        
+        // Petite animation d'entrée après 2 secondes
+        setTimeout(() => {
+            trigger.classList.remove('opacity-0', 'translate-y-10');
+            trigger.classList.add('chat-entrance');
+        }, 2000);
+
+        // Gestion du clic
+        trigger.addEventListener('click', function() {
+            // Brevo gère l'ouverture, mais on veut gérer le style du bouton (Croix vs Bulle)
+            // On vérifie si la classe 'is-open' est là pour basculer
+            if (trigger.classList.contains('is-open')) {
+                // Si c'est ouvert, le clic fermera (géré par Brevo via le selector), 
+                // mais on update visuellement
+                trigger.classList.remove('is-open');
+            } else {
+                trigger.classList.add('is-open');
+            }
+        });
+
+        // Écouter la fermeture via la croix interne du widget Brevo
+        window.BrevoConversations('on', 'chatWindow:close', function() {
+            trigger.classList.remove('is-open');
+        });
+        
+        // Écouter l'ouverture
+        window.BrevoConversations('on', 'chatWindow:open', function() {
+            trigger.classList.add('is-open');
+        });
+    });
+</script>
 
 
 
