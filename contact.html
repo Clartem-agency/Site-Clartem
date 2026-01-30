@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contactez l'Agence - clartem.com</title>
 
     <!-- FAVICON -->
-    <link rel="icon" type="image/x-icon" href="assets/favicon-clartem.ico"> 
-    
+    <link rel="icon" type="image/x-icon" href="assets/favicon-clartem.ico">
+
     <!-- META TAGS -->
     <meta name="robots" content="noindex, follow">
-    <meta name="description" content="Discutons de votre projet de site web. Formulaire de contact direct pour coachs et thérapeutes.">
+    <meta name="description"
+        content="Discutons de votre projet de site web. Formulaire de contact direct pour coachs et thérapeutes.">
 
     <!-- ======================================================= -->
     <!--       DÉBUT DU BLOC SEO & ANALYTICS                     -->
@@ -19,10 +21,10 @@
     <!-- 1. Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-54GH7QYLQP"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-54GH7QYLQP');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-54GH7QYLQP');
     </script>
 
     <!-- 2. Balise Canonique -->
@@ -34,7 +36,7 @@
 
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
@@ -63,78 +65,106 @@
 
     <style>
         /* Style spécifique pour masquer l'input file natif */
-        #file-upload-input { display: none; }
-        
+        #file-upload-input {
+            display: none;
+        }
+
         /* Style des tags de fichiers uploadés */
         #file-list span {
-            display: inline-flex; 
+            display: inline-flex;
             align-items: center;
-            background-color: #EFF6FF; 
+            background-color: #EFF6FF;
             color: #1E3A8A;
-            padding: 6px 12px; 
-            border-radius: 8px; 
+            padding: 6px 12px;
+            border-radius: 8px;
             font-size: 0.8rem;
-            margin: 4px; 
+            margin: 4px;
             font-weight: 600;
             border: 1px solid #BFDBFE;
         }
 
         /* Force la nav blanche sur fond sombre */
-        .nav-dark-mode .nav-link { color: rgba(255,255,255,0.9) !important; }
-        .nav-dark-mode .nav-link:hover { color: #F97316 !important; }
-        .nav-dark-mode #logo-white { opacity: 1 !important; }
-        .nav-dark-mode #logo-color { opacity: 0 !important; }
-        .nav-dark-mode #mobile-menu-button { color: white !important; }
-        
+        .nav-dark-mode .nav-link {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        .nav-dark-mode .nav-link:hover {
+            color: #F97316 !important;
+        }
+
+        .nav-dark-mode #logo-white {
+            opacity: 1 !important;
+        }
+
+        .nav-dark-mode #logo-color {
+            opacity: 0 !important;
+        }
+
+        .nav-dark-mode #mobile-menu-button {
+            color: white !important;
+        }
+
         /* Au scroll, on repasse en mode normal (fond blanc, texte noir) géré par JS */
     </style>
 </head>
 
 <!-- Body en Dark Mode pour matcher l'ambiance Premium -->
+
 <body class="bg-neutral-dark text-white font-sans antialiased selection:bg-warm-orange selection:text-white">
 
     <!-- ======================================================= -->
     <!--                Section Navigation                       -->
     <!-- ======================================================= -->
-    
+
     <!-- Ajout de la classe 'nav-dark-mode' pour gérer le texte blanc initial -->
     <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent nav-dark-mode">
         <div class="container mx-auto px-6">
             <div class="flex items-center justify-between py-4">
-                
+
                 <!-- LOGO -->
                 <a href="index.html" class="relative block group py-2">
-                    <img id="logo-white" class="h-10 w-auto transition-opacity duration-300" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com blanc">
-                    <img id="logo-color" class="h-10 w-auto absolute top-2 left-0 transition-opacity duration-300 opacity-0" src="assets/logo-clartem.svg" alt="Logo clartem.com couleur">
+                    <img id="logo-white" class="h-10 w-auto transition-opacity duration-300"
+                        src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com blanc">
+                    <img id="logo-color"
+                        class="h-10 w-auto absolute top-2 left-0 transition-opacity duration-300 opacity-0"
+                        src="assets/logo-clartem.svg" alt="Logo clartem.com couleur">
                 </a>
 
                 <!-- LIENS DU MENU -->
                 <div class="hidden md:flex items-center space-x-8" id="nav-links">
                     <a href="index.html" class="nav-link text-sm font-medium transition-colors duration-300">Accueil</a>
-                    <a href="a-propos.html" class="nav-link text-sm font-medium transition-colors duration-300">À Propos</a>
-                    <a href="index.html#plan" class="nav-link text-sm font-medium transition-colors duration-300">Processus</a>
-                    <a href="portfolio.html" class="nav-link text-sm font-medium transition-colors duration-300">Portfolio</a>
-                    <a href="index.html#offres" class="nav-link text-sm font-medium transition-colors duration-300">Offres</a>
+                    <a href="a-propos.html" class="nav-link text-sm font-medium transition-colors duration-300">À
+                        Propos</a>
+                    <a href="index.html#plan"
+                        class="nav-link text-sm font-medium transition-colors duration-300">Processus</a>
+                    <a href="portfolio.html"
+                        class="nav-link text-sm font-medium transition-colors duration-300">Portfolio</a>
+                    <a href="index.html#offres"
+                        class="nav-link text-sm font-medium transition-colors duration-300">Offres</a>
                     <a href="blog.html" class="nav-link text-sm font-medium transition-colors duration-300">Blog</a>
                     <a href="faq.html" class="nav-link text-sm font-medium transition-colors duration-300">FAQ</a>
                 </div>
 
                 <!-- BOUTON D'APPEL -->
-                <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer"
+                <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                    rel="noopener noreferrer"
                     class="hidden md:inline-flex items-center justify-center btn btn-primary px-6 h-10 text-sm">
                     Planifier un Appel Clarté
                 </a>
 
                 <!-- BOUTON MENU MOBILE -->
                 <button id="mobile-menu-button" class="md:hidden focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
                     </svg>
                 </button>
             </div>
 
             <!-- MENU MOBILE -->
-            <div id="mobile-menu" class="hidden md:hidden mt-2 space-y-2 bg-neutral-800 p-4 rounded-xl shadow-xl border border-white/10">
+            <div id="mobile-menu"
+                class="hidden md:hidden mt-2 space-y-2 bg-neutral-800 p-4 rounded-xl shadow-xl border border-white/10">
                 <a href="index.html" class="block text-gray-300 hover:text-white py-2 text-sm">Accueil</a>
                 <a href="a-propos.html" class="block text-gray-300 hover:text-white py-2 text-sm">À Propos</a>
                 <a href="index.html#plan" class="block text-gray-300 hover:text-white py-2 text-sm">Processus</a>
@@ -142,7 +172,8 @@
                 <a href="index.html#offres" class="block text-gray-300 hover:text-white py-2 text-sm">Offres</a>
                 <a href="blog.html" class="block text-gray-300 hover:text-white py-2 text-sm">Blog</a>
                 <a href="faq.html" class="block text-gray-300 hover:text-white py-2 text-sm">FAQ</a>
-                <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" class="block mt-4 w-full text-center btn btn-primary text-sm py-3">Planifier un Appel</a>
+                <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                    class="block mt-4 w-full text-center btn btn-primary text-sm py-3">Planifier un Appel</a>
             </div>
         </div>
     </nav>
@@ -151,26 +182,34 @@
     <!--                Section Principale (Split Layout)        -->
     <!-- ======================================================= -->
     <main class="relative min-h-screen pt-32 pb-20 overflow-hidden flex items-center">
-        
+
         <!-- FOND : Grain & Lueurs (Cohérence Index) -->
-        <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light pointer-events-none"></div>
-        
+        <div
+            class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light pointer-events-none">
+        </div>
+
         <!-- Lueur Orange (Bas Gauche) -->
-        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-warm-orange/10 rounded-full blur-[120px] pointer-events-none"></div>
-        
+        <div
+            class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-warm-orange/10 rounded-full blur-[120px] pointer-events-none">
+        </div>
+
         <!-- Lueur Bleue (Haut Droite) -->
-        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-clarity-blue/10 rounded-full blur-[100px] pointer-events-none"></div>
+        <div
+            class="absolute top-0 right-0 w-[600px] h-[600px] bg-clarity-blue/10 rounded-full blur-[100px] pointer-events-none">
+        </div>
 
         <div class="container mx-auto px-6 relative z-10">
             <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
 
                 <!-- COLONNE GAUCHE : TEXTE & CONTEXTE -->
                 <div class="lg:col-span-5 lg:sticky lg:top-32 pt-8">
-                    
+
                     <!-- Badge -->
-                    <div class="inline-flex items-center gap-2 px-3 py-1 mb-8 border border-white/10 rounded-full bg-white/5 backdrop-blur-md text-gray-300 text-xs font-bold tracking-widest uppercase shadow-sm">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 mb-8 border border-white/10 rounded-full bg-white/5 backdrop-blur-md text-gray-300 text-xs font-bold tracking-widest uppercase shadow-sm">
                         <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-success-green opacity-75"></span>
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-success-green opacity-75"></span>
                             <span class="relative inline-flex rounded-full h-2 w-2 bg-success-green"></span>
                         </span>
                         Ouvert aux nouveaux projets
@@ -178,33 +217,47 @@
 
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                         Parlons de votre <br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-white">prochaine étape.</span>
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-white">prochaine
+                            étape.</span>
                     </h1>
 
                     <p class="text-lg text-gray-400 mb-10 leading-relaxed font-light">
-                        Vous avez une vision, j'ai les outils pour la concrétiser. Remplissez le formulaire ci-contre pour que je puisse préparer notre premier échange.
+                        Vous avez une vision, j'ai les outils pour la concrétiser. Remplissez le formulaire ci-contre
+                        pour que je puisse préparer notre premier échange.
                     </p>
 
                     <!-- Info Email Direct (Subtil) -->
                     <div class="border-t border-white/10 pt-8">
                         <p class="text-sm text-gray-500 mb-2 uppercase tracking-wider font-bold">Contact Direct</p>
-                        <a href="mailto:contact@clartem.com" class="text-xl text-white hover:text-warm-orange transition-colors flex items-center gap-3 group">
+                        <a href="mailto:contact@clartem.com"
+                            class="text-xl text-white hover:text-warm-orange transition-colors flex items-center gap-3 group">
                             contact@clartem.com
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5 transform group-hover:translate-x-1 transition-transform" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
                         </a>
                     </div>
                 </div>
 
-                <!-- COLONNE DROITE : LE FORMULAIRE -->
-                <div class="lg:col-span-7">
-                    <div class="bg-white rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden">
-                        
-                        <!-- Petit accent décoratif en haut du formulaire -->
-                        <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-clarity-blue via-deep-blue to-warm-orange"></div>
+                
 
-                        <form id="contact-form" name="contact-form-agence" method="POST" action="/merci-formulaire-contact/" netlify netlify-honeypot="bot-field" enctype="multipart/form-data" class="space-y-6">
+
+                <!-- COLONNE DROITE : LE FORMULAIRE (STYLE PREMIUM DARK) -->
+                <div class="lg:col-span-7">
+                    <!-- Cadre Premium : Fond sombre, flou, bordure fine -->
+                    <div class="bg-[#1E293B]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden group">
+                        
+                        <!-- Effet de lueur d'ambiance en haut à droite -->
+                        <div class="absolute -top-24 -right-24 w-64 h-64 bg-warm-orange/10 rounded-full blur-[80px] pointer-events-none group-hover:bg-warm-orange/20 transition-colors duration-500"></div>
+
+                        <!-- Ligne décorative (Gradient) -->
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-clarity-blue via-white to-warm-orange opacity-80"></div>
+
+                        <form id="contact-form" name="contact-form-agence" method="POST" action="/merci-formulaire-contact/" netlify netlify-honeypot="bot-field" enctype="multipart/form-data" class="space-y-6 relative z-10">
                             
                             <p class="hidden"><label>Ne pas remplir : <input name="bot-field" /></label></p>
                             <input type="hidden" name="form-name" value="contact-form-agence" />
@@ -213,39 +266,41 @@
                             <!-- IDENTITÉ -->
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
-                                    <label for="first-name" class="block text-sm font-bold text-neutral-dark mb-2">Prénom</label>
+                                    <label for="first-name" class="block text-sm font-bold text-gray-300 mb-2">Prénom</label>
                                     <input type="text" name="first-name" id="first-name" placeholder="Votre prénom" required 
-                                        class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-neutral-dark focus:ring-2 focus:ring-warm-orange focus:border-transparent outline-none transition-all placeholder-gray-400">
+                                        class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:bg-white/10 focus:border-warm-orange focus:ring-1 focus:ring-warm-orange outline-none transition-all">
                                 </div>
                                 <div>
-                                    <label for="last-name" class="block text-sm font-bold text-neutral-dark mb-2">Nom</label>
+                                    <label for="last-name" class="block text-sm font-bold text-gray-300 mb-2">Nom</label>
                                     <input type="text" name="last-name" id="last-name" placeholder="Votre nom" required 
-                                        class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-neutral-dark focus:ring-2 focus:ring-warm-orange focus:border-transparent outline-none transition-all placeholder-gray-400">
+                                        class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:bg-white/10 focus:border-warm-orange focus:ring-1 focus:ring-warm-orange outline-none transition-all">
                                 </div>
                             </div>
 
-                            <!-- EMAIL -->
+                            <!-- EMAIL (MODIFIÉ : PLUS GÉNÉRIQUE) -->
                             <div>
-                                <label for="email" class="block text-sm font-bold text-neutral-dark mb-2">Email Professionnel</label>
-                                <input type="email" name="email" id="email" placeholder="exemple@votre-domaine.com" required 
-                                    class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-neutral-dark focus:ring-2 focus:ring-warm-orange focus:border-transparent outline-none transition-all placeholder-gray-400">
+                                <label for="email" class="block text-sm font-bold text-gray-300 mb-2">Votre Email</label>
+                                <input type="email" name="email" id="email" placeholder="jean.dupont@email.com" required 
+                                    class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:bg-white/10 focus:border-warm-orange focus:ring-1 focus:ring-warm-orange outline-none transition-all">
                             </div>
 
-                            <!-- SUJET (OPTIONS MISES À JOUR) -->
+                            <!-- SUJET -->
                             <div>
-                                <label for="subject" class="block text-sm font-bold text-neutral-dark mb-2">Quel est l'objet de votre demande ?</label>
+                                <label for="subject" class="block text-sm font-bold text-gray-300 mb-2">Quel est l'objet de votre demande ?</label>
                                 <div class="relative">
                                     <select id="subject" name="subject" required 
-                                        class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-neutral-dark focus:ring-2 focus:ring-warm-orange focus:border-transparent outline-none transition-all appearance-none cursor-pointer">
-                                        <option value="" disabled selected>Sélectionnez une option...</option>
-                                        <option value="ready">🚀 Je suis prêt à lancer mon Site Clarté</option>
-                                        <option value="hesitation">🤔 J'hésite entre deux offres</option>
-                                        <option value="partner">🤝 Proposition de partenariat / Collab</option>
-                                        <option value="job">👋 Candidature spontanée (Rejoindre l'équipe)</option>
-                                        <option value="other">✉️ Autre demande / Simple bonjour</option>
+                                        class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:bg-white/10 focus:border-warm-orange focus:ring-1 focus:ring-warm-orange outline-none transition-all appearance-none cursor-pointer">
+                                        <!-- Option par défaut grisée -->
+                                        <option value="" disabled selected class="bg-neutral-dark text-gray-500">Sélectionnez une option...</option>
+                                        <!-- Options avec fond sombre pour lisibilité -->
+                                        <option value="ready" class="bg-neutral-dark">🚀 Je suis prêt à lancer mon Site Clarté</option>
+                                        <option value="hesitation" class="bg-neutral-dark">🤔 J'hésite entre deux offres</option>
+                                        <option value="partner" class="bg-neutral-dark">🤝 Proposition de partenariat / Collab</option>
+                                        <option value="job" class="bg-neutral-dark">👋 Candidature spontanée (Rejoindre l'équipe)</option>
+                                        <option value="other" class="bg-neutral-dark">✉️ Autre demande / Simple bonjour</option>
                                     </select>
-                                    <!-- Flèche custom -->
-                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+                                    <!-- Flèche custom blanche -->
+                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400">
                                         <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                                     </div>
                                 </div>
@@ -253,35 +308,35 @@
 
                             <!-- MESSAGE -->
                             <div>
-                                <label for="message" class="block text-sm font-bold text-neutral-dark mb-2">Votre Message</label>
+                                <label for="message" class="block text-sm font-bold text-gray-300 mb-2">Votre Message</label>
                                 <textarea id="message" name="message" rows="5" placeholder="Parlez-moi de votre activité, de vos objectifs actuels et de ce qui vous bloque..." required 
-                                    class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-neutral-dark focus:ring-2 focus:ring-warm-orange focus:border-transparent outline-none transition-all placeholder-gray-400 resize-y"></textarea>
+                                    class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:bg-white/10 focus:border-warm-orange focus:ring-1 focus:ring-warm-orange outline-none transition-all resize-y"></textarea>
                             </div>
 
-                            <!-- UPLOAD FICHIER -->
+                            <!-- UPLOAD FICHIER (Style Dark) -->
                             <div>
-                                <label class="block text-sm font-bold text-neutral-dark mb-2">Pièce jointe (Optionnel)</label>
-                                <label for="file-upload-input" class="group flex flex-col items-center justify-center w-full h-24 border-2 border-gray-300 border-dashed rounded-xl cursor-pointer bg-gray-50 hover:bg-orange-50 hover:border-warm-orange transition-all duration-300">
+                                <label class="block text-sm font-bold text-gray-300 mb-2">Pièce jointe (Optionnel)</label>
+                                <label for="file-upload-input" class="group flex flex-col items-center justify-center w-full h-24 border-2 border-white/10 border-dashed rounded-xl cursor-pointer bg-white/5 hover:bg-white/10 hover:border-warm-orange/50 transition-all duration-300">
                                     <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                        <div class="flex items-center gap-2 text-gray-500 group-hover:text-warm-orange transition-colors">
+                                        <div class="flex items-center gap-2 text-gray-400 group-hover:text-white transition-colors">
                                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-4-4V7a4 4 0 014-4h.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414A1 1 0 0116.414 3H17a4 4 0 014 4v5a4 4 0 01-4 4H7z"></path></svg>
                                             <span class="text-sm font-medium">Cliquez pour ajouter un fichier (Image, PDF...)</span>
                                         </div>
                                     </div>
                                     <input id="file-upload-input" type="file" multiple accept="image/*,application/pdf">
                                 </label>
-                                <div id="file-list" class="mt-3 flex flex-wrap gap-2"></div>
+                                <div id="file-list" class="mt-3 flex flex-wrap gap-2 text-gray-300"></div>
                             </div>
 
                             <!-- CONSENTEMENT -->
                             <div class="flex items-start pt-2">
                                 <div class="flex items-center h-5">
                                     <input id="consent-contact" name="consent-contact" type="checkbox" required 
-                                        class="w-4 h-4 text-warm-orange border-gray-300 rounded focus:ring-warm-orange cursor-pointer">
+                                        class="w-4 h-4 text-warm-orange border-gray-600 rounded bg-white/10 focus:ring-warm-orange cursor-pointer">
                                 </div>
                                 <div class="ml-3 text-sm">
-                                    <label for="consent-contact" class="text-gray-500">
-                                        J'accepte que mes informations soient utilisées pour traiter ma demande. <a href="politique-de-confidentialite.html" target="_blank" class="text-neutral-dark font-semibold hover:underline">Politique de confidentialité</a>.
+                                    <label for="consent-contact" class="text-gray-400">
+                                        J'accepte que mes informations soient utilisées pour traiter ma demande. <a href="politique-de-confidentialite.html" target="_blank" class="text-white font-semibold hover:underline decoration-warm-orange">Politique de confidentialité</a>.
                                     </label>
                                 </div>
                             </div>
@@ -294,12 +349,15 @@
                                     <!-- Petit effet brillance au survol -->
                                     <div class="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
                                 </button>
-                                <p id="form-status" class="mt-4 text-sm font-medium text-center"></p>
+                                <p id="form-status" class="mt-4 text-sm font-medium text-center text-gray-300"></p>
                             </div>
 
                         </form>
                     </div>
                 </div>
+
+
+                
 
             </div>
         </div>
@@ -318,28 +376,42 @@
                         </a>
                         <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
                     </div>
-                    <p class="text-neutral-light leading-relaxed">Vous transformez des vies, votre site devrait le refléter. J'aide les professionnels de l'accompagnement à traduire leur expertise en une présence digitale claire.</p>
+                    <p class="text-neutral-light leading-relaxed">Vous transformez des vies, votre site devrait le
+                        refléter. J'aide les professionnels de l'accompagnement à traduire leur expertise en une
+                        présence digitale claire.</p>
                 </div>
                 <div class="space-y-6">
                     <h4 class="text-xl font-bold text-white">Navigation</h4>
                     <div class="space-y-3">
-                        <a href="index.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
-                        <a href="a-propos.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À Propos</a>
-                        <a href="index.html#offres" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Offres</a>
-                        <a href="blog.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
-                        <a href="faq.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                        <a href="index.html"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                        <a href="a-propos.html"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                            Propos</a>
+                        <a href="index.html#offres"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Offres</a>
+                        <a href="blog.html"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        <a href="faq.html"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
                     </div>
                 </div>
                 <div class="space-y-6">
                     <h4 class="text-xl font-bold text-white">Légal</h4>
                     <div class="space-y-3">
-                        <a href="mentions-legales.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions Légales</a>
-                        <a href="politique-de-confidentialite.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique de Confidentialité</a>
-                        <a href="cgv.html" class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">CGV</a>
+                        <a href="mentions-legales.html"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                            Légales</a>
+                        <a href="politique-de-confidentialite.html"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                            de Confidentialité</a>
+                        <a href="cgv.html"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">CGV</a>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-white/10 mt-12 pt-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center text-neutral-light text-sm">
+            <div
+                class="border-t border-white/10 mt-12 pt-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center text-neutral-light text-sm">
                 <p>© 2025 clartem.com. Tous droits réservés.</p>
                 <p>Conçu avec ❤️ pour les indépendants.</p>
             </div>
@@ -349,17 +421,21 @@
     <!-- BANDEAU COOKIES (Inchangé) -->
     <div id="cookie-consent-banner" class="hidden fixed bottom-0 inset-x-0 p-2 sm:p-4 z-[100]">
         <div class="max-w-7xl mx-auto">
-            <div class="p-4 rounded-lg bg-neutral-dark shadow-lg border border-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div
+                class="p-4 rounded-lg bg-neutral-dark shadow-lg border border-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div class="flex-1 text-white">
                     <p class="font-semibold">Ce site utilise des cookies</p>
                     <p class="mt-1 text-sm text-neutral-light">
                         Nous utilisons des cookies pour améliorer votre expérience.
-                        <a href="politique-de-confidentialite.html" target="_blank" class="font-semibold hover:underline">En savoir plus</a>.
+                        <a href="politique-de-confidentialite.html" target="_blank"
+                            class="font-semibold hover:underline">En savoir plus</a>.
                     </p>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-                    <button id="cookie-accept-btn" type="button" class="w-full sm:w-auto btn btn-primary px-6 py-2">Accepter</button>
-                    <button id="cookie-decline-btn" type="button" class="w-full sm:w-auto btn px-6 py-2 border border-white text-white hover:bg-white hover:text-neutral-dark transition-colors">Refuser</button>
+                    <button id="cookie-accept-btn" type="button"
+                        class="w-full sm:w-auto btn btn-primary px-6 py-2">Accepter</button>
+                    <button id="cookie-decline-btn" type="button"
+                        class="w-full sm:w-auto btn px-6 py-2 border border-white text-white hover:bg-white hover:text-neutral-dark transition-colors">Refuser</button>
                 </div>
             </div>
         </div>
@@ -368,7 +444,7 @@
     <!-- JAVASCRIPT (Logique Cloudinary + Menu) -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            
+
             // 1. MENU MOBILE & NAVIGATION DARK MODE
             const nav = document.getElementById('main-nav');
             const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -417,11 +493,11 @@
             const cloudinaryUrlsInput = document.getElementById('cloudinary-urls');
 
             // --- VOS IDENTIFIANTS (Inchangés) ---
-            const CLOUDINARY_CLOUD_NAME = "dbihs2rzm"; 
-            const CLOUDINARY_UPLOAD_PRESET = "clartem-contact-upload"; 
+            const CLOUDINARY_CLOUD_NAME = "dbihs2rzm";
+            const CLOUDINARY_UPLOAD_PRESET = "clartem-contact-upload";
             const CLOUDINARY_URL = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`;
 
-            fileInput.addEventListener('change', function() {
+            fileInput.addEventListener('change', function () {
                 fileListContainer.innerHTML = '';
                 if (this.files.length > 0) {
                     for (const file of this.files) {
@@ -432,10 +508,10 @@
                 }
             });
 
-            contactForm.addEventListener('submit', async function(event) {
+            contactForm.addEventListener('submit', async function (event) {
                 event.preventDefault();
                 const files = fileInput.files;
-                
+
                 if (files.length === 0) {
                     this.submit();
                     return;
@@ -448,7 +524,7 @@
                 formStatus.className = 'mt-4 text-sm font-medium text-center text-clarity-blue';
 
                 const uploadedUrls = [];
-                
+
                 try {
                     for (let i = 0; i < files.length; i++) {
                         const file = files[i];
@@ -467,7 +543,7 @@
                         const data = await response.json();
                         uploadedUrls.push(data.secure_url);
                     }
-                    
+
                     cloudinaryUrlsInput.value = uploadedUrls.join(', ');
                     formStatus.textContent = 'Envoi du message...';
                     this.submit();
@@ -500,4 +576,5 @@
         });
     </script>
 </body>
+
 </html>
