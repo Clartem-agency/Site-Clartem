@@ -4374,3 +4374,43 @@ body {
 .backdrop-smooth {
     transition: opacity 0.8s ease-out;
 }
+
+
+
+
+
+
+/* ======================================================= */
+/*                      MENU MOBILE                        */
+/* ======================================================= */
+
+/* État ouvert du menu overlay */
+#mobile-menu-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Animation des liens quand le menu est ouvert */
+#mobile-menu-overlay.open .mobile-link {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation du Burger vers la Croix */
+/* Quand le body a la classe 'menu-open', on transforme les lignes */
+body.menu-open #burger-top {
+    transform: translateY(9px) rotate(45deg); /* Descend et tourne */
+    background-color: white; /* Force le blanc sur fond sombre */
+}
+body.menu-open #burger-middle {
+    opacity: 0; /* Disparait */
+}
+body.menu-open #burger-bottom {
+    transform: translateY(-9px) rotate(-45deg); /* Monte et tourne */
+    background-color: white; /* Force le blanc */
+}
+
+/* IMPORTANT : Quand le menu est ouvert, on empêche le scroll de la page derrière */
+body.menu-open {
+    overflow: hidden;
+}
