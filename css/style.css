@@ -4374,3 +4374,66 @@ body {
 .backdrop-smooth {
     transition: opacity 0.8s ease-out;
 }
+
+
+
+/* ======================================================= */
+/*                    WIDGET CHATBOT BREVO                 */
+/* ======================================================= */
+/* Style de la bulle d'accroche Chat */
+#chat-callout {
+    position: fixed;
+    bottom: 25px;       /* Alignement hauteur avec le bouton Brevo */
+    right: 90px;        /* Décalé vers la gauche du bouton Brevo */
+    background-color: white;
+    color: #1F2937;     /* Gris foncé (Neutral Dark) */
+    padding: 10px 15px;
+    border-radius: 50px; /* Forme arrondie */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 9999;      /* Pour passer au dessus de tout */
+    opacity: 0;         /* Caché au début */
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.5s ease forwards 2s; /* Apparaît après 2 secondes */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Petite flèche qui pointe vers le bouton */
+#chat-callout::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 6px solid white;
+}
+
+/* Animation au survol */
+#chat-callout:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(249, 115, 22, 0.2); /* Ombre Orange au survol */
+    color: #F97316; /* Texte devient Orange */
+}
+
+/* L'animation d'apparition */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Masquer sur mobile pour ne pas gêner */
+@media (max-width: 768px) {
+    #chat-callout {
+        display: none;
+    }
+}
