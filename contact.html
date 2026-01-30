@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - clartem.com</title>
 
     <!-- FAVICON -->
-    <link rel="icon" type="image/x-icon" href="assets/favicon-clartem.ico"> 
-    
+    <link rel="icon" type="image/x-icon" href="assets/favicon-clartem.ico">
+
     <!-- META TAGS -->
     <meta name="robots" content="noindex, follow">
-    <meta name="description" content="Contactez clartem.com pour toute question sur la création de votre site web. Remplissez le formulaire, prenez rendez-vous ou envoyez-moi un e-mail.">
+    <meta name="description"
+        content="Contactez clartem.com pour toute question sur la création de votre site web. Remplissez le formulaire, prenez rendez-vous ou envoyez-moi un e-mail.">
 
 
     <!-- ======================================================= -->
@@ -21,12 +23,12 @@
     <!-- 1. Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-54GH7QYLQP"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
 
-      gtag('config', 'G-54GH7QYLQP');
+        gtag('config', 'G-54GH7QYLQP');
     </script>
 
 
@@ -47,7 +49,7 @@
 
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
@@ -73,326 +75,475 @@
 
     <!-- Style pour le champ de fichier personnalisé -->
     <style>
-        #file-upload-input { display: none; }
+        #file-upload-input {
+            display: none;
+        }
+
         #file-list span {
-            display: inline-block; background-color: #e0e7ff; color: #3730a3;
-            padding: 4px 10px; border-radius: 9999px; font-size: 0.875rem;
-            margin: 4px; font-weight: 500;
+            display: inline-block;
+            background-color: #e0e7ff;
+            color: #3730a3;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            margin: 4px;
+            font-weight: 500;
         }
     </style>
 </head>
+
 <body class="bg-white">
 
- 
 
 
 
 
-         <!-- ======================================================= -->
-        <!--                Section Navigation                       -->
-        <!-- ======================================================= -->
+
+    <!-- ======================================================= -->
+    <!--                Section Navigation                       -->
+    <!-- ======================================================= -->
 
 
-        <nav id="main-nav"
-            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
-            <div class="container mx-auto px-6 py-4">
-                <div class="flex items-center justify-between">
-                    <a href="index.html">
-                        <img class="h-14 w-auto" src="assets/logo-clartem.svg" alt="Logo clartem.com">
-                    </a>
-                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
-                        <a href="index.html"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
-                        <a href="a-propos.html"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À Propos</a>
-                        <a href="index.html#plan"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Processus</a>
-                        <a href="portfolio.html"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Portfolio</a>
-                        <a href="index.html#offres"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Offres</a>
-                        <a href="blog.html"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Blog</a>
-                        <a href="faq.html"
-                            class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
-                    </div>
-                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
-                        rel="noopener noreferrer"
-                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier un Appel Clarté
-                    </a>
-
-
-                    <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16m-7 6h7"></path>
-                        </svg>
-                    </button>
-                </div>
-
-
-
-
-                <!-- ======================================================= -->
-                <!--                        Mobile Menu                      -->
-                <!-- ======================================================= -->
-                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
-                   
+    <nav id="main-nav"
+        class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html">
+                    <img class="h-14 w-auto" src="assets/logo-clartem.svg" alt="Logo clartem.com">
+                </a>
+                <div class="hidden md:flex items-center space-x-8" id="nav-links">
                     <a href="index.html"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                        class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
                     <a href="a-propos.html"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À Propos</a>
+                        class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
+                        Propos</a>
                     <a href="index.html#plan"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Processus</a>
+                        class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Processus</a>
                     <a href="portfolio.html"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Portfolio</a>
+                        class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Portfolio</a>
                     <a href="index.html#offres"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Offres</a>
+                        class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Offres</a>
                     <a href="blog.html"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Blog</a>
+                        class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Blog</a>
                     <a href="faq.html"
-                        class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
-                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
-                        rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier un
-                        Appel Clarté</a>
+                        class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
                 </div>
-            </div>
-        </nav>
+                <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                    rel="noopener noreferrer"
+                    class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier un
+                    Appel Clarté
+                </a>
 
 
-
-
-
-
-
-
-    <!-- Contenu principal de la page Contact -->
-    <main class="bg-gradient-to-br from-soft-blue via-white to-soft-blue pt-32 pb-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center max-w-4xl mx-auto">
-                <h1 class="text-4xl md:text-5xl font-bold text-neutral-dark mb-4">Parlons de votre projet</h1>
-                <p class="text-xl text-neutral-light mb-12">Une question ? Une idée ? Je suis là pour vous aider. Choisissez la méthode qui vous convient le mieux.</p>
+                <button id="mobile-menu-button" class="md:hidden text-neutral-dark focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <!-- Option 1: Email Direct -->
-                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 text-center flex flex-col items-center justify-center hover:shadow-xl transition-shadow duration-300">
-                    <div class="w-16 h-16 bg-soft-blue rounded-full flex items-center justify-center mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-clarity-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                    </div>
-                    <h2 class="text-2xl font-bold text-neutral-dark mb-3">Par E-mail</h2>
-                    <p class="text-neutral-light mb-6">La méthode la plus directe pour les questions écrites. Je réponds généralement sous 24h.</p>
-                    <a href="mailto:contact@clartem.com" class="btn btn-secondary">Envoyer un e-mail</a>
+
+
+
+            <!-- ======================================================= -->
+            <!--                        Mobile Menu                      -->
+            <!-- ======================================================= -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+
+                <a href="index.html"
+                    class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Accueil</a>
+                <a href="a-propos.html"
+                    class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">À
+                    Propos</a>
+                <a href="index.html#plan"
+                    class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Processus</a>
+                <a href="portfolio.html"
+                    class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Portfolio</a>
+                <a href="index.html#offres"
+                    class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Offres</a>
+                <a href="blog.html"
+                    class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">Blog</a>
+                <a href="faq.html"
+                    class="block text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium py-2">FAQ</a>
+                <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                    rel="noopener noreferrer" class="block mt-2 w-full text-center btn btn-primary">Planifier un
+                    Appel Clarté</a>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+
+    <!-- ======================================================= -->
+    <!--            Contenu principal de la page Contact         -->
+    <!-- ======================================================= -->
+
+    <main class="relative bg-slate-900 min-h-screen pt-32 pb-20 overflow-hidden">
+
+        <!-- 1. FOND D'AMBIANCE (Grain + Lueurs) -->
+        <div class="noise-overlay"></div>
+
+        <!-- Lueur bleue en haut à gauche -->
+        <div
+            class="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-600/20 rounded-full blur-[120px] pointer-events-none mix-blend-screen">
+        </div>
+        <!-- Lueur orange en bas à droite -->
+        <div
+            class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen">
+        </div>
+
+
+        <div class="container mx-auto px-6 relative z-10">
+
+            <!-- EN-TÊTE DE SECTION -->
+            <div class="text-center max-w-4xl mx-auto mb-16" data-sr>
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6">
+                    <span class="w-2 h-2 rounded-full bg-success-green animate-pulse"></span>
+                    <span class="text-sm font-medium text-gray-300">Ouvert aux nouveaux projets</span>
                 </div>
 
-                <!-- Option 2: Appel Clarté -->
-                <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 text-center flex flex-col items-center justify-center hover:shadow-xl transition-shadow duration-300">
-                    <div class="w-16 h-16 bg-soft-blue rounded-full flex items-center justify-center mb-6">
-                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-clarity-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                    </div>
-                    <h2 class="text-2xl font-bold text-neutral-dark mb-3">Planifier un Appel</h2>
-                    <p class="text-neutral-light mb-6">Idéal pour discuter de vive voix de votre projet. Gratuit et sans engagement.</p>
-                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Réserver un créneau</a>
-                </div>
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+                    Prêt à <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 glitch-target"
+                        data-text="décoder">décoder</span> votre vision ?
+                </h1>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                    Transformons le chaos de vos idées en une clarté digitale percutante. Choisissez votre canal de
+                    communication préféré.
+                </p>
             </div>
 
-            <!-- SECTION FORMULAIRE DE CONTACT (MODIFIÉE) -->
-            <div class="max-w-4xl mx-auto mt-16">
-                <div class="text-center mb-10">
-                    <h2 class="text-3xl font-bold text-neutral-dark">Ou remplissez le formulaire ci-dessous</h2>
-                    <p class="text-lg text-neutral-light mt-2">Je reviendrai vers vous dans les plus brefs délais.</p>
-                </div>
-                <div class="bg-white p-8 sm:p-12 rounded-2xl shadow-xl border border-gray-200">
-                   
-                    
-                    <!-- NOUVEAU : Ajout d'un ID au formulaire pour le cibler en JS -->
-                   <form id="contact-form" name="contact-form-agence" method="POST" action="/merci-formulaire-contact/" netlify netlify-honeypot="bot-field" enctype="multipart/form-data">
-                       
-                        <p class="hidden"><label>Ne pas remplir : <input name="bot-field" /></label></p>
-                        <input type="hidden" name="form-name" value="contact-form-agence" />
-                        <!-- NOUVEAU : Champ caché pour stocker les URLs des images de Cloudinary -->
-                        <input type="hidden" name="image-urls" id="cloudinary-urls">
+            <div class="grid lg:grid-cols-12 gap-12 items-start">
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="first-name" class="block text-sm font-medium text-neutral-dark mb-1">Prénom</label>
-                                <input type="text" name="first-name" id="first-name" required class="w-full px-4 py-3 bg-soft-blue/50 border-gray-300 rounded-md focus:ring-clarity-blue focus:border-clarity-blue transition">
+                <!-- COLONNE GAUCHE : INFOS & 3D CARDS -->
+                <div class="lg:col-span-5 space-y-8">
+
+                    <!-- Carte 1 : Email (Style Matrix 3D) -->
+                    <!-- Utilisation de ta classe matrix-card-3d pour l'effet tilt et reflet vert -->
+                    <div class="matrix-card-3d p-8 group cursor-pointer"
+                        onclick="window.location.href='mailto:contact@clartem.com'">
+                        <div class="flex items-start justify-between mb-6">
+                            <div
+                                class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center border border-blue-500/30 group-hover:border-blue-400 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
                             </div>
-                            <div>
-                                <label for="last-name" class="block text-sm font-medium text-neutral-dark mb-1">Nom</label>
-                                <input type="text" name="last-name" id="last-name" required class="w-full px-4 py-3 bg-soft-blue/50 border-gray-300 rounded-md focus:ring-clarity-blue focus:border-clarity-blue transition">
-                            </div>
-                            <div class="md:col-span-2">
-                                <label for="email" class="block text-sm font-medium text-neutral-dark mb-1">Email</label>
-                                <input type="email" name="email" id="email" required class="w-full px-4 py-3 bg-soft-blue/50 border-gray-300 rounded-md focus:ring-clarity-blue focus:border-clarity-blue transition">
-                            </div>
-                            <div class="md:col-span-2">
-                                <label for="subject" class="block text-sm font-medium text-neutral-dark mb-1">Sujet de votre message</label>
-                                <select id="subject" name="subject" required class="w-full px-4 py-3 bg-soft-blue/50 border-gray-300 rounded-md focus:ring-clarity-blue focus:border-clarity-blue transition">
-                                    <option>Demande de devis pour un Site Clarté</option>
-                                    <option>Question sur une de vos offres</option>
-                                    <option>Proposition de partenariat</option>
-                                    <option>Support pour un site existant</option>
-                                    <option>Autre</option>
-                                </select>
-                            </div>
-                            <div class="md:col-span-2">
-                                <label for="message" class="block text-sm font-medium text-neutral-dark mb-1">Votre message</label>
-                                <textarea id="message" name="message" rows="6" required class="w-full px-4 py-3 bg-soft-blue/50 border-gray-300 rounded-md focus:ring-clarity-blue focus:border-clarity-blue transition"></textarea>
-                            </div>
-                            <div class="md:col-span-2">
-                                <!-- MODIFIÉ : Le champ de téléversement ne s'appelle plus "attachment[]" pour éviter que Netlify ne le traite -->
-                                <label class="block text-sm font-medium text-neutral-dark mb-1">Joindre des fichiers (optionnel)</label>
-                                <label for="file-upload-input" class="flex justify-center items-center gap-3 w-full px-6 py-8 border-2 border-gray-300 border-dashed rounded-md cursor-pointer bg-soft-blue/50 hover:bg-soft-blue transition">
-                                    <svg class="w-8 h-8 text-neutral-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-4-4V7a4 4 0 014-4h.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414A1 1 0 0116.414 3H17a4 4 0 014 4v5a4 4 0 01-4 4H7z"></path></svg>
-                                    <span class="text-neutral-dark font-medium">Cliquez pour choisir ou glissez-déposez</span>
-                                </label>
-                                <input id="file-upload-input" type="file" multiple accept="image/png, image/jpeg, image/gif, image/webp">
-                                <div id="file-list" class="mt-3"></div>
-                            </div>
+                            <span
+                                class="text-xs font-mono text-blue-400/70 border border-blue-500/20 px-2 py-1 rounded">PROTOCOL:
+                                MAIL</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-blue-300 transition-colors">
+                            Message Direct</h3>
+                        <p class="text-gray-400 text-sm mb-6">Idéal pour les demandes précises ou les cahiers des
+                            charges déjà établis.</p>
+                        <div
+                            class="flex items-center text-blue-400 text-sm font-semibold group-hover:translate-x-2 transition-transform">
+                            contact@clartem.com <span class="ml-2">→</span>
                         </div>
 
+                        <!-- Décoration coins (optionnel si pas dans ton CSS, mais stylé) -->
+                        <div class="absolute top-0 right-0 p-3 opacity-20">
+                            <svg class="w-16 h-16 text-white" viewBox="0 0 100 100" fill="none">
+                                <path d="M0 0 H100 V100" stroke="currentColor" stroke-width="1" />
+                            </svg>
+                        </div>
+                    </div>
 
-                        
-                        <div class="md:col-span-2 mt-4">
-                            <div class="flex items-start">
-                                <div class="flex items-center h-5">
-                                    <input id="consent-contact" name="consent-contact" type="checkbox" required class="focus:ring-clarity-blue h-4 w-4 text-clarity-blue border-gray-300 rounded">
+                    <!-- Carte 2 : Calendly (Style Glass) -->
+                    <div class="glass-card p-8 group cursor-pointer border border-white/10 hover:border-warm-orange/50 transition-colors"
+                        onclick="window.open('https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web', '_blank')">
+                        <div class="flex items-start justify-between mb-6">
+                            <div
+                                class="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center border border-orange-500/30 group-hover:border-orange-400 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-400" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <span
+                                class="text-xs font-mono text-orange-400/70 border border-orange-500/20 px-2 py-1 rounded">SYNC:
+                                VOICE</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-orange-300 transition-colors">
+                            Appel Clarté</h3>
+                        <p class="text-gray-400 text-sm mb-6">30 minutes offertes pour diagnostiquer votre situation et
+                            voir si le courant passe.</p>
+                        <div
+                            class="flex items-center text-orange-400 text-sm font-semibold group-hover:translate-x-2 transition-transform">
+                            Réserver un créneau <span class="ml-2">→</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- COLONNE DROITE : LE FORMULAIRE "TERMINAL" -->
+                <div class="lg:col-span-7">
+                    <div
+                        class="bg-slate-800/50 backdrop-blur-xl border border-white/10 rounded-2xl p-8 md:p-10 shadow-2xl relative overflow-hidden">
+
+                        <!-- Barre de titre style "Fenêtre Terminal" -->
+                        <div
+                            class="absolute top-0 left-0 right-0 h-10 bg-black/20 border-b border-white/5 flex items-center px-4 space-x-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+                            <div class="ml-4 text-xs font-mono text-gray-500">user@clartem:~/contact-form</div>
+                        </div>
+
+                        <div class="mt-6">
+                            <form id="contact-form" name="contact-form-agence" method="POST"
+                                action="/merci-formulaire-contact/" netlify netlify-honeypot="bot-field"
+                                enctype="multipart/form-data" class="space-y-6">
+
+                                <p class="hidden"><label>Ne pas remplir : <input name="bot-field" /></label></p>
+                                <input type="hidden" name="form-name" value="contact-form-agence" />
+                                <input type="hidden" name="image-urls" id="cloudinary-urls">
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <!-- Input Style "Code" -->
+                                    <div class="group">
+                                        <label for="first-name"
+                                            class="block text-xs font-mono text-blue-300 mb-2 ml-1">const PRENOM
+                                            =</label>
+                                        <input type="text" name="first-name" id="first-name"
+                                            placeholder='"Votre prénom"' required
+                                            class="w-full bg-slate-900/50 border border-slate-700 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder-slate-600">
+                                    </div>
+                                    <div class="group">
+                                        <label for="last-name"
+                                            class="block text-xs font-mono text-blue-300 mb-2 ml-1">const NOM =</label>
+                                        <input type="text" name="last-name" id="last-name" placeholder='"Votre nom"'
+                                            required
+                                            class="w-full bg-slate-900/50 border border-slate-700 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder-slate-600">
+                                    </div>
                                 </div>
-                                <div class="ml-3 text-sm">
-                                    <label for="consent-contact" class="text-neutral-dark">
-                                        En soumettant ce formulaire, j'accepte que mes informations soient utilisées exclusivement dans le cadre de ma demande et de la relation commerciale éthique qui peut en découler. J'ai lu et j'accepte la <a href="politique-de-confidentialite.html" target="_blank" class="font-semibold text-clarity-blue hover:underline">politique de confidentialité</a>.
+
+                                <div class="group">
+                                    <label for="email" class="block text-xs font-mono text-blue-300 mb-2 ml-1">let EMAIL
+                                        =</label>
+                                    <input type="email" name="email" id="email" placeholder='"exemple@email.com"'
+                                        required
+                                        class="w-full bg-slate-900/50 border border-slate-700 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder-slate-600">
+                                </div>
+
+                                <div class="group">
+                                    <label for="subject" class="block text-xs font-mono text-blue-300 mb-2 ml-1">switch
+                                        (SUJET) {</label>
+                                    <div class="relative">
+                                        <select id="subject" name="subject" required
+                                            class="w-full bg-slate-900/50 border border-slate-700 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all appearance-none cursor-pointer">
+                                            <option value="" disabled selected class="text-slate-500">// Sélectionnez
+                                                une option</option>
+                                            <option class="bg-slate-800">Demande de devis pour un Site Clarté</option>
+                                            <option class="bg-slate-800">Question sur une de vos offres</option>
+                                            <option class="bg-slate-800">Proposition de partenariat</option>
+                                            <option class="bg-slate-800">Support pour un site existant</option>
+                                            <option class="bg-slate-800">Autre</option>
+                                        </select>
+                                        <div
+                                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-blue-400">
+                                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M19 9l-7 7-7-7"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="text-xs font-mono text-slate-500 mt-1 ml-1">}</div>
+                                </div>
+
+                                <div class="group">
+                                    <label for="message"
+                                        class="block text-xs font-mono text-blue-300 mb-2 ml-1">function MESSAGE()
+                                        {</label>
+                                    <textarea id="message" name="message" rows="5"
+                                        placeholder='"Racontez-moi votre projet..."' required
+                                        class="w-full bg-slate-900/50 border border-slate-700 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder-slate-600"></textarea>
+                                    <div class="text-xs font-mono text-slate-500 mt-1 ml-1">return success; }</div>
+                                </div>
+
+                                <!-- Upload Fichier Personnalisé -->
+                                <div class="group">
+                                    <label class="block text-xs font-mono text-blue-300 mb-2 ml-1">const ATTACHMENTS =
+                                        []</label>
+                                    <label for="file-upload-input"
+                                        class="relative flex flex-col items-center justify-center w-full h-24 border-2 border-slate-700 border-dashed rounded-lg cursor-pointer bg-slate-900/30 hover:bg-slate-900/50 hover:border-blue-500/50 transition-all group">
+                                        <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                            <svg class="w-8 h-8 mb-2 text-slate-400 group-hover:text-blue-400 transition-colors"
+                                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M7 16a4 4 0 01-4-4V7a4 4 0 014-4h.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414A1 1 0 0116.414 3H17a4 4 0 014 4v5a4 4 0 01-4 4H7z">
+                                                </path>
+                                            </svg>
+                                            <p class="text-xs text-slate-400">Glisser ou <span
+                                                    class="text-blue-400 font-semibold">cliquer</span> pour upload</p>
+                                        </div>
                                     </label>
+                                    <input id="file-upload-input" type="file" multiple
+                                        accept="image/png, image/jpeg, image/gif, image/webp">
+                                    <div id="file-list" class="mt-2 flex flex-wrap gap-2"></div>
                                 </div>
-                            </div>
+
+                                <!-- Checkbox Consentement -->
+                                <div class="flex items-start mt-4">
+                                    <div class="flex items-center h-5">
+                                        <input id="consent-contact" name="consent-contact" type="checkbox" required
+                                            class="w-4 h-4 rounded bg-slate-900 border-slate-600 text-blue-600 focus:ring-blue-600 ring-offset-slate-800">
+                                    </div>
+                                    <div class="ml-3 text-sm">
+                                        <label for="consent-contact" class="text-gray-400">
+                                            J'accepte d'entrer dans la matrice (et la <a
+                                                href="politique-de-confidentialite.html" target="_blank"
+                                                class="text-blue-400 hover:text-blue-300 underline">politique de
+                                                confidentialité</a>).
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="pt-4">
+                                    <button type="submit" id="submit-button"
+                                        class="w-full btn btn-primary btn-shine-loop py-4 text-lg font-bold shadow-lg shadow-blue-900/20 group relative overflow-hidden">
+                                        <span class="relative z-10">INITIALISER LA CONNEXION</span>
+                                    </button>
+                                    <p id="form-status" class="mt-4 text-sm text-center font-mono text-blue-400"></p>
+                                </div>
+                            </form>
                         </div>
 
-                        <div class="mt-8 text-center">
-                            <!-- NOUVEAU : Ajout d'un ID au bouton et d'un message de statut -->
-                            <button type="submit" id="submit-button" class="btn btn-primary w-full sm:w-auto text-lg">
-                                Envoyer mon message
-                            </button>
-                            <p id="form-status" class="mt-4 text-sm font-medium"></p>
+                        <!-- Lueur de fond derrière le formulaire -->
+                        <div
+                            class="absolute -top-20 -right-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none">
                         </div>
-                    </form>
-
-                        
-                
+                    </div>
                 </div>
             </div>
         </div>
     </main>
 
-   
 
 
 
-       <!-- ======================================================= -->
-        <!--                        Footer                           -->
-        <!-- ======================================================= -->
 
 
-        <footer class="bg-neutral-dark text-white py-16">
-            <div class="container mx-auto px-6">
-                <div class="grid md:grid-cols-3 gap-12">
-                    <div class="space-y-6">
-                        <div>
-                            <a href="index.html">
-                                <img class="h-14 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
-                            </a>
-                            <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
-                        </div>
-                        <p class="text-neutral-light leading-relaxed">Vous transformez des vies, votre site devrait le
-                            refléter. J'aide les professionnels de l'accompagnement à traduire leur expertise en une
-                            présence digitale claire, qui inspire confiance et attire les bonnes personnes.</p>
+    <!-- ======================================================= -->
+    <!--                        Footer                           -->
+    <!-- ======================================================= -->
+
+
+    <footer class="bg-neutral-dark text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="space-y-6">
+                    <div>
+                        <a href="index.html">
+                            <img class="h-14 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                        </a>
+                        <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
                     </div>
-                    <div class="space-y-6">
-                        <h4 class="text-xl font-bold text-white">Navigation</h4>
-                        <div class="space-y-3">
-                            <a href="index.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
-                            <a href="a-propos.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À Propos</a>
-                            <a href="index.html#plan"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Processus</a>
-                            <a href="portfolio.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Portfolio</a>
-                            <a href="index.html#offres"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Offres</a>
-                            <a href="blog.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
-                            <a href="faq.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
-                        </div>
-                    </div>
-                    <div class="space-y-6">
-                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
-                        <div class="space-y-3">
-                            <a href="mentions-legales.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
-                                Légales</a>
-                            <a href="politique-de-confidentialite.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
-                                de Confidentialité</a>
-                            <a href="cgv.html"
-                                class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
-                                Générales de Vente</a>
-                            
-                        </div>
+                    <p class="text-neutral-light leading-relaxed">Vous transformez des vies, votre site devrait le
+                        refléter. J'aide les professionnels de l'accompagnement à traduire leur expertise en une
+                        présence digitale claire, qui inspire confiance et attire les bonnes personnes.</p>
+                </div>
+                <div class="space-y-6">
+                    <h4 class="text-xl font-bold text-white">Navigation</h4>
+                    <div class="space-y-3">
+                        <a href="index.html"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                        <a href="a-propos.html"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                            Propos</a>
+                        <a href="index.html#plan"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Processus</a>
+                        <a href="portfolio.html"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Portfolio</a>
+                        <a href="index.html#offres"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Offres</a>
+                        <a href="blog.html"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                        <a href="faq.html"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
                     </div>
                 </div>
-                <div class="border-t border-neutral-light/20 mt-12 pt-8">
-                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                        <p class="text-sm text-neutral-light">© 2025 clartem.com. Tous droits réservés.</p>
-                        <div class="text-sm text-neutral-light">
-                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
-                        </div>
+                <div class="space-y-6">
+                    <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                    <div class="space-y-3">
+                        <a href="mentions-legales.html"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
+                            Légales</a>
+                        <a href="politique-de-confidentialite.html"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Politique
+                            de Confidentialité</a>
+                        <a href="cgv.html"
+                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
+                            Générales de Vente</a>
+
                     </div>
                 </div>
             </div>
-        </footer>
-
-
-
-
-
-
-
-
-
-
-
-<!-- BANDEAU DE CONSENTEMENT AUX COOKIES (VERSION RESPONSIVE AMÉLIORÉE) -->
-<div id="cookie-consent-banner" class="hidden fixed bottom-0 inset-x-0 p-2 sm:p-4 z-[100]">
-    <div class="max-w-7xl mx-auto">
-        <div class="p-4 rounded-lg bg-neutral-dark shadow-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            
-            <!-- Section Texte -->
-            <div class="flex-1 text-white">
-                <p class="font-semibold">Ce site utilise des cookies</p>
-                <p class="mt-1 text-sm text-neutral-light">
-                    Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic. En cliquant sur "Accepter", vous consentez à notre utilisation des cookies.
-                    <a href="politique-de-confidentialite.html" target="_blank" class="font-semibold hover:underline">En savoir plus</a>.
-                </p>
+            <div class="border-t border-neutral-light/20 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-sm text-neutral-light">© 2025 clartem.com. Tous droits réservés.</p>
+                    <div class="text-sm text-neutral-light">
+                        <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                    </div>
+                </div>
             </div>
+        </div>
+    </footer>
 
 
-            <!-- Section Boutons -->
-            <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-                <button id="cookie-accept-btn" type="button" class="w-full sm:w-auto btn btn-primary px-6 py-2">
-                    Accepter
-                </button>
-                <button id="cookie-decline-btn" type="button" class="w-full sm:w-auto btn btn-secondary px-6 py-2" style="color: white; border-color: white;">
-                    Refuser
-                </button>
+
+
+
+
+
+
+
+
+
+    <!-- BANDEAU DE CONSENTEMENT AUX COOKIES (VERSION RESPONSIVE AMÉLIORÉE) -->
+    <div id="cookie-consent-banner" class="hidden fixed bottom-0 inset-x-0 p-2 sm:p-4 z-[100]">
+        <div class="max-w-7xl mx-auto">
+            <div
+                class="p-4 rounded-lg bg-neutral-dark shadow-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+
+                <!-- Section Texte -->
+                <div class="flex-1 text-white">
+                    <p class="font-semibold">Ce site utilise des cookies</p>
+                    <p class="mt-1 text-sm text-neutral-light">
+                        Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic. En cliquant
+                        sur "Accepter", vous consentez à notre utilisation des cookies.
+                        <a href="politique-de-confidentialite.html" target="_blank"
+                            class="font-semibold hover:underline">En savoir plus</a>.
+                    </p>
+                </div>
+
+
+                <!-- Section Boutons -->
+                <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                    <button id="cookie-accept-btn" type="button" class="w-full sm:w-auto btn btn-primary px-6 py-2">
+                        Accepter
+                    </button>
+                    <button id="cookie-decline-btn" type="button" class="w-full sm:w-auto btn btn-secondary px-6 py-2"
+                        style="color: white; border-color: white;">
+                        Refuser
+                    </button>
+                </div>
+
+
             </div>
-
-
         </div>
     </div>
-</div>
-<!-- FIN DU BANDEAU DE CONSENTEMENT -->
+    <!-- FIN DU BANDEAU DE CONSENTEMENT -->
 
 
 
@@ -420,14 +571,14 @@
 
             // --- VOS INFORMATIONS CLOUDINARY ---
             // Remplacez ces valeurs par les vôtres (visibles sur votre screenshot)
-            const CLOUDINARY_CLOUD_NAME = "dbihs2rzm"; 
+            const CLOUDINARY_CLOUD_NAME = "dbihs2rzm";
             const CLOUDINARY_UPLOAD_PRESET = "clartem-contact-upload"; // ou un autre de vos presets
             // ------------------------------------
 
             const CLOUDINARY_URL = `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`;
 
             // Afficher les noms des fichiers sélectionnés
-            fileInput.addEventListener('change', function() {
+            fileInput.addEventListener('change', function () {
                 fileListContainer.innerHTML = '';
                 if (this.files.length > 0) {
                     for (const file of this.files) {
@@ -439,11 +590,11 @@
             });
 
             // Gérer la soumission du formulaire
-            contactForm.addEventListener('submit', async function(event) {
+            contactForm.addEventListener('submit', async function (event) {
                 event.preventDefault();
 
                 const files = fileInput.files;
-                
+
                 // S'il n'y a pas de fichiers, on soumet directement à Netlify
                 if (files.length === 0) {
                     this.submit();
@@ -457,7 +608,7 @@
                 formStatus.style.color = '#1E3A8A'; // deep-blue
 
                 const uploadedUrls = [];
-                
+
                 try {
                     for (let i = 0; i < files.length; i++) {
                         const file = files[i];
@@ -479,7 +630,7 @@
                         const data = await response.json();
                         uploadedUrls.push(data.secure_url);
                     }
-                    
+
                     // Une fois tous les uploads terminés
                     cloudinaryUrlsInput.value = uploadedUrls.join(', ');
 
@@ -525,8 +676,9 @@
             // ==================================================================
             // FIN DU CODE POUR LE BANDEAU
             // ==================================================================
-            
+
         });
     </script>
 </body>
+
 </html>
