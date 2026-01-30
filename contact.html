@@ -584,7 +584,19 @@
                         uploadedUrls.push(data.secure_url);
                     }
 
-                    cloudinaryUrlsInput.value = uploadedUrls.join(', ');
+                    const finalUrls = uploadedUrls.join(', ');
+
+                    // 1. On remplit le champ caché pour le dashboard Netlify (comme avant)
+                    cloudinaryUrlsInput.value = finalUrls;
+
+                    // --- MODIFICATION DÉBUT : On injecte aussi le lien dans le message principal ---
+                    const messageArea = document.getElementById('message');
+                    if (messageArea) {
+                        // On ajoute deux sauts de ligne et le lien
+                        messageArea.value += "\n\n--------------------------------\n📎 PIÈCES JOINTES :\n" + finalUrls;
+                    }
+                    // --- MODIFICATION FIN ---
+
                     formStatus.textContent = 'Envoi du message...';
                     this.submit();
 
