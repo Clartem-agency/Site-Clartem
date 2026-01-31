@@ -4,51 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Politique de Confidentialité - clartem.com</title>
+    <title>Portfolio Clartem - Exemples de sites pour Coachs & Thérapeutes</title>
 
-    <!-- FAVICON -->
     <link rel="icon" type="image/x-icon" href="assets/favicon-clartem.ico">
 
-    <!-- META TAGS (noindex pour éviter que les moteurs de recherche indexent cette page) -->
-    <meta name="robots" content="noindex, follow">
     <meta name="description"
-        content="Politique de confidentialité du site clartem.com, concernant la collecte et le traitement des données personnelles conformément au RGPD.">
-
-
+        content="Découvrez nos réalisations de sites web pour coachs, thérapeutes et consultants. Des exemples concrets de Sites Clarté (one-page) conçus pour inspirer confiance et convertir.">
 
     <!-- ======================================================= -->
-    <!--       DÉBUT DU BLOC SEO & ANALYTICS (A NE PAS TOUCHER)  -->
+    <!--       DÉBUT DU BLOC SEO & ANALYTICS                     -->
     <!-- ======================================================= -->
 
-
-    <!-- 1. Google Analytics (GA4) -->
+    <!-- 1. Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-54GH7QYLQP"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
-
         gtag('config', 'G-54GH7QYLQP');
     </script>
 
-
-    <!-- 2. Balise Canonique -->
-    <link rel="canonical" href="https://www.clartem.com/politique-de-confidentialite.html" />
-
-
-    <!-- 3. Ciblage Géographique (France) -->
-    <link rel="alternate" hreflang="fr-fr" href="https://www.clartem.com/politique-de-confidentialite.html" />
-    <link rel="alternate" hreflang="x-default" href="https://www.clartem.com/politique-de-confidentialite.html" />
-
+    <!-- 2. Balises SEO (Ciblage France & Canonique) -->
+    <link rel="canonical" href="https://www.clartem.com/portfolio.html" />
+    <link rel="alternate" hreflang="fr-fr" href="https://www.clartem.com/portfolio.html" />
+    <link rel="alternate" hreflang="x-default" href="https://www.clartem.com/portfolio.html" />
 
     <!-- ======================================================= -->
     <!--       FIN DU BLOC SEO                                   -->
-    <!-- =======================================================  -->
+    <!-- ======================================================= -->
 
+    <!-- Meta Tags Open Graph & Twitter -->
+    <meta property="og:title" content="Portfolio Clartem - Exemples de sites pour Coachs & Thérapeutes">
+    <meta property="og:description"
+        content="Découvrez nos réalisations de sites web pour coachs, thérapeutes et consultants.">
 
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ScrollReveal.js via CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
 
     <!-- Custom Tailwind Config -->
     <script>
@@ -72,384 +66,993 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Styles spécifiques pour la page portfolio */
+        .portfolio-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .portfolio-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(59, 130, 246, 0.4);
+            transform: translateY(-8px) scale(1.01);
+            box-shadow:
+                0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(59, 130, 246, 0.15);
+        }
+
+        .portfolio-card .card-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-card .card-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(31, 41, 55, 0.9) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-card:hover .card-image::after {
+            opacity: 1;
+        }
+
+        .portfolio-card .card-image img {
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        /* Filter buttons */
+        .filter-btn-dark {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn-dark:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .filter-btn-dark.active {
+            background: linear-gradient(135deg, #3B82F6, #1E3A8A);
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Tags */
+        .tag-dark {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #93C5FD;
+        }
+
+        /* Gradient mesh background */
+        .portfolio-bg {
+            background:
+                radial-gradient(ellipse 80% 50% at 20% 40%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 80% 60%, rgba(249, 115, 22, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 30% at 50% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+        }
+
+        /* Grid pattern overlay */
+        .grid-pattern {
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+    </style>
 </head>
 
-<body class="bg-white">
+<body class="bg-neutral-dark">
 
+    <div class="min-h-screen flex flex-col">
 
+        <!-- ======================================================= -->
+        <!--                Section Navigation                       -->
+        <!-- ======================================================= -->
 
+        <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+            <div class="container mx-auto px-6">
+                <div class="flex items-center justify-between">
 
+                    <a href="index.html" class="relative block group py-2">
+                        <img id="logo-white" class="h-10 w-auto transition-opacity duration-300"
+                            src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com blanc">
+                        <img id="logo-color"
+                            class="h-10 w-auto absolute top-2 left-0 transition-opacity duration-300 opacity-0"
+                            src="assets/logo-clartem.svg" alt="Logo clartem.com couleur">
+                    </a>
 
-
-    <!-- ======================================================= -->
-    <!--                Section Navigation                       -->
-    <!-- ======================================================= -->
-
-
-    <nav id="main-nav"
-        class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <a href="index.html">
-                    <img class="h-14 w-auto" src="assets/logo-clartem.svg" alt="Logo clartem.com">
-                </a>
-                <div class="hidden md:flex items-center space-x-8" id="nav-links">
-                    <a href="index.html"
-                        class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Accueil</a>
-                    <a href="a-propos.html"
-                        class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">À
-                        Propos</a>
-                    <a href="index.html#plan"
-                        class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Processus</a>
-                    <a href="portfolio.html"
-                        class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Portfolio</a>
-                    <a href="index.html#offres"
-                        class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Offres</a>
-                    <a href="blog.html"
-                        class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">Blog</a>
-                    <a href="faq.html"
-                        class="text-neutral-dark hover:text-clarity-blue transition-colors duration-300 font-medium">FAQ</a>
-                </div>
-                <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
-                    rel="noopener noreferrer"
-                    class="hidden md:inline-flex items-center justify-center btn btn-primary px-8 h-12">Planifier un
-                    Appel Clarté
-                </a>
-
-
-                <!-- NOUVEAU BOUTON BURGER ANIMÉ -->
-                <button id="mobile-menu-button"
-                    class="md:hidden relative z-[60] w-10 h-10 flex items-center justify-center focus:outline-none group text-white">
-                    <div class="relative w-6 h-5 flex flex-col justify-between">
-                        <span id="burger-top"
-                            class="block w-full h-0.5 bg-current rounded-full transition-all duration-300 origin-center"></span>
-                        <span id="burger-middle"
-                            class="block w-full h-0.5 bg-current rounded-full transition-all duration-300 opacity-100"></span>
-                        <span id="burger-bottom"
-                            class="block w-full h-0.5 bg-current rounded-full transition-all duration-300 origin-center"></span>
-                    </div>
-                </button>
-            </div>
-
-        </div>
-    </nav>
-
-
-
-
-
-    <!-- ======================================================= -->
-    <!--        MENU MOBILE PREMIUM (OVERLAY FULL SCREEN)        -->
-    <!-- ======================================================= -->
-    <div id="mobile-menu-overlay"
-        class="fixed inset-0 z-[49] bg-neutral-dark/95 backdrop-blur-xl opacity-0 pointer-events-none transition-opacity duration-500 flex flex-col justify-center items-center">
-
-        <!-- Décoration de fond (Orbe subtile) -->
-        <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-clarity-blue/10 rounded-full blur-[100px] pointer-events-none">
-        </div>
-
-        <!-- Liste des liens -->
-        <div class="relative z-10 flex flex-col items-center space-y-8 text-center">
-
-            <a href="index.html"
-                class="mobile-link text-3xl font-bold text-white hover:text-warm-orange transition-colors duration-300 transform translate-y-4 opacity-0">Accueil</a>
-
-            <a href="a-propos.html"
-                class="mobile-link text-3xl font-bold text-white hover:text-warm-orange transition-colors duration-300 transform translate-y-4 opacity-0"
-                style="transition-delay: 0.1s;">À Propos</a>
-
-            <a href="index.html#plan"
-                class="mobile-link text-3xl font-bold text-white hover:text-warm-orange transition-colors duration-300 transform translate-y-4 opacity-0"
-                style="transition-delay: 0.2s;">Processus</a>
-
-            <a href="portfolio.html"
-                class="mobile-link text-3xl font-bold text-white hover:text-warm-orange transition-colors duration-300 transform translate-y-4 opacity-0"
-                style="transition-delay: 0.3s;">Portfolio</a>
-
-            <a href="index.html#offres"
-                class="mobile-link text-3xl font-bold text-white hover:text-warm-orange transition-colors duration-300 transform translate-y-4 opacity-0"
-                style="transition-delay: 0.4s;">Offres</a>
-
-            <a href="faq.html"
-                class="mobile-link text-3xl font-bold text-white hover:text-warm-orange transition-colors duration-300 transform translate-y-4 opacity-0"
-                style="transition-delay: 0.5s;">FAQ</a>
-
-            <!-- Le Bouton d'action -->
-            <div class="pt-8 mobile-link transform translate-y-4 opacity-0" style="transition-delay: 0.6s;">
-                <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
-                    class="btn btn-primary px-8 py-3 text-lg rounded-full shadow-lg shadow-blue-500/30">
-                    Planifier un Appel
-                </a>
-            </div>
-        </div>
-
-        <!-- Footer du menu -->
-        <div class="absolute bottom-8 text-white/30 text-xs tracking-widest uppercase">
-            Clartem Agency © 2025
-        </div>
-    </div>
-
-
-
-
-
-    <!-- Contenu principal de la page Politique de Confidentialité -->
-    <main class="bg-gradient-to-br from-soft-blue via-white to-soft-blue pt-32 pb-20">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <h1 class="text-4xl md:text-5xl font-bold text-neutral-dark mb-4 text-center">Politique de Confidentialité
-            </h1>
-            <p class="text-xl text-neutral-light mb-12 text-center">Votre confiance est notre priorité. Cette page
-                explique comment nous collectons, utilisons et protégeons vos données personnelles.</p>
-
-            <div
-                class="space-y-10 text-lg text-neutral-dark leading-relaxed bg-white p-8 md:p-12 rounded-2xl shadow-lg border border-gray-200">
-
-                <!-- MODIFIÉ : Date mise à jour -->
-                <p><strong>Dernière mise à jour :</strong> 15 Novembre 2025</p>
-
-                <p>La présente politique de confidentialité a pour but de vous informer sur la manière dont Kotka Media
-                    OÜ, en sa qualité de responsable de traitement, collecte et traite vos données à caractère personnel
-                    via le site web clartem.com, dans le respect du Règlement (UE) 2016/679 du 27 avril 2016 (RGPD).</p>
-
-                <div>
-                    <h2 class="text-2xl font-bold text-clarity-blue mb-4">ARTICLE 1 - RESPONSABLE DU TRAITEMENT</h2>
-                    <p>Le responsable du traitement de vos données personnelles est :</p>
-                    <p class="mt-2 font-semibold">Kotka Media OÜ</p>
-                    <p>Kotka tn1 11315 Tallinn, Estonie</p>
-                    <p>E-mail : contact@clartem.com</p>
-                </div>
-
-                <div>
-                    <!-- MODIFIÉ : Article 2 complété -->
-                    <h2 class="text-2xl font-bold text-clarity-blue mb-4">ARTICLE 2 - DONNÉES COLLECTÉES ET FINALITÉS
-                    </h2>
-                    <p>Nous collectons différentes données pour des objectifs précis :</p>
-                    <ul class="space-y-4 mt-4 list-disc list-inside">
-                        <li>
-                            <strong>Formulaire de contact :</strong> Nous collectons votre nom, prénom, adresse e-mail,
-                            le sujet et le contenu de votre message, ainsi que les fichiers que vous choisissez de
-                            joindre. Ces données sont utilisées pour répondre à votre demande, vous fournir des
-                            informations ou un devis. La base légale est l'exécution de mesures précontractuelles à
-                            votre demande.
-                        </li>
-                        <li>
-                            <strong>Commentaires sur le blog :</strong> Nous collectons votre nom et le contenu de votre
-                            commentaire. Ces informations sont destinées à être publiées sur le site pour enrichir la
-                            discussion. La base légale est votre consentement explicite, recueilli via une case à cocher
-                            avant la soumission.
-                        </li>
-                        <li>
-                            <strong>Prise de rendez-vous (via Calendly) :</strong> Nous collectons votre nom, prénom,
-                            adresse e-mail et toute information que vous nous fournissez pour planifier notre appel. La
-                            base légale est l'exécution de mesures précontractuelles à votre demande.
-                        </li>
-                        <li>
-                            <strong>Téléchargement du guide gratuit (via Brevo) :</strong> Nous collectons votre prénom
-                            et votre adresse e-mail pour vous envoyer le document demandé et, avec votre consentement,
-                            nos communications marketing et newsletters. La base légale est votre consentement, que vous
-                            pouvez retirer à tout moment via le lien de désinscription présent dans chaque e-mail.
-                        </li>
-                        <li>
-                            <strong>Navigation sur le site (Cookies) :</strong> Nous utilisons des cookies pour assurer
-                            le bon fonctionnement du site et, avec votre consentement, analyser le trafic afin
-                            d'améliorer votre expérience. La base légale est notre intérêt légitime pour les cookies
-                            techniques et votre consentement pour tous les autres (analyse, marketing).
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h2 class="text-2xl font-bold text-clarity-blue mb-4">ARTICLE 3 - DURÉE DE CONSERVATION</h2>
-                    <p>Vos données sont conservées pour une durée limitée, n'excédant pas celle nécessaire aux finalités
-                        pour lesquelles elles sont traitées :</p>
-                    <ul class="space-y-2 mt-4 list-disc list-inside">
-                        <li><strong>Données des prospects (formulaire de contact, appel) :</strong> 3 ans après notre
-                            dernier contact.</li>
-                        <li><strong>Données marketing (newsletter) :</strong> Jusqu'à votre désinscription.</li>
-                        <li><strong>Commentaires de blog :</strong> Tant que l'article est en ligne. Vous pouvez
-                            demander leur suppression à tout moment.</li>
-                        <li><strong>Cookies :</strong> 13 mois maximum.</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <!-- MODIFIÉ : Article 4 complété -->
-                    <h2 class="text-2xl font-bold text-clarity-blue mb-4">ARTICLE 4 - DESTINATAIRES DES DONNÉES</h2>
-                    <p>Vos données sont confidentielles et ne sont partagées qu'avec nos sous-traitants techniques qui
-                        nous aident à fournir nos services, dans le respect du RGPD :</p>
-                    <ul class="space-y-2 mt-4 list-disc list-inside">
-                        <li><strong>Hébergement du site et gestion des formulaires :</strong> Netlify, Inc.</li>
-                        <li><strong>Hébergement des fichiers joints :</strong> Cloudinary, Inc.</li>
-                        <li><strong>Outil de prise de rendez-vous :</strong> Calendly, LLC.</li>
-                        <li><strong>Outil d'emailing :</strong> Brevo (Sendinblue).</li>
-                    </ul>
-                    <p class="mt-2">Nous ne vendons, ni ne louons, ni ne cédons vos données personnelles à des tiers à
-                        des fins commerciales.</p>
-                </div>
-
-                <div>
-                    <h2 class="text-2xl font-bold text-clarity-blue mb-4">ARTICLE 5 - VOS DROITS</h2>
-                    <p>Conformément au RGPD, vous disposez des droits suivants sur vos données :</p>
-                    <ul class="space-y-2 mt-4 list-disc list-inside">
-                        <li>Droit d'accès, de rectification et d'effacement.</li>
-                        <li>Droit à la limitation du traitement.</li>
-                        <li>Droit à la portabilité des données.</li>
-                        <li>Droit d'opposition au traitement.</li>
-                        <li>Droit de retirer votre consentement à tout moment.</li>
-                    </ul>
-                    <p class="mt-4">Pour exercer ces droits, vous pouvez nous contacter par e-mail à : <a
-                            href="mailto:contact@clartem.com"
-                            class="text-warm-orange underline hover:text-warm-orange/80">contact@clartem.com</a>.</p>
-                    <p class="mt-2">Vous avez également le droit d'introduire une réclamation auprès d'une autorité de
-                        contrôle (comme la CNIL en France ou l'AKI en Estonie).</p>
-                </div>
-
-                <div>
-                    <h2 class="text-2xl font-bold text-clarity-blue mb-4">ARTICLE 6 - GESTION DES COOKIES</h2>
-                    <p>Un cookie est un petit fichier texte déposé sur votre terminal lors de la visite d'un site. Lors
-                        de votre première visite, un bandeau vous informe de la présence de ces cookies et vous demande
-                        votre choix. Ils ne sont déposés que si vous les acceptez, à l'exception des cookies techniques
-                        indispensables au fonctionnement du site. Vous pouvez à tout moment gérer vos préférences via
-                        les paramètres de votre navigateur.</p>
-                </div>
-
-                <!-- AJOUTÉ : Article 7 sur les transferts de données -->
-                <div>
-                    <h2 class="text-2xl font-bold text-clarity-blue mb-4">ARTICLE 7 - TRANSFERT DE DONNÉES HORS UNION
-                        EUROPÉENNE</h2>
-                    <p>Certains de nos sous-traitants (Netlify, Cloudinary, Calendly) sont situés aux États-Unis. Le
-                        transfert de vos données vers ces acteurs est encadré par les Clauses Contractuelles Types de la
-                        Commission Européenne, qui assurent un niveau de protection des données adéquat et conforme au
-                        RGPD.</p>
-                </div>
-
-            </div>
-        </div>
-    </main>
-
-
-
-
-
-    <!-- ======================================================= -->
-    <!--                        Footer                           -->
-    <!-- ======================================================= -->
-
-
-    <footer class="bg-neutral-dark text-white py-16">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-12">
-                <div class="space-y-6">
-                    <div>
-                        <a href="index.html">
-                            <img class="h-14 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
-                        </a>
-                        <p class="text-lg text-neutral-light">Apporter de la clarté dans le chaos digital</p>
-                    </div>
-                    <p class="text-neutral-light leading-relaxed">Vous transformez des vies, votre site devrait le
-                        refléter. J'aide les professionnels de l'accompagnement à traduire leur expertise en une
-                        présence digitale claire, qui inspire confiance et attire les bonnes personnes.</p>
-                </div>
-                <div class="space-y-6">
-                    <h4 class="text-xl font-bold text-white">Navigation</h4>
-                    <div class="space-y-3">
-                        <a href="index.html"
-                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Accueil</a>
-                        <a href="a-propos.html"
-                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">À
+                    <div class="hidden md:flex items-center space-x-8" id="nav-links">
+                        <a href="a-propos.html" class="nav-link text-sm font-medium transition-colors duration-300">À
                             Propos</a>
                         <a href="index.html#plan"
-                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Processus</a>
+                            class="nav-link text-sm font-medium transition-colors duration-300">Processus</a>
                         <a href="portfolio.html"
-                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Portfolio</a>
+                            class="nav-link text-sm font-medium transition-colors duration-300 text-warm-orange">Portfolio</a>
                         <a href="index.html#offres"
-                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Offres</a>
-                        <a href="blog.html"
-                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Blog</a>
-                        <a href="faq.html"
-                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                            class="nav-link text-sm font-medium transition-colors duration-300">Offres</a>
+                        <a href="blog.html" class="nav-link text-sm font-medium transition-colors duration-300">Blog</a>
+                        <a href="faq.html" class="nav-link text-sm font-medium transition-colors duration-300">FAQ</a>
                     </div>
-                </div>
-                <div class="space-y-6">
-                    <h4 class="text-xl font-bold text-white">Informations Légales</h4>
-                    <div class="space-y-3">
-                        <a href="mentions-legales.html"
-                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Mentions
-                            Légales</a>
 
-                        <a href="cgv.html"
-                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Conditions
-                            Générales de Vente</a>
-                        <a href="contact.html"
-                            class="block text-neutral-light hover:text-clarity-blue transition-colors duration-300">Contact</a>
-                    </div>
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        rel="noopener noreferrer"
+                        class="hidden md:inline-flex items-center justify-center btn btn-primary px-6 py-2.5 text-sm">
+                        Planifier un Appel Clarté
+                    </a>
+
+                    <!-- NOUVEAU BOUTON BURGER ANIMÉ -->
+                    <button id="mobile-menu-button"
+                        class="md:hidden relative z-[60] w-10 h-10 flex items-center justify-center focus:outline-none group text-white">
+                        <div class="relative w-6 h-5 flex flex-col justify-between">
+                            <span id="burger-top"
+                                class="block w-full h-0.5 bg-current rounded-full transition-all duration-300 origin-center"></span>
+                            <span id="burger-middle"
+                                class="block w-full h-0.5 bg-current rounded-full transition-all duration-300 opacity-100"></span>
+                            <span id="burger-bottom"
+                                class="block w-full h-0.5 bg-current rounded-full transition-all duration-300 origin-center"></span>
+                        </div>
+                    </button>
+
+                </div>
+
+
+            </div>
+        </nav>
+
+
+        <!-- ======================================================= -->
+        <!--        MENU MOBILE PREMIUM (OVERLAY FULL SCREEN)        -->
+        <!-- ======================================================= -->
+        <div id="mobile-menu-overlay"
+            class="fixed inset-0 z-[49] bg-neutral-dark/95 backdrop-blur-xl opacity-0 pointer-events-none transition-opacity duration-500 flex flex-col justify-center items-center">
+
+            <!-- Décoration de fond (Orbe subtile) -->
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-clarity-blue/10 rounded-full blur-[100px] pointer-events-none">
+            </div>
+
+            <!-- Liste des liens -->
+            <div class="relative z-10 flex flex-col items-center space-y-8 text-center">
+
+                <a href="index.html"
+                    class="mobile-link text-3xl font-bold text-white hover:text-warm-orange transition-colors duration-300 transform translate-y-4 opacity-0">Accueil</a>
+
+                <a href="a-propos.html"
+                    class="mobile-link text-3xl font-bold text-white hover:text-warm-orange transition-colors duration-300 transform translate-y-4 opacity-0"
+                    style="transition-delay: 0.1s;">À Propos</a>
+
+                <a href="index.html#plan"
+                    class="mobile-link text-3xl font-bold text-white hover:text-warm-orange transition-colors duration-300 transform translate-y-4 opacity-0"
+                    style="transition-delay: 0.2s;">Processus</a>
+
+                <a href="portfolio.html"
+                    class="mobile-link text-3xl font-bold text-white hover:text-warm-orange transition-colors duration-300 transform translate-y-4 opacity-0"
+                    style="transition-delay: 0.3s;">Portfolio</a>
+
+                <a href="index.html#offres"
+                    class="mobile-link text-3xl font-bold text-white hover:text-warm-orange transition-colors duration-300 transform translate-y-4 opacity-0"
+                    style="transition-delay: 0.4s;">Offres</a>
+
+                <a href="blog.html"
+                    class="mobile-link text-3xl font-bold text-white hover:text-warm-orange transition-colors duration-300 transform translate-y-4 opacity-0"
+                    style="transition-delay: 0.5s;">Blog</a>
+
+                <a href="faq.html"
+                    class="mobile-link text-3xl font-bold text-white hover:text-warm-orange transition-colors duration-300 transform translate-y-4 opacity-0"
+                    style="transition-delay: 0.6s;">FAQ</a>
+
+                <!-- Le Bouton d'action -->
+                <div class="pt-8 mobile-link transform translate-y-4 opacity-0" style="transition-delay: 0.7s;">
+                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
+                        class="btn btn-primary px-8 py-3 text-lg rounded-full shadow-lg shadow-blue-500/30">
+                        Planifier un Appel
+                    </a>
                 </div>
             </div>
-            <div class="border-t border-neutral-light/20 mt-12 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p class="text-sm text-neutral-light">© 2025 clartem.com. Tous droits réservés.</p>
-                    <div class="text-sm text-neutral-light">
-                        <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
-                    </div>
-                </div>
+
+            <!-- Footer du menu -->
+            <div class="absolute bottom-8 text-white/30 text-xs tracking-widest uppercase">
+                Clartem Agency © 2025
             </div>
         </div>
-    </footer>
+
+
+        <main class="flex-grow">
+
+            <!-- ================================================================== -->
+            <!-- SECTION PORTFOLIO - STYLE IMMERSIF                                -->
+            <!-- ================================================================== -->
+            <section id="portfolio"
+                class="pt-32 pb-24 lg:pt-44 lg:pb-32 bg-neutral-dark portfolio-bg grid-pattern relative overflow-hidden">
+
+                <!-- Decorative elements -->
+                <div
+                    class="absolute top-20 left-10 w-72 h-72 bg-clarity-blue/5 rounded-full blur-3xl pointer-events-none">
+                </div>
+                <div
+                    class="absolute bottom-40 right-10 w-96 h-96 bg-warm-orange/5 rounded-full blur-3xl pointer-events-none">
+                </div>
+
+                <div class="container mx-auto px-6 relative z-10">
+
+
+
+                    <!-- EN-TÊTE DE SECTION -->
+                    <div class="max-w-3xl mx-auto text-center mb-16 lg:mb-20" data-sr>
+                        <div
+                            class="inline-block px-4 py-1.5 border border-white/20 rounded-full bg-white/5 text-warm-orange text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-sm">
+                            Catalogue de Démonstrations
+                        </div>
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                            Visualisez votre<br>
+                            <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-white">future
+                                présence en ligne</span>
+                        </h1>
+                        <p class="text-xl text-gray-400 font-light max-w-2xl mx-auto">
+                            J'ai conçu ces <strong>maquettes fonctionnelles</strong> pour vous aider à vous projeter.
+                            Elles illustrent la structure et l'approche que je propose pour différents métiers.
+                        </p>
+                    </div>
+
+
+
+
+                    <!-- BOUTONS DE FILTRE -->
+                    <div class="flex flex-wrap justify-center gap-2 md:gap-3 mb-20 lg:mb-24" data-sr
+                        data-sr-delay="100">
+
+
+                        <button class="filter-btn-dark active px-4 py-2 rounded-full text-xs md:text-sm font-semibold"
+                            data-filter="all">
+                            Tous les projets
+                        </button>
+                        <button class="filter-btn-dark px-4 py-2 rounded-full text-xs md:text-sm font-semibold"
+                            data-filter="performance">
+                            Performance & Business
+                        </button>
+                        <button class="filter-btn-dark px-4 py-2 rounded-full text-xs md:text-sm font-semibold"
+                            data-filter="transformation">
+                            Transformation
+                        </button>
+                        <button class="filter-btn-dark px-4 py-2 rounded-full text-xs md:text-sm font-semibold"
+                            data-filter="bien-etre">
+                            Bien-être
+                        </button>
+                        <button class="filter-btn-dark px-4 py-2 rounded-full text-xs md:text-sm font-semibold"
+                            data-filter="design">
+                            Design
+                        </button>
+
+                    </div>
+
+
+
+
+                    <!-- ======================================================= -->
+                    <!--              BANDEAU CONTEXTE & TRANSPARENCE            -->
+                    <!-- ======================================================= -->
+
+                    <div class="max-w-4xl mx-auto mb-24 lg:mb-32" data-sr>
+
+                        <div
+                            class="bg-neutral-dark/50 border border-white/10 rounded-xl p-6 relative overflow-hidden backdrop-blur-md">
+                            <div class="flex flex-col md:flex-row gap-5 items-start">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-blue-900/30 flex items-center justify-center text-clarity-blue border border-clarity-blue/20">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="text-white font-semibold text-lg mb-2">Note de transparence</h3>
+                                    <p class="text-gray-400 text-sm leading-relaxed">
+                                        Les projets ci-dessous sont des <strong>sites de démonstration
+                                            (fictifs)</strong>. Je les ai créés pour vous montrer les fonctionnalités
+                                        types (réservation, blog, offres) adaptées à chaque métier.
+                                    </p>
+                                    <p class="text-gray-400 text-sm leading-relaxed mt-3">
+                                        <span class="text-warm-orange font-medium">La différence avec votre futur site
+                                            ?</span><br>
+                                        Ces démos sont des bases standardisées. Pour nos clients, je fournis un travail
+                                        de <strong>qualité irréprochable</strong>, entièrement personnalisé à votre
+                                        image, avec une attention particulière portée à vos textes et votre identité
+                                        visuelle.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
 
 
 
-    <!-- BANDEAU DE CONSENTEMENT AUX COOKIES (VERSION RESPONSIVE AMÉLIORÉE) -->
+                    <!-- GRILLE DE PROJETS -->
+                    <div id="portfolio-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+                        <!-- =================================== -->
+                        <!-- Catégorie : Performance & Business  -->
+                        <!-- =================================== -->
+
+                        <!-- Projet 04 : Consultant en Marketing Digital -->
+                        <div class="portfolio-item" data-category="performance" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-04.jpg"
+                                        alt="Site pour un consultant en marketing digital"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Consultant en Marketing Digital</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Concept de site B2B axé sur la
+                                        génération de
+                                        leads, présentant l'expertise et les études de cas pour attirer de nouveaux
+                                        clients.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Génération
+                                            de Leads</span>
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Expertise
+                                            B2B</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-04_consultant-marketing-digital/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir la démo
+                                        </a>
+                                        <a href="study-case-pages/study_case_04.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Lire la stratégie
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projet 07 : Coach Business -->
+                        <div class="portfolio-item" data-category="performance" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-07.jpg"
+                                        alt="Site pour un coach business pour TPE-PME"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Coach Business (pour TPE-PME)</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Concept de site professionnelle pour
+                                        un
+                                        coach d'affaires, mettant en avant les programmes d'accompagnement et les
+                                        témoignages clients.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Coaching
+                                            TPE/PME</span>
+                                        <span
+                                            class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Témoignages</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-07_coach-business-pour-tpe-pme/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir la démo
+                                        </a>
+                                        <a href="study-case-pages/study_case_07.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Lire la stratégie
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projet 10 : Coach de Carrière -->
+                        <div class="portfolio-item" data-category="performance" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-10.jpg"
+                                        alt="Site pour un coach de carrière" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Coach de Carrière - Professionnel</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Concept de site pour un coach de
+                                        carrière, avec
+                                        un blog pour asseoir son expertise et un système de réservation de sessions de
+                                        coaching.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Blog
+                                            d'Expertise</span>
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Prise de
+                                            RDV</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-10_coach-de-carriere-professionnel/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir la démo
+                                        </a>
+                                        <a href="study-case-pages/study_case_10.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Lire la stratégie
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- =================================== -->
+                        <!-- Catégorie : Transformation          -->
+                        <!-- =================================== -->
+
+                        <!-- Projet 06 : Coach de vie -->
+                        <div class="portfolio-item" data-category="transformation" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-06.jpg"
+                                        alt="Site pour un coach de vie" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Coach de vie</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Concept de site inspirant pour une
+                                        coach de
+                                        vie, avec présentation des programmes de transformation et réservation de
+                                        sessions.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span
+                                            class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Programmes</span>
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Réservation
+                                            de Session</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-06_coach-de-vie/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir la démo
+                                        </a>
+                                        <a href="study-case-pages/study_case_06.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Lire la stratégie
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projet 08 : Coach en Nutrition -->
+                        <div class="portfolio-item" data-category="transformation" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-08.jpg"
+                                        alt="Site pour un coach en nutrition" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Coach en Nutrition (approche
+                                        bien-être)</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Concept de site web axé sur une
+                                        approche
+                                        bienveillante de la nutrition, avec des programmes, des recettes et la prise de
+                                        rendez-vous.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Programmes
+                                            Nutrition</span>
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Blog
+                                            Recettes</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-08_coach-en-nutrition/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir la démo
+                                        </a>
+                                        <a href="study-case-pages/study_case_08.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Lire la stratégie
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projet 11 : Coach Sportif -->
+                        <div class="portfolio-item" data-category="transformation" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-11.jpg"
+                                        alt="Site pour un coach sportif" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Coach Sportif (grand public)</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Concept de site dynamique pour un
+                                        coach
+                                        personnel, avec vente de programmes en ligne et planning de cours pour le grand
+                                        public.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Vente en
+                                            Ligne</span>
+                                        <span
+                                            class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Planning</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-11_coach-sportif-grand-public/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir la démo
+                                        </a>
+                                        <a href="study-case-pages/study_case_11.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Lire la stratégie
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projet 13 : Coach en Confiance en Soi -->
+                        <div class="portfolio-item" data-category="transformation" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-13.jpg"
+                                        alt="Site pour un coach en confiance en soi" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Coach en Confiance en Soi</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Concept de site rassurant et
+                                        motivant pour un
+                                        coach spécialisé dans la confiance en soi, avec des témoignages forts et une
+                                        prise de contact facile.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Estime de
+                                            soi</span>
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Appel
+                                            Découverte</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-13_coach-en-confiance-en-soi/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir la démo
+                                        </a>
+                                        <a href="study-case-pages/study_case_13.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Lire la stratégie
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- =================================== -->
+                        <!-- Catégorie : Bien-être & Holistique  -->
+                        <!-- =================================== -->
+
+                        <!-- Projet 01 : Professeur de Yoga -->
+                        <div class="portfolio-item" data-category="bien-etre" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-01.jpg"
+                                        alt="Aperçu du site pour un studio de yoga" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Professeur de Yoga "L'Instant Présent"
+                                    </h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Concept de site vitrine pour un
+                                        studio à Lille,
+                                        mettant en avant les cours et facilitant la réservation.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Site
+                                            Vitrine</span>
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">SEO
+                                            Local</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-01_professeur-de-yoga/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir la démo
+                                        </a>
+                                        <a href="study-case-pages/study_case_01.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Lire la stratégie
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projet 03 : Naturopathe -->
+                        <div class="portfolio-item" data-category="bien-etre" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-03.jpg"
+                                        alt="Site pour une naturopathe" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Naturopathe "Équilibre & Nature"</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Concept de site de prise de
+                                        rendez-vous et blog
+                                        de conseils pour une naturopathe certifiée.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Réservation
+                                            en ligne</span>
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Blog
+                                            Santé</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-03_naturopathe/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir la démo
+                                        </a>
+                                        <a href="study-case-pages/study_case_03.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Lire la stratégie
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projet 05 : Sophrologue -->
+                        <div class="portfolio-item" data-category="bien-etre" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-05.jpg"
+                                        alt="Site pour une sophrologue" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Sophrologue</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Concept de plateforme douce et
+                                        apaisante pour
+                                        une sophrologue spécialisée dans la gestion du stress et l'amélioration du
+                                        sommeil.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Prise de
+                                            RDV</span>
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Gestion du
+                                            Stress</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-05_sophrologue/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir la démo
+                                        </a>
+                                        <a href="study-case-pages/study_case_05.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Lire la stratégie
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projet 09 : Hypnothérapeute -->
+                        <div class="portfolio-item" data-category="bien-etre" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-09.jpg"
+                                        alt="Site pour un hypnothérapeute" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Hypnothérapeute</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Concept de site professionnel et
+                                        rassurant pour
+                                        un hypnothérapeute, expliquant la méthode, les bienfaits et facilitant la prise
+                                        de rendez-vous.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Thérapies
+                                            brèves</span>
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Réservation
+                                            en ligne</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-09_hypnoterapeute/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir la démo
+                                        </a>
+                                        <a href="study-case-pages/study_case_09.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Lire la stratégie
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projet 12 : Masseuse bien-être -->
+                        <div class="portfolio-item" data-category="bien-etre" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-12.jpg"
+                                        alt="Site pour une masseuse bien-être" class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Masseuse bien-être</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Concept de site élégant présentant
+                                        la carte des
+                                        massages, les tarifs et permettant la réservation en ligne pour un salon ou à
+                                        domicile.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Carte des
+                                            Massages</span>
+                                        <span
+                                            class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Réservation</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-12_masseuse-bien-etre/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir la démo
+                                        </a>
+                                        <a href="study-case-pages/study_case_12.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Lire la stratégie
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- =================================== -->
+                        <!-- Catégorie : Design & Création       -->
+                        <!-- =================================== -->
+
+                        <!-- Projet 02 : Decoratrice -->
+                        <div class="portfolio-item" data-category="design" data-sr>
+                            <div class="portfolio-card rounded-2xl overflow-hidden h-full flex flex-col">
+                                <div class="card-image aspect-video">
+                                    <img src="assets/image-portfolio/mockup-portfolio-projet-02.jpg"
+                                        alt="Aperçu du site pour une décoratrice d'intérieur"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <div class="p-6 flex flex-col flex-grow">
+                                    <h3 class="text-xl font-bold text-white mb-2">Décoratrice d'Intérieur "Harmonie
+                                        Intérieure"</h3>
+                                    <p class="text-gray-400 text-sm mb-4 flex-grow">Concept de site web élégant pour une
+                                        décoratrice d'intérieur, avec intégration Calendly pour automatiser la prise de
+                                        RDV.</p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Intégration
+                                            Calendly</span>
+                                        <span
+                                            class="tag-dark text-xs font-semibold px-3 py-1 rounded-full">Portfolio</span>
+                                    </div>
+                                    <div class="flex gap-3 mt-auto">
+                                        <a href="https://clartem-agency.github.io/site-portfolio-02_decoratrice-dinterieur/"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg bg-gradient-to-r from-clarity-blue to-deep-blue text-white font-semibold text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all">
+                                            Voir la démo
+                                        </a>
+                                        <a href="study-case-pages/study_case_02.html"
+                                            class="flex-1 text-center px-4 py-2.5 rounded-lg border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all">
+                                            Lire la stratégie
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <!-- BOUTON VOIR PLUS -->
+                    <div id="load-more-container" class="text-center mt-16">
+                        <button id="load-more-btn"
+                            class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-neutral-dark bg-white rounded-lg hover:bg-gray-100 transition-all hover:-translate-y-1 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+                            Voir plus de projets
+                            <svg class="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+            <!-- FIN DE LA SECTION PORTFOLIO -->
+
+        </main>
+
+        <!-- ======================================================= -->
+        <!--                        Footer                           -->
+        <!-- ======================================================= -->
+
+        <footer class="bg-[#111827] text-white py-16 border-t border-white/10">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-6">
+                        <div>
+                            <a href="index.html">
+                                <img class="h-14 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
+                            </a>
+                            <p class="text-lg text-gray-400 mt-2">Apporter de la clarté dans le chaos digital</p>
+                        </div>
+                        <p class="text-gray-500 leading-relaxed">Vous transformez des vies, votre site devrait le
+                            refléter. J'aide les professionnels de l'accompagnement à traduire leur expertise en une
+                            présence digitale claire, qui inspire confiance et attire les bonnes personnes.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Navigation</h4>
+                        <div class="space-y-3">
+                            <a href="index.html"
+                                class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Accueil</a>
+                            <a href="a-propos.html"
+                                class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">À
+                                Propos</a>
+                            <a href="index.html#plan"
+                                class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Processus</a>
+                            <a href="index.html#offres"
+                                class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Offres</a>
+                            <a href="blog.html"
+                                class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Blog</a>
+                            <a href="faq.html"
+                                class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">FAQ</a>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-white">Informations Légales</h4>
+                        <div class="space-y-3">
+                            <a href="mentions-legales.html"
+                                class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Mentions
+                                Légales</a>
+                            <a href="politique-de-confidentialite.html"
+                                class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Politique
+                                de Confidentialité</a>
+                            <a href="cgv.html"
+                                class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Conditions
+                                Générales de Vente</a>
+                            <a href="contact.html"
+                                class="block text-gray-400 hover:text-clarity-blue transition-colors duration-300">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-white/10 mt-12 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                        <p class="text-sm text-gray-500">© 2025 clartem.com. Tous droits réservés.</p>
+                        <div class="text-sm text-gray-500">
+                            <span>Conçu avec ❤️ pour apporter de la clarté dans le chaos digital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- BANDEAU DE CONSENTEMENT AUX COOKIES -->
     <div id="cookie-consent-banner" class="hidden fixed bottom-0 inset-x-0 p-2 sm:p-4 z-[100]">
         <div class="max-w-7xl mx-auto">
             <div
-                class="p-4 rounded-lg bg-neutral-dark shadow-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                class="p-4 rounded-lg bg-neutral-dark shadow-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border border-white/10">
                 <div class="flex-1 text-white">
                     <p class="font-semibold">Ce site utilise des cookies</p>
-                    <p class="mt-1 text-sm text-neutral-light">
-                        Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic. En cliquant
-                        sur "Accepter", vous consentez à notre utilisation des cookies.
+                    <p class="mt-1 text-sm text-gray-400">
+                        Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic.
                         <a href="politique-de-confidentialite.html" target="_blank"
-                            class="font-semibold hover:underline">En savoir plus</a>.
+                            class="font-semibold hover:underline text-gray-300">En savoir plus</a>.
                     </p>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-                    <button id="cookie-accept-btn" type="button" class="w-full sm:w-auto btn btn-primary px-6 py-2">
-                        Accepter
-                    </button>
-                    <button id="cookie-decline-btn" type="button" class="w-full sm:w-auto btn btn-secondary px-6 py-2"
-                        style="color: white; border-color: white;">
-                        Refuser
-                    </button>
+                    <button id="cookie-accept-btn" type="button"
+                        class="w-full sm:w-auto btn btn-primary px-6 py-2">Accepter</button>
+                    <button id="cookie-decline-btn" type="button"
+                        class="w-full sm:w-auto px-6 py-2 border border-white/30 text-white rounded-lg hover:bg-white/10 transition-all">Refuser</button>
                 </div>
             </div>
         </div>
     </div>
-    <!-- FIN DU BANDEAU DE CONSENTEMENT -->
 
-    <!-- Custom JS (identique aux autres pages) -->
+
+
+    <!-- Script spécifique pour le filtrage portfolio -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Filtrage des projets
+            const filterBtns = document.querySelectorAll('.filter-btn-dark');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Activer le bouton cliqué
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    portfolioItems.forEach(item => {
+                        const category = item.getAttribute('data-category');
+
+                        if (filter === 'all' || category === filter) {
+                            item.style.display = 'block';
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'scale(0.9)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+
+            // Navigation scrolled state
+            const nav = document.getElementById('main-nav');
+            const logoWhite = document.getElementById('logo-white');
+            const logoColor = document.getElementById('logo-color');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            function handleScrollNav() {
+                if (window.scrollY > 50) {
+                    nav.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-md');
+                    nav.classList.remove('bg-transparent');
+                    if (logoWhite) logoWhite.classList.add('opacity-0');
+                    if (logoColor) logoColor.classList.remove('opacity-0');
+                    navLinks.forEach(link => {
+                        link.classList.add('text-neutral-dark');
+                        link.classList.remove('text-white');
+                    });
+                } else {
+                    nav.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-md');
+                    nav.classList.add('bg-transparent');
+                    if (logoWhite) logoWhite.classList.remove('opacity-0');
+                    if (logoColor) logoColor.classList.add('opacity-0');
+                    navLinks.forEach(link => {
+                        link.classList.remove('text-neutral-dark');
+                        link.classList.add('text-white');
+                    });
+                }
+            }
+
+            window.addEventListener('scroll', handleScrollNav);
+            handleScrollNav();
+
+
+        });
+    </script>
+
+
+    <!-- Custom JS -->
     <script src="js/script.js"></script>
+
 
 
     <!-- ======================================================= -->
     <!--          CHATBREVO                              -->
     <!-- ======================================================= -->
     <script>
-            (function (d, w, c) {
-                w.BrevoConversationsID = '688afd5eb78a71119e0a4e37';
-                w[c] = w[c] || function () {
-                    (w[c].q = w[c].q || []).push(arguments);
-                };
-                var s = d.createElement('script');
-                s.async = true;
-                s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
-                if (d.head) d.head.appendChild(s);
-            })(document, window, 'BrevoConversations');
+        (function (d, w, c) {
+            w.BrevoConversationsID = '688afd5eb78a71119e0a4e37';
+            w[c] = w[c] || function () {
+                (w[c].q = w[c].q || []).push(arguments);
+            };
+            var s = d.createElement('script');
+            s.async = true;
+            s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
+            if (d.head) d.head.appendChild(s);
+        })(document, window, 'BrevoConversations');
     </script>
     <!-- Fin Chat Brevo  -->
-
 
 
 
