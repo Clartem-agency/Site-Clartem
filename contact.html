@@ -555,22 +555,7 @@
             window.addEventListener('scroll', handleScroll);
             handleScroll(); // Init
 
-            // Menu Mobile
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                    // Si on ouvre le menu en haut de page, on met le fond blanc pour lisibilité
-                    if (window.scrollY <= 50) {
-                        if (!mobileMenu.classList.contains('hidden')) {
-                            nav.classList.add('scrolled');
-                            nav.classList.remove('nav-dark-mode');
-                        } else {
-                            nav.classList.remove('scrolled');
-                            nav.classList.add('nav-dark-mode');
-                        }
-                    }
-                });
-            }
+            
 
             // 2. LOGIQUE CLOUDINARY (Upload Fichiers)
             const contactForm = document.getElementById('contact-form');
@@ -675,6 +660,9 @@
             }
         });
     </script>
+
+
+<script src="js/script.js"></script>
 
 
 
