@@ -17,12 +17,12 @@
     <!-- 1. Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-54GH7QYLQP"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
 
-      gtag('config', 'G-54GH7QYLQP');
+        gtag('config', 'G-54GH7QYLQP');
     </script>
 
 
@@ -35,7 +35,7 @@
     <link rel="alternate" hreflang="x-default" href="https://www.clartem.com/blog.html" />
 
 
-    
+
     <!-- ======================================================= -->
     <!--       FIN DU BLOC SEO                                   -->
     <!-- =======================================================  -->
@@ -164,10 +164,13 @@
 
         /* Animation pour le point pulsant */
         @keyframes pulse-glow {
-            0%, 100% {
+
+            0%,
+            100% {
                 opacity: 0.75;
                 transform: scale(1);
             }
+
             50% {
                 opacity: 1;
                 transform: scale(1.5);
@@ -377,7 +380,7 @@
         /* ============================================= */
 
         /* Override des cartes générées dynamiquement */
-        #articles-grid .portfolio-item > a > div {
+        #articles-grid .portfolio-item>a>div {
             background: #ffffff !important;
             border-radius: 20px !important;
             overflow: hidden;
@@ -387,7 +390,7 @@
             position: relative;
         }
 
-        #articles-grid .portfolio-item > a > div::before {
+        #articles-grid .portfolio-item>a>div::before {
             content: '';
             position: absolute;
             top: 0;
@@ -400,13 +403,13 @@
             z-index: 10;
         }
 
-        #articles-grid .portfolio-item > a > div:hover {
+        #articles-grid .portfolio-item>a>div:hover {
             transform: translateY(-12px) !important;
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12) !important;
             border-color: transparent !important;
         }
 
-        #articles-grid .portfolio-item > a > div:hover::before {
+        #articles-grid .portfolio-item>a>div:hover::before {
             opacity: 1;
         }
 
@@ -416,7 +419,7 @@
             transition: transform 0.6s ease;
         }
 
-        #articles-grid .portfolio-item > a > div:hover img {
+        #articles-grid .portfolio-item>a>div:hover img {
             transform: scale(1.05);
         }
 
@@ -432,7 +435,7 @@
             transition: color 0.3s ease !important;
         }
 
-        #articles-grid .portfolio-item > a > div:hover h3 {
+        #articles-grid .portfolio-item>a>div:hover h3 {
             color: #F97316 !important;
         }
 
@@ -464,13 +467,13 @@
         /* STYLES POUR L'ARTICLE À LA UNE               */
         /* ============================================= */
 
-        #featured-post > a > div {
+        #featured-post>a>div {
             background: linear-gradient(135deg, #1F2937 0%, #111827 100%) !important;
             border: 1px solid rgba(255, 255, 255, 0.1) !important;
             transition: all 0.5s ease !important;
         }
 
-        #featured-post > a > div:hover {
+        #featured-post>a>div:hover {
             transform: translateY(-8px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3) !important;
         }
@@ -479,7 +482,7 @@
             color: #ffffff !important;
         }
 
-        #featured-post > a > div:hover h3 {
+        #featured-post>a>div:hover h3 {
             color: #F97316 !important;
         }
 
@@ -496,13 +499,13 @@
         }
 
         /* Titre section "À la Une" */
-        #featured-post > h2 {
+        #featured-post>h2 {
             position: relative;
             display: inline-block;
             width: 100%;
         }
 
-        #featured-post > h2::after {
+        #featured-post>h2::after {
             content: '';
             position: absolute;
             bottom: -8px;
@@ -580,12 +583,19 @@
 
                     <!-- LIENS DU MENU -->
                     <div class="hidden md:flex items-center space-x-8" id="nav-links">
-                        <a href="index.html" class="nav-link text-sm font-medium transition-colors duration-300 text-white/80 hover:text-white">Accueil</a>
-                        <a href="a-propos.html" class="nav-link text-sm font-medium transition-colors duration-300 text-white/80 hover:text-white">À Propos</a>
-                        <a href="index.html#plan" class="nav-link text-sm font-medium transition-colors duration-300 text-white/80 hover:text-white">Processus</a>
-                        <a href="portfolio.html" class="nav-link text-sm font-medium transition-colors duration-300 text-white/80 hover:text-white">Portfolio</a>
-                        <a href="index.html#offres" class="nav-link text-sm font-medium transition-colors duration-300 text-white/80 hover:text-white">Offres</a>
-                        <a href="faq.html" class="nav-link text-sm font-medium transition-colors duration-300 text-white/80 hover:text-white">FAQ</a>
+                        <a href="index.html"
+                            class="nav-link text-sm font-medium transition-colors duration-300 text-white/80 hover:text-white">Accueil</a>
+                        <a href="a-propos.html"
+                            class="nav-link text-sm font-medium transition-colors duration-300 text-white/80 hover:text-white">À
+                            Propos</a>
+                        <a href="index.html#plan"
+                            class="nav-link text-sm font-medium transition-colors duration-300 text-white/80 hover:text-white">Processus</a>
+                        <a href="portfolio.html"
+                            class="nav-link text-sm font-medium transition-colors duration-300 text-white/80 hover:text-white">Portfolio</a>
+                        <a href="index.html#offres"
+                            class="nav-link text-sm font-medium transition-colors duration-300 text-white/80 hover:text-white">Offres</a>
+                        <a href="faq.html"
+                            class="nav-link text-sm font-medium transition-colors duration-300 text-white/80 hover:text-white">FAQ</a>
                     </div>
 
                     <!-- BOUTON CTA -->
@@ -595,31 +605,67 @@
                         Planifier un Appel Clarté
                     </a>
 
-                    <!-- MENU MOBILE BUTTON -->
-                    <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16m-7 6h7"></path>
-                        </svg>
+                    <!-- NOUVEAU BOUTON BURGER ANIMÉ -->
+                    <button id="mobile-menu-button"
+                        class="md:hidden relative z-[60] w-10 h-10 flex items-center justify-center focus:outline-none group text-white">
+                        <div class="relative w-6 h-5 flex flex-col justify-between">
+                            <span id="burger-top"
+                                class="block w-full h-0.5 bg-current rounded-full transition-all duration-300 origin-center"></span>
+                            <span id="burger-middle"
+                                class="block w-full h-0.5 bg-current rounded-full transition-all duration-300 opacity-100"></span>
+                            <span id="burger-bottom"
+                                class="block w-full h-0.5 bg-current rounded-full transition-all duration-300 origin-center"></span>
+                        </div>
                     </button>
                 </div>
 
-                <!-- Mobile Menu -->
-                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2 pb-4">
-                    <a href="index.html" class="block text-white/80 hover:text-white py-2 text-sm">Accueil</a>
-                    <a href="a-propos.html" class="block text-white/80 hover:text-white py-2 text-sm">À Propos</a>
-                    <a href="index.html#plan" class="block text-white/80 hover:text-white py-2 text-sm">Processus</a>
-                    <a href="portfolio.html" class="block text-white/80 hover:text-white py-2 text-sm">Portfolio</a>
-                    <a href="index.html#offres" class="block text-white/80 hover:text-white py-2 text-sm">Offres</a>
-                    <a href="faq.html" class="block text-white/80 hover:text-white py-2 text-sm">FAQ</a>
-                    <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
-                        rel="noopener noreferrer" class="block mt-4 w-full text-center btn btn-primary text-sm">
-                        Planifier un Appel Clarté
-                    </a>
-                </div>
+
             </div>
         </nav>
+
+
+
+
+        <!-- ======================================================= -->
+<!--        MENU MOBILE PREMIUM (OVERLAY FULL SCREEN)        -->
+<!-- ======================================================= -->
+<div id="mobile-menu-overlay" class="fixed inset-0 z-[49] bg-neutral-dark/95 backdrop-blur-xl opacity-0 pointer-events-none transition-opacity duration-500 flex flex-col justify-center items-center">
+    
+    <!-- Décoration de fond (Orbe subtile) -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-clarity-blue/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <!-- Liste des liens -->
+    <div class="relative z-10 flex flex-col items-center space-y-8 text-center">
+        
+        <a href="index.html" class="mobile-link text-3xl font-bold text-white hover:text-warm-orange transition-colors duration-300 transform translate-y-4 opacity-0">Accueil</a>
+        
+        <a href="a-propos.html" class="mobile-link text-3xl font-bold text-white hover:text-warm-orange transition-colors duration-300 transform translate-y-4 opacity-0" style="transition-delay: 0.1s;">À Propos</a>
+        
+        <a href="index.html#plan" class="mobile-link text-3xl font-bold text-white hover:text-warm-orange transition-colors duration-300 transform translate-y-4 opacity-0" style="transition-delay: 0.2s;">Processus</a>
+        
+        <a href="portfolio.html" class="mobile-link text-3xl font-bold text-white hover:text-warm-orange transition-colors duration-300 transform translate-y-4 opacity-0" style="transition-delay: 0.3s;">Portfolio</a>
+        
+        <a href="index.html#offres" class="mobile-link text-3xl font-bold text-white hover:text-warm-orange transition-colors duration-300 transform translate-y-4 opacity-0" style="transition-delay: 0.4s;">Offres</a>
+        
+        <a href="faq.html" class="mobile-link text-3xl font-bold text-white hover:text-warm-orange transition-colors duration-300 transform translate-y-4 opacity-0" style="transition-delay: 0.5s;">FAQ</a>
+
+        <!-- Le Bouton d'action -->
+        <div class="pt-8 mobile-link transform translate-y-4 opacity-0" style="transition-delay: 0.6s;">
+            <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank" 
+               class="btn btn-primary px-8 py-3 text-lg rounded-full shadow-lg shadow-blue-500/30">
+                Planifier un Appel
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer du menu -->
+    <div class="absolute bottom-8 text-white/30 text-xs tracking-widest uppercase">
+        Agence Clartem © 2025
+    </div>
+</div>
+
+
+
 
 
         <!-- ======================================================= -->
@@ -639,19 +685,24 @@
                 <div class="max-w-4xl mx-auto text-center mb-16" data-sr>
 
                     <!-- Badge Glassmorphism -->
-                    <div class="inline-flex items-center gap-2 px-4 py-2 mb-10 border border-white/10 rounded-full bg-white/5 backdrop-blur-md shadow-lg">
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-2 mb-10 border border-white/10 rounded-full bg-white/5 backdrop-blur-md shadow-lg">
                         <!-- Point pulsant -->
                         <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-warm-orange opacity-75"></span>
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-warm-orange opacity-75"></span>
                             <span class="relative inline-flex rounded-full h-2 w-2 bg-warm-orange"></span>
                         </span>
-                        <span class="text-[11px] font-bold tracking-[0.25em] text-gray-300 uppercase leading-none">Le Journal Clarté</span>
+                        <span class="text-[11px] font-bold tracking-[0.25em] text-gray-300 uppercase leading-none">Le
+                            Journal Clarté</span>
                     </div>
 
                     <!-- Titre Magazine -->
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
+                    <h1
+                        class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
                         Cultiver votre <br class="hidden sm:block">
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-warm-orange via-orange-300 to-white">
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-warm-orange via-orange-300 to-white">
                             Sagesse Digitale.
                         </span>
                     </h1>
@@ -660,7 +711,8 @@
                     <div class="flex justify-center">
                         <div class="border-l-2 border-white/10 pl-6 text-left max-w-2xl">
                             <p class="text-gray-400 text-lg md:text-xl font-light leading-relaxed">
-                                Des stratégies, des guides et des conseils concrets pour transformer votre expertise en un site web qui attire, rassure et convertit.
+                                Des stratégies, des guides et des conseils concrets pour transformer votre expertise en
+                                un site web qui attire, rassure et convertit.
                             </p>
                         </div>
                     </div>
@@ -673,11 +725,13 @@
                     <!-- Barre de recherche -->
                     <div class="max-w-2xl mx-auto mb-10" data-sr>
                         <form id="search-form" class="relative">
-                            <input type="search" id="search-input" placeholder="Rechercher un article..." 
+                            <input type="search" id="search-input" placeholder="Rechercher un article..."
                                 class="search-input-dark">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-5 pointer-events-none">
-                                <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                 </svg>
                             </div>
                         </form>
@@ -686,15 +740,21 @@
                     <!-- Conteneur des boutons de filtre -->
                     <div class="flex flex-wrap justify-center gap-3" id="category-filters" data-sr-delay="100">
                         <button class="filter-btn filter-btn-dark active" data-filter="all">Tous</button>
-                        <button class="filter-btn filter-btn-dark" data-filter="strategie">Stratégie & Positionnement</button>
+                        <button class="filter-btn filter-btn-dark" data-filter="strategie">Stratégie &
+                            Positionnement</button>
                         <button class="filter-btn filter-btn-dark" data-filter="debuter">Débuter son Activité</button>
                         <button class="filter-btn filter-btn-dark" data-filter="local">Marketing Local & Google</button>
                         <button class="filter-btn filter-btn-dark" data-filter="outils">Outils & Productivité</button>
-                        <button class="filter-btn filter-btn-dark" data-filter="niche-bien-etre">Niche : Bien-être</button>
-                        <button class="filter-btn filter-btn-dark" data-filter="niche-b2b">Niche : Coachs Business</button>
-                        <button class="filter-btn filter-btn-dark" data-filter="approche-clarte">Approche "Site Clarté"</button>
-                        <button class="filter-btn filter-btn-dark" data-filter="marque-communication">Marque & Communication</button>
-                        <button class="filter-btn filter-btn-dark" data-filter="journal-de-bord">Mon journal de bord</button>
+                        <button class="filter-btn filter-btn-dark" data-filter="niche-bien-etre">Niche :
+                            Bien-être</button>
+                        <button class="filter-btn filter-btn-dark" data-filter="niche-b2b">Niche : Coachs
+                            Business</button>
+                        <button class="filter-btn filter-btn-dark" data-filter="approche-clarte">Approche "Site
+                            Clarté"</button>
+                        <button class="filter-btn filter-btn-dark" data-filter="marque-communication">Marque &
+                            Communication</button>
+                        <button class="filter-btn filter-btn-dark" data-filter="journal-de-bord">Mon journal de
+                            bord</button>
                     </div>
 
                 </div>
@@ -702,7 +762,8 @@
 
             <!-- Vague intégrée au header (même fond/grain) -->
             <div class="absolute bottom-0 left-0 right-0">
-                <svg class="w-full h-auto block" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="w-full h-auto block" viewBox="0 0 1440 120" preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg">
                     <path fill="#ffffff" d="M0,120 L0,60 Q360,0 720,40 T1440,30 L1440,120 Z"></path>
                 </svg>
             </div>
@@ -724,16 +785,18 @@
                 <!-- Grille des Articles -->
                 <section id="all-posts">
                     <div class="text-center mb-14">
-                        <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark section-title-editorial" id="articles-grid-title">Tous les articles</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold text-neutral-dark section-title-editorial"
+                            id="articles-grid-title">Tous les articles</h2>
                     </div>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10" id="articles-grid">
                         <!-- Les cartes d'articles seront injectées ici par JavaScript -->
                     </div>
-                    
+
                     <!-- Message aucun résultat -->
                     <div id="no-results" class="no-results-message hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
                         <p class="text-xl font-medium text-neutral-dark mb-2">Aucun article trouvé</p>
                         <p class="text-neutral-light">Essayez une autre recherche ou explorez nos catégories.</p>
@@ -754,7 +817,7 @@
         <!-- ======================================================= -->
 
         <section class="bg-neutral-dark py-20 lg:py-28 relative overflow-hidden">
-            
+
             <!-- Lueurs décoratives -->
             <div class="glow-blue absolute -top-20 left-1/4"></div>
             <div class="glow-orange absolute bottom-0 right-1/4 opacity-30"></div>
@@ -763,9 +826,12 @@
                 <div class="max-w-3xl mx-auto text-center" data-sr>
 
                     <!-- Icône -->
-                    <div class="inline-flex items-center justify-center w-16 h-16 mb-8 rounded-2xl bg-warm-orange/10 border border-warm-orange/20">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-warm-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    <div
+                        class="inline-flex items-center justify-center w-16 h-16 mb-8 rounded-2xl bg-warm-orange/10 border border-warm-orange/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-warm-orange" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                     </div>
 
@@ -773,7 +839,8 @@
                         Restez inspiré chaque semaine
                     </h2>
                     <p class="text-gray-400 text-lg mb-10 max-w-xl mx-auto">
-                        Recevez mes meilleurs conseils pour développer votre activité et créer une présence en ligne qui vous ressemble.
+                        Recevez mes meilleurs conseils pour développer votre activité et créer une présence en ligne qui
+                        vous ressemble.
                     </p>
 
                     <!-- Formulaire Newsletter -->
@@ -808,7 +875,8 @@
                             </a>
                             <p class="text-lg text-gray-400 mt-4">Apporter de la clarté dans le chaos digital</p>
                         </div>
-                        <p class="text-gray-500 leading-relaxed text-sm">Vous transformez des vies, votre site devrait le
+                        <p class="text-gray-500 leading-relaxed text-sm">Vous transformez des vies, votre site devrait
+                            le
                             refléter. J'aide les professionnels de l'accompagnement à traduire leur expertise en une
                             présence digitale claire, qui inspire confiance et attire les bonnes personnes.</p>
                     </div>
@@ -818,7 +886,8 @@
                             <a href="index.html"
                                 class="block text-gray-400 hover:text-warm-orange transition-colors duration-300 text-sm">Accueil</a>
                             <a href="a-propos.html"
-                                class="block text-gray-400 hover:text-warm-orange transition-colors duration-300 text-sm">À Propos</a>
+                                class="block text-gray-400 hover:text-warm-orange transition-colors duration-300 text-sm">À
+                                Propos</a>
                             <a href="index.html#plan"
                                 class="block text-gray-400 hover:text-warm-orange transition-colors duration-300 text-sm">Processus</a>
                             <a href="portfolio.html"
@@ -866,14 +935,17 @@
     <!-- BANDEAU DE CONSENTEMENT AUX COOKIES -->
     <div id="cookie-consent-banner" class="hidden fixed bottom-0 inset-x-0 p-2 sm:p-4 z-[100]">
         <div class="max-w-7xl mx-auto">
-            <div class="p-4 rounded-lg bg-neutral-dark shadow-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                
+            <div
+                class="p-4 rounded-lg bg-neutral-dark shadow-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+
                 <!-- Section Texte -->
                 <div class="flex-1 text-white">
                     <p class="font-semibold">Ce site utilise des cookies</p>
                     <p class="mt-1 text-sm text-neutral-light">
-                        Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic. En cliquant sur "Accepter", vous consentez à notre utilisation des cookies.
-                        <a href="politique-de-confidentialite.html" target="_blank" class="font-semibold hover:underline">En savoir plus</a>.
+                        Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic. En cliquant
+                        sur "Accepter", vous consentez à notre utilisation des cookies.
+                        <a href="politique-de-confidentialite.html" target="_blank"
+                            class="font-semibold hover:underline">En savoir plus</a>.
                     </p>
                 </div>
 
@@ -883,7 +955,8 @@
                     <button id="cookie-accept-btn" type="button" class="w-full sm:w-auto btn btn-primary px-6 py-2">
                         Accepter
                     </button>
-                    <button id="cookie-decline-btn" type="button" class="w-full sm:w-auto btn btn-secondary px-6 py-2" style="color: white; border-color: white;">
+                    <button id="cookie-decline-btn" type="button" class="w-full sm:w-auto btn btn-secondary px-6 py-2"
+                        style="color: white; border-color: white;">
                         Refuser
                     </button>
                 </div>
@@ -900,7 +973,7 @@
 
     <!-- Script spécifique pour gérer les changements de navigation sur cette page -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const nav = document.getElementById('main-nav');
             const logoWhite = document.getElementById('logo-white');
             const logoColor = document.getElementById('logo-color');
@@ -912,13 +985,13 @@
                     nav.classList.remove('bg-transparent');
                     if (logoWhite) logoWhite.classList.add('opacity-0');
                     if (logoColor) logoColor.classList.remove('opacity-0');
-                    
+
                     // Mettre à jour les liens en mode clair
                     document.querySelectorAll('#nav-links .nav-link').forEach(link => {
                         link.classList.remove('text-white/80', 'hover:text-white');
                         link.classList.add('text-neutral-dark', 'hover:text-clarity-blue');
                     });
-                    
+
                     // Bouton menu mobile
                     if (mobileMenuButton) {
                         mobileMenuButton.classList.remove('text-white');
@@ -929,13 +1002,13 @@
                     nav.classList.add('bg-transparent');
                     if (logoWhite) logoWhite.classList.remove('opacity-0');
                     if (logoColor) logoColor.classList.add('opacity-0');
-                    
+
                     // Remettre les liens en mode sombre
                     document.querySelectorAll('#nav-links .nav-link').forEach(link => {
                         link.classList.add('text-white/80', 'hover:text-white');
                         link.classList.remove('text-neutral-dark', 'hover:text-clarity-blue');
                     });
-                    
+
                     // Bouton menu mobile
                     if (mobileMenuButton) {
                         mobileMenuButton.classList.add('text-white');
@@ -951,7 +1024,7 @@
             // Gestion des filtres avec le nouveau style
             const filterButtons = document.querySelectorAll('.filter-btn-dark');
             filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function () {
                     filterButtons.forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');
                 });
@@ -961,25 +1034,26 @@
 
 
 
-<!-- ======================================================= -->
+    <!-- ======================================================= -->
     <!--          CHATBREVO                              -->
     <!-- ======================================================= -->
     <script>
-            (function (d, w, c) {
-                w.BrevoConversationsID = '688afd5eb78a71119e0a4e37';
-                w[c] = w[c] || function () {
-                    (w[c].q = w[c].q || []).push(arguments);
-                };
-                var s = d.createElement('script');
-                s.async = true;
-                s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
-                if (d.head) d.head.appendChild(s);
-            })(document, window, 'BrevoConversations');
+        (function (d, w, c) {
+            w.BrevoConversationsID = '688afd5eb78a71119e0a4e37';
+            w[c] = w[c] || function () {
+                (w[c].q = w[c].q || []).push(arguments);
+            };
+            var s = d.createElement('script');
+            s.async = true;
+            s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
+            if (d.head) d.head.appendChild(s);
+        })(document, window, 'BrevoConversations');
     </script>
     <!-- Fin Chat Brevo  -->
 
 
 
-    
+
 </body>
+
 </html>
