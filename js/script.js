@@ -28,35 +28,72 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // ==================================================================
-    // LOGIQUE MENU MOBILE PREMIUM (FULL SCREEN)
+    // GESTION INTELLIGENTE DU MENU MOBILE (HYBRIDE)
+    // Compatible avec :
+    // 1. Les nouvelles pages (Menu Premium Overlay)
+    // 2. Les anciennes pages de blog (Ancien menu déroulant)
     // ==================================================================
+    
     const mobileBtn = document.getElementById('mobile-menu-button');
-    const mobileOverlay = document.getElementById('mobile-menu-overlay');
-    const mobileLinks = document.querySelectorAll('.mobile-link'); // Les liens dans l'overlay
+    const newOverlay = document.getElementById('mobile-menu-overlay'); // Le nouveau (Premium)
+    const oldMenu = document.getElementById('mobile-menu'); // L'ancien (Blog & Archives)
 
-    if (mobileBtn && mobileOverlay) {
+    if (mobileBtn) {
+        mobileBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Évite les conflits de clic
 
-        function toggleMenu() {
-            const isClosed = !mobileOverlay.classList.contains('open');
-
-            if (isClosed) {
-                // OUVERTURE
-                mobileOverlay.classList.add('open');
-                document.body.classList.add('menu-open'); // Pour le burger et bloquer le scroll
-            } else {
-                // FERMETURE
-                mobileOverlay.classList.remove('open');
-                document.body.classList.remove('menu-open');
+            // CAS 1 : C'est une page avec le NOUVEAU MENU PREMIUM
+            if (newOverlay) {
+                const isClosed = !newOverlay.classList.contains('open');
+                
+                if (isClosed) {
+                    // Ouverture
+                    newOverlay.classList.add('open');
+                    document.body.classList.add('menu-open'); // Active l'animation du burger en croix
+                } else {
+                    // Fermeture
+                    newOverlay.classList.remove('open');
+                    document.body.classList.remove('menu-open');
+                }
+            } 
+            
+            // CAS 2 : C'est une vieille page de blog (ANCIEN MENU)
+            else if (oldMenu) {
+                oldMenu.classList.toggle('hidden');
+                
+                // Petit correctif visuel pour l'ancien menu : 
+                // Si on est tout en haut de page, on met le fond blanc pour que le menu soit lisible
+                if (nav && !nav.classList.contains('scrolled')) {
+                    nav.classList.add('scrolled');
+                } else if (nav && window.scrollY <= 50 && oldMenu.classList.contains('hidden')) {
+                    // Si on referme le menu et qu'on est en haut, on remet transparent
+                    nav.classList.remove('scrolled');
+                }
             }
+        });
+
+        // GESTION DU CLIC SUR LES LIENS (Pour fermer le menu après clic)
+        
+        // Pour le nouveau menu
+        if (newOverlay) {
+            const newLinks = newOverlay.querySelectorAll('.mobile-link');
+            newLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    newOverlay.classList.remove('open');
+                    document.body.classList.remove('menu-open');
+                });
+            });
         }
 
-        // Clic sur le burger
-        mobileBtn.addEventListener('click', toggleMenu);
-
-        // Clic sur un lien (ferme le menu automatiquement)
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', toggleMenu);
-        });
+        // Pour l'ancien menu
+        if (oldMenu) {
+            const oldLinks = oldMenu.querySelectorAll('a');
+            oldLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    oldMenu.classList.add('hidden');
+                });
+            });
+        }
     }
 
 
