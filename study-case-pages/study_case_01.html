@@ -18,6 +18,24 @@
 
     <!-- 1. Tailwind (Obligatoire pour le menu) -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            // C'EST CETTE LIGNE QUI SAUVE TES TITRES :
+            corePlugins: {
+                preflight: false,
+            },
+            theme: {
+                extend: {
+                    colors: {
+                        'neutral-dark': '#1F2937',
+                        'clarity-blue': '#3B82F6',
+                        'warm-orange': '#F97316',
+                    }
+                }
+            }
+        }
+    </script>
+
 
     <!-- 2. Ton fichier CSS principal (Pour les animations du menu) -->
     <link rel="stylesheet" href="../css/style.css">
@@ -711,9 +729,9 @@
                 <a href="../blog.html">Blog</a>
                 <a href="../faq.html">FAQ</a>
                 <a href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank"
-                rel="noopener noreferrer" class="btn btn-primary header-cta">Planifier un appel clarté</a>
+                    rel="noopener noreferrer" class="btn btn-primary header-cta">Planifier un appel clarté</a>
             </nav>
-            
+
 
 
 
