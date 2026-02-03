@@ -4512,6 +4512,24 @@ body.menu-open {
 }
 
 
+/* 6. La Lueur Magique : Pulse quand le couvercle saute */
+.gift-glow-anim {
+    /* Synchronisé avec le cycle de saut */
+    animation: gift-glow-cycle 6s ease-in-out infinite;
+    opacity: 0;
+}
+
+@keyframes gift-glow-cycle {
+    0%, 88% { opacity: 0; transform: scaleX(0.8); }
+    
+    /* Au sommet du saut (le couvercle est levé), la lumière sort */
+    90% { opacity: 1; transform: scaleX(1.2); }
+    
+    95% { opacity: 0; transform: scaleX(0.8); }
+    100% { opacity: 0; }
+}
+
+
 
 
 
