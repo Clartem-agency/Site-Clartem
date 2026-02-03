@@ -2465,26 +2465,47 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // ==================================================================
-    // GESTION DU POPUP LEAD MAGNET + TEASER (VERSION CADEAU)
+    // GESTION DU POPUP LEAD MAGNET + TEASER (VERSION INTELLIGENTE)
     // ==================================================================
 
     const modal = document.getElementById('lead-magnet-modal');
     const backdrop = document.getElementById('modal-backdrop');
     const content = document.getElementById('modal-content');
     const closeBtn = document.getElementById('close-modal-btn');
-    const teaserBtn = document.getElementById('lead-magnet-teaser'); // NOUVEAU
+    const teaserBtn = document.getElementById('lead-magnet-teaser');
+    const popupForm = document.getElementById('popup-sib-form'); // Le formulaire
 
     // Configuration
     const SCROLL_TRIGGER_PERCENT = 0.50; // 50% du scroll
-    const STORAGE_KEY = 'clartem_popup_seen';
+    const STORAGE_KEY_SEEN = 'clartem_popup_seen'; // Déjà vu mais pas inscrit
+    const STORAGE_KEY_SUBSCRIBED = 'clartem_subscribed'; // A rempli le formulaire
 
-    if (modal && backdrop && content && closeBtn) { // Vérification de sécurité
+    // --- 1. VERIFICATION IMMEDIATE : EST-IL DEJA INSCRIT ? ---
+    if (localStorage.getItem(STORAGE_KEY_SUBSCRIBED) === 'true') {
+        // Si oui, on supprime tout immédiatement et on arrête le script ici.
+        if (teaserBtn) teaserBtn.remove();
+        if (modal) modal.remove();
+        // On ne continue pas l'exécution de ce bloc
+    } 
+    else if (modal && backdrop && content && closeBtn) { // Si pas inscrit, on lance la logique
 
         let isPopupOpen = false;
 
-        // --- FONCTIONS ---
+        // --- 2. ECOUTEUR SUR LE FORMULAIRE ---
+        // C'est ici qu'on enregistre l'inscription quand la personne clique sur le bouton
+        if (popupForm) {
+            popupForm.addEventListener('submit', function() {
+                // On enregistre qu'il est inscrit
+                localStorage.setItem(STORAGE_KEY_SUBSCRIBED, 'true');
+                
+                // Note : Le formulaire va s'envoyer normalement vers Brevo.
+                // Au prochain chargement de page (ou retour de Brevo), le bloc "1" ci-dessus s'activera.
+            });
+        }
 
-        // 1. Afficher le Teaser (Le petit cadeau)
+        // --- FONCTIONS D'AFFICHAGE ---
+
+        // Afficher le Teaser (Le petit cadeau)
         const showTeaser = () => {
             if (teaserBtn) {
                 teaserBtn.classList.remove('hidden');
@@ -2492,7 +2513,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         };
 
-        // 2. Cacher le Teaser
+        // Cacher le Teaser
         const hideTeaser = () => {
             if (teaserBtn) {
                 teaserBtn.classList.add('hidden');
@@ -2500,19 +2521,15 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         };
 
-        // 3. OUVRIR le popup
+        // OUVRIR le popup
         const openPopup = () => {
             if (isPopupOpen) return;
             isPopupOpen = true;
 
-            // On cache le teaser quand le popup s'ouvre
             hideTeaser();
 
-            // Affichage DOM
             modal.classList.remove('hidden');
-
-            // Force Reflow
-            void content.offsetHeight;
+            void content.offsetHeight; // Force Reflow
 
             requestAnimationFrame(() => {
                 requestAnimationFrame(() => {
@@ -2522,36 +2539,31 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             });
 
-            // On marque comme "vu" pour les prochaines visites (le teaser s'affichera au reload)
-            localStorage.setItem(STORAGE_KEY, 'true');
+            // On marque juste comme "vu" (pour afficher le teaser la prochaine fois au lieu de l'auto-open)
+            localStorage.setItem(STORAGE_KEY_SEEN, 'true');
         };
 
-        // 4. FERMER le popup
+        // FERMER le popup
         const closePopup = () => {
-            // Animation de sortie
             backdrop.classList.add('opacity-0');
             content.classList.remove('modal-3d-visible');
             content.classList.add('modal-3d-hidden');
 
-            // Attendre la fin de l'animation
             setTimeout(() => {
                 modal.classList.add('hidden');
                 isPopupOpen = false;
-
-                // IMPORTANT : On affiche le teaser une fois fermé !
-                showTeaser();
+                showTeaser(); // Le teaser revient si on ferme sans s'inscrire
             }, 800);
         };
 
-        // --- INITIALISATION ---
+        // --- INITIALISATION (SCROLL & INTENT) ---
 
-        // Si l'utilisateur a DÉJÀ vu le popup par le passé, on affiche direct le teaser
-        // et on ne met pas d'écouteurs de scroll/exit intent (pour ne pas le harceler)
-        if (localStorage.getItem(STORAGE_KEY) === 'true') {
+        // Si l'utilisateur a déjà VU la popup (mais pas inscrit), on affiche juste le teaser
+        if (localStorage.getItem(STORAGE_KEY_SEEN) === 'true') {
             showTeaser();
         } else {
-            // Sinon, on active les triggers automatiques
-
+            // Sinon (nouveau visiteur), on active les triggers automatiques
+            
             // Trigger 1 : Scroll
             const handleScrollPopup = () => {
                 const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
@@ -2560,13 +2572,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 if ((scrollCurrent / scrollTotal) > SCROLL_TRIGGER_PERCENT) {
                     openPopup();
                     window.removeEventListener('scroll', handleScrollPopup);
-                    // On enlève aussi l'exit intent pour éviter le double trigger
                     document.removeEventListener('mouseleave', handleExitIntent);
                 }
             };
             window.addEventListener('scroll', handleScrollPopup, { passive: true });
 
-            // Trigger 2 : Exit Intent
+            // Trigger 2 : Exit Intent (Souris qui sort vers le haut)
             const handleExitIntent = (e) => {
                 if (e.clientY <= 0) {
                     openPopup();
@@ -2577,10 +2588,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.addEventListener('mouseleave', handleExitIntent);
         }
 
-
         // --- ÉVÉNEMENTS CLICS ---
-
-        // Fermeture
         closeBtn.addEventListener('click', closePopup);
         modal.addEventListener('click', (e) => {
             if (e.target === backdrop || e.target.closest('#modal-backdrop')) {
@@ -2591,10 +2599,9 @@ document.addEventListener('DOMContentLoaded', function () {
             if (e.key === 'Escape' && isPopupOpen) closePopup();
         });
 
-        // Ouverture via le Teaser
         if (teaserBtn) {
             teaserBtn.addEventListener('click', (e) => {
-                e.stopPropagation(); // Évite les conflits
+                e.stopPropagation();
                 openPopup();
             });
         }
