@@ -5379,39 +5379,66 @@
 
 
     <!-- ======================================================= -->
-    <!-- TEASER LEAD MAGNET (CADEAU FLOTTANT)                    -->
+    <!-- TEASER LEAD MAGNET (ILLUSTRATION CADEAU)                -->
     <!-- ======================================================= -->
     <div id="lead-magnet-teaser"
-        class="fixed bottom-6 left-6 z-[90] hidden cursor-pointer group transition-all duration-500 hover:scale-110">
+        class="fixed bottom-4 left-6 z-[90] hidden cursor-pointer group w-20 h-24 flex items-end justify-center perspective-500">
 
-        <!-- L'icône Cadeau dans un cercle animé -->
+        <!-- L'ILLUSTRATION SVG COMPLÈTE -->
+        <svg width="90" height="100" viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="overflow-visible drop-shadow-2xl">
+
+            <!-- Groupe global pour l'animation de saut -->
+            <g class="gift-anim-container origin-bottom">
+
+                <!-- Ombre au sol (qui rétrécit quand il saute) -->
+                <ellipse cx="50" cy="100" rx="30" ry="5" fill="black" fill-opacity="0.3"
+                    class="gift-shadow-anim origin-center" />
+
+                <!-- Boîte (Corps) -->
+                <rect x="20" y="45" width="60" height="50" rx="4" fill="url(#giftGradient)" />
+
+                <!-- Ruban Vertical (Corps) -->
+                <rect x="45" y="45" width="10" height="50" fill="#FDE047" /> <!-- Jaune/Or -->
+
+                <!-- LE COUVERCLE (Animé séparément pour l'effet "Pop") -->
+                <g class="gift-lid-anim origin-bottom">
+                    <!-- Base du couvercle -->
+                    <rect x="15" y="35" width="70" height="12" rx="2" fill="#EA580C" /> <!-- Orange Foncé -->
+                    <rect x="45" y="35" width="10" height="12" fill="#FDE047" />
+
+                    <!-- Le Noeud (Boucles) -->
+                    <path d="M50 35 C 50 35, 30 10, 20 25 C 15 35, 45 35, 50 35" fill="#FDE047" stroke="#B45309"
+                        stroke-width="1" />
+                    <path d="M50 35 C 50 35, 70 10, 80 25 C 85 35, 55 35, 50 35" fill="#FDE047" stroke="#B45309"
+                        stroke-width="1" />
+                    <circle cx="50" cy="35" r="4" fill="#F59E0B" />
+                </g>
+
+                <!-- Étoiles / Étincelles (Masquées par défaut, apparaissent au saut) -->
+                <g class="gift-sparkles" style="opacity: 0;">
+                    <path d="M20 20 L22 15 L24 20 L29 22 L24 24 L22 29 L20 24 L15 22 Z" fill="#FDE047" />
+                    <path d="M80 10 L81 7 L82 10 L85 11 L82 12 L81 15 L80 12 L77 11 Z" fill="#FDE047" />
+                </g>
+            </g>
+
+            <!-- Définition du dégradé de la boîte -->
+            <defs>
+                <linearGradient id="giftGradient" x1="50" y1="45" x2="50" y2="95" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#F97316" /> <!-- Warm Orange -->
+                    <stop offset="1" stop-color="#C2410C" /> <!-- Orange plus sombre -->
+                </linearGradient>
+            </defs>
+        </svg>
+
+        <!-- Tooltip texte au survol (Style BD / Bulle) -->
         <div
-            class="relative w-14 h-14 md:w-16 md:h-16 bg-gradient-to-tr from-warm-orange to-red-500 rounded-full flex items-center justify-center shadow-lg shadow-orange-500/30 border-2 border-white/20 backdrop-blur-md">
-
-            <!-- Effet ping (Onde de choc pour attirer l'attention) -->
+            class="absolute left-full bottom-8 ml-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-[-10px] group-hover:translate-x-0 pointer-events-none hidden md:block">
             <div
-                class="absolute inset-0 rounded-full border border-warm-orange animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite] opacity-50">
-            </div>
-
-            <!-- Icône SVG Cadeau -->
-            <svg xmlns="http://www.w3.org/2000/svg"
-                class="w-7 h-7 md:w-8 md:h-8 text-white drop-shadow-md transform group-hover:rotate-12 transition-transform duration-300"
-                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
-            </svg>
-
-            <!-- Badge Notification (Optionnel : petit point rouge) -->
-            <div class="absolute top-0 right-0 w-4 h-4 bg-red-600 rounded-full border-2 border-[#1E293B]"></div>
-        </div>
-
-        <!-- Tooltip texte au survol (Desktop seulement) -->
-        <div
-            class="absolute left-full top-1/2 -translate-y-1/2 ml-4 w-max opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none hidden md:block">
-            <div class="bg-white text-neutral-dark text-xs font-bold py-1.5 px-3 rounded-lg shadow-xl relative">
-                <div class="absolute top-1/2 right-full -translate-y-1/2 border-4 border-transparent border-r-white">
+                class="bg-white text-neutral-dark text-xs font-bold py-2 px-4 rounded-xl shadow-xl relative border border-gray-100 whitespace-nowrap">
+                <div class="absolute top-1/2 right-full -translate-y-1/2 border-6 border-transparent border-r-white">
                 </div>
-                Votre Guide Offert 🎁
+                Pssst... C'est offert ! ✨
             </div>
         </div>
     </div>
