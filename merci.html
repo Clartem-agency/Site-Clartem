@@ -6,7 +6,7 @@
     <title>Félicitations ! La clarté est en route - Agence Clartem</title>
 
     <!-- ======================================================= -->
-    <!--       BLOC SEO & ANALYTICS (INCHANGÉ)                   -->
+    <!--       BLOC SEO & ANALYTICS                              -->
     <!-- ======================================================= -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-54GH7QYLQP"></script>
     <script>
@@ -26,7 +26,7 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Confetti Library (Ultra léger pour l'effet Wow) -->
+    <!-- Confetti Library -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <script>
@@ -93,7 +93,7 @@
         @keyframes scale { 0%, 100% { transform: none; } 50% { transform: scale3d(1.1, 1.1, 1); } }
         @keyframes fill { 100% { box-shadow: inset 0px 0px 0px 50px #10B981; } }
 
-        /* Effet Grain (Noise) comme sur l'accueil */
+        /* Effet Grain (Noise) */
         .noise-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
@@ -119,22 +119,24 @@
     </style>
 </head>
 
-<body class="bg-[#0F172A] text-white min-h-screen flex flex-col relative overflow-hidden">
+<!-- CORRECTION ICI : overflow-x-hidden permet le scroll vertical si nécessaire -->
+<body class="bg-[#0F172A] text-white min-h-screen flex flex-col relative overflow-x-hidden">
 
-    <!-- Fond Noise & Orbes (Ambiance Premium) -->
+    <!-- Fond Noise & Orbes (FIXED pour ne pas bouger au scroll) -->
     <div class="noise-overlay"></div>
-    <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-clarity-blue/20 rounded-full blur-[100px] pointer-events-none animate-float"></div>
-    <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-warm-orange/10 rounded-full blur-[100px] pointer-events-none animate-float" style="animation-delay: 2s;"></div>
+    <div class="fixed top-[-10%] left-[-10%] w-[500px] h-[500px] bg-clarity-blue/20 rounded-full blur-[100px] pointer-events-none animate-float z-0"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-warm-orange/10 rounded-full blur-[100px] pointer-events-none animate-float z-0" style="animation-delay: 2s;"></div>
 
     <!-- =================== HEADER SIMPLIFIÉ =================== -->
-    <header class="relative z-10 w-full py-6 flex justify-center">
+    <header class="relative z-10 w-full py-6 flex justify-center flex-shrink-0">
         <a href="index.html" class="opacity-80 hover:opacity-100 transition-opacity">
             <img class="h-10 w-auto" src="assets/logo-blanc-clartem.svg" alt="Logo clartem.com">
         </a>
     </header>
 
     <!-- =================== CONTENU PRINCIPAL =================== -->
-    <main class="flex-grow flex items-center justify-center px-4 relative z-10">
+    <!-- CORRECTION ICI : py-12 assure une marge si l'écran est petit -->
+    <main class="flex-grow flex items-center justify-center px-4 py-12 relative z-10">
         
         <div class="glass-card rounded-3xl p-8 md:p-12 max-w-2xl w-full text-center relative overflow-hidden">
             
@@ -184,22 +186,18 @@
     </main>
 
     <!-- =================== FOOTER DISCRET =================== -->
-    <footer class="relative z-10 py-6 text-center text-xs text-gray-600">
+    <footer class="relative z-10 py-6 text-center text-xs text-gray-600 flex-shrink-0">
         <p>© 2025 Agence Clartem. Tous droits réservés.</p>
     </footer>
 
     <!-- SCRIPT CONFETTIS PREMIUM -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Configuration des couleurs de la marque (Orange, Bleu, Blanc)
             const brandColors = ['#F97316', '#3B82F6', '#ffffff'];
-
-            // Lancement des confettis
-            const duration = 3000; // Durée de 3 secondes
+            const duration = 3000;
             const end = Date.now() + duration;
 
             (function frame() {
-                // Lancer des confettis depuis les deux côtés
                 confetti({
                     particleCount: 3,
                     angle: 60,
