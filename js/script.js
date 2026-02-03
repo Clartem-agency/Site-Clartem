@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // 1. Les nouvelles pages (Menu Premium Overlay)
     // 2. Les anciennes pages de blog (Ancien menu déroulant)
     // ==================================================================
-    
+
     const mobileBtn = document.getElementById('mobile-menu-button');
     const newOverlay = document.getElementById('mobile-menu-overlay'); // Le nouveau (Premium)
     const oldMenu = document.getElementById('mobile-menu'); // L'ancien (Blog & Archives)
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // CAS 1 : C'est une page avec le NOUVEAU MENU PREMIUM
             if (newOverlay) {
                 const isClosed = !newOverlay.classList.contains('open');
-                
+
                 if (isClosed) {
                     // Ouverture
                     newOverlay.classList.add('open');
@@ -55,12 +55,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     newOverlay.classList.remove('open');
                     document.body.classList.remove('menu-open');
                 }
-            } 
-            
+            }
+
             // CAS 2 : C'est une vieille page de blog (ANCIEN MENU)
             else if (oldMenu) {
                 oldMenu.classList.toggle('hidden');
-                
+
                 // Petit correctif visuel pour l'ancien menu : 
                 // Si on est tout en haut de page, on met le fond blanc pour que le menu soit lisible
                 if (nav && !nav.classList.contains('scrolled')) {
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // GESTION DU CLIC SUR LES LIENS (Pour fermer le menu après clic)
-        
+
         // Pour le nouveau menu
         if (newOverlay) {
             const newLinks = newOverlay.querySelectorAll('.mobile-link');
@@ -1720,106 +1720,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    // ==================================================================
-    // GESTION DU POPUP LEAD MAGNET (SCROLL + EXIT INTENT) - VERSION 3D
-    // ==================================================================
-
-    const modal = document.getElementById('lead-magnet-modal');
-    const backdrop = document.getElementById('modal-backdrop');
-    const content = document.getElementById('modal-content');
-    const closeBtn = document.getElementById('close-modal-btn');
-
-    // Configuration
-    const SCROLL_TRIGGER_PERCENT = 0.50; // 50% du scroll
-    const STORAGE_KEY = 'clartem_popup_seen';
-
-    if (modal && !localStorage.getItem(STORAGE_KEY)) {
-
-        let isPopupOpen = false;
-
-        // Fonction pour OUVRIR le popup (Version 3D Majestic)
-        const openPopup = () => {
-            if (isPopupOpen) return;
-            isPopupOpen = true;
-
-            // 1. On retire hidden pour l'afficher dans le DOM
-            modal.classList.remove('hidden');
-
-            // 2. FORCE LE REFLOW : On lit une propriété de layout pour obliger
-            // le navigateur à calculer l'état initial AVANT de lancer la transition.
-            // Sans cela, le scroll popup apparaît d'un coup sec car le navigateur
-            // n'a pas le temps de "voir" l'état modal-3d-hidden.
-            void content.offsetHeight;
-
-            // 3. Double requestAnimationFrame pour garantir que le frame initial est peint
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                    // Fond
-                    backdrop.classList.remove('opacity-0');
-
-                    // Contenu : On passe de l'état "Hidden 3D" à "Visible"
-                    content.classList.remove('modal-3d-hidden');
-                    content.classList.add('modal-3d-visible');
-                });
-            });
-
-            localStorage.setItem(STORAGE_KEY, 'true');
-        };
-
-        // Fonction pour FERMER le popup
-        const closePopup = () => {
-            // 1. On remet les états de fin (invisibles)
-            backdrop.classList.add('opacity-0');
-
-            content.classList.remove('modal-3d-visible');
-            content.classList.add('modal-3d-hidden');
-
-            // 2. On attend la fin de la transition (0.8s défini dans le CSS) avant de masquer le DOM
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                isPopupOpen = false;
-            }, 800);
-        };
-
-        // --- TRIGGER 1 : SCROLL ---
-        const handleScrollPopup = () => {
-            const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollCurrent = window.scrollY;
-
-            if ((scrollCurrent / scrollTotal) > SCROLL_TRIGGER_PERCENT) {
-                openPopup();
-                window.removeEventListener('scroll', handleScrollPopup);
-            }
-        };
-        window.addEventListener('scroll', handleScrollPopup, { passive: true });
-
-
-        // --- TRIGGER 2 : EXIT INTENT ---
-        const handleExitIntent = (e) => {
-            if (e.clientY <= 0) {
-                openPopup();
-                document.removeEventListener('mouseleave', handleExitIntent);
-            }
-        };
-        document.addEventListener('mouseleave', handleExitIntent);
-
-
-        // --- GESTION FERMETURE ---
-        closeBtn.addEventListener('click', closePopup);
-        modal.addEventListener('click', (e) => {
-            if (e.target === backdrop || e.target.closest('#modal-backdrop')) {
-                closePopup();
-            }
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && isPopupOpen) closePopup();
-        });
-    }
-
-
-
-
-
 
 
 
@@ -2555,6 +2455,151 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 500);
         });
     });
+
+
+
+
+
+
+
+
+
+    // ==================================================================
+    // GESTION DU POPUP LEAD MAGNET + TEASER (VERSION CADEAU)
+    // ==================================================================
+
+    const modal = document.getElementById('lead-magnet-modal');
+    const backdrop = document.getElementById('modal-backdrop');
+    const content = document.getElementById('modal-content');
+    const closeBtn = document.getElementById('close-modal-btn');
+    const teaserBtn = document.getElementById('lead-magnet-teaser'); // NOUVEAU
+
+    // Configuration
+    const SCROLL_TRIGGER_PERCENT = 0.50; // 50% du scroll
+    const STORAGE_KEY = 'clartem_popup_seen';
+
+    if (modal && backdrop && content && closeBtn) { // Vérification de sécurité
+
+        let isPopupOpen = false;
+
+        // --- FONCTIONS ---
+
+        // 1. Afficher le Teaser (Le petit cadeau)
+        const showTeaser = () => {
+            if (teaserBtn) {
+                teaserBtn.classList.remove('hidden');
+                teaserBtn.classList.add('teaser-enter');
+            }
+        };
+
+        // 2. Cacher le Teaser
+        const hideTeaser = () => {
+            if (teaserBtn) {
+                teaserBtn.classList.add('hidden');
+                teaserBtn.classList.remove('teaser-enter');
+            }
+        };
+
+        // 3. OUVRIR le popup
+        const openPopup = () => {
+            if (isPopupOpen) return;
+            isPopupOpen = true;
+
+            // On cache le teaser quand le popup s'ouvre
+            hideTeaser();
+
+            // Affichage DOM
+            modal.classList.remove('hidden');
+
+            // Force Reflow
+            void content.offsetHeight;
+
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    backdrop.classList.remove('opacity-0');
+                    content.classList.remove('modal-3d-hidden');
+                    content.classList.add('modal-3d-visible');
+                });
+            });
+
+            // On marque comme "vu" pour les prochaines visites (le teaser s'affichera au reload)
+            localStorage.setItem(STORAGE_KEY, 'true');
+        };
+
+        // 4. FERMER le popup
+        const closePopup = () => {
+            // Animation de sortie
+            backdrop.classList.add('opacity-0');
+            content.classList.remove('modal-3d-visible');
+            content.classList.add('modal-3d-hidden');
+
+            // Attendre la fin de l'animation
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                isPopupOpen = false;
+
+                // IMPORTANT : On affiche le teaser une fois fermé !
+                showTeaser();
+            }, 800);
+        };
+
+        // --- INITIALISATION ---
+
+        // Si l'utilisateur a DÉJÀ vu le popup par le passé, on affiche direct le teaser
+        // et on ne met pas d'écouteurs de scroll/exit intent (pour ne pas le harceler)
+        if (localStorage.getItem(STORAGE_KEY) === 'true') {
+            showTeaser();
+        } else {
+            // Sinon, on active les triggers automatiques
+
+            // Trigger 1 : Scroll
+            const handleScrollPopup = () => {
+                const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollCurrent = window.scrollY;
+
+                if ((scrollCurrent / scrollTotal) > SCROLL_TRIGGER_PERCENT) {
+                    openPopup();
+                    window.removeEventListener('scroll', handleScrollPopup);
+                    // On enlève aussi l'exit intent pour éviter le double trigger
+                    document.removeEventListener('mouseleave', handleExitIntent);
+                }
+            };
+            window.addEventListener('scroll', handleScrollPopup, { passive: true });
+
+            // Trigger 2 : Exit Intent
+            const handleExitIntent = (e) => {
+                if (e.clientY <= 0) {
+                    openPopup();
+                    document.removeEventListener('mouseleave', handleExitIntent);
+                    window.removeEventListener('scroll', handleScrollPopup);
+                }
+            };
+            document.addEventListener('mouseleave', handleExitIntent);
+        }
+
+
+        // --- ÉVÉNEMENTS CLICS ---
+
+        // Fermeture
+        closeBtn.addEventListener('click', closePopup);
+        modal.addEventListener('click', (e) => {
+            if (e.target === backdrop || e.target.closest('#modal-backdrop')) {
+                closePopup();
+            }
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && isPopupOpen) closePopup();
+        });
+
+        // Ouverture via le Teaser
+        if (teaserBtn) {
+            teaserBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Évite les conflits
+                openPopup();
+            });
+        }
+    }
+
 
 
 
