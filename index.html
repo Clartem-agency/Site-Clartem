@@ -5234,310 +5234,202 @@
 
     <div id="lead-magnet-modal" class="fixed inset-0 z-[999] hidden" role="dialog" aria-modal="true">
 
-        <!-- Fond flou sombre (Ajout de backdrop-smooth) -->
-        <div id="modal-backdrop" class="absolute inset-0 bg-neutral-dark/90 backdrop-blur-md opacity-0 backdrop-smooth">
+        <!-- Fond flou sombre (Reste en absolute pour couvrir tout l'écran) -->
+        <div id="modal-backdrop" class="fixed inset-0 bg-neutral-dark/90 backdrop-blur-md opacity-0 backdrop-smooth">
         </div>
 
-        <!-- Conteneur centré -->
-        <div class="relative min-h-screen w-full px-4 py-4 flex items-center justify-center pointer-events-none">
+        <!-- NOUVEAU CONTENEUR DE SCROLL (C'est lui qui gère le défilement si le clavier apparaît) -->
+        <div class="fixed inset-0 z-[1000] overflow-y-auto">
 
-            <!-- La Carte Modale -->
-            <!-- MODIFICATION ICI : On applique nos classes CSS personnalisées -->
-            <div id="modal-content"
-                class="gold-glow-border relative w-full max-w-5xl rounded-2xl shadow-2xl text-left max-h-[85vh] lg:max-h-none flex flex-col lg:block modal-transition-base modal-3d-hidden">
+            <!-- Wrapper Flex : min-h-full permet de scroller si le contenu est plus grand que l'écran -->
+            <div class="flex min-h-full items-center justify-center p-4 text-center">
 
-                <!-- NOUVEAU WRAPPER INTERNE : C'est lui qui gère le fond et coupe le contenu arrondi -->
-                <div
-                    class="w-full h-full bg-[#1E293B] rounded-2xl overflow-hidden flex flex-col lg:grid lg:grid-cols-12">
+                <!-- La Carte Modale -->
+                <!-- RETRAIT de 'pointer-events-none' et de 'max-h-[85vh]' sur mobile -->
+                <div id="modal-content"
+                    class="gold-glow-border relative w-full max-w-5xl rounded-2xl shadow-2xl text-left transform transition-all flex flex-col lg:block modal-transition-base modal-3d-hidden my-auto">
 
-                    <!-- Bouton Fermer (Déplacé à l'intérieur pour être propre) -->
-                    <button id="close-modal-btn"
-                        class="absolute top-3 right-3 lg:top-4 lg:right-4 z-50 text-gray-400 hover:text-white transition-colors p-2 bg-black/40 hover:bg-black/60 rounded-full backdrop-blur-sm">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-6 lg:w-6" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
+                    <!-- Wrapper Interne -->
+                    <!-- RETRAIT de 'overflow-hidden' et 'h-full' sur mobile pour laisser le contenu pousser -->
+                    <div class="w-full bg-[#1E293B] rounded-2xl flex flex-col lg:grid lg:grid-cols-12 overflow-hidden">
 
-                    <!-- PARTIE 1 : VISUEL -->
-                    <div
-                        class="lg:col-span-5 relative bg-neutral-dark flex items-center justify-center p-6 lg:p-0 overflow-hidden group h-40 lg:h-auto shrink-0">
-                        <!-- ... (Le contenu de la partie visuelle reste identique) ... -->
+
+
+                        <!-- Bouton Fermer (Déplacé à l'intérieur pour être propre) -->
+                        <button id="close-modal-btn"
+                            class="absolute top-3 right-3 lg:top-4 lg:right-4 z-50 text-gray-400 hover:text-white transition-colors p-2 bg-black/40 hover:bg-black/60 rounded-full backdrop-blur-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-6 lg:w-6" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+
+                        <!-- PARTIE 1 : VISUEL -->
                         <div
-                            class="absolute top-4 left-4 lg:top-6 lg:left-6 z-20 inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-neutral-900/80 border border-warm-orange/30 backdrop-blur-md text-warm-orange text-[10px] lg:text-xs font-bold uppercase tracking-widest shadow-lg">
-                            <span class="relative flex h-2 w-2">
-                                <span
-                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-warm-orange opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-2 w-2 bg-warm-orange"></span>
-                            </span>
-                            Guide Offert
+                            class="lg:col-span-5 relative bg-neutral-dark flex items-center justify-center p-6 lg:p-0 overflow-hidden group h-40 lg:h-auto shrink-0">
+                            <!-- ... (Le contenu de la partie visuelle reste identique) ... -->
+                            <div
+                                class="absolute top-4 left-4 lg:top-6 lg:left-6 z-20 inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-neutral-900/80 border border-warm-orange/30 backdrop-blur-md text-warm-orange text-[10px] lg:text-xs font-bold uppercase tracking-widest shadow-lg">
+                                <span class="relative flex h-2 w-2">
+                                    <span
+                                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-warm-orange opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-warm-orange"></span>
+                                </span>
+                                Guide Offert
+                            </div>
+
+                            <div class="absolute inset-0 bg-gradient-to-b from-[#1E293B] to-[#0F172A]"></div>
+                            <div
+                                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 lg:w-64 lg:h-64 bg-warm-orange/20 rounded-full blur-[40px] lg:blur-[60px]">
+                            </div>
+
+                            <div
+                                class="relative z-10 w-24 lg:w-80 transform transition-transform duration-700 lg:group-hover:scale-105 lg:group-hover:-rotate-2 mt-4 lg:mt-0">
+                                <img src="assets/checklist-mockup-transparent.png" alt="Guide Offert"
+                                    class="w-full h-auto drop-shadow-2xl">
+                            </div>
                         </div>
 
-                        <div class="absolute inset-0 bg-gradient-to-b from-[#1E293B] to-[#0F172A]"></div>
-                        <div
-                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 lg:w-64 lg:h-64 bg-warm-orange/20 rounded-full blur-[40px] lg:blur-[60px]">
-                        </div>
+                        <!-- PARTIE 2 : CONTENU & FORMULAIRE -->
+                        <div class="lg:col-span-7 p-5 lg:p-10 flex flex-col justify-center bg-[#1E293B]">
+                            <!-- ... (Le contenu du formulaire reste identique) ... -->
+                            <div class="mb-4 lg:mb-6">
+                                <h3 class="text-xl lg:text-3xl font-bold text-white leading-tight mb-2 lg:mb-3">
+                                    Coachs & Thérapeutes : <br>
+                                    <span
+                                        class="text-transparent bg-clip-text bg-gradient-to-r from-warm-orange to-red-400">Développez
+                                        votre Activité.</span>
+                                </h3>
+                                <p class="text-gray-400 text-xs lg:text-sm leading-relaxed">
 
-                        <div
-                            class="relative z-10 w-24 lg:w-80 transform transition-transform duration-700 lg:group-hover:scale-105 lg:group-hover:-rotate-2 mt-4 lg:mt-0">
-                            <img src="assets/checklist-mockup-transparent.png" alt="Guide Offert"
-                                class="w-full h-auto drop-shadow-2xl">
-                        </div>
-                    </div>
+                                    Que vous vous lanciez ou que vous ayez déjà un site, découvrez les <strong>7 points
+                                        clés</strong> pour être trouvé, inspirer confiance et obtenir des rendez-vous.
 
-                    <!-- PARTIE 2 : CONTENU & FORMULAIRE -->
-                    <div class="lg:col-span-7 p-5 lg:p-10 flex flex-col justify-center bg-[#1E293B]">
-                        <!-- ... (Le contenu du formulaire reste identique) ... -->
-                        <div class="mb-4 lg:mb-6">
-                            <h3 class="text-xl lg:text-3xl font-bold text-white leading-tight mb-2 lg:mb-3">
-                                Coachs & Thérapeutes : <br>
-                                <span
-                                    class="text-transparent bg-clip-text bg-gradient-to-r from-warm-orange to-red-400">Développez
-                                    votre Activité.</span>
-                            </h3>
-                            <p class="text-gray-400 text-xs lg:text-sm leading-relaxed">
-
-                                Que vous vous lanciez ou que vous ayez déjà un site, découvrez les <strong>7 points
-                                    clés</strong> pour être trouvé, inspirer confiance et obtenir des rendez-vous.
-
-                            </p>
-                        </div>
+                                </p>
+                            </div>
 
 
 
 
-                        <div class="space-y-4 lg:space-y-6">
+                            <div class="space-y-4 lg:space-y-6">
 
-                            <!-- AJOUT DE L'ID "modal-bullet-list" ICI -->
-                            <ul id="modal-bullet-list" class="space-y-2 mt-4 mb-4">
+                                <!-- AJOUT DE L'ID "modal-bullet-list" ICI -->
+                                <ul id="modal-bullet-list" class="space-y-2 mt-4 mb-4">
 
-                                <!-- Puce 1 -->
-                                <li class="flex items-start gap-3 modal-bullet">
-                                    <svg class="w-4 h-4 lg:w-5 lg:h-5 text-success-green flex-shrink-0 mt-0.5"
-                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span class="text-gray-300 text-xs lg:text-sm transition-colors duration-300">
-                                        L'erreur silencieuse qui fait fuir un visiteur en moins de 5 secondes.
-                                    </span>
-                                </li>
+                                    <!-- Puce 1 -->
+                                    <li class="flex items-start gap-3 modal-bullet">
+                                        <svg class="w-4 h-4 lg:w-5 lg:h-5 text-success-green flex-shrink-0 mt-0.5"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <span class="text-gray-300 text-xs lg:text-sm transition-colors duration-300">
+                                            L'erreur silencieuse qui fait fuir un visiteur en moins de 5 secondes.
+                                        </span>
+                                    </li>
 
-                                <!-- Puce 2 -->
-                                <li class="flex items-start gap-3 modal-bullet">
-                                    <svg class="w-4 h-4 lg:w-5 lg:h-5 text-success-green flex-shrink-0 mt-0.5"
-                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span class="text-gray-300 text-xs lg:text-sm transition-colors duration-300">
-                                        Le détail oublié sur l'accueil qui vous rend invisible sur Google.
-                                    </span>
-                                </li>
+                                    <!-- Puce 2 -->
+                                    <li class="flex items-start gap-3 modal-bullet">
+                                        <svg class="w-4 h-4 lg:w-5 lg:h-5 text-success-green flex-shrink-0 mt-0.5"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <span class="text-gray-300 text-xs lg:text-sm transition-colors duration-300">
+                                            Le détail oublié sur l'accueil qui vous rend invisible sur Google.
+                                        </span>
+                                    </li>
 
-                                <!-- Puce 3 -->
-                                <li class="flex items-start gap-3 modal-bullet">
-                                    <svg class="w-4 h-4 lg:w-5 lg:h-5 text-success-green flex-shrink-0 mt-0.5"
-                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span class="text-gray-300 text-xs lg:text-sm transition-colors duration-300">
-                                        Votre Audit de Clarté : Le test rapide en 14 points pour vous noter.
-                                    </span>
-                                </li>
+                                    <!-- Puce 3 -->
+                                    <li class="flex items-start gap-3 modal-bullet">
+                                        <svg class="w-4 h-4 lg:w-5 lg:h-5 text-success-green flex-shrink-0 mt-0.5"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7" />
+                                        </svg>
+                                        <span class="text-gray-300 text-xs lg:text-sm transition-colors duration-300">
+                                            Votre Audit de Clarté : Le test rapide en 14 points pour vous noter.
+                                        </span>
+                                    </li>
 
-                            </ul>
-
-
+                                </ul>
 
 
-                            <form id="popup-sib-form" method="POST"
-                                action="https://2a94b6d3.sibforms.com/serve/MUIFAF-8lvqoEgQ9XmXK62oeOPse06sPpprPUX5dw_fI2QZzwjOmEIwSOv0rSw4SH-IxWwEVQXPwcu-X6DaV0ErPKdUUx50BXxZ0GegndcrHLpRW-Sm5y_QOBcn5cejcywdgKyEcbN6lGW756rgUv6DXIY9Po3ZHvAtilPEABRfuzW2qOtIoFZuObcYWsWlKkhzZgy4oisAbv2kh"
-                                class="bg-[#0F172A]/50 p-4 rounded-xl border border-white/5">
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
-                                    <div class="relative">
-                                        <div
-                                            class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <svg class="h-4 w-4 lg:h-5 lg:w-5 text-gray-500"
-                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                            </svg>
+
+
+                                <form id="popup-sib-form" method="POST"
+                                    action="https://2a94b6d3.sibforms.com/serve/MUIFAF-8lvqoEgQ9XmXK62oeOPse06sPpprPUX5dw_fI2QZzwjOmEIwSOv0rSw4SH-IxWwEVQXPwcu-X6DaV0ErPKdUUx50BXxZ0GegndcrHLpRW-Sm5y_QOBcn5cejcywdgKyEcbN6lGW756rgUv6DXIY9Po3ZHvAtilPEABRfuzW2qOtIoFZuObcYWsWlKkhzZgy4oisAbv2kh"
+                                    class="bg-[#0F172A]/50 p-4 rounded-xl border border-white/5">
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                                        <div class="relative">
+                                            <div
+                                                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                <svg class="h-4 w-4 lg:h-5 lg:w-5 text-gray-500"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                                </svg>
+                                            </div>
+
+                                            <input type="text" id="POPUP_PRENOM" name="PRENOM" placeholder="Prénom"
+                                                required
+                                                class="w-full bg-[#0F172A] border border-gray-600 text-white text-base lg:text-sm rounded-lg focus:ring-warm-orange focus:border-warm-orange block pl-9 lg:pl-10 p-3 transition-colors">
+
                                         </div>
-                                        <input type="text" id="POPUP_PRENOM" name="PRENOM" placeholder="Prénom" required
-                                            class="w-full bg-[#0F172A] border border-gray-600 text-white text-sm rounded-lg focus:ring-warm-orange focus:border-warm-orange block pl-9 lg:pl-10 p-2.5 lg:p-3 transition-colors">
+                                        <div class="relative">
+                                            <div
+                                                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                <svg class="h-4 w-4 lg:h-5 lg:w-5 text-gray-500"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v9a2 2 0 002 2z" />
+                                                </svg>
+                                            </div>
+                                            
+                                            <input type="email" id="POPUP_EMAIL" name="EMAIL" placeholder="Email"
+                                                required
+                                                class="w-full bg-[#0F172A] border border-gray-600 text-white text-base lg:text-sm rounded-lg focus:ring-warm-orange focus:border-warm-orange block pl-9 lg:pl-10 p-3 transition-colors">
+                                        
+                                            </div>
                                     </div>
-                                    <div class="relative">
-                                        <div
-                                            class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <svg class="h-4 w-4 lg:h-5 lg:w-5 text-gray-500"
-                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v9a2 2 0 002 2z" />
-                                            </svg>
-                                        </div>
-                                        <input type="email" id="POPUP_EMAIL" name="EMAIL" placeholder="Email" required
-                                            class="w-full bg-[#0F172A] border border-gray-600 text-white text-sm rounded-lg focus:ring-warm-orange focus:border-warm-orange block pl-9 lg:pl-10 p-2.5 lg:p-3 transition-colors">
+
+
+                                    <button type="submit"
+                                        class="w-full btn btn-orange text-sm font-bold uppercase tracking-wide py-3 shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 transition-all btn-incitement relative overflow-hidden">
+                                        <span class="relative z-10">Recevoir ma Checklist</span>
+                                    </button>
+
+
+                                    <div class="mt-3 flex items-center gap-2">
+
+                                        <input id="popup-consent" name="consent-newsletter" type="checkbox" required
+                                            class="w-4 h-4 rounded border-gray-600 bg-[#0F172A] text-warm-orange focus:ring-warm-orange cursor-pointer flex-shrink-0">
+
+                                        <label for="popup-consent"
+                                            class="text-[10px] text-gray-500 leading-snug cursor-pointer">
+                                            J'accepte de recevoir la checklist et les conseils de Clartem. Voir <a
+                                                href="politique-de-confidentialite.html" target="_blank"
+                                                class="text-gray-400 underline">Politique de
+                                                confidentialité</a>.
+                                        </label>
+
                                     </div>
-                                </div>
-
-
-                                <button type="submit"
-                                    class="w-full btn btn-orange text-sm font-bold uppercase tracking-wide py-3 shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 transition-all btn-incitement relative overflow-hidden">
-                                    <span class="relative z-10">Recevoir ma Checklist</span>
-                                </button>
-
-
-                                <div class="mt-3 flex items-center gap-2">
-
-                                    <input id="popup-consent" name="consent-newsletter" type="checkbox" required
-                                        class="w-4 h-4 rounded border-gray-600 bg-[#0F172A] text-warm-orange focus:ring-warm-orange cursor-pointer flex-shrink-0">
-
-                                    <label for="popup-consent"
-                                        class="text-[10px] text-gray-500 leading-snug cursor-pointer">
-                                        J'accepte de recevoir la checklist et les conseils de Clartem. Voir <a
-                                            href="politique-de-confidentialite.html" target="_blank"
-                                            class="text-gray-400 underline">Politique de
-                                            confidentialité</a>.
-                                    </label>
-
-                                </div>
-                                <input type="text" name="email_address_check" value="" style="display: none;">
-                                <input type="hidden" name="locale" value="fr">
-                            </form>
+                                    <input type="text" name="email_address_check" value="" style="display: none;">
+                                    <input type="hidden" name="locale" value="fr">
+                                </form>
+                            </div>
                         </div>
-                    </div>
-                </div> <!-- FIN DU NOUVEAU WRAPPER INTERNE -->
+                    </div> <!-- FIN DU NOUVEAU WRAPPER INTERNE -->
 
-            </div>
-
-        </div>
-    </div>
-
-
-
-
-
-
-
-
-
-    <!-- ======================================================= -->
-    <!-- TEASER LEAD MAGNET (CADEAU PREMIUM 2.0)                 -->
-    <!-- ======================================================= -->
-    <div id="lead-magnet-teaser"
-        class="fixed bottom-4 left-6 z-[90] hidden cursor-pointer group w-24 h-24 flex items-end justify-center perspective-500">
-
-        <!-- L'ILLUSTRATION SVG AMÉLIORÉE -->
-        <svg width="100" height="110" viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg"
-            class="overflow-visible drop-shadow-2xl">
-
-            <!-- Groupe global pour l'animation de saut -->
-            <g class="gift-anim-container origin-bottom">
-
-                <!-- Ombre au sol (Reste identique) -->
-                <ellipse cx="50" cy="100" rx="30" ry="5" fill="black" fill-opacity="0.3"
-                    class="gift-shadow-anim origin-center" />
-
-                <!-- BOÎTE (CORPS) -->
-                <!-- Fond avec dégradé riche -->
-                <rect x="20" y="45" width="60" height="50" rx="4" fill="url(#boxGradient)" />
-
-                <!-- Ombre interne en haut pour simuler le creux sous le couvercle -->
-                <rect x="20" y="45" width="60" height="10" rx="4" fill="black" fill-opacity="0.1" />
-
-                <!-- Ruban Vertical (Corps) - Effet Doré -->
-                <rect x="45" y="45" width="10" height="50" fill="url(#ribbonGold)" />
-
-                <!-- LUEUR MAGIQUE (Derrière le couvercle, apparaît au saut) -->
-                <g class="gift-glow-anim">
-                    <ellipse cx="50" cy="45" rx="25" ry="5" fill="#FDE047" filter="url(#glowFilter)" opacity="0.8" />
-                </g>
-
-                <!-- LE COUVERCLE (Animé séparément) -->
-                <g class="gift-lid-anim origin-bottom">
-                    <!-- Base du couvercle (Plus sombre pour le contraste) -->
-                    <rect x="16" y="35" width="68" height="14" rx="3" fill="url(#lidGradient)"
-                        stroke="rgba(255,255,255,0.2)" stroke-width="1" />
-
-                    <!-- Ruban Horizontal (Couvercle) -->
-                    <rect x="45" y="35" width="10" height="14" fill="url(#ribbonGold)" />
-
-                    <!-- Le Noeud (Complexe et élégant) -->
-                    <g transform="translate(50, 35)">
-                        <!-- Boucle Gauche -->
-                        <path d="M0 0 C -10 -15, -25 -5, -5 5 Z" fill="url(#ribbonGold)" stroke="#B45309"
-                            stroke-width="0.5" />
-                        <!-- Boucle Droite -->
-                        <path d="M0 0 C 10 -15, 25 -5, 5 5 Z" fill="url(#ribbonGold)" stroke="#B45309"
-                            stroke-width="0.5" />
-                        <!-- Centre -->
-                        <rect x="-3" y="-2" width="6" height="6" rx="2" fill="#F59E0B" />
-                    </g>
-                </g>
-
-                <!-- ÉTOILES / ÉTINCELLES (Modifiées pour être plus magiques) -->
-                <g class="gift-sparkles" style="opacity: 0;">
-                    <!-- Étoile 1 -->
-                    <path d="M20 15 L22 10 L24 15 L29 17 L24 19 L22 24 L20 19 L15 17 Z" fill="#FDE047"
-                        filter="drop-shadow(0 0 2px orange)" />
-                    <!-- Étoile 2 -->
-                    <path d="M80 5 L81 2 L82 5 L85 6 L82 7 L81 10 L80 7 L77 6 Z" fill="#FDE047"
-                        filter="drop-shadow(0 0 2px orange)" />
-                    <!-- Particule ronde -->
-                    <circle cx="30" cy="10" r="2" fill="white" opacity="0.8" />
-                    <circle cx="70" cy="20" r="1.5" fill="white" opacity="0.6" />
-                </g>
-            </g>
-
-            <!-- DÉFINITIONS (Dégradés et Filtres) -->
-            <defs>
-                <!-- Dégradé de la Boîte (Orange profond Premium) -->
-                <linearGradient id="boxGradient" x1="20" y1="45" x2="80" y2="95" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#FB923C" /> <!-- Orange clair en haut gauche -->
-                    <stop offset="100%" stop-color="#C2410C" /> <!-- Orange sombre en bas droite -->
-                </linearGradient>
-
-                <!-- Dégradé du Couvercle (Légèrement plus clair) -->
-                <linearGradient id="lidGradient" x1="16" y1="35" x2="84" y2="49" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#F97316" />
-                    <stop offset="100%" stop-color="#EA580C" />
-                </linearGradient>
-
-                <!-- Dégradé Doré pour le Ruban (Effet Métallique) -->
-                <linearGradient id="ribbonGold" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stop-color="#F59E0B" />
-                    <stop offset="30%" stop-color="#FDE047" /> <!-- Reflet brillant -->
-                    <stop offset="70%" stop-color="#F59E0B" />
-                    <stop offset="100%" stop-color="#B45309" /> <!-- Ombre -->
-                </linearGradient>
-
-                <!-- Filtre de flou pour la lueur magique -->
-                <filter id="glowFilter" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur stdDeviation="4" result="coloredBlur" />
-                    <feMerge>
-                        <feMergeNode in="coloredBlur" />
-                        <feMergeNode in="SourceGraphic" />
-                    </feMerge>
-                </filter>
-            </defs>
-        </svg>
-
-        <!-- Tooltip texte au survol (Inchangé, il est parfait) -->
-        <div
-            class="absolute left-full bottom-8 ml-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-[-10px] group-hover:translate-x-0 pointer-events-none hidden md:block">
-            <div
-                class="bg-white text-neutral-dark text-xs font-bold py-2 px-4 rounded-xl shadow-xl relative border border-gray-100 whitespace-nowrap">
-                <div class="absolute top-1/2 right-full -translate-y-1/2 border-6 border-transparent border-r-white">
                 </div>
-                Pssst... C'est offert ! ✨
+
             </div>
         </div>
-    </div>
 
 
 
@@ -5547,96 +5439,219 @@
 
 
 
+        <!-- ======================================================= -->
+        <!-- TEASER LEAD MAGNET (CADEAU PREMIUM 2.0)                 -->
+        <!-- ======================================================= -->
+        <div id="lead-magnet-teaser"
+            class="fixed bottom-4 left-6 z-[90] hidden cursor-pointer group w-24 h-24 flex items-end justify-center perspective-500">
 
+            <!-- L'ILLUSTRATION SVG AMÉLIORÉE -->
+            <svg width="100" height="110" viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg"
+                class="overflow-visible drop-shadow-2xl">
 
-    <!-- ======================================================= -->
-    <!--           LE LAPIN BLANC (Easter Egg V2)               -->
-    <!-- ======================================================= -->
+                <!-- Groupe global pour l'animation de saut -->
+                <g class="gift-anim-container origin-bottom">
 
-    <div id="white-rabbit" class="fixed z-50 pointer-events-none hidden lg:block transition-all duration-700">
-        <!-- SVG Lapin Mignon & Animé -->
-        <svg width="80" height="100" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg"
-            class="drop-shadow-2xl filter drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">
+                    <!-- Ombre au sol (Reste identique) -->
+                    <ellipse cx="50" cy="100" rx="30" ry="5" fill="black" fill-opacity="0.3"
+                        class="gift-shadow-anim origin-center" />
 
-            <g id="rabbit-whole" class="rabbit-breathe">
-                <!-- Queue (Derrière) -->
-                <circle cx="85" cy="95" r="8" fill="#F3F4F6" />
+                    <!-- BOÎTE (CORPS) -->
+                    <!-- Fond avec dégradé riche -->
+                    <rect x="20" y="45" width="60" height="50" rx="4" fill="url(#boxGradient)" />
 
-                <!-- Oreille Gauche (Animée) -->
-                <g class="ear-left-anim origin-bottom">
-                    <path d="M35 45 C 35 45, 20 5, 30 5 C 40 5, 45 45, 45 45" fill="white" stroke="#E5E7EB"
-                        stroke-width="1" />
-                    <path d="M32 40 C 32 40, 25 10, 30 10 C 35 10, 38 40, 38 40" fill="#FECDD3" opacity="0.6" />
-                    <!-- Intérieur Rose -->
-                </g>
+                    <!-- Ombre interne en haut pour simuler le creux sous le couvercle -->
+                    <rect x="20" y="45" width="60" height="10" rx="4" fill="black" fill-opacity="0.1" />
 
-                <!-- Oreille Droite (Animée) -->
-                <g class="ear-right-anim origin-bottom">
-                    <path d="M65 45 C 65 45, 80 5, 70 5 C 60 5, 55 45, 55 45" fill="white" stroke="#E5E7EB"
-                        stroke-width="1" />
-                    <path d="M68 40 C 68 40, 75 10, 70 10 C 65 10, 62 40, 62 40" fill="#FECDD3" opacity="0.6" />
-                    <!-- Intérieur Rose -->
-                </g>
+                    <!-- Ruban Vertical (Corps) - Effet Doré -->
+                    <rect x="45" y="45" width="10" height="50" fill="url(#ribbonGold)" />
 
-                <!-- Corps -->
-                <path d="M25 110 C 15 110, 15 70, 30 60 L 70 60 C 85 70, 85 110, 75 110 Z" fill="white" />
-
-                <!-- Pattes avant -->
-                <ellipse cx="40" cy="105" rx="6" ry="8" fill="#E5E7EB" opacity="0.5" />
-                <ellipse cx="60" cy="105" rx="6" ry="8" fill="#E5E7EB" opacity="0.5" />
-
-                <!-- Tête -->
-                <ellipse cx="50" cy="55" rx="35" ry="30" fill="white" />
-
-                <!-- Visage -->
-                <g id="rabbit-face">
-                    <!-- Yeux (Matrix Green) -->
-                    <circle cx="38" cy="50" r="4" fill="#10B981" class="rabbit-eye" />
-                    <circle cx="62" cy="50" r="4" fill="#10B981" class="rabbit-eye" />
-
-                    <!-- Reflet Yeux (Cuteness) -->
-                    <circle cx="39.5" cy="48.5" r="1.5" fill="white" class="rabbit-eye" />
-                    <circle cx="63.5" cy="48.5" r="1.5" fill="white" class="rabbit-eye" />
-
-                    <!-- Nez (Animé) -->
-                    <g class="nose-anim origin-center">
-                        <path d="M46 60 Q 50 64 54 60" stroke="#DB2777" stroke-width="2" stroke-linecap="round"
-                            fill="none" opacity="0.5" /> <!-- Bouche -->
-                        <ellipse cx="50" cy="58" rx="3" ry="2" fill="#F472B6" /> <!-- Nez Rose -->
+                    <!-- LUEUR MAGIQUE (Derrière le couvercle, apparaît au saut) -->
+                    <g class="gift-glow-anim">
+                        <ellipse cx="50" cy="45" rx="25" ry="5" fill="#FDE047" filter="url(#glowFilter)"
+                            opacity="0.8" />
                     </g>
 
-                    <!-- Moustaches -->
-                    <line x1="25" y1="60" x2="10" y2="55" stroke="black" stroke-opacity="0.2" stroke-width="1" />
-                    <line x1="25" y1="62" x2="10" y2="65" stroke="black" stroke-opacity="0.2" stroke-width="1" />
-                    <line x1="75" y1="60" x2="90" y2="55" stroke="black" stroke-opacity="0.2" stroke-width="1" />
-                    <line x1="75" y1="62" x2="90" y2="65" stroke="black" stroke-opacity="0.2" stroke-width="1" />
+                    <!-- LE COUVERCLE (Animé séparément) -->
+                    <g class="gift-lid-anim origin-bottom">
+                        <!-- Base du couvercle (Plus sombre pour le contraste) -->
+                        <rect x="16" y="35" width="68" height="14" rx="3" fill="url(#lidGradient)"
+                            stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+
+                        <!-- Ruban Horizontal (Couvercle) -->
+                        <rect x="45" y="35" width="10" height="14" fill="url(#ribbonGold)" />
+
+                        <!-- Le Noeud (Complexe et élégant) -->
+                        <g transform="translate(50, 35)">
+                            <!-- Boucle Gauche -->
+                            <path d="M0 0 C -10 -15, -25 -5, -5 5 Z" fill="url(#ribbonGold)" stroke="#B45309"
+                                stroke-width="0.5" />
+                            <!-- Boucle Droite -->
+                            <path d="M0 0 C 10 -15, 25 -5, 5 5 Z" fill="url(#ribbonGold)" stroke="#B45309"
+                                stroke-width="0.5" />
+                            <!-- Centre -->
+                            <rect x="-3" y="-2" width="6" height="6" rx="2" fill="#F59E0B" />
+                        </g>
+                    </g>
+
+                    <!-- ÉTOILES / ÉTINCELLES (Modifiées pour être plus magiques) -->
+                    <g class="gift-sparkles" style="opacity: 0;">
+                        <!-- Étoile 1 -->
+                        <path d="M20 15 L22 10 L24 15 L29 17 L24 19 L22 24 L20 19 L15 17 Z" fill="#FDE047"
+                            filter="drop-shadow(0 0 2px orange)" />
+                        <!-- Étoile 2 -->
+                        <path d="M80 5 L81 2 L82 5 L85 6 L82 7 L81 10 L80 7 L77 6 Z" fill="#FDE047"
+                            filter="drop-shadow(0 0 2px orange)" />
+                        <!-- Particule ronde -->
+                        <circle cx="30" cy="10" r="2" fill="white" opacity="0.8" />
+                        <circle cx="70" cy="20" r="1.5" fill="white" opacity="0.6" />
+                    </g>
                 </g>
-            </g>
-        </svg>
-    </div>
+
+                <!-- DÉFINITIONS (Dégradés et Filtres) -->
+                <defs>
+                    <!-- Dégradé de la Boîte (Orange profond Premium) -->
+                    <linearGradient id="boxGradient" x1="20" y1="45" x2="80" y2="95" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#FB923C" /> <!-- Orange clair en haut gauche -->
+                        <stop offset="100%" stop-color="#C2410C" /> <!-- Orange sombre en bas droite -->
+                    </linearGradient>
+
+                    <!-- Dégradé du Couvercle (Légèrement plus clair) -->
+                    <linearGradient id="lidGradient" x1="16" y1="35" x2="84" y2="49" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#F97316" />
+                        <stop offset="100%" stop-color="#EA580C" />
+                    </linearGradient>
+
+                    <!-- Dégradé Doré pour le Ruban (Effet Métallique) -->
+                    <linearGradient id="ribbonGold" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stop-color="#F59E0B" />
+                        <stop offset="30%" stop-color="#FDE047" /> <!-- Reflet brillant -->
+                        <stop offset="70%" stop-color="#F59E0B" />
+                        <stop offset="100%" stop-color="#B45309" /> <!-- Ombre -->
+                    </linearGradient>
+
+                    <!-- Filtre de flou pour la lueur magique -->
+                    <filter id="glowFilter" x="-50%" y="-50%" width="200%" height="200%">
+                        <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+                        <feMerge>
+                            <feMergeNode in="coloredBlur" />
+                            <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                    </filter>
+                </defs>
+            </svg>
+
+            <!-- Tooltip texte au survol (Inchangé, il est parfait) -->
+            <div
+                class="absolute left-full bottom-8 ml-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-[-10px] group-hover:translate-x-0 pointer-events-none hidden md:block">
+                <div
+                    class="bg-white text-neutral-dark text-xs font-bold py-2 px-4 rounded-xl shadow-xl relative border border-gray-100 whitespace-nowrap">
+                    <div
+                        class="absolute top-1/2 right-full -translate-y-1/2 border-6 border-transparent border-r-white">
+                    </div>
+                    Pssst... C'est offert ! ✨
+                </div>
+            </div>
+        </div>
 
 
-    <!-- Custom JS -->
-    <script src="js/script.js"></script>
 
 
 
-    <!-- ======================================================= -->
-    <!--          CHATBREVO                              -->
-    <!-- ======================================================= -->
-    <script>
-            (function (d, w, c) {
-                w.BrevoConversationsID = '688afd5eb78a71119e0a4e37';
-                w[c] = w[c] || function () {
-                    (w[c].q = w[c].q || []).push(arguments);
-                };
-                var s = d.createElement('script');
-                s.async = true;
-                s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
-                if (d.head) d.head.appendChild(s);
-            })(document, window, 'BrevoConversations');
-    </script>
-    <!-- Fin Chat Brevo  -->
+
+
+
+
+
+
+        <!-- ======================================================= -->
+        <!--           LE LAPIN BLANC (Easter Egg V2)               -->
+        <!-- ======================================================= -->
+
+        <div id="white-rabbit" class="fixed z-50 pointer-events-none hidden lg:block transition-all duration-700">
+            <!-- SVG Lapin Mignon & Animé -->
+            <svg width="80" height="100" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg"
+                class="drop-shadow-2xl filter drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">
+
+                <g id="rabbit-whole" class="rabbit-breathe">
+                    <!-- Queue (Derrière) -->
+                    <circle cx="85" cy="95" r="8" fill="#F3F4F6" />
+
+                    <!-- Oreille Gauche (Animée) -->
+                    <g class="ear-left-anim origin-bottom">
+                        <path d="M35 45 C 35 45, 20 5, 30 5 C 40 5, 45 45, 45 45" fill="white" stroke="#E5E7EB"
+                            stroke-width="1" />
+                        <path d="M32 40 C 32 40, 25 10, 30 10 C 35 10, 38 40, 38 40" fill="#FECDD3" opacity="0.6" />
+                        <!-- Intérieur Rose -->
+                    </g>
+
+                    <!-- Oreille Droite (Animée) -->
+                    <g class="ear-right-anim origin-bottom">
+                        <path d="M65 45 C 65 45, 80 5, 70 5 C 60 5, 55 45, 55 45" fill="white" stroke="#E5E7EB"
+                            stroke-width="1" />
+                        <path d="M68 40 C 68 40, 75 10, 70 10 C 65 10, 62 40, 62 40" fill="#FECDD3" opacity="0.6" />
+                        <!-- Intérieur Rose -->
+                    </g>
+
+                    <!-- Corps -->
+                    <path d="M25 110 C 15 110, 15 70, 30 60 L 70 60 C 85 70, 85 110, 75 110 Z" fill="white" />
+
+                    <!-- Pattes avant -->
+                    <ellipse cx="40" cy="105" rx="6" ry="8" fill="#E5E7EB" opacity="0.5" />
+                    <ellipse cx="60" cy="105" rx="6" ry="8" fill="#E5E7EB" opacity="0.5" />
+
+                    <!-- Tête -->
+                    <ellipse cx="50" cy="55" rx="35" ry="30" fill="white" />
+
+                    <!-- Visage -->
+                    <g id="rabbit-face">
+                        <!-- Yeux (Matrix Green) -->
+                        <circle cx="38" cy="50" r="4" fill="#10B981" class="rabbit-eye" />
+                        <circle cx="62" cy="50" r="4" fill="#10B981" class="rabbit-eye" />
+
+                        <!-- Reflet Yeux (Cuteness) -->
+                        <circle cx="39.5" cy="48.5" r="1.5" fill="white" class="rabbit-eye" />
+                        <circle cx="63.5" cy="48.5" r="1.5" fill="white" class="rabbit-eye" />
+
+                        <!-- Nez (Animé) -->
+                        <g class="nose-anim origin-center">
+                            <path d="M46 60 Q 50 64 54 60" stroke="#DB2777" stroke-width="2" stroke-linecap="round"
+                                fill="none" opacity="0.5" /> <!-- Bouche -->
+                            <ellipse cx="50" cy="58" rx="3" ry="2" fill="#F472B6" /> <!-- Nez Rose -->
+                        </g>
+
+                        <!-- Moustaches -->
+                        <line x1="25" y1="60" x2="10" y2="55" stroke="black" stroke-opacity="0.2" stroke-width="1" />
+                        <line x1="25" y1="62" x2="10" y2="65" stroke="black" stroke-opacity="0.2" stroke-width="1" />
+                        <line x1="75" y1="60" x2="90" y2="55" stroke="black" stroke-opacity="0.2" stroke-width="1" />
+                        <line x1="75" y1="62" x2="90" y2="65" stroke="black" stroke-opacity="0.2" stroke-width="1" />
+                    </g>
+                </g>
+            </svg>
+        </div>
+
+
+        <!-- Custom JS -->
+        <script src="js/script.js"></script>
+
+
+
+        <!-- ======================================================= -->
+        <!--          CHATBREVO                              -->
+        <!-- ======================================================= -->
+        <script>
+                (function (d, w, c) {
+                    w.BrevoConversationsID = '688afd5eb78a71119e0a4e37';
+                    w[c] = w[c] || function () {
+                        (w[c].q = w[c].q || []).push(arguments);
+                    };
+                    var s = d.createElement('script');
+                    s.async = true;
+                    s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
+                    if (d.head) d.head.appendChild(s);
+                })(document, window, 'BrevoConversations');
+        </script>
+        <!-- Fin Chat Brevo  -->
 
 
 
