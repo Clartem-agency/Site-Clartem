@@ -3303,7 +3303,11 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
     /* Hauteur relative confortable */
     min-height: 100px;
     max-height: 150px;
-    margin-bottom: -5px;
+
+    /* MODIFICATION : On assure un chevauchement suffisant */
+    /* Comme on a remonté la vague, on tire la section suivante par-dessus le bas du SVG */
+    margin-bottom: -10px;
+
 
     /* Animation de respiration verticale globale */
     animation: wave-swell 10s ease-in-out infinite alternate;
@@ -4254,25 +4258,30 @@ body {
 
 /* Conteneur pour la perspective */
 .matrix-perspective {
-    perspective: 1500px; /* Donne la profondeur de champ */
+    perspective: 1500px;
+    /* Donne la profondeur de champ */
 }
 
 /* La Carte elle-même */
 .matrix-card-3d {
     position: relative;
-    background: rgba(11, 17, 32, 0.8); /* Fond sombre semi-transparent */
-    backdrop-filter: blur(10px);       /* Flou arrière-plan */
-    border: 1px solid rgba(16, 185, 129, 0.15); /* Bordure vert émeraude très discrète */
+    background: rgba(11, 17, 32, 0.8);
+    /* Fond sombre semi-transparent */
+    backdrop-filter: blur(10px);
+    /* Flou arrière-plan */
+    border: 1px solid rgba(16, 185, 129, 0.15);
+    /* Bordure vert émeraude très discrète */
     border-radius: 16px;
-    
+
     /* Transition pour le retour au calme */
-    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-                box-shadow 0.4s ease, 
-                border-color 0.4s ease;
-    
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+
     transform-style: preserve-3d;
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5); /* Ombre noire profonde */
-    overflow: hidden; 
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    /* Ombre noire profonde */
+    overflow: hidden;
 }
 
 /* L'effet de "Scan" lumineux (Reflet) */
@@ -4283,14 +4292,13 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    
+
     /* Dégradé brillant vert très subtil */
-    background: radial-gradient(
-        800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(16, 185, 129, 0.1),
-        transparent 40%
-    );
-    opacity: 0; /* Invisible par défaut */
+    background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(16, 185, 129, 0.1),
+            transparent 40%);
+    opacity: 0;
+    /* Invisible par défaut */
     transition: opacity 0.4s ease;
     pointer-events: none;
     z-index: 2;
@@ -4299,14 +4307,18 @@ body {
 /* --- INTERACTION AU SURVOL --- */
 .matrix-card-3d:hover {
     /* La transformation 3D est gérée par le JS, ici on gère la lumière */
-    border-color: rgba(16, 185, 129, 0.5); /* La bordure s'allume */
-    box-shadow: 
-        0 20px 50px -10px rgba(0, 0, 0, 0.8), /* Ombre portée plus forte */
-        0 0 15px rgba(16, 185, 129, 0.2);     /* Halo vert externe (Glow) */
+    border-color: rgba(16, 185, 129, 0.5);
+    /* La bordure s'allume */
+    box-shadow:
+        0 20px 50px -10px rgba(0, 0, 0, 0.8),
+        /* Ombre portée plus forte */
+        0 0 15px rgba(16, 185, 129, 0.2);
+    /* Halo vert externe (Glow) */
 }
 
 .matrix-card-3d:hover::after {
-    opacity: 1; /* Le reflet apparaît */
+    opacity: 1;
+    /* Le reflet apparaît */
 }
 
 /* Petite décoration "Tech" dans les coins (facultatif, pour le style) */
@@ -4319,14 +4331,38 @@ body {
 }
 
 .matrix-card-3d:hover .matrix-corner {
-    border-color: #10B981; /* S'allume en vert */
+    border-color: #10B981;
+    /* S'allume en vert */
 }
 
 /* Coins positionnés */
-.corner-tl { top: 10px; left: 10px; border-right: 0; border-bottom: 0; }
-.corner-tr { top: 10px; right: 10px; border-left: 0; border-bottom: 0; }
-.corner-bl { bottom: 10px; left: 10px; border-right: 0; border-top: 0; }
-.corner-br { bottom: 10px; right: 10px; border-left: 0; border-top: 0; }
+.corner-tl {
+    top: 10px;
+    left: 10px;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+.corner-tr {
+    top: 10px;
+    right: 10px;
+    border-left: 0;
+    border-bottom: 0;
+}
+
+.corner-bl {
+    bottom: 10px;
+    left: 10px;
+    border-right: 0;
+    border-top: 0;
+}
+
+.corner-br {
+    bottom: 10px;
+    right: 10px;
+    border-left: 0;
+    border-top: 0;
+}
 
 
 
@@ -4355,7 +4391,7 @@ body {
        scale(0.9) : Un peu plus petite (loin)
     */
     transform: perspective(1500px) rotateX(35deg) translateY(100px) scale(0.9);
-    
+
     /* Flou de mouvement simulé */
     filter: blur(10px);
     pointer-events: none;
@@ -4399,15 +4435,22 @@ body {
 /* Animation du Burger vers la Croix */
 /* Quand le body a la classe 'menu-open', on transforme les lignes */
 body.menu-open #burger-top {
-    transform: translateY(9px) rotate(45deg); /* Descend et tourne */
-    background-color: white; /* Force le blanc sur fond sombre */
+    transform: translateY(9px) rotate(45deg);
+    /* Descend et tourne */
+    background-color: white;
+    /* Force le blanc sur fond sombre */
 }
+
 body.menu-open #burger-middle {
-    opacity: 0; /* Disparait */
+    opacity: 0;
+    /* Disparait */
 }
+
 body.menu-open #burger-bottom {
-    transform: translateY(-9px) rotate(-45deg); /* Monte et tourne */
-    background-color: white; /* Force le blanc */
+    transform: translateY(-9px) rotate(-45deg);
+    /* Monte et tourne */
+    background-color: white;
+    /* Force le blanc */
 }
 
 /* IMPORTANT : Quand le menu est ouvert, on empêche le scroll de la page derrière */
@@ -4428,26 +4471,40 @@ body.menu-open {
 /* 1. Le conteneur global : Saute joyeusement toutes les 5 secondes */
 .gift-anim-container {
     /* 1s d'action, 5s de pause = 6s total */
-    animation: gift-jump-cycle 6s ease-in-out infinite; 
+    animation: gift-jump-cycle 6s ease-in-out infinite;
     transform-origin: bottom center;
 }
 
 @keyframes gift-jump-cycle {
-    0%, 85% { transform: translateY(0) scale(1) rotate(0deg); }
-    
+
+    0%,
+    85% {
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
+
     /* Préparation (S'écrase un peu) */
-    87% { transform: translateY(0) scale(1.1, 0.9) rotate(0deg); }
-    
+    87% {
+        transform: translateY(0) scale(1.1, 0.9) rotate(0deg);
+    }
+
     /* Saut vers le haut + légère rotation */
-    90% { transform: translateY(-20px) scale(0.9, 1.1) rotate(-3deg); }
-    
+    90% {
+        transform: translateY(-20px) scale(0.9, 1.1) rotate(-3deg);
+    }
+
     /* Atterrissage (S'écrase encore) */
-    93% { transform: translateY(0) scale(1.15, 0.85) rotate(3deg); }
-    
+    93% {
+        transform: translateY(0) scale(1.15, 0.85) rotate(3deg);
+    }
+
     /* Rebond stabilisateur */
-    96% { transform: translateY(-5px) scale(0.95, 1.05) rotate(0deg); }
-    
-    100% { transform: translateY(0) scale(1) rotate(0deg); }
+    96% {
+        transform: translateY(-5px) scale(0.95, 1.05) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
 }
 
 /* 2. L'ombre au sol : Rétrécit quand le cadeau est en l'air */
@@ -4457,10 +4514,29 @@ body.menu-open {
 }
 
 @keyframes gift-shadow-cycle {
-    0%, 85% { opacity: 0.3; transform: scale(1); }
-    90% { opacity: 0.1; transform: scale(0.6); } /* En l'air = ombre petite */
-    93% { opacity: 0.4; transform: scale(1.1); } /* Atterrissage = ombre large */
-    100% { opacity: 0.3; transform: scale(1); }
+
+    0%,
+    85% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    90% {
+        opacity: 0.1;
+        transform: scale(0.6);
+    }
+
+    /* En l'air = ombre petite */
+    93% {
+        opacity: 0.4;
+        transform: scale(1.1);
+    }
+
+    /* Atterrissage = ombre large */
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
 }
 
 /* 3. Le Couvercle : Se soulève un peu ("Pop") pendant le saut */
@@ -4469,10 +4545,24 @@ body.menu-open {
 }
 
 @keyframes gift-lid-cycle {
-    0%, 88% { transform: translateY(0) rotate(0); }
-    90% { transform: translateY(-8px) rotate(-5deg); } /* Le couvercle saute ! */
-    95% { transform: translateY(0) rotate(0); }
-    100% { transform: translateY(0) rotate(0); }
+
+    0%,
+    88% {
+        transform: translateY(0) rotate(0);
+    }
+
+    90% {
+        transform: translateY(-8px) rotate(-5deg);
+    }
+
+    /* Le couvercle saute ! */
+    95% {
+        transform: translateY(0) rotate(0);
+    }
+
+    100% {
+        transform: translateY(0) rotate(0);
+    }
 }
 
 /* 4. Les Étincelles : Apparaissent brièvement au sommet du saut */
@@ -4481,22 +4571,52 @@ body.menu-open {
 }
 
 @keyframes gift-sparkle-cycle {
-    0%, 88% { opacity: 0; transform: scale(0); }
-    90% { opacity: 1; transform: scale(1.2); } /* Flash ! */
-    95% { opacity: 0; transform: scale(1.5); } /* Dissipation */
-    100% { opacity: 0; }
+
+    0%,
+    88% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    90% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    /* Flash ! */
+    95% {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+
+    /* Dissipation */
+    100% {
+        opacity: 0;
+    }
 }
 
 /* 5. Au Survol de la souris : Le cadeau tremble d'excitation */
 #lead-magnet-teaser:hover .gift-anim-container {
-    animation: gift-shake 0.5s ease-in-out infinite; /* Remplace le cycle lent par une agitation rapide */
+    animation: gift-shake 0.5s ease-in-out infinite;
+    /* Remplace le cycle lent par une agitation rapide */
 }
 
 @keyframes gift-shake {
-    0% { transform: rotate(0deg); }
-    25% { transform: rotate(5deg); }
-    75% { transform: rotate(-5deg); }
-    100% { transform: rotate(0deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(5deg);
+    }
+
+    75% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
 }
 
 /* Animation d'entrée quand le popup se ferme (similaire à avant) */
@@ -4506,9 +4626,20 @@ body.menu-open {
 }
 
 @keyframes teaserElasticIn {
-    0% { transform: translateY(100px) scale(0); opacity: 0; }
-    60% { transform: translateY(-10px) scale(1.1); opacity: 1; }
-    100% { transform: translateY(0) scale(1); opacity: 1; }
+    0% {
+        transform: translateY(100px) scale(0);
+        opacity: 0;
+    }
+
+    60% {
+        transform: translateY(-10px) scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
 }
 
 
@@ -4520,13 +4651,27 @@ body.menu-open {
 }
 
 @keyframes gift-glow-cycle {
-    0%, 88% { opacity: 0; transform: scaleX(0.8); }
-    
+
+    0%,
+    88% {
+        opacity: 0;
+        transform: scaleX(0.8);
+    }
+
     /* Au sommet du saut (le couvercle est levé), la lumière sort */
-    90% { opacity: 1; transform: scaleX(1.2); }
-    
-    95% { opacity: 0; transform: scaleX(0.8); }
-    100% { opacity: 0; }
+    90% {
+        opacity: 1;
+        transform: scaleX(1.2);
+    }
+
+    95% {
+        opacity: 0;
+        transform: scaleX(0.8);
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 
@@ -4544,35 +4689,37 @@ body.menu-open {
    - De 85% à 100% : Le bouton s'agite (Action de ~1 seconde)
 */
 @keyframes cta-attract-cycle {
-    0%, 85% {
+
+    0%,
+    85% {
         transform: scale(1) rotate(0deg);
     }
-    
+
     /* Début de l'agitation : Petit gonflement */
     87% {
         transform: scale(1.05) rotate(0deg);
     }
-    
+
     /* Secousse gauche */
     89% {
         transform: scale(1.05) rotate(-2deg);
     }
-    
+
     /* Secousse droite */
     91% {
         transform: scale(1.05) rotate(2deg);
     }
-    
+
     /* Secousse gauche */
     93% {
         transform: scale(1.05) rotate(-2deg);
     }
-    
+
     /* Secousse droite */
     95% {
         transform: scale(1.05) rotate(2deg);
     }
-    
+
     /* Retour au calme */
     100% {
         transform: scale(1) rotate(0deg);
@@ -4590,5 +4737,6 @@ body.menu-open {
 /* IMPORTANT : On arrête l'animation quand on survole le bouton pour ne pas gêner le clic */
 .btn-attract-loop:hover {
     animation: none;
-    transform: scale(1.02); /* Petit effet de survol standard */
+    transform: scale(1.02);
+    /* Petit effet de survol standard */
 }
