@@ -4592,3 +4592,52 @@ body.menu-open {
     animation: none;
     transform: scale(1.02); /* Petit effet de survol standard */
 }
+
+
+
+
+
+
+/* ======================================================= */
+/*    ANIMATION PUCES MODALE (CASCADE SOYEUSE)             */
+/* ======================================================= */
+
+/* 1. L'Animation de base (Glissement + Fondu) */
+@keyframes bulletSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-15px); /* Vient légèrement de la gauche */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 2. La classe à mettre sur les <li> */
+.modal-bullet-anim {
+    opacity: 0; /* Invisible par défaut */
+    /* Animation de 0.6s avec une courbe "out-quart" (très douce à la fin) */
+    animation: bulletSlideIn 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+/* 3. Le décalage (Staggering) : C'est ça qui fait "Premium" */
+/* On attend que la modale soit ouverte (0.2s) puis on les lance une par une */
+.modal-bullet-anim:nth-child(1) { animation-delay: 0.3s; }
+.modal-bullet-anim:nth-child(2) { animation-delay: 0.45s; }
+.modal-bullet-anim:nth-child(3) { animation-delay: 0.6s; }
+
+/* 4. Petit effet bonus sur l'icône verte au survol de la ligne */
+.modal-bullet-anim .text-success-green {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); /* Effet ressort */
+}
+
+.modal-bullet-anim:hover .text-success-green {
+    transform: scale(1.2) rotate(10deg); /* Petit "pop" satisfaction */
+}
+
+/* 5. Éclaircissement du texte au survol pour la lisibilité */
+.modal-bullet-anim:hover span {
+    color: #ffffff; /* Passe du gris au blanc pur */
+    transition: color 0.3s ease;
+}
