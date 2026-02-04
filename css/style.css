@@ -4658,57 +4658,23 @@ body.menu-open {
 }
 
 /* ======================================================= */
-/*    CORRECTIF MODALE MOBILE - CLAVIER VIRTUEL            */
+/*    CORRECTIF MODALE MOBILE - CLAVIER VIRTUEL (V2)       */
 /* ======================================================= */
 
-/* 1. Sur mobile, la modale doit pouvoir scroller et s'adapter au clavier */
+/* Sur mobile, aligner la modale en haut pour laisser place au clavier */
 @media (max-width: 768px) {
-    
-    /* Le conteneur principal de la modale utilise dvh (dynamic viewport height) 
-       qui s'adapte quand le clavier apparaît */
-    #lead-magnet-modal .min-h-screen {
-        min-height: 100dvh;
-        min-height: -webkit-fill-available; /* Fallback iOS Safari */
-        align-items: flex-start !important; /* Aligne en haut au lieu de centrer */
-        padding-top: 10px !important;
-        padding-bottom: 10px !important;
-        overflow-y: auto;
-    }
-    
-    /* La carte modale ne doit pas être trop haute et doit pouvoir scroller */
-    #modal-content {
-        max-height: 95dvh !important;
-        max-height: calc(100vh - 20px) !important;
-        overflow-y: auto !important;
-        margin: auto 0; /* Centre verticalement si espace disponible */
-    }
-    
-    /* Le wrapper interne doit aussi permettre le scroll */
-    #modal-content > div {
-        max-height: none !important;
-        overflow-y: visible;
-    }
-    
-    /* La partie formulaire doit être scrollable */
-    #modal-content .lg\:col-span-7 {
-        overflow-y: auto;
-        flex-shrink: 1;
-        min-height: 0;
+    #lead-magnet-modal > div.min-h-screen {
+        align-items: flex-start !important;
+        padding-top: 5vh !important;
     }
 }
 
-/* 2. Quand un input est focus (clavier ouvert), on scroll automatiquement vers lui */
-@media (max-width: 768px) {
-    #lead-magnet-modal input:focus {
-        scroll-margin-top: 20px;
-        scroll-margin-bottom: 20px;
-    }
-}
-
-/* 3. Empêche le body de scroller quand la modale est ouverte */
+/* Empêche le scroll du body quand la modale est ouverte */
 body.modal-open {
     overflow: hidden;
     position: fixed;
     width: 100%;
     height: 100%;
+    top: 0;
+    left: 0;
 }
