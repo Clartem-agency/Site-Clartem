@@ -2528,7 +2528,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             hideTeaser();
             
-            // AJOUT : Bloque le scroll du body sur mobile
+            // Bloque le scroll du body
             document.body.classList.add('modal-open');
 
             modal.classList.remove('hidden');
@@ -2550,6 +2550,17 @@ document.addEventListener('DOMContentLoaded', function () {
                         void bulletList.offsetWidth; // Force le redémarrage CSS
                         bulletList.classList.add('modal-anim-active'); // Lancement !
                     }
+                    
+                    // --- CORRECTIF MOBILE : Scroll vers l'input quand focus ---
+                    const modalInputs = modal.querySelectorAll('input[type="text"], input[type="email"]');
+                    modalInputs.forEach(input => {
+                        input.addEventListener('focus', function() {
+                            // Petit délai pour laisser le clavier s'ouvrir
+                            setTimeout(() => {
+                                this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }, 300);
+                        });
+                    });
 
 
                 });
@@ -2565,7 +2576,7 @@ document.addEventListener('DOMContentLoaded', function () {
             content.classList.remove('modal-3d-visible');
             content.classList.add('modal-3d-hidden');
             
-            // AJOUT : Réactive le scroll du body
+            // Réactive le scroll du body
             document.body.classList.remove('modal-open');
 
 
