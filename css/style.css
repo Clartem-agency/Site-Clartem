@@ -4592,3 +4592,55 @@ body.menu-open {
     animation: none;
     transform: scale(1.02); /* Petit effet de survol standard */
 }
+
+
+
+
+
+
+/* ======================================================= */
+/*    ANIMATION "MAJESTIC REVEAL" (MODALE)                 */
+/*    Style : Apparition vaporeuse (Blur + Scale)          */
+/* ======================================================= */
+
+/* 1. État initial (Invisible) */
+.modal-bullet {
+    opacity: 0;
+    /* On part d'un peu plus bas et un peu plus petit */
+    transform: translateY(20px) scale(0.95);
+    /* C'est ce FLOU qui donne l'effet magique/vaporeux */
+    filter: blur(12px);
+    will-change: transform, opacity, filter;
+}
+
+/* 2. L'Animation (Activée par JS) */
+.modal-anim-active .modal-bullet {
+    /* Courbe "out-cubic" très fluide pour un atterrissage en douceur */
+    animation: majesticReveal 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+}
+
+@keyframes majesticReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+        filter: blur(12px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* 3. La Cascade (Staggering) */
+/* Chaque ligne arrive avec 0.15s de décalage pour l'effet séquentiel */
+.modal-anim-active .modal-bullet:nth-child(1) { animation-delay: 0.3s; }
+.modal-anim-active .modal-bullet:nth-child(2) { animation-delay: 0.45s; }
+.modal-anim-active .modal-bullet:nth-child(3) { animation-delay: 0.6s; }
+
+/* 4. Effet bonus au survol (Lumière) */
+.modal-bullet:hover span {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Halo lumineux */
+    color: white;
+    transition: all 0.3s ease;
+}
