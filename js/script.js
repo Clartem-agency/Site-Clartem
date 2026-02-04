@@ -2527,6 +2527,9 @@ document.addEventListener('DOMContentLoaded', function () {
             isPopupOpen = true;
 
             hideTeaser();
+            
+            // AJOUT : Bloque le scroll du body sur mobile
+            document.body.classList.add('modal-open');
 
             modal.classList.remove('hidden');
             void content.offsetHeight; // Force Reflow
@@ -2561,6 +2564,9 @@ document.addEventListener('DOMContentLoaded', function () {
             backdrop.classList.add('opacity-0');
             content.classList.remove('modal-3d-visible');
             content.classList.add('modal-3d-hidden');
+            
+            // AJOUT : Réactive le scroll du body
+            document.body.classList.remove('modal-open');
 
 
 
