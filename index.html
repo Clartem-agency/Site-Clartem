@@ -1276,22 +1276,24 @@
                                 </p>
                             </div>
 
+
                             <!-- COLONNE CENTRALE : LE PONT (ICÔNE + LIGNE) -->
                             <div
                                 class="hidden lg:flex flex-col items-center justify-center relative h-full order-2 px-8">
 
-                                <!-- La ligne verticale qui traverse (Centrée) -->
-                                <!-- Elle part de très haut (-top-60) pour simuler la connexion avec le titre -->
+                                <!-- La ligne verticale -->
                                 <div
                                     class="absolute top-[-200px] bottom-[-200px] w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent z-0">
                                 </div>
 
-                                <!-- L'Icône Centrale (Par dessus la ligne) -->
+                                <!-- L'Icône Centrale -->
                                 <div
                                     class="relative z-10 w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(0,0,0,0.05)] border border-gray-100">
-                                    <span class="text-xl text-neutral-light">↔</span>
+                                    <!-- AJOUT DE LA CLASSE 'animate-breathe' ICI -->
+                                    <span class="text-xl text-neutral-light animate-breathe">↔</span>
                                 </div>
                             </div>
+
 
                             <!-- COLONNE DROITE : PSYCHOLOGIE -->
                             <div class="text-left lg:pl-12 group relative order-3" data-sr data-sr-origin="right">
