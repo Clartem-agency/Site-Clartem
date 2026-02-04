@@ -2477,7 +2477,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Configuration
     const SCROLL_TRIGGER_PERCENT = 0.50; // 50% du scroll
-    const STORAGE_KEY_SEEN = 'clartem_popup_seen'; // Déjà vu mais pas inscrit
+    const STORAGE_KEY_SEEN = 'clartem_popup_seen_v2'; // Déjà vu mais pas inscrit
     const STORAGE_KEY_SUBSCRIBED = 'clartem_subscribed'; // A rempli le formulaire
 
     // --- 1. VERIFICATION IMMEDIATE : EST-IL DEJA INSCRIT ? ---
