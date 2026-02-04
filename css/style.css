@@ -4535,71 +4535,11 @@ body.menu-open {
 
 
 
-/* ======================================================= */
-/*    ANIMATION CTA "ATTENTION" (Lead Magnet)              */
-/* ======================================================= */
-
-/* L'animation dure 5 secondes au total :
-   - De 0% à 85% : Rien ne se passe (Pause de ~4 secondes)
-   - De 85% à 100% : Le bouton s'agite (Action de ~1 seconde)
-*/
-@keyframes cta-attract-cycle {
-    0%, 85% {
-        transform: scale(1) rotate(0deg);
-    }
-    
-    /* Début de l'agitation : Petit gonflement */
-    87% {
-        transform: scale(1.05) rotate(0deg);
-    }
-    
-    /* Secousse gauche */
-    89% {
-        transform: scale(1.05) rotate(-2deg);
-    }
-    
-    /* Secousse droite */
-    91% {
-        transform: scale(1.05) rotate(2deg);
-    }
-    
-    /* Secousse gauche */
-    93% {
-        transform: scale(1.05) rotate(-2deg);
-    }
-    
-    /* Secousse droite */
-    95% {
-        transform: scale(1.05) rotate(2deg);
-    }
-    
-    /* Retour au calme */
-    100% {
-        transform: scale(1) rotate(0deg);
-    }
-}
-
-/* La classe à ajouter au bouton */
-.btn-attract-loop {
-    /* L'animation tourne en boucle infinie */
-    animation: cta-attract-cycle 5s ease-in-out infinite;
-    /* On s'assure que le point de transformation est au centre */
-    transform-origin: center;
-}
-
-/* IMPORTANT : On arrête l'animation quand on survole le bouton pour ne pas gêner le clic */
-.btn-attract-loop:hover {
-    animation: none;
-    transform: scale(1.02); /* Petit effet de survol standard */
-}
-
-
-
 
 
 
 /* ======================================================= */
-/*    ANIMATION "MAJESTIC REVEAL" (MODALE)                 */
+/*  ANIMATION PUCE MODALE LEAD MAGNET "MAJESTIC REVEAL"    */
 /*    Style : Apparition vaporeuse (Blur + Scale)          */
 /* ======================================================= */
 
