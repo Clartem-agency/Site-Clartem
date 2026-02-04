@@ -4064,31 +4064,28 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 
-
 /* ======================================================= */
 /*          SECTION MISSION-BRIDGE                         */
 /* ======================================================= */
 
-/* Animation douce pour l'icône centrale de connexion */
-#mission-bridge .absolute span {
-    animation: breathe 3s ease-in-out infinite;
-    display: inline-block;
-    color: #9CA3AF;
-    /* Gris neutre */
-}
-
+/* Définition de l'animation */
 @keyframes breathe {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: scale(1);
         opacity: 0.5;
+        color: #9CA3AF; /* Gris au repos */
     }
-
     50% {
-        transform: scale(1.2);
+        transform: scale(1.3); /* Grossit un peu plus pour être visible */
         opacity: 1;
+        color: #3B82F6; /* Devient bleu (Clarity Blue) au pic de l'animation */
     }
+}
+
+/* Application de l'animation */
+.animate-breathe {
+    animation: breathe 3s ease-in-out infinite;
+    display: inline-block; /* Important pour que la transformation fonctionne */
 }
 
 
