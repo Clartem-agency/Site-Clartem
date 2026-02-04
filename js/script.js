@@ -2536,6 +2536,19 @@ document.addEventListener('DOMContentLoaded', function () {
                     backdrop.classList.remove('opacity-0');
                     content.classList.remove('modal-3d-hidden');
                     content.classList.add('modal-3d-visible');
+
+
+
+                    // --- AJOUT ANIMATION MAGIQUE ---
+                    // On lance l'animation des puces uniquement maintenant
+                    const bulletList = document.getElementById('modal-bullet-list');
+                    if (bulletList) {
+                        bulletList.classList.remove('modal-anim-active'); // Reset au cas où
+                        void bulletList.offsetWidth; // Force le redémarrage CSS
+                        bulletList.classList.add('modal-anim-active'); // Lancement !
+                    }
+
+
                 });
             });
 
@@ -2548,6 +2561,20 @@ document.addEventListener('DOMContentLoaded', function () {
             backdrop.classList.add('opacity-0');
             content.classList.remove('modal-3d-visible');
             content.classList.add('modal-3d-hidden');
+
+
+
+            // --- AJOUT RESET ANIMATION ---
+            // On retire la classe pour que l'animation puisse être rejouée la prochaine fois
+            const bulletList = document.getElementById('modal-bullet-list');
+            if (bulletList) {
+                setTimeout(() => {
+                    bulletList.classList.remove('modal-anim-active');
+                }, 800);
+            }
+            // -----------------------------
+            
+
 
             setTimeout(() => {
                 modal.classList.add('hidden');
