@@ -2486,7 +2486,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (teaserBtn) teaserBtn.remove();
         if (modal) modal.remove();
         // On ne continue pas l'exécution de ce bloc
-    } 
+    }
     else if (modal && backdrop && content && closeBtn) { // Si pas inscrit, on lance la logique
 
         let isPopupOpen = false;
@@ -2494,10 +2494,10 @@ document.addEventListener('DOMContentLoaded', function () {
         // --- 2. ECOUTEUR SUR LE FORMULAIRE ---
         // C'est ici qu'on enregistre l'inscription quand la personne clique sur le bouton
         if (popupForm) {
-            popupForm.addEventListener('submit', function() {
+            popupForm.addEventListener('submit', function () {
                 // On enregistre qu'il est inscrit
                 localStorage.setItem(STORAGE_KEY_SUBSCRIBED, 'true');
-                
+
                 // Note : Le formulaire va s'envoyer normalement vers Brevo.
                 // Au prochain chargement de page (ou retour de Brevo), le bloc "1" ci-dessus s'activera.
             });
@@ -2525,6 +2525,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const openPopup = () => {
             if (isPopupOpen) return;
             isPopupOpen = true;
+
+            // BLOQUE LE SCROLL DU SITE PRINCIPAL
+            document.body.style.overflow = 'hidden';
 
             hideTeaser();
 
@@ -2558,6 +2561,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // FERMER le popup
         const closePopup = () => {
+
+            // RÉACTIVE LE SCROLL DU SITE PRINCIPAL
+            document.body.style.overflow = '';
+
             backdrop.classList.add('opacity-0');
             content.classList.remove('modal-3d-visible');
             content.classList.add('modal-3d-hidden');
@@ -2573,7 +2580,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }, 800);
             }
             // -----------------------------
-            
+
 
 
             setTimeout(() => {
@@ -2590,7 +2597,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showTeaser();
         } else {
             // Sinon (nouveau visiteur), on active les triggers automatiques
-            
+
             // Trigger 1 : Scroll
             const handleScrollPopup = () => {
                 const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
