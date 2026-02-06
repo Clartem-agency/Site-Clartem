@@ -3190,16 +3190,17 @@ body.modal-body-lock {
         /* Utilise dvh pour tenir compte des barres du navigateur */
         max-height: calc(100vh - 24px);
         max-height: calc(100dvh - 24px);
+        /* PAS d'overflow ici — sinon le halo doré ::before est coupé */
+        overflow: visible;
+    }
+
+    /* C'est le wrapper INTERNE qui scrolle */
+    .modal-mobile-fit #modal-inner-wrapper {
+        max-height: calc(100vh - 28px);
+        max-height: calc(100dvh - 28px);
         overflow-y: auto;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
-    }
-
-    /* Le wrapper interne ne bloque pas le scroll */
-    .modal-mobile-fit > div:first-child {
-        height: auto !important;
-        min-height: 0 !important;
-        overflow: visible !important;
     }
 
     /* Image compacte sur mobile */
@@ -3277,8 +3278,14 @@ body.modal-body-lock {
 
     .keyboard-open #modal-content {
         max-height: calc(var(--vvh, 100dvh) - 16px) !important;
-        overflow-y: auto !important;
+        overflow: visible !important;
         margin-top: 8px;
+    }
+
+    .keyboard-open #modal-inner-wrapper {
+        max-height: calc(var(--vvh, 100dvh) - 20px) !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
         transition: max-height 0.15s ease-out;
     }
 
@@ -3320,22 +3327,26 @@ body.modal-body-lock {
 /* ======================================================= */
 
 /* Pour Webkit (Chrome, Safari, Edge) */
-#modal-content::-webkit-scrollbar {
+#modal-content::-webkit-scrollbar,
+#modal-inner-wrapper::-webkit-scrollbar {
     width: 6px;
 }
 
-#modal-content::-webkit-scrollbar-track {
+#modal-content::-webkit-scrollbar-track,
+#modal-inner-wrapper::-webkit-scrollbar-track {
     background: #0F172A;
     /* Fond sombre */
 }
 
-#modal-content::-webkit-scrollbar-thumb {
+#modal-content::-webkit-scrollbar-thumb,
+#modal-inner-wrapper::-webkit-scrollbar-thumb {
     background-color: #374151;
     /* Gris foncé */
     border-radius: 20px;
 }
 
-#modal-content::-webkit-scrollbar-thumb:hover {
+#modal-content::-webkit-scrollbar-thumb:hover,
+#modal-inner-wrapper::-webkit-scrollbar-thumb:hover {
     background-color: #4B5563;
     /* Gris un peu plus clair au survol */
 }
