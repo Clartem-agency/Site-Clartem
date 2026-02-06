@@ -2706,5 +2706,72 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+    // ==================================================================
+    // LIGHTBOX MOCKUP – ZOOM SUR MOBILE / TABLETTE
+    // ==================================================================
+    (function initMockupLightbox() {
+        const trigger = document.getElementById('mockup-zoom-trigger');
+        const lightbox = document.getElementById('mockup-lightbox');
+        if (!trigger || !lightbox) return;
+
+        const BREAKPOINT = 1024; // lg breakpoint — desktop n'a pas besoin de lightbox
+
+        function isMobileOrTablet() {
+            return window.innerWidth < BREAKPOINT;
+        }
+
+        function openLightbox() {
+            if (!isMobileOrTablet()) return;
+            lightbox.classList.remove('hidden');
+            // Force reflow pour déclencher l'animation
+            void lightbox.offsetWidth;
+            lightbox.classList.add('lightbox-visible');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('lightbox-closing');
+            lightbox.classList.remove('lightbox-visible');
+            setTimeout(function () {
+                lightbox.classList.remove('lightbox-closing');
+                lightbox.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        // Ouvrir au clic/tap sur le mockup
+        trigger.addEventListener('click', function (e) {
+            e.stopPropagation();
+            openLightbox();
+        });
+
+        // Accessibilité clavier
+        trigger.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openLightbox();
+            }
+        });
+
+        // Fermer — clic sur le backdrop, l'image, ou le bouton
+        lightbox.addEventListener('click', closeLightbox);
+
+        var closeBtn = document.getElementById('mockup-lightbox-close');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                closeLightbox();
+            });
+        }
+
+        // Fermer avec Escape
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && lightbox.classList.contains('lightbox-visible')) {
+                closeLightbox();
+            }
+        });
+    })();
+
+
 
 });
