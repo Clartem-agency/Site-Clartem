@@ -3164,6 +3164,81 @@ ul.space-y-3 li:not(:has(.pricing-toggle)) {
 
 
 /* ======================================================= */
+/*    FIX MODALE MOBILE QUAND CLAVIER OUVERT               */
+/* ======================================================= */
+
+/* Fix iOS: empêcher le body de scroller quand la modale est ouverte */
+body.modal-body-lock {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 1023px) {
+
+    /* Par défaut sur mobile, utilise dvh si dispo */
+    #lead-magnet-modal .relative.min-h-screen {
+        min-height: 100dvh;
+        min-height: -webkit-fill-available;
+    }
+
+    /* Le conteneur passe en alignement haut quand clavier ouvert */
+    .keyboard-open .relative.min-h-screen {
+        align-items: flex-start !important;
+        min-height: auto !important;
+        height: var(--vvh, 100dvh) !important;
+        overflow-y: auto !important;
+    }
+
+    /* La carte modale s'adapte au viewport visible */
+    .keyboard-open #modal-content {
+        max-height: calc(var(--vvh, 100dvh) - 16px) !important;
+        overflow-y: auto !important;
+        margin-top: 8px;
+        transition: max-height 0.15s ease-out;
+    }
+
+    /* On cache la partie visuelle (image) pour libérer de la place */
+    .keyboard-open #modal-content .lg\:col-span-5 {
+        display: none !important;
+    }
+
+    /* Bouton fermer reste accessible */
+    .keyboard-open #modal-content .lg\:col-span-7 {
+        padding-top: 40px !important;
+    }
+
+    /* Espaces réduits */
+    .keyboard-open #modal-content .mb-4 {
+        margin-bottom: 8px !important;
+    }
+
+    .keyboard-open #modal-content .space-y-4 > * + * {
+        margin-top: 8px !important;
+    }
+
+    /* On cache les puces pour gagner de l'espace */
+    .keyboard-open #modal-bullet-list {
+        display: none !important;
+    }
+
+    /* Formulaire compact */
+    .keyboard-open #popup-sib-form {
+        padding: 12px !important;
+    }
+
+    .keyboard-open #popup-sib-form .mb-3 {
+        margin-bottom: 8px !important;
+    }
+
+    /* Description masquée */
+    .keyboard-open #modal-content .text-gray-400.text-xs {
+        display: none !important;
+    }
+}
+
+/* ======================================================= */
 /*    CUSTOM SCROLLBAR POUR MODALE MOBILE                  */
 /* ======================================================= */
 
