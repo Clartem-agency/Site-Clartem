@@ -4824,9 +4824,9 @@ body.menu-open {
 /* LIGHTBOX MOCKUP – ZOOM SUR MOBILE / TABLETTE                */
 /* ============================================================ */
 
-/* Hint "Voir le guide" – animation subtile de pulsation */
+/* Hint "Agrandir" – animation subtile de pulsation */
 @media (max-width: 1023px) {
-    .mockup-zoom-hint {
+    .mockup-zoom-hint > div {
         animation: hintPulse 2.5s ease-in-out infinite;
     }
 
@@ -4842,8 +4842,8 @@ body.menu-open {
 }
 
 @keyframes hintPulse {
-    0%, 100% { opacity: 0.8; transform: translateX(-50%) scale(1); }
-    50% { opacity: 1; transform: translateX(-50%) scale(1.05); }
+    0%, 100% { opacity: 0.85; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.08); }
 }
 
 /* Lightbox ouverte */
