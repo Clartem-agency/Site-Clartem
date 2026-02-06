@@ -2521,12 +2521,77 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         };
 
+        // --- GESTION CLAVIER MOBILE POUR LA MODALE ---
+        const isMobileDevice = () => window.innerWidth < 1024;
+
+        // Utilise le visualViewport API pour détecter le clavier
+        const setupMobileKeyboardFix = () => {
+            const modalEl = document.getElementById('lead-magnet-modal');
+            const modalInputs = modal.querySelectorAll('input[type="text"], input[type="email"]');
+
+            // Méthode 1 : visualViewport (le plus fiable sur iOS/Android modernes)
+            if (window.visualViewport) {
+                window.visualViewport.addEventListener('resize', () => {
+                    if (!isPopupOpen || !isMobileDevice()) return;
+
+                    const vvh = window.visualViewport.height;
+                    document.documentElement.style.setProperty('--vvh', vvh + 'px');
+
+                    // Si le viewport visible est significativement plus petit que la fenêtre -> clavier ouvert
+                    if (vvh < window.innerHeight * 0.75) {
+                        modalEl.classList.add('keyboard-open');
+                    } else {
+                        modalEl.classList.remove('keyboard-open');
+                    }
+                });
+
+                window.visualViewport.addEventListener('scroll', () => {
+                    if (!isPopupOpen || !isMobileDevice()) return;
+                    // Empêche le scroll du viewport derrière la modale
+                    window.visualViewport.pageTop = 0;
+                });
+            }
+
+            // Méthode 2 : Fallback focus/blur pour anciens navigateurs
+            modalInputs.forEach(input => {
+                input.addEventListener('focus', () => {
+                    if (!isMobileDevice()) return;
+                    // Petit délai pour laisser le clavier s'ouvrir
+                    setTimeout(() => {
+                        modalEl.classList.add('keyboard-open');
+                        // Scroll l'input en vue dans la modale
+                        const formEl = document.getElementById('popup-sib-form');
+                        if (formEl) {
+                            formEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    }, 300);
+                });
+
+                input.addEventListener('blur', () => {
+                    if (!isMobileDevice()) return;
+                    setTimeout(() => {
+                        // Ne retirer que si aucun autre input n'est focus
+                        if (!modal.querySelector('input:focus')) {
+                            modalEl.classList.remove('keyboard-open');
+                        }
+                    }, 150);
+                });
+            });
+        };
+
+        setupMobileKeyboardFix();
+
         // OUVRIR le popup
         const openPopup = () => {
             if (isPopupOpen) return;
             isPopupOpen = true;
 
             hideTeaser();
+
+            // Verrouille le scroll du body sur mobile
+            if (isMobileDevice()) {
+                document.body.classList.add('modal-body-lock');
+            }
 
             modal.classList.remove('hidden');
             void content.offsetHeight; // Force Reflow
@@ -2561,6 +2626,10 @@ document.addEventListener('DOMContentLoaded', function () {
             backdrop.classList.add('opacity-0');
             content.classList.remove('modal-3d-visible');
             content.classList.add('modal-3d-hidden');
+
+            // Déverrouille le scroll du body et retire l'état clavier
+            document.body.classList.remove('modal-body-lock');
+            modal.classList.remove('keyboard-open');
 
 
 
