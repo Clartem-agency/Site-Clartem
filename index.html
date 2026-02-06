@@ -5238,12 +5238,12 @@
         </div>
 
         <!-- Conteneur centré -->
-        <div class="relative min-h-screen w-full px-4 py-4 flex items-center justify-center pointer-events-none overflow-y-auto">
+        <div class="relative w-full px-3 py-3 lg:px-4 lg:py-4 flex items-center justify-center pointer-events-none modal-scroll-container">
 
             <!-- La Carte Modale -->
             <!-- MODIFICATION ICI : On applique nos classes CSS personnalisées -->
             <div id="modal-content"
-                class="gold-glow-border relative w-full max-w-5xl rounded-2xl shadow-2xl text-left max-h-[85vh] lg:max-h-none flex flex-col lg:block modal-transition-base modal-3d-hidden">
+                class="gold-glow-border relative w-full max-w-5xl rounded-2xl shadow-2xl text-left modal-mobile-fit lg:max-h-none flex flex-col lg:block modal-transition-base modal-3d-hidden">
 
                 <!-- NOUVEAU WRAPPER INTERNE : C'est lui qui gère le fond et coupe le contenu arrondi -->
                 <div
@@ -5633,7 +5633,7 @@
                 s.async = true;
                 s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
                 if (d.head) d.head.appendChild(s);
-            })(document, window, 'BrevoConversations');
+           })(document, window, 'BrevoConversations');
     </script>
     <!-- Fin Chat Brevo  -->
 
