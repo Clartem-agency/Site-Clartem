@@ -4819,3 +4819,61 @@ body.menu-open {
         transform: translateY(-1px); /* Micro-soulèvement imperceptible mais ressenti */
     }
 }
+
+/* ============================================================ */
+/* LIGHTBOX MOCKUP – ZOOM SUR MOBILE / TABLETTE                */
+/* ============================================================ */
+
+/* Hint "Agrandir" – animation subtile de pulsation */
+@media (max-width: 1023px) {
+    .mockup-zoom-hint > div {
+        animation: hintPulse 2.5s ease-in-out infinite;
+    }
+
+    #mockup-zoom-trigger {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Petit effet de pression au tap */
+    #mockup-zoom-trigger:active img {
+        transform: scale(0.95);
+        transition: transform 0.1s ease;
+    }
+}
+
+@keyframes hintPulse {
+    0%, 100% { opacity: 0.85; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.08); }
+}
+
+/* Lightbox ouverte */
+#mockup-lightbox.lightbox-visible {
+    display: flex !important;
+}
+
+#mockup-lightbox.lightbox-visible #mockup-lightbox-backdrop {
+    opacity: 1;
+}
+
+#mockup-lightbox.lightbox-visible #mockup-lightbox-img {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#mockup-lightbox.lightbox-visible #mockup-lightbox-hint {
+    opacity: 1;
+}
+
+/* Fermeture en cours */
+#mockup-lightbox.lightbox-closing #mockup-lightbox-backdrop {
+    opacity: 0;
+}
+
+#mockup-lightbox.lightbox-closing #mockup-lightbox-img {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+#mockup-lightbox.lightbox-closing #mockup-lightbox-hint {
+    opacity: 0;
+}
