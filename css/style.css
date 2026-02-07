@@ -4850,11 +4850,12 @@ body.menu-open {
 /*    BADGE APERÇU EXTRAIT (Sur le mockup de la modale)   */
 /* ======================================================= */
 
-.preview-excerpt-badge {
+/* --- Desktop: badge pill sur le visuel --- */
+.preview-excerpt-desktop {
     animation: badgePulseGlow 3s ease-in-out infinite;
 }
 
-.preview-excerpt-badge::before {
+.preview-excerpt-desktop::before {
     content: '';
     position: absolute;
     inset: -2px;
@@ -4866,7 +4867,7 @@ body.menu-open {
     transition: opacity 0.3s ease;
 }
 
-.preview-excerpt-badge:hover::before {
+.preview-excerpt-desktop:hover::before {
     opacity: 0.6;
 }
 
@@ -4875,18 +4876,20 @@ body.menu-open {
     50% { box-shadow: 0 4px 25px rgba(249, 115, 22, 0.5), 0 0 40px rgba(249, 115, 22, 0.15); }
 }
 
-/* Sur petits mobiles, rendre le badge plus compact */
-@media (max-height: 700px) and (max-width: 1023px) {
-    .preview-excerpt-badge {
-        bottom: 4px !important;
-        padding: 5px 10px !important;
-        font-size: 10px !important;
-    }
+/* En mode clavier mobile, cacher le badge desktop */
+.keyboard-open .preview-excerpt-desktop {
+    display: none !important;
 }
 
-/* En mode clavier mobile, cacher le badge pour gagner de la place */
-.keyboard-open .preview-excerpt-badge {
-    display: none;
+/* --- Mobile: barre pleine largeur entre visuel et contenu --- */
+.preview-excerpt-mobile {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* En mode clavier, cacher la barre mobile aussi */
+.keyboard-open .preview-excerpt-mobile {
+    display: none !important;
 }
 
 /* ======================================================= */
@@ -4949,6 +4952,80 @@ body.menu-open {
     .preview-nav-arrow:active {
         transform: translateY(-50%) scale(0.9);
     }
+}
+
+
+/* --- Scroll wrapper (normal = centered, zoomed = scrollable) --- */
+.preview-slide-scroll-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transition: all 0.4s ease;
+}
+
+/* --- ZOOM MODE (desktop) --- */
+#preview-carousel.zoom-active #preview-slides-outer {
+    align-items: flex-start;
+}
+
+#preview-carousel.zoom-active .preview-slide {
+    align-items: flex-start;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+#preview-carousel.zoom-active .preview-slide-scroll-wrapper {
+    align-items: flex-start;
+    justify-content: center;
+    height: auto;
+    min-height: 100%;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+#preview-carousel.zoom-active .preview-slide-img {
+    max-height: none;
+    max-width: none;
+    width: 680px;
+    height: auto;
+    cursor: zoom-out;
+    transition: all 0.4s ease;
+}
+
+/* Quand pas zoomé, clic = zoom in (desktop seulement) */
+@media (min-width: 1024px) {
+    #preview-carousel:not(.zoom-active) .preview-slide-img {
+        cursor: zoom-in;
+    }
+}
+
+/* Custom scrollbar pour le mode zoom */
+#preview-carousel.zoom-active .preview-slide::-webkit-scrollbar {
+    width: 6px;
+}
+
+#preview-carousel.zoom-active .preview-slide::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#preview-carousel.zoom-active .preview-slide::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 99px;
+}
+
+#preview-carousel.zoom-active .preview-slide::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+/* Hint indicator fade for zoom */
+#preview-carousel.zoom-active .preview-nav-arrow {
+    opacity: 0.4;
+}
+#preview-carousel.zoom-active .preview-nav-arrow:hover {
+    opacity: 1;
 }
 
 
