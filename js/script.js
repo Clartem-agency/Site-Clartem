@@ -2710,27 +2710,34 @@ document.addEventListener('DOMContentLoaded', function () {
     // PREVIEW CAROUSEL – APERÇU EXTRAIT DU GUIDE
     // ==================================================================
     (function initPreviewCarousel() {
-        const btn = document.getElementById('preview-excerpt-btn');
-        const carousel = document.getElementById('preview-carousel');
-        if (!btn || !carousel) return;
+        var btnDesktop = document.getElementById('preview-excerpt-btn-desktop');
+        var btnMobile = document.getElementById('preview-excerpt-btn-mobile');
+        var carousel = document.getElementById('preview-carousel');
+        if ((!btnDesktop && !btnMobile) || !carousel) return;
 
-        const backdropEl = document.getElementById('preview-carousel-backdrop');
-        const closeBtn = document.getElementById('preview-carousel-close');
-        const track = document.getElementById('preview-slides-track');
-        const slides = carousel.querySelectorAll('.preview-slide');
-        const imgs = carousel.querySelectorAll('.preview-slide-img');
-        const prevBtn = document.getElementById('preview-prev');
-        const nextBtn = document.getElementById('preview-next');
-        const dots = carousel.querySelectorAll('.preview-dot');
-        const pageText = document.getElementById('preview-current-page');
+        var backdropEl = document.getElementById('preview-carousel-backdrop');
+        var closeBtn = document.getElementById('preview-carousel-close');
+        var track = document.getElementById('preview-slides-track');
+        var slides = carousel.querySelectorAll('.preview-slide');
+        var imgs = carousel.querySelectorAll('.preview-slide-img');
+        var prevBtn = document.getElementById('preview-prev');
+        var nextBtn = document.getElementById('preview-next');
+        var dots = carousel.querySelectorAll('.preview-dot');
+        var pageText = document.getElementById('preview-current-page');
+        var zoomToggle = document.getElementById('preview-zoom-toggle');
+        var zoomIconIn = document.getElementById('preview-zoom-icon-in');
+        var zoomIconOut = document.getElementById('preview-zoom-icon-out');
+        var zoomLabel = document.getElementById('preview-zoom-label');
 
-        let currentIndex = 0;
-        let isOpen = false;
-        let touchStartX = 0;
-        let touchDeltaX = 0;
-        let isSwiping = false;
+        var currentIndex = 0;
+        var isOpen = false;
+        var isZoomed = false;
+        var touchStartX = 0;
+        var touchDeltaX = 0;
+        var isSwiping = false;
 
-        const TOTAL_SLIDES = slides.length;
+        var TOTAL_SLIDES = slides.length;
+        var IS_DESKTOP = function() { return window.innerWidth >= 1024; };
 
         // --- Navigation ---
         function goToSlide(index) {
@@ -2738,15 +2745,12 @@ document.addEventListener('DOMContentLoaded', function () {
             currentIndex = index;
             track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
 
-            // Update page indicator
             if (pageText) pageText.textContent = currentIndex + 1;
 
-            // Update dots
             dots.forEach(function(dot, i) {
                 dot.classList.toggle('active', i === currentIndex);
             });
 
-            // Update arrows visibility
             if (prevBtn) {
                 prevBtn.classList.toggle('visible', currentIndex > 0);
                 prevBtn.classList.toggle('opacity-0', currentIndex === 0);
@@ -2758,7 +2762,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 nextBtn.classList.toggle('pointer-events-none', currentIndex >= TOTAL_SLIDES - 1);
             }
 
-            // Animate active slide image
             imgs.forEach(function(img, i) {
                 if (i === currentIndex) {
                     setTimeout(function() {
@@ -2768,25 +2771,57 @@ document.addEventListener('DOMContentLoaded', function () {
                     img.classList.remove('active-slide');
                 }
             });
+
+            // Reset scroll position of all slides when navigating
+            slides.forEach(function(slide) {
+                slide.scrollTop = 0;
+            });
+        }
+
+        // --- Zoom Toggle (Desktop) ---
+        function setZoom(zoomed) {
+            isZoomed = zoomed;
+            carousel.classList.toggle('zoom-active', isZoomed);
+
+            if (zoomIconIn) zoomIconIn.classList.toggle('hidden', isZoomed);
+            if (zoomIconOut) zoomIconOut.classList.toggle('hidden', !isZoomed);
+            if (zoomLabel) zoomLabel.textContent = isZoomed ? 'Réduire' : 'Zoomer pour lire';
+
+            // Reset scroll when unzooming
+            if (!isZoomed) {
+                slides.forEach(function(slide) {
+                    slide.scrollTop = 0;
+                });
+            }
+        }
+
+        function toggleZoom() {
+            setZoom(!isZoomed);
         }
 
         // --- Open ---
         function openCarousel() {
             if (isOpen) return;
             isOpen = true;
+            isZoomed = false;
+            carousel.classList.remove('zoom-active');
 
             currentIndex = 0;
             track.style.transform = 'translateX(0)';
 
+            // Reset zoom UI
+            if (zoomIconIn) zoomIconIn.classList.remove('hidden');
+            if (zoomIconOut) zoomIconOut.classList.add('hidden');
+            if (zoomLabel) zoomLabel.textContent = 'Zoomer pour lire';
+
             carousel.classList.remove('hidden');
-            void carousel.offsetWidth; // Force reflow
+            void carousel.offsetWidth;
 
             requestAnimationFrame(function() {
                 carousel.classList.add('preview-open');
                 goToSlide(0);
             });
 
-            // Prevent body scroll
             document.body.style.overflow = 'hidden';
         }
 
@@ -2795,15 +2830,16 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!isOpen) return;
 
             carousel.classList.remove('preview-open');
+            carousel.classList.remove('zoom-active');
             carousel.classList.add('preview-closing');
 
             setTimeout(function() {
                 carousel.classList.remove('preview-closing');
                 carousel.classList.add('hidden');
                 isOpen = false;
+                isZoomed = false;
                 document.body.style.overflow = '';
 
-                // Reset all image states
                 imgs.forEach(function(img) {
                     img.classList.remove('active-slide');
                 });
@@ -2811,11 +2847,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // --- Event Listeners ---
-        btn.addEventListener('click', function(e) {
+        function handleOpenClick(e) {
             e.stopPropagation();
             e.preventDefault();
             openCarousel();
-        });
+        }
+
+        if (btnDesktop) btnDesktop.addEventListener('click', handleOpenClick);
+        if (btnMobile) btnMobile.addEventListener('click', handleOpenClick);
 
         if (closeBtn) closeBtn.addEventListener('click', closeCarousel);
 
@@ -2831,6 +2870,23 @@ document.addEventListener('DOMContentLoaded', function () {
         if (nextBtn) nextBtn.addEventListener('click', function(e) {
             e.stopPropagation();
             goToSlide(currentIndex + 1);
+        });
+
+        // Zoom toggle button
+        if (zoomToggle) {
+            zoomToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleZoom();
+            });
+        }
+
+        // Click on image to toggle zoom (desktop only)
+        imgs.forEach(function(img) {
+            img.addEventListener('click', function(e) {
+                if (!IS_DESKTOP()) return;
+                e.stopPropagation();
+                toggleZoom();
+            });
         });
 
         // Dot clicks
@@ -2863,7 +2919,6 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!isSwiping || e.touches.length !== 1) return;
             touchDeltaX = e.touches[0].clientX - touchStartX;
 
-            // Elastic resistance at edges
             var resistance = 1;
             if ((currentIndex === 0 && touchDeltaX > 0) || (currentIndex === TOTAL_SLIDES - 1 && touchDeltaX < 0)) {
                 resistance = 0.3;
@@ -2887,10 +2942,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else if (touchDeltaX > 0 && currentIndex > 0) {
                     goToSlide(currentIndex - 1);
                 } else {
-                    goToSlide(currentIndex); // Snap back
+                    goToSlide(currentIndex);
                 }
             } else {
-                goToSlide(currentIndex); // Snap back
+                goToSlide(currentIndex);
             }
         }, { passive: true });
 
