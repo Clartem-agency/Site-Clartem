@@ -5283,32 +5283,46 @@
                             role="button" tabindex="0" aria-label="Agrandir le guide">
                             <img src="assets/checklist-mockup-transparent.png" alt="Guide Offert"
                                 class="w-full h-auto drop-shadow-2xl">
-                            <!-- Indicateur zoom (mobile/tablette uniquement) — positionné en overlay centré -->
-                            <div class="mockup-zoom-hint absolute inset-0 flex items-center justify-center lg:hidden">
-                                <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/70 border border-white/25 backdrop-blur-sm text-white text-[10px] font-semibold whitespace-nowrap shadow-lg">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 opacity-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <!-- Indicateur zoom : petite icône discrète en coin sur mobile -->
+                            <div class="absolute top-1 right-1 flex items-center justify-center lg:hidden">
+                                <div class="p-1.5 rounded-full bg-black/50 border border-white/20 backdrop-blur-sm text-white shadow-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/>
                                     </svg>
-                                    Agrandir
                                 </div>
                             </div>
                         </div>
 
-                        <!-- BADGE APERÇU EXTRAIT -->
-                        <button id="preview-excerpt-btn"
-                            class="preview-excerpt-badge absolute z-30 bottom-3 left-1/2 -translate-x-1/2 lg:bottom-6 flex items-center gap-2 px-3.5 py-2 lg:px-4 lg:py-2.5 rounded-full text-white text-[11px] lg:text-xs font-semibold whitespace-nowrap shadow-xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95"
+                        <!-- BADGE APERÇU EXTRAIT — VERSION DESKTOP (dans la zone visuelle) -->
+                        <button id="preview-excerpt-btn-desktop"
+                            class="preview-excerpt-badge preview-excerpt-desktop hidden lg:flex absolute z-30 bottom-6 left-1/2 -translate-x-1/2 items-center gap-2 px-4 py-2.5 rounded-full text-white text-xs font-semibold whitespace-nowrap shadow-xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95"
                             aria-label="Voir un extrait du guide"
                             style="background: linear-gradient(135deg, #F97316 0%, #EA580C 100%); border: 1px solid rgba(255,255,255,0.2);">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 lg:w-4 lg:h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
                             </svg>
                             <span>Voir un extrait</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 lg:w-3.5 lg:h-3.5 opacity-70 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 opacity-70 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
                             </svg>
                         </button>
                     </div>
+
+                    <!-- BADGE APERÇU EXTRAIT — VERSION MOBILE (barre entre visuel et contenu) -->
+                    <button id="preview-excerpt-btn-mobile"
+                        class="preview-excerpt-mobile lg:hidden w-full flex items-center justify-center gap-2 py-2 px-4 text-white text-[11px] font-semibold cursor-pointer transition-all duration-300 active:scale-[0.98] shrink-0"
+                        aria-label="Voir un extrait du guide"
+                        style="background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 flex-shrink-0 opacity-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                        </svg>
+                        <span>👁 Voir un extrait du guide</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 opacity-60 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
 
                     <!-- PARTIE 2 : CONTENU & FORMULAIRE -->
                     <div class="lg:col-span-7 p-5 lg:p-10 flex flex-col justify-center bg-[#1E293B]">
@@ -5682,27 +5696,46 @@
                 </svg>
                 <span>Point <span id="preview-current-page">1</span> / 2</span>
             </div>
-            <!-- Close button -->
-            <button id="preview-carousel-close"
-                class="text-gray-300 hover:text-white transition-colors p-2.5 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-6 lg:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
+            <!-- Zoom + Close buttons -->
+            <div class="flex items-center gap-2">
+                <!-- Zoom toggle (desktop only) -->
+                <button id="preview-zoom-toggle"
+                    class="hidden lg:flex items-center gap-1.5 text-gray-300 hover:text-white transition-all px-3 py-2 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-sm text-xs font-medium"
+                    aria-label="Zoomer pour lire">
+                    <svg id="preview-zoom-icon-in" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/>
+                    </svg>
+                    <svg id="preview-zoom-icon-out" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM13 10H7"/>
+                    </svg>
+                    <span id="preview-zoom-label">Zoomer pour lire</span>
+                </button>
+                <!-- Close button -->
+                <button id="preview-carousel-close"
+                    class="text-gray-300 hover:text-white transition-colors p-2.5 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-6 lg:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
         </div>
 
         <!-- Slides container -->
-        <div class="absolute inset-0 flex items-center justify-center z-10 overflow-hidden">
+        <div id="preview-slides-outer" class="absolute inset-0 flex items-center justify-center z-10 overflow-hidden">
             <div id="preview-slides-track" class="flex transition-transform duration-500 ease-out h-full w-full">
                 <!-- Slide 1 -->
                 <div class="preview-slide flex-shrink-0 w-full h-full flex items-center justify-center p-4 pt-14 pb-20 lg:p-16 lg:pt-16 lg:pb-20">
-                    <img src="assets/preview-point-1.png" alt="Point 1 – Le Message : Une promesse qui rassure immédiatement"
-                        class="preview-slide-img max-h-full max-w-full object-contain rounded-lg shadow-2xl opacity-0 translate-y-6 transition-all duration-500">
+                    <div class="preview-slide-scroll-wrapper">
+                        <img src="assets/preview-point-1.png" alt="Point 1 – Le Message : Une promesse qui rassure immédiatement"
+                            class="preview-slide-img max-h-full max-w-full object-contain rounded-lg shadow-2xl opacity-0 translate-y-6 transition-all duration-500">
+                    </div>
                 </div>
                 <!-- Slide 2 -->
                 <div class="preview-slide flex-shrink-0 w-full h-full flex items-center justify-center p-4 pt-14 pb-20 lg:p-16 lg:pt-16 lg:pb-20">
-                    <img src="assets/preview-point-2.png" alt="Point 2 – L'Action : L'invitation à l'action (CTA)"
-                        class="preview-slide-img max-h-full max-w-full object-contain rounded-lg shadow-2xl opacity-0 translate-y-6 transition-all duration-500">
+                    <div class="preview-slide-scroll-wrapper">
+                        <img src="assets/preview-point-2.png" alt="Point 2 – L'Action : L'invitation à l'action (CTA)"
+                            class="preview-slide-img max-h-full max-w-full object-contain rounded-lg shadow-2xl opacity-0 translate-y-6 transition-all duration-500">
+                    </div>
                 </div>
             </div>
         </div>
