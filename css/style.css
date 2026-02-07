@@ -4846,6 +4846,112 @@ body.menu-open {
     50% { opacity: 1; transform: scale(1.08); }
 }
 
+/* ======================================================= */
+/*    BADGE APERÇU EXTRAIT (Sur le mockup de la modale)   */
+/* ======================================================= */
+
+.preview-excerpt-badge {
+    animation: badgePulseGlow 3s ease-in-out infinite;
+}
+
+.preview-excerpt-badge::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #F97316, #EA580C, #F97316);
+    z-index: -1;
+    opacity: 0;
+    filter: blur(8px);
+    transition: opacity 0.3s ease;
+}
+
+.preview-excerpt-badge:hover::before {
+    opacity: 0.6;
+}
+
+@keyframes badgePulseGlow {
+    0%, 100% { box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3); }
+    50% { box-shadow: 0 4px 25px rgba(249, 115, 22, 0.5), 0 0 40px rgba(249, 115, 22, 0.15); }
+}
+
+/* Sur petits mobiles, rendre le badge plus compact */
+@media (max-height: 700px) and (max-width: 1023px) {
+    .preview-excerpt-badge {
+        bottom: 4px !important;
+        padding: 5px 10px !important;
+        font-size: 10px !important;
+    }
+}
+
+/* En mode clavier mobile, cacher le badge pour gagner de la place */
+.keyboard-open .preview-excerpt-badge {
+    display: none;
+}
+
+/* ======================================================= */
+/*    PREVIEW CAROUSEL (Aperçu extrait du guide)          */
+/* ======================================================= */
+
+/* Ouverture */
+#preview-carousel.preview-open #preview-carousel-backdrop {
+    opacity: 1;
+}
+
+#preview-carousel.preview-open .preview-slide-img.active-slide {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fermeture */
+#preview-carousel.preview-closing #preview-carousel-backdrop {
+    opacity: 0;
+    transition: opacity 0.35s ease-out;
+}
+
+#preview-carousel.preview-closing .preview-slide-img {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+    transition: all 0.3s ease-out;
+}
+
+/* Navigation arrows - visible state */
+.preview-nav-arrow.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Dots */
+.preview-dot {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.preview-dot.active {
+    background-color: #F97316;
+    transform: scale(1.2);
+    box-shadow: 0 0 12px rgba(249, 115, 22, 0.4);
+}
+
+.preview-dot:not(.active) {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.preview-dot:not(.active):hover {
+    background-color: rgba(255, 255, 255, 0.45);
+}
+
+/* Touch feedback on mobile */
+@media (max-width: 1023px) {
+    .preview-nav-arrow {
+        padding: 12px;
+    }
+    .preview-nav-arrow:active {
+        transform: translateY(-50%) scale(0.9);
+    }
+}
+
+
 /* Lightbox ouverte */
 #mockup-lightbox.lightbox-visible {
     display: flex !important;
