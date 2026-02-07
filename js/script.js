@@ -2707,6 +2707,197 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // ==================================================================
+    // PREVIEW CAROUSEL – APERÇU EXTRAIT DU GUIDE
+    // ==================================================================
+    (function initPreviewCarousel() {
+        const btn = document.getElementById('preview-excerpt-btn');
+        const carousel = document.getElementById('preview-carousel');
+        if (!btn || !carousel) return;
+
+        const backdropEl = document.getElementById('preview-carousel-backdrop');
+        const closeBtn = document.getElementById('preview-carousel-close');
+        const track = document.getElementById('preview-slides-track');
+        const slides = carousel.querySelectorAll('.preview-slide');
+        const imgs = carousel.querySelectorAll('.preview-slide-img');
+        const prevBtn = document.getElementById('preview-prev');
+        const nextBtn = document.getElementById('preview-next');
+        const dots = carousel.querySelectorAll('.preview-dot');
+        const pageText = document.getElementById('preview-current-page');
+
+        let currentIndex = 0;
+        let isOpen = false;
+        let touchStartX = 0;
+        let touchDeltaX = 0;
+        let isSwiping = false;
+
+        const TOTAL_SLIDES = slides.length;
+
+        // --- Navigation ---
+        function goToSlide(index) {
+            if (index < 0 || index >= TOTAL_SLIDES) return;
+            currentIndex = index;
+            track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+
+            // Update page indicator
+            if (pageText) pageText.textContent = currentIndex + 1;
+
+            // Update dots
+            dots.forEach(function(dot, i) {
+                dot.classList.toggle('active', i === currentIndex);
+            });
+
+            // Update arrows visibility
+            if (prevBtn) {
+                prevBtn.classList.toggle('visible', currentIndex > 0);
+                prevBtn.classList.toggle('opacity-0', currentIndex === 0);
+                prevBtn.classList.toggle('pointer-events-none', currentIndex === 0);
+            }
+            if (nextBtn) {
+                nextBtn.classList.toggle('visible', currentIndex < TOTAL_SLIDES - 1);
+                nextBtn.classList.toggle('opacity-0', currentIndex >= TOTAL_SLIDES - 1);
+                nextBtn.classList.toggle('pointer-events-none', currentIndex >= TOTAL_SLIDES - 1);
+            }
+
+            // Animate active slide image
+            imgs.forEach(function(img, i) {
+                if (i === currentIndex) {
+                    setTimeout(function() {
+                        img.classList.add('active-slide');
+                    }, 100);
+                } else {
+                    img.classList.remove('active-slide');
+                }
+            });
+        }
+
+        // --- Open ---
+        function openCarousel() {
+            if (isOpen) return;
+            isOpen = true;
+
+            currentIndex = 0;
+            track.style.transform = 'translateX(0)';
+
+            carousel.classList.remove('hidden');
+            void carousel.offsetWidth; // Force reflow
+
+            requestAnimationFrame(function() {
+                carousel.classList.add('preview-open');
+                goToSlide(0);
+            });
+
+            // Prevent body scroll
+            document.body.style.overflow = 'hidden';
+        }
+
+        // --- Close ---
+        function closeCarousel() {
+            if (!isOpen) return;
+
+            carousel.classList.remove('preview-open');
+            carousel.classList.add('preview-closing');
+
+            setTimeout(function() {
+                carousel.classList.remove('preview-closing');
+                carousel.classList.add('hidden');
+                isOpen = false;
+                document.body.style.overflow = '';
+
+                // Reset all image states
+                imgs.forEach(function(img) {
+                    img.classList.remove('active-slide');
+                });
+            }, 350);
+        }
+
+        // --- Event Listeners ---
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            openCarousel();
+        });
+
+        if (closeBtn) closeBtn.addEventListener('click', closeCarousel);
+
+        if (backdropEl) {
+            backdropEl.addEventListener('click', closeCarousel);
+        }
+
+        if (prevBtn) prevBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            goToSlide(currentIndex - 1);
+        });
+
+        if (nextBtn) nextBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            goToSlide(currentIndex + 1);
+        });
+
+        // Dot clicks
+        dots.forEach(function(dot) {
+            dot.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var idx = parseInt(dot.getAttribute('data-index'), 10);
+                goToSlide(idx);
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (!isOpen) return;
+            if (e.key === 'Escape') closeCarousel();
+            if (e.key === 'ArrowLeft') goToSlide(currentIndex - 1);
+            if (e.key === 'ArrowRight') goToSlide(currentIndex + 1);
+        });
+
+        // --- Touch / Swipe Support ---
+        carousel.addEventListener('touchstart', function(e) {
+            if (e.touches.length !== 1) return;
+            touchStartX = e.touches[0].clientX;
+            touchDeltaX = 0;
+            isSwiping = true;
+            track.style.transition = 'none';
+        }, { passive: true });
+
+        carousel.addEventListener('touchmove', function(e) {
+            if (!isSwiping || e.touches.length !== 1) return;
+            touchDeltaX = e.touches[0].clientX - touchStartX;
+
+            // Elastic resistance at edges
+            var resistance = 1;
+            if ((currentIndex === 0 && touchDeltaX > 0) || (currentIndex === TOTAL_SLIDES - 1 && touchDeltaX < 0)) {
+                resistance = 0.3;
+            }
+
+            var offset = -(currentIndex * carousel.offsetWidth) + (touchDeltaX * resistance);
+            track.style.transform = 'translateX(' + offset + 'px)';
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', function() {
+            if (!isSwiping) return;
+            isSwiping = false;
+
+            track.style.transition = 'transform 0.5s ease-out';
+
+            var threshold = carousel.offsetWidth * 0.2;
+
+            if (Math.abs(touchDeltaX) > threshold) {
+                if (touchDeltaX < 0 && currentIndex < TOTAL_SLIDES - 1) {
+                    goToSlide(currentIndex + 1);
+                } else if (touchDeltaX > 0 && currentIndex > 0) {
+                    goToSlide(currentIndex - 1);
+                } else {
+                    goToSlide(currentIndex); // Snap back
+                }
+            } else {
+                goToSlide(currentIndex); // Snap back
+            }
+        }, { passive: true });
+
+    })();
+
+
+    // ==================================================================
     // LIGHTBOX MOCKUP – ZOOM SUR MOBILE / TABLETTE
     // ==================================================================
     (function initMockupLightbox() {
