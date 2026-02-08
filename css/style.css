@@ -5068,23 +5068,26 @@ body.menu-open {
 /* ============================================================ */
 
 /* 1. MASQUER LE LAUNCHER BREVO PAR DÉFAUT */
-/* Le conteneur Brevo ne doit PAS bloquer les clics sur la page */
 #brevo-conversations {
     pointer-events: none !important;
 }
-/* Réactiver les clics sur les enfants (chat window, iframes) */
 #brevo-conversations > * {
     pointer-events: auto !important;
 }
-/* Masquer visuellement le launcher (sans display:none pour ne pas casser openChat) */
+/* clip-path + sr-only : impossible à écraser par des styles inline */
 #brevo-conversations [class*="launcher"],
 .brevo-conversations--launcher,
 .brevo-conversations--launcher-button {
-    opacity: 0 !important;
-    visibility: hidden !important;
-    width: 0 !important;
-    height: 0 !important;
+    clip-path: inset(100%) !important;
+    clip: rect(0,0,0,0) !important;
     overflow: hidden !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    border: 0 !important;
     pointer-events: none !important;
 }
 
