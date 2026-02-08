@@ -5060,3 +5060,304 @@ body.menu-open {
 #mockup-lightbox.lightbox-closing #mockup-lightbox-hint {
     opacity: 0;
 }
+
+
+/* ============================================================ */
+/*       CUSTOM CHATBOT BUTTON — CLARTEM PREMIUM                */
+/*       Remplace l'icône par défaut de Brevo                   */
+/* ============================================================ */
+
+/* 1. MASQUER LE LAUNCHER BREVO PAR DÉFAUT */
+#brevo-conversations .brevo-conversations--launcher-button,
+.brevo-conversations--launcher-button,
+div[class*="brevo-conversations"] button[class*="launcher"] {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+}
+
+/* 2. BOUTON CUSTOM — CONTENEUR */
+.clartem-chat-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9998;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0;
+    animation: clartemChatEntrance 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 1.5s both;
+}
+
+@keyframes clartemChatEntrance {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* 3. LE DISQUE PRINCIPAL (relief 3D multi-couches) */
+.clartem-chat-btn__disc {
+    position: relative;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #3B82F6 0%, #1E3A8A 100%);
+    box-shadow:
+        0 2px 4px rgba(30, 58, 138, 0.25),
+        0 6px 16px rgba(30, 58, 138, 0.20),
+        0 12px 32px rgba(30, 58, 138, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    transition:
+        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.4s ease,
+        background 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Reflet de lumière (effet verre premium) */
+.clartem-chat-btn__disc::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 36px;
+    height: 14px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 100%);
+    border-radius: 50%;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* 4. HALO LUMINEUX (animation "respiration") */
+.clartem-chat-btn__glow {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+    animation: clartemGlowPulse 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes clartemGlowPulse {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+/* 5. ICÔNE SVG CHAT */
+.clartem-chat-btn__icon {
+    position: relative;
+    z-index: 2;
+    width: 26px;
+    height: 26px;
+    color: #ffffff;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.15));
+}
+
+.clartem-chat-btn__icon--close {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg) scale(0.5);
+    opacity: 0;
+    z-index: 2;
+    width: 22px;
+    height: 22px;
+    color: #ffffff;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.15));
+}
+
+/* Animation des 3 points dans la bulle */
+.clartem-dot {
+    animation: clartemDotBounce 1.4s ease-in-out infinite;
+}
+.clartem-dot--1 { animation-delay: 0s; }
+.clartem-dot--2 { animation-delay: 0.15s; }
+.clartem-dot--3 { animation-delay: 0.3s; }
+
+@keyframes clartemDotBounce {
+    0%, 60%, 100% {
+        transform: translateY(0);
+        opacity: 0.6;
+    }
+    30% {
+        transform: translateY(-1.5px);
+        opacity: 1;
+    }
+}
+
+/* 6. PASTILLE NOTIFICATION (warm-orange Clartem) */
+.clartem-chat-btn__badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 16px;
+    height: 16px;
+    background: #F97316;
+    border: 2.5px solid #ffffff;
+    border-radius: 50%;
+    z-index: 3;
+    animation: clartemBadgePop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 2.5s both;
+    box-shadow: 0 2px 6px rgba(249, 115, 22, 0.4);
+}
+
+@keyframes clartemBadgePop {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+
+.clartem-chat-btn__badge::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 2px solid rgba(249, 115, 22, 0.5);
+    animation: clartemBadgeRing 2.5s ease-out infinite 4s;
+}
+
+@keyframes clartemBadgeRing {
+    0% { transform: scale(0.8); opacity: 1; }
+    100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* 7. TOOLTIP */
+.clartem-chat-btn__tooltip {
+    position: absolute;
+    right: calc(100% + 14px);
+    top: 50%;
+    transform: translateY(-50%) translateX(6px);
+    background: #ffffff;
+    color: #1E3A8A;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 10px;
+    white-space: nowrap;
+    box-shadow:
+        0 2px 8px rgba(30, 58, 138, 0.10),
+        0 8px 24px rgba(30, 58, 138, 0.08);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    letter-spacing: -0.01em;
+}
+
+.clartem-chat-btn__tooltip::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    background: #ffffff;
+    box-shadow: 2px -2px 4px rgba(30, 58, 138, 0.05);
+}
+
+.clartem-chat-btn__tooltip--auto {
+    animation: clartemTooltipAuto 5s ease 4s both;
+}
+
+@keyframes clartemTooltipAuto {
+    0% { opacity: 0; transform: translateY(-50%) translateX(6px); }
+    8% { opacity: 1; transform: translateY(-50%) translateX(0); }
+    85% { opacity: 1; transform: translateY(-50%) translateX(0); }
+    100% { opacity: 0; transform: translateY(-50%) translateX(6px); }
+}
+
+/* HOVER & ACTIVE */
+.clartem-chat-btn:hover .clartem-chat-btn__disc {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow:
+        0 4px 8px rgba(30, 58, 138, 0.25),
+        0 10px 24px rgba(59, 130, 246, 0.25),
+        0 20px 48px rgba(30, 58, 138, 0.18),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.clartem-chat-btn:hover .clartem-chat-btn__glow {
+    animation-play-state: paused;
+    opacity: 1;
+    transform: scale(1.25);
+}
+
+.clartem-chat-btn:hover .clartem-chat-btn__tooltip {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+.clartem-chat-btn:hover .clartem-chat-btn__icon {
+    transform: rotate(-8deg) scale(1.08);
+}
+
+.clartem-chat-btn:active .clartem-chat-btn__disc {
+    transform: translateY(-1px) scale(0.97);
+    box-shadow:
+        0 2px 4px rgba(30, 58, 138, 0.3),
+        0 4px 12px rgba(30, 58, 138, 0.2),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    transition-duration: 0.1s;
+}
+
+/* ÉTAT OUVERT */
+.clartem-chat-btn.is-open .clartem-chat-btn__icon {
+    transform: rotate(90deg) scale(0.5);
+    opacity: 0;
+}
+
+.clartem-chat-btn.is-open .clartem-chat-btn__icon--close {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    opacity: 1;
+}
+
+.clartem-chat-btn.is-open .clartem-chat-btn__badge {
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+.clartem-chat-btn.is-open .clartem-chat-btn__glow {
+    animation: none;
+    opacity: 0.3;
+}
+
+.clartem-chat-btn.is-open .clartem-chat-btn__disc {
+    background: linear-gradient(145deg, #1E3A8A 0%, #1e2d5e 100%);
+}
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 768px) {
+    .clartem-chat-btn {
+        bottom: 20px;
+        right: 20px;
+    }
+    .clartem-chat-btn__disc {
+        width: 56px;
+        height: 56px;
+    }
+    .clartem-chat-btn__icon {
+        width: 22px;
+        height: 22px;
+    }
+    .clartem-chat-btn__tooltip {
+        display: none;
+    }
+}
