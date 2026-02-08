@@ -5069,7 +5069,10 @@ body.menu-open {
 
 /* 1. MASQUER LE LAUNCHER BREVO PAR DÉFAUT */
 #brevo-conversations.clartem-hidden {
-    clip-path: inset(100%) !important;
+    transform: scale(0) !important;
+    pointer-events: none !important;
+}
+#brevo-conversations.clartem-opening {
     opacity: 0 !important;
     pointer-events: none !important;
 }
