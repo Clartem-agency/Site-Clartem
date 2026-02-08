@@ -109,8 +109,16 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- Critical : Masquer le launcher Brevo avant le chargement du widget -->
+    <!-- Critical : Masquer le launcher Brevo et empêcher le blocage des clics -->
     <style>
+        #brevo-conversations {
+            pointer-events: none !important;
+        }
+        #brevo-conversations iframe,
+        #brevo-conversations [class*="chat-window"],
+        #brevo-conversations [class*="messenger"] {
+            pointer-events: auto !important;
+        }
         .brevo-conversations--launcher,
         .brevo-conversations--launcher-button,
         #brevo-conversations [class*="launcher"] {
@@ -5706,9 +5714,6 @@
                 (w[c].q = w[c].q || []).push(arguments);
             };
 
-            // API officielle Brevo : masquer le launcher AVANT le chargement
-            w[c]('hideLauncher');
-
             var s = d.createElement('script');
             s.async = true;
             s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
@@ -5718,6 +5723,19 @@
             // Fonction qui masque le launcher Brevo (DOM + iframes)
             // --------------------------------------------------
             function nukeBrevoLauncher() {
+                // 0) Empêcher le conteneur Brevo de bloquer les clics sur la page
+                var container = d.getElementById('brevo-conversations');
+                if (container) {
+                    container.style.setProperty('pointer-events', 'none', 'important');
+                    // Réactiver les clics sur les iframes de chat (pas le launcher)
+                    container.querySelectorAll('iframe').forEach(function(f) {
+                        var rect = f.getBoundingClientRect();
+                        if (rect.height > 200) {
+                            f.style.setProperty('pointer-events', 'auto', 'important');
+                        }
+                    });
+                }
+
                 // 1) Cibler les éléments DOM classiques
                 var selectors = [
                     '.brevo-conversations--launcher',
@@ -5757,20 +5775,6 @@
                         }
                     }
                 });
-
-                // 3) Chercher le conteneur #brevo-conversations et masquer son launcher
-                var container = d.getElementById('brevo-conversations');
-                if (container) {
-                    // Parcourir les enfants directs : le launcher est souvent le dernier div
-                    Array.from(container.children).forEach(function(child) {
-                        var rect = child.getBoundingClientRect();
-                        // Le launcher est un petit élément fixé (~60px)
-                        // La fenêtre de chat est bien plus grande (>300px)
-                        if (rect.width > 0 && rect.width <= 100 && rect.height <= 100) {
-                            child.style.setProperty('display', 'none', 'important');
-                        }
-                    });
-                }
             }
 
             // Observer le DOM pour réagir dès que Brevo injecte son launcher
@@ -5788,8 +5792,6 @@
             var checks = 0;
             var interval = setInterval(function() {
                 nukeBrevoLauncher();
-                // Aussi rappeler l'API officielle au cas où
-                try { w.BrevoConversations('hideLauncher'); } catch(e) {}
                 if (++checks > 75) clearInterval(interval);
             }, 200);
 
