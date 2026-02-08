@@ -5072,21 +5072,19 @@ body.menu-open {
 #brevo-conversations {
     pointer-events: none !important;
 }
-/* Réactiver les clics uniquement sur la fenêtre de chat elle-même */
-#brevo-conversations iframe,
-#brevo-conversations [class*="chat-window"],
-#brevo-conversations [class*="messenger"] {
+/* Réactiver les clics sur les enfants (chat window, iframes) */
+#brevo-conversations > * {
     pointer-events: auto !important;
 }
-/* Masquer le bouton launcher Brevo */
+/* Masquer visuellement le launcher (sans display:none pour ne pas casser openChat) */
 #brevo-conversations [class*="launcher"],
 .brevo-conversations--launcher,
 .brevo-conversations--launcher-button {
-    display: none !important;
-    visibility: hidden !important;
     opacity: 0 !important;
+    visibility: hidden !important;
     width: 0 !important;
     height: 0 !important;
+    overflow: hidden !important;
     pointer-events: none !important;
 }
 
