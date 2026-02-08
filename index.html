@@ -5810,11 +5810,15 @@
 
                 } else {
                     // === FERMER LE CHAT ===
-                    // Passer directement en "hidden" (scale 0 = instantané)
+                    // Étape 1 : opacity 0 immédiatement (masque tout instantanément)
                     clearInterval(openPollTimer);
-                    brevoEl.classList.remove('clartem-opening');
-                    brevoEl.classList.add('clartem-hidden');
+                    brevoEl.classList.add('clartem-opening');
                     btn.classList.remove('is-open');
+                    // Étape 2 : au frame suivant, passer en scale(0)
+                    requestAnimationFrame(function() {
+                        brevoEl.classList.remove('clartem-opening');
+                        brevoEl.classList.add('clartem-hidden');
+                    });
                 }
             });
 
@@ -5825,9 +5829,12 @@
                 if (!btn.classList.contains('is-open')) return;
                 try {
                     if (brevoEl.offsetWidth <= 80 && brevoEl.offsetHeight <= 80) {
-                        brevoEl.classList.remove('clartem-opening');
-                        brevoEl.classList.add('clartem-hidden');
+                        brevoEl.classList.add('clartem-opening');
                         btn.classList.remove('is-open');
+                        requestAnimationFrame(function() {
+                            brevoEl.classList.remove('clartem-opening');
+                            brevoEl.classList.add('clartem-hidden');
+                        });
                     }
                 } catch(e) {}
             }, 500);
