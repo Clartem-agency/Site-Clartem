@@ -5068,26 +5068,9 @@ body.menu-open {
 /* ============================================================ */
 
 /* 1. MASQUER LE LAUNCHER BREVO PAR DÉFAUT */
-#brevo-conversations {
-    pointer-events: none !important;
-}
-#brevo-conversations > * {
-    pointer-events: auto !important;
-}
-/* clip-path + sr-only : impossible à écraser par des styles inline */
-#brevo-conversations [class*="launcher"],
-.brevo-conversations--launcher,
-.brevo-conversations--launcher-button {
+/* La classe .clartem-hidden est ajoutée/retirée par le JS */
+#brevo-conversations.clartem-hidden {
     clip-path: inset(100%) !important;
-    clip: rect(0,0,0,0) !important;
-    overflow: hidden !important;
-    position: absolute !important;
-    white-space: nowrap !important;
-    width: 1px !important;
-    height: 1px !important;
-    margin: -1px !important;
-    padding: 0 !important;
-    border: 0 !important;
     pointer-events: none !important;
 }
 
