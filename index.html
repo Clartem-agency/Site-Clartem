@@ -109,19 +109,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- Critical : Masquer le launcher Brevo -->
-    <style>
-        /* État fermé : réduit à zéro, instantané, GPU-acceleré */
-        #brevo-conversations.clartem-hidden {
-            transform: scale(0) !important;
-            pointer-events: none !important;
-        }
-        /* État transitoire pendant l'ouverture : présent mais invisible */
-        #brevo-conversations.clartem-opening {
-            opacity: 0 !important;
-            pointer-events: none !important;
-        }
-    </style>
+    <!-- Le masquage de Brevo est géré par un <style> injecté dynamiquement en JS -->
 </head>
 
 
@@ -5712,52 +5700,35 @@
             if (d.head) d.head.appendChild(s);
 
             // --------------------------------------------------
-            // Stratégie simple :
-            // Le launcher Brevo est dans une iframe INSIDE #brevo-conversations
-            // Ce div fait 60x60 quand fermé → on le cache avec une classe
-            // Quand on ouvre le chat → on retire la classe → Brevo affiche le chat
-            // Quand on ferme → on remet la classe
+            // STRATÉGIE FINALE :
+            // Un <style> permanent qui force #brevo-conversations
+            // à être invisible. On le RETIRE seulement quand le
+            // chat est confirmé ouvert, et on le RÉINJECTE à la fermeture.
+            // Un <style> ne peut JAMAIS être écrasé par un style inline.
             // --------------------------------------------------
 
-            // Ajouter la classe "clartem-hidden" dès que #brevo-conversations apparaît
-            // (mais pas si on est en train d'ouvrir ou si le chat est affiché)
-            function hideBrevoContainer() {
-                var el = d.getElementById('brevo-conversations');
-                var chatBtn = d.getElementById('clartemChatBtn');
-                if (el && !el.classList.contains('clartem-hidden')
-                       && !el.classList.contains('clartem-opening')
-                       && !(chatBtn && chatBtn.classList.contains('is-open'))) {
-                    el.classList.add('clartem-hidden');
+            var hideStyle = d.createElement('style');
+            hideStyle.id = 'clartem-brevo-hide';
+            hideStyle.textContent = '#brevo-conversations { opacity: 0 !important; transform: scale(0) !important; pointer-events: none !important; }';
+            (d.head || d.documentElement).appendChild(hideStyle);
+
+            function brevoIsHidden() {
+                return d.getElementById('clartem-brevo-hide') !== null;
+            }
+
+            function hideBrevo() {
+                if (!brevoIsHidden()) {
+                    (d.head || d.documentElement).appendChild(hideStyle);
                 }
             }
 
-            // Observer le DOM pour cacher le conteneur dès son injection
-            var observer = new MutationObserver(hideBrevoContainer);
-            function startObserving() {
-                observer.observe(d.body || d.documentElement, {
-                    childList: true,
-                    subtree: true
-                });
+            function showBrevo() {
+                var el = d.getElementById('clartem-brevo-hide');
+                if (el) el.remove();
             }
-            if (d.body) startObserving();
-            else d.addEventListener('DOMContentLoaded', startObserving);
-
-            // Fallback les premières secondes
-            var checks = 0;
-            var interval = setInterval(function() {
-                hideBrevoContainer();
-                var el = d.getElementById('brevo-conversations');
-                if ((el && el.classList.contains('clartem-hidden')) || ++checks > 50) {
-                    clearInterval(interval);
-                }
-            }, 200);
 
             // --------------------------------------------------
             // Connexion du bouton custom au chat Brevo
-            // 3 états :
-            //   clartem-hidden  = scale(0), invisible, pas de clics
-            //   clartem-opening = opacity(0), l'élément EXISTE pour que Brevo puisse ouvrir
-            //   (aucune classe) = visible, le chat est affiché
             // --------------------------------------------------
             var btn = d.getElementById('clartemChatBtn');
             var openPollTimer = null;
@@ -5766,43 +5737,36 @@
                 var brevoEl = d.getElementById('brevo-conversations');
                 if (!brevoEl) return;
 
-                var isHidden = brevoEl.classList.contains('clartem-hidden')
-                            || brevoEl.classList.contains('clartem-opening');
-
-                if (isHidden || !btn.classList.contains('is-open')) {
+                if (!btn.classList.contains('is-open')) {
                     // === OUVRIR LE CHAT ===
 
-                    // Étape 1 : passer de "hidden" à "opening"
-                    // Le conteneur existe dans le DOM (pas scale 0)
-                    // mais il est invisible (opacity 0)
-                    brevoEl.classList.remove('clartem-hidden');
-                    brevoEl.classList.add('clartem-opening');
+                    // Rendre le conteneur présent mais invisible (garder opacity 0)
+                    // En remplaçant scale(0) par juste opacity 0
+                    hideStyle.textContent = '#brevo-conversations { opacity: 0 !important; pointer-events: none !important; }';
 
-                    // Étape 2 : demander à Brevo d'ouvrir
+                    // Demander à Brevo d'ouvrir
                     try { w.BrevoConversations('openChat', true); } catch(e) {}
 
-                    // Étape 3 : poll jusqu'à ce que le chat soit ouvert
+                    // Poll : attendre que le chat soit ouvert
                     var attempts = 0;
                     var retried = false;
                     clearInterval(openPollTimer);
                     openPollTimer = setInterval(function() {
                         attempts++;
 
-                        // Réessayer une fois après 1.5s si pas encore ouvert
                         if (attempts === 30 && !retried) {
                             retried = true;
                             try { w.BrevoConversations('openChat', true); } catch(e) {}
                         }
 
                         if (brevoEl.offsetHeight > 150) {
-                            // ✅ Chat ouvert → rendre visible
-                            brevoEl.classList.remove('clartem-opening');
+                            // ✅ Chat ouvert → retirer le style = rendre visible
+                            showBrevo();
                             btn.classList.add('is-open');
                             clearInterval(openPollTimer);
                         } else if (attempts > 80) {
-                            // ❌ Échec → re-cacher
-                            brevoEl.classList.remove('clartem-opening');
-                            brevoEl.classList.add('clartem-hidden');
+                            // ❌ Échec → remettre le masquage complet
+                            hideStyle.textContent = '#brevo-conversations { opacity: 0 !important; transform: scale(0) !important; pointer-events: none !important; }';
                             btn.classList.remove('is-open');
                             clearInterval(openPollTimer);
                         }
@@ -5810,18 +5774,10 @@
 
                 } else {
                     // === FERMER LE CHAT ===
-                    // Style inline = synchrone, garanti avant le prochain paint
+                    // Réinjecter le <style> = masquage instantané et incontournable
                     clearInterval(openPollTimer);
-                    brevoEl.style.setProperty('opacity', '0', 'important');
-                    brevoEl.style.setProperty('pointer-events', 'none', 'important');
+                    hideBrevo();
                     btn.classList.remove('is-open');
-                    // Au frame suivant : passer en scale(0) et nettoyer le style inline
-                    requestAnimationFrame(function() {
-                        brevoEl.classList.remove('clartem-opening');
-                        brevoEl.classList.add('clartem-hidden');
-                        brevoEl.style.removeProperty('opacity');
-                        brevoEl.style.removeProperty('pointer-events');
-                    });
                 }
             });
 
@@ -5832,15 +5788,8 @@
                 if (!btn.classList.contains('is-open')) return;
                 try {
                     if (brevoEl.offsetWidth <= 80 && brevoEl.offsetHeight <= 80) {
-                        brevoEl.style.setProperty('opacity', '0', 'important');
-                        brevoEl.style.setProperty('pointer-events', 'none', 'important');
+                        hideBrevo();
                         btn.classList.remove('is-open');
-                        requestAnimationFrame(function() {
-                            brevoEl.classList.remove('clartem-opening');
-                            brevoEl.classList.add('clartem-hidden');
-                            brevoEl.style.removeProperty('opacity');
-                            brevoEl.style.removeProperty('pointer-events');
-                        });
                     }
                 } catch(e) {}
             }, 500);
