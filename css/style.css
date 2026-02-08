@@ -5068,12 +5068,17 @@ body.menu-open {
 /* ============================================================ */
 
 /* 1. MASQUER LE LAUNCHER BREVO PAR DÉFAUT */
-/* Cible le conteneur principal injecté par Brevo */
+/* Le conteneur Brevo ne doit PAS bloquer les clics sur la page */
 #brevo-conversations {
-    visibility: visible !important; /* Le chat reste visible */
+    pointer-events: none !important;
 }
-/* Cible spécifiquement le bouton launcher (pas la fenêtre de chat) */
-#brevo-conversations .brevo-conversations--launcher,
+/* Réactiver les clics uniquement sur la fenêtre de chat elle-même */
+#brevo-conversations iframe,
+#brevo-conversations [class*="chat-window"],
+#brevo-conversations [class*="messenger"] {
+    pointer-events: auto !important;
+}
+/* Masquer le bouton launcher Brevo */
 #brevo-conversations [class*="launcher"],
 .brevo-conversations--launcher,
 .brevo-conversations--launcher-button {
@@ -5082,7 +5087,6 @@ body.menu-open {
     opacity: 0 !important;
     width: 0 !important;
     height: 0 !important;
-    overflow: hidden !important;
     pointer-events: none !important;
 }
 
