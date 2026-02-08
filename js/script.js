@@ -2707,6 +2707,252 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // ==================================================================
+    // PREVIEW CAROUSEL – APERÇU EXTRAIT DU GUIDE
+    // ==================================================================
+    (function initPreviewCarousel() {
+        var btnDesktop = document.getElementById('preview-excerpt-btn-desktop');
+        var btnMobile = document.getElementById('preview-excerpt-btn-mobile');
+        var carousel = document.getElementById('preview-carousel');
+        if ((!btnDesktop && !btnMobile) || !carousel) return;
+
+        var backdropEl = document.getElementById('preview-carousel-backdrop');
+        var closeBtn = document.getElementById('preview-carousel-close');
+        var track = document.getElementById('preview-slides-track');
+        var slides = carousel.querySelectorAll('.preview-slide');
+        var imgs = carousel.querySelectorAll('.preview-slide-img');
+        var prevBtn = document.getElementById('preview-prev');
+        var nextBtn = document.getElementById('preview-next');
+        var dots = carousel.querySelectorAll('.preview-dot');
+        var pageText = document.getElementById('preview-current-page');
+        var zoomToggle = document.getElementById('preview-zoom-toggle');
+        var zoomIconIn = document.getElementById('preview-zoom-icon-in');
+        var zoomIconOut = document.getElementById('preview-zoom-icon-out');
+        var zoomLabel = document.getElementById('preview-zoom-label');
+
+        var currentIndex = 0;
+        var isOpen = false;
+        var isZoomed = false;
+        var touchStartX = 0;
+        var touchDeltaX = 0;
+        var isSwiping = false;
+
+        var TOTAL_SLIDES = slides.length;
+        var IS_DESKTOP = function() { return window.innerWidth >= 1024; };
+
+        // --- Navigation ---
+        function goToSlide(index) {
+            if (index < 0 || index >= TOTAL_SLIDES) return;
+            currentIndex = index;
+            track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+
+            if (pageText) pageText.textContent = currentIndex + 1;
+
+            dots.forEach(function(dot, i) {
+                dot.classList.toggle('active', i === currentIndex);
+            });
+
+            if (prevBtn) {
+                prevBtn.classList.toggle('visible', currentIndex > 0);
+                prevBtn.classList.toggle('opacity-0', currentIndex === 0);
+                prevBtn.classList.toggle('pointer-events-none', currentIndex === 0);
+            }
+            if (nextBtn) {
+                nextBtn.classList.toggle('visible', currentIndex < TOTAL_SLIDES - 1);
+                nextBtn.classList.toggle('opacity-0', currentIndex >= TOTAL_SLIDES - 1);
+                nextBtn.classList.toggle('pointer-events-none', currentIndex >= TOTAL_SLIDES - 1);
+            }
+
+            imgs.forEach(function(img, i) {
+                if (i === currentIndex) {
+                    setTimeout(function() {
+                        img.classList.add('active-slide');
+                    }, 100);
+                } else {
+                    img.classList.remove('active-slide');
+                }
+            });
+
+            // Reset scroll position of all slides when navigating
+            slides.forEach(function(slide) {
+                slide.scrollTop = 0;
+            });
+        }
+
+        // --- Zoom Toggle (Desktop) ---
+        function setZoom(zoomed) {
+            isZoomed = zoomed;
+            carousel.classList.toggle('zoom-active', isZoomed);
+
+            if (zoomIconIn) zoomIconIn.classList.toggle('hidden', isZoomed);
+            if (zoomIconOut) zoomIconOut.classList.toggle('hidden', !isZoomed);
+            if (zoomLabel) zoomLabel.textContent = isZoomed ? 'Réduire' : 'Zoomer pour lire';
+
+            // Reset scroll when unzooming
+            if (!isZoomed) {
+                slides.forEach(function(slide) {
+                    slide.scrollTop = 0;
+                });
+            }
+        }
+
+        function toggleZoom() {
+            setZoom(!isZoomed);
+        }
+
+        // --- Open ---
+        function openCarousel() {
+            if (isOpen) return;
+            isOpen = true;
+            isZoomed = false;
+            carousel.classList.remove('zoom-active');
+
+            currentIndex = 0;
+            track.style.transform = 'translateX(0)';
+
+            // Reset zoom UI
+            if (zoomIconIn) zoomIconIn.classList.remove('hidden');
+            if (zoomIconOut) zoomIconOut.classList.add('hidden');
+            if (zoomLabel) zoomLabel.textContent = 'Zoomer pour lire';
+
+            carousel.classList.remove('hidden');
+            void carousel.offsetWidth;
+
+            requestAnimationFrame(function() {
+                carousel.classList.add('preview-open');
+                goToSlide(0);
+            });
+
+            document.body.style.overflow = 'hidden';
+        }
+
+        // --- Close ---
+        function closeCarousel() {
+            if (!isOpen) return;
+
+            carousel.classList.remove('preview-open');
+            carousel.classList.remove('zoom-active');
+            carousel.classList.add('preview-closing');
+
+            setTimeout(function() {
+                carousel.classList.remove('preview-closing');
+                carousel.classList.add('hidden');
+                isOpen = false;
+                isZoomed = false;
+                document.body.style.overflow = '';
+
+                imgs.forEach(function(img) {
+                    img.classList.remove('active-slide');
+                });
+            }, 350);
+        }
+
+        // --- Event Listeners ---
+        function handleOpenClick(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            openCarousel();
+        }
+
+        if (btnDesktop) btnDesktop.addEventListener('click', handleOpenClick);
+        if (btnMobile) btnMobile.addEventListener('click', handleOpenClick);
+
+        if (closeBtn) closeBtn.addEventListener('click', closeCarousel);
+
+        if (backdropEl) {
+            backdropEl.addEventListener('click', closeCarousel);
+        }
+
+        if (prevBtn) prevBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            goToSlide(currentIndex - 1);
+        });
+
+        if (nextBtn) nextBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            goToSlide(currentIndex + 1);
+        });
+
+        // Zoom toggle button
+        if (zoomToggle) {
+            zoomToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleZoom();
+            });
+        }
+
+        // Click on image to toggle zoom (desktop only)
+        imgs.forEach(function(img) {
+            img.addEventListener('click', function(e) {
+                if (!IS_DESKTOP()) return;
+                e.stopPropagation();
+                toggleZoom();
+            });
+        });
+
+        // Dot clicks
+        dots.forEach(function(dot) {
+            dot.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var idx = parseInt(dot.getAttribute('data-index'), 10);
+                goToSlide(idx);
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (!isOpen) return;
+            if (e.key === 'Escape') closeCarousel();
+            if (e.key === 'ArrowLeft') goToSlide(currentIndex - 1);
+            if (e.key === 'ArrowRight') goToSlide(currentIndex + 1);
+        });
+
+        // --- Touch / Swipe Support ---
+        carousel.addEventListener('touchstart', function(e) {
+            if (e.touches.length !== 1) return;
+            touchStartX = e.touches[0].clientX;
+            touchDeltaX = 0;
+            isSwiping = true;
+            track.style.transition = 'none';
+        }, { passive: true });
+
+        carousel.addEventListener('touchmove', function(e) {
+            if (!isSwiping || e.touches.length !== 1) return;
+            touchDeltaX = e.touches[0].clientX - touchStartX;
+
+            var resistance = 1;
+            if ((currentIndex === 0 && touchDeltaX > 0) || (currentIndex === TOTAL_SLIDES - 1 && touchDeltaX < 0)) {
+                resistance = 0.3;
+            }
+
+            var offset = -(currentIndex * carousel.offsetWidth) + (touchDeltaX * resistance);
+            track.style.transform = 'translateX(' + offset + 'px)';
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', function() {
+            if (!isSwiping) return;
+            isSwiping = false;
+
+            track.style.transition = 'transform 0.5s ease-out';
+
+            var threshold = carousel.offsetWidth * 0.2;
+
+            if (Math.abs(touchDeltaX) > threshold) {
+                if (touchDeltaX < 0 && currentIndex < TOTAL_SLIDES - 1) {
+                    goToSlide(currentIndex + 1);
+                } else if (touchDeltaX > 0 && currentIndex > 0) {
+                    goToSlide(currentIndex - 1);
+                } else {
+                    goToSlide(currentIndex);
+                }
+            } else {
+                goToSlide(currentIndex);
+            }
+        }, { passive: true });
+
+    })();
+
+
+    // ==================================================================
     // LIGHTBOX MOCKUP – ZOOM SUR MOBILE / TABLETTE
     // ==================================================================
     (function initMockupLightbox() {

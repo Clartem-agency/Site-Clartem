@@ -4954,7 +4954,8 @@
                             <!-- Lien 1 : Contact (Style discret pour ne pas concurrencer le CTA suivant) -->
                             <p class="text-gray-400 text-sm">
                                 Pas trouvé votre réponse ? <br>
-                                <a href="/cdn-cgi/l/email-protection#c1b5aeafeca4aca0a8ad81a2ada0b3b5a4acefa2aeac" class="text-white font-semibold border-b border-warm-orange/50 pb-0.5 hover:text-warm-orange transition-colors">
+                                <a href="/cdn-cgi/l/email-protection#c1b5aeafeca4aca0a8ad81a2ada0b3b5a4acefa2aeac"
+                                    class="text-white font-semibold border-b border-warm-orange/50 pb-0.5 hover:text-warm-orange transition-colors">
                                     Écrivez-nous directement →
                                 </a>
                             </p>
@@ -5238,7 +5239,8 @@
         </div>
 
         <!-- Conteneur centré -->
-        <div class="relative w-full px-3 py-3 lg:px-4 lg:py-4 flex items-center justify-center pointer-events-none modal-scroll-container">
+        <div
+            class="relative w-full px-3 py-3 lg:px-4 lg:py-4 flex items-center justify-center pointer-events-none modal-scroll-container">
 
             <!-- La Carte Modale -->
             <!-- MODIFICATION ICI : On applique nos classes CSS personnalisées -->
@@ -5283,17 +5285,45 @@
                             role="button" tabindex="0" aria-label="Agrandir le guide">
                             <img src="assets/checklist-mockup-transparent.png" alt="Guide Offert"
                                 class="w-full h-auto drop-shadow-2xl">
-                            <!-- Indicateur zoom (mobile/tablette uniquement) — positionné en overlay centré -->
-                            <div class="mockup-zoom-hint absolute inset-0 flex items-center justify-center lg:hidden">
-                                <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/70 border border-white/25 backdrop-blur-sm text-white text-[10px] font-semibold whitespace-nowrap shadow-lg">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 opacity-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/>
+                            <!-- Indicateur zoom : petite icône discrète en coin sur mobile -->
+                            <div class="absolute top-1 right-1 flex items-center justify-center lg:hidden">
+                                <div
+                                    class="p-1.5 rounded-full bg-black/50 border border-white/20 backdrop-blur-sm text-white shadow-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 opacity-80" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
                                     </svg>
-                                    Agrandir
                                 </div>
                             </div>
                         </div>
+
+                        <!-- BADGE APERÇU EXTRAIT — VERSION DESKTOP (dans la zone visuelle) -->
+                        <button id="preview-excerpt-btn-desktop"
+                            class="preview-excerpt-badge preview-excerpt-desktop hidden lg:flex absolute z-30 bottom-6 left-1/2 -translate-x-1/2 items-center gap-2 px-4 py-2.5 rounded-full text-white text-xs font-semibold whitespace-nowrap shadow-xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95"
+                            aria-label="Voir un extrait du guide"
+                            style="background: linear-gradient(135deg, #F97316 0%, #EA580C 100%); border: 1px solid rgba(255,255,255,0.2);">
+
+                            <span>Voir un extrait</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 opacity-70 flex-shrink-0"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
                     </div>
+
+                    <!-- BADGE APERÇU EXTRAIT — VERSION MOBILE (barre entre visuel et contenu) -->
+                    <button id="preview-excerpt-btn-mobile"
+                        class="preview-excerpt-mobile lg:hidden w-full flex items-center justify-center gap-2 py-2 px-4 text-white text-[11px] font-semibold cursor-pointer transition-all duration-300 active:scale-[0.98] shrink-0"
+                        aria-label="Voir un extrait du guide"
+                        style="background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);">
+
+                        <span>👁 Voir un extrait du guide</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 opacity-60 flex-shrink-0" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
 
                     <!-- PARTIE 2 : CONTENU & FORMULAIRE -->
                     <div class="lg:col-span-7 p-5 lg:p-10 flex flex-col justify-center bg-[#1E293B]">
@@ -5626,7 +5656,8 @@
 
 
     <!-- Custom JS -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/script.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="js/script.js"></script>
 
 
 
@@ -5651,24 +5682,143 @@
 
 
     <!-- ======================================================= -->
+    <!-- PREVIEW CAROUSEL (Aperçu extrait du guide)             -->
+    <!-- ======================================================= -->
+    <div id="preview-carousel" class="fixed inset-0 z-[10000] hidden" role="dialog" aria-modal="true"
+        aria-label="Aperçu du guide">
+
+        <!-- Fond sombre -->
+        <div id="preview-carousel-backdrop"
+            class="absolute inset-0 bg-black/95 backdrop-blur-xl opacity-0 transition-opacity duration-400"></div>
+
+        <!-- Header bar -->
+        <div class="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-3 lg:px-8 lg:py-4">
+            <!-- Page indicator -->
+            <div id="preview-page-indicator"
+                class="flex items-center gap-2 text-white/80 text-xs lg:text-sm font-medium">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 opacity-60" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                <span>Point <span id="preview-current-page">1</span> / 2</span>
+            </div>
+            <!-- Zoom + Close buttons -->
+            <div class="flex items-center gap-2">
+                <!-- Zoom toggle (desktop only) -->
+                <button id="preview-zoom-toggle"
+                    class="hidden lg:flex items-center gap-1.5 text-gray-300 hover:text-white transition-all px-3 py-2 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-sm text-xs font-medium"
+                    aria-label="Zoomer pour lire">
+                    <svg id="preview-zoom-icon-in" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                    </svg>
+                    <svg id="preview-zoom-icon-out" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 hidden"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM13 10H7" />
+                    </svg>
+                    <span id="preview-zoom-label">Zoomer pour lire</span>
+                </button>
+                <!-- Close button -->
+                <button id="preview-carousel-close"
+                    class="text-gray-300 hover:text-white transition-colors p-2.5 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-6 lg:w-6" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Slides container -->
+        <div id="preview-slides-outer" class="absolute inset-0 flex items-center justify-center z-10 overflow-hidden">
+            <div id="preview-slides-track" class="flex transition-transform duration-500 ease-out h-full w-full">
+                <!-- Slide 1 -->
+                <div
+                    class="preview-slide flex-shrink-0 w-full h-full flex items-center justify-center p-4 pt-14 pb-20 lg:p-16 lg:pt-16 lg:pb-20">
+                    <div class="preview-slide-scroll-wrapper">
+                        <img src="assets/preview-point-1.png"
+                            alt="Point 1 – Le Message : Une promesse qui rassure immédiatement"
+                            class="preview-slide-img max-h-full max-w-full object-contain rounded-lg shadow-2xl opacity-0 translate-y-6 transition-all duration-500">
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div
+                    class="preview-slide flex-shrink-0 w-full h-full flex items-center justify-center p-4 pt-14 pb-20 lg:p-16 lg:pt-16 lg:pb-20">
+                    <div class="preview-slide-scroll-wrapper">
+                        <img src="assets/preview-point-2.png" alt="Point 2 – L'Action : L'invitation à l'action (CTA)"
+                            class="preview-slide-img max-h-full max-w-full object-contain rounded-lg shadow-2xl opacity-0 translate-y-6 transition-all duration-500">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation arrows -->
+        <button id="preview-prev"
+            class="preview-nav-arrow absolute left-2 lg:left-6 top-1/2 -translate-y-1/2 z-50 p-2.5 lg:p-3 rounded-full bg-white/10 hover:bg-white/20 text-white/60 hover:text-white transition-all duration-300 backdrop-blur-sm opacity-0 pointer-events-none"
+            aria-label="Page précédente">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-6 lg:w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <button id="preview-next"
+            class="preview-nav-arrow absolute right-2 lg:right-6 top-1/2 -translate-y-1/2 z-50 p-2.5 lg:p-3 rounded-full bg-white/10 hover:bg-white/20 text-white/60 hover:text-white transition-all duration-300 backdrop-blur-sm"
+            aria-label="Page suivante">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-6 lg:w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+
+        <!-- Bottom bar: dots + CTA -->
+        <div class="absolute bottom-0 left-0 right-0 z-50 flex flex-col items-center gap-3 px-4 pb-5 lg:pb-6">
+            <!-- Dots -->
+            <div id="preview-dots" class="flex items-center gap-2.5">
+                <button
+                    class="preview-dot w-2.5 h-2.5 rounded-full bg-warm-orange transition-all duration-300 shadow-lg shadow-orange-500/30"
+                    data-index="0" aria-label="Point 1"></button>
+                <button
+                    class="preview-dot w-2.5 h-2.5 rounded-full bg-white/30 hover:bg-white/50 transition-all duration-300"
+                    data-index="1" aria-label="Point 2"></button>
+            </div>
+            <!-- Teaser text -->
+            <p class="text-gray-400 text-[11px] lg:text-xs text-center max-w-xs">
+                Ceci est un aperçu — <strong class="text-warm-orange">5 autres points</strong> vous attendent dans le
+                guide complet.
+            </p>
+        </div>
+    </div>
+
+
+    <!-- ======================================================= -->
     <!-- LIGHTBOX MOCKUP (mobile / tablette uniquement)          -->
     <!-- ======================================================= -->
-    <div id="mockup-lightbox" class="fixed inset-0 z-[9999] hidden items-center justify-center" role="dialog" aria-modal="true" aria-label="Guide agrandi">
+    <div id="mockup-lightbox" class="fixed inset-0 z-[9999] hidden items-center justify-center" role="dialog"
+        aria-modal="true" aria-label="Guide agrandi">
         <!-- Fond sombre -->
-        <div id="mockup-lightbox-backdrop" class="absolute inset-0 bg-black/90 backdrop-blur-md opacity-0 transition-opacity duration-300"></div>
+        <div id="mockup-lightbox-backdrop"
+            class="absolute inset-0 bg-black/90 backdrop-blur-md opacity-0 transition-opacity duration-300"></div>
         <!-- Bouton fermer -->
         <button id="mockup-lightbox-close"
             class="absolute top-4 right-4 z-50 text-gray-300 hover:text-white transition-colors p-2.5 bg-black/50 hover:bg-black/70 rounded-full backdrop-blur-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
         </button>
         <!-- Image agrandie -->
-        <div class="relative z-10 w-[80vw] max-w-md transform scale-90 opacity-0 transition-all duration-300" id="mockup-lightbox-img">
-            <img src="assets/checklist-mockup-transparent.png" alt="Guide Offert – Vue agrandie" class="w-full h-auto drop-shadow-[0_0_40px_rgba(255,140,50,0.3)]">
+        <div class="relative z-10 w-[80vw] max-w-md transform scale-90 opacity-0 transition-all duration-300"
+            id="mockup-lightbox-img">
+            <img src="assets/checklist-mockup-transparent.png" alt="Guide Offert – Vue agrandie"
+                class="w-full h-auto drop-shadow-[0_0_40px_rgba(255,140,50,0.3)]">
         </div>
         <!-- Indication en bas -->
-        <p class="absolute bottom-6 left-1/2 -translate-x-1/2 text-gray-400 text-xs z-10 opacity-0 transition-opacity duration-300 delay-200" id="mockup-lightbox-hint">Appuyez n'importe où pour fermer</p>
+        <p class="absolute bottom-6 left-1/2 -translate-x-1/2 text-gray-400 text-xs z-10 opacity-0 transition-opacity duration-300 delay-200"
+            id="mockup-lightbox-hint">Appuyez n'importe où pour fermer</p>
     </div>
 
 </body> <!-- Fin du corps principal </body> -->

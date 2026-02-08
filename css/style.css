@@ -4846,6 +4846,189 @@ body.menu-open {
     50% { opacity: 1; transform: scale(1.08); }
 }
 
+/* ======================================================= */
+/*    BADGE APERÇU EXTRAIT (Sur le mockup de la modale)   */
+/* ======================================================= */
+
+/* --- Desktop: badge pill sur le visuel --- */
+.preview-excerpt-desktop {
+    animation: badgePulseGlow 3s ease-in-out infinite;
+}
+
+.preview-excerpt-desktop::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #F97316, #EA580C, #F97316);
+    z-index: -1;
+    opacity: 0;
+    filter: blur(8px);
+    transition: opacity 0.3s ease;
+}
+
+.preview-excerpt-desktop:hover::before {
+    opacity: 0.6;
+}
+
+@keyframes badgePulseGlow {
+    0%, 100% { box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3); }
+    50% { box-shadow: 0 4px 25px rgba(249, 115, 22, 0.5), 0 0 40px rgba(249, 115, 22, 0.15); }
+}
+
+/* En mode clavier mobile, cacher le badge desktop */
+.keyboard-open .preview-excerpt-desktop {
+    display: none !important;
+}
+
+/* --- Mobile: barre pleine largeur entre visuel et contenu --- */
+.preview-excerpt-mobile {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* En mode clavier, cacher la barre mobile aussi */
+.keyboard-open .preview-excerpt-mobile {
+    display: none !important;
+}
+
+/* ======================================================= */
+/*    PREVIEW CAROUSEL (Aperçu extrait du guide)          */
+/* ======================================================= */
+
+/* Ouverture */
+#preview-carousel.preview-open #preview-carousel-backdrop {
+    opacity: 1;
+}
+
+#preview-carousel.preview-open .preview-slide-img.active-slide {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fermeture */
+#preview-carousel.preview-closing #preview-carousel-backdrop {
+    opacity: 0;
+    transition: opacity 0.35s ease-out;
+}
+
+#preview-carousel.preview-closing .preview-slide-img {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+    transition: all 0.3s ease-out;
+}
+
+/* Navigation arrows - visible state */
+.preview-nav-arrow.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Dots */
+.preview-dot {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.preview-dot.active {
+    background-color: #F97316;
+    transform: scale(1.2);
+    box-shadow: 0 0 12px rgba(249, 115, 22, 0.4);
+}
+
+.preview-dot:not(.active) {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.preview-dot:not(.active):hover {
+    background-color: rgba(255, 255, 255, 0.45);
+}
+
+/* Touch feedback on mobile */
+@media (max-width: 1023px) {
+    .preview-nav-arrow {
+        padding: 12px;
+    }
+    .preview-nav-arrow:active {
+        transform: translateY(-50%) scale(0.9);
+    }
+}
+
+
+/* --- Scroll wrapper (normal = centered, zoomed = scrollable) --- */
+.preview-slide-scroll-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transition: all 0.4s ease;
+}
+
+/* --- ZOOM MODE (desktop) --- */
+#preview-carousel.zoom-active #preview-slides-outer {
+    align-items: flex-start;
+}
+
+#preview-carousel.zoom-active .preview-slide {
+    align-items: flex-start;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+#preview-carousel.zoom-active .preview-slide-scroll-wrapper {
+    align-items: flex-start;
+    justify-content: center;
+    height: auto;
+    min-height: 100%;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+#preview-carousel.zoom-active .preview-slide-img {
+    max-height: none;
+    max-width: none;
+    width: 680px;
+    height: auto;
+    cursor: zoom-out;
+    transition: all 0.4s ease;
+}
+
+/* Quand pas zoomé, clic = zoom in (desktop seulement) */
+@media (min-width: 1024px) {
+    #preview-carousel:not(.zoom-active) .preview-slide-img {
+        cursor: zoom-in;
+    }
+}
+
+/* Custom scrollbar pour le mode zoom */
+#preview-carousel.zoom-active .preview-slide::-webkit-scrollbar {
+    width: 6px;
+}
+
+#preview-carousel.zoom-active .preview-slide::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#preview-carousel.zoom-active .preview-slide::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 99px;
+}
+
+#preview-carousel.zoom-active .preview-slide::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+/* Hint indicator fade for zoom */
+#preview-carousel.zoom-active .preview-nav-arrow {
+    opacity: 0.4;
+}
+#preview-carousel.zoom-active .preview-nav-arrow:hover {
+    opacity: 1;
+}
+
+
 /* Lightbox ouverte */
 #mockup-lightbox.lightbox-visible {
     display: flex !important;
