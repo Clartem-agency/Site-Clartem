@@ -108,6 +108,20 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Critical : Masquer le launcher Brevo -->
+    <style>
+        /* État fermé : réduit à zéro, instantané, GPU-acceleré */
+        #brevo-conversations.clartem-hidden {
+            transform: scale(0) !important;
+            pointer-events: none !important;
+        }
+        /* État transitoire pendant l'ouverture : présent mais invisible */
+        #brevo-conversations.clartem-opening {
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+    </style>
 </head>
 
 
@@ -5662,21 +5676,178 @@
 
 
     <!-- ======================================================= -->
-    <!--          CHATBREVO                              -->
+    <!--          CHATBREVO + BOUTON CUSTOM CLARTEM              -->
     <!-- ======================================================= -->
+
+    <!-- Bouton custom Clartem (remplace le launcher Brevo) -->
+    <button class="clartem-chat-btn" id="clartemChatBtn" aria-label="Ouvrir le chat">
+        <span class="clartem-chat-btn__glow"></span>
+        <span class="clartem-chat-btn__disc">
+            <svg class="clartem-chat-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                <circle cx="9.5" cy="12" r="0.8" fill="currentColor" stroke="none" class="clartem-dot clartem-dot--1"/>
+                <circle cx="12" cy="12" r="0.8" fill="currentColor" stroke="none" class="clartem-dot clartem-dot--2"/>
+                <circle cx="14.5" cy="12" r="0.8" fill="currentColor" stroke="none" class="clartem-dot clartem-dot--3"/>
+            </svg>
+            <svg class="clartem-chat-btn__icon--close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </span>
+        <span class="clartem-chat-btn__badge"></span>
+        <span class="clartem-chat-btn__tooltip clartem-chat-btn__tooltip--auto">Une question ?</span>
+    </button>
+
+    <!-- Script Brevo + connexion au bouton custom -->
     <script>
-            (function (d, w, c) {
-                w.BrevoConversationsID = '688afd5eb78a71119e0a4e37';
-                w[c] = w[c] || function () {
-                    (w[c].q = w[c].q || []).push(arguments);
-                };
-                var s = d.createElement('script');
-                s.async = true;
-                s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
-                if (d.head) d.head.appendChild(s);
-            })(document, window, 'BrevoConversations');
+        (function (d, w, c) {
+            w.BrevoConversationsID = '688afd5eb78a71119e0a4e37';
+            w[c] = w[c] || function () {
+                (w[c].q = w[c].q || []).push(arguments);
+            };
+
+            var s = d.createElement('script');
+            s.async = true;
+            s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
+            if (d.head) d.head.appendChild(s);
+
+            // --------------------------------------------------
+            // Stratégie simple :
+            // Le launcher Brevo est dans une iframe INSIDE #brevo-conversations
+            // Ce div fait 60x60 quand fermé → on le cache avec une classe
+            // Quand on ouvre le chat → on retire la classe → Brevo affiche le chat
+            // Quand on ferme → on remet la classe
+            // --------------------------------------------------
+
+            // Ajouter la classe "clartem-hidden" dès que #brevo-conversations apparaît
+            // (mais pas si on est en train d'ouvrir ou si le chat est affiché)
+            function hideBrevoContainer() {
+                var el = d.getElementById('brevo-conversations');
+                var chatBtn = d.getElementById('clartemChatBtn');
+                if (el && !el.classList.contains('clartem-hidden')
+                       && !el.classList.contains('clartem-opening')
+                       && !(chatBtn && chatBtn.classList.contains('is-open'))) {
+                    el.classList.add('clartem-hidden');
+                }
+            }
+
+            // Observer le DOM pour cacher le conteneur dès son injection
+            var observer = new MutationObserver(hideBrevoContainer);
+            function startObserving() {
+                observer.observe(d.body || d.documentElement, {
+                    childList: true,
+                    subtree: true
+                });
+            }
+            if (d.body) startObserving();
+            else d.addEventListener('DOMContentLoaded', startObserving);
+
+            // Fallback les premières secondes
+            var checks = 0;
+            var interval = setInterval(function() {
+                hideBrevoContainer();
+                var el = d.getElementById('brevo-conversations');
+                if ((el && el.classList.contains('clartem-hidden')) || ++checks > 50) {
+                    clearInterval(interval);
+                }
+            }, 200);
+
+            // --------------------------------------------------
+            // Connexion du bouton custom au chat Brevo
+            // 3 états :
+            //   clartem-hidden  = scale(0), invisible, pas de clics
+            //   clartem-opening = opacity(0), l'élément EXISTE pour que Brevo puisse ouvrir
+            //   (aucune classe) = visible, le chat est affiché
+            // --------------------------------------------------
+            var btn = d.getElementById('clartemChatBtn');
+            var openPollTimer = null;
+
+            btn.addEventListener('click', function() {
+                var brevoEl = d.getElementById('brevo-conversations');
+                if (!brevoEl) return;
+
+                var isHidden = brevoEl.classList.contains('clartem-hidden')
+                            || brevoEl.classList.contains('clartem-opening');
+
+                if (isHidden || !btn.classList.contains('is-open')) {
+                    // === OUVRIR LE CHAT ===
+
+                    // Étape 1 : passer de "hidden" à "opening"
+                    // Le conteneur existe dans le DOM (pas scale 0)
+                    // mais il est invisible (opacity 0)
+                    brevoEl.classList.remove('clartem-hidden');
+                    brevoEl.classList.add('clartem-opening');
+
+                    // Étape 2 : demander à Brevo d'ouvrir
+                    try { w.BrevoConversations('openChat', true); } catch(e) {}
+
+                    // Étape 3 : poll jusqu'à ce que le chat soit ouvert
+                    var attempts = 0;
+                    var retried = false;
+                    clearInterval(openPollTimer);
+                    openPollTimer = setInterval(function() {
+                        attempts++;
+
+                        // Réessayer une fois après 1.5s si pas encore ouvert
+                        if (attempts === 30 && !retried) {
+                            retried = true;
+                            try { w.BrevoConversations('openChat', true); } catch(e) {}
+                        }
+
+                        if (brevoEl.offsetHeight > 150) {
+                            // ✅ Chat ouvert → rendre visible
+                            brevoEl.classList.remove('clartem-opening');
+                            btn.classList.add('is-open');
+                            clearInterval(openPollTimer);
+                        } else if (attempts > 80) {
+                            // ❌ Échec → re-cacher
+                            brevoEl.classList.remove('clartem-opening');
+                            brevoEl.classList.add('clartem-hidden');
+                            btn.classList.remove('is-open');
+                            clearInterval(openPollTimer);
+                        }
+                    }, 50);
+
+                } else {
+                    // === FERMER LE CHAT ===
+                    // Style inline = synchrone, garanti avant le prochain paint
+                    clearInterval(openPollTimer);
+                    brevoEl.style.setProperty('opacity', '0', 'important');
+                    brevoEl.style.setProperty('pointer-events', 'none', 'important');
+                    btn.classList.remove('is-open');
+                    // Au frame suivant : passer en scale(0) et nettoyer le style inline
+                    requestAnimationFrame(function() {
+                        brevoEl.classList.remove('clartem-opening');
+                        brevoEl.classList.add('clartem-hidden');
+                        brevoEl.style.removeProperty('opacity');
+                        brevoEl.style.removeProperty('pointer-events');
+                    });
+                }
+            });
+
+            // Sync : si l'utilisateur ferme le chat depuis le widget Brevo
+            setInterval(function() {
+                var brevoEl = d.getElementById('brevo-conversations');
+                if (!brevoEl) return;
+                if (!btn.classList.contains('is-open')) return;
+                try {
+                    if (brevoEl.offsetWidth <= 80 && brevoEl.offsetHeight <= 80) {
+                        brevoEl.style.setProperty('opacity', '0', 'important');
+                        brevoEl.style.setProperty('pointer-events', 'none', 'important');
+                        btn.classList.remove('is-open');
+                        requestAnimationFrame(function() {
+                            brevoEl.classList.remove('clartem-opening');
+                            brevoEl.classList.add('clartem-hidden');
+                            brevoEl.style.removeProperty('opacity');
+                            brevoEl.style.removeProperty('pointer-events');
+                        });
+                    }
+                } catch(e) {}
+            }, 500);
+
+        })(document, window, 'BrevoConversations');
     </script>
-    <!-- Fin Chat Brevo  -->
+    <!-- Fin Chat Brevo + Bouton Custom -->
 
 
 
