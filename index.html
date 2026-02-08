@@ -108,6 +108,20 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Critical : Masquer le launcher Brevo avant le chargement du widget -->
+    <style>
+        .brevo-conversations--launcher,
+        .brevo-conversations--launcher-button,
+        #brevo-conversations [class*="launcher"] {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            width: 0 !important;
+            height: 0 !important;
+            pointer-events: none !important;
+        }
+    </style>
 </head>
 
 
@@ -5691,62 +5705,131 @@
             w[c] = w[c] || function () {
                 (w[c].q = w[c].q || []).push(arguments);
             };
+
+            // API officielle Brevo : masquer le launcher AVANT le chargement
+            w[c]('hideLauncher');
+
             var s = d.createElement('script');
             s.async = true;
             s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
             if (d.head) d.head.appendChild(s);
 
-            // Connexion du bouton custom au widget Brevo
-            s.onload = function() {
-                var btn = d.getElementById('clartemChatBtn');
-                var isOpen = false;
-
-                // Masquer le launcher par défaut de Brevo (CSS + sécurité JS)
-                var hideBrevoLauncher = function() {
-                    var launchers = d.querySelectorAll(
-                        '.brevo-conversations--launcher-button, [class*="brevo-conversations"] button'
-                    );
-                    launchers.forEach(function(el) {
-                        el.style.opacity = '0';
-                        el.style.pointerEvents = 'none';
-                        el.style.width = '0';
-                        el.style.height = '0';
-                    });
-                };
-
-                // Observer les mutations du DOM pour masquer le launcher Brevo
-                var observer = new MutationObserver(function() {
-                    hideBrevoLauncher();
+            // --------------------------------------------------
+            // Fonction qui masque le launcher Brevo (DOM + iframes)
+            // --------------------------------------------------
+            function nukeBrevoLauncher() {
+                // 1) Cibler les éléments DOM classiques
+                var selectors = [
+                    '.brevo-conversations--launcher',
+                    '.brevo-conversations--launcher-button',
+                    '#brevo-conversations [class*="launcher"]',
+                    '[class*="brevo"][class*="launcher"]'
+                ];
+                selectors.forEach(function(sel) {
+                    try {
+                        d.querySelectorAll(sel).forEach(function(el) {
+                            el.style.setProperty('display', 'none', 'important');
+                        });
+                    } catch(e) {}
                 });
-                observer.observe(d.body, { childList: true, subtree: true });
 
-                // Clic sur le bouton custom -> ouvre/ferme le chat Brevo
-                btn.addEventListener('click', function() {
-                    if (!isOpen) {
-                        w.BrevoConversations('openChat', true);
-                        btn.classList.add('is-open');
-                        isOpen = true;
-                    } else {
-                        w.BrevoConversations('closeChat');
-                        btn.classList.remove('is-open');
-                        isOpen = false;
+                // 2) Cibler les iframes Brevo qui contiennent le launcher
+                d.querySelectorAll('iframe').forEach(function(iframe) {
+                    var src = (iframe.src || '').toLowerCase();
+                    var title = (iframe.title || '').toLowerCase();
+                    var id = (iframe.id || '').toLowerCase();
+                    var cls = (iframe.className || '').toLowerCase();
+
+                    var isBrevo = src.indexOf('brevo') > -1 ||
+                                  title.indexOf('brevo') > -1 ||
+                                  id.indexOf('brevo') > -1 ||
+                                  cls.indexOf('brevo') > -1;
+
+                    if (!isBrevo) return;
+
+                    // Si c'est un petit iframe (le launcher, ~60x60) → masquer
+                    var rect = iframe.getBoundingClientRect();
+                    if (rect.width > 0 && rect.width <= 100 && rect.height > 0 && rect.height <= 100) {
+                        iframe.style.setProperty('display', 'none', 'important');
+                        // Masquer aussi le parent direct (souvent un wrapper div)
+                        if (iframe.parentElement) {
+                            iframe.parentElement.style.setProperty('display', 'none', 'important');
+                        }
                     }
                 });
 
-                // Synchroniser l'état si l'utilisateur ferme le chat côté widget
-                setInterval(function() {
-                    try {
-                        var chatFrame = d.querySelector('iframe[title*="chat"], iframe[title*="Brevo"], iframe[title*="brevo"]');
-                        if (chatFrame) {
-                            var isVisible = chatFrame.offsetHeight > 100;
-                            if (!isVisible && isOpen) {
-                                btn.classList.remove('is-open');
-                                isOpen = false;
-                            }
+                // 3) Chercher le conteneur #brevo-conversations et masquer son launcher
+                var container = d.getElementById('brevo-conversations');
+                if (container) {
+                    // Parcourir les enfants directs : le launcher est souvent le dernier div
+                    Array.from(container.children).forEach(function(child) {
+                        var rect = child.getBoundingClientRect();
+                        // Le launcher est un petit élément fixé (~60px)
+                        // La fenêtre de chat est bien plus grande (>300px)
+                        if (rect.width > 0 && rect.width <= 100 && rect.height <= 100) {
+                            child.style.setProperty('display', 'none', 'important');
                         }
-                    } catch(e) {}
-                }, 500);
-            };
+                    });
+                }
+            }
+
+            // Observer le DOM pour réagir dès que Brevo injecte son launcher
+            var observer = new MutationObserver(nukeBrevoLauncher);
+            function startObserving() {
+                observer.observe(d.body || d.documentElement, {
+                    childList: true,
+                    subtree: true
+                });
+            }
+            if (d.body) startObserving();
+            else d.addEventListener('DOMContentLoaded', startObserving);
+
+            // Fallback : vérifier régulièrement les 15 premières secondes
+            var checks = 0;
+            var interval = setInterval(function() {
+                nukeBrevoLauncher();
+                // Aussi rappeler l'API officielle au cas où
+                try { w.BrevoConversations('hideLauncher'); } catch(e) {}
+                if (++checks > 75) clearInterval(interval);
+            }, 200);
+
+            // --------------------------------------------------
+            // Connexion du bouton custom au chat Brevo
+            // --------------------------------------------------
+            var btn = d.getElementById('clartemChatBtn');
+            var isOpen = false;
+
+            btn.addEventListener('click', function() {
+                if (!isOpen) {
+                    w.BrevoConversations('openChat', true);
+                    btn.classList.add('is-open');
+                    isOpen = true;
+                } else {
+                    w.BrevoConversations('closeChat');
+                    btn.classList.remove('is-open');
+                    isOpen = false;
+                }
+            });
+
+            // Sync : si l'utilisateur ferme le chat depuis le widget lui-même
+            setInterval(function() {
+                try {
+                    var frames = d.querySelectorAll('iframe');
+                    var chatVisible = false;
+                    frames.forEach(function(f) {
+                        var src = (f.src || '').toLowerCase();
+                        var title = (f.title || '').toLowerCase();
+                        if ((src.indexOf('brevo') > -1 || title.indexOf('brevo') > -1) && f.offsetHeight > 200) {
+                            chatVisible = true;
+                        }
+                    });
+                    if (!chatVisible && isOpen) {
+                        btn.classList.remove('is-open');
+                        isOpen = false;
+                    }
+                } catch(e) {}
+            }, 500);
+
         })(document, window, 'BrevoConversations');
     </script>
     <!-- Fin Chat Brevo + Bouton Custom -->
