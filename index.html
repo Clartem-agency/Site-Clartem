@@ -109,11 +109,15 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- Critical : Masquer le launcher Brevo (le conteneur 60x60) -->
+    <!-- Critical : Masquer le launcher Brevo -->
     <style>
-        /* PAS de transition : le masquage doit être instantané */
+        /* État fermé : réduit à zéro, instantané, GPU-acceleré */
         #brevo-conversations.clartem-hidden {
-            clip-path: inset(100%) !important;
+            transform: scale(0) !important;
+            pointer-events: none !important;
+        }
+        /* État transitoire pendant l'ouverture : présent mais invisible */
+        #brevo-conversations.clartem-opening {
             opacity: 0 !important;
             pointer-events: none !important;
         }
@@ -5716,9 +5720,13 @@
             // --------------------------------------------------
 
             // Ajouter la classe "clartem-hidden" dès que #brevo-conversations apparaît
+            // (mais pas si on est en train d'ouvrir ou si le chat est affiché)
             function hideBrevoContainer() {
                 var el = d.getElementById('brevo-conversations');
-                if (el && !el.classList.contains('clartem-hidden')) {
+                var chatBtn = d.getElementById('clartemChatBtn');
+                if (el && !el.classList.contains('clartem-hidden')
+                       && !el.classList.contains('clartem-opening')
+                       && !(chatBtn && chatBtn.classList.contains('is-open'))) {
                     el.classList.add('clartem-hidden');
                 }
             }
@@ -5738,68 +5746,88 @@
             var checks = 0;
             var interval = setInterval(function() {
                 hideBrevoContainer();
-                if (++checks > 50) clearInterval(interval);
+                var el = d.getElementById('brevo-conversations');
+                if ((el && el.classList.contains('clartem-hidden')) || ++checks > 50) {
+                    clearInterval(interval);
+                }
             }, 200);
 
             // --------------------------------------------------
             // Connexion du bouton custom au chat Brevo
+            // 3 états :
+            //   clartem-hidden  = scale(0), invisible, pas de clics
+            //   clartem-opening = opacity(0), l'élément EXISTE pour que Brevo puisse ouvrir
+            //   (aucune classe) = visible, le chat est affiché
             // --------------------------------------------------
             var btn = d.getElementById('clartemChatBtn');
-            var isOpen = false;
             var openPollTimer = null;
 
             btn.addEventListener('click', function() {
                 var brevoEl = d.getElementById('brevo-conversations');
+                if (!brevoEl) return;
 
-                if (!isOpen) {
-                    // Tenter d'ouvrir le chat
+                var isHidden = brevoEl.classList.contains('clartem-hidden')
+                            || brevoEl.classList.contains('clartem-opening');
+
+                if (isHidden || !btn.classList.contains('is-open')) {
+                    // === OUVRIR LE CHAT ===
+
+                    // Étape 1 : passer de "hidden" à "opening"
+                    // Le conteneur existe dans le DOM (pas scale 0)
+                    // mais il est invisible (opacity 0)
+                    brevoEl.classList.remove('clartem-hidden');
+                    brevoEl.classList.add('clartem-opening');
+
+                    // Étape 2 : demander à Brevo d'ouvrir
                     try { w.BrevoConversations('openChat', true); } catch(e) {}
 
-                    // Poll : vérifier si le chat s'est réellement ouvert
+                    // Étape 3 : poll jusqu'à ce que le chat soit ouvert
                     var attempts = 0;
                     var retried = false;
                     clearInterval(openPollTimer);
                     openPollTimer = setInterval(function() {
                         attempts++;
 
-                        // Si après 1.5s toujours pas ouvert, réessayer UNE fois
+                        // Réessayer une fois après 1.5s si pas encore ouvert
                         if (attempts === 30 && !retried) {
                             retried = true;
                             try { w.BrevoConversations('openChat', true); } catch(e) {}
                         }
 
-                        if (brevoEl && brevoEl.offsetHeight > 150) {
+                        if (brevoEl.offsetHeight > 150) {
                             // ✅ Chat ouvert → rendre visible
-                            brevoEl.classList.remove('clartem-hidden');
+                            brevoEl.classList.remove('clartem-opening');
                             btn.classList.add('is-open');
-                            isOpen = true;
                             clearInterval(openPollTimer);
                         } else if (attempts > 80) {
-                            // ❌ Après 4 secondes, abandon
+                            // ❌ Échec → re-cacher
+                            brevoEl.classList.remove('clartem-opening');
+                            brevoEl.classList.add('clartem-hidden');
                             btn.classList.remove('is-open');
-                            isOpen = false;
                             clearInterval(openPollTimer);
                         }
                     }, 50);
+
                 } else {
-                    // Fermer : simplement re-cacher le conteneur Brevo
-                    // (pas de closeChat — cette méthode n'existe pas dans l'API Brevo)
+                    // === FERMER LE CHAT ===
+                    // Passer directement en "hidden" (scale 0 = instantané)
                     clearInterval(openPollTimer);
-                    if (brevoEl) brevoEl.classList.add('clartem-hidden');
+                    brevoEl.classList.remove('clartem-opening');
+                    brevoEl.classList.add('clartem-hidden');
                     btn.classList.remove('is-open');
-                    isOpen = false;
                 }
             });
 
             // Sync : si l'utilisateur ferme le chat depuis le widget Brevo
             setInterval(function() {
                 var brevoEl = d.getElementById('brevo-conversations');
-                if (!brevoEl || !isOpen) return;
+                if (!brevoEl) return;
+                if (!btn.classList.contains('is-open')) return;
                 try {
                     if (brevoEl.offsetWidth <= 80 && brevoEl.offsetHeight <= 80) {
+                        brevoEl.classList.remove('clartem-opening');
                         brevoEl.classList.add('clartem-hidden');
                         btn.classList.remove('is-open');
-                        isOpen = false;
                     }
                 } catch(e) {}
             }, 500);
