@@ -114,19 +114,17 @@
         #brevo-conversations {
             pointer-events: none !important;
         }
-        #brevo-conversations iframe,
-        #brevo-conversations [class*="chat-window"],
-        #brevo-conversations [class*="messenger"] {
+        #brevo-conversations > * {
             pointer-events: auto !important;
         }
         .brevo-conversations--launcher,
         .brevo-conversations--launcher-button,
         #brevo-conversations [class*="launcher"] {
-            display: none !important;
-            visibility: hidden !important;
             opacity: 0 !important;
+            visibility: hidden !important;
             width: 0 !important;
             height: 0 !important;
+            overflow: hidden !important;
             pointer-events: none !important;
         }
     </style>
@@ -5720,38 +5718,43 @@
             if (d.head) d.head.appendChild(s);
 
             // --------------------------------------------------
-            // Fonction qui masque le launcher Brevo (DOM + iframes)
+            // Fonction qui masque visuellement le launcher Brevo
+            // IMPORTANT : on utilise opacity/visibility, PAS display:none
+            // car Brevo a besoin que les éléments existent dans le DOM
+            // pour que openChat/closeChat fonctionnent.
             // --------------------------------------------------
             function nukeBrevoLauncher() {
-                // 0) Empêcher le conteneur Brevo de bloquer les clics sur la page
+                // Empêcher le conteneur Brevo de bloquer les clics
                 var container = d.getElementById('brevo-conversations');
                 if (container) {
                     container.style.setProperty('pointer-events', 'none', 'important');
-                    // Réactiver les clics sur les iframes de chat (pas le launcher)
-                    container.querySelectorAll('iframe').forEach(function(f) {
-                        var rect = f.getBoundingClientRect();
-                        if (rect.height > 200) {
-                            f.style.setProperty('pointer-events', 'auto', 'important');
-                        }
+                    // Réactiver les clics sur les éléments enfants utiles
+                    Array.from(container.children).forEach(function(child) {
+                        child.style.setProperty('pointer-events', 'auto', 'important');
                     });
                 }
 
-                // 1) Cibler les éléments DOM classiques
+                // Masquer visuellement le launcher (sans display:none !)
                 var selectors = [
                     '.brevo-conversations--launcher',
                     '.brevo-conversations--launcher-button',
-                    '#brevo-conversations [class*="launcher"]',
-                    '[class*="brevo"][class*="launcher"]'
+                    '#brevo-conversations [class*="launcher"]'
                 ];
                 selectors.forEach(function(sel) {
                     try {
                         d.querySelectorAll(sel).forEach(function(el) {
-                            el.style.setProperty('display', 'none', 'important');
+                            el.style.setProperty('opacity', '0', 'important');
+                            el.style.setProperty('visibility', 'hidden', 'important');
+                            el.style.setProperty('width', '0', 'important');
+                            el.style.setProperty('height', '0', 'important');
+                            el.style.setProperty('overflow', 'hidden', 'important');
+                            el.style.setProperty('pointer-events', 'none', 'important');
                         });
                     } catch(e) {}
                 });
 
-                // 2) Cibler les iframes Brevo qui contiennent le launcher
+                // Masquer l'iframe du launcher Brevo (la petite ~60px)
+                // mais NE PAS toucher au parent ni utiliser display:none
                 d.querySelectorAll('iframe').forEach(function(iframe) {
                     var src = (iframe.src || '').toLowerCase();
                     var title = (iframe.title || '').toLowerCase();
@@ -5765,14 +5768,16 @@
 
                     if (!isBrevo) return;
 
-                    // Si c'est un petit iframe (le launcher, ~60x60) → masquer
                     var rect = iframe.getBoundingClientRect();
+                    // Petit iframe = launcher → masquer visuellement
                     if (rect.width > 0 && rect.width <= 100 && rect.height > 0 && rect.height <= 100) {
-                        iframe.style.setProperty('display', 'none', 'important');
-                        // Masquer aussi le parent direct (souvent un wrapper div)
-                        if (iframe.parentElement) {
-                            iframe.parentElement.style.setProperty('display', 'none', 'important');
-                        }
+                        iframe.style.setProperty('opacity', '0', 'important');
+                        iframe.style.setProperty('pointer-events', 'none', 'important');
+                    }
+                    // Grand iframe = fenêtre de chat → laisser les clics
+                    if (rect.height > 200) {
+                        iframe.style.setProperty('pointer-events', 'auto', 'important');
+                        iframe.style.removeProperty('opacity');
                     }
                 });
             }
@@ -5802,14 +5807,34 @@
             var isOpen = false;
 
             btn.addEventListener('click', function() {
-                if (!isOpen) {
-                    w.BrevoConversations('openChat', true);
-                    btn.classList.add('is-open');
-                    isOpen = true;
-                } else {
-                    w.BrevoConversations('closeChat');
-                    btn.classList.remove('is-open');
-                    isOpen = false;
+                try {
+                    if (!isOpen) {
+                        // Tenter d'ouvrir le chat
+                        w.BrevoConversations('openChat', true);
+                        btn.classList.add('is-open');
+                        isOpen = true;
+
+                        // Après ouverture, réactiver pointer-events sur les iframes de chat
+                        setTimeout(function() {
+                            d.querySelectorAll('iframe').forEach(function(f) {
+                                var src = (f.src || '').toLowerCase();
+                                var title = (f.title || '').toLowerCase();
+                                var isBrevo = src.indexOf('brevo') > -1 || title.indexOf('brevo') > -1;
+                                if (isBrevo && f.offsetHeight > 100) {
+                                    f.style.setProperty('pointer-events', 'auto', 'important');
+                                    if (f.parentElement) {
+                                        f.parentElement.style.setProperty('pointer-events', 'auto', 'important');
+                                    }
+                                }
+                            });
+                        }, 300);
+                    } else {
+                        w.BrevoConversations('closeChat');
+                        btn.classList.remove('is-open');
+                        isOpen = false;
+                    }
+                } catch(e) {
+                    console.warn('Brevo chat non prêt :', e);
                 }
             });
 
