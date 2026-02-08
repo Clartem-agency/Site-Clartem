@@ -111,11 +111,7 @@
 
     <!-- Critical : Masquer le launcher Brevo (le conteneur 60x60) -->
     <style>
-        /* Transition douce pour éviter les flashs */
-        #brevo-conversations {
-            transition: clip-path 0.15s ease, opacity 0.15s ease;
-        }
-        /* Quand le chat est fermé, on cache tout le conteneur Brevo */
+        /* PAS de transition : le masquage doit être instantané */
         #brevo-conversations.clartem-hidden {
             clip-path: inset(100%) !important;
             opacity: 0 !important;
@@ -5756,31 +5752,41 @@
                 var brevoEl = d.getElementById('brevo-conversations');
 
                 if (!isOpen) {
-                    // Appeler openChat (peut échouer silencieusement si pas prêt)
+                    // Appeler openChat
                     try { w.BrevoConversations('openChat', true); } catch(e) {}
 
-                    // Vérifier toutes les 50ms si le chat s'est RÉELLEMENT ouvert
-                    // (le conteneur passe de ~60px à >300px quand le chat s'ouvre)
+                    // Poll : vérifier si le chat s'est ouvert
+                    // ET réessayer openChat toutes les 500ms au cas où Brevo
+                    // n'était pas encore prêt au premier appel
                     var attempts = 0;
                     clearInterval(openPollTimer);
                     openPollTimer = setInterval(function() {
                         attempts++;
+
+                        // Réessayer openChat toutes les 500ms (toutes les 10 itérations)
+                        if (attempts % 10 === 0) {
+                            try { w.BrevoConversations('openChat', true); } catch(e) {}
+                        }
+
                         if (brevoEl && brevoEl.offsetHeight > 150) {
                             // ✅ Le chat est ouvert → rendre visible
                             brevoEl.classList.remove('clartem-hidden');
                             btn.classList.add('is-open');
                             isOpen = true;
                             clearInterval(openPollTimer);
-                        } else if (attempts > 40) {
-                            // ❌ Après 2 secondes, ça n'a pas marché → reset
+                        } else if (attempts > 100) {
+                            // ❌ Après 5 secondes, abandon → reset
                             btn.classList.remove('is-open');
+                            isOpen = false;
                             clearInterval(openPollTimer);
                         }
                     }, 50);
                 } else {
-                    // Fermer : d'abord cacher, puis appeler closeChat
+                    // Fermer : cacher INSTANTANÉMENT puis appeler closeChat
                     clearInterval(openPollTimer);
-                    if (brevoEl) brevoEl.classList.add('clartem-hidden');
+                    if (brevoEl) {
+                        brevoEl.classList.add('clartem-hidden');
+                    }
                     try { w.BrevoConversations('closeChat'); } catch(e) {}
                     btn.classList.remove('is-open');
                     isOpen = false;
