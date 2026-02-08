@@ -5810,14 +5810,17 @@
 
                 } else {
                     // === FERMER LE CHAT ===
-                    // Étape 1 : opacity 0 immédiatement (masque tout instantanément)
+                    // Style inline = synchrone, garanti avant le prochain paint
                     clearInterval(openPollTimer);
-                    brevoEl.classList.add('clartem-opening');
+                    brevoEl.style.setProperty('opacity', '0', 'important');
+                    brevoEl.style.setProperty('pointer-events', 'none', 'important');
                     btn.classList.remove('is-open');
-                    // Étape 2 : au frame suivant, passer en scale(0)
+                    // Au frame suivant : passer en scale(0) et nettoyer le style inline
                     requestAnimationFrame(function() {
                         brevoEl.classList.remove('clartem-opening');
                         brevoEl.classList.add('clartem-hidden');
+                        brevoEl.style.removeProperty('opacity');
+                        brevoEl.style.removeProperty('pointer-events');
                     });
                 }
             });
@@ -5829,11 +5832,14 @@
                 if (!btn.classList.contains('is-open')) return;
                 try {
                     if (brevoEl.offsetWidth <= 80 && brevoEl.offsetHeight <= 80) {
-                        brevoEl.classList.add('clartem-opening');
+                        brevoEl.style.setProperty('opacity', '0', 'important');
+                        brevoEl.style.setProperty('pointer-events', 'none', 'important');
                         btn.classList.remove('is-open');
                         requestAnimationFrame(function() {
                             brevoEl.classList.remove('clartem-opening');
                             brevoEl.classList.add('clartem-hidden');
+                            brevoEl.style.removeProperty('opacity');
+                            brevoEl.style.removeProperty('pointer-events');
                         });
                     }
                 } catch(e) {}
