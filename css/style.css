@@ -5068,14 +5068,35 @@ body.menu-open {
 /* ============================================================ */
 
 /* 1. MASQUER LE LAUNCHER BREVO PAR DÉFAUT */
-#brevo-conversations .brevo-conversations--launcher-button,
+/* Ciblage ultra-agressif de tous les éléments possibles du launcher Brevo */
+#brevo-conversations,
+div[id*="brevo-conversations"],
+div[class*="brevo-conversations"],
+.brevo-conversations--launcher,
 .brevo-conversations--launcher-button,
-div[class*="brevo-conversations"] button[class*="launcher"] {
+div[class*="brevo-conversations"] button,
+div[class*="brevo-conversations"] > div:last-child,
+div[style*="z-index"][style*="position: fixed"][style*="bottom"] {
+    /* Ne pas masquer le chat lui-même, seulement le launcher */
+}
+
+/* Le launcher spécifiquement (le rond avec l'icône bulle) */
+#brevo-conversations .brevo-conversations--launcher,
+.brevo-conversations--launcher,
+div[class*="brevo"] > div[class*="launcher"],
+div[id*="brevo"] > div[class*="launcher"],
+div[class*="brevo-conversations--launcher"] {
+    display: none !important;
     opacity: 0 !important;
+    visibility: hidden !important;
     pointer-events: none !important;
     width: 0 !important;
     height: 0 !important;
+    max-width: 0 !important;
+    max-height: 0 !important;
     overflow: hidden !important;
+    position: absolute !important;
+    left: -9999px !important;
 }
 
 /* 2. BOUTON CUSTOM — CONTENEUR */
