@@ -109,22 +109,20 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- Critical : Masquer le launcher Brevo et empêcher le blocage des clics -->
+    <!-- Critical : Masquer le launcher Brevo (clip-path résiste aux styles inline) -->
     <style>
-        #brevo-conversations {
-            pointer-events: none !important;
-        }
-        #brevo-conversations > * {
-            pointer-events: auto !important;
-        }
+        #brevo-conversations { pointer-events: none !important; }
+        #brevo-conversations > * { pointer-events: auto !important; }
         .brevo-conversations--launcher,
         .brevo-conversations--launcher-button,
         #brevo-conversations [class*="launcher"] {
-            opacity: 0 !important;
-            visibility: hidden !important;
-            width: 0 !important;
-            height: 0 !important;
+            clip-path: inset(100%) !important;
+            clip: rect(0,0,0,0) !important;
             overflow: hidden !important;
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            margin: -1px !important;
             pointer-events: none !important;
         }
     </style>
@@ -5718,87 +5716,57 @@
             if (d.head) d.head.appendChild(s);
 
             // --------------------------------------------------
-            // Fonction qui masque visuellement le launcher Brevo
-            // IMPORTANT : on utilise opacity/visibility, PAS display:none
-            // car Brevo a besoin que les éléments existent dans le DOM
-            // pour que openChat/closeChat fonctionnent.
+            // Masquer le launcher Brevo de manière indestructible
+            // On injecte un <style> dynamique avec clip-path
+            // que Brevo ne peut pas écraser via des styles inline
             // --------------------------------------------------
-            function nukeBrevoLauncher() {
-                // Empêcher le conteneur Brevo de bloquer les clics
-                var container = d.getElementById('brevo-conversations');
-                if (container) {
-                    container.style.setProperty('pointer-events', 'none', 'important');
-                    // Réactiver les clics sur les éléments enfants utiles
-                    Array.from(container.children).forEach(function(child) {
-                        child.style.setProperty('pointer-events', 'auto', 'important');
-                    });
+            var styleEl = d.createElement('style');
+            styleEl.id = 'clartem-brevo-override';
+            styleEl.textContent = [
+                '#brevo-conversations { pointer-events: none !important; }',
+                '#brevo-conversations > * { pointer-events: auto !important; }',
+                // clip-path NE PEUT PAS être écrasé par un style inline
+                // car Brevo ne manipule jamais cette propriété
+                '.brevo-conversations--launcher,',
+                '#brevo-conversations [class*="launcher"],',
+                '[class*="brevo"][class*="launcher"] {',
+                '  clip-path: inset(100%) !important;',
+                '  clip: rect(0,0,0,0) !important;',
+                '  overflow: hidden !important;',
+                '  position: absolute !important;',
+                '  white-space: nowrap !important;',
+                '  width: 1px !important;',
+                '  height: 1px !important;',
+                '  margin: -1px !important;',
+                '  padding: 0 !important;',
+                '  border: 0 !important;',
+                '  pointer-events: none !important;',
+                '}'
+            ].join('\n');
+
+            function ensureStyleExists() {
+                if (!d.getElementById('clartem-brevo-override')) {
+                    (d.head || d.documentElement).appendChild(styleEl);
                 }
-
-                // Masquer visuellement le launcher (sans display:none !)
-                var selectors = [
-                    '.brevo-conversations--launcher',
-                    '.brevo-conversations--launcher-button',
-                    '#brevo-conversations [class*="launcher"]'
-                ];
-                selectors.forEach(function(sel) {
-                    try {
-                        d.querySelectorAll(sel).forEach(function(el) {
-                            el.style.setProperty('opacity', '0', 'important');
-                            el.style.setProperty('visibility', 'hidden', 'important');
-                            el.style.setProperty('width', '0', 'important');
-                            el.style.setProperty('height', '0', 'important');
-                            el.style.setProperty('overflow', 'hidden', 'important');
-                            el.style.setProperty('pointer-events', 'none', 'important');
-                        });
-                    } catch(e) {}
-                });
-
-                // Masquer l'iframe du launcher Brevo (la petite ~60px)
-                // mais NE PAS toucher au parent ni utiliser display:none
-                d.querySelectorAll('iframe').forEach(function(iframe) {
-                    var src = (iframe.src || '').toLowerCase();
-                    var title = (iframe.title || '').toLowerCase();
-                    var id = (iframe.id || '').toLowerCase();
-                    var cls = (iframe.className || '').toLowerCase();
-
-                    var isBrevo = src.indexOf('brevo') > -1 ||
-                                  title.indexOf('brevo') > -1 ||
-                                  id.indexOf('brevo') > -1 ||
-                                  cls.indexOf('brevo') > -1;
-
-                    if (!isBrevo) return;
-
-                    var rect = iframe.getBoundingClientRect();
-                    // Petit iframe = launcher → masquer visuellement
-                    if (rect.width > 0 && rect.width <= 100 && rect.height > 0 && rect.height <= 100) {
-                        iframe.style.setProperty('opacity', '0', 'important');
-                        iframe.style.setProperty('pointer-events', 'none', 'important');
-                    }
-                    // Grand iframe = fenêtre de chat → laisser les clics
-                    if (rect.height > 200) {
-                        iframe.style.setProperty('pointer-events', 'auto', 'important');
-                        iframe.style.removeProperty('opacity');
-                    }
-                });
             }
+            ensureStyleExists();
 
-            // Observer le DOM pour réagir dès que Brevo injecte son launcher
-            var observer = new MutationObserver(nukeBrevoLauncher);
+            // Observer qui réinjecte le style si Brevo le supprime
+            // et surveille aussi les changements d'attributs (styles inline)
+            var observer = new MutationObserver(function() {
+                ensureStyleExists();
+            });
+
             function startObserving() {
                 observer.observe(d.body || d.documentElement, {
                     childList: true,
-                    subtree: true
+                    subtree: true,
+                    attributes: true,
+                    attributeFilter: ['style', 'class']
                 });
             }
             if (d.body) startObserving();
             else d.addEventListener('DOMContentLoaded', startObserving);
-
-            // Fallback : vérifier régulièrement les 15 premières secondes
-            var checks = 0;
-            var interval = setInterval(function() {
-                nukeBrevoLauncher();
-                if (++checks > 75) clearInterval(interval);
-            }, 200);
 
             // --------------------------------------------------
             // Connexion du bouton custom au chat Brevo
