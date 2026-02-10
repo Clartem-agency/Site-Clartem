@@ -2271,6 +2271,109 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
 
+        // --- TYPING EFFECT (Sous-titre) ---
+        const matrixSubtitle = document.getElementById('matrix-subtitle');
+        if (matrixSubtitle) {
+            const subtitleText = "Il est temps de déprogrammer le standard pour révéler votre essence.";
+            let charIndex = 0;
+            let typingStarted = false;
+            let typingDone = false;
+
+            function startTyping() {
+                if (typingStarted) return;
+                typingStarted = true;
+
+                // Add cursor
+                matrixSubtitle.innerHTML = '<span class="typing-cursor"></span>';
+
+                function typeChar() {
+                    if (charIndex < subtitleText.length) {
+                        // Remove cursor, add char, re-add cursor
+                        const cursor = matrixSubtitle.querySelector('.typing-cursor');
+                        if (cursor) cursor.remove();
+
+                        matrixSubtitle.innerHTML = subtitleText.substring(0, charIndex + 1) + '<span class="typing-cursor"></span>';
+                        charIndex++;
+
+                        // Variable speed: pause longer on punctuation
+                        const currentChar = subtitleText[charIndex - 1];
+                        let delay = 35 + Math.random() * 25;
+                        if (currentChar === '.' || currentChar === ',') delay = 200;
+                        if (currentChar === ' ') delay = 50;
+
+                        setTimeout(typeChar, delay);
+                    } else {
+                        typingDone = true;
+                        // Remove cursor after 2s
+                        setTimeout(() => {
+                            const cursor = matrixSubtitle.querySelector('.typing-cursor');
+                            if (cursor) cursor.style.opacity = '0';
+                        }, 2000);
+                    }
+                }
+
+                // Small initial delay
+                setTimeout(typeChar, 600);
+            }
+
+            // Start typing when section enters viewport
+            const typingObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        startTyping();
+                        typingObserver.disconnect();
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            typingObserver.observe(tunnelSection);
+        }
+
+
+        // --- PARALLAX SOURIS (Profondeur) ---
+        const matrixBadge = document.getElementById('matrix-badge');
+        const matrixH2 = darkContent ? darkContent.querySelector('h2') : null;
+        const matrixScrollHint = darkContent ? darkContent.querySelector('.animate-bounce') : null;
+
+        if (darkContent) {
+            let mouseX = 0, mouseY = 0;
+            let currentX = 0, currentY = 0;
+
+            window.addEventListener('mousemove', (e) => {
+                // Normalize mouse position to -1...1
+                mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+                mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+            });
+
+            function animateParallax() {
+                // Smooth interpolation
+                currentX += (mouseX - currentX) * 0.06;
+                currentY += (mouseY - currentY) * 0.06;
+
+                // Only apply when dark content is visible (scrollProgress < 0.4)
+                if (scrollProgress < 0.35) {
+                    // Different layers move at different speeds
+                    if (matrixBadge) {
+                        matrixBadge.style.transform = `translate(${currentX * 8}px, ${currentY * 5}px)`;
+                    }
+                    if (matrixH2) {
+                        matrixH2.style.transform = `translate(${currentX * -4}px, ${currentY * -3}px)`;
+                    }
+                    if (matrixSubtitle) {
+                        matrixSubtitle.style.transform = `translate(${currentX * 6}px, ${currentY * 4}px)`;
+                    }
+                    if (matrixScrollHint) {
+                        matrixScrollHint.style.transform = `translate(${currentX * -10}px, ${currentY * -6}px)`;
+                    }
+                }
+
+                requestAnimationFrame(animateParallax);
+            }
+
+            animateParallax();
+        }
+
+
         // --- GESTION DU SCROLL (TRANSITIONS DOM) ---
         function handleTunnelScroll() {
             const rect = tunnelSection.getBoundingClientRect();
