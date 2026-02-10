@@ -32,32 +32,78 @@
 
 /* Application de la police au terminal */
 #matrix-typewriter {
-    font-family: 'VT323', monospace;
-    font-size: 1.1rem;
-    /* TAILLE RÉDUITE POUR MOBILE (était 1.5rem) */
-    line-height: 1.4;
-    letter-spacing: 0.5px;
-    /* Espacement réduit légèrement */
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.875rem;
+    /* TAILLE RÉDUITE POUR MOBILE */
+    line-height: 1.65;
+    letter-spacing: 0.3px;
 }
 
-/* Version Desktop : On peut agrandir un peu, mais on reste raisonnable */
+/* Version Desktop : taille raffinée */
 @media (min-width: 768px) {
     #matrix-typewriter {
-        font-size: 1.4rem;
+        font-size: 0.95rem;
     }
 }
 
-/* PAR DÉFAUT : Lueur blanche légère (style écran cathodique standard) */
+/* PAR DÉFAUT : Lueur cathodique très subtile */
 #matrix-typewriter div,
 #matrix-typewriter span {
-    text-shadow: 0 0 2px rgba(255, 255, 255, 0.4);
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.15);
 }
 
 /* CLASSE SPÉCIALE : Lueur Verte Matrix (uniquement pour les textes choisis) */
 .matrix-green-glow {
     color: #10b981 !important;
     /* Emerald 500 */
-    text-shadow: 0 0 5px rgba(16, 185, 129, 0.8), 0 0 10px rgba(16, 185, 129, 0.4) !important;
+    text-shadow: 0 0 6px rgba(16, 185, 129, 0.6), 0 0 12px rgba(16, 185, 129, 0.25) !important;
+}
+
+/* Style "Toc, toc" — bruit système, pas du dialogue */
+.t-dim {
+    color: rgba(148,163,184,0.25) !important;
+    font-size: 0.7em !important;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-style: normal !important;
+}
+
+/* Style "Qui est là ?" — réponse visiteur, distincte du système */
+.t-user {
+    padding-left: 14px !important;
+    position: relative;
+    color: rgba(255,255,255,0.5) !important;
+    font-weight: 300 !important;
+    font-style: italic;
+}
+.t-user::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: rgba(148,163,184,0.35);
+    font-style: normal;
+    font-weight: 400;
+}
+
+/* Label "stdin" discret au-dessus de la ligne utilisateur */
+.user-label {
+    display: block;
+    font-size: 0.6rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(148,163,184,0.3);
+    margin-bottom: 2px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+/* Glow qui respire autour du terminal */
+.terminal-glow-breathe {
+    animation: terminal-glow-breathe 6s ease-in-out infinite;
+}
+@keyframes terminal-glow-breathe {
+    0%, 100% { opacity: 0.3; filter: blur(4px); }
+    50% { opacity: 0.55; filter: blur(8px); }
 }
 
 
@@ -3738,9 +3784,8 @@ body.modal-body-lock {
 }
 
 /* Police Monospace élégante pour le terminal */
-/* Si vous pouvez, ajoutez @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap'); en haut du CSS */
 #matrix-typewriter {
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-family: 'Source Code Pro', 'Fira Code', monospace;
 }
 
 /* Classes utilitaires pour les lignes du terminal */
