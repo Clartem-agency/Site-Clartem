@@ -4311,6 +4311,75 @@ body.modal-body-lock {
     transition: filter 0.5s ease;
 }
 
+/* ====== LIGHT CONTENT - LOGO PULSE ====== */
+.light-logo-pulse {
+    animation: logo-heartbeat 3s ease-in-out infinite;
+}
+
+@keyframes logo-heartbeat {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), 0 0 60px rgba(59, 130, 246, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(59, 130, 246, 0.5), 0 0 80px rgba(59, 130, 246, 0.2), 0 0 120px rgba(59, 130, 246, 0.05);
+    }
+}
+
+/* ====== CERCLES CONCENTRIQUES (ONDES) ====== */
+.light-ring {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.light-ring-1 {
+    width: 120px;
+    height: 120px;
+    animation: ring-expand 3s ease-out 0.3s infinite;
+}
+.light-ring-2 {
+    width: 120px;
+    height: 120px;
+    animation: ring-expand 3s ease-out 1.3s infinite;
+}
+.light-ring-3 {
+    width: 120px;
+    height: 120px;
+    animation: ring-expand 3s ease-out 2.3s infinite;
+}
+
+@keyframes ring-expand {
+    0% {
+        width: 80px;
+        height: 80px;
+        opacity: 0.5;
+        border-width: 2px;
+    }
+    100% {
+        width: 280px;
+        height: 280px;
+        opacity: 0;
+        border-width: 1px;
+    }
+}
+
+/* ====== BADGE MIROIR LIGHT ====== */
+#light-badge-check {
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+#light-badge-check.revealed {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
+/* ====== LIGHT WORD SPACING ====== */
+.light-word {
+    margin-right: 0.3em;
+}
+.light-word.revealed {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
 
 
 
