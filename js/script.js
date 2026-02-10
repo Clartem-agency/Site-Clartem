@@ -1795,27 +1795,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Lignes 2 & 3 : Gris clair (Code standard)
             { text: "Le système t'a menti.", class: "text-gray-300", speed: 50 },
-            { text: "On t'a dit de devenir un technicien.", class: "text-gray-300", speed: 40 },
+            { text: "On t'a dit que la technique suffisait.", class: "text-gray-300", speed: 40 },
 
             // Ligne 4 : Toujours blanc/gris
             { text: "Mais tes clients ne cherchent pas un algorithme...", class: "text-gray-300", speed: 40 },
 
-            // Ligne 5 : Impact fort (Blanc brillant ou Garder blanc pour la sobriété)
-            // Je le mets en blanc très brillant pour l'impact, sans le vert.
-            { text: "ILS CHERCHENT TON ÂME.", class: "text-white font-bold block mt-2", speed: 80 },
+            // Ligne 5 : Impact fort
+            { text: "ILS TE CHERCHENT, TOI.", class: "text-white font-bold block mt-2", speed: 80 },
 
-            // Pause narrative
-            { text: "Toc, toc.", class: "text-gray-500 text-sm mt-6 block italic", speed: 150 },
+            // Pause narrative — style bruit système
+            { text: "Toc, toc.", class: "t-dim mt-6 block", speed: 150 },
 
             // --- SIMULATION UTILISATEUR ---
-            // Reste blanc/gris pour simuler l'entrée utilisateur
-            { text: "Qui est là ?", class: "text-white font-bold mt-2 block", speed: 100, isUser: true },
+            { text: "Qui est là ?", class: "t-user mt-2 block", speed: 100, isUser: true },
 
             // --- REPONSE ---
             { text: "La Clarté.", class: "text-white font-bold text-lg mt-4 block", speed: 60 },
 
             // --- LE SEUL ÉLÉMENT VERT (L'APPEL À L'ACTION) ---
-            // On utilise la classe CSS personnalisée 'matrix-green-glow' créée à l'étape 2
             { text: "Suis le lapin blanc ↓", class: "matrix-green-glow animate-pulse mt-4 block font-bold tracking-wider", speed: 50 }
         ];
 
@@ -1861,7 +1858,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 let variance = Math.random() * 30;
 
                 if (charIdx < currentLine.text.length) {
-                    setTimeout(typeMatrix, baseSpeed + variance);
+                    // Pause dramatique après une virgule (ex: "CHERCHENT, TOI.")
+                    const extraComma = (charToAdd === ',') ? 500 : 0;
+                    setTimeout(typeMatrix, baseSpeed + variance + extraComma);
                 } else {
                     // FIN DE LA LIGNE
                     lineIdx++;
@@ -1884,12 +1883,13 @@ document.addEventListener('DOMContentLoaded', function () {
             const divWrapper = document.createElement('div');
             divWrapper.className = lineData.class; // Applique les classes (margin, couleur...)
 
-            // Si c'est l'utilisateur, on ajoute le prompt "> "
+            // Si c'est l'utilisateur, on ajoute le label "stdin" et le prompt
             if (lineData.isUser) {
-                const promptSpan = document.createElement('span');
-                promptSpan.className = "text-gray-500 mr-2";
-                promptSpan.textContent = "> ";
-                divWrapper.appendChild(promptSpan);
+                // Label discret au-dessus
+                const labelSpan = document.createElement('span');
+                labelSpan.className = "user-label";
+                labelSpan.textContent = "stdin";
+                divWrapper.appendChild(labelSpan);
             }
 
             // Création du SPAN qui contiendra le texte (pour que le curseur soit à côté)
