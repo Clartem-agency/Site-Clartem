@@ -2505,20 +2505,108 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // --- FONCTIONS D'AFFICHAGE ---
 
-        // Afficher le Teaser (Le petit cadeau)
+        let shelfTimer = null; // Timer pour ranger le teaser sur mobile
+        const SHELF_DELAY = 3500; // 3.5 secondes avant de ranger
+        let teaserVisible = false; // Le teaser est-il affiché (pas hidden) ?
+        let teaserDeployed = false; // Le teaser est-il déployé (pas shelved) ?
+
+        // Déployer le teaser (visible en entier)
+        const deployTeaser = () => {
+            if (!teaserBtn || !teaserVisible) return;
+            teaserBtn.classList.remove('teaser-shelved', 'teaser-enter');
+            teaserBtn.classList.add('teaser-deployed');
+            teaserDeployed = true;
+
+            // Sur mobile : lancer le timer pour ranger
+            if (isMobileDevice()) {
+                clearTimeout(shelfTimer);
+                shelfTimer = setTimeout(shelfTeaser, SHELF_DELAY);
+            }
+        };
+
+        // Ranger le teaser (peek : seul un bout dépasse) — mobile uniquement
+        const shelfTeaser = () => {
+            if (!teaserBtn || !teaserVisible || !isMobileDevice()) return;
+            teaserBtn.classList.remove('teaser-deployed', 'teaser-enter');
+            teaserBtn.classList.add('teaser-shelved');
+            teaserDeployed = false;
+        };
+
+        // Afficher le Teaser (Le petit cadeau) — appelé la première fois
         const showTeaser = () => {
             if (teaserBtn) {
                 teaserBtn.classList.remove('hidden');
                 teaserBtn.classList.add('teaser-enter');
+                teaserVisible = true;
+
+                // Après l'animation d'entrée (0.8s), retirer teaser-enter
+                // pour laisser les classes deployed/shelved gérer le transform
+                setTimeout(() => {
+                    teaserBtn.classList.remove('teaser-enter');
+                    teaserBtn.classList.add('teaser-deployed');
+                }, 850);
+
+                // Sur mobile : ranger après le délai
+                if (isMobileDevice()) {
+                    teaserDeployed = true;
+                    clearTimeout(shelfTimer);
+                    shelfTimer = setTimeout(shelfTeaser, SHELF_DELAY + 850); // +850 pour attendre la fin de l'entrée
+                } else {
+                    teaserDeployed = true;
+                }
+
+                // Activer l'écoute du scroll pour mobile peek/shelf
+                initMobileShelfScroll();
             }
         };
 
-        // Cacher le Teaser
+        // Cacher le Teaser (quand popup s'ouvre)
         const hideTeaser = () => {
             if (teaserBtn) {
                 teaserBtn.classList.add('hidden');
-                teaserBtn.classList.remove('teaser-enter');
+                teaserBtn.classList.remove('teaser-enter', 'teaser-deployed', 'teaser-shelved');
+                teaserVisible = false;
+                teaserDeployed = false;
+                clearTimeout(shelfTimer);
             }
+        };
+
+        // --- SCROLL PEEK/SHELF MOBILE ---
+        let mobileShelfScrollInited = false;
+        const initMobileShelfScroll = () => {
+            if (mobileShelfScrollInited) return;
+            mobileShelfScrollInited = true;
+
+            let scrollTimeout = null;
+
+            window.addEventListener('scroll', () => {
+                if (!teaserVisible || isPopupOpen) return;
+
+                // Sur mobile uniquement : déployer au scroll
+                if (isMobileDevice()) {
+                    if (!teaserDeployed) {
+                        deployTeaser();
+                    }
+                    // Reset le timer à chaque scroll
+                    clearTimeout(shelfTimer);
+                    clearTimeout(scrollTimeout);
+                    // Quand le scroll s'arrête, lancer le délai avant de ranger
+                    scrollTimeout = setTimeout(() => {
+                        shelfTimer = setTimeout(shelfTeaser, SHELF_DELAY);
+                    }, 150); // 150ms debounce pour détecter l'arrêt du scroll
+                }
+            }, { passive: true });
+
+            // Si on passe de mobile à desktop (rotation, resize), unshelve
+            window.addEventListener('resize', () => {
+                if (!teaserVisible) return;
+                if (!isMobileDevice() && teaserBtn.classList.contains('teaser-shelved')) {
+                    teaserBtn.classList.remove('teaser-shelved');
+                    teaserBtn.classList.add('teaser-deployed');
+                    teaserDeployed = true;
+                    clearTimeout(shelfTimer);
+                }
+            });
         };
 
         // --- GESTION CLAVIER MOBILE POUR LA MODALE ---
@@ -2698,6 +2786,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (teaserBtn) {
             teaserBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
+                // Sur mobile, si le teaser est rangé, on le déploie d'abord au lieu d'ouvrir la popup
+                if (isMobileDevice() && !teaserDeployed) {
+                    deployTeaser();
+                    return;
+                }
                 openPopup();
             });
         }

@@ -5483,93 +5483,224 @@
     <!-- TEASER LEAD MAGNET (CADEAU PREMIUM 2.0)                 -->
     <!-- ======================================================= -->
     <div id="lead-magnet-teaser"
-        class="fixed bottom-4 left-6 z-[90] hidden cursor-pointer group w-24 h-24 flex items-end justify-center perspective-500">
+        class="fixed bottom-4 left-4 z-[90] hidden cursor-pointer group w-[72px] h-[72px] flex items-end justify-center perspective-500 transition-transform duration-500 ease-out">
 
-        <!-- L'ILLUSTRATION SVG AMÉLIORÉE -->
-        <svg width="100" height="110" viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg"
-            class="overflow-visible drop-shadow-2xl">
+        <!-- L'ILLUSTRATION SVG PREMIUM 3D -->
+        <svg width="72" height="80" viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="overflow-visible filter drop-shadow-[0_8px_20px_rgba(249,115,22,0.3)]">
 
             <!-- Groupe global pour l'animation de saut -->
             <g class="gift-anim-container origin-bottom">
 
-                <!-- Ombre au sol (Reste identique) -->
-                <ellipse cx="50" cy="100" rx="30" ry="5" fill="black" fill-opacity="0.3"
+                <!-- OMBRE AU SOL multi-couche realiste -->
+                <ellipse cx="50" cy="102" rx="32" ry="5" fill="black" fill-opacity="0.15"
+                    class="gift-shadow-anim origin-center" />
+                <ellipse cx="50" cy="102" rx="22" ry="3.5" fill="black" fill-opacity="0.2"
                     class="gift-shadow-anim origin-center" />
 
-                <!-- BOÎTE (CORPS) -->
-                <!-- Fond avec dégradé riche -->
-                <rect x="20" y="45" width="60" height="50" rx="4" fill="url(#boxGradient)" />
+                <!-- ===================== -->
+                <!-- BOITE (CORPS 3D)      -->
+                <!-- ===================== -->
 
-                <!-- Ombre interne en haut pour simuler le creux sous le couvercle -->
-                <rect x="20" y="45" width="60" height="10" rx="4" fill="black" fill-opacity="0.1" />
+                <!-- Face avant principale -->
+                <rect x="20" y="48" width="60" height="47" rx="3" fill="url(#boxFrontGrad)" />
 
-                <!-- Ruban Vertical (Corps) - Effet Doré -->
-                <rect x="45" y="45" width="10" height="50" fill="url(#ribbonGold)" />
+                <!-- Face droite (perspective 3D) -->
+                <path d="M80 48 L86 43 L86 90 L80 95" fill="url(#boxSideGrad)" />
 
-                <!-- LUEUR MAGIQUE (Derrière le couvercle, apparaît au saut) -->
+                <!-- Face du dessous (perspective 3D subtile) -->
+                <path d="M20 95 L80 95 L86 90 L26 90" fill="#7C2D12" opacity="0.6" />
+
+                <!-- Reflet speculaire haut-gauche (eclat de lumiere) -->
+                <rect x="22" y="49" width="28" height="18" rx="2" fill="url(#specularHighlight)" />
+
+                <!-- Ombre interne sous le couvercle (ambient occlusion) -->
+                <rect x="20" y="48" width="60" height="8" rx="3" fill="url(#aoShadow)" />
+
+                <!-- Ruban Vertical (Corps) — Effet Satin dore -->
+                <rect x="45" y="48" width="10" height="47" fill="url(#ribbonSatin)" />
+                <!-- Ruban cote droit -->
+                <path d="M55 48 L58 45 L58 92 L55 95" fill="url(#ribbonSatinSide)" />
+
+                <!-- Arete lumineuse bord gauche -->
+                <line x1="20" y1="48" x2="20" y2="95" stroke="white" stroke-opacity="0.15" stroke-width="1" />
+
+                <!-- LUEUR MAGIQUE (Derriere le couvercle, apparait au saut) -->
                 <g class="gift-glow-anim">
-                    <ellipse cx="50" cy="45" rx="25" ry="5" fill="#FDE047" filter="url(#glowFilter)" opacity="0.8" />
+                    <ellipse cx="50" cy="46" rx="30" ry="6" fill="#FDE047" filter="url(#glowFilter)" opacity="0.9" />
+                    <ellipse cx="50" cy="46" rx="15" ry="3" fill="white" filter="url(#glowFilter)" opacity="0.4" />
                 </g>
 
-                <!-- LE COUVERCLE (Animé séparément) -->
+                <!-- ===================== -->
+                <!-- LE COUVERCLE 3D       -->
+                <!-- ===================== -->
                 <g class="gift-lid-anim origin-bottom">
-                    <!-- Base du couvercle (Plus sombre pour le contraste) -->
-                    <rect x="16" y="35" width="68" height="14" rx="3" fill="url(#lidGradient)"
-                        stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+                    <!-- Face avant couvercle -->
+                    <rect x="16" y="36" width="68" height="14" rx="2.5" fill="url(#lidFrontGrad)" />
+
+                    <!-- Face dessus couvercle -->
+                    <path d="M16 36 L22 31 L90 31 L84 36" fill="url(#lidTopGrad)" />
+
+                    <!-- Face droite couvercle -->
+                    <path d="M84 36 L90 31 L90 45 L84 50" fill="url(#lidSideGrad)" />
+
+                    <!-- Reflet speculaire couvercle -->
+                    <rect x="18" y="37" width="30" height="5" rx="1.5" fill="white" fill-opacity="0.15" />
+
+                    <!-- Arete lumineuse couvercle -->
+                    <line x1="16" y1="36" x2="22" y2="31" stroke="white" stroke-opacity="0.25" stroke-width="0.8" />
+                    <line x1="22" y1="31" x2="90" y2="31" stroke="white" stroke-opacity="0.12" stroke-width="0.8" />
 
                     <!-- Ruban Horizontal (Couvercle) -->
-                    <rect x="45" y="35" width="10" height="14" fill="url(#ribbonGold)" />
+                    <rect x="45" y="36" width="10" height="14" fill="url(#ribbonSatin)" />
+                    <!-- Ruban dessus couvercle -->
+                    <path d="M45 36 L48 31 L58 31 L55 36" fill="url(#ribbonSatinTop)" />
+                    <!-- Ruban cote droit couvercle -->
+                    <path d="M55 36 L58 31 L58 45 L55 50" fill="url(#ribbonSatinSide)" />
 
-                    <!-- Le Noeud (Complexe et élégant) -->
-                    <g transform="translate(50, 35)">
-                        <!-- Boucle Gauche -->
-                        <path d="M0 0 C -10 -15, -25 -5, -5 5 Z" fill="url(#ribbonGold)" stroke="#B45309"
-                            stroke-width="0.5" />
-                        <!-- Boucle Droite -->
-                        <path d="M0 0 C 10 -15, 25 -5, 5 5 Z" fill="url(#ribbonGold)" stroke="#B45309"
-                            stroke-width="0.5" />
-                        <!-- Centre -->
-                        <rect x="-3" y="-2" width="6" height="6" rx="2" fill="#F59E0B" />
+                    <!-- LE NOEUD PREMIUM -->
+                    <g transform="translate(51, 32)">
+                        <!-- Ombre du noeud -->
+                        <ellipse cx="0" cy="5" rx="14" ry="3" fill="black" fill-opacity="0.15" />
+
+                        <!-- Boucle Gauche avec volume -->
+                        <path d="M-1 0 C -8 -18, -28 -8, -6 4 Z" fill="url(#bowLeftGrad)" />
+                        <path d="M-1 0 C -6 -14, -22 -7, -6 3 Z" fill="white" fill-opacity="0.12" />
+
+                        <!-- Boucle Droite avec volume -->
+                        <path d="M1 0 C 8 -18, 28 -8, 6 4 Z" fill="url(#bowRightGrad)" />
+                        <path d="M1 0 C 5 -14, 20 -8, 6 3 Z" fill="white" fill-opacity="0.08" />
+
+                        <!-- Queue gauche -->
+                        <path d="M-2 2 C -6 8, -12 12, -8 14" stroke="url(#ribbonSatin)" stroke-width="2.5" fill="none" stroke-linecap="round" />
+                        <!-- Queue droite -->
+                        <path d="M2 2 C 6 8, 12 12, 9 14" stroke="url(#ribbonSatin)" stroke-width="2.5" fill="none" stroke-linecap="round" />
+
+                        <!-- Centre du noeud (gemme) -->
+                        <circle cx="0" cy="1" r="4" fill="url(#knotCenterGrad)" />
+                        <circle cx="-1" cy="-0.5" r="1.5" fill="white" fill-opacity="0.3" />
                     </g>
                 </g>
 
-                <!-- ÉTOILES / ÉTINCELLES (Modifiées pour être plus magiques) -->
+                <!-- ETOILES / ETINCELLES PREMIUM -->
                 <g class="gift-sparkles" style="opacity: 0;">
-                    <!-- Étoile 1 -->
-                    <path d="M20 15 L22 10 L24 15 L29 17 L24 19 L22 24 L20 19 L15 17 Z" fill="#FDE047"
-                        filter="drop-shadow(0 0 2px orange)" />
-                    <!-- Étoile 2 -->
-                    <path d="M80 5 L81 2 L82 5 L85 6 L82 7 L81 10 L80 7 L77 6 Z" fill="#FDE047"
-                        filter="drop-shadow(0 0 2px orange)" />
-                    <!-- Particule ronde -->
-                    <circle cx="30" cy="10" r="2" fill="white" opacity="0.8" />
-                    <circle cx="70" cy="20" r="1.5" fill="white" opacity="0.6" />
+                    <!-- Etoile 4 branches 1 -->
+                    <path d="M18 12 L20 6 L22 12 L28 14 L22 16 L20 22 L18 16 L12 14 Z" fill="url(#sparkleGrad)"
+                        filter="url(#sparkleGlow)" />
+                    <!-- Etoile 4 branches 2 -->
+                    <path d="M78 4 L79.5 0 L81 4 L85 5.5 L81 7 L79.5 11 L78 7 L74 5.5 Z" fill="url(#sparkleGrad)"
+                        filter="url(#sparkleGlow)" />
+                    <!-- Etoile 4 branches 3 (petite) -->
+                    <path d="M65 -2 L66 -5 L67 -2 L70 -1 L67 0 L66 3 L65 0 L62 -1 Z" fill="white"
+                        filter="url(#sparkleGlow)" opacity="0.7" />
+                    <!-- Particules rondes -->
+                    <circle cx="28" cy="6" r="2" fill="white" opacity="0.9" filter="url(#sparkleGlow)" />
+                    <circle cx="72" cy="15" r="1.5" fill="#FDE047" opacity="0.7" />
+                    <circle cx="38" cy="-2" r="1" fill="white" opacity="0.6" />
                 </g>
             </g>
 
-            <!-- DÉFINITIONS (Dégradés et Filtres) -->
+            <!-- DEFINITIONS PREMIUM (Degrades et Filtres) -->
             <defs>
-                <!-- Dégradé de la Boîte (Orange profond Premium) -->
-                <linearGradient id="boxGradient" x1="20" y1="45" x2="80" y2="95" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#FB923C" /> <!-- Orange clair en haut gauche -->
-                    <stop offset="100%" stop-color="#C2410C" /> <!-- Orange sombre en bas droite -->
+                <!-- BOITE : Face avant (orange riche avec profondeur) -->
+                <linearGradient id="boxFrontGrad" x1="20" y1="48" x2="80" y2="95" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#FB923C" />
+                    <stop offset="35%" stop-color="#F97316" />
+                    <stop offset="70%" stop-color="#EA580C" />
+                    <stop offset="100%" stop-color="#C2410C" />
                 </linearGradient>
 
-                <!-- Dégradé du Couvercle (Légèrement plus clair) -->
-                <linearGradient id="lidGradient" x1="16" y1="35" x2="84" y2="49" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#F97316" />
+                <!-- BOITE : Face droite (plus sombre = profondeur 3D) -->
+                <linearGradient id="boxSideGrad" x1="80" y1="43" x2="86" y2="90" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#C2410C" />
+                    <stop offset="100%" stop-color="#7C2D12" />
+                </linearGradient>
+
+                <!-- Reflet speculaire (haut-gauche de la boite) -->
+                <linearGradient id="specularHighlight" x1="22" y1="49" x2="50" y2="67" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="white" stop-opacity="0.25" />
+                    <stop offset="100%" stop-color="white" stop-opacity="0" />
+                </linearGradient>
+
+                <!-- Ambient Occlusion sous le couvercle -->
+                <linearGradient id="aoShadow" x1="50" y1="48" x2="50" y2="56" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="black" stop-opacity="0.25" />
+                    <stop offset="100%" stop-color="black" stop-opacity="0" />
+                </linearGradient>
+
+                <!-- COUVERCLE : Face avant -->
+                <linearGradient id="lidFrontGrad" x1="16" y1="36" x2="84" y2="50" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#FB923C" />
+                    <stop offset="50%" stop-color="#F97316" />
                     <stop offset="100%" stop-color="#EA580C" />
                 </linearGradient>
 
-                <!-- Dégradé Doré pour le Ruban (Effet Métallique) -->
-                <linearGradient id="ribbonGold" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stop-color="#F59E0B" />
-                    <stop offset="30%" stop-color="#FDE047" /> <!-- Reflet brillant -->
-                    <stop offset="70%" stop-color="#F59E0B" />
-                    <stop offset="100%" stop-color="#B45309" /> <!-- Ombre -->
+                <!-- COUVERCLE : Face du dessus -->
+                <linearGradient id="lidTopGrad" x1="22" y1="31" x2="90" y2="31" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#FDBA74" />
+                    <stop offset="40%" stop-color="#FB923C" />
+                    <stop offset="100%" stop-color="#F97316" />
                 </linearGradient>
 
-                <!-- Filtre de flou pour la lueur magique -->
+                <!-- COUVERCLE : Face droite -->
+                <linearGradient id="lidSideGrad" x1="84" y1="36" x2="90" y2="45" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#C2410C" />
+                    <stop offset="100%" stop-color="#9A3412" />
+                </linearGradient>
+
+                <!-- RUBAN : Effet satin dore (face avant) -->
+                <linearGradient id="ribbonSatin" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#D97706" />
+                    <stop offset="20%" stop-color="#F59E0B" />
+                    <stop offset="40%" stop-color="#FDE68A" />
+                    <stop offset="55%" stop-color="#F59E0B" />
+                    <stop offset="80%" stop-color="#D97706" />
+                    <stop offset="100%" stop-color="#92400E" />
+                </linearGradient>
+
+                <!-- RUBAN : Cote droit (plus sombre) -->
+                <linearGradient id="ribbonSatinSide" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#92400E" />
+                    <stop offset="50%" stop-color="#B45309" />
+                    <stop offset="100%" stop-color="#78350F" />
+                </linearGradient>
+
+                <!-- RUBAN : Dessus (plus clair) -->
+                <linearGradient id="ribbonSatinTop" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#FDE68A" />
+                    <stop offset="50%" stop-color="#FBBF24" />
+                    <stop offset="100%" stop-color="#F59E0B" />
+                </linearGradient>
+
+                <!-- NOEUD : Boucle gauche -->
+                <linearGradient id="bowLeftGrad" x1="-20" y1="-10" x2="0" y2="4" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#FBBF24" />
+                    <stop offset="40%" stop-color="#F59E0B" />
+                    <stop offset="100%" stop-color="#B45309" />
+                </linearGradient>
+
+                <!-- NOEUD : Boucle droite -->
+                <linearGradient id="bowRightGrad" x1="0" y1="-10" x2="20" y2="4" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#F59E0B" />
+                    <stop offset="60%" stop-color="#D97706" />
+                    <stop offset="100%" stop-color="#92400E" />
+                </linearGradient>
+
+                <!-- Centre du noeud -->
+                <radialGradient id="knotCenterGrad" cx="0.4" cy="0.35" r="0.6">
+                    <stop offset="0%" stop-color="#FDE68A" />
+                    <stop offset="50%" stop-color="#FBBF24" />
+                    <stop offset="100%" stop-color="#B45309" />
+                </radialGradient>
+
+                <!-- Etoiles -->
+                <radialGradient id="sparkleGrad" cx="0.5" cy="0.5" r="0.5">
+                    <stop offset="0%" stop-color="white" />
+                    <stop offset="60%" stop-color="#FDE68A" />
+                    <stop offset="100%" stop-color="#F59E0B" />
+                </radialGradient>
+
+                <!-- Filtre glow principal -->
                 <filter id="glowFilter" x="-50%" y="-50%" width="200%" height="200%">
                     <feGaussianBlur stdDeviation="4" result="coloredBlur" />
                     <feMerge>
@@ -5577,17 +5708,28 @@
                         <feMergeNode in="SourceGraphic" />
                     </feMerge>
                 </filter>
+
+                <!-- Filtre glow etincelles -->
+                <filter id="sparkleGlow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="1.5" result="glow" />
+                    <feMerge>
+                        <feMergeNode in="glow" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
             </defs>
         </svg>
 
-        <!-- Tooltip texte au survol (Inchangé, il est parfait) -->
+        <!-- Tooltip Glassmorphism (Desktop uniquement) -->
         <div
-            class="absolute left-full bottom-8 ml-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-[-10px] group-hover:translate-x-0 pointer-events-none hidden md:block">
+            class="absolute left-full bottom-6 ml-3 opacity-0 group-hover:opacity-100 transition-all duration-400 transform translate-x-[-8px] group-hover:translate-x-0 pointer-events-none hidden lg:block">
             <div
-                class="bg-white text-neutral-dark text-xs font-bold py-2 px-4 rounded-xl shadow-xl relative border border-gray-100 whitespace-nowrap">
-                <div class="absolute top-1/2 right-full -translate-y-1/2 border-6 border-transparent border-r-white">
-                </div>
-                Pssst... C'est offert ! ✨
+                class="relative bg-neutral-dark/80 backdrop-blur-md text-white text-[11px] font-semibold py-2.5 px-4 rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-white/10 whitespace-nowrap">
+                <!-- Accent orange subtil en bordure gauche -->
+                <div class="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-[60%] bg-gradient-to-b from-warm-orange to-amber-500 rounded-full"></div>
+                <!-- Fleche pointant vers la gauche (vers le cadeau) -->
+                <div class="absolute top-1/2 right-full -translate-y-1/2 w-0 h-0 border-[6px] border-transparent border-r-neutral-dark/80"></div>
+                7 erreurs qui font fuir vos clients &rarr;
             </div>
         </div>
     </div>
