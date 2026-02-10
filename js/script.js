@@ -2513,7 +2513,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Déployer le teaser (visible en entier)
         const deployTeaser = () => {
             if (!teaserBtn || !teaserVisible) return;
-            teaserBtn.classList.remove('teaser-shelved');
+            teaserBtn.classList.remove('teaser-shelved', 'teaser-enter');
             teaserBtn.classList.add('teaser-deployed');
             teaserDeployed = true;
 
@@ -2527,7 +2527,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Ranger le teaser (peek : seul un bout dépasse) — mobile uniquement
         const shelfTeaser = () => {
             if (!teaserBtn || !teaserVisible || !isMobileDevice()) return;
-            teaserBtn.classList.remove('teaser-deployed');
+            teaserBtn.classList.remove('teaser-deployed', 'teaser-enter');
             teaserBtn.classList.add('teaser-shelved');
             teaserDeployed = false;
         };
@@ -2539,12 +2539,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 teaserBtn.classList.add('teaser-enter');
                 teaserVisible = true;
 
-                // Sur mobile : déployer puis ranger après le délai
-                if (isMobileDevice()) {
+                // Après l'animation d'entrée (0.8s), retirer teaser-enter
+                // pour laisser les classes deployed/shelved gérer le transform
+                setTimeout(() => {
+                    teaserBtn.classList.remove('teaser-enter');
                     teaserBtn.classList.add('teaser-deployed');
+                }, 850);
+
+                // Sur mobile : ranger après le délai
+                if (isMobileDevice()) {
                     teaserDeployed = true;
                     clearTimeout(shelfTimer);
-                    shelfTimer = setTimeout(shelfTeaser, SHELF_DELAY);
+                    shelfTimer = setTimeout(shelfTeaser, SHELF_DELAY + 850); // +850 pour attendre la fin de l'entrée
                 } else {
                     teaserDeployed = true;
                 }
