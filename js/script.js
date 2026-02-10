@@ -1951,28 +1951,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // ==================================================================
-    // LOGIQUE DU LAPIN BLANC (EASTER EGG V4 - INTERACTIF)
+    // LOGIQUE DU LAPIN BLANC (EASTER EGG V5 - RESPONSIVE & INTERACTIF)
     // ==================================================================
 
     const rabbitEntity = document.getElementById('white-rabbit');
     const rbt_Manifesto = document.getElementById('manifesto');
     const rbt_Plan = document.getElementById('plan');
 
-    // MODIFICATION : Cible la section Blog au lieu des Offres
+    // Cible la section Blog
     const rbt_Blog = document.getElementById('blog-preview');
 
     const rbt_CTA = document.getElementById('cta');
     const rbt_Btn = document.querySelector('#cta .btn-orange');
 
-    // On vérifie que la section Blog existe bien (rbt_Blog)
-    // MODIFICATION : On ajoute une vérification de la taille d'écran
-    if (rabbitEntity && rbt_Manifesto && rbt_Plan && rbt_Blog && rbt_CTA && window.innerWidth >= 1024) {
+    // Détection mobile/desktop
+    const isMobileRabbit = window.innerWidth < 1024;
+
+    // Classe de base du lapin (sans hidden lg:block)
+    const rabbitBaseClass = 'fixed z-50 pointer-events-none transition-all duration-700';
+
+    if (rabbitEntity && rbt_Manifesto && rbt_Plan && rbt_Blog && rbt_CTA) {
 
         let hasPeekedManifesto = false;
         let hasPeekedPlan = false;
-        let hasPeekedBlog = false; // Variable renommée
+        let hasPeekedBlog = false;
 
-        // --- NOUVEAU : Logique de clic ---
+        // --- Logique de clic/tap ---
         let rabbitClickCount = 0;
 
         // Création de la bulle de dialogue
@@ -1987,76 +1991,90 @@ document.addEventListener('DOMContentLoaded', function () {
             setTimeout(() => bubble.classList.remove('show'), duration);
         };
 
-        // Gestionnaire de clic (Séquence Étendue)
+        // Gestionnaire de clic/tap — séquence adaptée selon l'écran
         rabbitEntity.addEventListener('click', (e) => {
-            // Empêcher de cliquer sur le bouton derrière
             e.stopPropagation();
             e.preventDefault();
 
             rabbitClickCount++;
 
-            // --- ÉTAPE 1 : LE SAUT ---
-            if (rabbitClickCount === 1) {
-                rabbitEntity.classList.add('rabbit-anim-jump');
-                rabbitSpeak("Hop !");
-                setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-jump'), 500);
-            }
+            if (isMobileRabbit) {
+                // ===== SÉQUENCE MOBILE (3 taps) =====
 
-            // --- ÉTAPE 2 : LA TOUPIE (NOUVEAU) ---
-            else if (rabbitClickCount === 2) {
-                rabbitEntity.classList.add('rabbit-anim-spin');
-                rabbitSpeak("Ouh là, ça tourne !");
-                setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-spin'), 600);
-            }
+                // --- TAP 1 : LE SAUT ---
+                if (rabbitClickCount === 1) {
+                    rabbitEntity.classList.add('rabbit-anim-jump');
+                    rabbitSpeak("Hop !");
+                    setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-jump'), 500);
+                }
 
-            // --- ÉTAPE 3 : MODE MATRIX (NOUVEAU) ---
-            else if (rabbitClickCount === 3) {
-                rabbitEntity.classList.add('rabbit-anim-matrix-mode');
-                rabbitSpeak("Je vois le code...", 1500); // Reste affiché un peu plus longtemps
-                setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-matrix-mode'), 800);
-            }
+                // --- TAP 2 : MODE MATRIX ---
+                else if (rabbitClickCount === 2) {
+                    rabbitEntity.classList.add('rabbit-anim-matrix-mode');
+                    rabbitSpeak("Je vois le code...", 1500);
+                    setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-matrix-mode'), 800);
+                }
 
-            // --- ÉTAPE 4 : LE REFUS (NOUVEAU) ---
-            else if (rabbitClickCount === 4) {
-                rabbitEntity.classList.add('rabbit-anim-shake');
-                rabbitSpeak("Arrête, ça chatouille !", 1000);
-                // On laisse secouer pendant 0.8s
-                setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-shake'), 800);
-            }
+                // --- TAP 3 : DISPARITION ---
+                else if (rabbitClickCount === 3) {
+                    rabbitSpeak("Suis-moi !", 3000);
+                    setTimeout(() => {
+                        rabbitEntity.classList.add('rabbit-anim-vanish');
+                    }, 1500);
+                    setTimeout(() => {
+                        rabbitEntity.style.display = 'none';
+                    }, 2100);
+                }
 
-            // --- ÉTAPE 5 : GLITCH (LE PLANTAGE) ---
-            else if (rabbitClickCount === 5) {
-                rabbitEntity.classList.add('rabbit-anim-glitch');
-                rabbitSpeak("Erreur Système CRITIQUE...", 1500);
-                setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-glitch'), 1500);
-            }
+            } else {
+                // ===== SÉQUENCE DESKTOP (6 clics — inchangée) =====
 
-            // --- ÉTAPE 6 : DISPARITION FINALE ---
-            else if (rabbitClickCount === 6) {
-                // 1. Message final
-                rabbitSpeak("Suis-moi !", 3000);
-
-                // 2. Pause lecture
-                setTimeout(() => {
-                    rabbitEntity.classList.add('rabbit-anim-vanish');
-                }, 1500);
-
-                // 3. Disparition réelle du DOM
-                setTimeout(() => {
-                    rabbitEntity.style.display = 'none';
-                    // Optionnel : Reset du compteur pour la prochaine fois qu'il réapparaît (si rechargement)
-                    // Mais ici on le cache définitivement pour cette session.
-                }, 2100);
+                if (rabbitClickCount === 1) {
+                    rabbitEntity.classList.add('rabbit-anim-jump');
+                    rabbitSpeak("Hop !");
+                    setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-jump'), 500);
+                }
+                else if (rabbitClickCount === 2) {
+                    rabbitEntity.classList.add('rabbit-anim-spin');
+                    rabbitSpeak("Ouh là, ça tourne !");
+                    setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-spin'), 600);
+                }
+                else if (rabbitClickCount === 3) {
+                    rabbitEntity.classList.add('rabbit-anim-matrix-mode');
+                    rabbitSpeak("Je vois le code...", 1500);
+                    setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-matrix-mode'), 800);
+                }
+                else if (rabbitClickCount === 4) {
+                    rabbitEntity.classList.add('rabbit-anim-shake');
+                    rabbitSpeak("Arrête, ça chatouille !", 1000);
+                    setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-shake'), 800);
+                }
+                else if (rabbitClickCount === 5) {
+                    rabbitEntity.classList.add('rabbit-anim-glitch');
+                    rabbitSpeak("Erreur Système CRITIQUE...", 1500);
+                    setTimeout(() => rabbitEntity.classList.remove('rabbit-anim-glitch'), 1500);
+                }
+                else if (rabbitClickCount === 6) {
+                    rabbitSpeak("Suis-moi !", 3000);
+                    setTimeout(() => {
+                        rabbitEntity.classList.add('rabbit-anim-vanish');
+                    }, 1500);
+                    setTimeout(() => {
+                        rabbitEntity.style.display = 'none';
+                    }, 2100);
+                }
             }
         });
 
-        // Gestionnaire de survol (Hover)
-        rabbitEntity.addEventListener('mouseenter', () => {
-            if (rabbitClickCount === 0) rabbitSpeak("?");
-        });
+        // Gestionnaire de survol (Desktop uniquement — le hover n'existe pas en tactile)
+        if (!isMobileRabbit) {
+            rabbitEntity.addEventListener('mouseenter', () => {
+                if (rabbitClickCount === 0) rabbitSpeak("?");
+            });
+        }
 
 
-        // --- LOGIQUE DE SCROLL EXISTANTE ---
+        // --- LOGIQUE DE SCROLL (fonctionne sur les deux) ---
         window.addEventListener('scroll', () => {
             const windowHeight = window.innerHeight;
             const isInView = (element) => {
@@ -2066,7 +2084,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // 1. MANIFESTE
             if (isInView(rbt_Manifesto) && !hasPeekedManifesto) {
-                rabbitEntity.className = 'fixed z-50 pointer-events-none hidden lg:block transition-all duration-700 peek-active';
+                rabbitEntity.className = rabbitBaseClass + ' peek-active';
                 hasPeekedManifesto = true;
                 setTimeout(() => rabbitEntity.classList.remove('peek-active'), 3500);
             }
@@ -2074,18 +2092,17 @@ document.addEventListener('DOMContentLoaded', function () {
             // 2. PLAN
             const planRect = rbt_Plan.getBoundingClientRect();
             if (planRect.top < 0 && planRect.bottom > windowHeight && !hasPeekedPlan) {
-                rabbitEntity.className = 'fixed z-50 pointer-events-none hidden lg:block transition-all duration-700';
+                rabbitEntity.className = rabbitBaseClass;
                 void rabbitEntity.offsetWidth;
                 rabbitEntity.classList.add('peek-right-active');
                 hasPeekedPlan = true;
                 setTimeout(() => rabbitEntity.classList.remove('peek-right-active'), 4000);
             }
 
-            // 3. BLOG (MODIFIÉ : Apparition sur la section Blog)
+            // 3. BLOG
             if (isInView(rbt_Blog) && !hasPeekedBlog) {
-                rabbitEntity.className = 'fixed z-50 pointer-events-none hidden lg:block transition-all duration-700';
+                rabbitEntity.className = rabbitBaseClass;
                 void rabbitEntity.offsetWidth;
-                // On utilise peek-left-active (Sort de la gauche)
                 rabbitEntity.classList.add('peek-left-active');
                 hasPeekedBlog = true;
                 setTimeout(() => rabbitEntity.classList.remove('peek-left-active'), 3500);
@@ -2113,7 +2130,7 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 if (rabbitEntity.parentElement === rbt_Btn.parentElement) {
                     document.body.appendChild(rabbitEntity);
-                    rabbitEntity.className = 'fixed z-50 pointer-events-none hidden lg:block transition-all duration-700';
+                    rabbitEntity.className = rabbitBaseClass;
                 }
             }
         });
