@@ -4666,8 +4666,8 @@ body.menu-open {
 }
 
 @keyframes teaserElasticIn {
-    0% { transform: translateY(60px) scale(0); opacity: 0; }
-    60% { transform: translateY(-6px) scale(1.1); opacity: 1; }
+    0% { transform: translateY(80px) scale(0); opacity: 0; }
+    60% { transform: translateY(-8px) scale(1.1); opacity: 1; }
     100% { transform: translateY(0) scale(1); opacity: 1; }
 }
 
@@ -4697,7 +4697,8 @@ body.menu-open {
 /* État "rangé" : glisse hors écran, ne laisse dépasser que 14px */
 @media (max-width: 1023px) {
     #lead-magnet-teaser.teaser-shelved {
-        transform: translateX(-44px); /* 56px - 12px visible = 44px caché */
+        transform: translateX(-60px) !important; /* 72px - 12px visible = 60px caché */
+        animation: none !important; /* Coupe l'animation teaser-enter qui override le transform */
         transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -4708,7 +4709,8 @@ body.menu-open {
 
     /* État "déployé" : visible en entier */
     #lead-magnet-teaser.teaser-deployed {
-        transform: translateX(0);
+        transform: translateX(0) !important;
+        animation: none !important;
         transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); /* léger rebond */
     }
 
