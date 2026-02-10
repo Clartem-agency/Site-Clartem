@@ -2177,6 +2177,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // --- ÉTAT DU SCROLL (Variables Globales) ---
         let scrollProgress = 0; // De 0 à 1
+        let lightParticlesStarted = false;
 
         // --- FONCTION DE DESSIN (Boucle infinie) ---
         function drawMatrix() {
@@ -2271,6 +2272,109 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
 
+        // --- TYPING EFFECT (Sous-titre) ---
+        const matrixSubtitle = document.getElementById('matrix-subtitle');
+        if (matrixSubtitle) {
+            const subtitleText = "Il est temps de déprogrammer le standard pour révéler votre essence.";
+            let charIndex = 0;
+            let typingStarted = false;
+            let typingDone = false;
+
+            function startTyping() {
+                if (typingStarted) return;
+                typingStarted = true;
+
+                // Add cursor
+                matrixSubtitle.innerHTML = '<span class="typing-cursor"></span>';
+
+                function typeChar() {
+                    if (charIndex < subtitleText.length) {
+                        // Remove cursor, add char, re-add cursor
+                        const cursor = matrixSubtitle.querySelector('.typing-cursor');
+                        if (cursor) cursor.remove();
+
+                        matrixSubtitle.innerHTML = subtitleText.substring(0, charIndex + 1) + '<span class="typing-cursor"></span>';
+                        charIndex++;
+
+                        // Variable speed: pause longer on punctuation
+                        const currentChar = subtitleText[charIndex - 1];
+                        let delay = 35 + Math.random() * 25;
+                        if (currentChar === '.' || currentChar === ',') delay = 200;
+                        if (currentChar === ' ') delay = 50;
+
+                        setTimeout(typeChar, delay);
+                    } else {
+                        typingDone = true;
+                        // Remove cursor after 2s
+                        setTimeout(() => {
+                            const cursor = matrixSubtitle.querySelector('.typing-cursor');
+                            if (cursor) cursor.style.opacity = '0';
+                        }, 2000);
+                    }
+                }
+
+                // Small initial delay
+                setTimeout(typeChar, 600);
+            }
+
+            // Start typing when section enters viewport
+            const typingObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        startTyping();
+                        typingObserver.disconnect();
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            typingObserver.observe(tunnelSection);
+        }
+
+
+        // --- PARALLAX SOURIS (Profondeur) ---
+        const matrixBadge = document.getElementById('matrix-badge');
+        const matrixH2 = darkContent ? darkContent.querySelector('h2') : null;
+        const matrixScrollHint = darkContent ? darkContent.querySelector('.animate-bounce') : null;
+
+        if (darkContent) {
+            let mouseX = 0, mouseY = 0;
+            let currentX = 0, currentY = 0;
+
+            window.addEventListener('mousemove', (e) => {
+                // Normalize mouse position to -1...1
+                mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+                mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+            });
+
+            function animateParallax() {
+                // Smooth interpolation
+                currentX += (mouseX - currentX) * 0.06;
+                currentY += (mouseY - currentY) * 0.06;
+
+                // Only apply when dark content is visible (scrollProgress < 0.4)
+                if (scrollProgress < 0.35) {
+                    // Different layers move at different speeds
+                    if (matrixBadge) {
+                        matrixBadge.style.transform = `translate(${currentX * 8}px, ${currentY * 5}px)`;
+                    }
+                    if (matrixH2) {
+                        matrixH2.style.transform = `translate(${currentX * -4}px, ${currentY * -3}px)`;
+                    }
+                    if (matrixSubtitle) {
+                        matrixSubtitle.style.transform = `translate(${currentX * 6}px, ${currentY * 4}px)`;
+                    }
+                    if (matrixScrollHint) {
+                        matrixScrollHint.style.transform = `translate(${currentX * -10}px, ${currentY * -6}px)`;
+                    }
+                }
+
+                requestAnimationFrame(animateParallax);
+            }
+
+            animateParallax();
+        }
+
+
         // --- GESTION DU SCROLL (TRANSITIONS DOM) ---
         function handleTunnelScroll() {
             const rect = tunnelSection.getBoundingClientRect();
@@ -2363,34 +2467,149 @@ document.addEventListener('DOMContentLoaded', function () {
                 lightContent.style.opacity = 1;
                 lightContent.style.pointerEvents = 'auto';
 
-                // Animation des éléments internes du Light Content (Parallaxe inversé)
-                // Ils remontent à leur place d'origine (translateY 0) et fade in
+                // -- Badge miroir --
+                const lightBadge = document.getElementById('light-badge');
+                const lightBadgeCheck = document.getElementById('light-badge-check');
+                if (lightBadge) {
+                    const badgeProgress = Math.min(1, revealRatio * 3);
+                    lightBadge.style.opacity = badgeProgress;
+                    lightBadge.style.transform = `translateY(${4 - (badgeProgress * 4)}px)`;
+                    // Checkmark pops in after badge is visible
+                    if (badgeProgress > 0.7 && lightBadgeCheck) {
+                        lightBadgeCheck.classList.add('revealed');
+                    }
+                }
 
+                // -- Logo avec pulse (apparaît vite) --
                 if (lightIcon) {
-                    // Apparaît vite
                     const iconProgress = Math.min(1, revealRatio * 2);
                     lightIcon.style.opacity = iconProgress;
                     lightIcon.style.transform = `scale(${0.5 + (iconProgress * 0.5)}) translateY(0)`;
                 }
 
+                // -- Titre --
                 if (lightTitle) {
-                    // Apparaît après l'icône
-                    const titleProgress = Math.max(0, Math.min(1, (revealRatio - 0.2) * 2));
+                    const titleProgress = Math.max(0, Math.min(1, (revealRatio - 0.15) * 2.5));
                     lightTitle.style.opacity = titleProgress;
                     lightTitle.style.transform = `translateY(${40 - (titleProgress * 40)}px)`;
                 }
 
+                // -- Ligne horizon animée --
+                const lightHorizon = document.getElementById('light-horizon');
+                if (lightHorizon) {
+                    const horizonProgress = Math.max(0, Math.min(1, (revealRatio - 0.3) * 3));
+                    lightHorizon.style.opacity = horizonProgress;
+                    lightHorizon.style.width = `${horizonProgress * 200}px`;
+                }
+
+                // -- Description mot par mot --
                 if (lightDesc) {
-                    // Apparaît en dernier
-                    const descProgress = Math.max(0, Math.min(1, (revealRatio - 0.4) * 2));
-                    lightDesc.style.opacity = descProgress;
-                    lightDesc.style.transform = `translateY(${40 - (descProgress * 40)}px)`;
+                    const descProgress = Math.max(0, Math.min(1, (revealRatio - 0.35) * 2));
+                    lightDesc.style.opacity = 1;
+                    lightDesc.style.transform = `translateY(${40 - (Math.min(1, descProgress * 1.5) * 40)}px)`;
+
+                    const words = lightDesc.querySelectorAll('.light-word');
+                    words.forEach((word, i) => {
+                        const wordThreshold = 0.4 + (i * 0.06); // stagger each word
+                        const wordRatio = Math.max(0, Math.min(1, (revealRatio - wordThreshold) * 5));
+                        if (wordRatio > 0) {
+                            word.style.opacity = wordRatio;
+                            word.style.transform = `translateY(${8 - (wordRatio * 8)}px)`;
+                        }
+                    });
+                }
+
+                // -- Start particles if not started --
+                if (!lightParticlesStarted && revealRatio > 0.1) {
+                    lightParticlesStarted = true;
+                    initLightParticles();
                 }
             }
         }
 
         window.addEventListener('scroll', handleTunnelScroll, { passive: true });
         handleTunnelScroll(); // Init
+
+
+        // --- PARTICULES LUMINEUSES FLOTTANTES ---
+        function initLightParticles() {
+            const pCanvas = document.getElementById('light-particles-canvas');
+            if (!pCanvas) return;
+
+            const pCtx = pCanvas.getContext('2d');
+            let pW = pCanvas.width = window.innerWidth;
+            let pH = pCanvas.height = window.innerHeight;
+
+            const particles = [];
+            const particleCount = 40;
+
+            // Create particles
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * pW,
+                    y: Math.random() * pH,
+                    size: Math.random() * 3 + 1,
+                    speedX: (Math.random() - 0.5) * 0.4,
+                    speedY: (Math.random() - 0.5) * 0.3 - 0.15, // slight upward drift
+                    opacity: Math.random() * 0.5 + 0.1,
+                    pulse: Math.random() * Math.PI * 2, // phase offset
+                    pulseSpeed: 0.01 + Math.random() * 0.02,
+                    hue: Math.random() > 0.6 ? 210 : 220, // blue range
+                });
+            }
+
+            window.addEventListener('resize', () => {
+                pW = pCanvas.width = window.innerWidth;
+                pH = pCanvas.height = window.innerHeight;
+            });
+
+            function drawParticles() {
+                pCtx.clearRect(0, 0, pW, pH);
+
+                // Only draw when light content is visible
+                if (scrollProgress < 0.6) {
+                    requestAnimationFrame(drawParticles);
+                    return;
+                }
+
+                const lightAlpha = Math.min(1, (scrollProgress - 0.6) * 2.5);
+
+                particles.forEach(p => {
+                    p.x += p.speedX;
+                    p.y += p.speedY;
+                    p.pulse += p.pulseSpeed;
+
+                    // Wrap around
+                    if (p.x < -10) p.x = pW + 10;
+                    if (p.x > pW + 10) p.x = -10;
+                    if (p.y < -10) p.y = pH + 10;
+                    if (p.y > pH + 10) p.y = -10;
+
+                    const currentOpacity = p.opacity * (0.5 + 0.5 * Math.sin(p.pulse)) * lightAlpha;
+                    const currentSize = p.size * (0.8 + 0.2 * Math.sin(p.pulse));
+
+                    // Glow
+                    pCtx.beginPath();
+                    const gradient = pCtx.createRadialGradient(p.x, p.y, 0, p.x, p.y, currentSize * 4);
+                    gradient.addColorStop(0, `hsla(${p.hue}, 80%, 70%, ${currentOpacity * 0.6})`);
+                    gradient.addColorStop(0.5, `hsla(${p.hue}, 70%, 60%, ${currentOpacity * 0.15})`);
+                    gradient.addColorStop(1, `hsla(${p.hue}, 60%, 50%, 0)`);
+                    pCtx.fillStyle = gradient;
+                    pCtx.arc(p.x, p.y, currentSize * 4, 0, Math.PI * 2);
+                    pCtx.fill();
+
+                    // Core dot
+                    pCtx.beginPath();
+                    pCtx.fillStyle = `hsla(${p.hue}, 80%, 85%, ${currentOpacity})`;
+                    pCtx.arc(p.x, p.y, currentSize, 0, Math.PI * 2);
+                    pCtx.fill();
+                });
+
+                requestAnimationFrame(drawParticles);
+            }
+
+            drawParticles();
+        }
     }
 
 

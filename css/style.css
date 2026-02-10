@@ -4219,8 +4219,165 @@ body.modal-body-lock {
     /* Géré par JS frame par frame, ou CSS rapide */
 }
 
+/* ====== BADGE MICRO-GLITCH ====== */
+.matrix-badge-glitch {
+    position: relative;
+    transition: transform 0.05s ease;
+}
+
+@keyframes badge-micro-glitch {
+    0%, 92% {
+        transform: translate(0, 0) skewX(0deg);
+        opacity: 1;
+    }
+    93% {
+        transform: translate(-2px, 1px) skewX(-2deg);
+        opacity: 0.8;
+        filter: hue-rotate(20deg);
+    }
+    94% {
+        transform: translate(2px, -1px) skewX(2deg);
+        opacity: 0.6;
+        filter: hue-rotate(-20deg);
+    }
+    95% {
+        transform: translate(-1px, 0px) skewX(-1deg);
+        opacity: 0.9;
+    }
+    96% {
+        transform: translate(1px, 1px) skewX(1deg);
+        opacity: 0.7;
+        filter: hue-rotate(10deg);
+    }
+    97%, 100% {
+        transform: translate(0, 0) skewX(0deg);
+        opacity: 1;
+        filter: none;
+    }
+}
+
+.matrix-badge-glitch {
+    animation: badge-micro-glitch 4s ease-in-out infinite;
+}
+
+/* ====== SCAN LINE CRT ====== */
+@keyframes matrix-scan-down {
+    0% {
+        top: -2px;
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+.matrix-scanline {
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(245, 158, 11, 0.04) 20%,
+        rgba(245, 158, 11, 0.08) 50%,
+        rgba(245, 158, 11, 0.04) 80%,
+        transparent 100%
+    );
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.06), 0 0 30px rgba(245, 158, 11, 0.03);
+    animation: matrix-scan-down 6s linear infinite;
+}
+
+/* ====== TYPING CURSOR ====== */
+.typing-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.1em;
+    background-color: rgba(255, 255, 255, 0.6);
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    animation: cursor-blink 0.7s step-end infinite;
+}
+
+@keyframes cursor-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
 #matrix-canvas {
     transition: filter 0.5s ease;
+}
+
+/* ====== LIGHT CONTENT - LOGO PULSE ====== */
+.light-logo-pulse {
+    animation: logo-heartbeat 3s ease-in-out infinite;
+}
+
+@keyframes logo-heartbeat {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), 0 0 60px rgba(59, 130, 246, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(59, 130, 246, 0.5), 0 0 80px rgba(59, 130, 246, 0.2), 0 0 120px rgba(59, 130, 246, 0.05);
+    }
+}
+
+/* ====== CERCLES CONCENTRIQUES (ONDES) ====== */
+.light-ring {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.light-ring-1 {
+    width: 120px;
+    height: 120px;
+    animation: ring-expand 3s ease-out 0.3s infinite;
+}
+.light-ring-2 {
+    width: 120px;
+    height: 120px;
+    animation: ring-expand 3s ease-out 1.3s infinite;
+}
+.light-ring-3 {
+    width: 120px;
+    height: 120px;
+    animation: ring-expand 3s ease-out 2.3s infinite;
+}
+
+@keyframes ring-expand {
+    0% {
+        width: 80px;
+        height: 80px;
+        opacity: 0.5;
+        border-width: 2px;
+    }
+    100% {
+        width: 280px;
+        height: 280px;
+        opacity: 0;
+        border-width: 1px;
+    }
+}
+
+/* ====== BADGE MIROIR LIGHT ====== */
+#light-badge-check {
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+#light-badge-check.revealed {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
+/* ====== LIGHT WORD SPACING ====== */
+.light-word {
+    margin-right: 0.3em;
+}
+.light-word.revealed {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }
 
 
