@@ -2503,7 +2503,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (teaserBtn) teaserBtn.remove();
         if (modal) modal.remove();
         // On ne continue pas l'exécution de ce bloc
-    } 
+    }
     else if (modal && backdrop && content && closeBtn) { // Si pas inscrit, on lance la logique
 
         let isPopupOpen = false;
@@ -2511,10 +2511,10 @@ document.addEventListener('DOMContentLoaded', function () {
         // --- 2. ECOUTEUR SUR LE FORMULAIRE ---
         // C'est ici qu'on enregistre l'inscription quand la personne clique sur le bouton
         if (popupForm) {
-            popupForm.addEventListener('submit', function() {
+            popupForm.addEventListener('submit', function () {
                 // On enregistre qu'il est inscrit
                 localStorage.setItem(STORAGE_KEY_SUBSCRIBED, 'true');
-                
+
                 // Note : Le formulaire va s'envoyer normalement vers Brevo.
                 // Au prochain chargement de page (ou retour de Brevo), le bloc "1" ci-dessus s'activera.
             });
@@ -2693,10 +2693,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
             hideTeaser();
 
-            // Verrouille le scroll du body sur mobile
+            // --- CORRECTION SCROLL MOBILE (PARTIE 1) ---
             if (isMobileDevice()) {
+                // 1. On sauvegarde la position actuelle du scroll
+                const scrollY = window.scrollY;
+
+                // 2. On fige le body
                 document.body.classList.add('modal-body-lock');
+
+                // 3. On déplace le body vers le haut pour simuler qu'on est resté au même endroit
+                // (Sinon le position: fixed remonte tout en haut visuellement)
+                document.body.style.top = `-${scrollY}px`;
             }
+            // -------------------------------------------
+
+
 
             modal.classList.remove('hidden');
             void content.offsetHeight; // Force Reflow
@@ -2732,8 +2743,24 @@ document.addEventListener('DOMContentLoaded', function () {
             content.classList.remove('modal-3d-visible');
             content.classList.add('modal-3d-hidden');
 
-            // Déverrouille le scroll du body et retire l'état clavier
-            document.body.classList.remove('modal-body-lock');
+
+            // --- CORRECTION SCROLL MOBILE (PARTIE 2) ---
+            if (isMobileDevice()) {
+                // 1. On récupère la position sauvegardée dans le style 'top'
+                const scrollY = document.body.style.top;
+
+                // 2. On retire le verrouillage et le style inline
+                document.body.classList.remove('modal-body-lock');
+                document.body.style.top = '';
+
+                // 3. On restaure instantanément la position de scroll
+                // (On multiplie par -1 car la valeur récupérée était négative ex: "-1500px")
+                window.scrollTo(0, parseInt(scrollY || '0') * -1);
+            }
+            // -------------------------------------------
+
+
+
             modal.classList.remove('keyboard-open');
 
 
@@ -2747,7 +2774,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }, 800);
             }
             // -----------------------------
-            
+
 
 
             setTimeout(() => {
@@ -2764,7 +2791,7 @@ document.addEventListener('DOMContentLoaded', function () {
             showTeaser();
         } else {
             // Sinon (nouveau visiteur), on active les triggers automatiques
-            
+
             // Trigger 1 : Scroll
             const handleScrollPopup = () => {
                 const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
@@ -2847,7 +2874,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var isSwiping = false;
 
         var TOTAL_SLIDES = slides.length;
-        var IS_DESKTOP = function() { return window.innerWidth >= 1024; };
+        var IS_DESKTOP = function () { return window.innerWidth >= 1024; };
 
         // --- Navigation ---
         function goToSlide(index) {
@@ -2857,7 +2884,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (pageText) pageText.textContent = currentIndex + 1;
 
-            dots.forEach(function(dot, i) {
+            dots.forEach(function (dot, i) {
                 dot.classList.toggle('active', i === currentIndex);
             });
 
@@ -2872,9 +2899,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 nextBtn.classList.toggle('pointer-events-none', currentIndex >= TOTAL_SLIDES - 1);
             }
 
-            imgs.forEach(function(img, i) {
+            imgs.forEach(function (img, i) {
                 if (i === currentIndex) {
-                    setTimeout(function() {
+                    setTimeout(function () {
                         img.classList.add('active-slide');
                     }, 100);
                 } else {
@@ -2883,7 +2910,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             // Reset scroll position of all slides when navigating
-            slides.forEach(function(slide) {
+            slides.forEach(function (slide) {
                 slide.scrollTop = 0;
             });
         }
@@ -2899,7 +2926,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Reset scroll when unzooming
             if (!isZoomed) {
-                slides.forEach(function(slide) {
+                slides.forEach(function (slide) {
                     slide.scrollTop = 0;
                 });
             }
@@ -2927,7 +2954,7 @@ document.addEventListener('DOMContentLoaded', function () {
             carousel.classList.remove('hidden');
             void carousel.offsetWidth;
 
-            requestAnimationFrame(function() {
+            requestAnimationFrame(function () {
                 carousel.classList.add('preview-open');
                 goToSlide(0);
             });
@@ -2943,14 +2970,14 @@ document.addEventListener('DOMContentLoaded', function () {
             carousel.classList.remove('zoom-active');
             carousel.classList.add('preview-closing');
 
-            setTimeout(function() {
+            setTimeout(function () {
                 carousel.classList.remove('preview-closing');
                 carousel.classList.add('hidden');
                 isOpen = false;
                 isZoomed = false;
                 document.body.style.overflow = '';
 
-                imgs.forEach(function(img) {
+                imgs.forEach(function (img) {
                     img.classList.remove('active-slide');
                 });
             }, 350);
@@ -2972,27 +2999,27 @@ document.addEventListener('DOMContentLoaded', function () {
             backdropEl.addEventListener('click', closeCarousel);
         }
 
-        if (prevBtn) prevBtn.addEventListener('click', function(e) {
+        if (prevBtn) prevBtn.addEventListener('click', function (e) {
             e.stopPropagation();
             goToSlide(currentIndex - 1);
         });
 
-        if (nextBtn) nextBtn.addEventListener('click', function(e) {
+        if (nextBtn) nextBtn.addEventListener('click', function (e) {
             e.stopPropagation();
             goToSlide(currentIndex + 1);
         });
 
         // Zoom toggle button
         if (zoomToggle) {
-            zoomToggle.addEventListener('click', function(e) {
+            zoomToggle.addEventListener('click', function (e) {
                 e.stopPropagation();
                 toggleZoom();
             });
         }
 
         // Click on image to toggle zoom (desktop only)
-        imgs.forEach(function(img) {
-            img.addEventListener('click', function(e) {
+        imgs.forEach(function (img) {
+            img.addEventListener('click', function (e) {
                 if (!IS_DESKTOP()) return;
                 e.stopPropagation();
                 toggleZoom();
@@ -3000,8 +3027,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // Dot clicks
-        dots.forEach(function(dot) {
-            dot.addEventListener('click', function(e) {
+        dots.forEach(function (dot) {
+            dot.addEventListener('click', function (e) {
                 e.stopPropagation();
                 var idx = parseInt(dot.getAttribute('data-index'), 10);
                 goToSlide(idx);
@@ -3009,7 +3036,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (!isOpen) return;
             if (e.key === 'Escape') closeCarousel();
             if (e.key === 'ArrowLeft') goToSlide(currentIndex - 1);
@@ -3017,7 +3044,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // --- Touch / Swipe Support ---
-        carousel.addEventListener('touchstart', function(e) {
+        carousel.addEventListener('touchstart', function (e) {
             if (e.touches.length !== 1) return;
             touchStartX = e.touches[0].clientX;
             touchDeltaX = 0;
@@ -3025,7 +3052,7 @@ document.addEventListener('DOMContentLoaded', function () {
             track.style.transition = 'none';
         }, { passive: true });
 
-        carousel.addEventListener('touchmove', function(e) {
+        carousel.addEventListener('touchmove', function (e) {
             if (!isSwiping || e.touches.length !== 1) return;
             touchDeltaX = e.touches[0].clientX - touchStartX;
 
@@ -3038,7 +3065,7 @@ document.addEventListener('DOMContentLoaded', function () {
             track.style.transform = 'translateX(' + offset + 'px)';
         }, { passive: true });
 
-        carousel.addEventListener('touchend', function() {
+        carousel.addEventListener('touchend', function () {
             if (!isSwiping) return;
             isSwiping = false;
 
