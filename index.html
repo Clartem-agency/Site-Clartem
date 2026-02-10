@@ -738,6 +738,9 @@
                     <!-- Il passe de fond noir à fond blanc via JS -->
                     <canvas id="matrix-canvas" class="absolute inset-0 w-full h-full z-0"></canvas>
 
+                    <!-- SCAN LINE CRT -->
+                    <div class="matrix-scanline absolute left-0 w-full h-[2px] z-[4] pointer-events-none"></div>
+
 
                     <!-- LE MASQUE DE FUSION -->
                     <!-- Il crée un dégradé du noir vers le transparent sur 30% de la hauteur -->
@@ -751,23 +754,22 @@
                         class="relative z-10 flex flex-col items-center justify-center text-center px-6 transition-all duration-100 ease-out">
 
                         <!-- Badge Système -->
-                        <div
-                            class="inline-flex items-center gap-2 px-3 py-1 mb-8 border border-emerald-500/30 rounded-full bg-emerald-950/80 backdrop-blur-md">
-                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <div id="matrix-badge"
+                            class="inline-flex items-center gap-2 px-3 py-1 mb-8 border border-amber-500/30 rounded-full bg-amber-950/80 backdrop-blur-md matrix-badge-glitch">
+                            <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
                             <span
-                                class="text-emerald-400 text-xs font-mono tracking-widest uppercase">System_Locked</span>
+                                class="text-amber-400 text-xs font-mono tracking-widest uppercase">Pilote_Auto://Activé</span>
                         </div>
 
                         <h2 class="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight glitch-target"
                             data-text="Le Système est saturé.">
                             L'ère des clones digitaux est terminée
                         </h2>
-                        <p class="text-emerald-400/80 font-mono text-lg max-w-xl mx-auto">
-                            Il est temps de déprogrammer le standard pour révéler votre essence.
+                        <p id="matrix-subtitle" class="text-white/70 font-mono text-lg max-w-xl mx-auto h-[2em]">
                         </p>
 
                         <div
-                            class="mt-12 animate-bounce text-emerald-500/50 text-xs tracking-[0.3em] uppercase font-mono">
+                            class="mt-12 animate-bounce text-white/40 text-xs tracking-[0.3em] uppercase font-mono">
                             ↓ Scrollez pour déconnecter le pilote automatique
                         </div>
                     </div>
