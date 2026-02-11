@@ -2161,102 +2161,169 @@ document.addEventListener('DOMContentLoaded', function () {
     if (tunnelSection && canvas) {
         const ctx = canvas.getContext('2d');
 
-        // --- CONFIGURATION MATRIX ---
+        // --- CONFIGURATION MATRIX (VERSION CINÉMATIQUE) ---
         let width = canvas.width = window.innerWidth;
         let height = canvas.height = window.innerHeight;
 
         const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*";
-        const fontSize = 14;
-        const columns = width / fontSize;
-        const drops = [];
+        const fontSize = 18; // Plus gros = moins de colonnes = plus aéré
 
-        // Initialisation des gouttes
-        for (let i = 0; i < columns; i++) {
-            drops[i] = 1;
+        // --- SYSTÈME DE PROFONDEUR PAR COLONNE ---
+        // Chaque colonne a sa propre "couche" : near (proche), mid, far (loin)
+        // Cela crée un vrai effet de profondeur de champ cinématique.
+        let columns = [];
+
+        function initColumns() {
+            const colCount = Math.floor(width / fontSize);
+            columns = [];
+
+            for (let i = 0; i < colCount; i++) {
+                // Attribution aléatoire d'une couche de profondeur
+                const layerRoll = Math.random();
+                let layer, speed, opacity, active;
+
+                if (layerRoll < 0.15) {
+                    // NEAR (15%) — rapide, brillant, traces longues
+                    layer = 'near';
+                    speed = 0.9 + Math.random() * 0.5;   // 0.9 – 1.4
+                    opacity = 0.9 + Math.random() * 0.1;  // 0.9 – 1.0
+                    active = Math.random() < 0.85;         // 85% de chance d'être active
+                } else if (layerRoll < 0.55) {
+                    // MID (40%) — vitesse moyenne, opacité moyenne
+                    layer = 'mid';
+                    speed = 0.4 + Math.random() * 0.4;    // 0.4 – 0.8
+                    opacity = 0.45 + Math.random() * 0.25; // 0.45 – 0.7
+                    active = Math.random() < 0.65;          // 65% actives
+                } else {
+                    // FAR (45%) — lent, discret, beaucoup de colonnes inactives
+                    layer = 'far';
+                    speed = 0.15 + Math.random() * 0.25;  // 0.15 – 0.4
+                    opacity = 0.15 + Math.random() * 0.2;  // 0.15 – 0.35
+                    active = Math.random() < 0.4;           // 40% actives seulement
+                }
+
+                columns.push({
+                    x: i,
+                    y: Math.random() * (height / fontSize) * 2 - (height / fontSize), // Position Y staggerée
+                    speed: speed,
+                    opacity: opacity,
+                    layer: layer,
+                    active: active,
+                    // Timer pour "réveiller" certaines colonnes dormantes
+                    sleepTimer: Math.random() * 300,
+                    frameCount: 0
+                });
+            }
         }
+
+        initColumns();
 
         // --- ÉTAT DU SCROLL (Variables Globales) ---
         let scrollProgress = 0; // De 0 à 1
         let lightParticlesStarted = false;
 
-        // --- FONCTION DE DESSIN (Boucle infinie) ---
+        // --- FONCTION DE DESSIN (Boucle infinie – VERSION CINÉMATIQUE) ---
         function drawMatrix() {
-            // 1. CALCUL DES COULEURS EN FONCTION DU SCROLL
 
-            // FOND : Passe du Noir (#050911) au Blanc (#FFFFFF)
-            // La transparence (0.05) crée l'effet de traînée. 
-            // Plus on scrolle, plus on veut "effacer" la traînée pour que ça devienne clair.
-
-            let bgOpacity = 0.05;
-            let bgColor = `rgba(5, 9, 17, ${bgOpacity})`; // Noir par défaut
+            // 1. FOND avec traînée (trail)
+            // bgOpacity légèrement plus haute = traînées plus nettes/courtes
+            let bgOpacity = 0.065;
+            let bgColor = `rgba(5, 9, 17, ${bgOpacity})`;
 
             if (scrollProgress > 0.4) {
-                // Transition vers le blanc entre 40% et 70% du scroll
                 const whiteRatio = Math.min(1, (scrollProgress - 0.4) * 3.33);
-
-                // Interpolation Noir -> Blanc
-                // On augmente l'opacité du fond pour nettoyer plus vite l'écran (effet de clarté)
-                const cleanOpacity = 0.05 + (0.1 * whiteRatio);
+                const cleanOpacity = 0.065 + (0.1 * whiteRatio);
                 const r = 5 + (250 * whiteRatio);
                 const g = 9 + (246 * whiteRatio);
                 const b = 17 + (238 * whiteRatio);
-
                 bgColor = `rgba(${r}, ${g}, ${b}, ${cleanOpacity})`;
             }
 
             ctx.fillStyle = bgColor;
             ctx.fillRect(0, 0, width, height);
 
-            // TEXTE : Passe du Vert (#22c55e) au Bleu Foncé/Gris (#1E3A8A)
-            // Mais pendant la transition (l'explosion), il devient Blanc.
-
-            let textColor = "#10B981"; // <--- C'est la couleur exacte des autres sections
+            // 2. COULEUR DE BASE DU TEXTE (selon scroll)
+            let baseGreen = [16, 185, 129]; // #10B981 en RGB
+            let glowEnabled = false;
+            let bluePhase = false;
+            let blueRatio = 0;
 
             if (scrollProgress > 0.3 && scrollProgress < 0.6) {
-                // PHASE EXPLOSION (30% - 60%) : Le code devient blanc/brillant
-                textColor = "#FFFFFF";
-                ctx.shadowBlur = 10; // Glow effect
+                // PHASE EXPLOSION — blanc brillant
+                glowEnabled = true;
+                ctx.shadowBlur = 10;
                 ctx.shadowColor = "white";
             } else if (scrollProgress >= 0.6) {
-                // PHASE CLARTÉ (60%+) : Le code devient bleu sombre (pour être vu sur fond blanc)
-                // On transitionne doucement vers le bleu
-                const blueRatio = Math.min(1, (scrollProgress - 0.6) * 4);
-                // On peut faire une transition de couleur si on veut, ou switch direct
-                // Pour l'effet "résidu de code", un gris-bleu est élégant
+                // PHASE CLARTÉ — bleu sombre
+                bluePhase = true;
+                blueRatio = Math.min(1, (scrollProgress - 0.6) * 4);
                 ctx.shadowBlur = 0;
-                const darkness = Math.floor(255 - (200 * blueRatio)); // Devient de plus en plus sombre
-                textColor = `rgba(30, 58, 138, ${0.3 + (0.5 * blueRatio)})`; // Bleu avec opacité variable
             } else {
                 ctx.shadowBlur = 0;
             }
 
-            ctx.fillStyle = textColor;
             ctx.font = fontSize + "px monospace";
 
-            // 2. BOUCLE DES GOUTTES
-            for (let i = 0; i < drops.length; i++) {
+            // 3. BOUCLE DES COLONNES (avec profondeur)
+            for (let i = 0; i < columns.length; i++) {
+                const col = columns[i];
+                col.frameCount++;
 
-                // LOGIQUE DE RARÉFACTION (Moins de code à la fin)
-                // Si on est en phase finale (>60%), on dessine aléatoirement moins de gouttes
+                // Cycle d'activité : les colonnes dormantes se réveillent parfois
+                if (!col.active && col.frameCount > col.sleepTimer) {
+                    col.active = true;
+                    col.sleepTimer = 200 + Math.random() * 400;
+                    col.frameCount = 0;
+                    col.y = -Math.random() * 10; // Repart du haut
+                }
+
+                if (!col.active) continue;
+
+                // RARÉFACTION (phase finale >60%)
                 if (scrollProgress > 0.6 && Math.random() > (1 - scrollProgress + 0.6)) {
-                    // On saute le dessin de cette goutte pour cette frame (elle s'efface)
-                    // Mais on continue de faire avancer sa position Y pour ne pas figer
-                    drops[i]++;
+                    col.y += col.speed;
                     continue;
                 }
 
-                const text = letters.charAt(Math.floor(Math.random() * letters.length));
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                // Calcul couleur FINALE avec opacité de profondeur
+                let finalOpacity = col.opacity;
 
-                // Reset de la goutte (retour en haut)
-                // Plus on scrolle, moins les gouttes reviennent (elles tombent et disparaissent)
-                const resetThreshold = 0.975 + (scrollProgress * 0.025); // Devient plus dur de reset (0.975 -> 1.0)
-
-                if (drops[i] * fontSize > height && Math.random() > resetThreshold) {
-                    drops[i] = 0;
+                if (glowEnabled) {
+                    // Phase explosion : tout le monde brille, mais les proches plus
+                    const brightness = col.layer === 'near' ? 1.0 : col.layer === 'mid' ? 0.8 : 0.5;
+                    ctx.fillStyle = `rgba(255, 255, 255, ${finalOpacity * brightness})`;
+                } else if (bluePhase) {
+                    ctx.fillStyle = `rgba(30, 58, 138, ${(0.3 + (0.5 * blueRatio)) * finalOpacity})`;
+                } else {
+                    // Phase normale : vert avec opacité par couche
+                    ctx.fillStyle = `rgba(${baseGreen[0]}, ${baseGreen[1]}, ${baseGreen[2]}, ${finalOpacity})`;
                 }
 
-                drops[i]++;
+                // Dessiner le caractère
+                const text = letters.charAt(Math.floor(Math.random() * letters.length));
+                ctx.fillText(text, col.x * fontSize, col.y * fontSize);
+
+                // Tête brillante pour les colonnes proches (comme dans le film)
+                if (col.layer === 'near' && !bluePhase) {
+                    ctx.fillStyle = `rgba(180, 255, 220, ${finalOpacity})`;
+                    ctx.fillText(text, col.x * fontSize, col.y * fontSize);
+                }
+
+                // Reset en haut quand la goutte sort en bas
+                const resetThreshold = 0.975 + (scrollProgress * 0.025);
+                if (col.y * fontSize > height) {
+                    if (Math.random() > resetThreshold) {
+                        col.y = -Math.random() * 15; // Revient au-dessus avec un offset aléatoire
+                    } else {
+                        // La colonne s'endort
+                        col.active = false;
+                        col.frameCount = 0;
+                        col.sleepTimer = 100 + Math.random() * 500;
+                    }
+                }
+
+                // Avancer selon la vitesse propre de la colonne
+                col.y += col.speed;
             }
 
             requestAnimationFrame(drawMatrix);
@@ -2265,10 +2332,11 @@ document.addEventListener('DOMContentLoaded', function () {
         // Lancer l'animation canvas
         drawMatrix();
 
-        // Resize handler
+        // Resize handler (réinitialise les colonnes pour le nouveau viewport)
         window.addEventListener('resize', () => {
             width = canvas.width = window.innerWidth;
             height = canvas.height = window.innerHeight;
+            initColumns();
         });
 
 
