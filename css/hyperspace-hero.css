@@ -224,7 +224,7 @@
     position: relative;
     z-index: 10;
     text-align: center;
-    max-width: 1000px;
+    max-width: 850px; /* Réduit pour correspondre à la taille originale */
     padding: 0 24px;
     transform-style: preserve-3d;
 }
@@ -330,6 +330,65 @@
 #hero-runway~#context-section {
     position: relative;
     z-index: 2;
+}
+
+
+/* ======================================================= */
+/*   REVEAL OVERLAY — Transition flash → section suivante  */
+/*   Le blanc du flash se dissout pour révéler le contenu  */
+/* ======================================================= */
+
+.hs-reveal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Couvre le premier écran de la section */
+    z-index: 50;
+    pointer-events: none;
+    background: white;
+    opacity: 1;
+    will-change: opacity;
+    /* Dégradé en bas pour que la dissolution soit douce */
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
+
+
+/* ======================================================= */
+/*   TITRE — Override taille pour match l'original         */
+/*   L'original avait tout dans un seul <h1>, ici on split */
+/*   pour le parallax, donc on réduit un peu               */
+/* ======================================================= */
+
+.hero-content-wrap h1,
+.hero-content-wrap .plx-el > div:not(.flex) {
+    /* On laisse Tailwind gérer les breakpoints, 
+       mais on contraint la largeur interne */
+    max-width: 100%;
+}
+
+/* Sur desktop, réduire légèrement pour matcher l'original */
+@media (min-width: 1024px) {
+    .hero-content-wrap h1 {
+        font-size: 3.4rem !important; /* lg:text-6xl = 3.75rem, on réduit */
+        line-height: 1.1 !important;
+    }
+    .hero-content-wrap #hs-el-title-2 > div {
+        font-size: 3.4rem !important;
+        line-height: 1.1 !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .hero-content-wrap h1 {
+        font-size: 2.8rem !important; /* md:text-5xl = 3rem, on réduit */
+        line-height: 1.15 !important;
+    }
+    .hero-content-wrap #hs-el-title-2 > div {
+        font-size: 2.8rem !important;
+        line-height: 1.15 !important;
+    }
 }
 
 
