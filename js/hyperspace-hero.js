@@ -483,42 +483,27 @@
         if (cue) cue.style.opacity = clamp(1 - p * 15, 0, 1);
 
 
-        // ===== REVEAL OVERLAY (transition flash → section suivante) =====
-        // Overlay fixe plein écran (z-index 48, au-dessus de tout sauf nav)
-        // Séquence : invisible → blanc (sync flash) → dissout → section révélée
+        // ===== REVEAL OVERLAY =====
+        // Overlay blanc fixe plein écran. Séquence :
+        //   1. Avant flash → invisible (opacity 0)
+        //   2. Pendant flash → monte en blanc (opacity 0→1, sync avec le flash)
+        //   3. Après le runway → le blanc se dissout (opacity 1→0), la section apparaît
         if (revealOverlay) {
             const runwayBottom = heroWrap.offsetTop + heroWrap.offsetHeight;
             const viewportBottom = scrollY + window.innerHeight;
             const scrollPastRunway = viewportBottom - runwayBottom;
 
             if (p < 0.75) {
-                // Phase 1 : Avant le flash — invisible
-                revealOverlay.style.opacity = 0;
-                revealOverlay.style.background = '#0F172A';
-            } else if (scrollPastRunway < 0) {
-                // Phase 2 : Flash actif — monte en blanc
-                const flashP = easeInExpo((p - 0.75) / 0.25);
-                revealOverlay.style.opacity = flashP;
-                revealOverlay.style.background = `rgba(255,255,255,${flashP})`;
+                // Pas encore au flash
+                revealOverlay.style.opacity = '0';
+            } else if (scrollPastRunway <= 0) {
+                // Flash en cours — monter le blanc en sync
+                const flashP = (p - 0.75) / 0.25;
+                revealOverlay.style.opacity = String(easeInExpo(flashP));
             } else {
-                // Phase 3 : Post-runway — le blanc se dissout en neutral-dark puis transparent
-                const dissolveLen = window.innerHeight * 0.6; // 60vh pour dissoudre
-                const dp = clamp(scrollPastRunway / dissolveLen, 0, 1);
-
-                if (dp < 0.4) {
-                    // D'abord : blanc → neutral-dark (rapid)
-                    const colorP = dp / 0.4;
-                    const r = Math.round(255 - (255 - 15) * colorP);
-                    const g = Math.round(255 - (255 - 23) * colorP);
-                    const b = Math.round(255 - (255 - 42) * colorP);
-                    revealOverlay.style.background = `rgb(${r},${g},${b})`;
-                    revealOverlay.style.opacity = 1;
-                } else {
-                    // Ensuite : neutral-dark → transparent
-                    const fadeP = (dp - 0.4) / 0.6;
-                    revealOverlay.style.background = '#0F172A';
-                    revealOverlay.style.opacity = 1 - easeOutCubic(fadeP);
-                }
+                // Après le runway — dissoudre le blanc sur ~60vh
+                const dissolve = clamp(scrollPastRunway / (window.innerHeight * 0.6), 0, 1);
+                revealOverlay.style.opacity = String(1 - easeOutCubic(dissolve));
             }
         }
 
