@@ -494,8 +494,8 @@
 
             // Trouver la carte Genèse (premier .glass-card dans context-section)
             if (!revealOverlay._target) {
-                revealOverlay._target = document.querySelector('#context-section .glass-card')
-                    || document.querySelector('#context-section section:first-of-type');
+                revealOverlay._target = document.querySelector('#genese-runway .glass-card')
+                    || document.querySelector('#genese-runway');
             }
             const target = revealOverlay._target;
 
