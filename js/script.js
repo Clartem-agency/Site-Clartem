@@ -2510,7 +2510,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     const words = lightDesc.querySelectorAll('.light-word');
                     words.forEach((word, i) => {
-                        const wordThreshold = 0.4 + (i * 0.06); // stagger each word
+                        const wordThreshold = 0.35 + (i * 0.045); // stagger each word (ajusté pour que tous les mots atteignent 100%)
                         const wordRatio = Math.max(0, Math.min(1, (revealRatio - wordThreshold) * 5));
                         if (wordRatio > 0) {
                             word.style.opacity = wordRatio;
