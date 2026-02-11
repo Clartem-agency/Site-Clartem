@@ -50,6 +50,7 @@
         }
     </script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/hyperspace-hero.css">
 
 
     <style>
@@ -227,62 +228,86 @@
 
 
 
+
     <!-- ======================================================= -->
-    <!--          HERO SECTION : LA CITATION (Style Index)       -->
+    <!--          HERO SECTION : HYPERSPACE DIVE                 -->
+    <!--          Citation Steve Jobs + Parallax cinématique     -->
     <!-- ======================================================= -->
-    <header id="hero" class="hero-bg relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <div id="hero-runway">
+        <header id="hero">
 
-        <!-- 1. L'IMAGE DE FOND (Ken Burns + Blur Reveal) -->
-        <!-- NOTE : Changez l'URL ci-dessous pour mettre votre image spécifique "A Propos" -->
-        <div class="hero-ken-burns" style="background-image: url('assets/background-hero.webp');"></div>
+            <!-- Layers visuels -->
+            <canvas id="nebula-canvas"></canvas>
+            <canvas id="starfield"></canvas>
+            <div class="hs-light-tunnel" id="hs-tunnel"></div>
+            <div class="hs-warp-ring hs-wr1" id="hs-wr1"></div>
+            <div class="hs-warp-ring hs-wr2" id="hs-wr2"></div>
+            <div class="hs-warp-ring hs-wr3" id="hs-wr3"></div>
+            <div class="hs-warp-ring hs-wr4" id="hs-wr4"></div>
+            <div class="hs-speed-lines" id="hs-speed-lines"></div>
+            <div class="hs-gradient" id="hs-grad"></div>
+            <div class="hs-vignette" id="hs-vig"></div>
+            <div class="hs-engine-glow" id="hs-eng"></div>
+            <div class="hs-chroma" id="hs-chr"></div>
+            <div class="hs-chroma" id="hs-chc"></div>
+            <div class="hs-horizon" id="hs-hor"></div>
+            <div class="hs-flash" id="hs-flash"></div>
+            <canvas id="hs-particles"></canvas>
 
-        <!-- 2. L'OVERLAY (Filtre sombre pour la lisibilité) -->
-        <div class="hero-overlay"></div>
+            <!-- CONTENU : Citation Steve Jobs -->
+            <div class="hero-content-wrap" id="hero-content">
 
-        <!-- 3. LE CONTENU (Z-index élevé pour passer au dessus de l'image) -->
-        <div class="container mx-auto px-6 max-w-5xl relative z-20 text-center">
+                <!-- Guillemets décoratifs -->
+                <div class="plx-el" id="hs-el-guillemet">
+                    <div class="text-warm-orange text-6xl md:text-8xl font-serif opacity-80 leading-none mb-0 translate-y-4 hs-anim-rise hs-d0">
+                        "
+                    </div>
+                </div>
 
-            <!-- Guillemets décoratifs (Animation délai 0) -->
-            <div
-                class="text-warm-orange text-6xl md:text-8xl font-serif opacity-80 leading-none mb-0 translate-y-4 animate-blur-rise delay-0">
-                “
+                <!-- Titre Principal — Ligne 1 (dérive gauche au scroll) -->
+                <div class="plx-el" id="hs-el-title-1">
+                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-white mb-2 hs-anim-rise hs-d1">
+                        Vous ne pouvez pas relier les points en regardant vers l'avenir ;
+                    </h1>
+                </div>
+
+                <!-- Titre Principal — Ligne 2 (dérive droite au scroll) -->
+                <div class="plx-el" id="hs-el-title-2">
+                    <div class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-10 hs-anim-rise hs-d1" style="animation-delay: 0.8s;">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-white">
+                            vous ne pouvez les relier qu'en regardant vers le passé.
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Sous-citation -->
+                <div class="plx-el" id="hs-el-sub">
+                    <p class="text-xl md:text-2xl text-gray-200 font-light italic max-w-3xl mx-auto mb-12 hs-anim-rise hs-d2">
+                        "Alors, vous devez croire que les points vont, d'une manière ou d'une autre, se relier dans votre futur."
+                    </p>
+                </div>
+
+                <!-- Signature -->
+                <div class="plx-el" id="hs-el-sig">
+                    <div class="flex items-center justify-center gap-4 hs-anim-rise hs-d3">
+                        <div class="h-[1px] w-12 bg-warm-orange"></div>
+                        <cite class="text-sm text-warm-orange font-bold tracking-[0.2em] uppercase not-italic">
+                            Steve Jobs, Stanford 2005
+                        </cite>
+                        <div class="h-[1px] w-12 bg-warm-orange"></div>
+                    </div>
+                </div>
+
             </div>
 
-
-            <!-- Titre Principal (Animation délai 1) -->
-            <h1
-                class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-white mb-10 animate-blur-rise delay-1">
-                Vous ne pouvez pas relier les points en regardant vers l'avenir ;<br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-white">
-                    vous ne pouvez les relier qu'en regardant vers le passé.
-                </span>
-            </h1>
-
-
-            <!-- Paragraphe / Citation suite (Animation délai 2) -->
-            <p
-                class="text-xl md:text-2xl text-gray-200 font-light italic max-w-3xl mx-auto mb-12 animate-blur-rise delay-2">
-                "Alors, vous devez croire que les points vont, d'une manière ou d'une autre, se relier dans votre
-                futur."
-            </p>
-
-            <!-- Signature (Animation délai 3) -->
-            <div class="flex items-center justify-center gap-4 animate-blur-rise delay-3">
-                <div class="h-[1px] w-12 bg-warm-orange"></div>
-                <cite class="text-sm text-warm-orange font-bold tracking-[0.2em] uppercase not-italic">
-                    Steve Jobs, Stanford 2005
-                </cite>
-                <div class="h-[1px] w-12 bg-warm-orange"></div>
+            <!-- Indicateur de scroll -->
+            <div class="hs-scroll-cue" id="hs-scroll-cue">
+                <div class="mouse"></div>
+                <span>Scroll</span>
             </div>
 
-
-        </div>
-    </header>
-
-
-
-
-
+        </header>
+    </div>
 
 
     <!-- ======================================================= -->
@@ -1451,6 +1476,7 @@
 
     <!-- Script JS -->
     <script src="js/script.js"></script>
+    <script src="js/hyperspace-hero.js" defer></script>
 
 
     <script>
