@@ -1,0 +1,344 @@
+/* ======================================================= */
+/*   HYPERSPACE DIVE — HERO PARALLAX CINÉMATIQUE           */
+/*   Fichier : css/hyperspace-hero.css                     */
+/*   Usage  : Page À Propos uniquement                     */
+/* ======================================================= */
+
+
+/* --- Le runway de scroll (contrôle la durée de l'effet) --- */
+#hero-runway {
+    position: relative;
+    height: 280vh;
+    background: #0F172A; /* Même couleur que neutral-dark pour transition seamless */
+}
+
+/* --- Le viewport sticky --- */
+#hero-runway #hero {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+    z-index: 1;
+
+    /* Override les styles hero-bg du style.css principal */
+    background-image: none !important;
+    background-attachment: initial !important;
+    min-height: auto !important;
+    padding: 0 !important;
+}
+
+/* --- Starfield & Nebula Canvas --- */
+#starfield {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+#nebula-canvas {
+    position: absolute;
+    inset: -20%;
+    z-index: 0;
+    opacity: 0.45;
+    will-change: transform, opacity;
+    pointer-events: none;
+}
+
+/* --- Light Tunnel --- */
+.hs-light-tunnel {
+    position: absolute;
+    inset: -60%;
+    z-index: 1;
+    background:
+        radial-gradient(ellipse 15% 30% at 50% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 100%),
+        radial-gradient(ellipse 35% 50% at 50% 50%, rgba(30, 58, 138, 0.05) 0%, transparent 100%);
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+/* --- Warp Rings --- */
+.hs-warp-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    z-index: 2;
+    pointer-events: none;
+    will-change: transform, opacity;
+    opacity: 0;
+}
+
+.hs-wr1 {
+    width: 200vmax;
+    height: 200vmax;
+    border: 1.5px solid rgba(59, 130, 246, 0.06);
+    box-shadow: inset 0 0 100px rgba(59, 130, 246, 0.03);
+}
+
+.hs-wr2 {
+    width: 140vmax;
+    height: 140vmax;
+    border: 1px solid rgba(59, 130, 246, 0.08);
+}
+
+.hs-wr3 {
+    width: 80vmax;
+    height: 80vmax;
+    border: 2px solid rgba(59, 130, 246, 0.1);
+    box-shadow: inset 0 0 50px rgba(59, 130, 246, 0.04);
+}
+
+.hs-wr4 {
+    width: 45vmax;
+    height: 45vmax;
+    border: 1px solid rgba(249, 115, 22, 0.07);
+}
+
+/* --- Speed Lines --- */
+.hs-speed-lines {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0;
+    will-change: opacity;
+}
+
+.hs-speed-line {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 1px;
+    transform-origin: 0 50%;
+    will-change: transform;
+    border-radius: 2px;
+}
+
+/* --- Gradient Overlay --- */
+.hs-gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    background: linear-gradient(0deg,
+            rgba(15, 23, 42, 0.97) 0%,
+            rgba(15, 23, 42, 0.35) 30%,
+            rgba(30, 58, 138, 0.3) 65%,
+            rgba(15, 23, 42, 0.6) 100%);
+    pointer-events: none;
+    will-change: opacity;
+}
+
+/* --- Vignette --- */
+.hs-vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    will-change: opacity;
+    opacity: 0.3;
+}
+
+/* --- Engine Glow (bord lumineux pulsé) --- */
+.hs-engine-glow {
+    position: absolute;
+    inset: 0;
+    z-index: 6;
+    pointer-events: none;
+    opacity: 0;
+    will-change: opacity;
+    box-shadow: inset 0 0 120px 20px rgba(59, 130, 246, 0.06);
+}
+
+/* --- Aberration Chromatique --- */
+.hs-chroma {
+    position: absolute;
+    inset: 0;
+    z-index: 9;
+    pointer-events: none;
+    will-change: opacity, transform;
+    opacity: 0;
+    mix-blend-mode: screen;
+}
+
+/* --- Ligne d'Horizon (pré-flash) --- */
+.hs-horizon {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(59, 130, 246, 0.4) 20%,
+            rgba(255, 255, 255, 0.8) 50%,
+            rgba(59, 130, 246, 0.4) 80%,
+            transparent 100%);
+    z-index: 15;
+    pointer-events: none;
+    opacity: 0;
+    will-change: opacity, transform;
+    transform: scaleX(0);
+    filter: blur(1px);
+    box-shadow: 0 0 30px 8px rgba(59, 130, 246, 0.12);
+}
+
+/* --- Flash Central --- */
+.hs-flash {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle,
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(200, 220, 255, 0.6) 25%,
+            rgba(59, 130, 246, 0.25) 50%,
+            transparent 70%);
+    z-index: 16;
+    pointer-events: none;
+    will-change: width, height, opacity;
+    opacity: 0;
+}
+
+/* --- Canvas Particules --- */
+#hs-particles {
+    position: absolute;
+    inset: 0;
+    z-index: 11;
+    pointer-events: none;
+}
+
+
+/* ======================================================= */
+/*   CONTENU HERO — ÉLÉMENTS PARALLAX                      */
+/* ======================================================= */
+
+.hero-content-wrap {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 1000px;
+    padding: 0 24px;
+    transform-style: preserve-3d;
+}
+
+.plx-el {
+    will-change: transform, opacity, filter;
+    transform-style: preserve-3d;
+}
+
+/* Animations de chargement initiales (conservées du site original) */
+/* Elles sont désactivées par JS dès que le scroll commence */
+.hs-anim-rise {
+    opacity: 0;
+    animation: hsBlurRise 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes hsBlurRise {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+        filter: blur(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+.hs-d0 { animation-delay: 0.2s; }
+.hs-d1 { animation-delay: 0.6s; }
+.hs-d2 { animation-delay: 1.0s; }
+.hs-d3 { animation-delay: 1.4s; }
+
+
+/* ======================================================= */
+/*   INDICATEUR DE SCROLL                                  */
+/* ======================================================= */
+
+.hs-scroll-cue {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    will-change: opacity;
+}
+
+.hs-scroll-cue span {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.hs-scroll-cue .mouse {
+    width: 20px;
+    height: 34px;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    position: relative;
+}
+
+.hs-scroll-cue .mouse::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2.5px;
+    height: 7px;
+    background: rgba(255, 255, 255, 0.45);
+    border-radius: 2px;
+    animation: hsMouseScroll 2s ease-in-out infinite;
+}
+
+@keyframes hsMouseScroll {
+    0% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(14px);
+        opacity: 0;
+    }
+}
+
+
+/* ======================================================= */
+/*   SEAMLESS TRANSITION VERS LA SECTION SUIVANTE          */
+/* ======================================================= */
+
+/* La section après le hero doit passer au-dessus du sticky */
+#hero-runway+#context-section,
+#hero-runway+.perspective-container,
+#hero-runway~#context-section {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* ======================================================= */
+/*   OVERRIDE : Désactiver le Ken Burns du hero original   */
+/*   Quand le hero-runway est présent                      */
+/* ======================================================= */
+
+#hero-runway .hero-ken-burns,
+#hero-runway .hero-overlay {
+    display: none !important;
+}
