@@ -314,6 +314,59 @@
 
 
     <!-- ======================================================= -->
+    <!--   GENÈSE — Section indépendante avec sticky             -->
+    <!--   Sortie de context-section pour que sticky fonctionne   -->
+    <!-- ======================================================= -->
+    <div id="genese-runway" class="hs-genese-runway bg-neutral-dark relative" style="z-index:3;">
+      <div class="hs-genese-sticky">
+        <div class="container mx-auto px-6 max-w-3xl relative">
+
+            <!-- LA CARTE 3D -->
+            <div id="tilt-card"
+                class="glass-card p-10 md:p-14 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden group transform-style-3d will-change-transform">
+
+                <!-- LE REFLET LUMINEUX (GLARE) -->
+                <div
+                    class="card-glare absolute inset-0 pointer-events-none z-20 transition-opacity duration-500 opacity-0 group-hover:opacity-100">
+                </div>
+
+                <!-- Label -->
+                <div class="text-center mb-10 relative z-10 transform-style-3d">
+                    <span
+                        class="inline-block py-1 px-3 border border-white/10 rounded-full text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] backdrop-blur-md shadow-lg card-element">
+                        Genèse
+                    </span>
+                </div>
+
+                <!-- Texte -->
+                <div class="space-y-6 text-center relative z-10">
+                    <p
+                        class="text-lg md:text-xl text-gray-200 font-light leading-loose editorial-text text-left md:text-justify card-element">
+                        <span class="drop-cap text-white text-shadow-sm">S</span>teve Jobs évoquait ici un cours de
+                        calligraphie suivi par simple curiosité intellectuelle. Dix ans plus tard, ce savoir, qui
+                        semblait alors futile, est devenu la pierre angulaire du design révolutionnaire du premier
+                        Macintosh.
+                    </p>
+
+                    <div
+                        class="w-12 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent mx-auto my-8">
+                    </div>
+
+                    <p
+                        class="text-lg md:text-xl text-gray-300 font-light leading-loose editorial-text text-left md:text-justify card-element">
+                        <span class="text-white font-normal italic">Sa leçon est universelle :</span> ce qui
+                        ressemble à
+                        une errance sur le moment est souvent, avec le recul nécessaire, une étape indispensable de
+                        notre propre architecture intérieure.
+                    </p>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ======================================================= -->
     <!--      SUPER-CONTENEUR : FUSION CONTEXTE & PRÉSENTATION   -->
     <!--      Permet une transition fluide des lumières          -->
     <!-- ======================================================= -->
@@ -352,57 +405,6 @@
             class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/5 via-transparent to-transparent opacity-40 blur-3xl pointer-events-none z-0">
         </div>
 
-
-
-        <!-- ================= CONTENU 1 : LA CARTE 3D (GENÈSE) ================= -->
-        <!-- Runway sticky : la carte reste en place le temps que le blanc se dissipe -->
-        <div id="genese-runway" class="hs-genese-runway relative z-10">
-          <section class="hs-genese-sticky">
-            <div class="container mx-auto px-6 max-w-3xl relative" data-sr>
-
-                <!-- LA CARTE 3D -->
-                <div id="tilt-card"
-                    class="glass-card p-10 md:p-14 rounded-2xl border border-white/10 shadow-2xl relative overflow-hidden group transform-style-3d will-change-transform">
-
-                    <!-- LE REFLET LUMINEUX (GLARE) -->
-                    <div
-                        class="card-glare absolute inset-0 pointer-events-none z-20 transition-opacity duration-500 opacity-0 group-hover:opacity-100">
-                    </div>
-
-                    <!-- Label -->
-                    <div class="text-center mb-10 relative z-10 transform-style-3d">
-                        <span
-                            class="inline-block py-1 px-3 border border-white/10 rounded-full text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em] backdrop-blur-md shadow-lg card-element">
-                            Genèse
-                        </span>
-                    </div>
-
-                    <!-- Texte -->
-                    <div class="space-y-6 text-center relative z-10">
-                        <p
-                            class="text-lg md:text-xl text-gray-200 font-light leading-loose editorial-text text-left md:text-justify card-element">
-                            <span class="drop-cap text-white text-shadow-sm">S</span>teve Jobs évoquait ici un cours de
-                            calligraphie suivi par simple curiosité intellectuelle. Dix ans plus tard, ce savoir, qui
-                            semblait alors futile, est devenu la pierre angulaire du design révolutionnaire du premier
-                            Macintosh.
-                        </p>
-
-                        <div
-                            class="w-12 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent mx-auto my-8">
-                        </div>
-
-                        <p
-                            class="text-lg md:text-xl text-gray-300 font-light leading-loose editorial-text text-left md:text-justify card-element">
-                            <span class="text-white font-normal italic">Sa leçon est universelle :</span> ce qui
-                            ressemble à
-                            une errance sur le moment est souvent, avec le recul nécessaire, une étape indispensable de
-                            notre propre architecture intérieure.
-                        </p>
-                    </div>
-                </div>
-            </div>
-          </section>
-        </div>
 
 
         <!-- ================= CONTENU 2 : PRÉSENTATION & PHOTO ================= -->
