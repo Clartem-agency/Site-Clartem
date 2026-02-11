@@ -484,24 +484,44 @@
 
 
         // ===== REVEAL OVERLAY =====
-        // Overlay blanc fixe plein écran. Séquence :
-        //   1. Avant flash → invisible (opacity 0)
-        //   2. Pendant flash → monte en blanc (opacity 0→1, sync avec le flash)
-        //   3. Après le runway → le blanc se dissout (opacity 1→0), la section apparaît
+        // Overlay blanc fixe. Le blanc reste SOLIDE tant que la carte Genèse
+        // n'est pas visible dans le viewport. Quand la carte entre en vue,
+        // le blanc se dissout et la carte apparaît. Zéro gap visible.
         if (revealOverlay) {
             const runwayBottom = heroWrap.offsetTop + heroWrap.offsetHeight;
             const viewportBottom = scrollY + window.innerHeight;
             const scrollPastRunway = viewportBottom - runwayBottom;
 
+            // Trouver la carte Genèse (premier .glass-card dans context-section)
+            if (!revealOverlay._target) {
+                revealOverlay._target = document.querySelector('#context-section .glass-card')
+                    || document.querySelector('#context-section section:first-of-type');
+            }
+            const target = revealOverlay._target;
+
             if (p < 0.75) {
-                // Pas encore au flash
+                // Avant le flash → invisible
                 revealOverlay.style.opacity = '0';
             } else if (scrollPastRunway <= 0) {
-                // Flash en cours — monter le blanc en sync
+                // Flash en cours → monter le blanc
                 const flashP = (p - 0.75) / 0.25;
                 revealOverlay.style.opacity = String(easeInExpo(flashP));
+            } else if (target) {
+                // Après le runway → garder blanc jusqu'à ce que la carte soit visible
+                const cardRect = target.getBoundingClientRect();
+                const cardTop = cardRect.top;
+                const triggerPoint = window.innerHeight * 0.35; // 35% depuis le haut
+
+                if (cardTop > triggerPoint) {
+                    // Carte pas encore en position → blanc solide
+                    revealOverlay.style.opacity = '1';
+                } else {
+                    // Carte en vue → dissoudre le blanc
+                    const dissolve = clamp((triggerPoint - cardTop) / (window.innerHeight * 0.35), 0, 1);
+                    revealOverlay.style.opacity = String(1 - easeOutCubic(dissolve));
+                }
             } else {
-                // Après le runway — dissoudre le blanc sur ~60vh
+                // Fallback si pas de target
                 const dissolve = clamp(scrollPastRunway / (window.innerHeight * 0.6), 0, 1);
                 revealOverlay.style.opacity = String(1 - easeOutCubic(dissolve));
             }
