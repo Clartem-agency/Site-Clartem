@@ -308,6 +308,7 @@
     const flash = document.getElementById('hs-flash');
     const cue = document.getElementById('hs-scroll-cue');
     const neb = document.getElementById('nebula-canvas');
+    const revealOverlay = document.getElementById('hs-reveal-overlay');
 
     // Éléments du contenu — départ échelonné
     // xDrift < 0 = dérive gauche, > 0 = dérive droite
@@ -480,6 +481,29 @@
 
         // ===== INDICATEUR SCROLL =====
         if (cue) cue.style.opacity = clamp(1 - p * 15, 0, 1);
+
+
+        // ===== REVEAL OVERLAY (transition flash → section suivante) =====
+        // Le blanc du flash se prolonge dans l'overlay, puis se dissout
+        // pour révéler la section Genèse. Résultat : zéro rupture visuelle.
+        if (revealOverlay) {
+            const runwayBottom = heroWrap.offsetTop + heroWrap.offsetHeight;
+            const scrollBeyondRunway = scrollY + window.innerHeight - runwayBottom;
+            const isPastRunway = scrollBeyondRunway > 0;
+
+            if (p < 0.78 && !isPastRunway) {
+                // Avant le flash : invisible
+                revealOverlay.style.opacity = 0;
+            } else if (!isPastRunway) {
+                // Pendant le flash (p >= 0.78) : monter en sync
+                const flashSync = easeInExpo((p - 0.78) / 0.22);
+                revealOverlay.style.opacity = flashSync;
+            } else {
+                // Après le runway : dissoudre le blanc sur 50vh de scroll
+                const dissolve = clamp(scrollBeyondRunway / (window.innerHeight * 0.5), 0, 1);
+                revealOverlay.style.opacity = 1 - easeOutCubic(dissolve);
+            }
+        }
 
 
         // ===== SCREEN SHAKE (fluide, sinusoïdal) =====
