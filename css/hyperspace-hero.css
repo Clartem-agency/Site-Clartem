@@ -334,6 +334,27 @@
 
 
 /* ======================================================= */
+/*   GENÈSE STICKY — Pause naturelle après l'hyperespace   */
+/*   La carte reste visible le temps de lire                */
+/* ======================================================= */
+
+.hs-genese-runway {
+    /* Hauteur totale = sticky duration + hauteur réelle du contenu */
+    /* 80vh de "pause" supplémentaire */
+    min-height: calc(100vh + 80vh);
+}
+
+.hs-genese-sticky {
+    position: sticky;
+    top: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 80px 0;
+}
+
+
+/* ======================================================= */
 /*   OVERRIDE : Désactiver le Ken Burns du hero original   */
 /*   Quand le hero-runway est présent                      */
 /* ======================================================= */
