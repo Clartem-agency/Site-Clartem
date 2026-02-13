@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Financé - Agence Clartem</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- VARIABLES CLARTEM --- */
+        :root {
+            --dark-blue: #19224F;
+            --cream: #F5EFE1;
+            --light-cream: #FFFFFF;
+            --gold: #F39C12;
+            --success: #2ECC71;
+            --border-color: rgba(245, 239, 225, 0.15);
+            --background-accent: rgba(245, 239, 225, 0.05);
+            --font-primary: 'Poppins', sans-serif;
+        }
+
+        /* --- RESET & BASE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--dark-blue);
+            color: var(--cream);
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* --- CONTENEUR --- */
+        .container {
+            max-width: 650px; /* Un peu plus large pour que le texte respire */
+            width: 100%;
+            background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+        @keyframes scaleIn { 0% { transform: scale(0); } 60% { transform: scale(1.1); } 100% { transform: scale(1); } }
+
+        /* --- ICÔNE --- */
+        .success-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(46, 204, 113, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem auto;
+            color: var(--success);
+            font-size: 2.5rem;
+            animation: scaleIn 0.6s ease-out 0.2s backwards;
+        }
+
+        h1 { font-size: 2rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--light-cream); }
+        .subtitle { font-size: 1.1rem; color: rgba(245, 239, 225, 0.7); margin-bottom: 2.5rem; }
+
+        /* --- BOÎTE DÉTAILS (CORRIGÉE AVEC GRILLE) --- */
+        .details-box {
+            background-color: var(--background-accent);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem; /* Plus d'espace interne */
+            text-align: left;
+            margin-bottom: 2.5rem;
+        }
+
+        .box-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* La Grille Magique */
+        .steps-grid {
+            display: grid;
+            /* 3 colonnes : Numéro (25px) | Titre (160px fixe) | Description (le reste) */
+            grid-template-columns: 25px 160px 1fr; 
+            gap: 15px 10px; /* Espace vertical 15px, horizontal 10px */
+            align-items: baseline; /* Aligne le texte sur la ligne de lecture */
+        }
+
+        .step-num { color: var(--gold); font-weight: 700; font-size: 1rem; }
+        .step-label { color: var(--light-cream); font-weight: 600; font-size: 0.95rem; }
+        .step-desc { color: rgba(245, 239, 225, 0.9); font-size: 0.95rem; }
+
+        .cta-button {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--cream);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .cta-button:hover {
+            background-color: var(--background-accent);
+            border-color: var(--cream);
+            transform: translateY(-2px);
+        }
+
+        .footer-note { margin-top: 2rem; font-size: 0.85rem; color: rgba(245, 239, 225, 0.5); }
+
+        /* Responsive Mobile : On passe le titre au-dessus de la description pour éviter que ce soit trop serré */
+        @media (max-width: 550px) {
+            .steps-grid {
+                grid-template-columns: 25px 1fr; /* On supprime la colonne du milieu */
+                gap: 10px;
+            }
+            .step-label {
+                grid-column: 2; /* Le titre prend toute la largeur dispo */
+                margin-bottom: 2px;
+            }
+            .step-desc {
+                grid-column: 2; /* La description va dessous */
+            }
+            /* Ajout d'un peu d'espace entre les items sur mobile */
+            .step-row-wrapper { margin-bottom: 15px; } 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="success-icon-wrapper">🎉</div>
+
+        <h1>C'est officiel !</h1>
+        <p class="subtitle">Le solde de votre site est réglé. Le projet est financé à 100%.</p>
+
+        <div class="details-box">
+            <div class="box-title">🚀 Prochaines étapes (Sous 24h) :</div>
+            
+            <div class="steps-grid">
+                <!-- Ligne 1 -->
+                <div class="step-num">1.</div>
+                <div class="step-label">Mise en ligne :</div>
+                <div class="step-desc">Je connecte le site à votre nom de domaine final.</div>
+
+                <!-- Ligne 2 -->
+                <div class="step-num">2.</div>
+                <div class="step-label">Remise des clés :</div>
+                <div class="step-desc">Vous recevrez vos codes d'accès administrateur par email.</div>
+
+                <!-- Ligne 3 -->
+                <div class="step-num">3.</div>
+                <div class="step-label">Prise en main :</div>
+                <div class="step-desc">Je vous enverrai votre guide pour gérer votre site en autonomie.</div>
+            </div>
+        </div>
+
+        <a href="https://clartem.com" class="cta-button">Retour au site Clartem</a>
+
+        <p class="footer-note">Une question de dernière minute ?<br>contact@clartem.com</p>
+    </div>
+
+</body>
+</html>
