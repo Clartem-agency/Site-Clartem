@@ -5741,3 +5741,233 @@ body.menu-open #main-nav.scrolled #logo-color {
         display: none;
     }
 }
+/* ============================================ */
+/*  BULLE PROACTIVE CHATBOT                     */
+/* ============================================ */
+
+.clartem-proactive {
+    position: fixed;
+    bottom: 102px;
+    right: 28px;
+    z-index: 9997;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+    transition: opacity 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+                transform 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.clartem-proactive.is-visible {
+    pointer-events: auto;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.clartem-proactive.is-hiding {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+    transition-duration: 0.25s;
+    pointer-events: none;
+}
+
+.clartem-proactive__card {
+    position: relative;
+    width: 280px;
+    background: #ffffff;
+    border-radius: 16px 16px 4px 16px;
+    box-shadow:
+        0 1px 3px rgba(30, 58, 138, 0.06),
+        0 6px 16px rgba(30, 58, 138, 0.08),
+        0 16px 40px rgba(30, 58, 138, 0.06);
+    overflow: hidden;
+}
+
+/* Liseré bleu en haut */
+.clartem-proactive__card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #3B82F6, #1E3A8A);
+    border-radius: 16px 16px 0 0;
+}
+
+.clartem-proactive__body {
+    padding: 20px 18px 16px;
+}
+
+.clartem-proactive__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.clartem-proactive__avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #3B82F6 0%, #1E3A8A 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(30, 58, 138, 0.2);
+}
+
+.clartem-proactive__avatar svg {
+    width: 16px;
+    height: 16px;
+    color: white;
+}
+
+.clartem-proactive__name {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #1E3A8A;
+    letter-spacing: -0.01em;
+}
+
+.clartem-proactive__status {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.68rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.clartem-proactive__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 6px rgba(34, 197, 94, 0.5);
+}
+
+.clartem-proactive__message {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: #334155;
+    font-weight: 450;
+    letter-spacing: -0.01em;
+}
+
+.clartem-proactive__actions {
+    display: flex;
+    gap: 8px;
+    padding: 0 18px 16px;
+}
+
+.clartem-proactive__btn {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: -0.01em;
+}
+
+.clartem-proactive__btn--yes {
+    background: linear-gradient(145deg, #3B82F6 0%, #2563eb 100%);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.clartem-proactive__btn--yes:hover {
+    background: linear-gradient(145deg, #2563eb 0%, #1d4ed8 100%);
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+    transform: translateY(-1px);
+}
+
+.clartem-proactive__btn--no {
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+.clartem-proactive__btn--no:hover {
+    background: #e2e8f0;
+    color: #475569;
+}
+
+.clartem-proactive__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: #94a3b8;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    padding: 0;
+    z-index: 2;
+}
+
+.clartem-proactive__close:hover {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.clartem-proactive__close svg {
+    width: 14px;
+    height: 14px;
+}
+
+.clartem-proactive__tail {
+    position: absolute;
+    bottom: -6px;
+    right: 22px;
+    width: 14px;
+    height: 14px;
+    background: #ffffff;
+    transform: rotate(45deg);
+    box-shadow: 3px 3px 6px rgba(30, 58, 138, 0.05);
+}
+
+/* Typing animation */
+.clartem-proactive__typing {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 0;
+}
+
+.clartem-proactive__typing-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #94a3b8;
+    animation: proactiveTyping 1.4s ease-in-out infinite;
+}
+
+.clartem-proactive__typing-dot:nth-child(2) { animation-delay: 0.15s; }
+.clartem-proactive__typing-dot:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes proactiveTyping {
+    0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+    30% { opacity: 1; transform: translateY(-3px); }
+}
+
+.clartem-proactive.is-typing .clartem-proactive__actions {
+    display: none !important;
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+    .clartem-proactive {
+        right: 16px;
+        bottom: 88px;
+    }
+    .clartem-proactive__card {
+        width: 260px;
+    }
+}
