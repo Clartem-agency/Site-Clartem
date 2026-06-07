@@ -10,83 +10,79 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          'neutral-dark': '#0F172A',
-          'panel': '#1E293B',
-          'warm-orange': '#F97316',
-          'orange-deep': '#EA580C',
-          'success-green': '#34D399',
-          'cream': '#F5F0E8',
-          'gris-bleu': '#94A3B8',
-        },
-        fontFamily: { sans: ['"Manrope"', 'sans-serif'] },
-      },
-    },
+    theme: { extend: {
+      colors: { 'neutral-dark':'#0F172A','panel':'#1E293B','warm-orange':'#F97316','orange-deep':'#EA580C','success-green':'#34D399','cream':'#F5F0E8','gris-bleu':'#94A3B8' },
+      fontFamily: { sans: ['"Manrope"','sans-serif'] },
+    }},
   };
 </script>
-
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet" />
 
 <style>
   body { font-family: 'Manrope', sans-serif; }
+  .grain::before { content:""; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .halo { position:fixed; border-radius:9999px; filter:blur(120px); pointer-events:none; z-index:0; }
 
-  /* Atmosphère : grain fin + halos doux */
-  .grain::before {
-    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.05;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-  .halo { position: fixed; border-radius: 9999px; filter: blur(120px); pointer-events: none; z-index: 0; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+  .reveal { opacity:0; animation:fadeUp .9s cubic-bezier(.22,1,.36,1) forwards; }
+  .reveal-1{animation-delay:.05s}.reveal-2{animation-delay:.20s}.reveal-3{animation-delay:.35s}
 
-  /* Entrée douce (Slow Content) */
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-  .reveal { opacity: 0; animation: fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) forwards; }
-  .reveal-1 { animation-delay: 0.05s; } .reveal-2 { animation-delay: 0.20s; } .reveal-3 { animation-delay: 0.35s; }
+  .field { background:#0F172A; border:1px solid #334155; transition:border-color .2s ease, box-shadow .2s ease; }
+  .field:focus { outline:none; border-color:#F97316; box-shadow:0 0 0 3px rgba(249,115,22,.15); }
 
-  .field { background: #0F172A; border: 1px solid #334155; transition: border-color .2s ease, box-shadow .2s ease; }
-  .field:focus { outline: none; border-color: #F97316; box-shadow: 0 0 0 3px rgba(249,115,22,.15); }
+  /* Éclat premium du CTA (repris de ta modale) */
+  .btn-orange { background:linear-gradient(135deg,#F97316 0%,#EA580C 100%); }
+  .btn-incitement { overflow:hidden; animation:subtleShadowPulse 6s infinite; }
+  .btn-incitement::after { content:''; position:absolute; top:0; left:-150%; width:100%; height:100%;
+    background:linear-gradient(to right,rgba(255,255,255,0) 0%,rgba(255,255,255,.3) 50%,rgba(255,255,255,0) 100%);
+    transform:skewX(-25deg); animation:premiumShine 6s infinite; }
+  @keyframes premiumShine { 0%{left:-150%} 15%{left:150%} 100%{left:150%} }
+  @keyframes subtleShadowPulse { 0%,15%,100%{box-shadow:0 10px 15px -3px rgba(249,115,22,.3),0 4px 6px -2px rgba(249,115,22,.1)} 7%{box-shadow:0 20px 25px -5px rgba(249,115,22,.5),0 8px 10px -6px rgba(249,115,22,.2);transform:translateY(-1px)} }
 
-  /* ===== Signature Clartem : halo doré animé (repris de ta modale) ===== */
-  @keyframes borderRotate { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-  .gold-glow-border { position: relative; z-index: 10; border: 2px solid transparent; }
-  .gold-glow-border::before {
-    content: ""; position: absolute; inset: -2px; border-radius: 18px; padding: 2px;
-    background: linear-gradient(45deg, #F97316, #FFD700, #FFF7AD, #F97316);
-    background-size: 300% 300%; animation: borderRotate 4s ease infinite;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor;
-    pointer-events: none; z-index: -1;
-  }
-  .gold-glow-border::after {
-    content: ""; position: absolute; inset: 0; z-index: -2; background: linear-gradient(45deg, #F97316, #FFD700);
-    filter: blur(20px); opacity: 0.4; border-radius: 16px;
-  }
+  /* Cascade des puces */
+  .lp-bullet { opacity:0; transform:translateY(20px) scale(.95); filter:blur(12px); animation:majesticReveal .8s cubic-bezier(.215,.61,.355,1) forwards; }
+  .lp-bullet:nth-child(1){animation-delay:.45s}.lp-bullet:nth-child(2){animation-delay:.60s}.lp-bullet:nth-child(3){animation-delay:.75s}
+  @keyframes majesticReveal { 0%{opacity:0;transform:translateY(20px) scale(.95);filter:blur(12px)} 100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)} }
+  .lp-bullet:hover span { color:#fff; text-shadow:0 0 15px rgba(255,255,255,.5); transition:all .3s ease; }
 
-  /* ===== Signature Clartem : éclat premium du CTA (repris de ta modale) ===== */
-  .btn-incitement { overflow: hidden; animation: subtleShadowPulse 6s infinite; }
-  .btn-incitement::after {
-    content: ''; position: absolute; top: 0; left: -150%; width: 100%; height: 100%;
-    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
-    transform: skewX(-25deg); animation: premiumShine 6s infinite;
-  }
-  @keyframes premiumShine { 0% { left: -150%; } 15% { left: 150%; } 100% { left: 150%; } }
-  @keyframes subtleShadowPulse {
-    0%, 15%, 100% { box-shadow: 0 10px 15px -3px rgba(249,115,22,0.3), 0 4px 6px -2px rgba(249,115,22,0.1); }
-    7% { box-shadow: 0 20px 25px -5px rgba(249,115,22,0.5), 0 8px 10px -6px rgba(249,115,22,0.2); transform: translateY(-1px); }
-  }
+  /* Bouton "Voir un extrait" */
+  .excerpt-btn { background:linear-gradient(135deg,#F97316 0%,#EA580C 100%); border:1px solid rgba(255,255,255,.2); transition:all .3s ease; }
+  .excerpt-btn:hover { transform:scale(1.05); box-shadow:0 8px 25px -6px rgba(249,115,22,.5); }
 
-  /* ===== Cascade des puces "Majestic Reveal" (au chargement) ===== */
-  .lp-bullet { opacity: 0; transform: translateY(20px) scale(0.95); filter: blur(12px); animation: majesticReveal 0.8s cubic-bezier(0.215,0.61,0.355,1) forwards; }
-  .lp-bullet:nth-child(1) { animation-delay: 0.45s; }
-  .lp-bullet:nth-child(2) { animation-delay: 0.60s; }
-  .lp-bullet:nth-child(3) { animation-delay: 0.75s; }
-  @keyframes majesticReveal { 0% { opacity: 0; transform: translateY(20px) scale(0.95); filter: blur(12px); } 100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); } }
-  .lp-bullet:hover span { color: #fff; text-shadow: 0 0 15px rgba(255,255,255,0.5); transition: all 0.3s ease; }
+  /* ===== PREVIEW CAROUSEL (repris de ton style.css) ===== */
+  #preview-carousel.preview-open #preview-carousel-backdrop { opacity:1; }
+  #preview-carousel.preview-open .preview-slide-img.active-slide { opacity:1; transform:translateY(0); }
+  #preview-carousel.preview-closing #preview-carousel-backdrop { opacity:0; transition:opacity .35s ease-out; }
+  #preview-carousel.preview-closing .preview-slide-img { opacity:0; transform:translateY(10px) scale(.97); transition:all .3s ease-out; }
+  .preview-nav-arrow.visible { opacity:1; pointer-events:auto; }
+  .preview-dot { cursor:pointer; transition:all .3s ease; }
+  .preview-dot.active { background-color:#F97316; transform:scale(1.2); box-shadow:0 0 12px rgba(249,115,22,.4); }
+  .preview-dot:not(.active) { background-color:rgba(255,255,255,.25); }
+  .preview-dot:not(.active):hover { background-color:rgba(255,255,255,.45); }
+  @media (max-width:1023px){ .preview-nav-arrow{padding:12px} .preview-nav-arrow:active{transform:translateY(-50%) scale(.9)} }
+  .preview-slide-scroll-wrapper { display:flex; align-items:center; justify-content:center; width:100%; height:100%; transition:all .4s ease; }
+  #preview-carousel.zoom-active #preview-slides-outer { align-items:flex-start; }
+  #preview-carousel.zoom-active .preview-slide { align-items:flex-start; overflow-y:auto; overflow-x:hidden; -webkit-overflow-scrolling:touch; }
+  #preview-carousel.zoom-active .preview-slide-scroll-wrapper { align-items:flex-start; justify-content:center; height:auto; min-height:100%; padding-top:20px; padding-bottom:40px; }
+  #preview-carousel.zoom-active .preview-slide-img { max-height:none; max-width:none; width:680px; height:auto; cursor:zoom-out; transition:all .4s ease; }
+  @media (min-width:1024px){ #preview-carousel:not(.zoom-active) .preview-slide-img{cursor:zoom-in} }
+  #preview-carousel.zoom-active .preview-slide::-webkit-scrollbar{width:6px}
+  #preview-carousel.zoom-active .preview-slide::-webkit-scrollbar-track{background:transparent}
+  #preview-carousel.zoom-active .preview-slide::-webkit-scrollbar-thumb{background:rgba(255,255,255,.2);border-radius:99px}
+  #preview-carousel.zoom-active .preview-nav-arrow{opacity:.4}
+  #preview-carousel.zoom-active .preview-nav-arrow:hover{opacity:1}
 
-  .btn-orange { background: linear-gradient(135deg, #F97316 0%, #EA580C 100%); }
+  /* ===== LIGHTBOX MOCKUP ===== */
+  #mockup-lightbox.lightbox-visible { display:flex !important; }
+  #mockup-lightbox.lightbox-visible #mockup-lightbox-backdrop { opacity:1; }
+  #mockup-lightbox.lightbox-visible #mockup-lightbox-img { opacity:1; transform:scale(1); }
+  #mockup-lightbox.lightbox-visible #mockup-lightbox-hint { opacity:1; }
+  #mockup-lightbox.lightbox-closing #mockup-lightbox-backdrop { opacity:0; }
+  #mockup-lightbox.lightbox-closing #mockup-lightbox-img { opacity:0; transform:scale(.9); }
+  #mockup-lightbox.lightbox-closing #mockup-lightbox-hint { opacity:0; }
 </style>
 </head>
 
@@ -95,105 +91,71 @@
   <div class="halo" style="width:520px;height:520px;background:rgba(249,115,22,.10);top:-120px;right:-120px;"></div>
   <div class="halo" style="width:480px;height:480px;background:rgba(37,53,79,.55);bottom:-160px;left:-140px;"></div>
 
-  <!-- Barre de marque -->
   <header class="relative z-10 max-w-6xl mx-auto px-5 lg:px-8 py-5 flex items-center justify-between">
-    <a href="index.html" class="block">
-      <img src="assets/logo-blanc-clartem.svg" alt="Clartem" class="h-9 w-auto" />
-    </a>
+    <a href="index.html" class="block"><img src="assets/logo-blanc-clartem.svg" alt="Clartem" class="h-9 w-auto" /></a>
     <a href="index.html" class="text-xs lg:text-sm text-gris-bleu hover:text-cream transition-colors">← Retour au site</a>
   </header>
 
-  <!-- Contenu -->
   <main class="relative z-10 max-w-5xl mx-auto px-4 lg:px-8 pt-4 pb-16 flex items-center justify-center min-h-[calc(100vh-160px)]">
 
-    <div class="reveal reveal-1 gold-glow-border w-full rounded-2xl shadow-2xl">
-      <div class="w-full rounded-2xl bg-panel overflow-hidden flex flex-col lg:grid lg:grid-cols-12">
+    <!-- Carte : contour sobre (plus de halo doré animé) -->
+    <div class="reveal reveal-1 w-full rounded-2xl border border-white/10 bg-panel shadow-2xl overflow-hidden flex flex-col lg:grid lg:grid-cols-12">
 
-        <!-- PARTIE 1 : VISUEL -->
-        <div class="lg:col-span-5 relative flex items-center justify-center p-8 lg:p-10 overflow-hidden"
-             style="background: radial-gradient(120% 90% at 50% 30%, #1E293B 0%, #0F172A 100%);">
-          <div class="absolute top-5 left-5 z-20 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-dark/80 border border-warm-orange/30 backdrop-blur-md text-warm-orange text-[10px] lg:text-xs font-bold uppercase tracking-widest shadow-lg">
-            <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-warm-orange opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-warm-orange"></span>
-            </span>
-            Guide Offert
-          </div>
-          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 lg:w-72 lg:h-72 bg-warm-orange/15 rounded-full blur-[60px]"></div>
-          <div class="relative z-10 w-40 lg:w-72 transition-transform duration-700 hover:scale-[1.03]">
-            <img src="assets/checklist-mockup-transparent.png" alt="Aperçu du guide Checklist Clartem" class="w-full h-auto drop-shadow-2xl" />
-          </div>
+      <!-- VISUEL -->
+      <div class="lg:col-span-5 relative flex flex-col items-center justify-center p-8 lg:p-10 overflow-hidden"
+           style="background: radial-gradient(120% 90% at 50% 30%, #1E293B 0%, #0F172A 100%);">
+        <div class="absolute top-5 left-5 z-20 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-dark/80 border border-warm-orange/30 backdrop-blur-md text-warm-orange text-[10px] lg:text-xs font-bold uppercase tracking-widest shadow-lg">
+          <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-warm-orange opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-warm-orange"></span></span>
+          Guide Offert
+        </div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 lg:w-72 lg:h-72 bg-warm-orange/15 rounded-full blur-[60px]"></div>
+
+        <!-- Mockup (tap = lightbox sur mobile) -->
+        <div id="mockup-zoom-trigger" role="button" tabindex="0" aria-label="Agrandir le guide"
+             class="relative z-10 w-40 lg:w-72 transition-transform duration-700 hover:scale-[1.03] cursor-pointer lg:cursor-default">
+          <img src="assets/checklist-mockup-transparent.png" alt="Aperçu du guide Checklist Clartem" class="w-full h-auto drop-shadow-2xl" />
         </div>
 
-        <!-- PARTIE 2 : CONTENU & FORMULAIRE -->
-        <div class="lg:col-span-7 p-6 lg:p-10 flex flex-col justify-center">
+        <!-- Bouton Voir un extrait -->
+        <button id="preview-excerpt-btn-desktop" aria-label="Voir un extrait du guide"
+                class="excerpt-btn relative z-20 mt-6 inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-white text-xs font-semibold shadow-xl">
+          <span>Voir un extrait</span>
+          <svg class="w-3.5 h-3.5 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        </button>
+      </div>
 
-          <!-- Kicker cible — MODIFIER ICI le ciblage si besoin -->
-          <p class="reveal reveal-2 text-warm-orange text-[11px] lg:text-xs font-bold uppercase tracking-[0.18em] mb-3">
-            Pour les thérapeutes &amp; praticiens du bien-être
-          </p>
+      <!-- CONTENU & FORMULAIRE -->
+      <div class="lg:col-span-7 p-6 lg:p-10 flex flex-col justify-center">
+        <!-- Kicker cible — MODIFIER ICI le ciblage si besoin -->
+        <p class="reveal reveal-2 text-warm-orange text-[11px] lg:text-xs font-bold uppercase tracking-[0.18em] mb-3">Pour les thérapeutes &amp; praticiens du bien-être</p>
+        <h1 class="reveal reveal-2 text-2xl lg:text-4xl font-extrabold leading-tight text-cream mb-3">Votre site inspire-t-il <span class="text-warm-orange">vraiment confiance ?</span></h1>
+        <p class="reveal reveal-2 text-gris-bleu text-sm lg:text-base leading-relaxed mb-6">Que vous vous lanciez ou que vous ayez déjà un site, découvrez les <strong class="text-cream font-semibold">7 points clés</strong> pour être trouvé, inspirer confiance et obtenir des rendez-vous — sans trahir vos valeurs.</p>
 
-          <h1 class="reveal reveal-2 text-2xl lg:text-4xl font-extrabold leading-tight text-cream mb-3">
-            Votre site inspire-t-il
-            <span class="text-warm-orange">vraiment confiance ?</span>
-          </h1>
+        <ul class="space-y-3 mb-7">
+          <li class="lp-bullet flex items-start gap-3"><svg class="w-5 h-5 text-success-green flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-gris-bleu text-sm lg:text-base">L'erreur silencieuse qui fait fuir un visiteur en moins de 5 secondes.</span></li>
+          <li class="lp-bullet flex items-start gap-3"><svg class="w-5 h-5 text-success-green flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-gris-bleu text-sm lg:text-base">Le détail oublié sur l'accueil qui vous rend invisible sur Google.</span></li>
+          <li class="lp-bullet flex items-start gap-3"><svg class="w-5 h-5 text-success-green flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-gris-bleu text-sm lg:text-base">Votre Audit de Clarté : le test rapide en 14 points pour vous noter.</span></li>
+        </ul>
 
-          <p class="reveal reveal-2 text-gris-bleu text-sm lg:text-base leading-relaxed mb-6">
-            Que vous vous lanciez ou que vous ayez déjà un site, découvrez les
-            <strong class="text-cream font-semibold">7 points clés</strong> pour être trouvé,
-            inspirer confiance et obtenir des rendez-vous — sans trahir vos valeurs.
-          </p>
+        <form id="sib-form" method="POST"
+              action="https://2a94b6d3.sibforms.com/serve/MUIFAF-8lvqoEgQ9XmXK62oeOPse06sPpprPUX5dw_fI2QZzwjOmEIwSOv0rSw4SH-IxWwEVQXPwcu-X6DaV0ErPKdUUx50BXxZ0GegndcrHLpRW-Sm5y_QOBcn5cejcywdgKyEcbN6lGW756rgUv6DXIY9Po3ZHvAtilPEABRfuzW2qOtIoFZuObcYWsWlKkhzZgy4oisAbv2kh"
+              class="reveal reveal-3 bg-neutral-dark/50 p-4 lg:p-5 rounded-xl border border-white/5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+            <div class="relative"><span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><svg class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg></span><input type="text" id="PRENOM" name="PRENOM" placeholder="Prénom" required class="field w-full text-cream text-sm rounded-lg block pl-10 p-3" /></div>
+            <div class="relative"><span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><svg class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v9a2 2 0 002 2z"/></svg></span><input type="email" id="EMAIL" name="EMAIL" placeholder="Email" required class="field w-full text-cream text-sm rounded-lg block pl-10 p-3" /></div>
+          </div>
+          <button type="submit" class="btn-orange btn-incitement relative w-full text-sm font-bold uppercase tracking-wide py-3.5 rounded-lg text-white shadow-lg"><span class="relative z-10">Recevoir ma Checklist</span></button>
 
-          <ul class="space-y-3 mb-7">
-            <li class="lp-bullet flex items-start gap-3">
-              <svg class="w-5 h-5 text-success-green flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <span class="text-gris-bleu text-sm lg:text-base">L'erreur silencieuse qui fait fuir un visiteur en moins de 5 secondes.</span>
-            </li>
-            <li class="lp-bullet flex items-start gap-3">
-              <svg class="w-5 h-5 text-success-green flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <span class="text-gris-bleu text-sm lg:text-base">Le détail oublié sur l'accueil qui vous rend invisible sur Google.</span>
-            </li>
-            <li class="lp-bullet flex items-start gap-3">
-              <svg class="w-5 h-5 text-success-green flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              <span class="text-gris-bleu text-sm lg:text-base">Votre Audit de Clarté : le test rapide en 14 points pour vous noter.</span>
-            </li>
-          </ul>
+          <!-- Ligne de réassurance -->
+          <p class="mt-3 text-center text-[11px] text-gray-500">🔒 100% gratuit · Aucun spam · Désinscription en un clic</p>
 
-          <!-- Formulaire Brevo (inchangé) -->
-          <form id="sib-form" method="POST"
-                action="https://2a94b6d3.sibforms.com/serve/MUIFAF-8lvqoEgQ9XmXK62oeOPse06sPpprPUX5dw_fI2QZzwjOmEIwSOv0rSw4SH-IxWwEVQXPwcu-X6DaV0ErPKdUUx50BXxZ0GegndcrHLpRW-Sm5y_QOBcn5cejcywdgKyEcbN6lGW756rgUv6DXIY9Po3ZHvAtilPEABRfuzW2qOtIoFZuObcYWsWlKkhzZgy4oisAbv2kh"
-                class="reveal reveal-3 bg-neutral-dark/50 p-4 lg:p-5 rounded-xl border border-white/5">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
-              <div class="relative">
-                <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <svg class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-                </span>
-                <input type="text" id="PRENOM" name="PRENOM" placeholder="Prénom" required class="field w-full text-cream text-sm rounded-lg block pl-10 p-3" />
-              </div>
-              <div class="relative">
-                <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <svg class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v9a2 2 0 002 2z"/></svg>
-                </span>
-                <input type="email" id="EMAIL" name="EMAIL" placeholder="Email" required class="field w-full text-cream text-sm rounded-lg block pl-10 p-3" />
-              </div>
-            </div>
-
-            <button type="submit" class="btn-orange btn-incitement relative w-full text-sm font-bold uppercase tracking-wide py-3.5 rounded-lg text-white shadow-lg">
-              <span class="relative z-10">Recevoir ma Checklist</span>
-            </button>
-
-            <div class="mt-3 flex items-start gap-2">
-              <input id="consent" name="consent-newsletter" type="checkbox" required class="w-4 h-4 mt-0.5 rounded border-gray-600 bg-neutral-dark text-warm-orange focus:ring-warm-orange cursor-pointer flex-shrink-0" />
-              <label for="consent" class="text-[11px] text-gray-500 leading-snug cursor-pointer">
-                J'accepte de recevoir la checklist et les conseils de Clartem. Voir
-                <a href="politique-de-confidentialite.html" target="_blank" class="text-gray-400 underline">Politique de confidentialité</a>.
-              </label>
-            </div>
-
-            <input type="text" name="email_address_check" value="" style="display:none;" />
-            <input type="hidden" name="locale" value="fr" />
-          </form>
-        </div>
+          <div class="mt-3 flex items-start gap-2">
+            <input id="consent" name="consent-newsletter" type="checkbox" required class="w-4 h-4 mt-0.5 rounded border-gray-600 bg-neutral-dark text-warm-orange focus:ring-warm-orange cursor-pointer flex-shrink-0" />
+            <label for="consent" class="text-[11px] text-gray-500 leading-snug cursor-pointer">J'accepte de recevoir la checklist et les conseils de Clartem. Voir <a href="politique-de-confidentialite.html" target="_blank" class="text-gray-400 underline">Politique de confidentialité</a>.</label>
+          </div>
+          <input type="text" name="email_address_check" value="" style="display:none;" />
+          <input type="hidden" name="locale" value="fr" />
+        </form>
       </div>
     </div>
   </main>
@@ -203,14 +165,125 @@
     <p class="text-gris-bleu text-xs italic mt-1">Une voix claire pour le digital des thérapeutes.</p>
   </footer>
 
+  <!-- ===================== PREVIEW CAROUSEL ===================== -->
+  <div id="preview-carousel" class="fixed inset-0 z-[10000] hidden" role="dialog" aria-modal="true" aria-label="Aperçu du guide">
+    <div id="preview-carousel-backdrop" class="absolute inset-0 bg-black/95 backdrop-blur-xl opacity-0 transition-opacity duration-400"></div>
+    <div class="absolute top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-3 lg:px-8 lg:py-4">
+      <div id="preview-page-indicator" class="flex items-center gap-2 text-white/80 text-xs lg:text-sm font-medium">
+        <svg class="w-4 h-4 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        <span>Point <span id="preview-current-page">1</span> / 2</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="preview-zoom-toggle" class="hidden lg:flex items-center gap-1.5 text-gray-300 hover:text-white transition-all px-3 py-2 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-sm text-xs font-medium" aria-label="Zoomer pour lire">
+          <svg id="preview-zoom-icon-in" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
+          <svg id="preview-zoom-icon-out" class="h-4 w-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM13 10H7"/></svg>
+          <span id="preview-zoom-label">Zoomer pour lire</span>
+        </button>
+        <button id="preview-carousel-close" class="text-gray-300 hover:text-white transition-colors p-2.5 bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-sm">
+          <svg class="h-5 w-5 lg:h-6 lg:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="preview-slides-outer" class="absolute inset-0 flex items-center justify-center z-10 overflow-hidden">
+      <div id="preview-slides-track" class="flex transition-transform duration-500 ease-out h-full w-full">
+        <div class="preview-slide flex-shrink-0 w-full h-full flex items-center justify-center p-4 pt-14 pb-20 lg:p-16 lg:pt-16 lg:pb-20"><div class="preview-slide-scroll-wrapper"><img src="assets/preview-point-1.png" alt="Point 1 – Une promesse qui rassure immédiatement" class="preview-slide-img max-h-full max-w-full object-contain rounded-lg shadow-2xl opacity-0 translate-y-6 transition-all duration-500"></div></div>
+        <div class="preview-slide flex-shrink-0 w-full h-full flex items-center justify-center p-4 pt-14 pb-20 lg:p-16 lg:pt-16 lg:pb-20"><div class="preview-slide-scroll-wrapper"><img src="assets/preview-point-2.png" alt="Point 2 – L'invitation à l'action (CTA)" class="preview-slide-img max-h-full max-w-full object-contain rounded-lg shadow-2xl opacity-0 translate-y-6 transition-all duration-500"></div></div>
+      </div>
+    </div>
+    <button id="preview-prev" class="preview-nav-arrow absolute left-2 lg:left-6 top-1/2 -translate-y-1/2 z-50 p-2.5 lg:p-3 rounded-full bg-white/10 hover:bg-white/20 text-white/60 hover:text-white transition-all duration-300 backdrop-blur-sm opacity-0 pointer-events-none" aria-label="Page précédente"><svg class="h-5 w-5 lg:h-6 lg:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg></button>
+    <button id="preview-next" class="preview-nav-arrow absolute right-2 lg:right-6 top-1/2 -translate-y-1/2 z-50 p-2.5 lg:p-3 rounded-full bg-white/10 hover:bg-white/20 text-white/60 hover:text-white transition-all duration-300 backdrop-blur-sm" aria-label="Page suivante"><svg class="h-5 w-5 lg:h-6 lg:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></button>
+    <div class="absolute bottom-0 left-0 right-0 z-50 flex flex-col items-center gap-3 px-4 pb-5 lg:pb-6">
+      <div id="preview-dots" class="flex items-center gap-2.5">
+        <button class="preview-dot w-2.5 h-2.5 rounded-full bg-warm-orange transition-all duration-300 shadow-lg shadow-orange-500/30" data-index="0" aria-label="Point 1"></button>
+        <button class="preview-dot w-2.5 h-2.5 rounded-full bg-white/30 hover:bg-white/50 transition-all duration-300" data-index="1" aria-label="Point 2"></button>
+      </div>
+      <p class="text-gray-400 text-[11px] lg:text-xs text-center max-w-xs">Ceci est un aperçu — <strong class="text-warm-orange">5 autres points</strong> vous attendent dans le guide complet.</p>
+    </div>
+  </div>
+
+  <!-- ===================== LIGHTBOX MOCKUP ===================== -->
+  <div id="mockup-lightbox" class="fixed inset-0 z-[9999] hidden items-center justify-center" role="dialog" aria-modal="true" aria-label="Guide agrandi">
+    <div id="mockup-lightbox-backdrop" class="absolute inset-0 bg-black/90 backdrop-blur-md opacity-0 transition-opacity duration-300"></div>
+    <button id="mockup-lightbox-close" class="absolute top-4 right-4 z-50 text-gray-300 hover:text-white transition-colors p-2.5 bg-black/50 hover:bg-black/70 rounded-full backdrop-blur-sm"><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+    <div class="relative z-10 w-[80vw] max-w-md transform scale-90 opacity-0 transition-all duration-300" id="mockup-lightbox-img"><img src="assets/checklist-mockup-transparent.png" alt="Guide Offert – Vue agrandie" class="w-full h-auto drop-shadow-[0_0_40px_rgba(255,140,50,0.3)]"></div>
+    <p class="absolute bottom-6 left-1/2 -translate-x-1/2 text-gray-400 text-xs z-10 opacity-0 transition-opacity duration-300 delay-200" id="mockup-lightbox-hint">Appuyez n'importe où pour fermer</p>
+  </div>
+
   <script>
-    // Mémorise l'inscription (même origine que le site) pour ne pas re-déclencher la popup d'accueil.
+    // Mémorise l'inscription (même origine) pour ne pas re-déclencher la popup d'accueil.
     var lpForm = document.getElementById('sib-form');
-    if (lpForm) {
-      lpForm.addEventListener('submit', function () {
-        try { localStorage.setItem('clartem_subscribed', 'true'); } catch (e) {}
-      });
+    if (lpForm) lpForm.addEventListener('submit', function () { try { localStorage.setItem('clartem_subscribed','true'); } catch(e){} });
+  </script>
+
+  <!-- PREVIEW CAROUSEL (logique reprise de ton script.js) -->
+  <script>
+  (function initPreviewCarousel(){
+    var btnDesktop=document.getElementById('preview-excerpt-btn-desktop');
+    var btnMobile=document.getElementById('preview-excerpt-btn-mobile');
+    var carousel=document.getElementById('preview-carousel');
+    if((!btnDesktop&&!btnMobile)||!carousel)return;
+    var backdropEl=document.getElementById('preview-carousel-backdrop');
+    var closeBtn=document.getElementById('preview-carousel-close');
+    var track=document.getElementById('preview-slides-track');
+    var slides=carousel.querySelectorAll('.preview-slide');
+    var imgs=carousel.querySelectorAll('.preview-slide-img');
+    var prevBtn=document.getElementById('preview-prev');
+    var nextBtn=document.getElementById('preview-next');
+    var dots=carousel.querySelectorAll('.preview-dot');
+    var pageText=document.getElementById('preview-current-page');
+    var zoomToggle=document.getElementById('preview-zoom-toggle');
+    var zoomIconIn=document.getElementById('preview-zoom-icon-in');
+    var zoomIconOut=document.getElementById('preview-zoom-icon-out');
+    var zoomLabel=document.getElementById('preview-zoom-label');
+    var currentIndex=0,isOpen=false,isZoomed=false,touchStartX=0,touchDeltaX=0,isSwiping=false;
+    var TOTAL_SLIDES=slides.length;
+    var IS_DESKTOP=function(){return window.innerWidth>=1024;};
+    function goToSlide(index){
+      if(index<0||index>=TOTAL_SLIDES)return;
+      currentIndex=index;
+      track.style.transform='translateX(-'+(currentIndex*100)+'%)';
+      if(pageText)pageText.textContent=currentIndex+1;
+      dots.forEach(function(dot,i){dot.classList.toggle('active',i===currentIndex);});
+      if(prevBtn){prevBtn.classList.toggle('visible',currentIndex>0);prevBtn.classList.toggle('opacity-0',currentIndex===0);prevBtn.classList.toggle('pointer-events-none',currentIndex===0);}
+      if(nextBtn){nextBtn.classList.toggle('visible',currentIndex<TOTAL_SLIDES-1);nextBtn.classList.toggle('opacity-0',currentIndex>=TOTAL_SLIDES-1);nextBtn.classList.toggle('pointer-events-none',currentIndex>=TOTAL_SLIDES-1);}
+      imgs.forEach(function(img,i){if(i===currentIndex){setTimeout(function(){img.classList.add('active-slide');},100);}else{img.classList.remove('active-slide');}});
+      slides.forEach(function(slide){slide.scrollTop=0;});
     }
+    function setZoom(zoomed){isZoomed=zoomed;carousel.classList.toggle('zoom-active',isZoomed);if(zoomIconIn)zoomIconIn.classList.toggle('hidden',isZoomed);if(zoomIconOut)zoomIconOut.classList.toggle('hidden',!isZoomed);if(zoomLabel)zoomLabel.textContent=isZoomed?'Réduire':'Zoomer pour lire';if(!isZoomed){slides.forEach(function(slide){slide.scrollTop=0;});}}
+    function toggleZoom(){setZoom(!isZoomed);}
+    function openCarousel(){if(isOpen)return;isOpen=true;isZoomed=false;carousel.classList.remove('zoom-active');currentIndex=0;track.style.transform='translateX(0)';if(zoomIconIn)zoomIconIn.classList.remove('hidden');if(zoomIconOut)zoomIconOut.classList.add('hidden');if(zoomLabel)zoomLabel.textContent='Zoomer pour lire';carousel.classList.remove('hidden');void carousel.offsetWidth;requestAnimationFrame(function(){carousel.classList.add('preview-open');goToSlide(0);});document.body.style.overflow='hidden';}
+    function closeCarousel(){if(!isOpen)return;carousel.classList.remove('preview-open');carousel.classList.remove('zoom-active');carousel.classList.add('preview-closing');setTimeout(function(){carousel.classList.remove('preview-closing');carousel.classList.add('hidden');isOpen=false;isZoomed=false;document.body.style.overflow='';imgs.forEach(function(img){img.classList.remove('active-slide');});},350);}
+    function handleOpenClick(e){e.stopPropagation();e.preventDefault();openCarousel();}
+    if(btnDesktop)btnDesktop.addEventListener('click',handleOpenClick);
+    if(btnMobile)btnMobile.addEventListener('click',handleOpenClick);
+    if(closeBtn)closeBtn.addEventListener('click',closeCarousel);
+    if(backdropEl)backdropEl.addEventListener('click',closeCarousel);
+    if(prevBtn)prevBtn.addEventListener('click',function(e){e.stopPropagation();goToSlide(currentIndex-1);});
+    if(nextBtn)nextBtn.addEventListener('click',function(e){e.stopPropagation();goToSlide(currentIndex+1);});
+    if(zoomToggle)zoomToggle.addEventListener('click',function(e){e.stopPropagation();toggleZoom();});
+    imgs.forEach(function(img){img.addEventListener('click',function(e){if(!IS_DESKTOP())return;e.stopPropagation();toggleZoom();});});
+    dots.forEach(function(dot){dot.addEventListener('click',function(e){e.stopPropagation();var idx=parseInt(dot.getAttribute('data-index'),10);goToSlide(idx);});});
+    document.addEventListener('keydown',function(e){if(!isOpen)return;if(e.key==='Escape')closeCarousel();if(e.key==='ArrowLeft')goToSlide(currentIndex-1);if(e.key==='ArrowRight')goToSlide(currentIndex+1);});
+    carousel.addEventListener('touchstart',function(e){if(e.touches.length!==1)return;touchStartX=e.touches[0].clientX;touchDeltaX=0;isSwiping=true;track.style.transition='none';},{passive:true});
+    carousel.addEventListener('touchmove',function(e){if(!isSwiping||e.touches.length!==1)return;touchDeltaX=e.touches[0].clientX-touchStartX;var resistance=1;if((currentIndex===0&&touchDeltaX>0)||(currentIndex===TOTAL_SLIDES-1&&touchDeltaX<0)){resistance=0.3;}var offset=-(currentIndex*carousel.offsetWidth)+(touchDeltaX*resistance);track.style.transform='translateX('+offset+'px)';},{passive:true});
+    carousel.addEventListener('touchend',function(){if(!isSwiping)return;isSwiping=false;track.style.transition='transform 0.5s ease-out';var threshold=carousel.offsetWidth*0.2;if(Math.abs(touchDeltaX)>threshold){if(touchDeltaX<0&&currentIndex<TOTAL_SLIDES-1){goToSlide(currentIndex+1);}else if(touchDeltaX>0&&currentIndex>0){goToSlide(currentIndex-1);}else{goToSlide(currentIndex);}}else{goToSlide(currentIndex);}},{passive:true});
+  })();
+
+  (function initMockupLightbox(){
+    var trigger=document.getElementById('mockup-zoom-trigger');
+    var lightbox=document.getElementById('mockup-lightbox');
+    if(!trigger||!lightbox)return;
+    var BREAKPOINT=1024;
+    function isMobileOrTablet(){return window.innerWidth<BREAKPOINT;}
+    function openLightbox(){if(!isMobileOrTablet())return;lightbox.classList.remove('hidden');void lightbox.offsetWidth;lightbox.classList.add('lightbox-visible');document.body.style.overflow='hidden';}
+    function closeLightbox(){lightbox.classList.add('lightbox-closing');lightbox.classList.remove('lightbox-visible');setTimeout(function(){lightbox.classList.remove('lightbox-closing');lightbox.classList.add('hidden');document.body.style.overflow='';},300);}
+    trigger.addEventListener('click',function(e){e.stopPropagation();openLightbox();});
+    trigger.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openLightbox();}});
+    lightbox.addEventListener('click',closeLightbox);
+    var cb=document.getElementById('mockup-lightbox-close');
+    if(cb)cb.addEventListener('click',function(e){e.stopPropagation();closeLightbox();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lightbox.classList.contains('lightbox-visible')){closeLightbox();}});
+  })();
   </script>
 </body>
 </html>
