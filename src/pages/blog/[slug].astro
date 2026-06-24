@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/blog.css';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+const { title, description, headline, faq } = post.data;
+const canonical = new URL(`/blog/${post.slug}/`, Astro.site).href;
+
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: headline || title,
+  author: { '@type': 'Organization', name: 'Clartem' },
+  publisher: { '@type': 'Organization', name: 'Clartem', url: 'https://www.clartem.com' },
+  mainEntityOfPage: canonical,
+};
+
+const faqLd =
+  faq && faq.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faq.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }
+    : null;
+---
+
+<Layout
+  title={title}
+  description={description}
+  bodyClass="bg-[#0B1623] text-[#E5EAF1] dark-nav-page"
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(articleLd)} />
+  {faqLd && <script type="application/ld+json" slot="head" set:html={JSON.stringify(faqLd)} />}
+  <Content />
+</Layout>

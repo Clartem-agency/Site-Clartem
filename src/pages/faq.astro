@@ -1,0 +1,1064 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="FAQ — Création de site web pour thérapeutes | Clartem"
+  description="Toutes les réponses sur la création de votre site web de coaching ou thérapie : processus, intégration rdv, tarifs et accompagnement."
+  bodyClass="bg-neutral-dark dark-nav-page"
+  leadMagnet={true}
+>
+
+<script type="application/ld+json" slot="head" is:inline>
+    {
+      "@context":"https://schema.org",
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Le tarif est-il tout compris ou y a-t-il des frais cachés ?","acceptedAnswer":{"@type":"Answer","text":"Tout compris, sans frais caché. Le tarif est un paiement unique qui couvre la création du site et la première année complète (hébergement, nom de domaine, maintenance, sécurité). À partir de la 2e année, seul le Pack Sérénité se renouvelle, à 249 € HT/an (environ 20 €/mois)."}},
+        {"@type":"Question","name":"En combien de temps mon site est-il livré ?","acceptedAnswer":{"@type":"Answer","text":"En général en 2 à 3 semaines, pas des mois. Le délai démarre à la réception de votre contenu et dépend surtout de votre rythme."}},
+        {"@type":"Question","name":"Suis-je propriétaire de mon site et de mon nom de domaine ?","acceptedAnswer":{"@type":"Answer","text":"Oui, à 100 %. Vous possédez le code, le design, les textes et les images. Votre nom de domaine est enregistré à votre nom et la propriété est transférée au paiement du solde final."}},
+        {"@type":"Question","name":"Pourrai-je modifier mon site moi-même ?","acceptedAnswer":{"@type":"Answer","text":"Oui. À la livraison, vous recevez un espace d'administration sécurisé (un CMS) aussi simple qu'un formulaire, pour modifier textes, photos, tarifs et témoignages sans toucher au code."}},
+        {"@type":"Question","name":"Puis-je financer mon site avec mon CPF ou des aides ?","acceptedAnswer":{"@type":"Answer","text":"Le CPF ne finance pas la création d'un site. D'autres pistes existent : micro-crédit ADIE, Chèques Numériques régionaux, ARCE de France Travail ou AGEFIPH."}},
+        {"@type":"Question","name":"Mon site sera-t-il bien référencé sur Google ?","acceptedAnswer":{"@type":"Answer","text":"Chaque site est livré avec un socle SEO technique propre : structure claire, rapidité, version mobile et balises essentielles. Le référencement reste ensuite un marathon qui dépend de votre contenu dans le temps."}},
+        {"@type":"Question","name":"La création d'un logo est-elle incluse ?","acceptedAnswer":{"@type":"Answer","text":"Oui, l'identité visuelle est prise en charge, à un niveau qui dépend de la formule : logo typographique épuré, ou véritable symbole graphique pour les offres supérieures."}},
+        {"@type":"Question","name":"Vos sites sont-ils accessibles aux personnes en situation de handicap ?","acceptedAnswer":{"@type":"Answer","text":"Oui : les bonnes pratiques d'accessibilité sont appliquées par défaut — contrastes élevés, typographies claires, structure lisible par les lecteurs d'écran."}},
+        {"@type":"Question","name":"Comment protégez-vous les données sensibles de mes clients (RGPD) ?","acceptedAnswer":{"@type":"Answer","text":"Par une séparation sécurisée : votre site vitrine est statique, sans base de données, et aucune donnée de santé n'y transite. Les rendez-vous passent par des plateformes certifiées HDS plutôt que par un formulaire classique."}},
+        {"@type":"Question","name":"Mon site a-t-il besoin de maintenance ?","acceptedAnswer":{"@type":"Answer","text":"Oui. La première année est incluse (Pack Sérénité : hébergement, domaine, sécurité, sauvegardes, support). Ensuite, le Pack Sérénité se poursuit à 249 €/an, sans engagement."}},
+        {"@type":"Question","name":"Le site respecte-t-il l'obligation d'afficher un médiateur de la consommation ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Depuis 2016, tout professionnel vendant des services à des particuliers doit proposer un dispositif de médiation. Nous vous orientons vers un organisme agréé et intégrons les clauses et liens obligatoires dans vos mentions légales et CGV."}}
+      ]
+    }
+</script>
+
+
+<style is:global>
+        .faq-toggle svg.rotate-180 {
+            transform: rotate(135deg);
+        }
+
+        /* CORRECTION ICI : On remet le bleu pour l'état actif */
+        .faq-toggle.active .icon-container {
+            background-color: #3B82F6;
+            /* clarity-blue */
+            color: white;
+        }
+
+        .faq-answer {
+            will-change: max-height;
+        }
+
+        /* Force le fond sombre même si le JS essaie de le mettre en blanc */
+        #main-nav {
+            background-color: #1F2937 !important;
+            /* Couleur neutral-dark */
+            color: white !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Force les liens en blanc */
+        #main-nav #nav-links a {
+            color: white !important;
+        }
+
+        /* Garde le hover bleu */
+        #main-nav #nav-links a:hover {
+            color: #3B82F6 !important;
+        }
+
+        /* Force le bouton mobile en blanc */
+        #mobile-menu-button {
+            color: white !important;
+        }
+
+        /* Filtre logo blanc */
+        #main-nav img {
+            filter: brightness(0) invert(1);
+        }
+
+        /* Style pour l'onglet actif */
+        .tab-btn.active {
+            background-color: #3B82F6;
+            /* clarity-blue */
+            color: white;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Animation douce lors du changement d'onglet */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+
+
+        /* Sidebar Navigation Styles */
+        .nav-btn.active {
+            background-color: rgba(59, 130, 246, 0.1);
+            /* clarity-blue très transparent */
+            color: #3B82F6;
+            /* clarity-blue text */
+            border-color: #3B82F6;
+            /* Bordure gauche bleue */
+        }
+
+        /* Style spécifique pour les options du select sur mobile (pour qu'elles soient lisibles) */
+        #mobile-category-select option {
+            background-color: #1F2937;
+            /* neutral-dark */
+            color: white;
+        }
+
+
+
+        /* Animation de l'orbe de clarté */
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            50% {
+                opacity: 0.6;
+                /* Plus lumineux au milieu */
+                transform: translate(-50%, -50%) scale(1.2);
+                /* S'agrandit légèrement */
+            }
+        }
+
+        .orb-light {
+            position: absolute;
+            left: 50%;
+            /* Centré horizontalement */
+            top: 20%;
+            /* Positionné derrière le titre */
+            width: 400px;
+            height: 400px;
+            /* Dégradé radial : Coeur blanc -> Bleu clair -> Transparent */
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(59, 130, 246, 0.15) 40%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+            /* Flou important pour l'effet gazeux */
+            animation: pulse-glow 6s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+</style>
+
+<main class="flex-grow bg-neutral-dark">
+<!-- ======================================================= -->
+<!--       NOUVELLE SECTION FAQ (LAYOUT SIDEBAR + SELECT)    -->
+<!-- ======================================================= -->
+<section class="pt-32 pb-24 lg:pt-48 lg:pb-40 relative min-h-screen" id="faq-main">
+<!-- NOUVEL ORBE DE CLARTÉ -->
+<div class="orb-light"></div>
+<div class="container mx-auto px-4 relative z-10">
+<!-- EN-TÊTE -->
+<!-- MODIF 1 : J'ai passé mb-16 à mb-24 (mobile) et lg:mb-32 (desktop) pour créer beaucoup plus d'espace -->
+<div class="text-center mb-24 lg:mb-32" data-sr="">
+<div class="inline-flex items-center gap-2 px-3 py-1 mb-8 border border-warm-orange/30 rounded-full bg-white/5 backdrop-blur-md text-warm-orange text-xs font-bold tracking-widest uppercase shadow-lg">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-warm-orange opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-warm-orange"></span>
+</span>
+                            Centre d'Aide
+                        </div>
+<!-- MODIF 2 : J'ai passé le texte de text-3xl/5xl à text-5xl/7xl/8xl + tracking-tight (lettres resserrées) pour l'effet premium -->
+<h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-none tracking-tight">Questions fréquentes — création de site pour <span class="text-transparent bg-clip-text bg-gradient-to-r from-clarity-blue to-white">thérapeutes</span></h1>
+<!-- MODIF 3 : J'ai légèrement agrandi le sous-titre pour équilibrer -->
+<p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed">
+                            Sélectionnez une catégorie pour filtrer les réponses.
+                        </p>
+</div>
+<div class="flex flex-col md:flex-row gap-8 lg:gap-12 max-w-6xl mx-auto">
+<!-- COLONNE GAUCHE : NAVIGATION -->
+<div class="md:w-1/3 lg:w-1/4">
+<!-- VERSION MOBILE : MENU DÉROULANT PERSONNALISÉ -->
+<div class="md:hidden mb-8 relative z-30">
+<!-- Le bouton qui remplace le select (apparence identique mais contrôlée) -->
+<button class="w-full flex justify-between items-center bg-white/10 border border-white/20 text-white py-3 px-5 rounded-xl focus:outline-none focus:border-clarity-blue focus:ring-1 focus:ring-clarity-blue font-medium text-sm transition-all duration-300" id="dropdown-button" onclick="toggleDropdown()">
+<span id="dropdown-label">Général &amp; Confiance</span>
+<!-- Flèche animée -->
+<svg class="w-4 h-4 transition-transform duration-300" fill="currentColor" id="dropdown-arrow" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd"></path>
+</svg>
+</button>
+<!-- La liste des options (cachée par défaut) -->
+<div class="hidden absolute top-full left-0 right-0 mt-2 bg-[#1F2937] border border-white/20 rounded-xl shadow-2xl overflow-hidden origin-top transition-all duration-200" id="dropdown-menu">
+<div class="px-5 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-white cursor-pointer border-b border-white/5 transition-colors" onclick="selectOption('general', 'Général &amp; Confiance')">
+                                        Général &amp; Confiance
+                                    </div>
+<div class="px-5 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-white cursor-pointer border-b border-white/5 transition-colors" onclick="selectOption('tarifs', 'Tarifs &amp; Investissement')">
+                                        Tarifs &amp; Investissement
+                                    </div>
+<div class="px-5 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-white cursor-pointer border-b border-white/5 transition-colors" onclick="selectOption('processus', 'Le Processus &amp; Notre Collaboration')">
+                                        Processus &amp; Collaboration
+                                    </div>
+<div class="px-5 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-white cursor-pointer border-b border-white/5 transition-colors" onclick="selectOption('design', 'Contenu &amp; Design')">
+                                        Contenu &amp; Design
+                                    </div>
+<div class="px-5 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-white cursor-pointer border-b border-white/5 transition-colors" onclick="selectOption('site', 'Site Web &amp; Fonctionnalités')">
+                                        Site Web &amp; Fonctionnalités
+                                    </div>
+<div class="px-5 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-white cursor-pointer transition-colors" onclick="selectOption('technique', 'Technique &amp; Gestion')">
+                                        Technique &amp; Gestion
+                                    </div>
+<div class="px-5 py-3 text-sm text-gray-300 hover:bg-white/5 hover:text-white cursor-pointer transition-colors" onclick="selectOption('maintenance', 'Maintenance &amp; Suivi')">
+                                        Maintenance &amp; Suivi
+                                    </div>
+</div>
+</div>
+<!-- VERSION DESKTOP : SIDEBAR VERTICALE -->
+<div class="hidden md:flex flex-col sticky top-32 space-y-2">
+<p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2 pl-4">Catégories
+                                </p>
+<button class="nav-btn active text-left px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 border-l-2 hover:bg-white/5 flex justify-between items-center group" id="btn-general" onclick="switchTab('general')">
+<span>Général &amp; Confiance</span>
+<svg class="w-4 h-4 opacity-0 -translate-x-2 group-[.active]:opacity-100 group-[.active]:translate-x-0 transition-all duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<button class="nav-btn text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-400 border-transparent hover:text-white hover:bg-white/5 transition-all duration-300 border-l-2 flex justify-between items-center group" id="btn-tarifs" onclick="switchTab('tarifs')">
+<span>Tarifs &amp; Investissement</span>
+<svg class="w-4 h-4 opacity-0 -translate-x-2 group-[.active]:opacity-100 group-[.active]:translate-x-0 transition-all duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<button class="nav-btn text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-400 border-transparent hover:text-white hover:bg-white/5 transition-all duration-300 border-l-2 flex justify-between items-center group" id="btn-processus" onclick="switchTab('processus')">
+<span>Processus &amp; Collaboration</span>
+<svg class="w-4 h-4 opacity-0 -translate-x-2 group-[.active]:opacity-100 group-[.active]:translate-x-0 transition-all duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<button class="nav-btn text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-400 border-transparent hover:text-white hover:bg-white/5 transition-all duration-300 border-l-2 flex justify-between items-center group" id="btn-design" onclick="switchTab('design')">
+<span>Contenu &amp; Design</span>
+<svg class="w-4 h-4 opacity-0 -translate-x-2 group-[.active]:opacity-100 group-[.active]:translate-x-0 transition-all duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<button class="nav-btn text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-400 border-transparent hover:text-white hover:bg-white/5 transition-all duration-300 border-l-2 flex justify-between items-center group" id="btn-site" onclick="switchTab('site')">
+<span>Site Web &amp; Fonctionnalités</span>
+<svg class="w-4 h-4 opacity-0 -translate-x-2 group-[.active]:opacity-100 group-[.active]:translate-x-0 transition-all duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<button class="nav-btn text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-400 border-transparent hover:text-white hover:bg-white/5 transition-all duration-300 border-l-2 flex justify-between items-center group" id="btn-technique" onclick="switchTab('technique')">
+<span>Technique &amp; Gestion</span>
+<svg class="w-4 h-4 opacity-0 -translate-x-2 group-[.active]:opacity-100 group-[.active]:translate-x-0 transition-all duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<button class="nav-btn text-left px-4 py-3 rounded-lg text-sm font-medium text-gray-400 border-transparent hover:text-white hover:bg-white/5 transition-all duration-300 border-l-2 flex justify-between items-center group" id="btn-maintenance" onclick="switchTab('maintenance')">
+<span>Maintenance &amp; Suivi</span>
+<svg class="w-4 h-4 opacity-0 -translate-x-2 group-[.active]:opacity-100 group-[.active]:translate-x-0 transition-all duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- COLONNE DROITE : CONTENU DES QUESTIONS -->
+<div class="flex-1 min-h-[500px]">
+<!-- Conteneur style "Carte" -->
+<div class="bg-white/5 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-sm">
+<!-- ... GROUPE 1 : GÉNÉRAL ... -->
+<div class="tab-content block animate-fade-in" id="content-general">
+<!-- Question 1 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Pourquoi devrais-je vous faire confiance plutôt qu'à une autre agence ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Parce que nous réunissons la rigueur d'une agence et la réactivité d'un indépendant, sur un créneau précis : les thérapeutes.</strong> Vous avez un interlocuteur unique, un devis clair sans frais cachés, et un site qui vous appartient à 100 %.</p><p>Concrètement : un design sur-mesure, un délai court une fois votre contenu prêt, et un travail sur la clarté de votre message avant même le design.</p><p class="text-sm italic text-gray-400 pt-3 border-t border-white/5 mt-3">Pour choisir votre prestataire : <a class="text-clarity-blue underline hover:text-white transition-colors" href="/blog/generaliste-ou-specialiste-site-therapeute/">généraliste ou spécialiste ?</a> · Sur les prix : <a class="text-clarity-blue underline hover:text-white transition-colors" href="/blog/lire-devis-site-web/">comment lire un devis</a>.</p></div>
+</div>
+</div>
+<!-- Question 2 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">Votre offre est-elle adaptée à mon métier (sophrologue, naturopathe, hypnothérapeute…) ?</span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Oui — c'est même tout ce que nous faisons.</strong> Nous créons exclusivement des sites pour les thérapeutes et praticiens du bien-être, parce que votre enjeu n'est pas de vendre un produit, mais d'inspirer confiance.</p><p>Le site est pensé pour vous : rassurer, lever les freins à la première prise de rendez-vous, et refléter votre approche et votre éthique — en s'adaptant à votre métier précis.</p><p class="text-sm italic text-gray-400 pt-3 border-t border-white/5 mt-3">Voir comment nous l'adaptons : <a class="text-clarity-blue underline hover:text-white transition-colors" href="/creation-site-web-therapeute/">sites pour thérapeutes</a>.</p></div>
+</div>
+</div>
+<!-- Question 3 : Pourquoi choisir Clartem vs DIY -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Pourquoi choisir votre service plutôt que de faire mon site moi-même
+                                                (Wix, Squarespace...) ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Les outils comme Wix sont très bien, mais ils vous donnent les briques, pas l'architecte.</strong> Et faire son site soi-même est rarement « gratuit » : ça coûte surtout votre temps et votre énergie mentale.</p><p>En déléguant, vous gagnez ce temps, vous bénéficiez d'un regard extérieur qui clarifie votre message, et vous obtenez une image professionnelle qui valorise votre accompagnement.</p><p class="text-sm italic text-gray-400 pt-3 border-t border-white/5 mt-3">Comparer les coûts : <a class="text-clarity-blue underline hover:text-white transition-colors" href="/blog/prix-site-therapeute/">combien coûte un site</a> · Sur l'autonomie : <a class="text-clarity-blue underline hover:text-white transition-colors" href="/blog/modifier-son-site-soi-meme-cms/">modifier son site soi-même</a>.</p></div>
+</div>
+</div>
+</div>
+<!-- ... GROUPE 2 : TARIFS ... -->
+<div class="tab-content hidden animate-fade-in" id="content-tarifs">
+<!-- Question 1 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Le tarif affiché est-il tout compris ou y a-t-il des frais cachés ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Tout compris, sans frais caché.</strong> Le tarif est un paiement unique qui couvre la création du site <strong class="text-white">et</strong> votre première année complète (hébergement, nom de domaine, maintenance, sécurité — le « Pack Sérénité »).</p><p>À partir de la 2ᵉ année, seul ce Pack se renouvelle, à <strong class="text-white">249 € HT/an (~20 €/mois)</strong>. C'est tout.</p><p class="text-sm italic text-gray-400 pt-3 border-t border-white/5 mt-3">Ce qu'un devis doit contenir : <a class="text-clarity-blue underline hover:text-white transition-colors" href="/blog/lire-devis-site-web/">comment lire un devis</a> · Le détail des coûts : <a class="text-clarity-blue underline hover:text-white transition-colors" href="/blog/prix-site-therapeute/">combien coûte un site</a>.</p></div>
+</div>
+</div>
+<!-- Question 2 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Un « Site Clarté » peut-il vraiment m'apporter plus de clients ? Quel
+                                                est le retour sur investissement ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Un site ne « garantit » pas un nombre de clients — mais un bon site augmente nettement votre capacité à les convaincre.</strong> Il rassure, répond aux questions fréquentes, qualifie vos prospects et peut gérer vos rendez-vous.</p><p>Concrètement, un seul nouveau client gagné grâce à lui peut souvent rembourser l'investissement.</p><p class="text-sm italic text-gray-400 pt-3 border-t border-white/5 mt-3">Comment un site est construit pour convertir : <a class="text-clarity-blue underline hover:text-white transition-colors" href="/blog/creer-site-therapeute-qui-convertit/">créer un site qui convertit</a>.</p></div>
+</div>
+</div>
+<!-- Question 3 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Comment se déroulent le paiement et la facturation ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">En deux temps :</strong> 50 % d'acompte à la signature du devis, puis les 50 % restants à la validation finale, juste avant la mise en ligne. Une facture vous est remise à chaque versement.</p></div>
+</div>
+</div>
+<!-- Question 4 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Pourquoi dois-je payer chaque année si le site est déjà construit ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Parce qu'un site a des frais de fonctionnement</strong> — comme une voiture a besoin d'essence. L'hébergement le garde en ligne, le nom de domaine le rend trouvable, la maintenance et la sécurité le protègent.</p><p>C'est ce que couvre le Pack Sérénité (249 € HT/an), pour que tout reste rapide et sûr sans que vous y pensiez.</p><p class="text-sm italic text-gray-400 pt-3 border-t border-white/5 mt-3">Le récurrent fait partie du vrai coût : <a class="text-clarity-blue underline hover:text-white transition-colors" href="/blog/prix-site-therapeute/">combien coûte un site</a>.</p></div>
+</div>
+</div>
+<!-- Question 5 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Puis-je financer mon site avec mon CPF ou existe-t-il des aides ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Non pour le CPF</strong> : il finance des formations, pas une prestation de création de site. <strong class="text-white">Mais d'autres pistes existent :</strong> le micro-crédit ADIE, les Chèques Numériques régionaux (via votre CCI / Chambre des Métiers), l'ARCE de France Travail, ou l'AGEFIPH si vous êtes en situation de handicap.</p><p>Nous fournissons toutes les factures et devis nécessaires pour monter vos dossiers.</p></div>
+</div>
+</div>
+<!-- Question 6 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">Vous facturez depuis l'Estonie : qu'est-ce que cela change pour moi ?</span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Bonne nouvelle : Clartem vous facture 0 % de TVA</strong> (prix Hors Taxe). L'Estonie étant dans l'UE, nos échanges relèvent de la TVA intracommunautaire (autoliquidation).</p><p><strong class="text-white">C'est surtout avantageux si vous êtes micro-entrepreneur ou non assujetti à la TVA</strong> : comme vous ne récupérez pas la TVA, ne pas la payer du tout est une économie sèche — environ 20 % de moins à décaisser qu'avec une agence française.</p><p class="text-sm italic text-gray-400 pt-3 border-t border-white/5 mt-3">Informations générales ; votre situation peut être vérifiée avec votre comptable.</p></div>
+</div>
+</div>
+<!-- Question 7 -->
+
+<!-- Question 8 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Je n'ai pas de numéro de TVA Intracommunautaire. Est-ce un problème ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Pas du tout, c'est une formalité gratuite.</strong> Pour vous facturer à 0 %, votre numéro de TVA intracommunautaire (FR + 11 chiffres) doit figurer sur la facture. Beaucoup de micro-entrepreneurs ignorent qu'ils y ont droit.</p><p>Pour l'obtenir : un message depuis votre espace <strong class="text-white">impots.gouv.fr</strong> (rubrique Professionnel) demandant votre numéro pour des achats de prestations dans l'UE. Réponse en ~48 h, gratuit.</p></div>
+</div>
+</div>
+<!-- Question 9 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Si je commence petit, puis-je changer d'offre plus tard ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Oui</strong> — vous pouvez démarrer avec l'offre <strong class="text-white">Impact (799 €)</strong> puis passer plus tard à <strong class="text-white">Ancrage (1299 €)</strong> sans repayer un site complet : vous ne réglez que <strong class="text-white">la différence</strong> (plus de légers frais de mise à niveau). Votre site grandit au rythme de votre activité.</p></div>
+</div>
+</div>
+<!-- Question 10 : Coût des outils externes -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Dois-je payer un abonnement supplémentaire pour la prise de rendez-vous
+                                                en ligne ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Aucun frais imposé par le site</strong> — il est compatible avec tout. <strong class="text-white">Option gratuite :</strong> Calendly ou Cal.com (0 €). <strong class="text-white">Si vous utilisez déjà Doctolib, Crénolibre, Resalib ou Medoucine :</strong> on connecte simplement votre profil existant au site.</p></div>
+</div>
+</div>
+</div>
+<!-- ... GROUPE 3 : PROCESSUS ... -->
+<div class="tab-content hidden animate-fade-in" id="content-processus">
+<!-- Question 1 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">Comment livrez-vous un site sur-mesure en 2 à 3 semaines, sans que ça traîne des mois ?</span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">En inversant le processus habituel : 80 % du travail porte sur la clarté, en amont.</strong> Là où un projet classique part d'un brief flou suivi de longs allers-retours qui s'étirent sur des mois, nous clarifions d'abord tout ensemble (l'Atelier de Clarté = les « plans d'architecte »).</p><p>Une fois le plan validé, la création avance vite et sans surprise. La rapidité n'est pas l'objectif : c'est la <strong class="text-white">conséquence</strong> d'une préparation soignée. Comptez <strong class="text-white">en général 2 à 3 semaines</strong>.</p><p class="text-sm italic text-gray-400 pt-3 border-t border-white/5 mt-3">Pourquoi un site vraiment sur-mesure : <a class="text-clarity-blue underline hover:text-white transition-colors" href="/blog/site-therapeute-sur-mesure-sans-wordpress/">sur-mesure, rapide et sans WordPress</a>.</p></div>
+</div>
+</div>
+<!-- Question 2 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                En quoi consiste l'« Atelier de Clarté » et que devrai-je fournir ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">C'est le cœur de notre méthode : un espace en ligne privé et guidé, comme une session de coaching asynchrone.</strong> Étape par étape, vous y (1) définissez votre message essentiel, (2) rassemblez vos éléments (logo, photos), et (3) montrez des sites dont l'ambiance vous inspire.</p><p>Vous n'y « remplissez pas des cases » : vous clarifiez votre offre — beaucoup le vivent comme une révélation sur leur propre activité.</p><p class="text-sm italic text-gray-400 pt-3 border-t border-white/5 mt-3">Pour creuser : <a class="text-clarity-blue underline hover:text-white transition-colors" href="/blog/message-clair-site-therapeute/">rendre votre message limpide</a>.</p></div>
+</div>
+</div>
+<!-- Question 3 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">Comment se déroule le projet, étape par étape (et d'où part le délai) ?</span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Le délai de 2 à 3 semaines démarre dès la réception de votre contenu (l'Atelier complété), pas au paiement</strong> — et il dépend surtout de votre rythme. Le déroulé :</p><ul class="list-disc list-outside ml-4 space-y-1 mt-1"><li><strong class="text-white">Appel Clarté</strong> (gratuit, ~15 min) : on fixe le cap. Si on avance, vous réglez pour enclencher la suite.</li><li><strong class="text-white">Atelier de Clarté</strong> (à votre rythme) : c'est la principale variable du délai.</li><li><strong class="text-white">Création</strong> : dès votre contenu reçu, nous concevons le site et vous envoyons une 1ʳᵉ version via un lien privé.</li><li><strong class="text-white">Validation &amp; lancement</strong> : vos retours, puis nous gérons toute la mise en ligne.</li></ul></div>
+</div>
+</div>
+<!-- Question 4 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">Comment se passe la communication, et qu'attendez-vous de moi ?</span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Par quelques points de contact clés, pas un flot d'emails — et un projet fluide se joue à deux.</strong> Concrètement :</p><ul class="list-disc list-outside ml-4 space-y-1 mt-1"><li><strong class="text-white">De notre côté :</strong> une première version rapide dès réception de votre contenu, des réponses sous 48 h, un accompagnement à chaque étape.</li><li><strong class="text-white">De votre côté :</strong> prendre le temps de l'Atelier sans le laisser traîner, nous faire vos retours groupés sous 5 à 7 jours, et rester joignable pour la validation.</li></ul><p>Entre ces étapes, vous n'avez rien à suivre : pendant la création, vous vous concentrez sur votre activité.</p></div>
+</div>
+</div>
+<!-- Question 5 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Et si nous ne nous entendons pas ou si je veux arrêter le projet en
+                                                cours de route ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Le processus est conçu pour éviter ce scénario</strong> : l'Appel Clarté et l'Atelier de Clarté servent de « filtre de compatibilité » — nous ne démarrons pas le design tant que nous ne sommes pas alignés.</p><p><strong class="text-white">Côté finances :</strong> l'acompte de 50 % réserve votre créneau de production ; une fois le travail engagé, il n'est plus remboursable. Le solde (50 %) n'est dû qu'à la fin, après votre validation.</p><p><strong class="text-white">Besoin de souffler ?</strong> Si vous avez besoin de plus de temps, on met le projet en pause. Sans nouvelle pendant ~3 semaines, votre créneau est libéré, et nous reprenons dès que vous êtes prêt(e).</p></div>
+</div>
+</div>
+<!-- Question 6 -->
+
+</div>
+<!-- ... GROUPE 4 : CONTENU & DESIGN ... -->
+<div class="tab-content hidden animate-fade-in" id="content-design">
+<!-- Question 1 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Que se passe-t-il si je n'aime pas la proposition de design ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Le risque est très faible, parce que le design n'est pas une surprise : il découle de ce qu'on a défini ensemble dans l'Atelier de Clarté</strong> (vos inspirations, les mots de votre marque, l'objectif du site). La première version est une interprétation professionnelle de cette direction, pas un coup de poker.</p><p>Et une <strong class="text-white">phase de retours est incluse</strong> : vous nous listez les ajustements jusqu'à ce que le résultat vous rende fier·e.</p></div>
+</div>
+</div>
+<!-- Question 2 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">Vous occupez-vous des textes et des photos ? Je n'ai rien de « pro ».</span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Oui, vous n'êtes jamais bloqué·e.</strong> Côté <strong class="text-white">textes</strong> : nous ne les écrivons pas « à votre place », nous les construisons <strong class="text-white">avec vous</strong> via l'Atelier de Clarté, puis nous structurons et affinons. Une prestation de <strong class="text-white">copywriting complète</strong> est possible en option.</p><p>Côté <strong class="text-white">photos</strong> : de vraies photos (même au smartphone, bien éclairées) restent l'idéal ; sinon, nous créons des <strong class="text-white">images sur-mesure par IA</strong> ou vous orientons vers des banques d'images de qualité.</p><p class="text-sm italic text-gray-400 pt-3 border-t border-white/5 mt-3">Pour soigner le fond : <a class="text-clarity-blue underline hover:text-white transition-colors" href="/blog/message-clair-site-therapeute/">rendre votre message limpide</a>.</p></div>
+</div>
+</div>
+<!-- Question 3 -->
+
+<!-- Question 4 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Le service inclut-il la création d'un logo ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Oui, l'identité visuelle est prise en charge</strong> — le niveau dépend de la formule : un <strong class="text-white">logo typographique</strong> épuré (offre Impact), ou un véritable <strong class="text-white">symbole graphique</strong> avec 3 pistes (offres Ancrage, Liberté, Expansion). Une image de marque cohérente, sans gérer un graphiste en plus.</p><p class="text-sm italic text-gray-400 pt-3 border-t border-white/5 mt-3">Ce qui compte vraiment côté logo : <a class="text-clarity-blue underline hover:text-white transition-colors" href="/blog/logo-identite-visuelle-therapeute/">faut-il un logo / une identité visuelle ?</a></p></div>
+</div>
+</div>
+<!-- Question 5 : Sécurité Sémantique & Exercice Illégal -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">J'ai peur d'utiliser des termes interdits (exercice illégal de la médecine). Vérifiez-vous cela ?</span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Oui — sans être juristes (la responsabilité finale de vos contenus vous revient), nous relisons vos textes comme un « filtre de sécurité sémantique »</strong>, sur trois plans :</p><ul class="list-disc list-outside ml-4 space-y-1 mt-1"><li><strong class="text-white">Le vocabulaire :</strong> on remplace les mots réservés au médical (ex. <em>guérir/soigner</em> → <em>accompagner/soulager</em> ; <em>patient</em> → <em>client/personne</em>).</li><li><strong class="text-white">Les promesses :</strong> on évite les résultats absolus (« fini le stress en 1h ») au profit de votre méthode.</li><li><strong class="text-white">Un disclaimer en pied de page</strong> rappelant que vos services ne remplacent pas un avis médical.</li></ul><p class="text-sm italic text-gray-400 pt-3 border-t border-white/5 mt-3">En cas de doute, votre ordre / organisation professionnelle reste la référence.</p></div>
+</div>
+</div>
+<!-- Question 6 : Accessibilité & Inclusivité -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Vos sites sont-ils accessibles aux personnes en situation de handicap ou
+                                                âgées ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Oui : les bonnes pratiques d'accessibilité sont appliquées par défaut</strong> — contrastes élevés, typographies claires et assez grandes, structure lisible par les lecteurs d'écran. Un site qui accueille vraiment tout le monde (et un bon signal pour votre référencement).</p><p class="text-sm italic text-gray-400 pt-3 border-t border-white/5 mt-3">Les bases concrètes : <a class="text-clarity-blue underline hover:text-white transition-colors" href="/blog/site-therapeute-accessible/">rendre son site accessible</a>.</p></div>
+</div>
+</div>
+<!-- Question 7 : Peur du Marketing Agressif -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Je déteste le marketing agressif. Mon site peut-il rester authentique et
+                                                doux ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Oui, totalement — c'est même la base de notre approche.</strong> Dans les métiers de l'accompagnement, une page « vente agressive » fait fuir : elle brise la confiance. On mise sur la <strong class="text-white">connexion</strong>, pas la manipulation — vos propres mots et une esthétique apaisante qui met le visiteur en confiance.</p><p>Votre site n'est pas un panneau publicitaire, c'est une main tendue.</p><p class="text-sm italic text-gray-400 pt-3 border-t border-white/5 mt-3">Inspirer confiance et convertir sans forcer : <a class="text-clarity-blue underline hover:text-white transition-colors" href="/blog/creer-site-therapeute-qui-convertit/">créer un site qui convertit</a>.</p></div>
+</div>
+</div>
+<!-- Question 8 : Témoignages & Confidentialité -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">Comment afficher des avis tout en respectant la confidentialité de mes clients ?</span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">En valorisant le ressenti sans jamais exposer l'intimité.</strong> On anonymise élégamment (initiales ou prénom seul, visuels doux plutôt que photos) et on choisit des extraits qui parlent du <strong class="text-white">mieux-être</strong> ressenti, sans dévoiler la problématique de départ. Rassurant et respectueux de votre déontologie.</p><p class="text-sm italic text-gray-400 pt-3 border-t border-white/5 mt-3">Obtenir et afficher vos avis en restant intègre : <a class="text-clarity-blue underline hover:text-white transition-colors" href="/blog/obtenir-avis-google-therapeute/">obtenir des avis Google (confidentialité)</a>.</p></div>
+</div>
+</div>
+</div>
+<!-- ... GROUPE 5 : SITE WEB & FONCTIONNALITÉS ... -->
+<div class="tab-content hidden animate-fade-in" id="content-site">
+<!-- Question 1 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Mon « Site Clarté » sera-t-il bien référencé sur Google (SEO) ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Oui pour les bases : chaque site est livré avec un socle SEO technique propre</strong> — structure claire, rapidité, version mobile, balises essentielles. C'est ce que Google attend pour bien « lire » votre site.</p><p>Ensuite, le référencement est un <strong class="text-white">marathon</strong> : il dépend de la qualité de votre contenu dans le temps. (La formule Expansion va plus loin pour la visibilité locale.)</p></div>
+</div>
+</div>
+<!-- Question 2 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Puis-je intégrer des outils spécifiques (CRM, Pixel Facebook,
+                                                Newsletter...) ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Oui</strong> (formules Liberté et Expansion). Nous intégrons la plupart des outils qui fonctionnent avec un code à copier-coller : prise de rendez-vous (Calendly…), newsletter (Mailchimp, Brevo…), pixels de suivi (Facebook, Google Analytics), et d'autres. On vérifie la compatibilité lors de l'Appel Clarté.</p></div>
+</div>
+</div>
+<!-- Question 3 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                J'ai besoin d'un blog ou d'une boutique en ligne. Est-ce possible ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Oui.</strong> Pour un <strong class="text-white">blog</strong> : la formule Expansion inclut un espace de rédaction optimisé pour le référencement. Pour une <strong class="text-white">boutique</strong> : une vraie boutique (panier, stocks) demande une autre structure, mais on peut intégrer des <strong class="text-white">boutons de paiement simples</strong> (Stripe/PayPal) pour des services ou produits numériques (formules Liberté et Expansion).</p></div>
+</div>
+</div>
+<!-- Question 4 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Comment choisir entre un site One-Page et un site Multi-pages ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">C'est une question de stade, pas de technique.</strong> Le <strong class="text-white">One-Page</strong> (offre Impact) est idéal pour se lancer : il concentre votre message pour convertir vite. Le <strong class="text-white">Multi-pages</strong> (offre Ancrage) devient utile pour grandir : des pages séparées (Services, À propos, Approche) aident votre référencement et rassurent les visiteurs.</p><p>Et vous n'êtes pas bloqué·e : on peut démarrer en One-Page et passer en Multi-pages plus tard, en ne payant que la différence.</p></div>
+</div>
+</div>
+<!-- Question 5 : Google Maps & Local -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Mon cabinet est local. Le site va-t-il m'aider à apparaître sur la carte
+                                                Google (Google Maps) ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Oui — site et fiche Google sont inséparables.</strong> Pour un thérapeute local, viser le « Pack Local » (les 3 résultats mis en avant sur la carte) change tout. Un site pro et optimisé (rapide, mobile) est l'un des critères que Google regarde pour vous placer devant des concurrents qui n'ont qu'une fiche ou une page Facebook.</p><p>(La formule Expansion inclut l'optimisation et la synchronisation de votre fiche Google avec le site.)</p><p class="text-sm italic text-gray-400 pt-3 border-t border-white/5 mt-3">Tout sur votre visibilité locale : <a class="text-clarity-blue underline hover:text-white transition-colors" href="/blog/fiche-google-business-therapeute/">être trouvé : la fiche Google Business</a>.</p></div>
+</div>
+</div>
+<!-- Question 6 : Gestion Multi-Activités -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">Je pratique plusieurs activités (ex. Naturopathie et Sophrologie). Comment tout organiser ?</span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Le risque, c'est le site « supermarché » où l'on ne comprend plus qui vous êtes.</strong> Dans l'Atelier de Clarté, on définit votre <strong class="text-white">fil rouge</strong> : votre mission globale (le « manche du parapluie »), et vos pratiques présentées comme des moyens complémentaires d'y parvenir.</p><p>Techniquement, on crée des <strong class="text-white">portes d'entrée claires</strong> pour que chaque visiteur trouve ce qu'il cherche, tout en comprenant que c'est bien vous qui orchestrez l'ensemble.</p><p class="text-sm italic text-gray-400 pt-3 border-t border-white/5 mt-3">Pour clarifier ce fil rouge : <a class="text-clarity-blue underline hover:text-white transition-colors" href="/blog/message-clair-site-therapeute/">rendre votre message limpide</a>.</p></div>
+</div>
+</div>
+</div>
+<!-- GROUPE 6 : TECHNIQUE -->
+<div class="tab-content hidden animate-fade-in" id="content-technique">
+<!-- Question 1 : Propriété (Version Hybride & Sécurisée) -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Suis-je propriétaire de mon site et de mon nom de domaine ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Oui, à 100 %.</strong> Contrairement aux plateformes en location (Wix, Squarespace), vous construisez un <strong class="text-white">actif qui vous appartient</strong> : le code, le design, les textes, les images. Votre <strong class="text-white">nom de domaine est enregistré à votre nom</strong> (vous en êtes le titulaire légal ; Clartem n'est que le contact technique).</p><p>Juridiquement, le transfert complet de la propriété s'effectue <strong class="text-white">au paiement du solde final</strong>. Et si un jour vous confiez le site à quelqu'un d'autre, nous facilitons le transfert.</p><p class="text-sm italic text-gray-400 pt-3 border-t border-white/5 mt-3">La propriété, un point clé du devis : <a class="text-clarity-blue underline hover:text-white transition-colors" href="/blog/lire-devis-site-web/">comment lire un devis</a>.</p></div>
+</div>
+</div>
+<!-- Question 2 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Est-ce que je pourrai modifier mon site moi-même facilement (changer un
+                                                texte, un tarif, etc.) ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Oui, c'est l'un des piliers de l'offre.</strong> À la livraison, vous recevez un <strong class="text-white">espace d'administration sécurisé</strong> (un CMS), aussi simple qu'un formulaire : vous modifiez vos textes, photos, tarifs et témoignages <strong class="text-white">sans toucher au code</strong>. Une courte vidéo de prise en main vous est fournie.</p><p class="text-sm italic text-gray-400 pt-3 border-t border-white/5 mt-3">Ce qu'est un CMS : <a class="text-clarity-blue underline hover:text-white transition-colors" href="/blog/modifier-son-site-soi-meme-cms/">modifier son site soi-même</a>.</p></div>
+</div>
+</div>
+<!-- Question 3 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Pourquoi gérez-vous l'hébergement et le nom de domaine pour moi ? Ne
+                                                serais-je pas plus indépendant en le faisant moi-même ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Le but n'est pas de vous rendre dépendant, mais de vous libérer de la technique.</strong> Nous gérons l'hébergement (réseau rapide et fiable), les renouvellements et les configurations en coulisses — vous avez un <strong class="text-white">interlocuteur unique</strong> en cas de besoin.</p><p>Et votre indépendance reste totale : vous demeurez <strong class="text-white">propriétaire légal à 100 %</strong> de votre domaine. Clartem n'est que le gestionnaire technique.</p></div>
+</div>
+</div>
+<!-- Question 4 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Quelle technologie utilisez-vous pour construire les sites ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Des technologies web modernes et standards (HTML, CSS, JavaScript), pour un site sur-mesure</strong> — pas un système lourd comme WordPress. Résultat : un site <strong class="text-white">très rapide</strong> (clé pour Google), <strong class="text-white">plus sûr</strong> (moins de plugins = moins de failles), et <strong class="text-white">indépendant</strong>.</p><p class="text-sm italic text-gray-400 pt-3 border-t border-white/5 mt-3">Pourquoi cette approche change tout : <a class="text-clarity-blue underline hover:text-white transition-colors" href="/blog/site-therapeute-sur-mesure-sans-wordpress/">sur-mesure, rapide et sans WordPress</a>.</p></div>
+</div>
+</div>
+<!-- Question 5 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Le service inclut-il une adresse e-mail professionnelle (ex:
+                                                contact@monsite.com) ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Oui, la configuration est incluse dès l'offre Impact.</strong> Nous vous conseillons un service (souvent <strong class="text-white">Zoho Mail</strong>, gratuit à vie, ou <strong class="text-white">Google Workspace</strong>) ; <strong class="text-white">vous créez le compte</strong> (vous restez le seul propriétaire de vos emails), puis nous nous occupons de toute la technique (DNS, MX, SPF) pour une boîte mail prête à l'emploi.</p></div>
+</div>
+</div>
+<!-- Question 6 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Le site inclut-il les pages légales (Mentions Légales, etc.) ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Oui, la structure est incluse</strong> (Mentions Légales et Politique de Confidentialité, trame standard). En revanche, Clartem n'étant pas un cabinet juridique, <strong class="text-white">le contenu final de ces pages reste votre responsabilité</strong>, pour qu'il colle à votre activité et à la loi. Nous pouvons vous orienter vers des générateurs fiables.</p></div>
+</div>
+</div>
+<!-- Question 7 : Confidentialité & RGPD -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">Comment protégez-vous les données sensibles de mes clients (RGPD), et pourquoi déconseiller le formulaire de contact classique ?</span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Par une « séparation sécurisée » : aucune donnée de santé ne transite par votre site.</strong> Votre site vitrine est <strong class="text-white">statique</strong> (Jamstack via GitHub/Netlify), sans base de données piratable — il sert à afficher, pas à collecter.</p><p>Pour les rendez-vous ou informations sensibles, on <strong class="text-white">évite les formulaires « maison »</strong> : un message du type « je traverse une dépression et je prends tel médicament » deviendrait une <strong class="text-white">donnée de santé</strong>, illégale à stocker dans une boîte mail standard. À la place, des <strong class="text-white">boutons d'action</strong> mènent vers votre agenda sécurisé (plateforme certifiée HDS comme Doctolib/Crénolibre), un appel découverte, ou un lien e-mail avec une mention invitant à ne pas écrire de détails médicaux.</p></div>
+</div>
+</div>
+<!-- Question 8 : Formulaires -->
+
+<!-- Question 9 : Médiateur de la consommation -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Le site respecte-t-il l'obligation d'afficher un « Médiateur de la
+                                                Consommation » ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Oui — et c'est un point souvent oublié.</strong> Depuis 2016, tout professionnel qui vend des services à des particuliers doit proposer un dispositif de médiation gratuit ; son absence peut coûter une amende (jusqu'à 3 000 € pour une personne physique). Nous vous orientons vers un organisme agréé (CNPM, CM2C…), <strong class="text-white">vous y adhérez</strong> (coût minime, ~20-50 € pour 3 ans, car c'est nominatif), puis <strong class="text-white">nous intégrons les clauses et liens obligatoires</strong> dans vos Mentions Légales et CGV.</p></div>
+</div>
+</div>
+</div>
+<!-- ... GROUPE 7 : MAINTENANCE & SUIVI ... -->
+<div class="tab-content hidden animate-fade-in" id="content-maintenance">
+<!-- Question 1 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Mon site a-t-il besoin de maintenance ? Proposez-vous un suivi ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Oui — un site, comme une voiture, a besoin d'un entretien régulier. Bonne nouvelle : la première année est incluse, sans supplément.</strong> Le « Pack Sérénité » couvre tout en coulisses : hébergement et nom de domaine, sécurité et mises à jour, sauvegardes régulières, et support prioritaire.</p><p><strong class="text-white">Après un an</strong>, le Pack Sérénité se poursuit à <strong class="text-white">249 €/an</strong> (~20 €/mois), <strong class="text-white">sans engagement</strong> : vous restez libre de reprendre la gestion vous-même.</p><p class="text-sm italic text-gray-400 pt-3 border-t border-white/5 mt-3">Comprendre les coûts récurrents : <a class="text-clarity-blue underline hover:text-white transition-colors" href="/blog/prix-site-therapeute/">combien coûte un site</a>.</p></div>
+</div>
+</div>
+<!-- Question 2 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Puis-je héberger mon site moi-même après la première année ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Oui, bien sûr — c'est votre site.</strong> Nous vous fournissons vos fichiers pour l'installer où vous le souhaitez.</p><p><em>Le point de vigilance :</em> en partant, vous devenez votre propre « directeur technique » (hébergement, SSL, DNS, maintenance en cas de panne). C'est pourquoi la plupart des clients préfèrent rester pour <strong class="text-white">249 €/an</strong> : ils achètent leur tranquillité.</p></div>
+</div>
+</div>
+<!-- Question 3 -->
+<div class="group border-b border-white/5 transition-colors duration-300 hover:bg-white/5">
+<button class="faq-toggle w-full flex justify-between items-center text-left py-6 px-6 md:px-8 focus:outline-none">
+<span class="flex-1 min-w-0 text-base font-medium text-white pr-4 group-hover:text-clarity-blue transition-colors leading-snug">
+                                                Votre aide s'arrête-t-elle à la livraison du site ?
+                                            </span>
+<div class="icon-container flex-shrink-0 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-clarity-blue group-hover:text-white transition-colors duration-300">
+<svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</button>
+<div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+<div class="px-6 md:px-8 pb-8 pt-2 text-gray-300 text-sm md:text-base leading-relaxed space-y-4"><p><strong class="text-white">Au contraire, ce n'est que le début.</strong> Clartem n'est pas un prestataire « one-shot » qui disparaît une fois la facture réglée, mais un partenaire dans la durée — au <strong class="text-white">quotidien</strong> (le Pack Sérénité veille sur la santé technique toute l'année) et <strong class="text-white">pour votre croissance</strong> (à la carte : un atelier, une formation, un coup d'accélérateur SEO…).</p><p>L'avantage : nous connaissons votre site par cœur puisque nous l'avons construit — donc nous sommes les plus rapides pour le faire évoluer avec vous.</p></div>
+</div>
+</div>
+</div>
+</div>
+<!-- CTA FINAL -->
+<div class="mt-8 text-right">
+<p class="text-sm text-gray-500 inline-block mr-2">Question introuvable ?</p>
+<a class="text-warm-orange hover:text-white transition-colors text-sm font-medium" href="https://calendly.com/clartem-agency/appel-clarte-creation-de-site-web" target="_blank">
+                                    Réserver un appel Clarté →
+                                </a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<script is:inline>
+        // --- 1. GESTION DU MENU DÉROULANT MOBILE ---
+        const dropdownBtn = document.getElementById('dropdown-button');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        const dropdownLabel = document.getElementById('dropdown-label');
+        const dropdownArrow = document.getElementById('dropdown-arrow');
+        let isDropdownOpen = false;
+
+        function toggleDropdown() {
+            isDropdownOpen = !isDropdownOpen;
+            if (isDropdownOpen) {
+                dropdownMenu.classList.remove('hidden');
+                dropdownArrow.classList.add('rotate-180');
+            } else {
+                dropdownMenu.classList.add('hidden');
+                dropdownArrow.classList.remove('rotate-180');
+            }
+        }
+
+        // Fermer le menu si on clique ailleurs
+        document.addEventListener('click', function (event) {
+            if (!dropdownBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                if (isDropdownOpen) toggleDropdown();
+            }
+        });
+
+        function selectOption(value, label) {
+            // Mettre à jour le texte du bouton mobile
+            if (dropdownLabel) dropdownLabel.innerText = label;
+
+            // Fermer le menu
+            toggleDropdown();
+
+            // Changer le contenu
+            switchTab(value);
+        }
+
+        // --- 2. FONCTION PRINCIPALE DE CHANGEMENT D'ONGLET (Desktop & Mobile) ---
+        function switchTab(category) {
+
+            // A. Masquer tous les contenus
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+                content.classList.remove('block');
+            });
+
+            // B. Afficher le contenu ciblé
+            const targetContent = document.getElementById('content-' + category);
+            if (targetContent) {
+                targetContent.classList.remove('hidden');
+                targetContent.classList.add('block');
+
+                // Petit effet d'animation (reset)
+                targetContent.classList.remove('animate-fade-in');
+                void targetContent.offsetWidth; // force reflow
+                targetContent.classList.add('animate-fade-in');
+            }
+
+            // C. Mettre à jour les boutons de la Sidebar (Desktop)
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+                // Remettre le style par défaut (gris)
+                btn.classList.add('text-gray-400', 'border-transparent');
+            });
+
+            // Activer le bouton correspondant
+            const activeBtn = document.getElementById('btn-' + category);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+                activeBtn.classList.remove('text-gray-400', 'border-transparent');
+            }
+
+            // D. Synchroniser le label mobile (si on clique sur desktop)
+            const labels = {
+                'general': 'Général & Confiance',
+                'tarifs': 'Tarifs & Investissement',
+                'processus': 'Processus & Collaboration',
+                'design': 'Contenu & Design',
+                'technique': 'Technique & Gestion',
+                'maintenance': 'Maintenance & Suivi'
+            };
+            if (dropdownLabel && labels[category]) {
+                dropdownLabel.innerText = labels[category];
+            }
+        }
+    </script>
+
+<script is:inline>
+        (function (d, w, c) {
+            w.BrevoConversationsID = '688afd5eb78a71119e0a4e37';
+            w[c] = w[c] || function () {
+                (w[c].q = w[c].q || []).push(arguments);
+            };
+            var s = d.createElement('script');
+            s.async = true;
+            s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
+            if (d.head) d.head.appendChild(s);
+        })(document, window, 'BrevoConversations');
+    </script>
+</Layout>

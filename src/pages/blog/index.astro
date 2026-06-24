@@ -1,0 +1,96 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/blog.css';
+
+const posts = await getCollection('blog');
+
+// Ordre éditorial des piliers (portes d'entrée principales)
+const pillarOrder = [
+  'creer-site-therapeute-qui-convertit',
+  'fiche-google-business-therapeute',
+  'site-therapeute-sur-mesure-sans-wordpress',
+  'prix-site-therapeute',
+];
+const piliers = posts
+  .filter((p) => p.data.isPillar)
+  .sort((a, b) => pillarOrder.indexOf(a.slug) - pillarOrder.indexOf(b.slug));
+const guide = posts.find((p) => p.data.isGuide);
+
+const cardTitle = (p) => (p.data.headline || p.data.title).replace(/\s*\|\s*Clartem\s*$/, '');
+---
+
+<Layout
+  title="Le blog Clartem : guides pour créer le site de votre cabinet"
+  description="Des guides clairs et sans jargon pour les thérapeutes et praticiens du bien-être : créer un site qui convertit, être trouvé sur Google, choisir la bonne techno, et bien dépenser son budget."
+  bodyClass="bg-[#0B1623] text-[#E5EAF1] dark-nav-page"
+>
+  <main class="px-6 md:px-10 py-16 max-w-5xl mx-auto">
+    <p class="text-xs uppercase tracking-[0.2em] text-white/50 mb-4">Ressources · Clartem</p>
+    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+      Le blog <span class="grad-text">Clartem</span>
+    </h1>
+    <p class="text-white/70 leading-relaxed max-w-2xl mb-12 text-lg">
+      Des guides clairs, sans jargon, pour réussir le site de votre cabinet. Commencez par l'un
+      des quatre guides ci-dessous — chacun rassemble tout ce qu'il faut savoir sur son sujet.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      {
+        piliers.map((p) => (
+          <a
+            href={`/blog/${p.slug}/`}
+            class="card rounded-2xl p-7 block transition-colors hover:bg-white/[0.07]"
+          >
+            <h2 class="text-xl md:text-2xl font-bold text-white mb-3 leading-snug">
+              {cardTitle(p)}
+            </h2>
+            <p class="text-white/70 leading-relaxed text-[0.95rem]">{p.data.description}</p>
+            <span class="inline-block mt-4 text-[#7AB0FF] font-medium">Lire le guide →</span>
+          </a>
+        ))
+      }
+    </div>
+
+    {
+      guide && (
+        <div class="card rounded-2xl p-7 mt-6 flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
+          <div>
+            <p class="text-xs uppercase tracking-[0.15em] text-[#7AB0FF] font-semibold mb-1">
+              Guide pratique
+            </p>
+            <p class="text-white/80 leading-relaxed">
+              {cardTitle(guide)}
+            </p>
+          </div>
+          <a
+            href={`/blog/${guide.slug}/`}
+            class="btn-ghost font-medium px-5 py-2.5 rounded-full transition-colors whitespace-nowrap text-sm"
+          >
+            Voir le guide →
+          </a>
+        </div>
+      )
+    }
+
+    <div class="text-center mt-16 pt-10 border-t border-white/5">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Vous préférez qu'on s'en occupe ?</h2>
+      <p class="text-white/70 leading-relaxed mb-7 max-w-2xl mx-auto">
+        Chez Clartem, je crée des sites clairs et sur-mesure pour les thérapeutes et praticiens du
+        bien-être — pensés pour votre public, votre éthique, et faciles à faire vivre.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a
+          href="/creation-site-web-therapeute/"
+          class="btn-ghost font-medium px-6 py-3 rounded-full transition-colors"
+          >Voir mes sites pour thérapeutes</a
+        >
+        <a
+          href="/contact/"
+          class="btn-primary font-medium px-6 py-3 rounded-full transition-colors"
+          >Planifier un Appel Clarté</a
+        >
+      </div>
+    </div>
+  </main>
+</Layout>

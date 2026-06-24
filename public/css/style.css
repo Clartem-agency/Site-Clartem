@@ -1,0 +1,5981 @@
+/* style.css */
+
+
+
+
+
+/* ======================================================= */
+/*          POLICE SECTION MANIFESTE (TERMINAL)       */
+/* ======================================================= */
+
+/* IMPORT DE LA NOUVELLE POLICE (Style Vieux Terminal CRT) */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+/* 
+ * TERMINAL SANS SCROLLBAR VISIBLE
+ * Le scroll fonctionne toujours (via JS auto-scroll) 
+ * mais la barre est cachée pour l'immersion
+ */
+.terminal-no-scrollbar {
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
+}
+
+.terminal-no-scrollbar::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}
+
+
+
+/* Application de la police au terminal */
+#matrix-typewriter {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.875rem;
+    /* TAILLE RÉDUITE POUR MOBILE */
+    line-height: 1.65;
+    letter-spacing: 0.3px;
+}
+
+/* Version Desktop : taille raffinée */
+@media (min-width: 768px) {
+    #matrix-typewriter {
+        font-size: 0.95rem;
+    }
+}
+
+/* PAR DÉFAUT : Lueur cathodique très subtile */
+#matrix-typewriter div,
+#matrix-typewriter span {
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+/* CLASSE SPÉCIALE : Lueur Verte Matrix (uniquement pour les textes choisis) */
+.matrix-green-glow {
+    color: #10b981 !important;
+    /* Emerald 500 */
+    text-shadow: 0 0 6px rgba(16, 185, 129, 0.6), 0 0 12px rgba(16, 185, 129, 0.25) !important;
+}
+
+/* Style "Toc, toc" — bruit système, pas du dialogue */
+.t-dim {
+    color: rgba(148,163,184,0.25) !important;
+    font-size: 0.7em !important;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-style: normal !important;
+}
+
+/* Style "Qui est là ?" — réponse visiteur, distincte du système */
+.t-user {
+    padding-left: 14px !important;
+    position: relative;
+    color: rgba(255,255,255,0.5) !important;
+    font-weight: 300 !important;
+    font-style: italic;
+}
+.t-user::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: rgba(148,163,184,0.35);
+    font-style: normal;
+    font-weight: 400;
+}
+
+/* Label "stdin" discret au-dessus de la ligne utilisateur */
+.user-label {
+    display: block;
+    font-size: 0.6rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(148,163,184,0.3);
+    margin-bottom: 2px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+/* Glow qui respire autour du terminal */
+.terminal-glow-breathe {
+    animation: terminal-glow-breathe 6s ease-in-out infinite;
+}
+@keyframes terminal-glow-breathe {
+    0%, 100% { opacity: 0.3; filter: blur(4px); }
+    50% { opacity: 0.55; filter: blur(8px); }
+}
+
+
+
+
+
+
+
+/* ======================================================= */
+/*    CORRECTIF : Empêche le débordement horizontal        */
+/*    NOTE: overflow-x: clip ne casse pas position: sticky */
+/* ======================================================= */
+body {
+    overflow-x: clip;
+}
+
+/* ======================================================= */
+/*          NOUVEAUX STYLES DE BOUTONS INTERACTIFS         */
+/* ======================================================= */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+    line-height: 1.5;
+    /* Assure un alignement correct du texte */
+}
+
+.btn-primary {
+    background-image: linear-gradient(120deg, #3B82F6, #1E3A8A, #3B82F6);
+    /* clarity-blue, deep-blue */
+    background-size: 250% auto;
+    background-position: 30% 0;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    transition: background-position 0.6s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-position: 70% 0;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #1E3A8A;
+    /* deep-blue */
+    border: 2px solid #1E3A8A;
+    /* deep-blue */
+    transition: all 0.35s ease;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #1E3A8A;
+    /* deep-blue */
+    transition: width 0.35s ease-out;
+    z-index: -1;
+}
+
+.btn-secondary:hover {
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.25);
+}
+
+.btn-secondary:hover::before {
+    width: 100%;
+}
+
+/* ======================================================= */
+/*    NOUVEAU : Style inversé pour btn-secondary           */
+/*    S'applique sur les fonds sombres comme le hero.      */
+/* ======================================================= */
+.hero-bg .btn-secondary {
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.hero-bg .btn-secondary::before {
+    background-color: #ffffff;
+}
+
+.hero-bg .btn-secondary:hover {
+    color: #1E3A8A;
+    /* deep-blue */
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.25);
+}
+
+.btn-orange {
+    background-image: linear-gradient(120deg, #fb923c, #F97316);
+    /* warm-orange */
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-orange:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 25px rgba(249, 115, 22, 0.4);
+    filter: brightness(1.1);
+}
+
+/* Style pour l'animation de fondu des images */
+img.lazy-load {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+img.lazy-load.loaded {
+    opacity: 1;
+}
+
+
+/* Styles existants */
+html {
+    scroll-behavior: smooth;
+}
+
+
+
+.portfolio-item {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.portfolio-item.hidden {
+    transform: scale(0.9);
+    opacity: 0;
+    display: none;
+}
+
+
+
+/* ======================================================= */
+/*             STYLES POUR LA NOUVELLE SECTION HERO        */
+/* ======================================================= */
+.hero-bg {
+    position: relative;
+    background-image: url('../assets/background-hero.webp');
+    /* Image de remplacement de haute qualité */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* Effet de parallaxe subtil */
+}
+
+
+/* Assurez-vous que le contenu est au-dessus de la superposition */
+.hero-bg>.container {
+    position: relative;
+    z-index: 2;
+}
+
+
+
+
+
+/* ======================================================= */
+/*        STYLES POUR LA SECTION VALUE PROPOSITION         */
+/* ======================================================= */
+
+#value-proposition-section {
+    background-color: #ffffff;
+    /* Fond blanc simple */
+}
+
+
+
+.value-prop-card {
+    /* On garde juste la transition pour le survol */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Assurez-vous que le fond est blanc et qu'il y a une bordure si nécessaire */
+    background-color: white;
+}
+
+
+.value-prop-card:hover {
+    /* AJOUT DE !important ICI */
+    transform: translateY(-5px) !important;
+
+    /* On l'ajoute aussi ici par sécurité pour l'ombre */
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+}
+
+
+
+
+
+
+
+
+
+
+/* ======================================================= */
+/*    AJUSTEMENT MOBILE POUR LES CARTES STICKY             */
+/* ======================================================= */
+@media (max-width: 768px) {
+
+    /* On ajuste la hauteur du conteneur pour que le scroll soit moins long sur mobile */
+    #stacking-container {
+        height: 400vh !important;
+        /* Un peu moins haut que les 500vh du desktop */
+    }
+
+    /* On adapte la carte pour qu'elle rentre dans un écran de téléphone */
+    .premium-card {
+        height: auto !important;
+        /* Laisser la hauteur s'adapter au contenu */
+        min-height: 65vh;
+        /* Occupe une bonne partie de l'écran mais pas tout */
+        max-height: 80vh;
+        /* Évite que ça dépasse de l'écran */
+        overflow-y: auto;
+        /* Permet de scroller DANS la carte si le texte est trop long */
+
+        display: flex !important;
+        flex-direction: column-reverse;
+        /* Image en haut (ou bas selon préférence), Texte ensuite */
+    }
+
+    .premium-content {
+        padding: 1.5rem !important;
+        /* Moins de padding pour gagner de la place */
+        flex: 1;
+        /* Prend l'espace restant */
+    }
+
+    .premium-image-wrapper {
+        height: 200px !important;
+        /* Image plus petite sur mobile */
+        flex-shrink: 0;
+        /* Empêche l'image de disparaître */
+    }
+
+    .step-number {
+        font-size: 4rem !important;
+        /* Chiffre plus petit */
+        top: 0px !important;
+        right: 10px !important;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* ======================================================= */
+/*    NOUVEAU : STYLES POUR L'EFFET DE SURVOL DES OFFRES   */
+/* ======================================================= */
+
+.offer-card {
+    /* La transition est essentielle pour un effet fluide */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.offer-card:hover {
+    /* Soulèvement de 10px vers le haut */
+    transform: translateY(-10px);
+    /* Ombre plus prononcée pour accentuer l'effet de profondeur */
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
+}
+
+
+/* ======================================================= */
+/*    NOUVEAUX STYLES POUR LA PAGE BLOG                    */
+/* ======================================================= */
+
+/* --- Style des boutons de filtre de catégorie --- */
+.filter-btn {
+    padding: 8px 16px;
+    border-radius: 9999px;
+    /* rounded-full */
+    font-weight: 600;
+    /* font-semibold */
+    font-size: 0.875rem;
+    /* text-sm */
+    background-color: #ffffff;
+    /* bg-white */
+    color: #3B82F6;
+    /* text-clarity-blue */
+    border: 1px solid #3B82F6;
+    /* border-clarity-blue */
+    transition: all 0.2s ease-in-out;
+}
+
+.filter-btn:hover {
+    background-color: #EFF6FF;
+    /* soft-blue */
+}
+
+.filter-btn.active {
+    background-color: #1E3A8A;
+    /* bg-deep-blue */
+    color: #ffffff;
+    /* text-white */
+    border-color: #1E3A8A;
+    /* border-deep-blue */
+}
+
+/* --- Style des boutons de pagination --- */
+.pagination-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    /* rounded-lg */
+    font-weight: 600;
+    /* font-semibold */
+    background-color: #ffffff;
+    /* bg-white */
+    color: #3B82F6;
+    /* text-clarity-blue */
+    border: 1px solid #d1d5db;
+    /* border-gray-300 */
+    transition: all 0.2s ease-in-out;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    border-color: #3B82F6;
+    /* border-clarity-blue */
+    background-color: #EFF6FF;
+    /* bg-soft-blue */
+}
+
+.pagination-btn.active {
+    background-color: #1E3A8A;
+    /* bg-deep-blue */
+    color: #ffffff;
+    /* text-white */
+    border-color: #1E3A8A;
+    /* border-deep-blue */
+    cursor: default;
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* NOUVEAU : Style pour les ellipses de la pagination */
+.pagination-ellipsis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: #6B7280;
+    /* neutral-light */
+    font-weight: 600;
+}
+
+/* ======================================================= */
+/*    STYLES POUR LE BANDEAU DE CONSENTEMENT COOKIES       */
+/* ======================================================= */
+#cookie-consent-banner.hidden {
+    display: none;
+}
+
+
+
+
+
+/* ======================================================= */
+/*    STYLES DE NAVIGATION (VERSION FINE & ÉLÉGANTE)       */
+/* ======================================================= */
+
+/* --- 1. ÉTAT PAR DÉFAUT (Transparent) --- */
+#main-nav {
+    background-color: transparent;
+    box-shadow: none;
+    /* On réduit l'espace vertical : 15px au lieu de 20px */
+    padding-top: 15px;
+    padding-bottom: 15px;
+    /* Bordure réservée dès le départ (transparente) : évite le saut de 1px
+       et le clignotement quand la bordure du scroll apparaît. */
+    border-bottom: 1px solid transparent;
+    /* Rendu sur une couche GPU : supprime le scintillement sous-pixel du bord
+       pendant la transition de hauteur au scroll. */
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Les liens sont BLANCS */
+.nav-link {
+    color: #ffffff;
+}
+
+.nav-link:hover {
+    color: #F97316;
+    /* warm-orange */
+}
+
+/* Gestion des logos */
+#logo-white {
+    opacity: 1;
+}
+
+#logo-color {
+    opacity: 0;
+}
+
+
+/* --- 2. ÉTAT SCROLLÉ (Sticky & Compact) --- */
+#main-nav.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    /* Ombre plus douce */
+
+    /* On rend la barre très compacte au scroll : 8px seulement */
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+/* Les liens deviennent GRIS FONCÉ */
+#main-nav.scrolled .nav-link {
+    color: #1F2937;
+    /* neutral-dark */
+}
+
+#main-nav.scrolled .nav-link:hover {
+    color: #3B82F6;
+    /* clarity-blue */
+}
+
+/* Inversion des logos */
+#main-nav.scrolled #logo-white {
+    opacity: 0;
+}
+
+#main-nav.scrolled #logo-color {
+    opacity: 1;
+}
+
+/* Menu Mobile Hamburger */
+#mobile-menu-button {
+    color: #ffffff;
+}
+
+#main-nav.scrolled #mobile-menu-button {
+    color: #1F2937;
+}
+
+
+
+
+
+/* ======================================================= */
+/*    CORRECTIF DÉFINITIF HERO (LAYERS & ANIMATION)        */
+/* ======================================================= */
+
+
+/* 1. L'image de fond (Tout au fond) */
+.hero-bg {
+    background-image: none !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-ken-burns {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/background-hero.webp');
+    background-size: cover;
+
+    /* PAR DÉFAUT (Desktop) : On centre l'image */
+    background-position: center center;
+
+    z-index: 0;
+
+    animation: kenBurnsEffect 15s ease-in-out infinite alternate;
+}
+
+
+/* --- SECTION HERO : ROTATION MOBILE --- */
+@media (max-width: 768px) {
+    .hero-ken-burns {
+        /* 1. On inverse les dimensions pour que le bloc couvre bien l'écran une fois tourné */
+        width: 100vh;
+        /* La largeur devient la hauteur de l'écran */
+        height: 100vw;
+        /* La hauteur devient la largeur de l'écran */
+
+        /* 2. On centre le bloc parfaitement avant de le tourner */
+        top: 50%;
+        left: 50%;
+        margin-left: -50vh;
+        /* Moitié de la nouvelle largeur */
+        margin-top: -50vw;
+        /* Moitié de la nouvelle hauteur */
+
+        /* 3. On applique une nouvelle animation qui inclut la rotation */
+        animation-name: kenBurnsMobileRotate;
+        animation-duration: 15s;
+    }
+}
+
+/* Nouvelle animation qui combine le Zoom ET la Rotation de 90 degrés */
+@keyframes kenBurnsMobileRotate {
+    0% {
+        /* Rotation de 90deg + Taille normale */
+        transform: rotate(90deg) scale(1);
+    }
+
+    100% {
+        /* Rotation de 90deg + Zoom léger (1.15) */
+        transform: rotate(90deg) scale(1.15);
+    }
+}
+
+
+
+/* 2. L'Overlay (Au milieu) */
+.hero-overlay {
+    position: absolute;
+    /* Force la position absolue */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Prend tout l'espace */
+
+    /* --- MODIFICATION ICI --- */
+    /* On utilise un dégradé qui part du noir/bleu nuit (en bas) vers un bleu profond (en haut) */
+    /* 0.95 = 95% d'opacité en bas (le texte sera très lisible) */
+    /* 0.75 = 75% d'opacité en haut (on devine les points sans être gêné) */
+    background: linear-gradient(0deg,
+            rgba(15, 23, 42, 0.95),
+            rgba(30, 58, 138, 0.75));
+
+    z-index: 10 !important;
+    /* ÉTAGE 1 : LE TAPIS */
+    pointer-events: none !important;
+    /* Les clics traversent cet élément */
+}
+
+
+
+/* 3. Le Contenu Texte (Tout au dessus) */
+#hero .container {
+    position: relative;
+    z-index: 20 !important;
+    /* ÉTAGE 2 : LES MEUBLES */
+}
+
+/* Animations (inchangées) */
+@keyframes kenBurnsEffect {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.15);
+    }
+}
+
+.animate-blur-rise {
+    opacity: 0;
+    animation: blurRise 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes blurRise {
+    0% {
+        opacity: 0;
+        transform: translateY(60px);
+        filter: blur(12px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+.delay-0 {
+    animation-delay: 0.2s;
+}
+
+.delay-1 {
+    animation-delay: 0.8s;
+}
+
+.delay-2 {
+    animation-delay: 1.4s;
+}
+
+
+
+
+/* ======================================================= */
+/*    NOUVEAU : STYLE DU BOUTON SECONDAIRE SUR FOND SOMBRE */
+/* ======================================================= */
+
+/* 1. État normal */
+.hero-bg .btn-secondary {
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Très légère teinte */
+    position: relative;
+    z-index: 50;
+}
+
+/* 2. IMPORTANT : On tue l'animation de remplissage solide (le coupable du fond blanc) */
+.hero-bg .btn-secondary::before {
+    display: none !important;
+    content: none !important;
+    width: 0 !important;
+}
+
+/* 3. État au survol (Effet verre dépoli) */
+.hero-bg .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    /* Fond semi-transparent */
+    border-color: #ffffff !important;
+    color: #ffffff !important;
+    /* Texte blanc */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    /* Lueur */
+    transform: translateY(-3px);
+}
+
+
+
+
+/* ======================================================= */
+/*             STYLES POUR LA BENTO GRID                   */
+/* ======================================================= */
+
+.bento-card {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.bento-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+}
+
+
+
+
+/* ======================================================= */
+/*    NOUVEAU STYLE PREMIUM POUR LA SECTION PLAN (FINAL)   */
+/* ======================================================= */
+
+.premium-card {
+    background: rgba(30, 41, 59, 0.7);
+    /* Fond sombre semi-transparent */
+    backdrop-filter: blur(20px);
+    /* Effet de flou */
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+
+    /* MODIFICATION ICI : On supprime l'ombre massive qui bavait */
+    box-shadow: none;
+    /* Si vous voulez garder un tout petit relief, utilisez ceci à la place : */
+    /* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2); */
+
+    overflow: hidden;
+
+    /* Layout Desktop : Texte à gauche, Image à droite */
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    height: 500px;
+}
+
+/* CORRECTIF VISUEL : La dernière carte devient opaque pour cacher celle d'avant */
+.panel:last-child .premium-card {
+    background-color: #1F2937;
+    /* Gris foncé solide (plus de transparence) */
+    backdrop-filter: none;
+    /* On enlève le flou */
+
+    /* --- CORRECTION ICI --- */
+    box-shadow: none !important;
+    /* Supprime l'ombre noire */
+}
+
+.premium-content {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    /* CORRECTIF IMPORTANT : Rend le contenu (et le bouton) cliquable */
+    pointer-events: auto !important;
+    z-index: 20;
+}
+
+.premium-image-wrapper {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.premium-image {
+    width: 100%;
+    height: 100%;
+    /* CORRECTIF IMPORTANT : Force l'image à remplir tout le cadre (même la dernière) */
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+/* Zoom lent au survol */
+.premium-card:hover .premium-image {
+    transform: scale(1.05);
+}
+
+/* Le gros numéro en arrière-plan */
+.step-number {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 8rem;
+    font-weight: 800;
+    line-height: 1;
+    opacity: 0.5;
+    user-select: none;
+    font-family: sans-serif;
+    color: #374151;
+    /* Gris foncé pour se fondre dans le sombre */
+}
+
+/* --- RESPONSIVE MOBILE & TABLETTE (< 1024px) --- */
+@media (max-width: 1024px) {
+    .premium-card {
+        grid-template-columns: 1fr;
+        /* Une seule colonne */
+        grid-template-rows: auto 250px;
+        /* Texte en haut, Image en bas */
+        height: auto;
+        min-height: 500px;
+    }
+
+    .step-number {
+        font-size: 5rem;
+        top: 10px;
+        right: 20px;
+        left: auto;
+        /* On le met à droite sur mobile pour éviter de gêner le titre */
+    }
+
+    .premium-content {
+        padding: 2rem;
+    }
+}
+
+
+
+/* ======================================================= */
+/*    AJOUT : ROTATION FLÈCHE FAQ                          */
+/* ======================================================= */
+
+/* Ce code permet à l'icône de tourner quand le JavaScript ajoute la classe 'rotate-180' */
+.faq-toggle svg.rotate-180 {
+    transform: rotate(180deg);
+}
+
+
+
+
+/* ======================================================= */
+/*    ANIMATION TEXTE GRADIENT (SECTION CTA PREMIUM)       */
+/* ======================================================= */
+
+/* Permet d'agrandir le background pour faire bouger le dégradé */
+.bg-300\% {
+    background-size: 300% auto;
+}
+
+/* L'animation elle-même */
+.animate-gradient {
+    animation: animatedTextGradient 6s ease infinite alternate;
+}
+
+/* Les étapes de l'animation (gauche -> droite -> gauche) */
+@keyframes animatedTextGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+
+/* ======================================================= */
+/*    STYLE DU TERMINAL                                    */
+/* ======================================================= */
+#typewriter-container {
+    font-family: 'Courier New', Courier, monospace;
+    /* Police style code */
+    line-height: 1.6;
+}
+
+/* Petit effet de clignotement pour le curseur */
+.cursor-blink {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+
+/* ======================================================= */
+/*    NOUVEAUX CONCEPTS (FLOU, 3D, RESPIRATION)            */
+/* ======================================================= */
+
+/* --- 1. Concept Flou (Hero) --- */
+.blur-reveal {
+    filter: blur(20px);
+    transform: scale(1.1);
+    transition: filter 2s ease-out, transform 2s ease-out;
+    will-change: filter, transform;
+}
+
+.blur-reveal.active {
+    filter: blur(0);
+    transform: scale(1);
+}
+
+/* --- 2. Concept Carte 3D (Traducteur) --- */
+.perspective {
+    perspective: 1000px;
+}
+
+.style-preserve-3d {
+    transform-style: preserve-3d;
+}
+
+.backface-hidden {
+    backface-visibility: hidden;
+}
+
+/* Rotation de 180deg au survol du groupe parent */
+.group:hover .flip-content {
+    transform: rotateY(180deg);
+}
+
+/* État initial de la face arrière déjà tournée */
+.my-rotate-y-180 {
+    transform: rotateY(180deg);
+}
+
+
+
+
+
+
+
+/* --- AJOUT CORRECTIF BLOG --- */
+/* Animation d'apparition fluide pour les éléments chargés dynamiquement */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-entry {
+    opacity: 0;
+    /* Invisible au départ */
+    animation: fadeInUp 0.6s ease-out forwards;
+    /* L'animation se lance dès que l'élément est créé */
+}
+
+/* Délais pour créer un effet de cascade */
+.fade-in-entry:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.fade-in-entry:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.fade-in-entry:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.fade-in-entry:nth-child(4) {
+    animation-delay: 0.1s;
+}
+
+.fade-in-entry:nth-child(5) {
+    animation-delay: 0.2s;
+}
+
+.fade-in-entry:nth-child(6) {
+    animation-delay: 0.3s;
+}
+
+
+
+
+
+
+/* ======================================================= */
+/*    AJOUTS POUR LES NOUVELLES OFFRES (2025)              */
+/* ======================================================= */
+
+/* Permet d'aligner proprement les icônes dans les listes des offres */
+.offer-list-item svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    /* Ajustement fin pour alignement optique avec le texte */
+}
+
+/* Style spécifique pour le bloc "Garantie d'Évolutivité" */
+.evolution-card {
+    background: #1F2937;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Petit effet de pulse sur le badge "Recommandé" */
+@keyframes pulse-soft {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+.recommended-badge {
+    animation: pulse-soft 2s infinite;
+}
+
+
+/* ======================================================= */
+/*    ACCORDÉON PRIX (Impact)                              */
+/* ======================================================= */
+
+/* Rotation de la flèche quand ouvert */
+.pricing-toggle.active svg:last-child {
+    transform: rotate(180deg);
+    color: #3B82F6;
+    /* clarity-blue */
+}
+
+/* Style au survol du texte */
+.pricing-toggle:hover span {
+    color: #3B82F6;
+    border-color: #3B82F6;
+}
+
+
+
+
+
+
+
+
+/* ======================================================= */
+/*    SYSTÈME D'INFOBULLES (TOOLTIPS) - EFFET HOLOGRAPHIQUE */
+/* ======================================================= */
+
+/* 1. Le déclencheur (L'icône "i" ou le texte) */
+.tooltip-trigger {
+    position: relative;
+    cursor: help;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    z-index: 10;
+    /* S'assure que le trigger est au-dessus */
+}
+
+/* L'icône SVG à l'intérieur */
+.tooltip-trigger svg {
+    color: #9CA3AF;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* Rebond très marqué */
+    position: relative;
+    z-index: 2;
+}
+
+/* --- INTERACTION ICÔNE (L'ALLUMAGE) --- */
+.tooltip-trigger:hover svg {
+    color: #fff;
+    /* Devient blanc pur */
+    transform: scale(1.2);
+    /* Grossit */
+    filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.8));
+    /* Petit néon interne */
+}
+
+/* Le cercle d'énergie derrière l'icône */
+.tooltip-trigger::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 32px;
+    height: 32px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 1) 0%, rgba(30, 58, 138, 0) 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: all 0.4s ease-out;
+    z-index: 1;
+    /* Derrière le SVG */
+}
+
+.tooltip-trigger:hover::before {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0.2;
+    /* Lueur subtile bleue derrière */
+}
+
+
+/* 2. La Bulle (Le Corps) */
+.tooltip-bubble {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: 160%;
+    /* Haut pour laisser la place à l'animation */
+    left: 50%;
+
+    /* État de départ : Tout petit, plié, et plus bas */
+    transform: translateX(-50%) translateY(15px) scale(0.5) rotateX(-20deg);
+    transform-origin: bottom center;
+    /* L'animation part du bas (de l'icône) */
+
+    /* DESIGN DE LA BULLE */
+    width: max-content;
+    max-width: 260px;
+
+    /* Fond dégradé sombre très classe */
+    background: linear-gradient(160deg, #1e293b, #0f172a);
+    color: #e2e8f0;
+
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.5;
+    padding: 14px 18px;
+    border-radius: 16px;
+
+    /* Bordure lumineuse fine en haut (effet lumière zénithale) */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+
+    /* Ombre colorée (Glow externe) */
+    box-shadow:
+        0 15px 35px -5px rgba(0, 0, 0, 0.5),
+        /* Ombre noire profonde */
+        0 0 20px -5px rgba(59, 130, 246, 0.3);
+    /* Halo bleu diffus */
+
+    z-index: 100;
+    pointer-events: none;
+    overflow: hidden;
+    /* Important pour l'effet de reflet qui passe */
+
+    /* Transition complexe pour l'ouverture */
+    transition:
+        opacity 0.2s ease,
+        transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        /* Effet ressort */
+        visibility 0.2s;
+}
+
+/* La flèche du bas */
+.tooltip-bubble::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -6px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: #0f172a transparent transparent transparent;
+}
+
+
+
+/* --- ÉTAT SURVOLÉ (OUVERTURE) --- */
+.tooltip-trigger:hover .tooltip-bubble {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1) rotateX(0deg);
+}
+
+/* On lance l'animation de lumière UNIQUEMENT quand on survole */
+.tooltip-trigger:hover .tooltip-bubble::before {
+    animation: shimmerTooltip 0.8s ease-out forwards;
+    animation-delay: 0.1s;
+    /* Attend juste que la bulle soit ouverte */
+}
+
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 640px) {
+    .tooltip-bubble {
+        width: 200px !important;
+        max-width: 200px !important;
+        white-space: normal !important;
+        left: 50% !important;
+        /* Simplification de l'animation sur mobile pour la performance */
+        transform: translateX(-50%) translateY(10px) scale(0.9) !important;
+    }
+
+    .tooltip-trigger:hover .tooltip-bubble {
+        transform: translateX(-50%) translateY(0) scale(1) !important;
+    }
+}
+
+
+
+
+
+
+
+
+
+/* ======================================================= */
+/*    SECTION : PARCOURS DE CONFIANCE (TIMELINE)           */
+/*    Gère la ligne de connexion et les effets de cartes   */
+/* ======================================================= */
+
+/* 1. La ligne de connexion en pointillés (Desktop uniquement) */
+@media (min-width: 1024px) {
+    #parcours-confiance .lg\:block.absolute.top-1\/2 {
+        background-image: linear-gradient(to right, #e5e7eb 50%, transparent 50%);
+        background-size: 20px 2px;
+        /* Espacement des pointillés */
+        background-repeat: repeat-x;
+        background-color: transparent;
+        height: 2px;
+        z-index: 0;
+    }
+}
+
+/* 2. Animation au survol des cartes de la timeline */
+#parcours-confiance .group:hover .bg-white,
+#parcours-confiance .group:hover .bg-neutral-dark {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* 3. Style spécifique pour la carte JOUR 30 (Version Sombre) */
+#parcours-confiance .bg-neutral-dark {
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+#parcours-confiance .group:hover .bg-neutral-dark {
+    border-color: #F97316;
+    /* warm-orange au survol */
+}
+
+/* 4. Effet de pulsation sur l'icône de l'étape active */
+@keyframes icon-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(249, 115, 22, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+    }
+}
+
+#parcours-confiance .group:last-child:hover .w-16 {
+    animation: icon-pulse 2s infinite;
+}
+
+/* ======================================================= */
+/*             FIN DE LA SECTION TIMELINE                  */
+/* ======================================================= */
+
+
+
+
+/* ======================================================= */
+/*    ANIMATIONS PREMIUM POUR L'OFFRE LIBERTÉ              */
+/* ======================================================= */
+
+/* --- 1. Animation du Badge (Pulsation) --- */
+@keyframes badgePulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
+        /* Orange */
+    }
+
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(249, 115, 22, 0);
+        /* Fade out */
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+    }
+}
+
+.animate-pulse-badge {
+    animation: badgePulse 2s infinite;
+    z-index: 20;
+    /* S'assure qu'il passe au-dessus des bordures */
+}
+
+/* --- 2. Animation du Bouton (Reflet Brillant / Shine) --- */
+.btn-shine-loop {
+    position: relative;
+    /* overflow-hidden est déjà ajouté dans le HTML, mais par sécurité : */
+    overflow: hidden;
+}
+
+/* Le reflet lumineux (pseudo-élément) */
+.btn-shine-loop::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    /* Départ hors champ à gauche */
+    width: 50%;
+    height: 100%;
+
+    /* Dégradé blanc transparent incliné */
+    background: linear-gradient(to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.4) 50%,
+            rgba(255, 255, 255, 0) 100%);
+
+    /* Inclinaison pour l'effet de vitesse/lumière */
+    transform: skewX(-25deg);
+
+    /* Animation infinie */
+    animation: shineLoop 4s infinite;
+}
+
+@keyframes shineLoop {
+    0% {
+        left: -100%;
+        /* Position initiale */
+    }
+
+    20% {
+        left: 200%;
+        /* Traverse tout le bouton rapidement */
+    }
+
+    100% {
+        left: 200%;
+        /* Reste invisible (pause) pendant les 3 secondes restantes */
+    }
+}
+
+
+/* ======================================================= */
+/*    ANIMATION POINT BRILLANT (BADGE HERO)                */
+/* ======================================================= */
+
+@keyframes brightPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 0 transparent;
+        filter: brightness(1);
+    }
+
+    50% {
+        opacity: 1;
+        /* Créé une lueur orange autour */
+        box-shadow: 0 0 10px 1px #f97316;
+        /* Rend la couleur orange du point plus vive/blanche */
+        filter: brightness(1.5);
+    }
+}
+
+.animate-bright-pulse {
+    animation: brightPulse 2s infinite ease-in-out;
+}
+
+
+
+
+/* ======================================================= */
+/*    ANIMATION "HEAVY IMPACT" (OFFRES) - V3               */
+/* ======================================================= */
+
+/* 1. État initial : Complètement invisible et décalé */
+.timeline-step {
+    opacity: 0;
+    /* On décale beaucoup plus vers la droite (50px) pour un effet de "glissade" */
+    transform: translateX(50px);
+}
+
+/* 2. L'animation active */
+.anim-active .timeline-step {
+    /* "cubic-bezier" très élastique : ça dépasse un peu et ça revient */
+    animation: snapIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes snapIn {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+        /* Part de la droite */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        /* Arrive à sa place */
+    }
+}
+
+/* 3. Délais en cascade très marqués (Staggering) */
+/* On laisse 0.1s entre chaque élément, c'est long mais c'est ça qui fait l'effet "un par un" */
+.anim-active .timeline-step:nth-child(1) {
+    animation-delay: 0.0s;
+}
+
+.anim-active .timeline-step:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.anim-active .timeline-step:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.anim-active .timeline-step:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.anim-active .timeline-step:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.anim-active .timeline-step:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+.anim-active .timeline-step:nth-child(7) {
+    animation-delay: 0.6s;
+}
+
+.anim-active .timeline-step:nth-child(8) {
+    animation-delay: 0.7s;
+}
+
+.anim-active .timeline-step:nth-child(9) {
+    animation-delay: 0.8s;
+}
+
+
+
+
+
+
+/* ======================================================= */
+/*    ANIMATION "PREMIUM REVEAL" (LIBERTÉ & EXPANSION)     */
+/*    Style : Soft Blur + Scale Up (Effet Luxe)            */
+/* ======================================================= */
+
+/* 1. État initial : Invisible, légèrement plus petit, décalé vers le haut et flou */
+.premium-item {
+    opacity: 0;
+    transform: translateY(-15px) scale(0.95);
+    /* Vient du haut */
+    filter: blur(8px);
+    /* Le flou crée l'effet premium */
+}
+
+/* 2. L'animation active (déclenchée par le JS existant via .anim-active) */
+.anim-active .premium-item {
+    animation: softPremiumReveal 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+}
+
+@keyframes softPremiumReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(-15px) scale(0.95);
+        filter: blur(8px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* 3. Délais en cascade (Staggering) pour l'effet "un par un" */
+.anim-active .premium-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.anim-active .premium-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.anim-active .premium-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.anim-active .premium-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.anim-active .premium-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+
+
+
+
+
+/* ======================================================= */
+/*    CORRECTIF INFOBULLES MOBILE (Centré & Vertical)      */
+/* ======================================================= */
+
+@media (max-width: 640px) {
+    .tooltip-bubble {
+        /* 1. Format "Colonne" très étroit pour éviter les bords d'écran */
+        width: 130px !important;
+        /* Encore plus étroit (était 160px) */
+        max-width: 130px !important;
+        white-space: normal !important;
+        /* Force le texte à la ligne */
+        text-align: center;
+
+        /* 2. Centrage parfait par rapport à l'icône */
+        left: 50% !important;
+        /* translateX(-50%) aligne le milieu de la bulle avec le milieu de l'icône */
+        transform: translateX(-50%) translateY(10px) !important;
+
+        /* Optionnel : ajustez le z-index si elle passe sous d'autres éléments */
+        z-index: 1000 !important;
+    }
+
+    /* 3. La flèche revient au centre */
+    .tooltip-bubble::after {
+        left: 50% !important;
+        margin-left: -5px !important;
+        /* Centrage exact */
+    }
+}
+
+
+
+
+
+
+/* ======================================================= */
+/*    STYLE "PREMIUM DEPTH" (RELIEF & LUMIÈRE DOUCE)       */
+/* ======================================================= */
+
+/* 1. Le Conteneur : On ajoute du volume et on coupe ce qui dépasse */
+.pricing-toggle {
+    position: relative;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* Transition plus naturelle */
+    padding: 10px 14px;
+    /* Un peu plus d'espace pour le relief */
+    margin: 2px -14px;
+    /* Compensation ajustée */
+    background: transparent;
+    overflow: hidden;
+    /* INDISPENSABLE pour la lumière */
+
+    /* Bordure invisible par défaut pour éviter le saut de pixel au survol */
+    border: 1px solid transparent;
+}
+
+/* 2. Feedback au survol : DÉGRADÉ + RELIEF (La texture) */
+.pricing-toggle:hover {
+    /* Fond : Dégradé subtil du blanc vers un gris bleuté très pâle */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(241, 245, 249, 0.6));
+
+    /* Bordure très fine pour détourer */
+    border-color: rgba(0, 0, 0, 0.03);
+
+    /* LE SECRET DU RELIEF : 
+       - Ombre portée douce vers le bas (0 2px 4px)
+       - Ombre interne blanche en haut (inset 0 1px 0) pour l'effet "Biseauté/Lumière"
+    */
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.02),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* 3. La Barre Latérale : inchangée mais optimisée */
+.pricing-toggle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 0%;
+    width: 3px;
+    background-color: currentColor;
+    border-radius: 0 4px 4px 0;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.pricing-toggle:hover::before {
+    height: 60%;
+    /* Un peu plus discret pour l'élégance */
+    opacity: 1;
+}
+
+/* 4. Le Texte : Glissement */
+.pricing-toggle span.font-bold {
+    border-bottom: none !important;
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s ease;
+    z-index: 2;
+    /* Au-dessus de la lumière */
+}
+
+.pricing-toggle:hover span.font-bold {
+    transform: translateX(6px);
+}
+
+/* 5. L'Icône : Zoom net */
+.pricing-toggle .flex-shrink-0 {
+    position: relative;
+    z-index: 2;
+    /* Au-dessus de la lumière */
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.pricing-toggle:hover .flex-shrink-0 {
+    transform: scale(1.15) rotate(5deg);
+}
+
+/* 6. La Flèche */
+.pricing-toggle svg:last-child {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.5;
+}
+
+.pricing-toggle:hover svg:last-child {
+    transform: translateX(4px);
+    opacity: 1;
+    color: currentColor;
+}
+
+
+/* ======================================================= */
+/*    ÉTAT "ACTIF" (MENU OUVERT) - RELIEF MARQUÉ           */
+/* ======================================================= */
+
+.pricing-toggle.active {
+    /* Fond un peu plus sombre pour montrer l'enfoncement */
+    background: linear-gradient(to bottom, rgba(241, 245, 249, 0.5), rgba(241, 245, 249, 0.8));
+    border-color: rgba(0, 0, 0, 0.04);
+    /* Ombre interne pour l'effet "bouton enfoncé" */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+    font-weight: 700;
+}
+
+.pricing-toggle.active::before {
+    height: 60%;
+    opacity: 1;
+}
+
+.pricing-toggle.active span.font-bold {
+    transform: translateX(6px);
+    color: currentColor;
+}
+
+.pricing-toggle.active svg:last-child {
+    opacity: 1;
+    color: currentColor;
+}
+
+
+
+
+
+
+
+
+/* ======================================================= */
+/*    STRUCTURE FINE : SÉPARATEURS & DENSITÉ (CORRIGÉ V5)  */
+/* ======================================================= */
+
+/* 1. On resserre la liste globale */
+ul.space-y-3 {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+/* 2. On annule les marges par défaut */
+ul.space-y-3> :not([hidden])~ :not([hidden]) {
+    margin-top: 0 !important;
+}
+
+/* 3. Style de chaque ligne (LI) */
+ul.space-y-3 li {
+    position: relative;
+    padding: 12px 0;
+    /* Espace aéré */
+}
+
+/* 4. LA LIGNE DE SÉPARATION */
+/* On applique la même ligne grise pour TOUTES les cartes (car elles ont toutes un fond blanc) */
+ul.space-y-3 li:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+
+    /* Dégradé gris subtil : Invisible bords -> Visible centre -> Invisible bords */
+    background: linear-gradient(to right,
+            transparent 0%,
+            rgba(0, 0, 0, 0.08) 20%,
+            /* Gris pâle (8% opacité) */
+            rgba(0, 0, 0, 0.08) 80%,
+            transparent 100%);
+}
+
+/* 5. Ajustement alignement texte */
+ul.space-y-3 li:not(:has(.pricing-toggle)) {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+
+
+
+
+
+/* ======================================================= */
+/*    STYLE OFFRES CORRIGÉ (STABLE & RAFFINÉ)              */
+/* ======================================================= */
+
+/* Base de la carte (Structure commune) */
+.premium-offer-card {
+    position: relative;
+    background: #ffffff;
+    border-radius: 24px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+
+    /* On garde la transition pour la lumière (box-shadow et border) */
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+
+    /* Ombre interne pour l'effet de matière */
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 1);
+}
+
+/* --- VARIANTE 1 : IMPACT (Bleu Clair) --- */
+.premium-offer-card.variant-blue {
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.15);
+}
+
+.premium-offer-card.variant-blue:hover {
+    /* PLUS DE TRANSFORM ICI (La carte reste fixe) */
+    border-color: rgba(59, 130, 246, 0.6);
+    /* La bordure s'allume */
+    box-shadow: 0 20px 40px -5px rgba(59, 130, 246, 0.25);
+    /* Le glow s'intensifie */
+    z-index: 10;
+}
+
+/* --- VARIANTE 2 : ANCRAGE (Bleu Foncé) --- */
+.premium-offer-card.variant-deep {
+    border: 1px solid rgba(30, 58, 138, 0.15);
+    box-shadow: 0 10px 30px -10px rgba(30, 58, 138, 0.15);
+}
+
+.premium-offer-card.variant-deep:hover {
+    /* PLUS DE TRANSFORM ICI */
+    border-color: rgba(30, 58, 138, 0.5);
+    box-shadow: 0 20px 40px -5px rgba(30, 58, 138, 0.25);
+    z-index: 10;
+}
+
+/* --- VARIANTE 3 : EXPANSION (Violet) --- */
+.premium-offer-card.variant-purple {
+    border: 1px solid rgba(147, 51, 234, 0.2);
+    box-shadow: 0 10px 30px -10px rgba(147, 51, 234, 0.15);
+}
+
+.premium-offer-card.variant-purple:hover {
+    /* PLUS DE TRANSFORM ICI */
+    border-color: rgba(147, 51, 234, 0.6);
+    box-shadow: 0 20px 40px -5px rgba(147, 51, 234, 0.25);
+    z-index: 10;
+}
+
+
+
+
+
+
+
+/* --- LA CARTE LIBERTÉ (SOMBRE) --- */
+.premium-offer-card-dark {
+    position: relative;
+    /* On utilise ce fond sombre comme couleur de bordure par défaut */
+    background: linear-gradient(145deg, #1F2937 0%, #111827 100%);
+    border-radius: 24px;
+    padding: 3px;
+    /* Épaisseur de la bordure */
+
+    /* Ombre portée */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+
+    /* Configuration pour l'empilement (Z-Index) */
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+
+    /* Transitions douces */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* Marges pour l'alignement responsive */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* CORRECTIF DESKTOP : Décalage vers le haut */
+@media (min-width: 1280px) {
+    .premium-offer-card-dark {
+        transform: translateY(-16px);
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+/* L'élément ::before sert maintenant de "Couche de bordure colorée" */
+.premium-offer-card-dark::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* Remplit tout l'espace du parent */
+    border-radius: 24px;
+
+    /* Le dégradé coloré */
+    background: linear-gradient(45deg, #F97316, #DC2626, #9333EA);
+
+    /* Invisible par défaut */
+    opacity: 0;
+    transition: opacity 0.4s ease;
+
+    /* IMPORTANT : On le place juste derrière le contenu, mais devant le fond gris */
+    z-index: 0;
+}
+
+/* AU SURVOL DE LA CARTE */
+.premium-offer-card-dark:hover {
+    box-shadow:
+        0 30px 60px -15px rgba(249, 115, 22, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    z-index: 20;
+}
+
+/* Sur Desktop, on maintient le décalage */
+@media (min-width: 1280px) {
+    .premium-offer-card-dark:hover {
+        transform: translateY(-16px) scale(1.02);
+    }
+}
+
+/* On fait apparaître le dégradé qui va recouvrir le fond gris */
+.premium-offer-card-dark:hover::before {
+    opacity: 1;
+}
+
+/* LE CONTENU BLANC (Inner Card) */
+.premium-offer-card-dark .inner-card {
+    background-color: #ffffff;
+    border-radius: 21px;
+    /* Légèrement plus petit que le parent pour laisser voir la bordure */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    /* IMPORTANT : On force le contenu à passer DEVANT le dégradé */
+    z-index: 1;
+}
+
+
+
+
+
+/* Force une hauteur minimale pour aligner les boutons au départ */
+.offer-list-min-height {
+    min-height: 360px;
+    /* Ajustez ce chiffre selon vos besoins */
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+/* ======================================================= */
+/*    CORRECTIF ALIGNEMENT VERTICAL ICONES (OFFRES)        */
+/* ======================================================= */
+
+/* 1. On cible les éléments de liste (li) qui ne sont PAS des colonnes (donc pas les accordéons) */
+#offres ul.space-y-3 li:not(.flex-col) {
+    align-items: center !important;
+    /* Force le centrage vertical parfait */
+}
+
+/* 2. On retire les marges manuelles qui poussaient les icônes vers le bas */
+/* On cible les SVG directs et ceux dans les tooltips s'il y en a */
+#offres ul.space-y-3 li:not(.flex-col)>svg,
+#offres ul.space-y-3 li:not(.flex-col) .offer-list-item svg {
+    margin-top: 0 !important;
+    /* Annule le décalage de 2px ou mt-0.5 */
+}
+
+
+
+/* ======================================================= */
+/*    CORRECTIF TAILLE ICONES SECONDAIRES (OFFRES)         */
+/* ======================================================= */
+
+/* On cible les icônes des lignes simples (pas les menus déroulants) */
+#offres ul.space-y-3 li:not(.flex-col)>svg {
+    /* On réduit à 16px (au lieu de 20px standard) pour faire la différence */
+    width: 16px !important;
+    height: 16px !important;
+}
+
+
+
+
+
+
+/* ======================================================= */
+/*    NOUVEAU : MISE EN AVANT DES MENUS STRUCTURE (V3)     */
+/*    Cible : Les accordéons "Impact" et "Ancrage"         */
+/* ======================================================= */
+
+/* 1. Base du style "Featured" (Structure commune) */
+.pricing-toggle.featured-toggle {
+    /* On force une marge en bas pour séparer visuellement la "Base" du reste de la liste */
+    margin-bottom: 12px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border-radius: 12px;
+    /* Arrondi un peu plus prononcé */
+    font-weight: 600;
+    /* Texte un peu plus gras par défaut */
+}
+
+/* 2. Style Spécifique pour l'offre IMPACT (Bleu Clair) */
+.premium-offer-card.variant-blue .pricing-toggle.featured-toggle {
+    background-color: rgba(59, 130, 246, 0.04);
+    /* Bleu très pâle */
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    /* Bordure subtile */
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.05);
+    /* Légère ombre colorée */
+}
+
+/* Interaction Hover Impact */
+.premium-offer-card.variant-blue .pricing-toggle.featured-toggle:hover {
+    background-color: rgba(59, 130, 246, 0.08);
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.1);
+    transform: translateY(-1px);
+    /* Petit lift */
+}
+
+/* État Actif (Ouvert) Impact */
+.premium-offer-card.variant-blue .pricing-toggle.featured-toggle.active {
+    background-color: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: inset 0 2px 4px rgba(59, 130, 246, 0.05);
+    /* Effet enfoncé */
+}
+
+
+/* 3. Style Spécifique pour l'offre ANCRAGE (Deep Blue) */
+.premium-offer-card.variant-deep .pricing-toggle.featured-toggle {
+    background-color: rgba(30, 58, 138, 0.04);
+    /* Deep Blue très pâle */
+    border: 1px solid rgba(30, 58, 138, 0.12);
+    box-shadow: 0 2px 4px rgba(30, 58, 138, 0.05);
+}
+
+/* Interaction Hover Ancrage */
+.premium-offer-card.variant-deep .pricing-toggle.featured-toggle:hover {
+    background-color: rgba(30, 58, 138, 0.08);
+    border-color: rgba(30, 58, 138, 0.4);
+    box-shadow: 0 4px 8px rgba(30, 58, 138, 0.1);
+    transform: translateY(-1px);
+}
+
+/* État Actif (Ouvert) Ancrage */
+.premium-offer-card.variant-deep .pricing-toggle.featured-toggle.active {
+    background-color: rgba(30, 58, 138, 0.1);
+    border-color: rgba(30, 58, 138, 0.5);
+    box-shadow: inset 0 2px 4px rgba(30, 58, 138, 0.05);
+}
+
+
+/* 4. Petit détail : On colore légèrement l'icône à l'intérieur pour renforcer l'identité */
+.premium-offer-card.variant-blue .pricing-toggle.featured-toggle svg:first-child {
+    color: #3B82F6;
+    /* Clarity Blue */
+    filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.2));
+}
+
+.premium-offer-card.variant-deep .pricing-toggle.featured-toggle svg:first-child {
+    color: #1E3A8A;
+    /* Deep Blue */
+    filter: drop-shadow(0 2px 4px rgba(30, 58, 138, 0.2));
+}
+
+
+
+
+
+
+
+/* ======================================================= */
+/*    ANIMATIONS "ROAMING" (DYNAMISME OFFRES - GRANDES DISTANCES) */
+/* ======================================================= */
+
+/* Orbe 1 : Grande traversée diagonale (Haut-Gauche vers Bas-Droite) */
+@keyframes roam1 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(80vw, 60vh) scale(1.5);
+    }
+
+    /* Va très loin vers la droite et le bas */
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+/* Orbe 2 : Grande traversée inverse (Haut-Droite vers Bas-Gauche) */
+@keyframes roam2 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(-80vw, 50vh) scale(0.8);
+    }
+
+    /* Va très loin vers la gauche et le bas */
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+/* Orbe 4 (Bleu foncé) : Remonte du fond (Bas-Droite vers Haut-Gauche) */
+@keyframes roam4 {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(-70vw, -70vh) scale(1.3);
+    }
+
+    /* Remonte très haut vers la gauche */
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+/* Application des animations avec des durées augmentées (45s+) pour garder de la douceur */
+.animate-roam-1 {
+    animation: roam1 45s ease-in-out infinite;
+}
+
+.animate-roam-2 {
+    animation: roam2 50s ease-in-out infinite;
+}
+
+/* Note : animate-roam-3 et animate-roam-orange ont été supprimés */
+.animate-roam-4 {
+    animation: roam4 55s ease-in-out infinite;
+}
+
+
+
+
+
+
+
+/* ======================================================= */
+/*    ANIMATIONS BOOSTÉES (CONCEPT <-> RÉALITÉ)            */
+/* ======================================================= */
+
+@keyframes flowDownBoosted {
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
+    }
+
+    50% {
+        /* Descend très bas (120% de la hauteur) et va vers la droite */
+        transform: translateY(100vh) translateX(50vw) scale(1.2);
+    }
+
+    100% {
+        transform: translateY(0) translateX(0) scale(1);
+    }
+}
+
+@keyframes flowUpBoosted {
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
+    }
+
+    50% {
+        /* Monte très haut (-100vh) et va vers la gauche */
+        transform: translateY(-100vh) translateX(-50vw) scale(1.2);
+    }
+
+    100% {
+        transform: translateY(0) translateX(0) scale(1);
+    }
+}
+
+.animate-flow-down-boosted {
+    /* 20 secondes, c'est assez rapide pour être vu, assez lent pour être calme */
+    animation: flowDownBoosted 20s ease-in-out infinite;
+}
+
+.animate-flow-up-boosted {
+    animation: flowUpBoosted 25s ease-in-out infinite;
+}
+
+
+
+
+
+/* Utilitaire pour l'overlay Matrix */
+.bg-radial-gradient {
+    background: radial-gradient(circle, rgba(15, 23, 42, 0.4) 0%, rgba(15, 23, 42, 1) 100%);
+}
+
+
+
+
+
+
+
+
+/* ======================================================= */
+/*    L'ÂME (SOUL) - Version "Densité Vaporeuse" (Finale)  */
+/* ======================================================= */
+
+#soul-entity {
+    position: absolute;
+    left: 50%;
+    /* On ne définit pas de top ici, le JS le gère */
+    width: 30px;
+    height: 30px;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    pointer-events: none;
+
+    /* MODIFICATION ICI : Opacité à 0 par défaut + Transition ajoutée */
+    opacity: 0;
+    transition: top 0.1s linear, opacity 0.5s ease-out;
+    will-change: top, transform, opacity;
+}
+
+@media (max-width: 768px) {
+
+    /* CORRECTION : Alignement avec la ligne à 44px */
+    #soul-entity {
+        left: 44px;
+    }
+}
+
+.soul-core {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+
+    /* 1. LA COULEUR DE FOND (C'est elle qui va changer doucement) */
+    background-color: #ffffff;
+
+    /* 2. LA BRILLANCE (Statique) : Donne l'effet 3D / Boule */
+    /* On utilise un dégradé blanc vers transparent pour garder le relief */
+    background-image: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.1));
+
+    /* 3. L'AURA (Vaporeux) */
+    box-shadow:
+        0 0 15px 2px rgba(255, 255, 255, 0.8),
+        /* Halo dense */
+        0 0 40px 10px rgba(255, 255, 255, 0.4);
+    /* Halo large */
+
+    /* Flou pour l'aspect gaz/esprit */
+    filter: blur(3px);
+
+    /* Animation de forme */
+    animation: soulBreathe 4s infinite ease-in-out;
+
+    /* TRANSITION DOUCE (2s) : On anime la couleur de fond et l'ombre */
+    transition: background-color 2s ease, box-shadow 2s ease, transform 2s ease;
+}
+
+@keyframes soulBreathe {
+    0% {
+        transform: scale(1);
+        border-radius: 50%;
+    }
+
+    33% {
+        transform: scale(1.1, 0.9);
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+
+    66% {
+        transform: scale(0.95, 1.05);
+        border-radius: 40% 60% 70% 30% / 40% 60% 30% 70%;
+    }
+
+    100% {
+        transform: scale(1);
+        border-radius: 50%;
+    }
+}
+
+/* --- ÉTATS D'INFUSION (La couleur infuse doucement le noyau et l'aura) --- */
+
+/* Feu / Colère */
+.soul-infused-fire .soul-core {
+    background-color: #ffedd5;
+    /* Le coeur devient orange très pâle */
+    box-shadow:
+        0 0 15px 2px rgba(249, 115, 22, 0.8),
+        0 0 50px 15px rgba(249, 115, 22, 0.5);
+}
+
+/* Argent / Succès */
+.soul-infused-greed .soul-core {
+    background-color: #dcfce7;
+    /* Le coeur devient vert pâle */
+    box-shadow:
+        0 0 15px 2px rgba(34, 197, 94, 0.8),
+        0 0 50px 15px rgba(34, 197, 94, 0.5);
+}
+
+/* Dépression / Profondeur */
+.soul-infused-dark .soul-core {
+    background-color: #f3e8ff;
+    /* Le coeur devient violet pâle */
+    box-shadow:
+        0 0 15px 2px rgba(124, 58, 237, 0.8),
+        0 0 50px 15px rgba(124, 58, 237, 0.5);
+}
+
+/* Espoir / Clarté */
+.soul-infused-blue .soul-core {
+    background-color: #dbeafe;
+    /* Le coeur devient bleu pâle */
+    box-shadow:
+        0 0 15px 2px rgba(59, 130, 246, 0.8),
+        0 0 50px 15px rgba(59, 130, 246, 0.5);
+}
+
+
+
+
+/* ETAT: Le Vide / Dépression / Échec (Noir & Sombre) */
+.soul-infused-void .soul-core {
+    background-color: #0f172a;
+    /* Très sombre (presque noir, couleur du fond) */
+    /* On inverse la logique : lueur interne sombre + lueur externe grise faible */
+    box-shadow:
+        inset 0 0 20px 5px rgba(0, 0, 0, 1),
+        /* Ombre interne pour creuser */
+        0 0 10px 1px rgba(100, 116, 139, 0.3),
+        /* Petit contour gris pour le détacher du fond */
+        0 0 30px 5px rgba(71, 85, 105, 0.1);
+    /* Halo très faible */
+    filter: grayscale(1) contrast(1.2);
+    /* On tue les couleurs */
+    transform: scale(0.8);
+    /* L'âme se recroqueville légèrement */
+}
+
+/* ETAT: Feu / Colère (Plus intense) */
+.soul-infused-fire .soul-core {
+    background-color: #fff7ed;
+    box-shadow:
+        0 0 15px 2px rgba(249, 115, 22, 0.9),
+        0 0 60px 20px rgba(249, 115, 22, 0.6);
+}
+
+/* ETAT: Argent / Succès (Plus intense) */
+.soul-infused-greed .soul-core {
+    background-color: #f0fdf4;
+    box-shadow:
+        0 0 15px 2px rgba(34, 197, 94, 0.9),
+        0 0 60px 20px rgba(34, 197, 94, 0.6);
+}
+
+/* ETAT: Clarté / Sagesse (Bleu pur) */
+.soul-infused-blue .soul-core {
+    background-color: #eff6ff;
+    box-shadow:
+        0 0 15px 2px rgba(59, 130, 246, 0.9),
+        0 0 60px 20px rgba(59, 130, 246, 0.6);
+}
+
+/* ETAT: Stase / Ennui / Cage Dorée (Gris brumeux) */
+.soul-infused-stasis .soul-core {
+    background-color: #cbd5e1;
+    /* Gris clair, froid (Slate-300) */
+    /* Halo diffus, pas agressif, comme un brouillard */
+    box-shadow:
+        0 0 15px 5px rgba(148, 163, 184, 0.4),
+        /* Gris bleuté */
+        0 0 5px 0px rgba(255, 255, 255, 0.5);
+    filter: blur(1px) grayscale(0.8);
+    /* Légèrement flou et désaturé */
+    transform: scale(0.9);
+    /* L'âme est là, mais elle tourne au ralenti */
+}
+
+
+
+
+
+
+/* ======================================================= */
+/*    LA TRAÎNÉE DE L'ÂME (SOUL TRAIL)                     */
+/* ======================================================= */
+
+
+.soul-trail-piece {
+    position: absolute;
+    /* On utilise la même logique de positionnement que l'âme principale */
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* On augmente légèrement la taille pour que le flou se chevauche bien */
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    pointer-events: none;
+    z-index: 19;
+
+    /* C'est ici que la magie opère : 
+       Un flou élevé mélange les cercles pour faire une ligne de "gaz" */
+    filter: blur(8px);
+
+    /* Transition douce pour les changements de couleur */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+/* --- AJOUT : CORRECTIF MOBILE --- */
+/* Cela aligne la traînée sur la ligne (44px) comme l'âme principale */
+@media (max-width: 768px) {
+    .soul-trail-piece {
+        /* CORRECTION : Alignement avec la ligne à 44px */
+        left: 44px;
+    }
+}
+
+
+
+/* --- ADAPTATION DES COULEURS POUR LA TRAÎNÉE --- */
+/* On reprend les couleurs des infusions pour que la traînée change aussi */
+
+.soul-trail-fire {
+    background-color: rgba(249, 115, 22, 0.6);
+    box-shadow: 0 0 10px rgba(249, 115, 22, 0.4);
+}
+
+.soul-trail-greed {
+    background-color: rgba(34, 197, 94, 0.6);
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.4);
+}
+
+.soul-trail-blue {
+    background-color: rgba(59, 130, 246, 0.6);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+}
+
+.soul-trail-void {
+    background-color: #0f172a;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    opacity: 0.6 !important;
+    /* Plus sombre pour le void */
+}
+
+.soul-trail-stasis {
+    background-color: #94a3b8;
+}
+
+.soul-trail-hologram {
+    background-color: rgba(34, 211, 238, 0.5);
+    /* Cyan */
+    box-shadow: 0 0 10px rgba(232, 121, 249, 0.3);
+    /* Magenta glow */
+}
+
+
+
+
+
+
+
+
+
+/* A-PROPOS - EFFET GRAIN / NOISE (CINÉMA) */
+.noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    /* J'ai changé baseFrequency à 0.65 pour un grain plus doux/cotonneux */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+
+    /* LE RÉGLAGE MAGIQUE POUR FOND SOMBRE */
+    opacity: 0.04;
+    /* 4% : À peine perceptible */
+    mix-blend-mode: overlay;
+    /* Incruste le grain dans le bleu */
+
+    pointer-events: none;
+    z-index: 99999;
+}
+
+
+
+
+
+
+/* ======================================================= */
+/*    STYLE FUTUR HOLOGRAPHIQUE (CORRIGÉ FLUIDE)           */
+/* ======================================================= */
+
+/* 1. Le Texte Irisé (Pas de changement ici, c'était bon) */
+.future-text {
+    background: linear-gradient(90deg, #ffffff 0%, #22d3ee 50%, #e879f9 75%, #ffffff 100%);
+    background-size: 200% auto;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shineFuture 4s linear infinite;
+    filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.4));
+}
+
+@keyframes shineFuture {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* 2. L'Âme en mode Hologramme "Douce" */
+.soul-infused-hologram .soul-core {
+    background-color: #ffffff;
+
+    /* L'animation dure un peu plus longtemps (4s) pour être plus "zen" */
+    animation: soulHoloPulseSmooth 4s ease-in-out infinite;
+}
+
+@keyframes soulHoloPulseSmooth {
+
+    0%,
+    100% {
+        /* ÉTAT 0% = ÉTAT NORMAL (Les couleurs sont cachées derrière) */
+        /* Pas de décalage des ombres, juste un halo blanc propre */
+        box-shadow:
+            0 0 0 rgba(0, 255, 255, 0),
+            /* Cyan caché */
+            0 0 0 rgba(255, 0, 255, 0),
+            /* Magenta caché */
+            0 0 20px 5px rgba(255, 255, 255, 0.6);
+        /* Halo blanc normal */
+        transform: scale(1);
+    }
+
+    50% {
+        /* ÉTAT 50% = EFFET HOLOGRAMME (Les couleurs sortent doucement) */
+        box-shadow:
+            -4px 0 4px rgba(0, 255, 255, 0.6),
+            /* Le cyan sort à gauche */
+            4px 0 4px rgba(255, 0, 255, 0.6),
+            /* Le magenta sort à droite */
+            0 0 30px 10px rgba(34, 211, 238, 0.2);
+        /* Grand halo cyan */
+        transform: scale(1.08);
+        /* Légère respiration */
+    }
+}
+
+
+
+
+
+
+
+/* 1. La ligne de base */
+.timeline-line {
+    /* On garde le dégradé coloré d'origine */
+    transition: opacity 0.5s ease, filter 0.5s ease;
+    opacity: 0.3;
+    /* Par défaut, elle est un peu discrète */
+}
+
+/* 2. ÉTAT ACTIVÉ : Subtil et Localisé */
+.timeline-line.line-active {
+    /* On ne change PAS la couleur de fond en blanc. */
+    /* On augmente juste l'opacité pour dire "le signal passe" */
+    opacity: 0.8;
+
+    /* Un tout petit halo pour le relief, mais très léger */
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+}
+
+
+
+
+
+
+
+/* Positionnement initial du guide */
+#soul-guide {
+    /* On le place un peu avant le premier point de la timeline */
+    top: 180px;
+}
+
+/* Classe utilitaire pour cacher le guide */
+.guide-hidden {
+    opacity: 0 !important;
+    transform: translate(-50%, -20px) !important;
+    /* Petit mouvement vers le haut en disparaissant */
+}
+
+/* Classe utilitaire pour afficher le guide (via JS) */
+.guide-visible {
+    opacity: 1 !important;
+    transform: translate(-50%, 0) !important;
+}
+
+
+
+
+
+
+/* Positionnement du guide : On le descend pour qu'il soit sous le titre */
+#soul-guide {
+    top: 500px;
+    /* Ajuste ce chiffre si c'est trop haut ou trop bas */
+}
+
+/* Sur mobile, on le remonte un peu car le texte est plus petit */
+@media (max-width: 768px) {
+    #soul-guide {
+        top: 280px;
+    }
+}
+
+
+
+
+
+
+/* ======================================================= */
+/*    EFFET GLITCH (RUPTURE SYSTÈME)                       */
+/* ======================================================= */
+
+.glitch-target {
+    position: relative;
+    display: inline-block;
+}
+
+
+
+
+/* MODIFICATION : On garde le texte blanc pour que ce soit plus visible */
+.glitch-active {
+    animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+    color: #ffffff;
+    /* AVANT : rgba(255,255,255,0.1) -> MAINTENANT : Blanc pur */
+    text-shadow: 2px 0 #F97316, -2px 0 #3B82F6;
+    /* Ajout d'une ombre Orange/Bleu pour accentuer l'effet */
+}
+
+.glitch-active::before,
+.glitch-active::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1E293B;
+    opacity: 0.8;
+}
+
+/* On accélère un peu l'animation pour plus d'agressivité */
+.glitch-active::before {
+    color: #0ff;
+    z-index: -1;
+    animation: glitch-anim-1 0.4s infinite linear alternate-reverse;
+    /* Passé de 2s à 0.4s */
+}
+
+.glitch-active::after {
+    color: #f0f;
+    z-index: -2;
+    animation: glitch-anim-2 0.4s infinite linear alternate-reverse;
+    /* Passé de 2s à 0.4s */
+}
+
+
+
+
+/* Animations de découpage (Clip-path) */
+@keyframes glitch-anim-1 {
+    0% {
+        clip-path: inset(20% 0 80% 0);
+        transform: translate(-2px, 1px);
+    }
+
+    20% {
+        clip-path: inset(60% 0 10% 0);
+        transform: translate(2px, -1px);
+    }
+
+    40% {
+        clip-path: inset(40% 0 50% 0);
+        transform: translate(-2px, 2px);
+    }
+
+    60% {
+        clip-path: inset(80% 0 5% 0);
+        transform: translate(2px, -2px);
+    }
+
+    80% {
+        clip-path: inset(10% 0 70% 0);
+        transform: translate(-2px, 1px);
+    }
+
+    100% {
+        clip-path: inset(30% 0 20% 0);
+        transform: translate(2px, -1px);
+    }
+}
+
+@keyframes glitch-anim-2 {
+    0% {
+        clip-path: inset(10% 0 60% 0);
+        transform: translate(2px, -1px);
+    }
+
+    20% {
+        clip-path: inset(80% 0 5% 0);
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        clip-path: inset(30% 0 20% 0);
+        transform: translate(2px, -2px);
+    }
+
+    60% {
+        clip-path: inset(15% 0 80% 0);
+        transform: translate(-2px, 1px);
+    }
+
+    80% {
+        clip-path: inset(55% 0 10% 0);
+        transform: translate(2px, -1px);
+    }
+
+    100% {
+        clip-path: inset(40% 0 30% 0);
+        transform: translate(-2px, 2px);
+    }
+}
+
+@keyframes glitch-skew {
+    0% {
+        transform: skew(0deg);
+    }
+
+    20% {
+        transform: skew(-2deg);
+    }
+
+    40% {
+        transform: skew(2deg);
+    }
+
+    60% {
+        transform: skew(-1deg);
+    }
+
+    80% {
+        transform: skew(1deg);
+    }
+
+    100% {
+        transform: skew(0deg);
+    }
+}
+
+
+
+
+
+
+
+/* ======================================================= */
+/*    STYLE CONTEXTE : 3D TILT & PARTICULES                */
+/* ======================================================= */
+
+/* 1. Le Conteneur doit avoir une perspective (la distance de l'œil) */
+.perspective-container {
+    perspective: 1000px;
+    /* Plus le chiffre est petit, plus l'effet 3D est prononcé */
+}
+
+
+
+/* 2. La Carte de Verre */
+.glass-card {
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+
+    /* PAR DÉFAUT (Quand on ne touche pas) : Transition LENTE et ÉLASTIQUE */
+    /* C'est ça qui donne le côté "stylé" au retour */
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    /* On force la position à 0 par défaut pour éviter les bugs au chargement */
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+}
+
+/* QUAND ON SURVOLE (Classe ajoutée par JS) : Transition RAPIDE */
+/* Pour que la carte suive la souris sans retard */
+.glass-card.is-moving {
+    transition: transform 0.1s ease-out;
+}
+
+/* 3. Conservation de la 3D (Inchangé) */
+.transform-style-3d {
+    transform-style: preserve-3d;
+}
+
+.card-element {
+    transform: translateZ(20px);
+}
+
+
+
+
+.card-glare {
+    /* On crée une lumière ronde qui suit la souris via les variables */
+    background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(255, 255, 255, 0.12),
+            transparent 40%);
+    /* Incrustation lumineuse */
+    mix-blend-mode: overlay;
+
+    /* On s'assure qu'il couvre bien toute la carte sans bouger */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+
+
+/* Typo éditoriale (inchangé) */
+.drop-cap {
+    float: left;
+    font-family: 'Times New Roman', serif;
+    font-size: 3.5rem;
+    line-height: 0.8;
+    margin-right: 0.5rem;
+    margin-top: 0.1rem;
+    color: #ffffff;
+}
+
+.text-shadow-sm {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+
+
+/* ======================================================= */
+/*    DÉCOR SPATIAL (PROFONDEUR TIMELINE) - CORRIGÉ        */
+/* ======================================================= */
+
+/* 1. Les Étoiles Fixes (DOIVENT ÊTRE DEVANT LES LUEURS) */
+.stars-fixed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* IMPORTANT : Au-dessus des lueurs */
+
+    background-image:
+        radial-gradient(1px 1px at 10% 10%, rgba(255, 255, 255, 0.9) 50%, transparent 100%),
+        radial-gradient(1px 1px at 20% 80%, rgba(255, 255, 255, 0.7) 50%, transparent 100%),
+        radial-gradient(2px 2px at 30% 40%, rgba(255, 255, 255, 0.6) 50%, transparent 100%),
+        radial-gradient(1px 1px at 40% 20%, rgba(255, 255, 255, 0.8) 50%, transparent 100%),
+        radial-gradient(2px 2px at 50% 60%, rgba(255, 255, 255, 0.5) 50%, transparent 100%),
+        radial-gradient(1px 1px at 60% 90%, rgba(255, 255, 255, 0.7) 50%, transparent 100%),
+        radial-gradient(2px 2px at 70% 30%, rgba(255, 255, 255, 0.6) 50%, transparent 100%),
+        radial-gradient(1px 1px at 80% 50%, rgba(255, 255, 255, 0.8) 50%, transparent 100%),
+        radial-gradient(1px 1px at 90% 10%, rgba(255, 255, 255, 0.9) 50%, transparent 100%);
+
+    background-size: 500px 500px;
+    background-attachment: fixed;
+    opacity: 0.6;
+    /* Un peu plus visible maintenant qu'elles sont devant */
+}
+
+/* 2. Les Nébuleuses (DOIVENT ÊTRE TOUT AU FOND) */
+.cosmic-glow {
+    position: fixed;
+    z-index: 0;
+    /* IMPORTANT : Tout au fond */
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    /* Ajout d'un mix-blend-mode pour que la couleur s'incruste mieux dans le noir */
+    mix-blend-mode: screen;
+}
+
+/* Nébuleuse 1 : La Clarté (Bleue) */
+.cosmic-glow::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    right: -20%;
+    /* On la pousse un peu plus loin */
+    width: 70vw;
+    /* Plus large mais plus diffuse */
+    height: 70vw;
+    border-radius: 50%;
+
+    /* Opacité réduite (0.15 au lieu de 0.25) pour éviter l'effet "buée" */
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(15, 23, 42, 0) 60%);
+    filter: blur(100px);
+    /* Flou augmenté pour la douceur */
+
+    animation: nebulaFloat 10s ease-in-out infinite alternate;
+}
+
+/* Nébuleuse 2 : La Vie (Orange) */
+.cosmic-glow::after {
+    content: '';
+    position: absolute;
+    bottom: 0%;
+    left: -20%;
+    /* On la pousse un peu plus loin */
+    width: 60vw;
+    height: 60vw;
+    border-radius: 50%;
+
+    /* Opacité réduite (0.10 au lieu de 0.15) */
+    background: radial-gradient(circle, rgba(249, 115, 22, 0.10) 0%, rgba(15, 23, 42, 0) 60%);
+    filter: blur(100px);
+
+    animation: nebulaFloat 12s ease-in-out infinite alternate-reverse;
+}
+
+
+@keyframes nebulaFloat {
+    0% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0.8;
+        /* Devient plus lumineux */
+        transform: scale(1.1);
+    }
+}
+
+
+
+
+
+
+/* ======================================================= */
+/*    OVERRIDE : NAVIGATION DARK GLASS (Pour A-Propos)     */
+/* ======================================================= */
+
+/* 1. L'arriere-plan au scroll : Sombre, Flou et Bordé */
+.dark-nav-page #main-nav.scrolled {
+    /* Fond sombre semi-transparent (Bleu Nuit) */
+    background-color: rgba(15, 23, 42, 0.75) !important;
+
+    /* Le flou glassmorphism */
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+
+    /* Une fine bordure lumineuse en bas pour séparer du contenu */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    /* Ombre portée plus sombre */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* 2. Les liens restent BLANCS (au lieu de devenir gris foncé) */
+.dark-nav-page #main-nav.scrolled .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* 3. Au survol, les liens deviennent ORANGE avec un petit effet néon */
+.dark-nav-page #main-nav.scrolled .nav-link:hover {
+    color: #F97316 !important;
+    /* Warm Orange */
+    text-shadow: 0 0 10px rgba(249, 115, 22, 0.4);
+}
+
+/* 4. Gestion des Logos : On force le BLANC à rester visible */
+.dark-nav-page #main-nav.scrolled #logo-white {
+    opacity: 1 !important;
+}
+
+.dark-nav-page #main-nav.scrolled #logo-color {
+    opacity: 0 !important;
+}
+
+/* 5. Le Menu Burger sur mobile reste BLANC */
+.dark-nav-page #main-nav.scrolled #mobile-menu-button {
+    color: #ffffff !important;
+}
+
+/* 6. Adaptation du Menu Mobile Déroulant (Le tiroir) */
+.dark-nav-page #mobile-menu {
+    /* On le rend sombre aussi pour matcher */
+    background-color: #1E293B !important;
+    /* Card Dark */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff !important;
+}
+
+/* Liens du menu mobile */
+.dark-nav-page #mobile-menu a {
+    color: #e2e8f0 !important;
+    /* Gris clair */
+}
+
+.dark-nav-page #mobile-menu a:hover {
+    color: #3B82F6 !important;
+    /* Clarity Blue au survol */
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+
+
+
+
+
+
+/* ======================================================= */
+/*    STYLE CARTE STARDUST (MODIFIÉ : LUMINEUX & ÉLÉGANT)  */
+/* ======================================================= */
+
+.stardust-card {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+
+    /* FOND : On applique ici le style "lumineux/chaud" par défaut */
+    background: linear-gradient(160deg,
+            rgba(255, 255, 255, 0.15) 0%,
+            rgba(70, 65, 60, 0.7) 50%,
+            /* La teinte organique plus claire */
+            rgba(20, 20, 20, 0.9) 100%);
+
+    /* Flou d'arrière-plan */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+
+    /* BORDURES : On applique la bordure lumineuse par défaut */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: 1px solid rgba(255, 255, 255, 0.7);
+    /* Arête brillante */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+
+    /* OMBRE : Le halo diffus par défaut */
+    box-shadow:
+        inset 0 0 30px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(255, 255, 255, 0.05);
+
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Transition lente et fluide */
+    pointer-events: auto;
+}
+
+/* Au survol : TRÈS DISCRET & SANS MOUVEMENT */
+.stardust-card:hover {
+    /* On éclaircit à peine le fond pour simuler un reflet de lumière qui passe */
+    background: linear-gradient(160deg,
+            rgba(255, 255, 255, 0.2) 0%,
+            /* Un peu plus blanc en haut */
+            rgba(80, 75, 70, 0.75) 50%,
+            /* Un tout petit peu plus clair au milieu */
+            rgba(20, 20, 20, 0.9) 100%);
+
+    /* On intensifie juste l'éclat de la bordure du haut (effet de lumière zénithale) */
+    border-top-color: rgba(255, 255, 255, 0.95);
+    border-color: rgba(255, 255, 255, 0.25);
+
+    /* PAS DE TRANSFORM (Pas d'élévation) */
+    transform: none;
+
+    /* On nettoie un peu l'ombre interne pour faire "entrer" la lumière */
+    box-shadow:
+        inset 0 0 10px rgba(0, 0, 0, 0.1),
+        /* Moins d'ombre interne = plus de lumière */
+        0 0 25px rgba(255, 255, 255, 0.08);
+    /* Halo externe imperceptiblement plus grand */
+}
+
+
+
+
+
+
+
+
+/* ======================================================= */
+/*          EFFETS SPÉCIAUX CHAPITRE 16 (Nexus)       */
+/* ======================================================= */
+
+
+/* 1. Animation du Ping lent pour le radar */
+@keyframes ping-slow {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+.animate-ping-slow {
+    animation: ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* 2. Ligne de scan (Effet Sci-Fi doux) */
+@keyframes scan-vertical {
+    0% {
+        top: 0%;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.5;
+    }
+
+    90% {
+        opacity: 0.5;
+    }
+
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+.scan-line {
+    animation: scan-vertical 4s linear infinite;
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+}
+
+/* 3. Texte scintillant pour "Clartem" */
+@keyframes shimmer-text {
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.animate-shimmer {
+    background-size: 200% auto;
+    /* Un dégradé qui passe du vert au blanc et revient au vert */
+    background-image: linear-gradient(to right, #16A34A 0%, #ffffff 50%, #16A34A 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shimmer-text 3s linear infinite;
+}
+
+/* 4. Nexus Card (Le conteneur du texte) */
+.nexus-card {
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 0 1px rgba(22, 163, 74, 0.1), inset 0 0 20px rgba(22, 163, 74, 0.05);
+}
+
+/* Interaction au survol : La carte s'illumine légèrement */
+.nexus-card:hover {
+    box-shadow: 0 0 0 1px rgba(22, 163, 74, 0.3), inset 0 0 30px rgba(22, 163, 74, 0.1);
+}
+
+
+
+
+
+
+/* ======================================================= */
+/*    FIX MODALE MOBILE : VIEWPORT + CLAVIER               */
+/* ======================================================= */
+
+/* Fix iOS: empêcher le body de scroller quand la modale est ouverte */
+body.modal-body-lock {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+/* ---- Conteneur scroll de la modale ---- */
+.modal-scroll-container {
+    min-height: 100vh;
+    min-height: 100dvh;
+    min-height: -webkit-fill-available;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ---- Taille adaptative de la carte modale sur mobile ---- */
+@media (max-width: 1023px) {
+    .modal-mobile-fit {
+        /* Utilise dvh pour tenir compte des barres du navigateur */
+        max-height: calc(100vh - 24px);
+        max-height: calc(100dvh - 24px);
+        /* PAS d'overflow ici — sinon le halo doré ::before est coupé */
+        overflow: visible;
+    }
+
+    /* C'est le wrapper INTERNE qui scrolle */
+    .modal-mobile-fit #modal-inner-wrapper {
+        max-height: calc(100vh - 28px);
+        max-height: calc(100dvh - 28px);
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Image compacte sur mobile */
+    .modal-mobile-fit .lg\:col-span-5 {
+        height: 120px;
+        min-height: 120px;
+        max-height: 120px;
+    }
+
+    /* Contenu formulaire flexible */
+    .modal-mobile-fit .lg\:col-span-7 {
+        flex: 1 1 auto;
+        overflow-y: visible;
+    }
+}
+
+/* ---- Petits écrans (< 700px hauteur) ---- */
+@media (max-width: 1023px) and (max-height: 700px) {
+    .modal-mobile-fit .lg\:col-span-5 {
+        height: 100px;
+        min-height: 100px;
+        max-height: 100px;
+    }
+
+    .modal-mobile-fit .lg\:col-span-7 {
+        padding: 16px 16px 12px !important;
+    }
+
+    .modal-mobile-fit .mb-4 {
+        margin-bottom: 8px !important;
+    }
+
+    #modal-bullet-list {
+        margin-top: 8px !important;
+        margin-bottom: 8px !important;
+    }
+
+    #modal-bullet-list li {
+        gap: 6px !important;
+    }
+
+    /* Puces : texte plus compact */
+    #modal-bullet-list span {
+        font-size: 11px !important;
+        line-height: 1.3 !important;
+    }
+}
+
+/* ---- Très petits écrans (< 620px hauteur, ex: iPhone SE) ---- */
+@media (max-width: 1023px) and (max-height: 620px) {
+    /* Cache l'image complètement */
+    .modal-mobile-fit .lg\:col-span-5 {
+        display: none !important;
+    }
+
+    .modal-mobile-fit .lg\:col-span-7 {
+        padding-top: 36px !important;
+    }
+
+    /* Titre plus compact */
+    .modal-mobile-fit h3 {
+        font-size: 1.1rem !important;
+        margin-bottom: 6px !important;
+    }
+}
+
+/* ---- CLAVIER OUVERT ---- */
+@media (max-width: 1023px) {
+    .keyboard-open .modal-scroll-container {
+        align-items: flex-start !important;
+        min-height: auto !important;
+        height: var(--vvh, 100dvh) !important;
+        overflow-y: auto !important;
+    }
+
+    .keyboard-open #modal-content {
+        max-height: calc(var(--vvh, 100dvh) - 16px) !important;
+        overflow: visible !important;
+        margin-top: 8px;
+    }
+
+    .keyboard-open #modal-inner-wrapper {
+        max-height: calc(var(--vvh, 100dvh) - 20px) !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+        transition: max-height 0.15s ease-out;
+    }
+
+    .keyboard-open #modal-content .lg\:col-span-5 {
+        display: none !important;
+    }
+
+    .keyboard-open #modal-content .lg\:col-span-7 {
+        padding-top: 40px !important;
+    }
+
+    .keyboard-open #modal-content .mb-4 {
+        margin-bottom: 8px !important;
+    }
+
+    .keyboard-open #modal-content .space-y-4 > * + * {
+        margin-top: 8px !important;
+    }
+
+    .keyboard-open #modal-bullet-list {
+        display: none !important;
+    }
+
+    .keyboard-open #popup-sib-form {
+        padding: 12px !important;
+    }
+
+    .keyboard-open #popup-sib-form .mb-3 {
+        margin-bottom: 8px !important;
+    }
+
+    .keyboard-open #modal-content .text-gray-400.text-xs {
+        display: none !important;
+    }
+}
+
+/* ======================================================= */
+/*    CUSTOM SCROLLBAR POUR MODALE MOBILE                  */
+/* ======================================================= */
+
+/* Pour Webkit (Chrome, Safari, Edge) */
+#modal-content::-webkit-scrollbar,
+#modal-inner-wrapper::-webkit-scrollbar {
+    width: 6px;
+}
+
+#modal-content::-webkit-scrollbar-track,
+#modal-inner-wrapper::-webkit-scrollbar-track {
+    background: #0F172A;
+    /* Fond sombre */
+}
+
+#modal-content::-webkit-scrollbar-thumb,
+#modal-inner-wrapper::-webkit-scrollbar-thumb {
+    background-color: #374151;
+    /* Gris foncé */
+    border-radius: 20px;
+}
+
+#modal-content::-webkit-scrollbar-thumb:hover,
+#modal-inner-wrapper::-webkit-scrollbar-thumb:hover {
+    background-color: #4B5563;
+    /* Gris un peu plus clair au survol */
+}
+
+
+
+
+
+
+
+/* ======================================================= */
+/*    EFFET HALO DORÉ (MODALE LEAD MAGNET)                 */
+/* ======================================================= */
+
+@keyframes borderRotate {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.gold-glow-border {
+    position: relative;
+    /* On s'assure que le fond de la boite reste au dessus */
+    z-index: 10;
+    /* Bordure transparente pour laisser la place au halo */
+    border: 2px solid transparent;
+}
+
+
+
+/* Le Halo Lumineux animé derrière */
+.gold-glow-border::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 18px;
+    padding: 2px;
+
+    background: linear-gradient(45deg,
+            #F97316,
+            #FFD700,
+            #FFF7AD,
+            #F97316);
+    background-size: 300% 300%;
+    animation: borderRotate 4s ease infinite;
+
+    /* === CORRECTION COMPATIBILITÉ === */
+
+    /* 1. Version Standard (Pour Firefox et le futur) */
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+
+    /* 2. Version Webkit (OBLIGATOIRE pour Chrome, Safari, Edge) */
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    /* Note : 'xor' est l'équivalent webkit de 'exclude' */
+
+    /* ================================ */
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* Optionnel : Une lueur externe (Glow) pour accentuer l'effet "Énergie" */
+.gold-glow-border::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    transform: translate(0, 0);
+    background: linear-gradient(45deg, #F97316, #FFD700);
+    filter: blur(20px);
+    /* Flou pour faire le halo */
+    opacity: 0.4;
+    /* Pas trop fort pour ne pas gêner la lecture */
+    border-radius: 16px;
+}
+
+
+
+
+
+
+/* ======================================================= */
+/*    TRANSITION VAGUE HYPNOTIQUE (SHAPE DIVIDER) - V2     */
+/* ======================================================= */
+
+.hypnotic-waves-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 2;
+    /* Correction sub-pixel */
+    transform: translateY(1px);
+}
+
+.waves {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    /* Hauteur relative confortable */
+    min-height: 100px;
+    max-height: 150px;
+    margin-bottom: -1px;
+
+    /* Animation de respiration verticale globale */
+    animation: wave-swell 10s ease-in-out infinite alternate;
+}
+
+/* 
+   Animation Principale : Courants croisés
+   On définit deux animations inverses pour briser la linéarité.
+*/
+@keyframes move-forever-right {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+
+@keyframes move-forever-left {
+    0% {
+        transform: translate3d(85px, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-90px, 0, 0);
+    }
+}
+
+/* 
+   Animation Secondaire : Respiration (Swell)
+   Fait monter et descendre doucement tout l'océan
+*/
+@keyframes wave-swell {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(5px);
+    }
+}
+
+/* 
+   Configuration des couches (Parallax)
+   Utilisation de "linear" pour la fluidité, mais avec des sens opposés.
+*/
+
+/* Vague 1 : Écume rapide (Vers la Droite) */
+.parallax>use:nth-child(1) {
+    animation: move-forever-right 23s linear infinite;
+    /* 23s (Nombre premier) */
+    opacity: 0.5;
+    /* Légèrement plus visible */
+}
+
+/* Vague 2 : Courant inverse (Vers la Gauche - C'est ça qui crée l'hypnose) */
+.parallax>use:nth-child(2) {
+    animation: move-forever-left 37s linear infinite;
+    /* Vitesse très différente */
+    opacity: 0.6;
+}
+
+/* Vague 3 : Profondeur (Vers la Droite) */
+.parallax>use:nth-child(3) {
+    animation: move-forever-right 41s linear infinite;
+    opacity: 0.8;
+}
+
+/* Vague 4 : Base lourde (Vers la Gauche) */
+.parallax>use:nth-child(4) {
+    animation: move-forever-left 59s linear infinite;
+    /* Très lent */
+    opacity: 1;
+}
+
+
+/* Ajustement Mobile */
+@media (max-width: 768px) {
+    .waves {
+        height: 80px;
+        min-height: 80px;
+        /* On désactive le swell sur mobile pour la performance */
+        animation: none;
+    }
+
+    /* On garde les animations croisées mais un peu plus rapides */
+    .parallax>use:nth-child(1) {
+        animation-duration: 17s;
+    }
+
+    .parallax>use:nth-child(2) {
+        animation-duration: 23s;
+    }
+
+    .parallax>use:nth-child(3) {
+        animation-duration: 29s;
+    }
+
+    .parallax>use:nth-child(4) {
+        animation-duration: 45s;
+    }
+}
+
+
+
+
+
+
+
+/* ======================================================= */
+/*          AJOUT POUR SECTION A PROPOS "STORYTELLING"       */
+/* ======================================================= */
+
+
+/* Force une police avec empattement pour les citations et titres narratifs */
+.font-serif {
+    font-family: 'Georgia', 'Times New Roman', Times, serif;
+}
+
+/* Style de la carte biographie */
+.story-card {
+    /* Ombre interne pour donner de la profondeur (effet encastré) */
+    box-shadow:
+        0 20px 40px -10px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: transform 0.5s ease;
+}
+
+.story-card:hover {
+    transform: translateY(-2px);
+    /* Léger mouvement au survol de la zone */
+}
+
+
+
+
+
+
+/* ======================================================= */
+/*    CORRECTIF ROTATION ICÔNE FAQ (PLUS -> CROIX)         */
+/* ======================================================= */
+
+/* L'icône SVG dans le bouton FAQ tourne de 45deg (ou 135deg) */
+.faq-toggle svg.rotate-180 {
+    /* Sur un "+" : 45deg fait une croix "x". 135deg fait aussi une croix avec plus de mouvement */
+    transform: rotate(135deg);
+}
+
+/* On change aussi la couleur de fond du rond au clic */
+.faq-toggle.active .w-8 {
+    background-color: #3B82F6;
+    /* clarity-blue */
+    color: white;
+}
+
+
+
+
+
+
+/* ======================================================= */
+/*    ELEMENTS PREMIUM (TITRES & BADGES)                   */
+/* ======================================================= */
+
+/* 1. Lueur d'ambiance (Background Flare) */
+/* Crée une lumière douce derrière le texte pour le détacher du fond */
+.premium-flare {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 150%;
+    background: radial-gradient(circle,
+            rgba(59, 130, 246, 0.15) 0%,
+            /* Clarity Blue très transparent */
+            rgba(255, 255, 255, 0) 70%);
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* 2. Badge "Luxe" (Glassmorphism + Bordure fine) */
+.premium-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    /* Fond quasi invisible */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    /* Bordure fine */
+    border-radius: 9999px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.premium-pill:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.1);
+    /* Lueur bleue au survol */
+}
+
+/* Le petit point brillant dans le badge */
+.premium-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #F97316;
+    /* Warm Orange */
+    box-shadow: 0 0 8px rgba(249, 115, 22, 0.6);
+    position: relative;
+}
+
+.premium-dot::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    animation: dotPulse 2s infinite;
+}
+
+@keyframes dotPulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* 3. Typographie Titre Premium */
+/* Ajoute un léger dégradé vertical subtil sur le texte blanc pour le rendre "métallique" */
+.text-gradient-silver {
+    background: linear-gradient(to bottom, #ffffff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+
+
+
+
+
+
+/* ======================================================= */
+/*          SECTION MANIFESTE (TERMINAL)                   */
+/* ======================================================= */
+
+/* Effet Scanlines pour le terminal Matrix */
+.scanlines {
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0) 50%,
+            rgba(0, 0, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0.2));
+    background-size: 100% 4px;
+    opacity: 0.15;
+}
+
+/* Police Monospace élégante pour le terminal */
+#matrix-typewriter {
+    font-family: 'Source Code Pro', 'Fira Code', monospace;
+}
+
+/* Classes utilitaires pour les lignes du terminal */
+.matrix-line {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.matrix-dim {
+    color: #64748b;
+}
+
+/* Gris commentaire */
+.matrix-keyword {
+    color: #34d399;
+    font-weight: bold;
+}
+
+/* Vert Émeraude clair */
+.matrix-string {
+    color: #a7f3d0;
+}
+
+/* Vert très pâle */
+.matrix-highlight {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(52, 211, 153, 0.5);
+    /* Glow blanc/vert */
+}
+
+.matrix-glitch {
+    color: #ef4444;
+    /* Rouge très léger juste pour le bug */
+    animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+    display: inline-block;
+}
+
+
+
+
+
+
+/* ======================================================= */
+/*    EASTER EGG : LE LAPIN BLANC V2 (AMÉLIORÉ)            */
+/* ======================================================= */
+
+#white-rabbit {
+    /* Position de départ : Caché hors de l'écran à gauche */
+    left: -100px;
+    /* Reculé un peu plus car il est plus large */
+    bottom: 20%;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* Effet ressort */
+    transform-origin: bottom center;
+}
+
+/* 1. L'ETAT "COUCOU" (Manifeste) */
+#white-rabbit.peek-active {
+    left: -10px;
+    /* Il sort un peu */
+    opacity: 1;
+    transform: rotate(15deg) translateY(-10px);
+    /* Penche la tête pour regarder */
+}
+
+/* 2. L'ETAT "FINAL" (Sur le CTA) */
+#white-rabbit.cta-mode {
+    position: absolute;
+    left: auto !important;
+    right: 10px;
+    top: -91px;
+    /* Ajusté pour la nouvelle taille */
+    bottom: auto;
+    opacity: 1;
+    transform: rotate(0deg) scale(0.85);
+    /* Un peu plus petit pour tenir sur le bouton */
+    z-index: 0;
+}
+
+/* --- ANIMATIONS DU CORPS --- */
+
+/* Respiration globale */
+.rabbit-breathe {
+    animation: rabbitBreathe 4s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+@keyframes rabbitBreathe {
+
+    0%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform: scaleY(1.03);
+    }
+}
+
+/* Clignement des yeux */
+.rabbit-eye {
+    animation: rabbitBlink 4s infinite;
+    transform-origin: center;
+    /* Important pour que ça cligne au milieu */
+}
+
+@keyframes rabbitBlink {
+
+    0%,
+    48%,
+    52%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform: scaleY(0.1);
+    }
+}
+
+/* Mouvement Oreille Gauche */
+.ear-left-anim {
+    animation: earWiggleLeft 5s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: bottom right;
+    /* Pivote à la base */
+}
+
+@keyframes earWiggleLeft {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    10% {
+        transform: rotate(-5deg);
+    }
+
+    20% {
+        transform: rotate(0deg);
+    }
+
+    80% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Mouvement Oreille Droite (Décalé pour le réalisme) */
+.ear-right-anim {
+    animation: earWiggleRight 6s ease-in-out infinite;
+    /* Durée différente */
+    transform-box: fill-box;
+    transform-origin: bottom left;
+    /* Pivote à la base */
+}
+
+@keyframes earWiggleRight {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    40% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+
+    60% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Frétillement du nez */
+.nose-anim {
+    animation: noseTwitch 3s infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+@keyframes noseTwitch {
+
+    0%,
+    90%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    92% {
+        transform: translateY(-1px) scale(1.1);
+    }
+
+    94% {
+        transform: translateY(0) scale(1);
+    }
+
+    96% {
+        transform: translateY(-1px) scale(1.1);
+    }
+
+    98% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+
+/* ======================================================= */
+/*    NOUVELLES CLASSES POUR LE LAPIN (POSITIONNEMENT)     */
+/* ======================================================= */
+
+/* 1. APPARITION À DROITE (Section Plan) */
+/* Note : scaleX(-1) retourne le lapin pour qu'il regarde vers la gauche */
+#white-rabbit.peek-right-active {
+    left: auto !important;
+    /* On annule la gauche */
+    right: -20px;
+    /* Il sort de la droite */
+    opacity: 1;
+    transform: scaleX(-1) rotate(15deg) translateY(-10px);
+    /* Miroir + Rotation */
+}
+
+/* 2. APPARITION À GAUCHE (Section Offres) */
+#white-rabbit.peek-left-active {
+    left: -20px;
+    right: auto !important;
+    opacity: 1;
+    transform: rotate(15deg) translateY(-10px);
+    /* Juste penché */
+}
+
+/* Ajustement de la transition pour que le retournement soit fluide */
+#white-rabbit {
+    /* Ajout de transform dans la transition pour animer le scaleX */
+    transition: left 0.8s, right 0.8s, opacity 0.8s, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+
+
+
+/* ======================================================= */
+/*    INTERACTIONS LAPIN (HOVER & CLICKS)                  */
+/* ======================================================= */
+
+/* 1. Rendre le lapin cliquable quand il est sur le CTA */
+#white-rabbit.cta-mode {
+    pointer-events: auto !important;
+    /* CRUCIAL : Sinon on clique au travers */
+    cursor: pointer;
+}
+
+/* 2. Animation Saut (Clic 1) */
+@keyframes rabbitJump {
+    0% {
+        transform: translateY(0) scale(0.85);
+    }
+
+    40% {
+        transform: translateY(-40px) scale(0.85) rotate(-10deg);
+    }
+
+    50% {
+        transform: translateY(-40px) scale(0.85) rotate(10deg);
+    }
+
+    100% {
+        transform: translateY(0) scale(0.85) rotate(0deg);
+    }
+}
+
+.rabbit-anim-jump {
+    animation: rabbitJump 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 3. Animation Glitch Matrix (Clic 2) */
+@keyframes rabbitGlitch {
+    0% {
+        transform: translate(0) scale(0.85);
+        filter: none;
+    }
+
+    20% {
+        transform: translate(-5px, 5px) scale(0.9);
+        filter: hue-rotate(90deg) invert(1);
+    }
+
+    40% {
+        transform: translate(5px, -5px) scale(0.85);
+        filter: none;
+    }
+
+    60% {
+        transform: translate(-5px, 0) scale(0.9) skew(20deg);
+        filter: hue-rotate(90deg) invert(1);
+    }
+
+    80% {
+        transform: translate(5px, 0) scale(0.85) skew(-20deg);
+        filter: none;
+    }
+
+    100% {
+        transform: translate(0) scale(0.85);
+        filter: none;
+    }
+}
+
+.rabbit-anim-glitch {
+    animation: rabbitGlitch 0.4s steps(5) infinite;
+}
+
+/* 4. Animation Disparition / Fuite (Clic 3) */
+@keyframes rabbitVanish {
+    0% {
+        transform: scale(0.85) rotate(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.2) rotate(-20deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.rabbit-anim-vanish {
+    animation: rabbitVanish 0.6s ease-in forwards;
+    pointer-events: none;
+    /* On ne peut plus cliquer */
+}
+
+/* 5. Bulle de dialogue du lapin */
+.rabbit-bubble {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background: white;
+    color: #1F2937;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 60;
+}
+
+.rabbit-bubble::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+
+.rabbit-bubble.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-15px);
+}
+
+/* Accélération des oreilles au survol */
+#white-rabbit.cta-mode:hover .ear-left-anim,
+#white-rabbit.cta-mode:hover .ear-right-anim {
+    animation-duration: 0.5s;
+    /* Elles s'agitent ! */
+}
+
+
+
+/* --- NOUVELLES ANIMATIONS LAPIN (Séquence étendue) --- */
+
+/* Action 2 : La Toupie (Spin) */
+@keyframes rabbitSpin {
+    0% {
+        transform: translateY(0) scale(0.85) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(0) scale(0.85) rotate(360deg);
+    }
+}
+
+.rabbit-anim-spin {
+    animation: rabbitSpin 0.6s ease-out;
+}
+
+/* Action 3 : Mode Matrix (Inversion Couleurs) */
+@keyframes rabbitMatrixColor {
+    0% {
+        filter: none;
+        transform: scale(0.85);
+    }
+
+    50% {
+        /* Devient noir et vert style terminal */
+        filter: invert(1) sepia(1) saturate(5) hue-rotate(90deg);
+        transform: scale(1.1);
+        /* Petit zoom */
+    }
+
+    100% {
+        filter: none;
+        transform: scale(0.85);
+    }
+}
+
+.rabbit-anim-matrix-mode {
+    animation: rabbitMatrixColor 0.8s ease-in-out;
+}
+
+/* Action 4 : Le Refus (Shake) */
+@keyframes rabbitShake {
+
+    0%,
+    100% {
+        transform: translateX(0) scale(0.85);
+    }
+
+    25% {
+        transform: translateX(-10px) scale(0.85) rotate(-5deg);
+    }
+
+    75% {
+        transform: translateX(10px) scale(0.85) rotate(5deg);
+    }
+}
+
+.rabbit-anim-shake {
+    animation: rabbitShake 0.4s ease-in-out infinite;
+    /* On le répète 2-3 fois via JS */
+}
+
+
+
+
+
+/* ======================================================= */
+/*        SECTION TRANSITION TUNNEL  EFFET DÉSAGRÉGATION       */
+/* ======================================================= */
+
+.disintegrate {
+    /* Le texte devient blanc pur (lumière) */
+    color: white !important;
+    text-shadow: 0 0 10px white, 0 0 20px white, 0 0 40px #22c55e;
+    /* Halo intense */
+
+    /* Il s'écarte et se floute */
+    letter-spacing: 10px;
+    filter: blur(10px) contrast(200%);
+    transform: scale(1.5);
+    opacity: 0;
+}
+
+/* Transition fluide pour la désagrégation */
+#dark-content {
+    /* On force l'accélération matérielle pour que ce soit fluide */
+    will-change: opacity, transform, filter, letter-spacing;
+    transition: all 0.1s linear;
+    /* Géré par JS frame par frame, ou CSS rapide */
+}
+
+/* ====== BADGE MICRO-GLITCH ====== */
+.matrix-badge-glitch {
+    position: relative;
+    transition: transform 0.05s ease;
+}
+
+@keyframes badge-micro-glitch {
+    0%, 92% {
+        transform: translate(0, 0) skewX(0deg);
+        opacity: 1;
+    }
+    93% {
+        transform: translate(-2px, 1px) skewX(-2deg);
+        opacity: 0.8;
+        filter: hue-rotate(20deg);
+    }
+    94% {
+        transform: translate(2px, -1px) skewX(2deg);
+        opacity: 0.6;
+        filter: hue-rotate(-20deg);
+    }
+    95% {
+        transform: translate(-1px, 0px) skewX(-1deg);
+        opacity: 0.9;
+    }
+    96% {
+        transform: translate(1px, 1px) skewX(1deg);
+        opacity: 0.7;
+        filter: hue-rotate(10deg);
+    }
+    97%, 100% {
+        transform: translate(0, 0) skewX(0deg);
+        opacity: 1;
+        filter: none;
+    }
+}
+
+.matrix-badge-glitch {
+    animation: badge-micro-glitch 4s ease-in-out infinite;
+}
+
+/* ====== SCAN LINE CRT ====== */
+@keyframes matrix-scan-down {
+    0% {
+        top: -2px;
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+.matrix-scanline {
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(245, 158, 11, 0.04) 20%,
+        rgba(245, 158, 11, 0.08) 50%,
+        rgba(245, 158, 11, 0.04) 80%,
+        transparent 100%
+    );
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.06), 0 0 30px rgba(245, 158, 11, 0.03);
+    animation: matrix-scan-down 6s linear infinite;
+}
+
+/* ====== TYPING CURSOR ====== */
+.typing-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.1em;
+    background-color: rgba(255, 255, 255, 0.6);
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    animation: cursor-blink 0.7s step-end infinite;
+}
+
+@keyframes cursor-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+#matrix-canvas {
+    transition: filter 0.5s ease;
+}
+
+/* ====== LIGHT CONTENT - LOGO PULSE ====== */
+.light-logo-pulse {
+    animation: logo-heartbeat 3s ease-in-out infinite;
+}
+
+@keyframes logo-heartbeat {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), 0 0 60px rgba(59, 130, 246, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(59, 130, 246, 0.5), 0 0 80px rgba(59, 130, 246, 0.2), 0 0 120px rgba(59, 130, 246, 0.05);
+    }
+}
+
+/* ====== CERCLES CONCENTRIQUES (ONDES) ====== */
+.light-ring {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.light-ring-1 {
+    width: 120px;
+    height: 120px;
+    animation: ring-expand 3s ease-out 0.3s infinite;
+}
+.light-ring-2 {
+    width: 120px;
+    height: 120px;
+    animation: ring-expand 3s ease-out 1.3s infinite;
+}
+.light-ring-3 {
+    width: 120px;
+    height: 120px;
+    animation: ring-expand 3s ease-out 2.3s infinite;
+}
+
+@keyframes ring-expand {
+    0% {
+        width: 80px;
+        height: 80px;
+        opacity: 0.5;
+        border-width: 2px;
+    }
+    100% {
+        width: 280px;
+        height: 280px;
+        opacity: 0;
+        border-width: 1px;
+    }
+}
+
+/* ====== BADGE MIROIR LIGHT ====== */
+#light-badge-check {
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+#light-badge-check.revealed {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
+/* ====== LIGHT WORD SPACING ====== */
+.light-word {
+    margin-right: 0.3em;
+}
+.light-word.revealed {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+
+
+
+
+/* ======================================================= */
+/*          SECTION MISSION-BRIDGE                         */
+/* ======================================================= */
+
+/* Définition de l'animation */
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+        color: #9CA3AF; /* Gris au repos */
+    }
+    50% {
+        transform: scale(1.3); /* Grossit un peu plus pour être visible */
+        opacity: 1;
+        color: #3B82F6; /* Devient bleu (Clarity Blue) au pic de l'animation */
+    }
+}
+
+/* Application de l'animation */
+.animate-breathe {
+    animation: breathe 3s ease-in-out infinite;
+    display: inline-block; /* Important pour que la transformation fonctionne */
+}
+
+
+
+
+
+
+
+/* ======================================================= */
+/*    ANIMATION CONCEPT 3D                                 */
+/* ======================================================= */
+
+/* Donne de la profondeur à la grille pour l'effet 3D */
+.perspective-container {
+    perspective: 1500px;
+    /* Plus le chiffre est grand, plus l'effet 3D est subtil */
+}
+
+/* La carte doit être marquée comme un élément 3D */
+.concept-card {
+    /* Optimisation pour fluidifier l'animation */
+    will-change: transform, opacity;
+    /* On cache l'arrière de la carte pour éviter les bugs visuels pendant la rotation */
+    backface-visibility: hidden;
+}
+
+
+
+
+
+
+/* ======================================================= */
+/*    SECTION DIAGNOSTIC EFFET DIAGNOSTIC 3D          */
+/* ======================================================= */
+
+/* 1. La Perspective sur le parent (l'œil de la caméra) */
+.perspective-1000 {
+    perspective: 1200px;
+    /* Plus c'est bas, plus l'effet 3D est dramatique */
+}
+
+/* 2. L'état initial de la carte (avant animation ScrollReveal) */
+/* Note : ScrollReveal va gérer l'animation, mais on prépare le terrain */
+#diagnostic-card {
+    will-change: transform, opacity, box-shadow;
+    /* On ajoute une bordure lumineuse subtile en haut pour l'effet 3D */
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    /* Ombre portée massive pour détacher la carte du fond */
+    box-shadow:
+        0 50px 100px -20px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Petit effet de brillance qui parcourt la carte une fois arrivée */
+@keyframes scan-flash {
+    0% {
+        background-position: -100% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.diagnostic-scanned::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            transparent 0%,
+            rgba(255, 255, 255, 0.05) 50%,
+            transparent 100%);
+    background-size: 100% 200%;
+    pointer-events: none;
+    animation: scan-flash 1.5s ease-out forwards;
+}
+
+
+
+
+
+
+/* ======================================================= */
+/*    CORRECTIF HOVER CONCEPT CARDS                        */
+/* ======================================================= */
+
+.concept-card {
+    /* Assure que la transition est fluide */
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    will-change: transform;
+    /* Optimisation performance */
+}
+
+/* Force le soulèvement au survol avec !important pour écraser tout conflit éventuel */
+.concept-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+    /* Ombre plus forte */
+}
+
+
+
+
+
+
+/* ======================================================= */
+/*    CORRECTIF BUG MOBILE (BANDE BLANCHE & LAPIN)         */
+/* ======================================================= */
+
+/* 1. Coupe tout dépassement horizontal sur tout le site */
+/* NOTE: On utilise overflow-x: clip au lieu de hidden    */
+/* car hidden casse le comportement de position: sticky   */
+/* clip fait le même travail sans créer de scroll context */
+html,
+body {
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+/* 2. Lapin adapté pour mobile/tablette */
+@media (max-width: 1023px) {
+    #white-rabbit {
+        transform-origin: bottom center;
+    }
+
+    #white-rabbit svg {
+        width: 65px;
+        height: 81px;
+    }
+
+    /* Peek gauche (Manifeste) — même bottom que la base (20%) pour éviter le décalage vertical */
+    #white-rabbit.peek-active {
+        left: -5px;
+        opacity: 1;
+        transform: rotate(12deg) translateY(-5px);
+    }
+
+    /* Peek droite (Plan) */
+    #white-rabbit.peek-right-active {
+        left: auto !important;
+        right: -10px;
+        opacity: 1;
+        transform: scaleX(-1) rotate(12deg) translateY(-5px);
+    }
+
+    /* Peek gauche (Blog) */
+    #white-rabbit.peek-left-active {
+        left: -10px;
+        right: auto !important;
+        opacity: 1;
+        transform: rotate(12deg) translateY(-5px);
+    }
+
+    /* CTA mode mobile */
+    #white-rabbit.cta-mode {
+        position: absolute;
+        left: auto !important;
+        right: 5px;
+        top: -73px;
+        bottom: auto;
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+        z-index: 0;
+    }
+
+    /* Bulle plus petite */
+    .rabbit-bubble {
+        font-size: 10px;
+        padding: 4px 8px;
+        transform: translateX(-50%) translateY(-6px);
+    }
+
+    .rabbit-bubble.show {
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    /* Animations adaptées (pas de scale 0.85 car déjà petit via SVG) */
+    .rabbit-anim-jump {
+        animation: rabbitJumpMobile 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    }
+
+    @keyframes rabbitJumpMobile {
+        0%   { transform: translateY(0) scale(1); }
+        40%  { transform: translateY(-25px) scale(1) rotate(-10deg); }
+        50%  { transform: translateY(-25px) scale(1) rotate(10deg); }
+        100% { transform: translateY(0) scale(1) rotate(0deg); }
+    }
+
+    .rabbit-anim-glitch {
+        animation: rabbitGlitchMobile 0.4s steps(5) infinite !important;
+    }
+
+    @keyframes rabbitGlitchMobile {
+        0%   { transform: translate(0) scale(1); filter: none; }
+        20%  { transform: translate(-3px, 3px) scale(1.05); filter: hue-rotate(90deg) invert(1); }
+        40%  { transform: translate(3px, -3px) scale(1); filter: none; }
+        60%  { transform: translate(-3px, 0) scale(1.05) skew(15deg); filter: hue-rotate(90deg) invert(1); }
+        80%  { transform: translate(3px, 0) scale(1) skew(-15deg); filter: none; }
+        100% { transform: translate(0) scale(1); filter: none; }
+    }
+
+    .rabbit-anim-vanish {
+        animation: rabbitVanishMobile 0.6s ease-in forwards !important;
+    }
+
+    @keyframes rabbitVanishMobile {
+        0%   { transform: scale(1) rotate(0); opacity: 1; }
+        50%  { transform: scale(1.3) rotate(-20deg); opacity: 1; }
+        100% { transform: scale(0) rotate(360deg); opacity: 0; }
+    }
+
+    .rabbit-anim-spin {
+        animation: rabbitSpinMobile 0.6s ease-out !important;
+    }
+
+    @keyframes rabbitSpinMobile {
+        0%   { transform: translateY(0) scale(1) rotate(0deg); }
+        100% { transform: translateY(0) scale(1) rotate(360deg); }
+    }
+
+    .rabbit-anim-matrix-mode {
+        animation: rabbitMatrixColorMobile 0.8s ease-in-out !important;
+    }
+
+    @keyframes rabbitMatrixColorMobile {
+        0%   { filter: none; transform: scale(1); }
+        50%  { filter: invert(1) sepia(1) saturate(5) hue-rotate(90deg); transform: scale(1.15); }
+        100% { filter: none; transform: scale(1); }
+    }
+}
+
+
+
+
+
+
+/* ======================================================= */
+/*    EFFET 3D TIMELINE OBJECTIFS                          */
+/* ======================================================= */
+
+/* On applique la perspective au conteneur de la timeline */
+#objectifs .container {
+    perspective: 2000px;
+    /* Plus le chiffre est grand, plus l'effet 3D est subtil */
+}
+
+/* Optionnel : Une transition plus douce sur les cartes elles-mêmes */
+#objectifs .bg-white\/5 {
+    transition: transform 0.5s ease, border-color 0.3s ease, background-color 0.3s ease;
+    will-change: transform;
+    /* Optimisation pour l'animation */
+}
+
+
+
+
+
+
+/* ======================================================= */
+/*    MATRIX CARDS : LE MONOLITH DATA-BLOCK                */
+/* ======================================================= */
+
+/* Conteneur pour la perspective */
+.matrix-perspective {
+    perspective: 1500px; /* Donne la profondeur de champ */
+}
+
+/* La Carte elle-même */
+.matrix-card-3d {
+    position: relative;
+    background: rgba(11, 17, 32, 0.8); /* Fond sombre semi-transparent */
+    backdrop-filter: blur(10px);       /* Flou arrière-plan */
+    border: 1px solid rgba(16, 185, 129, 0.15); /* Bordure vert émeraude très discrète */
+    border-radius: 16px;
+    
+    /* Transition pour le retour au calme */
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                box-shadow 0.4s ease, 
+                border-color 0.4s ease;
+    
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5); /* Ombre noire profonde */
+    overflow: hidden; 
+}
+
+/* L'effet de "Scan" lumineux (Reflet) */
+.matrix-card-3d::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Dégradé brillant vert très subtil */
+    background: radial-gradient(
+        800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(16, 185, 129, 0.1),
+        transparent 40%
+    );
+    opacity: 0; /* Invisible par défaut */
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* --- INTERACTION AU SURVOL --- */
+.matrix-card-3d:hover {
+    /* La transformation 3D est gérée par le JS, ici on gère la lumière */
+    border-color: rgba(16, 185, 129, 0.5); /* La bordure s'allume */
+    box-shadow: 
+        0 20px 50px -10px rgba(0, 0, 0, 0.8), /* Ombre portée plus forte */
+        0 0 15px rgba(16, 185, 129, 0.2);     /* Halo vert externe (Glow) */
+}
+
+.matrix-card-3d:hover::after {
+    opacity: 1; /* Le reflet apparaît */
+}
+
+/* Petite décoration "Tech" dans les coins (facultatif, pour le style) */
+.matrix-corner {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 1px solid rgba(16, 185, 129, 0.0);
+    transition: all 0.3s ease;
+}
+
+.matrix-card-3d:hover .matrix-corner {
+    border-color: #10B981; /* S'allume en vert */
+}
+
+/* Coins positionnés */
+.corner-tl { top: 10px; left: 10px; border-right: 0; border-bottom: 0; }
+.corner-tr { top: 10px; right: 10px; border-left: 0; border-bottom: 0; }
+.corner-bl { bottom: 10px; left: 10px; border-right: 0; border-top: 0; }
+.corner-br { bottom: 10px; right: 10px; border-left: 0; border-top: 0; }
+
+
+
+
+
+
+/* ======================================================= */
+/*    MODALE LEAD MAGNET : ENTRÉE 3D MAJESTUEUSE           */
+/* ======================================================= */
+
+/* 1. La classe de base pour la transition */
+.modal-transition-base {
+    /* Une durée longue (0.8s) et une courbe "Exponential Out" pour un atterrissage très doux */
+    transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+    will-change: transform, opacity, filter;
+}
+
+/* 2. ÉTAT INITIAL (Avant apparition / Après fermeture) */
+/* C'est ici qu'on définit la position de départ "3D" */
+.modal-3d-hidden {
+    opacity: 0;
+    /* 
+       perspective(1500px) : Crée la profondeur de champ
+       rotateX(35deg) : Incline la carte vers l'arrière (comme posée sur une table)
+       translateY(100px) : La fait partir de plus bas
+       scale(0.9) : Un peu plus petite (loin)
+    */
+    transform: perspective(1500px) rotateX(35deg) translateY(100px) scale(0.9);
+    
+    /* Flou de mouvement simulé */
+    filter: blur(10px);
+    pointer-events: none;
+}
+
+/* 3. ÉTAT VISIBLE (Arrivée) */
+.modal-3d-visible {
+    opacity: 1;
+    /* On remet tout à plat et à taille réelle */
+    transform: perspective(1500px) rotateX(0deg) translateY(0) scale(1);
+    filter: blur(0);
+    pointer-events: auto;
+}
+
+/* 4. Animation du fond noir (Backdrop) plus douce */
+.backdrop-smooth {
+    transition: opacity 0.8s ease-out;
+}
+
+
+
+
+
+
+/* ======================================================= */
+/*                      MENU MOBILE                        */
+/* ======================================================= */
+
+/* État ouvert du menu overlay */
+#mobile-menu-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Animation des liens quand le menu est ouvert */
+#mobile-menu-overlay.open .mobile-link {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation du Burger vers la Croix */
+/* Quand le body a la classe 'menu-open', on transforme les lignes */
+body.menu-open #burger-top {
+    transform: translateY(9px) rotate(45deg); /* Descend et tourne */
+    background-color: white; /* Force le blanc sur fond sombre */
+}
+body.menu-open #burger-middle {
+    opacity: 0; /* Disparait */
+}
+body.menu-open #burger-bottom {
+    transform: translateY(-9px) rotate(-45deg); /* Monte et tourne */
+    background-color: white; /* Force le blanc */
+}
+
+/* IMPORTANT : Quand le menu est ouvert, on empêche le scroll de la page derrière */
+body.menu-open {
+    overflow: hidden;
+}
+
+
+
+body.menu-open #main-nav.scrolled {
+    background-color: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+}
+
+
+body.menu-open #main-nav.scrolled #logo-white {
+    opacity: 1;
+}
+
+body.menu-open #main-nav.scrolled #logo-color {
+    opacity: 0;
+}
+
+
+
+
+
+/* ========================================= */
+/* ANIMATIONS CADEAU FLOTTANT (STYLE CARTOON) */
+/* ========================================= */
+
+/* 1. Le conteneur global : Saute joyeusement toutes les 5 secondes */
+.gift-anim-container {
+    /* 1s d'action, 5s de pause = 6s total */
+    animation: gift-jump-cycle 6s ease-in-out infinite; 
+    transform-origin: bottom center;
+}
+
+@keyframes gift-jump-cycle {
+    0%, 85% { transform: translateY(0) scale(1) rotate(0deg); }
+    
+    /* Préparation (S'écrase un peu) */
+    87% { transform: translateY(0) scale(1.1, 0.9) rotate(0deg); }
+    
+    /* Saut vers le haut + légère rotation */
+    90% { transform: translateY(-20px) scale(0.9, 1.1) rotate(-3deg); }
+    
+    /* Atterrissage (S'écrase encore) */
+    93% { transform: translateY(0) scale(1.15, 0.85) rotate(3deg); }
+    
+    /* Rebond stabilisateur */
+    96% { transform: translateY(-5px) scale(0.95, 1.05) rotate(0deg); }
+    
+    100% { transform: translateY(0) scale(1) rotate(0deg); }
+}
+
+/* 2. L'ombre au sol : Rétrécit quand le cadeau est en l'air */
+.gift-shadow-anim {
+    animation: gift-shadow-cycle 6s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes gift-shadow-cycle {
+    0%, 85% { opacity: 0.3; transform: scale(1); }
+    90% { opacity: 0.1; transform: scale(0.6); } /* En l'air = ombre petite */
+    93% { opacity: 0.4; transform: scale(1.1); } /* Atterrissage = ombre large */
+    100% { opacity: 0.3; transform: scale(1); }
+}
+
+/* 3. Le Couvercle : Se soulève un peu ("Pop") pendant le saut */
+.gift-lid-anim {
+    animation: gift-lid-cycle 6s ease-in-out infinite;
+}
+
+@keyframes gift-lid-cycle {
+    0%, 88% { transform: translateY(0) rotate(0); }
+    90% { transform: translateY(-8px) rotate(-5deg); } /* Le couvercle saute ! */
+    95% { transform: translateY(0) rotate(0); }
+    100% { transform: translateY(0) rotate(0); }
+}
+
+/* 4. Les Étincelles : Apparaissent brièvement au sommet du saut */
+.gift-sparkles {
+    animation: gift-sparkle-cycle 6s linear infinite;
+}
+
+@keyframes gift-sparkle-cycle {
+    0%, 88% { opacity: 0; transform: scale(0); }
+    90% { opacity: 1; transform: scale(1.2); } /* Flash ! */
+    95% { opacity: 0; transform: scale(1.5); } /* Dissipation */
+    100% { opacity: 0; }
+}
+
+/* 5. Au Survol de la souris : Le cadeau tremble d'excitation */
+#lead-magnet-teaser:hover .gift-anim-container {
+    animation: gift-shake 0.5s ease-in-out infinite; /* Remplace le cycle lent par une agitation rapide */
+}
+
+@keyframes gift-shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Animation d'entrée quand le popup se ferme (similaire à avant) */
+.teaser-enter {
+    display: flex !important;
+    animation: teaserElasticIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes teaserElasticIn {
+    0% { transform: translateY(80px) scale(0); opacity: 0; }
+    60% { transform: translateY(-8px) scale(1.1); opacity: 1; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+
+/* 6. La Lueur Magique : Pulse quand le couvercle saute */
+.gift-glow-anim {
+    /* Synchronisé avec le cycle de saut */
+    animation: gift-glow-cycle 6s ease-in-out infinite;
+    opacity: 0;
+}
+
+@keyframes gift-glow-cycle {
+    0%, 88% { opacity: 0; transform: scaleX(0.8); }
+    
+    /* Au sommet du saut (le couvercle est levé), la lumière sort */
+    90% { opacity: 1; transform: scaleX(1.2); }
+    
+    95% { opacity: 0; transform: scaleX(0.8); }
+    100% { opacity: 0; }
+}
+
+
+/* ========================================= */
+/* PEEK/SHELF MOBILE : Le cadeau se range    */
+/* ========================================= */
+
+/* État "rangé" : glisse hors écran, ne laisse dépasser que 14px */
+@media (max-width: 1023px) {
+    #lead-magnet-teaser.teaser-shelved {
+        transform: translateX(-60px) !important; /* 72px - 12px visible = 60px caché */
+        animation: none !important; /* Coupe l'animation teaser-enter qui override le transform */
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #lead-magnet-teaser.teaser-shelved svg {
+        opacity: 0.6;
+        transition: opacity 0.5s ease;
+    }
+
+    /* État "déployé" : visible en entier */
+    #lead-magnet-teaser.teaser-deployed {
+        transform: translateX(0) !important;
+        animation: none !important;
+        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); /* léger rebond */
+    }
+
+    #lead-magnet-teaser.teaser-deployed svg {
+        opacity: 1;
+        transition: opacity 0.3s ease;
+    }
+
+    /* Zone de tap élargie quand rangé (pour faciliter le clic sur le bout visible) */
+    #lead-magnet-teaser.teaser-shelved::after {
+        content: '';
+        position: absolute;
+        top: -8px;
+        right: -16px;
+        bottom: -8px;
+        left: 0;
+        z-index: 1;
+    }
+
+    /* Quand rangé, on stoppe les animations de saut pour économiser du CPU */
+    #lead-magnet-teaser.teaser-shelved .gift-anim-container {
+        animation: none;
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
+    #lead-magnet-teaser.teaser-shelved .gift-shadow-anim {
+        animation: none;
+    }
+    #lead-magnet-teaser.teaser-shelved .gift-lid-anim {
+        animation: none;
+    }
+    #lead-magnet-teaser.teaser-shelved .gift-sparkles {
+        animation: none;
+        opacity: 0;
+    }
+    #lead-magnet-teaser.teaser-shelved .gift-glow-anim {
+        animation: none;
+        opacity: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* ======================================================= */
+/*  ANIMATION PUCE MODALE LEAD MAGNET "MAJESTIC REVEAL"    */
+/*    Style : Apparition vaporeuse (Blur + Scale)          */
+/* ======================================================= */
+
+/* 1. État initial (Invisible) */
+.modal-bullet {
+    opacity: 0;
+    /* On part d'un peu plus bas et un peu plus petit */
+    transform: translateY(20px) scale(0.95);
+    /* C'est ce FLOU qui donne l'effet magique/vaporeux */
+    filter: blur(12px);
+    will-change: transform, opacity, filter;
+}
+
+/* 2. L'Animation (Activée par JS) */
+.modal-anim-active .modal-bullet {
+    /* Courbe "out-cubic" très fluide pour un atterrissage en douceur */
+    animation: majesticReveal 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+}
+
+@keyframes majesticReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+        filter: blur(12px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+/* 3. La Cascade (Staggering) */
+/* Chaque ligne arrive avec 0.15s de décalage pour l'effet séquentiel */
+.modal-anim-active .modal-bullet:nth-child(1) { animation-delay: 0.3s; }
+.modal-anim-active .modal-bullet:nth-child(2) { animation-delay: 0.45s; }
+.modal-anim-active .modal-bullet:nth-child(3) { animation-delay: 0.6s; }
+
+/* 4. Effet bonus au survol (Lumière) */
+.modal-bullet:hover span {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Halo lumineux */
+    color: white;
+    transition: all 0.3s ease;
+}
+
+
+
+
+
+
+
+
+/* ======================================================= */
+/*    ANIMATION CTA MODALE : L'ÉCLAT PREMIUM               */
+/* ======================================================= */
+
+.btn-incitement {
+    /* On s'assure que le débordement est caché */
+    overflow: hidden; 
+}
+
+/* Le faisceau lumineux */
+.btn-incitement::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%; /* Départ loin à gauche */
+    width: 100%;
+    height: 100%;
+    
+    /* Le dégradé : Transparent -> Blanc Faible -> Transparent */
+    /* C'est la subtilité du blanc (0.3) qui fait le côté premium */
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    
+    /* Inclinaison pour l'effet de vitesse */
+    transform: skewX(-25deg);
+    
+    /* Animation : 6s au total (Passage rapide + Longue pause) */
+    animation: premiumShine 6s infinite;
+}
+
+@keyframes premiumShine {
+    0% {
+        left: -150%;
+    }
+    
+    /* Le passage se fait en 15% du temps (environ 0.8s) -> Rapide et net */
+    15% {
+        left: 150%;
+    }
+    
+    /* Le reste du temps (15% à 100%), rien ne bouge -> Pause élégante */
+    100% {
+        left: 150%;
+    }
+}
+
+/* Petit bonus : Une légère respiration de l'ombre (Glow) synchronisée */
+.btn-incitement {
+    animation: subtleShadowPulse 6s infinite;
+}
+
+@keyframes subtleShadowPulse {
+    0%, 15%, 100% {
+        /* État normal */
+        box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.3), 0 4px 6px -2px rgba(249, 115, 22, 0.1);
+    }
+    
+    /* Au moment où la lumière passe (vers 7-8%), l'ombre s'intensifie légèrement */
+    7% {
+        box-shadow: 0 20px 25px -5px rgba(249, 115, 22, 0.5), 0 8px 10px -6px rgba(249, 115, 22, 0.2);
+        transform: translateY(-1px); /* Micro-soulèvement imperceptible mais ressenti */
+    }
+}
+
+/* ============================================================ */
+/* LIGHTBOX MOCKUP – ZOOM SUR MOBILE / TABLETTE                */
+/* ============================================================ */
+
+/* Hint "Agrandir" – animation subtile de pulsation */
+@media (max-width: 1023px) {
+    .mockup-zoom-hint > div {
+        animation: hintPulse 2.5s ease-in-out infinite;
+    }
+
+    #mockup-zoom-trigger {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Petit effet de pression au tap */
+    #mockup-zoom-trigger:active img {
+        transform: scale(0.95);
+        transition: transform 0.1s ease;
+    }
+}
+
+@keyframes hintPulse {
+    0%, 100% { opacity: 0.85; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.08); }
+}
+
+/* ======================================================= */
+/*    BADGE APERÇU EXTRAIT (Sur le mockup de la modale)   */
+/* ======================================================= */
+
+/* --- Desktop: badge pill sur le visuel --- */
+.preview-excerpt-desktop {
+    animation: badgePulseGlow 3s ease-in-out infinite;
+}
+
+.preview-excerpt-desktop::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #F97316, #EA580C, #F97316);
+    z-index: -1;
+    opacity: 0;
+    filter: blur(8px);
+    transition: opacity 0.3s ease;
+}
+
+.preview-excerpt-desktop:hover::before {
+    opacity: 0.6;
+}
+
+@keyframes badgePulseGlow {
+    0%, 100% { box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3); }
+    50% { box-shadow: 0 4px 25px rgba(249, 115, 22, 0.5), 0 0 40px rgba(249, 115, 22, 0.15); }
+}
+
+/* En mode clavier mobile, cacher le badge desktop */
+.keyboard-open .preview-excerpt-desktop {
+    display: none !important;
+}
+
+/* --- Mobile: barre pleine largeur entre visuel et contenu --- */
+.preview-excerpt-mobile {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* En mode clavier, cacher la barre mobile aussi */
+.keyboard-open .preview-excerpt-mobile {
+    display: none !important;
+}
+
+/* ======================================================= */
+/*    PREVIEW CAROUSEL (Aperçu extrait du guide)          */
+/* ======================================================= */
+
+/* Ouverture */
+#preview-carousel.preview-open #preview-carousel-backdrop {
+    opacity: 1;
+}
+
+#preview-carousel.preview-open .preview-slide-img.active-slide {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fermeture */
+#preview-carousel.preview-closing #preview-carousel-backdrop {
+    opacity: 0;
+    transition: opacity 0.35s ease-out;
+}
+
+#preview-carousel.preview-closing .preview-slide-img {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+    transition: all 0.3s ease-out;
+}
+
+/* Navigation arrows - visible state */
+.preview-nav-arrow.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Dots */
+.preview-dot {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.preview-dot.active {
+    background-color: #F97316;
+    transform: scale(1.2);
+    box-shadow: 0 0 12px rgba(249, 115, 22, 0.4);
+}
+
+.preview-dot:not(.active) {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.preview-dot:not(.active):hover {
+    background-color: rgba(255, 255, 255, 0.45);
+}
+
+/* Touch feedback on mobile */
+@media (max-width: 1023px) {
+    .preview-nav-arrow {
+        padding: 12px;
+    }
+    .preview-nav-arrow:active {
+        transform: translateY(-50%) scale(0.9);
+    }
+}
+
+
+/* --- Scroll wrapper (normal = centered, zoomed = scrollable) --- */
+.preview-slide-scroll-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transition: all 0.4s ease;
+}
+
+/* --- ZOOM MODE (desktop) --- */
+#preview-carousel.zoom-active #preview-slides-outer {
+    align-items: flex-start;
+}
+
+#preview-carousel.zoom-active .preview-slide {
+    align-items: flex-start;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+#preview-carousel.zoom-active .preview-slide-scroll-wrapper {
+    align-items: flex-start;
+    justify-content: center;
+    height: auto;
+    min-height: 100%;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+#preview-carousel.zoom-active .preview-slide-img {
+    max-height: none;
+    max-width: none;
+    width: 680px;
+    height: auto;
+    cursor: zoom-out;
+    transition: all 0.4s ease;
+}
+
+/* Quand pas zoomé, clic = zoom in (desktop seulement) */
+@media (min-width: 1024px) {
+    #preview-carousel:not(.zoom-active) .preview-slide-img {
+        cursor: zoom-in;
+    }
+}
+
+/* Custom scrollbar pour le mode zoom */
+#preview-carousel.zoom-active .preview-slide::-webkit-scrollbar {
+    width: 6px;
+}
+
+#preview-carousel.zoom-active .preview-slide::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#preview-carousel.zoom-active .preview-slide::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 99px;
+}
+
+#preview-carousel.zoom-active .preview-slide::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+/* Hint indicator fade for zoom */
+#preview-carousel.zoom-active .preview-nav-arrow {
+    opacity: 0.4;
+}
+#preview-carousel.zoom-active .preview-nav-arrow:hover {
+    opacity: 1;
+}
+
+
+/* Lightbox ouverte */
+#mockup-lightbox.lightbox-visible {
+    display: flex !important;
+}
+
+#mockup-lightbox.lightbox-visible #mockup-lightbox-backdrop {
+    opacity: 1;
+}
+
+#mockup-lightbox.lightbox-visible #mockup-lightbox-img {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#mockup-lightbox.lightbox-visible #mockup-lightbox-hint {
+    opacity: 1;
+}
+
+/* Fermeture en cours */
+#mockup-lightbox.lightbox-closing #mockup-lightbox-backdrop {
+    opacity: 0;
+}
+
+#mockup-lightbox.lightbox-closing #mockup-lightbox-img {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+#mockup-lightbox.lightbox-closing #mockup-lightbox-hint {
+    opacity: 0;
+}
+
+
+/* ============================================================ */
+/*       CUSTOM CHATBOT BUTTON — CLARTEM PREMIUM                */
+/*       Remplace l'icône par défaut de Brevo                   */
+/* ============================================================ */
+
+/* 1. MASQUER LE LAUNCHER BREVO PAR DÉFAUT */
+#brevo-conversations.clartem-hidden {
+    transform: scale(0) !important;
+    pointer-events: none !important;
+}
+#brevo-conversations.clartem-opening {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* 2. BOUTON CUSTOM — CONTENEUR */
+.clartem-chat-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9998;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0;
+    animation: clartemChatEntrance 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 1.5s both;
+}
+
+@keyframes clartemChatEntrance {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* 3. LE DISQUE PRINCIPAL (relief 3D multi-couches) */
+.clartem-chat-btn__disc {
+    position: relative;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #3B82F6 0%, #1E3A8A 100%);
+    box-shadow:
+        0 2px 4px rgba(30, 58, 138, 0.25),
+        0 6px 16px rgba(30, 58, 138, 0.20),
+        0 12px 32px rgba(30, 58, 138, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    transition:
+        transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.4s ease,
+        background 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Reflet de lumière (effet verre premium) */
+.clartem-chat-btn__disc::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 36px;
+    height: 14px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 100%);
+    border-radius: 50%;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* 4. HALO LUMINEUX (animation "respiration") */
+.clartem-chat-btn__glow {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+    animation: clartemGlowPulse 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes clartemGlowPulse {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+/* 5. ICÔNE SVG CHAT */
+.clartem-chat-btn__icon {
+    position: relative;
+    z-index: 2;
+    width: 26px;
+    height: 26px;
+    color: #ffffff;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.15));
+}
+
+.clartem-chat-btn__icon--close {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg) scale(0.5);
+    opacity: 0;
+    z-index: 2;
+    width: 22px;
+    height: 22px;
+    color: #ffffff;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.15));
+}
+
+/* Animation des 3 points dans la bulle */
+.clartem-dot {
+    animation: clartemDotBounce 1.4s ease-in-out infinite;
+}
+.clartem-dot--1 { animation-delay: 0s; }
+.clartem-dot--2 { animation-delay: 0.15s; }
+.clartem-dot--3 { animation-delay: 0.3s; }
+
+@keyframes clartemDotBounce {
+    0%, 60%, 100% {
+        transform: translateY(0);
+        opacity: 0.6;
+    }
+    30% {
+        transform: translateY(-1.5px);
+        opacity: 1;
+    }
+}
+
+/* 6. PASTILLE NOTIFICATION (warm-orange Clartem) */
+.clartem-chat-btn__badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 16px;
+    height: 16px;
+    background: #F97316;
+    border: 2.5px solid #ffffff;
+    border-radius: 50%;
+    z-index: 3;
+    animation: clartemBadgePop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 2.5s both;
+    box-shadow: 0 2px 6px rgba(249, 115, 22, 0.4);
+}
+
+@keyframes clartemBadgePop {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+
+.clartem-chat-btn__badge::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 2px solid rgba(249, 115, 22, 0.5);
+    animation: clartemBadgeRing 2.5s ease-out infinite 4s;
+}
+
+@keyframes clartemBadgeRing {
+    0% { transform: scale(0.8); opacity: 1; }
+    100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* 7. TOOLTIP */
+.clartem-chat-btn__tooltip {
+    position: absolute;
+    right: calc(100% + 14px);
+    top: 50%;
+    transform: translateY(-50%) translateX(6px);
+    background: #ffffff;
+    color: #1E3A8A;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 10px;
+    white-space: nowrap;
+    box-shadow:
+        0 2px 8px rgba(30, 58, 138, 0.10),
+        0 8px 24px rgba(30, 58, 138, 0.08);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    letter-spacing: -0.01em;
+}
+
+.clartem-chat-btn__tooltip::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    background: #ffffff;
+    box-shadow: 2px -2px 4px rgba(30, 58, 138, 0.05);
+}
+
+.clartem-chat-btn__tooltip--auto {
+    animation: clartemTooltipAuto 5s ease 4s both;
+}
+
+@keyframes clartemTooltipAuto {
+    0% { opacity: 0; transform: translateY(-50%) translateX(6px); }
+    8% { opacity: 1; transform: translateY(-50%) translateX(0); }
+    85% { opacity: 1; transform: translateY(-50%) translateX(0); }
+    100% { opacity: 0; transform: translateY(-50%) translateX(6px); }
+}
+
+/* HOVER & ACTIVE */
+.clartem-chat-btn:hover .clartem-chat-btn__disc {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow:
+        0 4px 8px rgba(30, 58, 138, 0.25),
+        0 10px 24px rgba(59, 130, 246, 0.25),
+        0 20px 48px rgba(30, 58, 138, 0.18),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.clartem-chat-btn:hover .clartem-chat-btn__glow {
+    animation-play-state: paused;
+    opacity: 1;
+    transform: scale(1.25);
+}
+
+.clartem-chat-btn:hover .clartem-chat-btn__tooltip {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+.clartem-chat-btn:hover .clartem-chat-btn__icon {
+    transform: rotate(-8deg) scale(1.08);
+}
+
+.clartem-chat-btn:active .clartem-chat-btn__disc {
+    transform: translateY(-1px) scale(0.97);
+    box-shadow:
+        0 2px 4px rgba(30, 58, 138, 0.3),
+        0 4px 12px rgba(30, 58, 138, 0.2),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    transition-duration: 0.1s;
+}
+
+/* ÉTAT OUVERT */
+.clartem-chat-btn.is-open .clartem-chat-btn__icon {
+    transform: rotate(90deg) scale(0.5);
+    opacity: 0;
+}
+
+.clartem-chat-btn.is-open .clartem-chat-btn__icon--close {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    opacity: 1;
+}
+
+.clartem-chat-btn.is-open .clartem-chat-btn__badge {
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+.clartem-chat-btn.is-open .clartem-chat-btn__glow {
+    animation: none;
+    opacity: 0.3;
+}
+
+.clartem-chat-btn.is-open .clartem-chat-btn__disc {
+    background: linear-gradient(145deg, #1E3A8A 0%, #1e2d5e 100%);
+}
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 768px) {
+    .clartem-chat-btn {
+        bottom: 20px;
+        right: 20px;
+    }
+    .clartem-chat-btn__disc {
+        width: 56px;
+        height: 56px;
+    }
+    .clartem-chat-btn__icon {
+        width: 22px;
+        height: 22px;
+    }
+    .clartem-chat-btn__tooltip {
+        display: none;
+    }
+}
+/* ============================================ */
+/*  BULLE PROACTIVE CHATBOT                     */
+/* ============================================ */
+
+.clartem-proactive {
+    position: fixed;
+    bottom: 102px;
+    right: 28px;
+    z-index: 9997;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+    transition: opacity 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+                transform 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.clartem-proactive.is-visible {
+    pointer-events: auto;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.clartem-proactive.is-hiding {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+    transition-duration: 0.25s;
+    pointer-events: none;
+}
+
+.clartem-proactive__card {
+    position: relative;
+    width: 280px;
+    background: #ffffff;
+    border-radius: 16px 16px 4px 16px;
+    box-shadow:
+        0 1px 3px rgba(30, 58, 138, 0.06),
+        0 6px 16px rgba(30, 58, 138, 0.08),
+        0 16px 40px rgba(30, 58, 138, 0.06);
+    overflow: hidden;
+}
+
+/* Liseré bleu en haut */
+.clartem-proactive__card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #3B82F6, #1E3A8A);
+    border-radius: 16px 16px 0 0;
+}
+
+.clartem-proactive__body {
+    padding: 20px 18px 16px;
+}
+
+.clartem-proactive__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.clartem-proactive__avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #3B82F6 0%, #1E3A8A 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(30, 58, 138, 0.2);
+}
+
+.clartem-proactive__avatar svg {
+    width: 16px;
+    height: 16px;
+    color: white;
+}
+
+.clartem-proactive__name {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #1E3A8A;
+    letter-spacing: -0.01em;
+}
+
+.clartem-proactive__status {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.68rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.clartem-proactive__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 6px rgba(34, 197, 94, 0.5);
+}
+
+.clartem-proactive__message {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: #334155;
+    font-weight: 450;
+    letter-spacing: -0.01em;
+}
+
+.clartem-proactive__actions {
+    display: flex;
+    gap: 8px;
+    padding: 0 18px 16px;
+}
+
+.clartem-proactive__btn {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    letter-spacing: -0.01em;
+}
+
+.clartem-proactive__btn--yes {
+    background: linear-gradient(145deg, #3B82F6 0%, #2563eb 100%);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.clartem-proactive__btn--yes:hover {
+    background: linear-gradient(145deg, #2563eb 0%, #1d4ed8 100%);
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+    transform: translateY(-1px);
+}
+
+.clartem-proactive__btn--no {
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+.clartem-proactive__btn--no:hover {
+    background: #e2e8f0;
+    color: #475569;
+}
+
+.clartem-proactive__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: #94a3b8;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    padding: 0;
+    z-index: 2;
+}
+
+.clartem-proactive__close:hover {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.clartem-proactive__close svg {
+    width: 14px;
+    height: 14px;
+}
+
+.clartem-proactive__tail {
+    position: absolute;
+    bottom: -6px;
+    right: 22px;
+    width: 14px;
+    height: 14px;
+    background: #ffffff;
+    transform: rotate(45deg);
+    box-shadow: 3px 3px 6px rgba(30, 58, 138, 0.05);
+}
+
+/* Typing animation */
+.clartem-proactive__typing {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 0;
+}
+
+.clartem-proactive__typing-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #94a3b8;
+    animation: proactiveTyping 1.4s ease-in-out infinite;
+}
+
+.clartem-proactive__typing-dot:nth-child(2) { animation-delay: 0.15s; }
+.clartem-proactive__typing-dot:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes proactiveTyping {
+    0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+    30% { opacity: 1; transform: translateY(-3px); }
+}
+
+.clartem-proactive.is-typing .clartem-proactive__actions {
+    display: none !important;
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+    .clartem-proactive {
+        right: 16px;
+        bottom: 88px;
+    }
+    .clartem-proactive__card {
+        width: 260px;
+    }
+}

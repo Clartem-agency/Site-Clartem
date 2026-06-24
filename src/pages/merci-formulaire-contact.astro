@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Merci pour votre message - clartem.com"
+  description="Page de confirmation suite à l'envoi d'un message via le formulaire de contact de clartem.com."
+  noindex={true}
+>
+  <main class="bg-gradient-to-br from-soft-blue via-white to-soft-blue pt-40 pb-20 min-h-screen flex items-center">
+          <div class="container mx-auto px-6">
+              <div class="max-w-2xl mx-auto bg-white p-8 sm:p-12 rounded-2xl shadow-xl border border-gray-200 text-center">
+                
+                  <div class="w-20 h-20 bg-success-green/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <svg class="w-12 h-12 text-success-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  </div>
+
+                  <h1 class="text-3xl md:text-4xl font-bold text-neutral-dark mb-4">Message envoyé avec succès !</h1>
+                
+                  <p class="text-lg text-neutral-light leading-relaxed">
+                      Merci de m'avoir contacté. J'ai bien reçu votre message et je reviens vers vous sous 48 heures ouvrées.
+                      <br><br>
+                      En attendant, n'hésitez pas à explorer le site.
+                  </p>
+
+                  <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                      <!-- MODIFIÉ : Ajout du / aux liens -->
+                      <a href="/" class="btn btn-primary w-full sm:w-auto">
+                          Retourner à l'accueil
+                      </a>
+                      <a href="/blog/" class="btn btn-secondary w-full sm:w-auto">
+                          Explorer le blog
+                      </a>
+                  </div>
+
+              </div>
+          </div>
+      </main>
+</Layout>

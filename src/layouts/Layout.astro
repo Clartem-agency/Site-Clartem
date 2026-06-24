@@ -1,0 +1,1093 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+// Layout global du site : contient tout le head et la structure du body.
+// La page injecte son contenu via la balise slot.
+// Les scripts tiers (Google Analytics, ScrollReveal, Brevo) sont marques is:inline
+// pour qu'Astro les laisse intacts, comme sur le site actuel.
+
+// Props paramétrables par page. Les valeurs par défaut = celles de la page d'accueil,
+// pour que index.astro continue de fonctionner sans rien passer.
+const {
+  title = "Création de Site Web pour Coach & Thérapeute | Agence Clartem",
+  description = "Agence spécialisée dans la création de sites web pour coachs, thérapeutes et professionnels du bien-être. Attirez plus de clients avec un site clair, professionnel et qui inspire confiance.",
+  bodyClass = "bg-white",
+  leadMagnet = false,  // cadeau/lead magnet : activable par page
+  noindex = false,     // pages légales/merci : non indexées par les moteurs
+} = Astro.props;
+
+// L'URL canonique de la page courante, calculée automatiquement.
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon-clartem.ico">
+
+    <meta name="description" content={description}>
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    <meta name="author" content="clartem.com">
+
+
+
+    <!-- ======================================================= -->
+    <!--       DÉBUT DU BLOC SEO & ANALYTICS (A NE PAS TOUCHER)  -->
+    <!-- ======================================================= -->
+
+    <!-- 1. Google Analytics (GA4) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-54GH7QYLQP"></script>
+    <script is:inline>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-54GH7QYLQP');
+    </script>
+
+    <!-- 2. Balise Canonique (L'originale) -->
+    <link rel="canonical" href={canonical} />
+
+    <!-- 3. Ciblage Géographique (France) -->
+    <link rel="alternate" hreflang="fr-fr" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
+
+    <!-- 4. Données Structurées : ORGANISATION (Uniquement sur l'accueil) -->
+    <script is:inline type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Agence Clartem",
+      "url": "https://www.clartem.com/",
+      "logo": "https://www.clartem.com/assets/logo-clartem.svg",
+      "description": "Agence web spécialisée pour les coachs et thérapeutes.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "FR"
+      }
+    }
+    </script>
+
+    <!-- ======================================================= -->
+    <!--       FIN DU BLOC SEO                                   -->
+    <!-- ======================================================= -->
+
+
+
+    <!-- Meta Tags Open Graph & Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content={canonical}>
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+
+    <!-- Configuration de l'image -->
+    <meta property="og:image" content="https://www.clartem.com/assets/og-clartem.jpeg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Création de Site Web pour Coach & Thérapeute | Agence Clartem">
+    <meta name="twitter:description"
+        content="Agence spécialisée pour les coachs et thérapeutes. Un site clair et professionnel qui vous ressemble.">
+    <meta name="twitter:image" content="https://www.clartem.com/assets/og-clartem.jpeg">
+
+    <!-- ScrollReveal.js via CDN (NOUVEAU) -->
+    <script is:inline src="https://unpkg.com/scrollreveal"></script>
+    
+
+    <!-- Custom CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Critical : Masquer le launcher Brevo -->
+    <style>
+        /* État fermé : réduit à zéro, instantané, GPU-acceleré */
+        #brevo-conversations.clartem-hidden {
+            transform: scale(0) !important;
+            pointer-events: none !important;
+        }
+        /* État transitoire pendant l'ouverture : présent mais invisible */
+        #brevo-conversations.clartem-opening {
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+    </style>
+
+    <!-- Emplacement pour les balises <head> propres à une page (ex. JSON-LD spécifique). -->
+    <slot name="head" />
+</head>
+
+<body class={bodyClass}>
+    <!-- Conteneur principal : Navbar + contenu de page (slot) + Footer -->
+    <div class="min-h-screen">
+        <Navbar />
+
+        <slot />
+
+        <Footer />
+    </div>
+
+    <!-- ===== Éléments globaux (présents sur toutes les pages) ===== -->
+
+    <!-- BANDEAU DE CONSENTEMENT AUX COOKIES (VERSION RESPONSIVE AMÉLIORÉE) -->
+    <div id="cookie-consent-banner" class="hidden fixed bottom-0 inset-x-0 p-2 sm:p-4 z-[100]">
+        <div class="max-w-7xl mx-auto">
+            <div
+                class="p-4 rounded-lg bg-neutral-dark shadow-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+
+                <!-- Section Texte -->
+                <div class="flex-1 text-white">
+                    <p class="font-semibold">Ce site utilise des cookies</p>
+                    <p class="mt-1 text-sm text-neutral-light">
+                        Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic. En
+                        cliquant
+                        sur "Accepter", vous consentez à notre utilisation des cookies.
+                        <a href="/politique-de-confidentialite/" target="_blank"
+                            class="font-semibold hover:underline">En savoir plus</a>.
+                    </p>
+                </div>
+
+                <!-- Section Boutons -->
+                <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                    <button id="cookie-accept-btn" type="button" class="w-full sm:w-auto btn btn-primary px-6 py-2">
+                        Accepter
+                    </button>
+                    <button id="cookie-decline-btn" type="button" class="w-full sm:w-auto btn btn-secondary px-6 py-2"
+                        style="color: white; border-color: white;">
+                        Refuser
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- FIN DU BANDEAU DE CONSENTEMENT -->
+
+    <!-- Lead magnet (cadeau) — affiché seulement si la page le demande -->
+    {leadMagnet && (
+    <Fragment>
+    <!-- ======================================================= -->
+    <!-- MODALE LEAD MAGNET - VERSION MOBILE OPTIMISÉE           -->
+    <!-- ======================================================= -->
+
+    <div id="lead-magnet-modal" class="fixed inset-0 z-[999] hidden" role="dialog" aria-modal="true">
+
+        <!-- Fond flou sombre (Ajout de backdrop-smooth) -->
+        <div id="modal-backdrop" class="absolute inset-0 bg-neutral-dark/90 backdrop-blur-md opacity-0 backdrop-smooth">
+        </div>
+
+        <!-- Conteneur centré -->
+        <div
+            class="relative w-full px-3 py-3 lg:px-4 lg:py-4 flex items-center justify-center pointer-events-none modal-scroll-container">
+
+            <!-- La Carte Modale -->
+            <!-- MODIFICATION ICI : On applique nos classes CSS personnalisées -->
+            <div id="modal-content"
+                class="gold-glow-border relative w-full max-w-5xl rounded-2xl shadow-2xl text-left modal-mobile-fit lg:max-h-none flex flex-col lg:block modal-transition-base modal-3d-hidden">
+
+                <!-- NOUVEAU WRAPPER INTERNE : C'est lui qui gère le fond et coupe le contenu arrondi -->
+                <div id="modal-inner-wrapper"
+                    class="w-full h-full bg-[#1E293B] rounded-2xl overflow-hidden flex flex-col lg:grid lg:grid-cols-12">
+
+                    <!-- Bouton Fermer (Déplacé à l'intérieur pour être propre) -->
+                    <button id="close-modal-btn"
+                        class="absolute top-3 right-3 lg:top-4 lg:right-4 z-50 text-gray-400 hover:text-white transition-colors p-2 bg-black/40 hover:bg-black/60 rounded-full backdrop-blur-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 lg:h-6 lg:w-6" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+
+                    <!-- PARTIE 1 : VISUEL -->
+                    <div
+                        class="lg:col-span-5 relative bg-neutral-dark flex items-center justify-center p-6 lg:p-0 overflow-hidden group h-40 lg:h-auto shrink-0">
+                        <!-- ... (Le contenu de la partie visuelle reste identique) ... -->
+                        <div
+                            class="absolute top-4 left-4 lg:top-6 lg:left-6 z-20 inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-neutral-900/80 border border-warm-orange/30 backdrop-blur-md text-warm-orange text-[10px] lg:text-xs font-bold uppercase tracking-widest shadow-lg">
+                            <span class="relative flex h-2 w-2">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-warm-orange opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-warm-orange"></span>
+                            </span>
+                            Guide Offert
+                        </div>
+
+                        <div class="absolute inset-0 bg-gradient-to-b from-[#1E293B] to-[#0F172A]"></div>
+                        <div
+                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 lg:w-64 lg:h-64 bg-warm-orange/20 rounded-full blur-[40px] lg:blur-[60px]">
+                        </div>
+
+                        <div id="mockup-zoom-trigger"
+                            class="relative z-10 w-24 lg:w-80 transform transition-transform duration-700 lg:group-hover:scale-105 lg:group-hover:-rotate-2 mt-4 lg:mt-0 cursor-pointer lg:cursor-default"
+                            role="button" tabindex="0" aria-label="Agrandir le guide">
+                            <img src="/assets/checklist-mockup-transparent.png" alt="Guide Offert"
+                                class="w-full h-auto drop-shadow-2xl">
+                            <!-- Indicateur zoom : petite icône discrète en coin sur mobile -->
+                            <div class="absolute top-1 right-1 flex items-center justify-center lg:hidden">
+                                <div
+                                    class="p-1.5 rounded-full bg-black/50 border border-white/20 backdrop-blur-sm text-white shadow-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 opacity-80" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BADGE APERÇU EXTRAIT — VERSION DESKTOP (dans la zone visuelle) -->
+                        <button id="preview-excerpt-btn-desktop"
+                            class="preview-excerpt-badge preview-excerpt-desktop hidden lg:flex absolute z-30 bottom-6 left-1/2 -translate-x-1/2 items-center gap-2 px-4 py-2.5 rounded-full text-white text-xs font-semibold whitespace-nowrap shadow-xl cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95"
+                            aria-label="Voir un extrait du guide"
+                            style="background: linear-gradient(135deg, #F97316 0%, #EA580C 100%); border: 1px solid rgba(255,255,255,0.2);">
+
+                            <span>Voir un extrait</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 opacity-70 flex-shrink-0"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- BADGE APERÇU EXTRAIT — VERSION MOBILE (barre entre visuel et contenu) -->
+                    <button id="preview-excerpt-btn-mobile"
+                        class="preview-excerpt-mobile lg:hidden w-full flex items-center justify-center gap-2 py-2 px-4 text-white text-[11px] font-semibold cursor-pointer transition-all duration-300 active:scale-[0.98] shrink-0"
+                        aria-label="Voir un extrait du guide"
+                        style="background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);">
+
+                        <span>👁 Voir un extrait du guide</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 opacity-60 flex-shrink-0" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+
+                    <!-- PARTIE 2 : CONTENU & FORMULAIRE -->
+                    <div class="lg:col-span-7 p-5 lg:p-10 flex flex-col justify-center bg-[#1E293B]">
+                        <!-- ... (Le contenu du formulaire reste identique) ... -->
+                        <div class="mb-4 lg:mb-6">
+                            <h3 class="text-xl lg:text-3xl font-bold text-white leading-tight mb-2 lg:mb-3">
+                                Coachs & Thérapeutes : <br>
+                                <span
+                                    class="text-transparent bg-clip-text bg-gradient-to-r from-warm-orange to-red-400">Développez
+                                    votre Activité.</span>
+                            </h3>
+                            <p class="text-gray-400 text-xs lg:text-sm leading-relaxed">
+
+                                Que vous vous lanciez ou que vous ayez déjà un site, découvrez les <strong>7 points
+                                    clés</strong> pour être trouvé, inspirer confiance et obtenir des rendez-vous.
+
+                            </p>
+                        </div>
+
+
+
+
+                        <div class="space-y-4 lg:space-y-6">
+
+                            <!-- AJOUT DE L'ID "modal-bullet-list" ICI -->
+                            <ul id="modal-bullet-list" class="space-y-2 mt-4 mb-4">
+
+                                <!-- Puce 1 -->
+                                <li class="flex items-start gap-3 modal-bullet">
+                                    <svg class="w-4 h-4 lg:w-5 lg:h-5 text-success-green flex-shrink-0 mt-0.5"
+                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span class="text-gray-300 text-xs lg:text-sm transition-colors duration-300">
+                                        L'erreur silencieuse qui fait fuir un visiteur en moins de 5 secondes.
+                                    </span>
+                                </li>
+
+                                <!-- Puce 2 -->
+                                <li class="flex items-start gap-3 modal-bullet">
+                                    <svg class="w-4 h-4 lg:w-5 lg:h-5 text-success-green flex-shrink-0 mt-0.5"
+                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span class="text-gray-300 text-xs lg:text-sm transition-colors duration-300">
+                                        Le détail oublié sur l'accueil qui vous rend invisible sur Google.
+                                    </span>
+                                </li>
+
+                                <!-- Puce 3 -->
+                                <li class="flex items-start gap-3 modal-bullet">
+                                    <svg class="w-4 h-4 lg:w-5 lg:h-5 text-success-green flex-shrink-0 mt-0.5"
+                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span class="text-gray-300 text-xs lg:text-sm transition-colors duration-300">
+                                        Votre Audit de Clarté : Le test rapide en 14 points pour vous noter.
+                                    </span>
+                                </li>
+
+                            </ul>
+
+
+
+
+                            <form id="popup-sib-form" method="POST"
+                                action="https://2a94b6d3.sibforms.com/serve/MUIFAF-8lvqoEgQ9XmXK62oeOPse06sPpprPUX5dw_fI2QZzwjOmEIwSOv0rSw4SH-IxWwEVQXPwcu-X6DaV0ErPKdUUx50BXxZ0GegndcrHLpRW-Sm5y_QOBcn5cejcywdgKyEcbN6lGW756rgUv6DXIY9Po3ZHvAtilPEABRfuzW2qOtIoFZuObcYWsWlKkhzZgy4oisAbv2kh"
+                                class="bg-[#0F172A]/50 p-4 rounded-xl border border-white/5">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                                    <div class="relative">
+                                        <div
+                                            class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                            <svg class="h-4 w-4 lg:h-5 lg:w-5 text-gray-500"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                            </svg>
+                                        </div>
+                                        <input type="text" id="POPUP_PRENOM" name="PRENOM" placeholder="Prénom" required
+                                            class="w-full bg-[#0F172A] border border-gray-600 text-white text-sm rounded-lg focus:ring-warm-orange focus:border-warm-orange block pl-9 lg:pl-10 p-2.5 lg:p-3 transition-colors">
+                                    </div>
+                                    <div class="relative">
+                                        <div
+                                            class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                            <svg class="h-4 w-4 lg:h-5 lg:w-5 text-gray-500"
+                                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v9a2 2 0 002 2z" />
+                                            </svg>
+                                        </div>
+                                        <input type="email" id="POPUP_EMAIL" name="EMAIL" placeholder="Email" required
+                                            class="w-full bg-[#0F172A] border border-gray-600 text-white text-sm rounded-lg focus:ring-warm-orange focus:border-warm-orange block pl-9 lg:pl-10 p-2.5 lg:p-3 transition-colors">
+                                    </div>
+                                </div>
+
+
+                                <button type="submit"
+                                    class="w-full btn btn-orange text-sm font-bold uppercase tracking-wide py-3 shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 transition-all btn-incitement relative overflow-hidden">
+                                    <span class="relative z-10">Recevoir ma Checklist</span>
+                                </button>
+
+
+                                <div class="mt-3 flex items-center gap-2">
+
+                                    <input id="popup-consent" name="consent-newsletter" type="checkbox" required
+                                        class="w-4 h-4 rounded border-gray-600 bg-[#0F172A] text-warm-orange focus:ring-warm-orange cursor-pointer flex-shrink-0">
+
+                                    <label for="popup-consent"
+                                        class="text-[10px] text-gray-500 leading-snug cursor-pointer">
+                                        J'accepte de recevoir la checklist et les conseils de Clartem. Voir <a
+                                            href="/politique-de-confidentialite/" target="_blank"
+                                            class="text-gray-400 underline">Politique de
+                                            confidentialité</a>.
+                                    </label>
+
+                                </div>
+                                <input type="text" name="email_address_check" value="" style="display: none;">
+                                <input type="hidden" name="locale" value="fr">
+                            </form>
+                        </div>
+                    </div>
+                </div> <!-- FIN DU NOUVEAU WRAPPER INTERNE -->
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- ======================================================= -->
+    <!-- TEASER LEAD MAGNET (CADEAU PREMIUM 2.0)                 -->
+    <!-- ======================================================= -->
+    <div id="lead-magnet-teaser"
+        class="fixed bottom-4 left-4 z-[90] hidden cursor-pointer group w-[72px] h-[72px] flex items-end justify-center perspective-500 transition-transform duration-500 ease-out">
+
+        <!-- L'ILLUSTRATION SVG PREMIUM 3D -->
+        <svg width="72" height="80" viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="overflow-visible filter drop-shadow-[0_8px_20px_rgba(249,115,22,0.3)]">
+
+            <!-- Groupe global pour l'animation de saut -->
+            <g class="gift-anim-container origin-bottom">
+
+                <!-- OMBRE AU SOL multi-couche realiste -->
+                <ellipse cx="50" cy="102" rx="32" ry="5" fill="black" fill-opacity="0.15"
+                    class="gift-shadow-anim origin-center" />
+                <ellipse cx="50" cy="102" rx="22" ry="3.5" fill="black" fill-opacity="0.2"
+                    class="gift-shadow-anim origin-center" />
+
+                <!-- ===================== -->
+                <!-- BOITE (CORPS 3D)      -->
+                <!-- ===================== -->
+
+                <!-- Face avant principale -->
+                <rect x="20" y="48" width="60" height="47" rx="3" fill="url(#boxFrontGrad)" />
+
+                <!-- Face droite (perspective 3D) -->
+                <path d="M80 48 L86 43 L86 90 L80 95" fill="url(#boxSideGrad)" />
+
+                <!-- Face du dessous (perspective 3D subtile) -->
+                <path d="M20 95 L80 95 L86 90 L26 90" fill="#7C2D12" opacity="0.6" />
+
+                <!-- Reflet speculaire haut-gauche (eclat de lumiere) -->
+                <rect x="22" y="49" width="28" height="18" rx="2" fill="url(#specularHighlight)" />
+
+                <!-- Ombre interne sous le couvercle (ambient occlusion) -->
+                <rect x="20" y="48" width="60" height="8" rx="3" fill="url(#aoShadow)" />
+
+                <!-- Ruban Vertical (Corps) — Effet Satin dore -->
+                <rect x="45" y="48" width="10" height="47" fill="url(#ribbonSatin)" />
+                <!-- Ruban cote droit -->
+                <path d="M55 48 L58 45 L58 92 L55 95" fill="url(#ribbonSatinSide)" />
+
+                <!-- Arete lumineuse bord gauche -->
+                <line x1="20" y1="48" x2="20" y2="95" stroke="white" stroke-opacity="0.15" stroke-width="1" />
+
+                <!-- LUEUR MAGIQUE (Derriere le couvercle, apparait au saut) -->
+                <g class="gift-glow-anim">
+                    <ellipse cx="50" cy="46" rx="30" ry="6" fill="#FDE047" filter="url(#glowFilter)" opacity="0.9" />
+                    <ellipse cx="50" cy="46" rx="15" ry="3" fill="white" filter="url(#glowFilter)" opacity="0.4" />
+                </g>
+
+                <!-- ===================== -->
+                <!-- LE COUVERCLE 3D       -->
+                <!-- ===================== -->
+                <g class="gift-lid-anim origin-bottom">
+                    <!-- Face avant couvercle -->
+                    <rect x="16" y="36" width="68" height="14" rx="2.5" fill="url(#lidFrontGrad)" />
+
+                    <!-- Face dessus couvercle -->
+                    <path d="M16 36 L22 31 L90 31 L84 36" fill="url(#lidTopGrad)" />
+
+                    <!-- Face droite couvercle -->
+                    <path d="M84 36 L90 31 L90 45 L84 50" fill="url(#lidSideGrad)" />
+
+                    <!-- Reflet speculaire couvercle -->
+                    <rect x="18" y="37" width="30" height="5" rx="1.5" fill="white" fill-opacity="0.15" />
+
+                    <!-- Arete lumineuse couvercle -->
+                    <line x1="16" y1="36" x2="22" y2="31" stroke="white" stroke-opacity="0.25" stroke-width="0.8" />
+                    <line x1="22" y1="31" x2="90" y2="31" stroke="white" stroke-opacity="0.12" stroke-width="0.8" />
+
+                    <!-- Ruban Horizontal (Couvercle) -->
+                    <rect x="45" y="36" width="10" height="14" fill="url(#ribbonSatin)" />
+                    <!-- Ruban dessus couvercle -->
+                    <path d="M45 36 L48 31 L58 31 L55 36" fill="url(#ribbonSatinTop)" />
+                    <!-- Ruban cote droit couvercle -->
+                    <path d="M55 36 L58 31 L58 45 L55 50" fill="url(#ribbonSatinSide)" />
+
+                    <!-- LE NOEUD PREMIUM -->
+                    <g transform="translate(51, 32)">
+                        <!-- Ombre du noeud -->
+                        <ellipse cx="0" cy="5" rx="14" ry="3" fill="black" fill-opacity="0.15" />
+
+                        <!-- Boucle Gauche avec volume -->
+                        <path d="M-1 0 C -8 -18, -28 -8, -6 4 Z" fill="url(#bowLeftGrad)" />
+                        <path d="M-1 0 C -6 -14, -22 -7, -6 3 Z" fill="white" fill-opacity="0.12" />
+
+                        <!-- Boucle Droite avec volume -->
+                        <path d="M1 0 C 8 -18, 28 -8, 6 4 Z" fill="url(#bowRightGrad)" />
+                        <path d="M1 0 C 5 -14, 20 -8, 6 3 Z" fill="white" fill-opacity="0.08" />
+
+                        <!-- Queue gauche -->
+                        <path d="M-2 2 C -6 8, -12 12, -8 14" stroke="url(#ribbonSatin)" stroke-width="2.5" fill="none" stroke-linecap="round" />
+                        <!-- Queue droite -->
+                        <path d="M2 2 C 6 8, 12 12, 9 14" stroke="url(#ribbonSatin)" stroke-width="2.5" fill="none" stroke-linecap="round" />
+
+                        <!-- Centre du noeud (gemme) -->
+                        <circle cx="0" cy="1" r="4" fill="url(#knotCenterGrad)" />
+                        <circle cx="-1" cy="-0.5" r="1.5" fill="white" fill-opacity="0.3" />
+                    </g>
+                </g>
+
+                <!-- ETOILES / ETINCELLES PREMIUM -->
+                <g class="gift-sparkles" style="opacity: 0;">
+                    <!-- Etoile 4 branches 1 -->
+                    <path d="M18 12 L20 6 L22 12 L28 14 L22 16 L20 22 L18 16 L12 14 Z" fill="url(#sparkleGrad)"
+                        filter="url(#sparkleGlow)" />
+                    <!-- Etoile 4 branches 2 -->
+                    <path d="M78 4 L79.5 0 L81 4 L85 5.5 L81 7 L79.5 11 L78 7 L74 5.5 Z" fill="url(#sparkleGrad)"
+                        filter="url(#sparkleGlow)" />
+                    <!-- Etoile 4 branches 3 (petite) -->
+                    <path d="M65 -2 L66 -5 L67 -2 L70 -1 L67 0 L66 3 L65 0 L62 -1 Z" fill="white"
+                        filter="url(#sparkleGlow)" opacity="0.7" />
+                    <!-- Particules rondes -->
+                    <circle cx="28" cy="6" r="2" fill="white" opacity="0.9" filter="url(#sparkleGlow)" />
+                    <circle cx="72" cy="15" r="1.5" fill="#FDE047" opacity="0.7" />
+                    <circle cx="38" cy="-2" r="1" fill="white" opacity="0.6" />
+                </g>
+            </g>
+
+            <!-- DEFINITIONS PREMIUM (Degrades et Filtres) -->
+            <defs>
+                <!-- BOITE : Face avant (orange riche avec profondeur) -->
+                <linearGradient id="boxFrontGrad" x1="20" y1="48" x2="80" y2="95" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#FB923C" />
+                    <stop offset="35%" stop-color="#F97316" />
+                    <stop offset="70%" stop-color="#EA580C" />
+                    <stop offset="100%" stop-color="#C2410C" />
+                </linearGradient>
+
+                <!-- BOITE : Face droite (plus sombre = profondeur 3D) -->
+                <linearGradient id="boxSideGrad" x1="80" y1="43" x2="86" y2="90" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#C2410C" />
+                    <stop offset="100%" stop-color="#7C2D12" />
+                </linearGradient>
+
+                <!-- Reflet speculaire (haut-gauche de la boite) -->
+                <linearGradient id="specularHighlight" x1="22" y1="49" x2="50" y2="67" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="white" stop-opacity="0.25" />
+                    <stop offset="100%" stop-color="white" stop-opacity="0" />
+                </linearGradient>
+
+                <!-- Ambient Occlusion sous le couvercle -->
+                <linearGradient id="aoShadow" x1="50" y1="48" x2="50" y2="56" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="black" stop-opacity="0.25" />
+                    <stop offset="100%" stop-color="black" stop-opacity="0" />
+                </linearGradient>
+
+                <!-- COUVERCLE : Face avant -->
+                <linearGradient id="lidFrontGrad" x1="16" y1="36" x2="84" y2="50" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#FB923C" />
+                    <stop offset="50%" stop-color="#F97316" />
+                    <stop offset="100%" stop-color="#EA580C" />
+                </linearGradient>
+
+                <!-- COUVERCLE : Face du dessus -->
+                <linearGradient id="lidTopGrad" x1="22" y1="31" x2="90" y2="31" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#FDBA74" />
+                    <stop offset="40%" stop-color="#FB923C" />
+                    <stop offset="100%" stop-color="#F97316" />
+                </linearGradient>
+
+                <!-- COUVERCLE : Face droite -->
+                <linearGradient id="lidSideGrad" x1="84" y1="36" x2="90" y2="45" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#C2410C" />
+                    <stop offset="100%" stop-color="#9A3412" />
+                </linearGradient>
+
+                <!-- RUBAN : Effet satin dore (face avant) -->
+                <linearGradient id="ribbonSatin" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#D97706" />
+                    <stop offset="20%" stop-color="#F59E0B" />
+                    <stop offset="40%" stop-color="#FDE68A" />
+                    <stop offset="55%" stop-color="#F59E0B" />
+                    <stop offset="80%" stop-color="#D97706" />
+                    <stop offset="100%" stop-color="#92400E" />
+                </linearGradient>
+
+                <!-- RUBAN : Cote droit (plus sombre) -->
+                <linearGradient id="ribbonSatinSide" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#92400E" />
+                    <stop offset="50%" stop-color="#B45309" />
+                    <stop offset="100%" stop-color="#78350F" />
+                </linearGradient>
+
+                <!-- RUBAN : Dessus (plus clair) -->
+                <linearGradient id="ribbonSatinTop" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#FDE68A" />
+                    <stop offset="50%" stop-color="#FBBF24" />
+                    <stop offset="100%" stop-color="#F59E0B" />
+                </linearGradient>
+
+                <!-- NOEUD : Boucle gauche -->
+                <linearGradient id="bowLeftGrad" x1="-20" y1="-10" x2="0" y2="4" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#FBBF24" />
+                    <stop offset="40%" stop-color="#F59E0B" />
+                    <stop offset="100%" stop-color="#B45309" />
+                </linearGradient>
+
+                <!-- NOEUD : Boucle droite -->
+                <linearGradient id="bowRightGrad" x1="0" y1="-10" x2="20" y2="4" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#F59E0B" />
+                    <stop offset="60%" stop-color="#D97706" />
+                    <stop offset="100%" stop-color="#92400E" />
+                </linearGradient>
+
+                <!-- Centre du noeud -->
+                <radialGradient id="knotCenterGrad" cx="0.4" cy="0.35" r="0.6">
+                    <stop offset="0%" stop-color="#FDE68A" />
+                    <stop offset="50%" stop-color="#FBBF24" />
+                    <stop offset="100%" stop-color="#B45309" />
+                </radialGradient>
+
+                <!-- Etoiles -->
+                <radialGradient id="sparkleGrad" cx="0.5" cy="0.5" r="0.5">
+                    <stop offset="0%" stop-color="white" />
+                    <stop offset="60%" stop-color="#FDE68A" />
+                    <stop offset="100%" stop-color="#F59E0B" />
+                </radialGradient>
+
+                <!-- Filtre glow principal -->
+                <filter id="glowFilter" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+                    <feMerge>
+                        <feMergeNode in="coloredBlur" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+
+                <!-- Filtre glow etincelles -->
+                <filter id="sparkleGlow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="1.5" result="glow" />
+                    <feMerge>
+                        <feMergeNode in="glow" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+            </defs>
+        </svg>
+
+        <!-- Tooltip Glassmorphism (Desktop uniquement) -->
+        <div
+            class="absolute left-full bottom-6 ml-3 opacity-0 group-hover:opacity-100 transition-all duration-400 transform translate-x-[-8px] group-hover:translate-x-0 pointer-events-none hidden lg:block">
+            <div
+                class="relative bg-neutral-dark/80 backdrop-blur-md text-white text-[11px] font-semibold py-2.5 px-4 rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-white/10 whitespace-nowrap">
+                <!-- Accent orange subtil en bordure gauche -->
+                <div class="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-[60%] bg-gradient-to-b from-warm-orange to-amber-500 rounded-full"></div>
+                <!-- Fleche pointant vers la gauche (vers le cadeau) -->
+                <div class="absolute top-1/2 right-full -translate-y-1/2 w-0 h-0 border-[6px] border-transparent border-r-neutral-dark/80"></div>
+                7 erreurs qui font fuir vos clients &rarr;
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- ======================================================= -->
+    <!--           LE LAPIN BLANC (Easter Egg V2)               -->
+    <!-- ======================================================= -->
+
+    <div id="white-rabbit" class="fixed z-50 pointer-events-none transition-all duration-700">
+        <!-- SVG Lapin Mignon & Animé -->
+        <svg width="80" height="100" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg"
+            class="drop-shadow-2xl filter drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">
+
+            <g id="rabbit-whole" class="rabbit-breathe">
+                <!-- Queue (Derrière) -->
+                <circle cx="85" cy="95" r="8" fill="#F3F4F6" />
+
+                <!-- Oreille Gauche (Animée) -->
+                <g class="ear-left-anim origin-bottom">
+                    <path d="M35 45 C 35 45, 20 5, 30 5 C 40 5, 45 45, 45 45" fill="white" stroke="#E5E7EB"
+                        stroke-width="1" />
+                    <path d="M32 40 C 32 40, 25 10, 30 10 C 35 10, 38 40, 38 40" fill="#FECDD3" opacity="0.6" />
+                    <!-- Intérieur Rose -->
+                </g>
+
+                <!-- Oreille Droite (Animée) -->
+                <g class="ear-right-anim origin-bottom">
+                    <path d="M65 45 C 65 45, 80 5, 70 5 C 60 5, 55 45, 55 45" fill="white" stroke="#E5E7EB"
+                        stroke-width="1" />
+                    <path d="M68 40 C 68 40, 75 10, 70 10 C 65 10, 62 40, 62 40" fill="#FECDD3" opacity="0.6" />
+                    <!-- Intérieur Rose -->
+                </g>
+
+                <!-- Corps -->
+                <path d="M25 110 C 15 110, 15 70, 30 60 L 70 60 C 85 70, 85 110, 75 110 Z" fill="white" />
+
+                <!-- Pattes avant -->
+                <ellipse cx="40" cy="105" rx="6" ry="8" fill="#E5E7EB" opacity="0.5" />
+                <ellipse cx="60" cy="105" rx="6" ry="8" fill="#E5E7EB" opacity="0.5" />
+
+                <!-- Tête -->
+                <ellipse cx="50" cy="55" rx="35" ry="30" fill="white" />
+
+                <!-- Visage -->
+                <g id="rabbit-face">
+                    <!-- Yeux (Matrix Green) -->
+                    <circle cx="38" cy="50" r="4" fill="#10B981" class="rabbit-eye" />
+                    <circle cx="62" cy="50" r="4" fill="#10B981" class="rabbit-eye" />
+
+                    <!-- Reflet Yeux (Cuteness) -->
+                    <circle cx="39.5" cy="48.5" r="1.5" fill="white" class="rabbit-eye" />
+                    <circle cx="63.5" cy="48.5" r="1.5" fill="white" class="rabbit-eye" />
+
+                    <!-- Nez (Animé) -->
+                    <g class="nose-anim origin-center">
+                        <path d="M46 60 Q 50 64 54 60" stroke="#DB2777" stroke-width="2" stroke-linecap="round"
+                            fill="none" opacity="0.5" /> <!-- Bouche -->
+                        <ellipse cx="50" cy="58" rx="3" ry="2" fill="#F472B6" /> <!-- Nez Rose -->
+                    </g>
+
+                    <!-- Moustaches -->
+                    <line x1="25" y1="60" x2="10" y2="55" stroke="black" stroke-opacity="0.2" stroke-width="1" />
+                    <line x1="25" y1="62" x2="10" y2="65" stroke="black" stroke-opacity="0.2" stroke-width="1" />
+                    <line x1="75" y1="60" x2="90" y2="55" stroke="black" stroke-opacity="0.2" stroke-width="1" />
+                    <line x1="75" y1="62" x2="90" y2="65" stroke="black" stroke-opacity="0.2" stroke-width="1" />
+                </g>
+            </g>
+        </svg>
+    </div>
+    </Fragment>
+    )}
+
+    <!-- Custom JS -->
+    <script is:inline data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script is:inline src="/js/script.js"></script>
+
+
+    <!-- ======================================================= -->
+    <!--          CHATBREVO + BOUTON CUSTOM CLARTEM              -->
+    <!-- ======================================================= -->
+
+    <!-- Bulle proactive chatbot -->
+    <div class="clartem-proactive" id="clartemProactive">
+        <div class="clartem-proactive__card">
+            <button class="clartem-proactive__close" id="proactiveClose" aria-label="Fermer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+            <div class="clartem-proactive__body">
+                <div class="clartem-proactive__header">
+                    <div class="clartem-proactive__avatar">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="clartem-proactive__name">Clartem</div>
+                        <div class="clartem-proactive__status">
+                            <span class="clartem-proactive__dot"></span>
+                            En ligne
+                        </div>
+                    </div>
+                </div>
+                <div class="clartem-proactive__message" id="proactiveMessage">
+                    <div class="clartem-proactive__typing">
+                        <span class="clartem-proactive__typing-dot"></span>
+                        <span class="clartem-proactive__typing-dot"></span>
+                        <span class="clartem-proactive__typing-dot"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="clartem-proactive__actions" id="proactiveActions" style="display:none;">
+                <button class="clartem-proactive__btn clartem-proactive__btn--yes" id="proactiveYes">Oui, avec plaisir !</button>
+                <button class="clartem-proactive__btn clartem-proactive__btn--no" id="proactiveNo">Non merci</button>
+            </div>
+            <span class="clartem-proactive__tail"></span>
+        </div>
+    </div>
+
+    <!-- Bouton custom Clartem (remplace le launcher Brevo) -->
+    <button class="clartem-chat-btn" id="clartemChatBtn" aria-label="Ouvrir le chat">
+        <span class="clartem-chat-btn__glow"></span>
+        <span class="clartem-chat-btn__disc">
+            <svg class="clartem-chat-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                <circle cx="9.5" cy="12" r="0.8" fill="currentColor" stroke="none" class="clartem-dot clartem-dot--1"/>
+                <circle cx="12" cy="12" r="0.8" fill="currentColor" stroke="none" class="clartem-dot clartem-dot--2"/>
+                <circle cx="14.5" cy="12" r="0.8" fill="currentColor" stroke="none" class="clartem-dot clartem-dot--3"/>
+            </svg>
+            <svg class="clartem-chat-btn__icon--close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </span>
+        <span class="clartem-chat-btn__badge"></span>
+    </button>
+
+    <!-- Script Brevo + connexion au bouton custom -->
+    <script is:inline>
+        (function (d, w, c) {
+            w.BrevoConversationsID = '688afd5eb78a71119e0a4e37';
+            w[c] = w[c] || function () {
+                (w[c].q = w[c].q || []).push(arguments);
+            };
+
+            var s = d.createElement('script');
+            s.async = true;
+            s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
+            if (d.head) d.head.appendChild(s);
+
+            // --------------------------------------------------
+            // Stratégie simple :
+            // Le launcher Brevo est dans une iframe INSIDE #brevo-conversations
+            // Ce div fait 60x60 quand fermé → on le cache avec une classe
+            // Quand on ouvre le chat → on retire la classe → Brevo affiche le chat
+            // Quand on ferme → on remet la classe
+            // --------------------------------------------------
+
+            // Ajouter la classe "clartem-hidden" dès que #brevo-conversations apparaît
+            // (mais pas si on est en train d'ouvrir ou si le chat est affiché)
+            function hideBrevoContainer() {
+                var el = d.getElementById('brevo-conversations');
+                var chatBtn = d.getElementById('clartemChatBtn');
+                if (el && !el.classList.contains('clartem-hidden')
+                       && !el.classList.contains('clartem-opening')
+                       && !(chatBtn && chatBtn.classList.contains('is-open'))) {
+                    el.classList.add('clartem-hidden');
+                }
+            }
+
+            // Observer le DOM pour cacher le conteneur dès son injection
+            var observer = new MutationObserver(hideBrevoContainer);
+            function startObserving() {
+                observer.observe(d.body || d.documentElement, {
+                    childList: true,
+                    subtree: true
+                });
+            }
+            if (d.body) startObserving();
+            else d.addEventListener('DOMContentLoaded', startObserving);
+
+            // Fallback les premières secondes
+            var checks = 0;
+            var interval = setInterval(function() {
+                hideBrevoContainer();
+                var el = d.getElementById('brevo-conversations');
+                if ((el && el.classList.contains('clartem-hidden')) || ++checks > 50) {
+                    clearInterval(interval);
+                }
+            }, 200);
+
+            // --------------------------------------------------
+            // Connexion du bouton custom au chat Brevo
+            // 3 états :
+            //   clartem-hidden  = scale(0), invisible, pas de clics
+            //   clartem-opening = opacity(0), l'élément EXISTE pour que Brevo puisse ouvrir
+            //   (aucune classe) = visible, le chat est affiché
+            // --------------------------------------------------
+            var btn = d.getElementById('clartemChatBtn');
+            var openPollTimer = null;
+
+            btn.addEventListener('click', function() {
+                var brevoEl = d.getElementById('brevo-conversations');
+                if (!brevoEl) return;
+
+                var isHidden = brevoEl.classList.contains('clartem-hidden')
+                            || brevoEl.classList.contains('clartem-opening');
+
+                if (isHidden || !btn.classList.contains('is-open')) {
+                    // === OUVRIR LE CHAT ===
+
+                    // Étape 1 : passer de "hidden" à "opening"
+                    // Le conteneur existe dans le DOM (pas scale 0)
+                    // mais il est invisible (opacity 0)
+                    brevoEl.classList.remove('clartem-hidden');
+                    brevoEl.classList.add('clartem-opening');
+
+                    // Étape 2 : demander à Brevo d'ouvrir
+                    try { w.BrevoConversations('openChat', true); } catch(e) {}
+
+                    // Étape 3 : poll jusqu'à ce que le chat soit ouvert
+                    var attempts = 0;
+                    var retried = false;
+                    clearInterval(openPollTimer);
+                    openPollTimer = setInterval(function() {
+                        attempts++;
+
+                        // Réessayer une fois après 1.5s si pas encore ouvert
+                        if (attempts === 30 && !retried) {
+                            retried = true;
+                            try { w.BrevoConversations('openChat', true); } catch(e) {}
+                        }
+
+                        if (brevoEl.offsetHeight > 150) {
+                            // ✅ Chat ouvert → rendre visible
+                            brevoEl.classList.remove('clartem-opening');
+                            btn.classList.add('is-open');
+                            clearInterval(openPollTimer);
+                        } else if (attempts > 80) {
+                            // ❌ Échec → re-cacher
+                            brevoEl.classList.remove('clartem-opening');
+                            brevoEl.classList.add('clartem-hidden');
+                            btn.classList.remove('is-open');
+                            clearInterval(openPollTimer);
+                        }
+                    }, 50);
+
+                } else {
+                    // === FERMER LE CHAT ===
+                    // Style inline = synchrone, garanti avant le prochain paint
+                    clearInterval(openPollTimer);
+                    brevoEl.style.setProperty('opacity', '0', 'important');
+                    brevoEl.style.setProperty('pointer-events', 'none', 'important');
+                    btn.classList.remove('is-open');
+                    // Au frame suivant : passer en scale(0) et nettoyer le style inline
+                    requestAnimationFrame(function() {
+                        brevoEl.classList.remove('clartem-opening');
+                        brevoEl.classList.add('clartem-hidden');
+                        brevoEl.style.removeProperty('opacity');
+                        brevoEl.style.removeProperty('pointer-events');
+                    });
+                }
+            });
+
+            // Sync : si l'utilisateur ferme le chat depuis le widget Brevo
+            setInterval(function() {
+                var brevoEl = d.getElementById('brevo-conversations');
+                if (!brevoEl) return;
+                if (!btn.classList.contains('is-open')) return;
+                try {
+                    if (brevoEl.offsetWidth <= 80 && brevoEl.offsetHeight <= 80) {
+                        brevoEl.style.setProperty('opacity', '0', 'important');
+                        brevoEl.style.setProperty('pointer-events', 'none', 'important');
+                        btn.classList.remove('is-open');
+                        requestAnimationFrame(function() {
+                            brevoEl.classList.remove('clartem-opening');
+                            brevoEl.classList.add('clartem-hidden');
+                            brevoEl.style.removeProperty('opacity');
+                            brevoEl.style.removeProperty('pointer-events');
+                        });
+                    }
+                } catch(e) {}
+            }, 500);
+
+            // --------------------------------------------------
+            // BULLE PROACTIVE
+            // --------------------------------------------------
+            var PROACTIVE_MESSAGES = {
+                first:  'Besoin d\u2019un coup de main pour votre projet de site\u00a0?',
+                second: 'Toujours l\u00e0 si besoin\u00a0!'
+            };
+            var PROACTIVE_TYPING_MS     = 1200;
+            var PROACTIVE_AUTO_DISMISS  = 15000;
+            var PROACTIVE_STORAGE_KEY   = 'clartem_proactive_dismissed';
+            var PROACTIVE_SCROLL_2ND    = 0.70;
+
+            var proBubble    = d.getElementById('clartemProactive');
+            var proMessage   = d.getElementById('proactiveMessage');
+            var proActions   = d.getElementById('proactiveActions');
+            var proBtnYes    = d.getElementById('proactiveYes');
+            var proBtnNo     = d.getElementById('proactiveNo');
+            var proBtnClose  = d.getElementById('proactiveClose');
+
+            var proDismissCount  = parseInt(sessionStorage.getItem(PROACTIVE_STORAGE_KEY) || '0', 10);
+            var proIsShowing     = false;
+            var proAutoTimer     = null;
+            var proFirstDone     = false;
+            var proSecondDone    = false;
+
+            var proTypingHTML = '<div class="clartem-proactive__typing">'
+                + '<span class="clartem-proactive__typing-dot"></span>'
+                + '<span class="clartem-proactive__typing-dot"></span>'
+                + '<span class="clartem-proactive__typing-dot"></span></div>';
+
+            function proShow(variant) {
+                if (proIsShowing || proDismissCount >= 2) return;
+                if (btn.classList.contains('is-open')) return;
+
+                proIsShowing = true;
+                proMessage.innerHTML = proTypingHTML;
+                proActions.style.display = 'none';
+                proBubble.classList.remove('is-hiding');
+                proBubble.classList.add('is-typing');
+
+                requestAnimationFrame(function() {
+                    proBubble.classList.add('is-visible');
+                });
+
+                setTimeout(function() {
+                    proMessage.textContent = PROACTIVE_MESSAGES[variant];
+                    proBubble.classList.remove('is-typing');
+                    proActions.style.display = 'flex';
+
+                    if (variant === 'second') {
+                        proBtnYes.textContent = 'Discutons\u00a0!';
+                        proBtnNo.textContent = '\u00c7a ira';
+                    } else {
+                        proBtnYes.textContent = 'Oui, avec plaisir\u00a0!';
+                        proBtnNo.textContent = 'Non merci';
+                    }
+                }, PROACTIVE_TYPING_MS);
+
+                clearTimeout(proAutoTimer);
+                proAutoTimer = setTimeout(function() {
+                    proHide(false);
+                }, PROACTIVE_AUTO_DISMISS + PROACTIVE_TYPING_MS);
+            }
+
+            function proHide(countAsDismiss) {
+                if (!proIsShowing) return;
+                proIsShowing = false;
+                clearTimeout(proAutoTimer);
+                proBubble.classList.add('is-hiding');
+                proBubble.classList.remove('is-visible');
+                if (countAsDismiss) {
+                    proDismissCount++;
+                    sessionStorage.setItem(PROACTIVE_STORAGE_KEY, String(proDismissCount));
+                }
+                setTimeout(function() {
+                    proBubble.classList.remove('is-hiding', 'is-typing');
+                }, 300);
+            }
+
+            // Clic "Oui" → ouvre le chat
+            proBtnYes.addEventListener('click', function() {
+                proHide(false);
+                btn.click();
+            });
+
+            proBtnNo.addEventListener('click', function() { proHide(true); });
+            proBtnClose.addEventListener('click', function() { proHide(true); });
+
+            // TRIGGER 1 : IntersectionObserver sur #site-concept
+            var proTarget = d.getElementById('site-concept');
+            if (proTarget) {
+                var proObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting && !proFirstDone && proDismissCount < 2) {
+                            proFirstDone = true;
+                            proObserver.disconnect();
+                            setTimeout(function() { proShow('first'); }, 800);
+                        }
+                    });
+                }, { threshold: 0.15 });
+                proObserver.observe(proTarget);
+            }
+
+            // TRIGGER 2 : 70% du scroll
+            w.addEventListener('scroll', function proScrollCheck() {
+                if (proSecondDone) return;
+                var scrollTotal = d.documentElement.scrollHeight - w.innerHeight;
+                var scrollCurrent = w.scrollY;
+                if (scrollTotal > 0 && (scrollCurrent / scrollTotal) > PROACTIVE_SCROLL_2ND) {
+                    proSecondDone = true;
+                    w.removeEventListener('scroll', proScrollCheck);
+                    if (proFirstDone && !proIsShowing && proDismissCount < 2
+                        && !btn.classList.contains('is-open')) {
+                        setTimeout(function() { proShow('second'); }, 600);
+                    }
+                }
+            }, { passive: true });
+
+            // SYNC : cacher la bulle si le chat s'ouvre
+            var proSyncObserver = new MutationObserver(function() {
+                if (btn.classList.contains('is-open') && proIsShowing) {
+                    proHide(false);
+                }
+            });
+            proSyncObserver.observe(btn, { attributes: true, attributeFilter: ['class'] });
+
+        })(document, window, 'BrevoConversations');
+    </script>
+    <!-- Fin Chat Brevo + Bouton Custom -->
+</body>
+
+</html>

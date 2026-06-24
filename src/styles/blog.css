@@ -1,0 +1,37 @@
+/* Styles communs aux pages de blog (piliers, clusters, guide) — thème sombre dédié. */
+:root { --clr-bg:#0B1623; --clr-accent:#3B82F6; }
+
+.grad-text { background:linear-gradient(90deg,#60A5FA,#3B82F6); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.card { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); }
+.btn-primary { background:var(--clr-accent); color:#fff; }
+.btn-primary:hover { background:#2f6fe0; }
+.btn-ghost { border:1px solid rgba(255,255,255,.15); color:#fff; }
+.btn-ghost:hover { background:rgba(255,255,255,.06); }
+
+.prose-c h2 { font-size:1.6rem; font-weight:700; margin-top:2.5rem; margin-bottom:1rem; color:#fff; }
+.prose-c p { color:rgba(255,255,255,.72); line-height:1.75; margin-bottom:1rem; }
+.prose-c ol, .prose-c ul { color:rgba(255,255,255,.72); line-height:1.7; margin:0 0 1rem 1.25rem; }
+.prose-c ol { list-style:decimal; }
+.prose-c ul { list-style:disc; }
+.prose-c li { margin-bottom:.5rem; }
+.prose-c a { color:#7AB0FF; text-decoration:underline; }
+.prose-c strong { color:#fff; }
+
+.deeper { color:rgba(255,255,255,.5); font-style:italic; font-size:.95rem; }
+.model-quote { color:rgba(255,255,255,.82); font-style:italic; line-height:1.8; }
+.model-quote p { margin-bottom:.6rem; }
+.model-quote p:last-child { margin-bottom:0; }
+.formula { color:#fff; font-size:1.25rem; font-weight:600; line-height:1.6; }
+.note { border-left:3px solid rgba(59,130,246,.5); background:rgba(59,130,246,.06); padding:.9rem 1.1rem; border-radius:.4rem; color:rgba(255,255,255,.8); margin:1rem 0; }
+.note-label { font-size:.75rem; text-transform:uppercase; letter-spacing:.15em; color:#7AB0FF; font-weight:600; margin-bottom:.5rem; }
+.step-num { display:inline-flex; align-items:center; justify-content:center; width:1.9rem; height:1.9rem; border-radius:9999px; background:var(--clr-accent); color:#fff; font-weight:700; font-size:1rem; margin-right:.6rem; flex:0 0 auto; }
+.shot { border:2px dashed rgba(122,176,255,.4); border-radius:.75rem; padding:1.4rem 1rem; text-align:center; color:rgba(255,255,255,.5); font-size:.9rem; margin:1.25rem 0; background:rgba(255,255,255,.02); }
+.shot b { color:#7AB0FF; font-weight:600; }
+
+.faq details { border-bottom:1px solid rgba(255,255,255,.08); padding:1.1rem 0; }
+.faq summary { cursor:pointer; list-style:none; font-weight:600; color:#fff; font-size:1.05rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+.faq summary::-webkit-details-marker { display:none; }
+.faq summary::after { content:'+'; color:#7AB0FF; font-weight:400; font-size:1.4rem; line-height:1; }
+.faq details[open] summary::after { content:'\2013'; }
+.faq p { color:rgba(255,255,255,.72); line-height:1.7; margin-top:.75rem; margin-bottom:0; }
+.faq a { color:#7AB0FF; text-decoration:underline; }
