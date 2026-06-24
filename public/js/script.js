@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+    
 
 
 
@@ -1958,8 +1959,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const rbt_Manifesto = document.getElementById('manifesto');
     const rbt_Plan = document.getElementById('plan');
 
-    // Cible la section Blog
-    const rbt_Blog = document.getElementById('blog-preview');
+    // L'ancienne section Blog de l'accueil (#blog-preview) a été retirée :
+    // on ancre le 3e arrêt du lapin sur la section "À propos" (même position de scroll).
+    const rbt_Blog = document.getElementById('about-teaser');
 
     const rbt_CTA = document.getElementById('cta');
     const rbt_Btn = document.querySelector('#cta .btn-orange');
